@@ -6,7 +6,7 @@
 //  Copyright © 2020 PhoneFactor. All rights reserved.
 //
 
-class Algorithm: NSObject, Codable {
+class Algorithm: NSObject {
     
     var name: String
     

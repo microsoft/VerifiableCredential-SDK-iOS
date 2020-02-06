@@ -7,7 +7,7 @@
 //
 
 
-class RsaPrivateKey: PrivateKey {
+class RsaPrivateKey: NSObject, PrivateKey {
     
     /// Required Parameters for RSA Private Key
     var alg: String?
@@ -18,7 +18,7 @@ class RsaPrivateKey: PrivateKey {
     
     var use: KeyUse?
     
-    var key_ops: Set<KeyUse>?
+    var key_ops: Set<KeyUsage>?
 
     let n: String
 
@@ -34,6 +34,12 @@ class RsaPrivateKey: PrivateKey {
     let qi: String?
 
     init(jsonWebKey: JsonWebKey) throws {
+        
+        if let keyId = jsonWebKey.kid {
+            self.kid = keyId
+        } else {
+            self.kid = ""
+        }
 
         guard let n = jsonWebKey.n, let e = jsonWebKey.e, let d = jsonWebKey.d else {
             throw CryptoError.JsonWebKeyMalformed
@@ -49,7 +55,10 @@ class RsaPrivateKey: PrivateKey {
             self.alg = jsonWebKey.alg
         }
         
-        self.key_ops = jsonWebKey.key_ops?.map { toKeyUse(use: $0) }
+        if let key_ops = jsonWebKey.key_ops {
+            self.key_ops = Set(try key_ops.map { try toKeyUsage(key_op: $0) })
+        }
+        
         self.use = toKeyUse(use: jsonWebKey.use)
 
         self.p = jsonWebKey.p
@@ -59,11 +68,16 @@ class RsaPrivateKey: PrivateKey {
         self.qi = jsonWebKey.qi
     }
 
-    func toJwk() throws -> JsonWebKey {
+    func toJwk() -> JsonWebKey {
+        
+        var ops: Set<String>? = nil
+        if let key_ops = self.key_ops {
+            ops = Set(key_ops.map { $0.rawValue })
+        }
         return JsonWebKey(kty: self.kty.rawValue,
                           kid: self.kid,
                           use: self.use?.rawValue,
-                          key_ops: self.key_ops?.map { $0.rawValue },
+                          key_ops: ops,
                           alg: self.alg,
                           d: self.d,
                           n: self.n,
@@ -76,7 +90,8 @@ class RsaPrivateKey: PrivateKey {
     }
     
     func getPublicKey() throws -> PublicKey {
-        return try RsaPublicKey(self.toJwk())
+        let jwkForm = self.toJwk()
+        return try RsaPublicKey(jsonWebKey: jwkForm)
     }
 
 }

@@ -16,12 +16,12 @@ protocol PrivateKey: PublicKey {
      - Returns:
         - The corresponding Public Key
      */
-    func getPublicKey() -> PublicKey
+    func getPublicKey() throws -> PublicKey
 
 }
 
 extension PrivateKey {
-    func minimumAlphabeticJwk() -> String {
-        return self.getPublicKey().minimumAlphabeticJwk()
+    func minimumAlphabeticJwk() throws -> String {
+        return try self.getPublicKey().minimumAlphabeticJwk()
     }
 }

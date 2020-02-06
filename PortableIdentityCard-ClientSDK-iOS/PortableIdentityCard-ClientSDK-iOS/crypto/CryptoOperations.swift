@@ -36,21 +36,22 @@ class CryptoOperations: NSObject {
        - Returns: JWT as ByteArray
      */
     public func sign(payload: [UInt8], signingKeyReference: String, algorithm: Algorithm? = nil) throws -> [UInt8] {
-        let privateKey = self.keyStore.getPrivateKey(signingKeyReference)
+        let privateKeyContainer = try self.keyStore.getPrivateKey(keyReference: signingKeyReference)
+        let privateKey = privateKeyContainer.getKey() as! PrivateKey
         
         var alg: Algorithm
         
         if algorithm != nil {
             alg = algorithm!
         } else if privateKey.alg != nil {
-            alg = privateKey.alg
+            alg = privateKeyContainer.alg!
         } else {
             throw CryptoError.NoAlgorithmSpecifiedForKey(keyName: signingKeyReference)
         }
         
-        let subtle = self.subtleCryptoFactory.getMessageSigner(name: alg.name, scope: SubtleCryptoScope.Private)
-        let key = subtle.importKey(format: KeyFormat.Jwk, keyData: privateKey.getKey().toJwk(), algorithm: alg, extractable: false, keyUsages: [KeyUsage.Sign])
-        return subtle.sign(algorithm: alg, key: key, data: payload)
+        let subtle = try self.subtleCryptoFactory.getMessageSigner(name: alg.name, scope: SubtleCryptoScope.Private)
+        let key = try subtle.importKey(format: KeyFormat.Jwk, keyData: try privateKey.toJwk(), algorithm: alg, extractable: false, keyUsages: [KeyUsage.Sign])
+        return try subtle.sign(algorithm: alg, key: key, data: payload)
     }
     
     /**
@@ -65,22 +66,27 @@ class CryptoOperations: NSObject {
        - Returns: JWT as ByteArray
      */
     public func verify(payload: [UInt8], signature: [UInt8], signingKeyReference: String, algorithm: Algorithm? = nil) throws {
-        let publicKey = self.keyStore.getPrivateKey(keyReference: signingKeyReference)
+        let publicKeyContainer = try self.keyStore.getPublicKey(keyReference: signingKeyReference)
+        let publicKeyOptional = publicKeyContainer.getKey()
+        
+        guard let publicKey = publicKeyOptional else {
+            throw CryptoError.NoKeyFoundFor(keyName: signingKeyReference)
+        }
         
         var alg: Algorithm
         
         if algorithm != nil {
             alg = algorithm!
-        } else if publicKey.alg != nil {
-            alg = publicKey.alg
+        } else if publicKeyContainer.alg != nil {
+            alg = publicKeyContainer.alg!
         } else {
             throw CryptoError.NoAlgorithmSpecifiedForKey(keyName: signingKeyReference)
         }
         
-        let subtle = self.subtleCryptoFactory.getMessageSigner(name: alg.name, scope: SubtleCryptoScope.Public)
-        let key = subtle.importKey(format: KeyFormat.Jwk, keyData: publicKey.getKey().toJWK(), algorithm: alg, extractable: true, keyUsages: [KeyUsage.Verify])
+        let subtle = try self.subtleCryptoFactory.getMessageSigner(name: alg.name, scope: SubtleCryptoScope.Public)
+        let key = try subtle.importKey(format: KeyFormat.Jwk, keyData: try (publicKey as! PublicKey).toJwk(), algorithm: alg, extractable: true, keyUsages: [KeyUsage.Verify])
         
-        if (!subtle.verify(algorithm: alg, key: key, signature: signature, data: payload)) {
+        if (try !subtle.verify(algorithm: alg, key: key, signature: signature, data: payload)) {
             throw CryptoError.InvalidSignature
         }
     }
@@ -88,14 +94,16 @@ class CryptoOperations: NSObject {
     /**
      Encrypt payload with key stored in keyStore
      */
-    public func encrypt() {
+    public func encrypt() throws {
+        throw CryptoError.NotImplemented
         /// TODO: Not Implemented
     }
     
     /**
      Decrypt payload with key stored in keyStore
      */
-    public func decrypt() {
+    public func decrypt() throws {
+        throw CryptoError.NotImplemented
         /// TODO: Not Implemented
     }
     
@@ -124,6 +132,7 @@ class CryptoOperations: NSObject {
             
             
         }
+        throw CryptoError.NotImplemented
     }
     
 

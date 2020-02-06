@@ -11,9 +11,9 @@
  */
 class SecretKey: KeyStoreItem {
     
-    let kty: KeyType = KeyType.Octets
-    
     let kid: String
+    
+    let kty: KeyType = KeyType.Octets
     
     let use: KeyUse?
     
@@ -23,32 +23,53 @@ class SecretKey: KeyStoreItem {
     
     let k: String?
     
-    init(key: JsonWebKey) {
-        if var self.kid = key.kid {
-        } else {
-            self.kid = ""
+    init(key: JsonWebKey) throws {
+        
+        guard let k = key.k else {
+            throw CryptoError.JsonWebKeyMalformed
         }
+        self.k = k
+        
+        var keyId: String
+        if let kid = key.kid {
+            keyId = kid
+        } else {
+            keyId = ""
+        }
+        self.kid = keyId
+        
+        
         self.use = toKeyUse(use: key.use)
+        self.alg = key.alg
+        
         if let key_ops = key.key_ops {
-            self.key_ops = key.key_ops?.map { toKeyUsage(key_op: $0) }
+            self.key_ops = Set(try key_ops.map { try toKeyUsage(key_op: $0) })
         } else {
             self.key_ops = nil
         }
-        self.alg = key.alg
     }
     
     /**
-       Converts Secret Key to JsonWebKey
-       
-       - Returns: JsonWebKey version of secret key
+     Converts Secret Key to JsonWebKey
+     
+     - Returns: JsonWebKey version of secret key
      */
     func toJWK() -> JsonWebKey {
-        return JsonWebKey(
-            kty: self.kty.rawValue,
-            kid: self.kid,
-            use: self.use?.rawValue,
-            key_ops: self.key_ops?.map { $0.rawValue },
-            k: k)
+        
+        if let key_ops = self.key_ops {
+            return JsonWebKey(
+                kty: self.kty.rawValue,
+                kid: self.kid,
+                use: self.use?.rawValue,
+                key_ops: Set(key_ops.map { $0.rawValue }),
+                k: k)
+        } else {
+            return JsonWebKey(
+                kty: self.kty.rawValue,
+                kid: self.kid,
+                use: self.use?.rawValue,
+                key_ops: nil,
+                k: k)
+        }
     }
-
 }

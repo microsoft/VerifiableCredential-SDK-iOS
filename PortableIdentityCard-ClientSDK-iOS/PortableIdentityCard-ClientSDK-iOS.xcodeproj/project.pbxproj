@@ -54,6 +54,9 @@
 		55E5AE5123EC7BBB0065EBB0 /* KeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE2323EC7BBB0065EBB0 /* KeyContainer.swift */; };
 		55E5AE5223EC7BBB0065EBB0 /* SecretKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE2423EC7BBB0065EBB0 /* SecretKey.swift */; };
 		55E5AE5323EC7BBB0065EBB0 /* JoseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE2723EC7BBB0065EBB0 /* JoseConstants.swift */; };
+		55E5AE6323EC969F0065EBB0 /* PrivateKeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6223EC969F0065EBB0 /* PrivateKeyContainer.swift */; };
+		55E5AE6523EC96B30065EBB0 /* PublicKeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6423EC96B30065EBB0 /* PublicKeyContainer.swift */; };
+		55E5AE6823EC96CD0065EBB0 /* SecretKeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6723EC96CD0065EBB0 /* SecretKeyContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +120,9 @@
 		55E5AE2323EC7BBB0065EBB0 /* KeyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyContainer.swift; sourceTree = "<group>"; };
 		55E5AE2423EC7BBB0065EBB0 /* SecretKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKey.swift; sourceTree = "<group>"; };
 		55E5AE2723EC7BBB0065EBB0 /* JoseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoseConstants.swift; sourceTree = "<group>"; };
+		55E5AE6223EC969F0065EBB0 /* PrivateKeyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeyContainer.swift; sourceTree = "<group>"; };
+		55E5AE6423EC96B30065EBB0 /* PublicKeyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyContainer.swift; sourceTree = "<group>"; };
+		55E5AE6723EC96CD0065EBB0 /* SecretKeyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeyContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +279,7 @@
 		55E5AE1523EC7BBB0065EBB0 /* keys */ = {
 			isa = PBXGroup;
 			children = (
+				55E5AE6123EC96770065EBB0 /* keyContainers */,
 				55E5AE1623EC7BBB0065EBB0 /* KeyTypeFactory.swift */,
 				55E5AE1723EC7BBB0065EBB0 /* PublicKey.swift */,
 				55E5AE1823EC7BBB0065EBB0 /* ellipticCurve */,
@@ -282,7 +289,6 @@
 				55E5AE2023EC7BBB0065EBB0 /* CryptoHelpers.swift */,
 				55E5AE2123EC7BBB0065EBB0 /* KeyStoreItem.swift */,
 				55E5AE2223EC7BBB0065EBB0 /* PairwiseKey.swift */,
-				55E5AE2323EC7BBB0065EBB0 /* KeyContainer.swift */,
 				55E5AE2423EC7BBB0065EBB0 /* SecretKey.swift */,
 			);
 			path = keys;
@@ -320,6 +326,17 @@
 				55E5AE2723EC7BBB0065EBB0 /* JoseConstants.swift */,
 			);
 			path = jose;
+			sourceTree = "<group>";
+		};
+		55E5AE6123EC96770065EBB0 /* keyContainers */ = {
+			isa = PBXGroup;
+			children = (
+				55E5AE2323EC7BBB0065EBB0 /* KeyContainer.swift */,
+				55E5AE6223EC969F0065EBB0 /* PrivateKeyContainer.swift */,
+				55E5AE6423EC96B30065EBB0 /* PublicKeyContainer.swift */,
+				55E5AE6723EC96CD0065EBB0 /* SecretKeyContainer.swift */,
+			);
+			path = keyContainers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +458,7 @@
 				55E5AE3823EC7BBB0065EBB0 /* Algorithm.swift in Sources */,
 				55E5AE4623EC7BBB0065EBB0 /* KeyTypeFactory.swift in Sources */,
 				55E5AE4D23EC7BBB0065EBB0 /* PrivateKey.swift in Sources */,
+				55E5AE6823EC96CD0065EBB0 /* SecretKeyContainer.swift in Sources */,
 				55E5AE3323EC7BBB0065EBB0 /* W3cCryptoApiConstants.swift in Sources */,
 				55E5AE3A23EC7BBB0065EBB0 /* RsaHashedKeyAlgorithm.swift in Sources */,
 				55E5AE4823EC7BBB0065EBB0 /* EllipticCurvePublicKey.swift in Sources */,
@@ -453,6 +471,7 @@
 				55E5AE2E23EC7BBB0065EBB0 /* Provider.swift in Sources */,
 				55E5AE5323EC7BBB0065EBB0 /* JoseConstants.swift in Sources */,
 				55E5AE3023EC7BBB0065EBB0 /* KeyUse.swift in Sources */,
+				55E5AE6523EC96B30065EBB0 /* PublicKeyContainer.swift in Sources */,
 				55E5AE4023EC7BBB0065EBB0 /* KeyFormat.swift in Sources */,
 				55E5AE4723EC7BBB0065EBB0 /* PublicKey.swift in Sources */,
 				55E5AE4A23EC7BBB0065EBB0 /* RsaPublicKey.swift in Sources */,
@@ -466,6 +485,7 @@
 				55E5AE2A23EC7BBB0065EBB0 /* KeyStore.swift in Sources */,
 				55E5AE2D23EC7BBB0065EBB0 /* Subtle.swift in Sources */,
 				55E5AE5223EC7BBB0065EBB0 /* SecretKey.swift in Sources */,
+				55E5AE6323EC969F0065EBB0 /* PrivateKeyContainer.swift in Sources */,
 				55E5AE5023EC7BBB0065EBB0 /* PairwiseKey.swift in Sources */,
 				55E5AE2823EC7BBB0065EBB0 /* AbstractAgent.swift in Sources */,
 				55E5AE3523EC7BBB0065EBB0 /* AesGcmParams.swift in Sources */,

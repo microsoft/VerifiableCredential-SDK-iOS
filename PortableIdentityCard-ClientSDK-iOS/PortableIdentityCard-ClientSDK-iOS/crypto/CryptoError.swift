@@ -16,4 +16,6 @@ enum CryptoError: Error {
     case InvalidSignature
     case CannotGenerateSymmetricKey
     case JsonWebKeyMalformed
+    case NotImplemented
+    case NoKeyFoundFor(keyName: String)
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2020 PhoneFactor. All rights reserved.
 //
 
-class CryptoKeyPair: NSObject, Codable {
+class CryptoKeyPair: NSObject {
     
     let publicKey: CryptoKey
     

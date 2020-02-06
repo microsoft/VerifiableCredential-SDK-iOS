@@ -6,7 +6,7 @@
 //  Copyright © 2020 PhoneFactor. All rights reserved.
 //
 
-struct KeyStoreListItem: NSObject, Codable {
+struct KeyStoreListItem: Codable {
     
     let kty: KeyType
     

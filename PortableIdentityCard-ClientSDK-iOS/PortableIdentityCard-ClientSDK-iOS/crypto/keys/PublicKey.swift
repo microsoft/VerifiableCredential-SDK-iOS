@@ -15,13 +15,13 @@ protocol PublicKey: KeyStoreItem {
     var kty: KeyType { get }
     
     // Key ID
-    override var kid: String { get }
+    var kid: String { get }
     
     // Intended use
     var use: KeyUse? { get }
     
     // Valid key operations
-    var key_ops: Set<KeyUse>? { get }
+    var key_ops: Set<KeyUsage>? { get }
     
     // Algorithm intended for use with this key
     var alg: String? { get }
@@ -31,7 +31,7 @@ protocol PublicKey: KeyStoreItem {
      
       - see: https://tools.ietf.org/html/rfc7638
      */
-    func minimumAlphabeticJwk() -> String
+    func minimumAlphabeticJwk() throws -> String
     
     /**
        From Public Key to JSON Web Key
@@ -51,11 +51,12 @@ extension PublicKey {
       - Returns:
         - the thumbprint of the public key
      */
-    func getThumbprint(crypto: CryptoOperations, sha: Algorithm = Sha.sha512) -> String {
-        let json = self.minimumAlphabeticJwk()
-        let jsonUtf8 = UInt8(json)
-        // let digest = crypto.subtleCryptoFactory.getMessageDigest(sha.name, SubtleCryptoScope.Public)
-        // let hash = digest.digest(sha, jsonUtf8)
-        return ""
+    func getThumbprint(crypto: CryptoOperations, sha: Algorithm = Sha.sha512) throws -> String {
+        let json = try self.minimumAlphabeticJwk()
+        let jsonUtf8: [UInt8] = Array(json.utf8)
+        let digest = try crypto.subtleCryptoFactory.getMessageDigest(name: sha.name, scope: SubtleCryptoScope.Public)
+        let hash = try digest.digest(algorithm: sha, data: jsonUtf8)
+        let data = NSData(bytes: hash, length: hash.count)
+        return data.base64EncodedString()
     }
 }

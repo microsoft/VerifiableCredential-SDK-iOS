@@ -8,9 +8,9 @@
 
 class RsaOaepParams: Algorithm {
     
-    let label: [UInt8]?=nil
+    let label: [UInt8]?
     
-    let hashAlgorithm: Algorithm?=nil
+    let hashAlgorithm: Algorithm?
     
     init(label: [UInt8]?=nil, hash hashAlgorithm: Algorithm?=nil) {
         self.label = label

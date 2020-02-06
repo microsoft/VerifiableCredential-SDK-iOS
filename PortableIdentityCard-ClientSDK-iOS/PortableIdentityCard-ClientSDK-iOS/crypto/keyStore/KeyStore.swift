@@ -14,11 +14,11 @@ protocol KeyStore {
        - Parameters:
          - keyReference for which to return the key.
      */
-    func getSecretKey(keyReference: String) throws -> KeyContainer<SecretKey>
+    func getSecretKey(keyReference: String) throws -> SecretKeyContainer
     
-    func getPrivateKey(keyReference: String) throws -> KeyContainer<PrivateKey>
+    func getPrivateKey(keyReference: String) throws -> PrivateKeyContainer
     
-    func getPublicKey(keyReference: String) throws -> KeyContainer<PublicKey>
+    func getPublicKey(keyReference: String) throws -> PublicKeyContainer
     
     /**
      Returns the key associated with the specific key id

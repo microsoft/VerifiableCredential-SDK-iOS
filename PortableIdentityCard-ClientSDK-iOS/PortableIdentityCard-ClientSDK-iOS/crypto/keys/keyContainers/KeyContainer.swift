@@ -9,15 +9,22 @@
 /**
    Key Container to hold multiple keys with same key type.
  */
-struct KeyContainer<T: KeyStoreItem> {
+class KeyContainer: NSObject {
     
-    var kty: KeyType
+    let kty: KeyType
     
-    var keys: [T]
+    var keys: [KeyStoreItem]
     
-    var use: KeyUse?
+    let use: KeyUse?
     
-    var alg: Algorithm?
+    let alg: Algorithm?
+    
+    init(kty: KeyType, keys: [KeyStoreItem], use: KeyUse?, alg: Algorithm?) {
+        self.kty = kty
+        self.keys = keys
+        self.use = use
+        self.alg = alg
+    }
     
     /**
        Obtain key with id from key container, or returns nil if no key found.
@@ -28,7 +35,7 @@ struct KeyContainer<T: KeyStoreItem> {
        - Returns:
          - key with id or first key found if no id given.
      */
-    func getKey(withId id: String?) -> T? {
+    func getKey(withId id: String?=nil) -> KeyStoreItem? {
         guard id == nil else {
             return self.keys.first
         }

@@ -6,7 +6,7 @@
 //  Copyright © 2020 PhoneFactor. All rights reserved.
 //
 
-enum KeyUse: String {
+enum KeyUse: String, Codable {
     case Signature = "sig"
     case Encryption = "enc"
 }

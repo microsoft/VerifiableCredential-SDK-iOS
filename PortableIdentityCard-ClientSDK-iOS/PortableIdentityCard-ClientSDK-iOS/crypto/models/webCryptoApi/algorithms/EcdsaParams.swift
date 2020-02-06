@@ -14,7 +14,7 @@ class EcdsaParams: Algorithm {
     
     let format: String?
     
-    init(hash: Algorithm, namedCurve: String, format: String) {
+    init(hash: Algorithm, namedCurve: String=W3cCryptoApiConstants.Secp256r1.rawValue, format: String?=nil) {
         self.hash_alg = hash
         self.namedCurve = namedCurve
         self.format = format

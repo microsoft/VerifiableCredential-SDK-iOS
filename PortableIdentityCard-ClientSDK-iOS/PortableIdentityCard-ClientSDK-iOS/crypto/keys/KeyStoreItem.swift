@@ -6,8 +6,6 @@
 //  Copyright © 2020 PhoneFactor. All rights reserved.
 //
 
-protocol KeyStoreItem: Codable {
-    
+protocol KeyStoreItem {
     var kid: String { get }
-
 }

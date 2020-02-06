@@ -13,6 +13,7 @@ class AesGcmParams: Algorithm {
     let length: UInt16?
     
     init(iv: [UInt8], additionalData: [UInt8], tagLength: UInt8, length: UInt16) {
+        self.length = length
         super.init(name: W3cCryptoApiConstants.AesGcm.rawValue)
         // iv may be up to 2^64-1 bytes long.
         // tagLength must be enforced between o and 128

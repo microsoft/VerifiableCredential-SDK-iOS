@@ -6,7 +6,7 @@
 //  Copyright © 2020 PhoneFactor. All rights reserved.
 //
 
-class CryptoKey: NSObject, Codable {
+class CryptoKey: NSObject {
     
     let type: KeyScopeType
     
