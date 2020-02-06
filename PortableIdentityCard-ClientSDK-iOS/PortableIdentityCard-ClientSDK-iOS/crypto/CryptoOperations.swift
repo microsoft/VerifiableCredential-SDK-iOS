@@ -128,12 +128,33 @@ class CryptoOperations: NSObject {
             try self.keyStore.save(keyReference: keyReference, key: rsaPrivateKey)
         case KeyType.EllipticCurve:
             let subtle = try self.subtleCryptoFactory.getMessageSigner(name: W3cCryptoApiConstants.EcDsa.rawValue, scope: SubtleCryptoScope.Private)
-            
-            
-            
+            let ecAlgorithm = EcKeyGenParams(namedCurve: W3cCryptoApiConstants.Secp256k1.rawValue, hash: Sha.sha256, keyReference: keyReference)
+            let keyPair = try subtle.generateKeyPair(algorithm: ecAlgorithm, extractable: true, keyUsages: [KeyUsage.Verify, KeyUsage.Sign])
+            let ecPrivateKey = try EllipticCurvePrivateKey(jsonWebKey: subtle.exportKeyJwk(key: keyPair.privateKey))
+            try self.keyStore.save(keyReference: keyReference, key: ecPrivateKey)
         }
+        
+        if let publicKey = try self.keyStore.getPublicKey(keyReference: keyReference).getKey() {
+            return (publicKey as! PublicKey)
+        }
+        /// maybe should through different error to explain why key was not saved properly?
+        throw CryptoError.NoKeyFoundFor(keyName: keyReference)
+    }
+    
+    /**
+     Generate a pairwise key.
+     
+     - Parameters:
+       - seed to be used to create pairwise key.
+     */
+    public func generatePairwise(seed: String) throws {
         throw CryptoError.NotImplemented
     }
     
-
+    /**
+     Generate a seed.
+     */
+    public func generateSeed() throws -> String {
+        throw CryptoError.NotImplemented
+    }
 }

@@ -30,7 +30,16 @@ class PairwiseKey: NSObject {
      */
     public func generatePairwiseKey(algorithm: Algorithm, seedReference: String, personaId: String, peerId: String) throws -> PrivateKey {
         let personaMasterKey = try self.generatePersonaMasterKey(seedReference, personaId)
-        throw CryptoError.NotImplemented
+        let keyType = try KeyTypeFactory.createViaWebCrypto(algorithm: algorithm)
+        switch keyType {
+        case KeyType.EllipticCurve:
+            print(personaMasterKey)
+            throw CryptoError.NotImplemented
+        case KeyType.RSA:
+            throw CryptoError.NotImplemented
+        default:
+            throw CryptoError.UnknownKeyType(keyType: keyType.rawValue)
+        }
     }
     
     /**
@@ -60,10 +69,13 @@ class PairwiseKey: NSObject {
         let subtleCrypto: SubtleCrypto = try self.crypto.subtleCryptoFactory.getMessageAuthenticationCodeSigners(name: W3cCryptoApiConstants.Hmac.rawValue, scope: SubtleCryptoScope.Private)
         
         // generate the master key
-        let alg: Algorithm = EcdsaParams(hash: Sha.sha512)
+        let algorithm: Algorithm = EcdsaParams(hash: Sha.sha512)
         let masterJwk = JsonWebKey(kty: KeyType.Octets.rawValue, alg: JoseConstants.Hs512.rawValue, k: (secretKey as! SecretKey).k)
+        let key = try subtleCrypto.importKey(format: KeyFormat.Jwk, keyData: masterJwk, algorithm: algorithm, extractable: false, keyUsages: [KeyUsage.Sign])
         
-        throw CryptoError.NotImplemented
+        let masterKey = try subtleCrypto.sign(algorithm: algorithm, key: key, data: [UInt8](personaId.utf8))
         
+        self.masterKeys[personaId] = masterKey
+        return masterKey
     }
 }

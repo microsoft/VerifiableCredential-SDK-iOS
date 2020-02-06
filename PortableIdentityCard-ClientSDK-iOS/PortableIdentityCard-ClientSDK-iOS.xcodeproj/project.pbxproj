@@ -57,6 +57,7 @@
 		55E5AE6323EC969F0065EBB0 /* PrivateKeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6223EC969F0065EBB0 /* PrivateKeyContainer.swift */; };
 		55E5AE6523EC96B30065EBB0 /* PublicKeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6423EC96B30065EBB0 /* PublicKeyContainer.swift */; };
 		55E5AE6823EC96CD0065EBB0 /* SecretKeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6723EC96CD0065EBB0 /* SecretKeyContainer.swift */; };
+		55E5AE6A23ECB36C0065EBB0 /* InMemoryKeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6923ECB36C0065EBB0 /* InMemoryKeyStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		55E5AE6223EC969F0065EBB0 /* PrivateKeyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeyContainer.swift; sourceTree = "<group>"; };
 		55E5AE6423EC96B30065EBB0 /* PublicKeyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyContainer.swift; sourceTree = "<group>"; };
 		55E5AE6723EC96CD0065EBB0 /* SecretKeyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeyContainer.swift; sourceTree = "<group>"; };
+		55E5AE6923ECB36C0065EBB0 /* InMemoryKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryKeyStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		55E5ADD623EC7B3B0065EBB0 /* PortableIdentityCard-ClientSDK-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				55E5ADF023EC7BBB0065EBB0 /* AbstractAgent.swift */,
 				55E5ADEF23EC7BBB0065EBB0 /* registrars */,
 				55E5ADF123EC7BBB0065EBB0 /* crypto */,
 				55E5ADD723EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h */,
@@ -192,14 +195,13 @@
 		55E5ADF123EC7BBB0065EBB0 /* crypto */ = {
 			isa = PBXGroup;
 			children = (
-				55E5ADF023EC7BBB0065EBB0 /* AbstractAgent.swift */,
+				55E5AE1523EC7BBB0065EBB0 /* keys */,
 				55E5ADF223EC7BBB0065EBB0 /* keyStore */,
-				55E5ADF523EC7BBB0065EBB0 /* plugins */,
 				55E5ADFC23EC7BBB0065EBB0 /* models */,
+				55E5ADF523EC7BBB0065EBB0 /* plugins */,
+				55E5AE2523EC7BBB0065EBB0 /* protocols */,
 				55E5AE1323EC7BBB0065EBB0 /* CryptoError.swift */,
 				55E5AE1423EC7BBB0065EBB0 /* CryptoOperations.swift */,
-				55E5AE1523EC7BBB0065EBB0 /* keys */,
-				55E5AE2523EC7BBB0065EBB0 /* protocols */,
 			);
 			path = crypto;
 			sourceTree = "<group>";
@@ -207,8 +209,9 @@
 		55E5ADF223EC7BBB0065EBB0 /* keyStore */ = {
 			isa = PBXGroup;
 			children = (
-				55E5ADF323EC7BBB0065EBB0 /* KeyStoreListItem.swift */,
 				55E5ADF423EC7BBB0065EBB0 /* KeyStore.swift */,
+				55E5AE6923ECB36C0065EBB0 /* InMemoryKeyStore.swift */,
+				55E5ADF323EC7BBB0065EBB0 /* KeyStoreListItem.swift */,
 			);
 			path = keyStore;
 			sourceTree = "<group>";
@@ -216,10 +219,10 @@
 		55E5ADF523EC7BBB0065EBB0 /* plugins */ = {
 			isa = PBXGroup;
 			children = (
-				55E5ADF623EC7BBB0065EBB0 /* SubtleCryptoScope.swift */,
-				55E5ADF723EC7BBB0065EBB0 /* SubtleCryptoFactory.swift */,
 				55E5ADF823EC7BBB0065EBB0 /* subtleCrypto */,
+				55E5ADF723EC7BBB0065EBB0 /* SubtleCryptoFactory.swift */,
 				55E5ADFB23EC7BBB0065EBB0 /* SubtleCryptoMapItem.swift */,
+				55E5ADF623EC7BBB0065EBB0 /* SubtleCryptoScope.swift */,
 			);
 			path = plugins;
 			sourceTree = "<group>";
@@ -227,8 +230,8 @@
 		55E5ADF823EC7BBB0065EBB0 /* subtleCrypto */ = {
 			isa = PBXGroup;
 			children = (
-				55E5ADF923EC7BBB0065EBB0 /* Subtle.swift */,
 				55E5ADFA23EC7BBB0065EBB0 /* Provider.swift */,
+				55E5ADF923EC7BBB0065EBB0 /* Subtle.swift */,
 			);
 			path = subtleCrypto;
 			sourceTree = "<group>";
@@ -236,8 +239,8 @@
 		55E5ADFC23EC7BBB0065EBB0 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				55E5ADFD23EC7BBB0065EBB0 /* KeyUse.swift */,
 				55E5ADFE23EC7BBB0065EBB0 /* webCryptoApi */,
+				55E5ADFD23EC7BBB0065EBB0 /* KeyUse.swift */,
 				55E5AE1223EC7BBB0065EBB0 /* Sha.swift */,
 			);
 			path = models;
@@ -246,15 +249,15 @@
 		55E5ADFE23EC7BBB0065EBB0 /* webCryptoApi */ = {
 			isa = PBXGroup;
 			children = (
+				55E5AE0223EC7BBB0065EBB0 /* algorithms */,
+				55E5AE1023EC7BBB0065EBB0 /* CryptoKey.swift */,
+				55E5AE1123EC7BBB0065EBB0 /* CryptoKeyPair.swift */,
+				55E5AE0E23EC7BBB0065EBB0 /* JsonWebKey.swift */,
+				55E5AE0F23EC7BBB0065EBB0 /* KeyFormat.swift */,
+				55E5AE0D23EC7BBB0065EBB0 /* KeyScopeType.swift */,
 				55E5ADFF23EC7BBB0065EBB0 /* KeyUsage.swift */,
 				55E5AE0023EC7BBB0065EBB0 /* SubtleCrypto.swift */,
 				55E5AE0123EC7BBB0065EBB0 /* W3cCryptoApiConstants.swift */,
-				55E5AE0223EC7BBB0065EBB0 /* algorithms */,
-				55E5AE0D23EC7BBB0065EBB0 /* KeyScopeType.swift */,
-				55E5AE0E23EC7BBB0065EBB0 /* JsonWebKey.swift */,
-				55E5AE0F23EC7BBB0065EBB0 /* KeyFormat.swift */,
-				55E5AE1023EC7BBB0065EBB0 /* CryptoKey.swift */,
-				55E5AE1123EC7BBB0065EBB0 /* CryptoKeyPair.swift */,
 			);
 			path = webCryptoApi;
 			sourceTree = "<group>";
@@ -262,14 +265,14 @@
 		55E5AE0223EC7BBB0065EBB0 /* algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				55E5AE0323EC7BBB0065EBB0 /* RsaHashedKeyGenParams.swift */,
 				55E5AE0423EC7BBB0065EBB0 /* AesGcmParams.swift */,
-				55E5AE0523EC7BBB0065EBB0 /* EcKeyGenParams.swift */,
 				55E5AE0623EC7BBB0065EBB0 /* AesKeyGenParams.swift */,
 				55E5AE0723EC7BBB0065EBB0 /* Algorithm.swift */,
-				55E5AE0823EC7BBB0065EBB0 /* RsaHashedImportParams.swift */,
-				55E5AE0923EC7BBB0065EBB0 /* RsaHashedKeyAlgorithm.swift */,
 				55E5AE0A23EC7BBB0065EBB0 /* EcdsaParams.swift */,
+				55E5AE0523EC7BBB0065EBB0 /* EcKeyGenParams.swift */,
+				55E5AE0923EC7BBB0065EBB0 /* RsaHashedKeyAlgorithm.swift */,
+				55E5AE0323EC7BBB0065EBB0 /* RsaHashedKeyGenParams.swift */,
+				55E5AE0823EC7BBB0065EBB0 /* RsaHashedImportParams.swift */,
 				55E5AE0B23EC7BBB0065EBB0 /* RsaKeyAlgorithm.swift */,
 				55E5AE0C23EC7BBB0065EBB0 /* RsaOaepParams.swift */,
 			);
@@ -279,16 +282,16 @@
 		55E5AE1523EC7BBB0065EBB0 /* keys */ = {
 			isa = PBXGroup;
 			children = (
-				55E5AE6123EC96770065EBB0 /* keyContainers */,
-				55E5AE1623EC7BBB0065EBB0 /* KeyTypeFactory.swift */,
-				55E5AE1723EC7BBB0065EBB0 /* PublicKey.swift */,
 				55E5AE1823EC7BBB0065EBB0 /* ellipticCurve */,
 				55E5AE1B23EC7BBB0065EBB0 /* rsa */,
-				55E5AE1E23EC7BBB0065EBB0 /* KeyType.swift */,
-				55E5AE1F23EC7BBB0065EBB0 /* PrivateKey.swift */,
+				55E5AE6123EC96770065EBB0 /* keyContainers */,
 				55E5AE2023EC7BBB0065EBB0 /* CryptoHelpers.swift */,
 				55E5AE2123EC7BBB0065EBB0 /* KeyStoreItem.swift */,
+				55E5AE1E23EC7BBB0065EBB0 /* KeyType.swift */,
+				55E5AE1623EC7BBB0065EBB0 /* KeyTypeFactory.swift */,
 				55E5AE2223EC7BBB0065EBB0 /* PairwiseKey.swift */,
+				55E5AE1F23EC7BBB0065EBB0 /* PrivateKey.swift */,
+				55E5AE1723EC7BBB0065EBB0 /* PublicKey.swift */,
 				55E5AE2423EC7BBB0065EBB0 /* SecretKey.swift */,
 			);
 			path = keys;
@@ -297,8 +300,8 @@
 		55E5AE1823EC7BBB0065EBB0 /* ellipticCurve */ = {
 			isa = PBXGroup;
 			children = (
-				55E5AE1923EC7BBB0065EBB0 /* EllipticCurvePublicKey.swift */,
 				55E5AE1A23EC7BBB0065EBB0 /* EllipticCurvePrivateKey.swift */,
+				55E5AE1923EC7BBB0065EBB0 /* EllipticCurvePublicKey.swift */,
 			);
 			path = ellipticCurve;
 			sourceTree = "<group>";
@@ -306,8 +309,8 @@
 		55E5AE1B23EC7BBB0065EBB0 /* rsa */ = {
 			isa = PBXGroup;
 			children = (
-				55E5AE1C23EC7BBB0065EBB0 /* RsaPublicKey.swift */,
 				55E5AE1D23EC7BBB0065EBB0 /* RsaPrivateKey.swift */,
+				55E5AE1C23EC7BBB0065EBB0 /* RsaPublicKey.swift */,
 			);
 			path = rsa;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				55E5AE4323EC7BBB0065EBB0 /* Sha.swift in Sources */,
 				55E5AE4923EC7BBB0065EBB0 /* EllipticCurvePrivateKey.swift in Sources */,
 				55E5AE2F23EC7BBB0065EBB0 /* SubtleCryptoMapItem.swift in Sources */,
+				55E5AE6A23ECB36C0065EBB0 /* InMemoryKeyStore.swift in Sources */,
 				55E5AE3823EC7BBB0065EBB0 /* Algorithm.swift in Sources */,
 				55E5AE4623EC7BBB0065EBB0 /* KeyTypeFactory.swift in Sources */,
 				55E5AE4D23EC7BBB0065EBB0 /* PrivateKey.swift in Sources */,
