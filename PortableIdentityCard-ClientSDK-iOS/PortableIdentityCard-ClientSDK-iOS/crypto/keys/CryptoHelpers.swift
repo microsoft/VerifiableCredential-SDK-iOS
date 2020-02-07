@@ -19,7 +19,7 @@ class CryptoHelpers {
     - Returns:
        - W3C crypto API algorithm
     */
-    public static func jwaToWebCrypto(jwaAlgorithmName: String, args: Any...) throws -> Any {
+    public static func jwaToWebCrypto(jwaAlgorithmName: String, args: Any...) throws -> Algorithm {
         switch jwaAlgorithmName.uppercased() {
         case JoseConstants.Rs256.rawValue:
             return try formRsaAlgorithm(jwaAlgorithmName)

@@ -58,6 +58,13 @@
 		55E5AE6523EC96B30065EBB0 /* PublicKeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6423EC96B30065EBB0 /* PublicKeyContainer.swift */; };
 		55E5AE6823EC96CD0065EBB0 /* SecretKeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6723EC96CD0065EBB0 /* SecretKeyContainer.swift */; };
 		55E5AE6A23ECB36C0065EBB0 /* InMemoryKeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6923ECB36C0065EBB0 /* InMemoryKeyStore.swift */; };
+		55E5AE6C23EDDD0A0065EBB0 /* JwaCryptoConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6B23EDDD0A0065EBB0 /* JwaCryptoConverter.swift */; };
+		55E5AE6F23EDE6060065EBB0 /* JwsCompact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE6E23EDE6060065EBB0 /* JwsCompact.swift */; };
+		55E5AE7123EDE6700065EBB0 /* JwsFlatJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE7023EDE6700065EBB0 /* JwsFlatJson.swift */; };
+		55E5AE7323EDE6D60065EBB0 /* JwsFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE7223EDE6D60065EBB0 /* JwsFormat.swift */; };
+		55E5AE7523EDE7060065EBB0 /* JwsGeneralJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE7423EDE7060065EBB0 /* JwsGeneralJson.swift */; };
+		55E5AE7723EDE7400065EBB0 /* JwsSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE7623EDE7400065EBB0 /* JwsSignature.swift */; };
+		55E5AE7923EDE8B60065EBB0 /* JwsToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE7823EDE8B60065EBB0 /* JwsToken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +132,13 @@
 		55E5AE6423EC96B30065EBB0 /* PublicKeyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyContainer.swift; sourceTree = "<group>"; };
 		55E5AE6723EC96CD0065EBB0 /* SecretKeyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeyContainer.swift; sourceTree = "<group>"; };
 		55E5AE6923ECB36C0065EBB0 /* InMemoryKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryKeyStore.swift; sourceTree = "<group>"; };
+		55E5AE6B23EDDD0A0065EBB0 /* JwaCryptoConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwaCryptoConverter.swift; sourceTree = "<group>"; };
+		55E5AE6E23EDE6060065EBB0 /* JwsCompact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsCompact.swift; sourceTree = "<group>"; };
+		55E5AE7023EDE6700065EBB0 /* JwsFlatJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsFlatJson.swift; sourceTree = "<group>"; };
+		55E5AE7223EDE6D60065EBB0 /* JwsFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsFormat.swift; sourceTree = "<group>"; };
+		55E5AE7423EDE7060065EBB0 /* JwsGeneralJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsGeneralJson.swift; sourceTree = "<group>"; };
+		55E5AE7623EDE7400065EBB0 /* JwsSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsSignature.swift; sourceTree = "<group>"; };
+		55E5AE7823EDE8B60065EBB0 /* JwsToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,7 +340,9 @@
 		55E5AE2623EC7BBB0065EBB0 /* jose */ = {
 			isa = PBXGroup;
 			children = (
+				55E5AE6D23EDE5ED0065EBB0 /* jws */,
 				55E5AE2723EC7BBB0065EBB0 /* JoseConstants.swift */,
+				55E5AE6B23EDDD0A0065EBB0 /* JwaCryptoConverter.swift */,
 			);
 			path = jose;
 			sourceTree = "<group>";
@@ -340,6 +356,19 @@
 				55E5AE6723EC96CD0065EBB0 /* SecretKeyContainer.swift */,
 			);
 			path = keyContainers;
+			sourceTree = "<group>";
+		};
+		55E5AE6D23EDE5ED0065EBB0 /* jws */ = {
+			isa = PBXGroup;
+			children = (
+				55E5AE6E23EDE6060065EBB0 /* JwsCompact.swift */,
+				55E5AE7023EDE6700065EBB0 /* JwsFlatJson.swift */,
+				55E5AE7223EDE6D60065EBB0 /* JwsFormat.swift */,
+				55E5AE7423EDE7060065EBB0 /* JwsGeneralJson.swift */,
+				55E5AE7623EDE7400065EBB0 /* JwsSignature.swift */,
+				55E5AE7823EDE8B60065EBB0 /* JwsToken.swift */,
+			);
+			path = jws;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,6 +496,7 @@
 				55E5AE3A23EC7BBB0065EBB0 /* RsaHashedKeyAlgorithm.swift in Sources */,
 				55E5AE4823EC7BBB0065EBB0 /* EllipticCurvePublicKey.swift in Sources */,
 				55E5AE4223EC7BBB0065EBB0 /* CryptoKeyPair.swift in Sources */,
+				55E5AE7123EDE6700065EBB0 /* JwsFlatJson.swift in Sources */,
 				55E5AE3923EC7BBB0065EBB0 /* RsaHashedImportParams.swift in Sources */,
 				55E5AE3C23EC7BBB0065EBB0 /* RsaKeyAlgorithm.swift in Sources */,
 				55E5AE4523EC7BBB0065EBB0 /* CryptoOperations.swift in Sources */,
@@ -475,7 +505,9 @@
 				55E5AE2E23EC7BBB0065EBB0 /* Provider.swift in Sources */,
 				55E5AE5323EC7BBB0065EBB0 /* JoseConstants.swift in Sources */,
 				55E5AE3023EC7BBB0065EBB0 /* KeyUse.swift in Sources */,
+				55E5AE6C23EDDD0A0065EBB0 /* JwaCryptoConverter.swift in Sources */,
 				55E5AE6523EC96B30065EBB0 /* PublicKeyContainer.swift in Sources */,
+				55E5AE7723EDE7400065EBB0 /* JwsSignature.swift in Sources */,
 				55E5AE4023EC7BBB0065EBB0 /* KeyFormat.swift in Sources */,
 				55E5AE4723EC7BBB0065EBB0 /* PublicKey.swift in Sources */,
 				55E5AE4A23EC7BBB0065EBB0 /* RsaPublicKey.swift in Sources */,
@@ -488,16 +520,20 @@
 				55E5AE3B23EC7BBB0065EBB0 /* EcdsaParams.swift in Sources */,
 				55E5AE2A23EC7BBB0065EBB0 /* KeyStore.swift in Sources */,
 				55E5AE2D23EC7BBB0065EBB0 /* Subtle.swift in Sources */,
+				55E5AE7523EDE7060065EBB0 /* JwsGeneralJson.swift in Sources */,
 				55E5AE5223EC7BBB0065EBB0 /* SecretKey.swift in Sources */,
 				55E5AE6323EC969F0065EBB0 /* PrivateKeyContainer.swift in Sources */,
 				55E5AE5023EC7BBB0065EBB0 /* PairwiseKey.swift in Sources */,
 				55E5AE2823EC7BBB0065EBB0 /* AbstractAgent.swift in Sources */,
+				55E5AE7323EDE6D60065EBB0 /* JwsFormat.swift in Sources */,
+				55E5AE6F23EDE6060065EBB0 /* JwsCompact.swift in Sources */,
 				55E5AE3523EC7BBB0065EBB0 /* AesGcmParams.swift in Sources */,
 				55E5AE3E23EC7BBB0065EBB0 /* KeyScopeType.swift in Sources */,
 				55E5AE3623EC7BBB0065EBB0 /* EcKeyGenParams.swift in Sources */,
 				55E5AE3423EC7BBB0065EBB0 /* RsaHashedKeyGenParams.swift in Sources */,
 				55E5AE3123EC7BBB0065EBB0 /* KeyUsage.swift in Sources */,
 				55E5AE3D23EC7BBB0065EBB0 /* RsaOaepParams.swift in Sources */,
+				55E5AE7923EDE8B60065EBB0 /* JwsToken.swift in Sources */,
 				55E5AE4C23EC7BBB0065EBB0 /* KeyType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
