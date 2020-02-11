@@ -6,8 +6,8 @@
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
-enum JwsFormat: Codable {
-    case Compact
-    case FlatJson
-    case GeneralJson
+enum JwsFormat: String, Codable {
+    case Compact = "compact"
+    case FlatJson = "flatJson"
+    case GeneralJson = "generalJson"
 }

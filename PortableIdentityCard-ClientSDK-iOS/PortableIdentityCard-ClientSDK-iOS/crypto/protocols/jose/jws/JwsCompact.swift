@@ -14,15 +14,15 @@ struct JwsCompact: Codable {
     /**
      The application-specfic payload.
      */
-    let payload: String
+    var payload: String
     
     /**
      The protected (signed) header.
      */
-    let protected: String
+    var protected: String
     
     /**
      The JWS Signature.
      */
-    let signature: String
+    var signature: String
 }

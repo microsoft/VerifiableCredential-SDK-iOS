@@ -18,4 +18,6 @@ enum CryptoError: Error {
     case JsonWebKeyMalformed
     case NotImplemented
     case NoKeyFoundFor(keyName: String)
+    case UnableToParseToken(token: String)
+    case JWSContainsNoSignatures
 }

@@ -65,6 +65,7 @@
 		55E5AE7523EDE7060065EBB0 /* JwsGeneralJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE7423EDE7060065EBB0 /* JwsGeneralJson.swift */; };
 		55E5AE7723EDE7400065EBB0 /* JwsSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE7623EDE7400065EBB0 /* JwsSignature.swift */; };
 		55E5AE7923EDE8B60065EBB0 /* JwsToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE7823EDE8B60065EBB0 /* JwsToken.swift */; };
+		55E5AE9323F31CDA0065EBB0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE9223F31CDA0065EBB0 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		55E5AE7423EDE7060065EBB0 /* JwsGeneralJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsGeneralJson.swift; sourceTree = "<group>"; };
 		55E5AE7623EDE7400065EBB0 /* JwsSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsSignature.swift; sourceTree = "<group>"; };
 		55E5AE7823EDE8B60065EBB0 /* JwsToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsToken.swift; sourceTree = "<group>"; };
+		55E5AE9223F31CDA0065EBB0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 				55E5AE2523EC7BBB0065EBB0 /* protocols */,
 				55E5AE1323EC7BBB0065EBB0 /* CryptoError.swift */,
 				55E5AE1423EC7BBB0065EBB0 /* CryptoOperations.swift */,
+				55E5AE9123F31C960065EBB0 /* utilities */,
 			);
 			path = crypto;
 			sourceTree = "<group>";
@@ -371,6 +374,14 @@
 			path = jws;
 			sourceTree = "<group>";
 		};
+		55E5AE9123F31C960065EBB0 /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				55E5AE9223F31CDA0065EBB0 /* Helpers.swift */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -523,6 +534,7 @@
 				55E5AE7523EDE7060065EBB0 /* JwsGeneralJson.swift in Sources */,
 				55E5AE5223EC7BBB0065EBB0 /* SecretKey.swift in Sources */,
 				55E5AE6323EC969F0065EBB0 /* PrivateKeyContainer.swift in Sources */,
+				55E5AE9323F31CDA0065EBB0 /* Helpers.swift in Sources */,
 				55E5AE5023EC7BBB0065EBB0 /* PairwiseKey.swift in Sources */,
 				55E5AE2823EC7BBB0065EBB0 /* AbstractAgent.swift in Sources */,
 				55E5AE7323EDE6D60065EBB0 /* JwsFormat.swift in Sources */,
