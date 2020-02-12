@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5579C7DC23F364370099171E /* PortableIdentityCardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579C7DB23F364360099171E /* PortableIdentityCardError.swift */; };
 		55E5ADDE23EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E5ADD423EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.framework */; };
 		55E5ADE323EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5ADE223EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOSTests.swift */; };
 		55E5ADE523EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 55E5ADD723EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -79,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5579C7DB23F364360099171E /* PortableIdentityCardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortableIdentityCardError.swift; sourceTree = "<group>"; };
 		55E5ADD423EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PortableIdentityCard_ClientSDK_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E5ADD723EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PortableIdentityCard_ClientSDK_iOS.h; sourceTree = "<group>"; };
 		55E5ADD823EC7B3B0065EBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				55E5ADF123EC7BBB0065EBB0 /* crypto */,
 				55E5ADD723EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h */,
 				55E5ADD823EC7B3B0065EBB0 /* Info.plist */,
+				5579C7DB23F364360099171E /* PortableIdentityCardError.swift */,
 			);
 			path = "PortableIdentityCard-ClientSDK-iOS";
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				55E5AE5123EC7BBB0065EBB0 /* KeyContainer.swift in Sources */,
 				55E5AE4B23EC7BBB0065EBB0 /* RsaPrivateKey.swift in Sources */,
 				55E5AE2923EC7BBB0065EBB0 /* KeyStoreListItem.swift in Sources */,
+				5579C7DC23F364370099171E /* PortableIdentityCardError.swift in Sources */,
 				55E5AE3B23EC7BBB0065EBB0 /* EcdsaParams.swift in Sources */,
 				55E5AE2A23EC7BBB0065EBB0 /* KeyStore.swift in Sources */,
 				55E5AE2D23EC7BBB0065EBB0 /* Subtle.swift in Sources */,

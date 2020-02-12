@@ -9,11 +9,11 @@
 /**
  Class for containing JWS token operations
  */
-class JwsToken: NSObject, Codable {
+class JwsToken: NSObject {
     
     private let payload: String
     
-    public let signatures: Set<JwsSignature>
+    public var signatures: Set<JwsSignature>
     
     init(payload: String, signatures: Set<JwsSignature>=[]) {
         self.payload = payload
@@ -138,6 +138,118 @@ class JwsToken: NSObject, Codable {
      */
     public func sign(signatureKeyReference: String, cryptoOperations: CryptoOperations, header: [String: String] = [:]) throws {
         
+        /// 1. get signing key from keyStore
+        let signingKey: PrivateKey
+        guard let privateKey = (try cryptoOperations.keyStore.getPrivateKey(keyReference: signatureKeyReference).getKey()) else {
+            throw CryptoError.NoKeyFoundFor(keyName: signatureKeyReference)
+        }
+        signingKey = privateKey as! PrivateKey
+        
+        /// 2. compute headers
+        // var headers: [String: String] = header
+        var protected: [String: String] = [:]
+        var algorithmName = ""
+        
+        /// 3. get algorithmName from headers or signing key
+        if let algorithm = header[JoseConstants.Alg.rawValue] {
+            algorithmName = algorithm
+            protected[JoseConstants.Alg.rawValue] = algorithmName
+        } else {
+            if let algorithm = signingKey.alg {
+                algorithmName = algorithm
+                protected[JoseConstants.Alg.rawValue] = algorithmName
+            } else {
+                throw CryptoError.NoAlgorithmSpecifiedForKey(keyName: signatureKeyReference)
+            }
+        }
+        
+        if (header[JoseConstants.Kid.rawValue] == nil) {
+            protected[JoseConstants.Kid.rawValue] = signingKey.kid
+        }
+        
+        var encodedProtected = ""
+        if (!protected.isEmpty) {
+            let dataProtected = try JSONEncoder().encode(protected)
+            let stringifiedProtectedOptional = String(data: dataProtected, encoding: .utf8)
+            guard let stringifiedProtected = stringifiedProtectedOptional else {
+                throw CryptoError.JSONEncodingError
+            }
+            encodedProtected = stringifiedProtected.toBase64URL()
+        }
+        
+        let signatureInput = "\(encodedProtected).\(self.payload)"
+        let signatureInputByteArray = [UInt8](signatureInput.utf8)
+        
+        let signature = try cryptoOperations.sign(payload: signatureInputByteArray, signingKeyReference: signatureKeyReference, algorithm: CryptoHelpers.jwaToWebCrypto(jwaAlgorithmName: algorithmName))
+        
+        let signatureBase64 = String(bytes: signature, encoding: .utf8)!.toBase64URL()
+        
+        self.signatures.insert(JwsSignature(protected: encodedProtected, header: header, signature: signatureBase64))
+    }
+    
+    
+    public func verify(cryptoOperations: CryptoOperations, publicKeys: [PublicKey] = [], all: Bool = false) throws -> Bool {
+        let results = try self.signatures.map {
+            try verifyJwsSignature(signature: $0, cryptoOperations: cryptoOperations)
+        }
+        
+        if all {
+            return results.reduce(true, { result, valid in
+                result && valid
+            })
+        } else {
+            return results.reduce(false, { result, valid in
+                result || valid
+            })
+        }
+    }
+    
+    private func verifyJwsSignature(signature: JwsSignature, cryptoOperations: CryptoOperations, publicKeys: [PublicKey] = []) throws -> Bool {
+        // get KeyId from headers if present
+        let fullyQuantifiedKid: String
+        if let kid = signature.getKid() {
+            fullyQuantifiedKid = kid
+        } else {
+            fullyQuantifiedKid = ""
+        }
+        
+        let keyId = try CryptoHelpers.extractDidAndKeyId(keyId: fullyQuantifiedKid)
+        
+        let signatureInput = "\(signature.protected).\(self.payload)"
+        let publicKeyOptional = try cryptoOperations.keyStore.getPublicKeyById(keyId: keyId.1)
+        if let publicKey = publicKeyOptional {
+            return try verifyWithKey(crypto: cryptoOperations, data: signatureInput, signature: signature, key: publicKey)
+        } else {
+            let publicKey = publicKeys.first { $0.kid.hasSuffix(keyId.1) }
+            if let key = publicKey {
+                /// key attempted with keyId
+                return try verifyWithKey(crypto: cryptoOperations, data: signatureInput, signature: signature, key: key)
+            } else if !publicKeys.isEmpty {
+                /// first key attempted
+                return try verifyWithKey(crypto: cryptoOperations, data: signatureInput, signature: signature, key: publicKeys.first!)
+            } else {
+                /// no keys attempted
+                return false
+            }
+        }
+    }
+    
+    private func verifyWithKey(crypto: CryptoOperations, data: String, signature: JwsSignature, key: PublicKey) throws -> Bool {
+        guard let algorithmName = signature.getAlgorithmName() else {
+            throw CryptoError.NoAlgorithmSpecifiedInSignature
+        }
+        let subtleAlgorithm = try CryptoHelpers.jwaToWebCrypto(jwaAlgorithmName: algorithmName)
+        let subtle = try crypto.subtleCryptoFactory.getMessageSigner(name: subtleAlgorithm.name, scope: SubtleCryptoScope.Public)
+        let keyOps: Set<KeyUsage>
+        if let ops = key.key_ops {
+            keyOps = ops
+        } else {
+            keyOps = [KeyUsage.Verify]
+        }
+        let cryptoKey = try subtle.importKey(format: KeyFormat.Jwk, keyData: key.toJwk(), algorithm: subtleAlgorithm, extractable: true, keyUsages: keyOps)
+        let rawSignature = [UInt8](signature.signature.fromBase64URL()!.utf8)
+        let rawData = [UInt8](data.utf8)
+        return try subtle.verify(algorithm: subtleAlgorithm, key: cryptoKey, signature: rawSignature, data: rawData)
     }
 }
 

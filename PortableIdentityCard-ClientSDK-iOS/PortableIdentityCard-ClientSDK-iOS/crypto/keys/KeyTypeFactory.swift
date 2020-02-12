@@ -36,7 +36,7 @@ class KeyTypeFactory: NSObject {
      */
     public static func createViaJwa(algorithm: String) throws -> KeyType {
         let alg = try CryptoHelpers.jwaToWebCrypto(jwaAlgorithmName: algorithm)
-        return try KeyTypeFactory.createViaJwa(algorithm: alg as! String)
+        return try KeyTypeFactory.createViaJwa(algorithm: alg.name)
     }
     
 

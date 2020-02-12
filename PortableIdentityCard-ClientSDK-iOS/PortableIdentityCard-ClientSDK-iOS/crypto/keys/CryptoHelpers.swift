@@ -64,4 +64,18 @@ class CryptoHelpers {
         }
         throw CryptoError.AlgorithmNotSupported(name: algorithmName)
     }
+    
+    
+    public static func extractDidAndKeyId(keyId: String) throws -> (String?, String) {
+        let components = keyId.split(separator: "#")
+        if components.count == 0 {
+            return (nil, keyId)
+        } else if components.count == 1 {
+            return (nil, String(components[0]))
+        } else if components.count == 2 {
+            return(String(components[0]), String(components[1]))
+        } else {
+            throw PortableIdentityCardError.IdentifierMalformed
+        }
+    }
 }

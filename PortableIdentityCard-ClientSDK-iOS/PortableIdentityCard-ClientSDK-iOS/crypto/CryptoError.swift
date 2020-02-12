@@ -12,7 +12,9 @@ enum CryptoError: Error {
     case AlgorithmNotSupported(name: String)
     case UnknownKeyType(keyType: String)
     case UnknownKeyOperation(keyOperation: String)
+    
     case NoAlgorithmSpecifiedForKey(keyName: String)
+    case NoAlgorithmSpecifiedInSignature
     case InvalidSignature
     case CannotGenerateSymmetricKey
     case JsonWebKeyMalformed
@@ -20,4 +22,7 @@ enum CryptoError: Error {
     case NoKeyFoundFor(keyName: String)
     case UnableToParseToken(token: String)
     case JWSContainsNoSignatures
+    
+    case JSONEncodingError
+    case JSONDecodingError
 }
