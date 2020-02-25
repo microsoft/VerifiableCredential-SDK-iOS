@@ -1,9 +1,5 @@
 //
-//  JwsSignature.swift
-//  PortableIdentityCard-ClientSDK-iOS
-//
-//  Created by Sydney Morton on 2/7/20.
-//  Copyright © 2020 Microsoft. All rights reserved.
+//  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
 class JwsSignature: NSObject, Codable {

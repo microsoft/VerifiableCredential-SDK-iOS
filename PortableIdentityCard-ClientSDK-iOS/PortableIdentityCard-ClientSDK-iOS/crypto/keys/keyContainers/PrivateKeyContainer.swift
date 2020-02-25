@@ -1,9 +1,5 @@
 //
-//  PrivateKeyContainer.swift
-//  PortableIdentityCard-ClientSDK-iOS
-//
-//  Created by Sydney Morton on 2/6/20.
-//  Copyright © 2020 Microsoft. All rights reserved.
+//  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
 class PrivateKeyContainer: KeyContainer {

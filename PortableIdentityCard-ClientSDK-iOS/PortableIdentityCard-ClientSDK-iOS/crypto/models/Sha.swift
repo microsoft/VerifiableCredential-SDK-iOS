@@ -1,15 +1,8 @@
 //
-//  Sha.swift
-//  PhoneFactor
-//
-//  Created by Sydney Morton on 1/28/20.
-//  Copyright © 2020 PhoneFactor. All rights reserved.
+//  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
-/**
-    Convenience class for SHA algorithms
- */
-
+/*! Convenience class for SHA algorithms */
 class Sha {
     
     public static let sha1 = Algorithm(name: W3cCryptoApiConstants.Sha1.rawValue)

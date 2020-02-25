@@ -1,13 +1,8 @@
 //
-//  File.swift
-//  PhoneFactor
-//
-//  Created by Sydney Morton on 1/27/20.
-//  Copyright © 2020 PhoneFactor. All rights reserved.
-//
-// @see https://www.w3.org/TR/WebCryptoAPI/#dfn-AesGcmParams
+//  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
+/*! @see https://www.w3.org/TR/WebCryptoAPI/#dfn-AesGcmParams */
 class AesGcmParams: Algorithm {
     
     let length: UInt16?

@@ -1,9 +1,5 @@
 //
-//  KeyStoreListItem.swift
-//  PhoneFactor
-//
-//  Created by Sydney Morton on 2/4/20.
-//  Copyright © 2020 PhoneFactor. All rights reserved.
+//  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
 struct KeyStoreListItem: Codable {

@@ -1,9 +1,5 @@
 //
-//  Subtle.swift
-//  PhoneFactor
-//
-//  Created by Sydney Morton on 1/30/20.
-//  Copyright © 2020 PhoneFactor. All rights reserved.
+//  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
 class Subtle: SubtleCrypto {

@@ -1,9 +1,5 @@
 //
-//  EllipticCurvePrivateKey.swift
-//  PhoneFactor
-//
-//  Created by Sydney Morton on 2/5/20.
-//  Copyright © 2020 PhoneFactor. All rights reserved.
+//  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
 class EllipticCurvePrivateKey: PrivateKey {

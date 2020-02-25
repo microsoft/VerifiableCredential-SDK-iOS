@@ -1,9 +1,5 @@
 //
-//  CryptoKey.swift
-//  PhoneFactor
-//
-//  Created by Sydney Morton on 1/27/20.
-//  Copyright © 2020 PhoneFactor. All rights reserved.
+//  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
 class CryptoKey: NSObject {

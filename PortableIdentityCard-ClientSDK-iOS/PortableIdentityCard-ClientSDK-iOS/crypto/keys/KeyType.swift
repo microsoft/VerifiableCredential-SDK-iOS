@@ -1,9 +1,5 @@
 //
-//  KeyType.swift
-//  PhoneFactor
-//
-//  Created by Sydney Morton on 1/31/20.
-//  Copyright © 2020 PhoneFactor. All rights reserved.
+//  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
 /// Key Type Enum for keys we support
