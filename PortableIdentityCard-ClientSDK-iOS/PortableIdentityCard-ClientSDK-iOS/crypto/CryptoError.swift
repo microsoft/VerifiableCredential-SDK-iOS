@@ -2,6 +2,7 @@
 //  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
+/// TODO Split into specfic error classes
 enum CryptoError: Error {
 
     case NoSHAAlgorithmWithLength(length: Int)
@@ -19,6 +20,6 @@ enum CryptoError: Error {
     case UnableToParseToken(token: String)
     case JWSContainsNoSignatures
     
-    case JSONEncodingError
-    case JSONDecodingError
+    case JSONEncodingError(withProperty: String)
+    case JSONDecodingError(withProperty: String)
 }

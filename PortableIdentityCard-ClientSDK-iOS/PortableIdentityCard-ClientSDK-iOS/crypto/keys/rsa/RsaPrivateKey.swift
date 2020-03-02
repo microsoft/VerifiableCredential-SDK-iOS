@@ -2,6 +2,7 @@
 //  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
+import Foundation
 
 class RsaPrivateKey: NSObject, PrivateKey {
     

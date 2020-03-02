@@ -2,7 +2,9 @@
 //  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
-class Algorithm: NSObject {
+import Foundation
+
+class Algorithm: NSObject, Codable {
     
     var name: String
     

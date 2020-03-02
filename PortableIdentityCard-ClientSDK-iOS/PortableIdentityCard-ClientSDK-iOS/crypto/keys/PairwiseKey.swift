@@ -4,6 +4,8 @@
 //  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
+import Foundation
+
 /// Class to model pairwise keys
 class PairwiseKey: NSObject {
 

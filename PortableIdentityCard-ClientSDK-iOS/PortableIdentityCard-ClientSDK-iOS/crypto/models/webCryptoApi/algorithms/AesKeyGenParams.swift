@@ -10,4 +10,8 @@ class AesKeyGenParams: Algorithm {
         self.length = length
         super.init(name: name)
     }
+    
+    required init(from decoder: Decoder) throws {
+        let container = decoder.container(keyedBy: <#T##CodingKey.Protocol#>)
+    }
 }

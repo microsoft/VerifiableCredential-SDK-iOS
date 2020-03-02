@@ -2,6 +2,8 @@
 //  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
+import Foundation
+
 /**
   Represents a Public Key in JWK Format
  */

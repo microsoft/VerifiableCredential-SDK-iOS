@@ -2,6 +2,8 @@
 //  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
-protocol KeyStoreItem {
+protocol KeyStoreItem: Codable {
     var kid: String { get }
+    
+    var kty: KeyType { get }
 }

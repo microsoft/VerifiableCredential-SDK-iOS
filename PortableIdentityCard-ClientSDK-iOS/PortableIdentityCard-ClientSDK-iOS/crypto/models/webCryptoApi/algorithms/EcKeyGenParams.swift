@@ -16,5 +16,4 @@ class EcKeyGenParams: Algorithm {
         self.keyReference = keyReference
         super.init(name: W3cCryptoApiConstants.EcDsa.rawValue)
     }
-
 }
