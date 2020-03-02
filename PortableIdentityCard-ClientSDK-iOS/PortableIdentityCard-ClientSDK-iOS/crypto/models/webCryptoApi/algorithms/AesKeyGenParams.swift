@@ -4,14 +4,20 @@
 
 class AesKeyGenParams: Algorithm {
     
-    var length: UInt16
+    let length: UInt16
     
     init(name: String, length: UInt16) {
         self.length = length
         super.init(name: name)
     }
     
-    required init(from decoder: Decoder) throws {
-        let container = decoder.container(keyedBy: <#T##CodingKey.Protocol#>)
+    /**
+     Decoder Initializer.
+     */
+    required convenience init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: AlgorithmCodingKeys.self)
+        let length = try container.decode(UInt16.self, forKey: .length)
+        let name = try container.decode(String.self, forKey: .name)
+        self.init(name: name, length: length)
     }
 }

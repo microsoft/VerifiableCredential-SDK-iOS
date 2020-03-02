@@ -2,15 +2,7 @@
 //  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
-class CryptoKeyPair: NSObject {
-    
+struct CryptoKeyPair: Codable {
     let publicKey: CryptoKey
-    
     let privateKey: CryptoKey
-    
-    init(publicKey: CryptoKey, privateKey: CryptoKey) {
-        self.publicKey = publicKey
-        self.privateKey = privateKey
-    }
-
 }

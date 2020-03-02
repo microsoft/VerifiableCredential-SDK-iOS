@@ -15,7 +15,6 @@ enum KeyUsage: String, Codable {
     case DeriveBits = "deriveBits"
     case WrapKey = "wrapKey"
     case UnwrapKey = "unwrapKey"
-
 }
 
 func toKeyUsage(key_op: String) throws -> KeyUsage {

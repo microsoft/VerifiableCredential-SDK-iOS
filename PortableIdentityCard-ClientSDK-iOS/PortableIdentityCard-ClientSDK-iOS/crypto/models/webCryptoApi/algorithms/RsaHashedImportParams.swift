@@ -4,10 +4,19 @@
 
 class RsaHashedImportParams: Algorithm {
     
-    let alg_hash: Algorithm?
+    let hashAlgorithm: Algorithm?
     
-    init(hash alg_hash: Algorithm?) {
-        self.alg_hash = alg_hash
+    init(hash hashAlgorithm: Algorithm?) {
+        self.hashAlgorithm = hashAlgorithm
+        super.init(name: W3cCryptoApiConstants.RsaSsaPkcs1V15.rawValue)
+    }
+    
+    /**
+     Decoder Initializer.
+     */
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: AlgorithmCodingKeys.self)
+        self.hashAlgorithm = try container.decodeIfPresent(Algorithm.self, forKey: .hash)
         super.init(name: W3cCryptoApiConstants.RsaSsaPkcs1V15.rawValue)
     }
 }

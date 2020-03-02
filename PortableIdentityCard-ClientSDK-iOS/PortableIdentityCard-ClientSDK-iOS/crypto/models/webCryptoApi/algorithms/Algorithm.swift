@@ -4,6 +4,7 @@
 
 import Foundation
 
+/// Superclass to represent a generic Algorithm class.
 class Algorithm: NSObject, Codable {
     
     var name: String

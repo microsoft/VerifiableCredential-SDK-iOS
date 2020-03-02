@@ -8,7 +8,7 @@
 enum KeyFormat: String, Codable {
     /// An unformatted sequence of bytes. Intended for secret keys
     case Raw = "raw"
-    /// The DER encoding of the PrivateKEyInfo structure from RFC 5208
+    /// The DER encoding of the PrivateKeyInfo structure from RFC 5208
     case Pkcs8 = "pkcs8"
     /// The DER encoding of the SubjectPublicKeyInfo structure from RFC 5280
     case Spki = "spki"

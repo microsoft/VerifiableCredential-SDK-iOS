@@ -2,7 +2,7 @@
 //  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
-/*
+/**
     The type of a key
  */
 enum KeyScopeType: String, Codable {
