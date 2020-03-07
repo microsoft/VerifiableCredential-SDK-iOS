@@ -20,4 +20,13 @@ class AesKeyGenParams: Algorithm {
         let name = try container.decode(String.self, forKey: .name)
         self.init(name: name, length: length)
     }
+    
+    /**
+     Encode AesKeyGenParams.
+     */
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: AlgorithmCodingKeys.self)
+        try container.encode(self.length, forKey: .length)
+        try super.encode(to: encoder)
+    }
 }

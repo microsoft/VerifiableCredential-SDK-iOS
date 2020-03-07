@@ -35,4 +35,13 @@ class AesGcmParams: Algorithm {
         super.init(name: W3cCryptoApiConstants.AesGcm.rawValue)
     }
     
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: AlgorithmCodingKeys.self)
+        try container.encode(self.iv, forKey: .iv)
+        try container.encode(self.additionalData, forKey: .additionalData)
+        try container.encode(self.tagLength, forKey: .tagLength)
+        try container.encodeIfPresent(self.length, forKey: .length)
+        try super.encode(to: encoder)
+    }
+    
 }
