@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		5579C7DC23F364370099171E /* PortableIdentityCardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579C7DB23F364360099171E /* PortableIdentityCardError.swift */; };
 		55B1044A2405EA4200EC0E98 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B104492405EA4200EC0E98 /* Logger.swift */; };
+		55C7193F241454DD00F820BF /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C7193E241454DD00F820BF /* RequestManager.swift */; };
+		55C719422414556D00F820BF /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C719412414556D00F820BF /* Validator.swift */; };
+		55C719442414587000F820BF /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C719432414587000F820BF /* Request.swift */; };
+		55C71946241459D400F820BF /* ValidatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C71945241459D400F820BF /* ValidatorFactory.swift */; };
+		55C7194824145D0300F820BF /* OIDCValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C7194724145D0300F820BF /* OIDCValidator.swift */; };
+		55C7194A24145E3500F820BF /* SIOPValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C7194924145E3500F820BF /* SIOPValidator.swift */; };
 		55E5ADDE23EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E5ADD423EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.framework */; };
 		55E5ADE523EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 55E5ADD723EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -26,6 +32,12 @@
 /* Begin PBXFileReference section */
 		5579C7DB23F364360099171E /* PortableIdentityCardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortableIdentityCardError.swift; sourceTree = "<group>"; };
 		55B104492405EA4200EC0E98 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		55C7193E241454DD00F820BF /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		55C719412414556D00F820BF /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		55C719432414587000F820BF /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		55C71945241459D400F820BF /* ValidatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorFactory.swift; sourceTree = "<group>"; };
+		55C7194724145D0300F820BF /* OIDCValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OIDCValidator.swift; sourceTree = "<group>"; };
+		55C7194924145E3500F820BF /* SIOPValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIOPValidator.swift; sourceTree = "<group>"; };
 		55E5ADD423EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PortableIdentityCard_ClientSDK_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E5ADD723EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PortableIdentityCard_ClientSDK_iOS.h; sourceTree = "<group>"; };
 		55E5ADD823EC7B3B0065EBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +64,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55C7193D241454AD00F820BF /* requests */ = {
+			isa = PBXGroup;
+			children = (
+				55C719402414555D00F820BF /* validators */,
+				55C719432414587000F820BF /* Request.swift */,
+				55C7193E241454DD00F820BF /* RequestManager.swift */,
+			);
+			path = requests;
+			sourceTree = "<group>";
+		};
+		55C719402414555D00F820BF /* validators */ = {
+			isa = PBXGroup;
+			children = (
+				55C7194724145D0300F820BF /* OIDCValidator.swift */,
+				55C7194924145E3500F820BF /* SIOPValidator.swift */,
+				55C719412414556D00F820BF /* Validator.swift */,
+				55C71945241459D400F820BF /* ValidatorFactory.swift */,
+			);
+			path = validators;
+			sourceTree = "<group>";
+		};
 		55E5ADCA23EC7B3B0065EBB0 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +106,7 @@
 		55E5ADD623EC7B3B0065EBB0 /* PortableIdentityCard-ClientSDK-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				55C7193D241454AD00F820BF /* requests */,
 				55E5ADD723EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h */,
 				55E5ADD823EC7B3B0065EBB0 /* Info.plist */,
 				5579C7DB23F364360099171E /* PortableIdentityCardError.swift */,
@@ -198,8 +232,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C719422414556D00F820BF /* Validator.swift in Sources */,
+				55C71946241459D400F820BF /* ValidatorFactory.swift in Sources */,
+				55C7194824145D0300F820BF /* OIDCValidator.swift in Sources */,
+				55C7193F241454DD00F820BF /* RequestManager.swift in Sources */,
+				55C719442414587000F820BF /* Request.swift in Sources */,
 				55B1044A2405EA4200EC0E98 /* Logger.swift in Sources */,
 				5579C7DC23F364370099171E /* PortableIdentityCardError.swift in Sources */,
+				55C7194A24145E3500F820BF /* SIOPValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

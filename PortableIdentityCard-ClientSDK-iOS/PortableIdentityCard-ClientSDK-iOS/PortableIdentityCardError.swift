@@ -5,5 +5,6 @@
 enum PortableIdentityCardError: Error {
     
     case IdentifierMalformed
+    case NotImplemented
 
 }
