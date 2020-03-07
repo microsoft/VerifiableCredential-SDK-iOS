@@ -9,34 +9,8 @@
 /* Begin PBXBuildFile section */
 		5579C7DC23F364370099171E /* PortableIdentityCardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579C7DB23F364360099171E /* PortableIdentityCardError.swift */; };
 		55B1044A2405EA4200EC0E98 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B104492405EA4200EC0E98 /* Logger.swift */; };
-		55C61F04240D742D008251D3 /* AlgorithmCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C61F03240D742D008251D3 /* AlgorithmCodingKeys.swift */; };
-		55C61F0A240EC485008251D3 /* AlgorithmTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C61F09240EC485008251D3 /* AlgorithmTest.swift */; };
-		55C61F0C240ECC8B008251D3 /* AesGcmParamsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C61F0B240ECC8B008251D3 /* AesGcmParamsTest.swift */; };
-		55C61F10240F17B2008251D3 /* AesKeyGenParamsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C61F0F240F17B2008251D3 /* AesKeyGenParamsTest.swift */; };
 		55E5ADDE23EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E5ADD423EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.framework */; };
 		55E5ADE523EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 55E5ADD723EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55E5AE3023EC7BBB0065EBB0 /* KeyUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5ADFD23EC7BBB0065EBB0 /* KeyUse.swift */; };
-		55E5AE3123EC7BBB0065EBB0 /* KeyUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5ADFF23EC7BBB0065EBB0 /* KeyUsage.swift */; };
-		55E5AE3223EC7BBB0065EBB0 /* SubtleCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0023EC7BBB0065EBB0 /* SubtleCrypto.swift */; };
-		55E5AE3323EC7BBB0065EBB0 /* W3cCryptoApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0123EC7BBB0065EBB0 /* W3cCryptoApiConstants.swift */; };
-		55E5AE3423EC7BBB0065EBB0 /* RsaHashedKeyGenParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0323EC7BBB0065EBB0 /* RsaHashedKeyGenParams.swift */; };
-		55E5AE3523EC7BBB0065EBB0 /* AesGcmParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0423EC7BBB0065EBB0 /* AesGcmParams.swift */; };
-		55E5AE3623EC7BBB0065EBB0 /* EcKeyGenParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0523EC7BBB0065EBB0 /* EcKeyGenParams.swift */; };
-		55E5AE3723EC7BBB0065EBB0 /* AesKeyGenParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0623EC7BBB0065EBB0 /* AesKeyGenParams.swift */; };
-		55E5AE3823EC7BBB0065EBB0 /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0723EC7BBB0065EBB0 /* Algorithm.swift */; };
-		55E5AE3923EC7BBB0065EBB0 /* RsaHashedImportParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0823EC7BBB0065EBB0 /* RsaHashedImportParams.swift */; };
-		55E5AE3A23EC7BBB0065EBB0 /* RsaHashedKeyAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0923EC7BBB0065EBB0 /* RsaHashedKeyAlgorithm.swift */; };
-		55E5AE3B23EC7BBB0065EBB0 /* EcdsaParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0A23EC7BBB0065EBB0 /* EcdsaParams.swift */; };
-		55E5AE3C23EC7BBB0065EBB0 /* RsaKeyAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0B23EC7BBB0065EBB0 /* RsaKeyAlgorithm.swift */; };
-		55E5AE3D23EC7BBB0065EBB0 /* RsaOaepParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0C23EC7BBB0065EBB0 /* RsaOaepParams.swift */; };
-		55E5AE3E23EC7BBB0065EBB0 /* KeyScopeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0D23EC7BBB0065EBB0 /* KeyScopeType.swift */; };
-		55E5AE3F23EC7BBB0065EBB0 /* JsonWebKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0E23EC7BBB0065EBB0 /* JsonWebKey.swift */; };
-		55E5AE4023EC7BBB0065EBB0 /* KeyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE0F23EC7BBB0065EBB0 /* KeyFormat.swift */; };
-		55E5AE4123EC7BBB0065EBB0 /* CryptoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE1023EC7BBB0065EBB0 /* CryptoKey.swift */; };
-		55E5AE4223EC7BBB0065EBB0 /* CryptoKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE1123EC7BBB0065EBB0 /* CryptoKeyPair.swift */; };
-		55E5AE4323EC7BBB0065EBB0 /* Sha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE1223EC7BBB0065EBB0 /* Sha.swift */; };
-		55E5AE4423EC7BBB0065EBB0 /* CryptoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE1323EC7BBB0065EBB0 /* CryptoError.swift */; };
-		55E5AE9323F31CDA0065EBB0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E5AE9223F31CDA0065EBB0 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,37 +26,11 @@
 /* Begin PBXFileReference section */
 		5579C7DB23F364360099171E /* PortableIdentityCardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortableIdentityCardError.swift; sourceTree = "<group>"; };
 		55B104492405EA4200EC0E98 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		55C61F03240D742D008251D3 /* AlgorithmCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmCodingKeys.swift; sourceTree = "<group>"; };
-		55C61F09240EC485008251D3 /* AlgorithmTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmTest.swift; sourceTree = "<group>"; };
-		55C61F0B240ECC8B008251D3 /* AesGcmParamsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesGcmParamsTest.swift; sourceTree = "<group>"; };
-		55C61F0F240F17B2008251D3 /* AesKeyGenParamsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesKeyGenParamsTest.swift; sourceTree = "<group>"; };
 		55E5ADD423EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PortableIdentityCard_ClientSDK_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E5ADD723EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PortableIdentityCard_ClientSDK_iOS.h; sourceTree = "<group>"; };
 		55E5ADD823EC7B3B0065EBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55E5ADDD23EC7B3B0065EBB0 /* PortableIdentityCard-ClientSDK-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PortableIdentityCard-ClientSDK-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E5ADE423EC7B3B0065EBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55E5ADFD23EC7BBB0065EBB0 /* KeyUse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyUse.swift; sourceTree = "<group>"; };
-		55E5ADFF23EC7BBB0065EBB0 /* KeyUsage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyUsage.swift; sourceTree = "<group>"; };
-		55E5AE0023EC7BBB0065EBB0 /* SubtleCrypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtleCrypto.swift; sourceTree = "<group>"; };
-		55E5AE0123EC7BBB0065EBB0 /* W3cCryptoApiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = W3cCryptoApiConstants.swift; sourceTree = "<group>"; };
-		55E5AE0323EC7BBB0065EBB0 /* RsaHashedKeyGenParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsaHashedKeyGenParams.swift; sourceTree = "<group>"; };
-		55E5AE0423EC7BBB0065EBB0 /* AesGcmParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AesGcmParams.swift; sourceTree = "<group>"; };
-		55E5AE0523EC7BBB0065EBB0 /* EcKeyGenParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcKeyGenParams.swift; sourceTree = "<group>"; };
-		55E5AE0623EC7BBB0065EBB0 /* AesKeyGenParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AesKeyGenParams.swift; sourceTree = "<group>"; };
-		55E5AE0723EC7BBB0065EBB0 /* Algorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
-		55E5AE0823EC7BBB0065EBB0 /* RsaHashedImportParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsaHashedImportParams.swift; sourceTree = "<group>"; };
-		55E5AE0923EC7BBB0065EBB0 /* RsaHashedKeyAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsaHashedKeyAlgorithm.swift; sourceTree = "<group>"; };
-		55E5AE0A23EC7BBB0065EBB0 /* EcdsaParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcdsaParams.swift; sourceTree = "<group>"; };
-		55E5AE0B23EC7BBB0065EBB0 /* RsaKeyAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsaKeyAlgorithm.swift; sourceTree = "<group>"; };
-		55E5AE0C23EC7BBB0065EBB0 /* RsaOaepParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsaOaepParams.swift; sourceTree = "<group>"; };
-		55E5AE0D23EC7BBB0065EBB0 /* KeyScopeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyScopeType.swift; sourceTree = "<group>"; };
-		55E5AE0E23EC7BBB0065EBB0 /* JsonWebKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonWebKey.swift; sourceTree = "<group>"; };
-		55E5AE0F23EC7BBB0065EBB0 /* KeyFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyFormat.swift; sourceTree = "<group>"; };
-		55E5AE1023EC7BBB0065EBB0 /* CryptoKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoKey.swift; sourceTree = "<group>"; };
-		55E5AE1123EC7BBB0065EBB0 /* CryptoKeyPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoKeyPair.swift; sourceTree = "<group>"; };
-		55E5AE1223EC7BBB0065EBB0 /* Sha.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sha.swift; sourceTree = "<group>"; };
-		55E5AE1323EC7BBB0065EBB0 /* CryptoError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoError.swift; sourceTree = "<group>"; };
-		55E5AE9223F31CDA0065EBB0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,40 +52,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		55C61F05240EC41E008251D3 /* crypto */ = {
-			isa = PBXGroup;
-			children = (
-				55C61F06240EC42A008251D3 /* models */,
-			);
-			path = crypto;
-			sourceTree = "<group>";
-		};
-		55C61F06240EC42A008251D3 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				55C61F07240EC456008251D3 /* webCryptoApi */,
-			);
-			path = models;
-			sourceTree = "<group>";
-		};
-		55C61F07240EC456008251D3 /* webCryptoApi */ = {
-			isa = PBXGroup;
-			children = (
-				55C61F08240EC461008251D3 /* algorithms */,
-			);
-			path = webCryptoApi;
-			sourceTree = "<group>";
-		};
-		55C61F08240EC461008251D3 /* algorithms */ = {
-			isa = PBXGroup;
-			children = (
-				55C61F09240EC485008251D3 /* AlgorithmTest.swift */,
-				55C61F0B240ECC8B008251D3 /* AesGcmParamsTest.swift */,
-				55C61F0F240F17B2008251D3 /* AesKeyGenParamsTest.swift */,
-			);
-			path = algorithms;
-			sourceTree = "<group>";
-		};
 		55E5ADCA23EC7B3B0065EBB0 = {
 			isa = PBXGroup;
 			children = (
@@ -159,8 +73,6 @@
 		55E5ADD623EC7B3B0065EBB0 /* PortableIdentityCard-ClientSDK-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				55E5ADEF23EC7BBB0065EBB0 /* registrars */,
-				55E5ADF123EC7BBB0065EBB0 /* crypto */,
 				55E5ADD723EC7B3B0065EBB0 /* PortableIdentityCard_ClientSDK_iOS.h */,
 				55E5ADD823EC7B3B0065EBB0 /* Info.plist */,
 				5579C7DB23F364360099171E /* PortableIdentityCardError.swift */,
@@ -172,79 +84,9 @@
 		55E5ADE123EC7B3B0065EBB0 /* PortableIdentityCard-ClientSDK-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				55C61F05240EC41E008251D3 /* crypto */,
 				55E5ADE423EC7B3B0065EBB0 /* Info.plist */,
 			);
 			path = "PortableIdentityCard-ClientSDK-iOSTests";
-			sourceTree = "<group>";
-		};
-		55E5ADEF23EC7BBB0065EBB0 /* registrars */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = registrars;
-			sourceTree = "<group>";
-		};
-		55E5ADF123EC7BBB0065EBB0 /* crypto */ = {
-			isa = PBXGroup;
-			children = (
-				55E5ADFC23EC7BBB0065EBB0 /* models */,
-				55E5AE1323EC7BBB0065EBB0 /* CryptoError.swift */,
-				55E5AE9123F31C960065EBB0 /* utilities */,
-			);
-			path = crypto;
-			sourceTree = "<group>";
-		};
-		55E5ADFC23EC7BBB0065EBB0 /* models */ = {
-			isa = PBXGroup;
-			children = (
-				55E5ADFE23EC7BBB0065EBB0 /* webCryptoApi */,
-				55E5ADFD23EC7BBB0065EBB0 /* KeyUse.swift */,
-				55E5AE1223EC7BBB0065EBB0 /* Sha.swift */,
-			);
-			path = models;
-			sourceTree = "<group>";
-		};
-		55E5ADFE23EC7BBB0065EBB0 /* webCryptoApi */ = {
-			isa = PBXGroup;
-			children = (
-				55E5AE0223EC7BBB0065EBB0 /* algorithms */,
-				55E5AE1023EC7BBB0065EBB0 /* CryptoKey.swift */,
-				55E5AE1123EC7BBB0065EBB0 /* CryptoKeyPair.swift */,
-				55E5AE0E23EC7BBB0065EBB0 /* JsonWebKey.swift */,
-				55E5AE0F23EC7BBB0065EBB0 /* KeyFormat.swift */,
-				55E5AE0D23EC7BBB0065EBB0 /* KeyScopeType.swift */,
-				55E5ADFF23EC7BBB0065EBB0 /* KeyUsage.swift */,
-				55E5AE0023EC7BBB0065EBB0 /* SubtleCrypto.swift */,
-				55E5AE0123EC7BBB0065EBB0 /* W3cCryptoApiConstants.swift */,
-			);
-			path = webCryptoApi;
-			sourceTree = "<group>";
-		};
-		55E5AE0223EC7BBB0065EBB0 /* algorithms */ = {
-			isa = PBXGroup;
-			children = (
-				55E5AE0423EC7BBB0065EBB0 /* AesGcmParams.swift */,
-				55E5AE0623EC7BBB0065EBB0 /* AesKeyGenParams.swift */,
-				55E5AE0723EC7BBB0065EBB0 /* Algorithm.swift */,
-				55E5AE0A23EC7BBB0065EBB0 /* EcdsaParams.swift */,
-				55E5AE0523EC7BBB0065EBB0 /* EcKeyGenParams.swift */,
-				55E5AE0923EC7BBB0065EBB0 /* RsaHashedKeyAlgorithm.swift */,
-				55E5AE0323EC7BBB0065EBB0 /* RsaHashedKeyGenParams.swift */,
-				55E5AE0823EC7BBB0065EBB0 /* RsaHashedImportParams.swift */,
-				55E5AE0B23EC7BBB0065EBB0 /* RsaKeyAlgorithm.swift */,
-				55E5AE0C23EC7BBB0065EBB0 /* RsaOaepParams.swift */,
-				55C61F03240D742D008251D3 /* AlgorithmCodingKeys.swift */,
-			);
-			path = algorithms;
-			sourceTree = "<group>";
-		};
-		55E5AE9123F31C960065EBB0 /* utilities */ = {
-			isa = PBXGroup;
-			children = (
-				55E5AE9223F31CDA0065EBB0 /* Helpers.swift */,
-			);
-			path = utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,31 +198,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55E5AE3723EC7BBB0065EBB0 /* AesKeyGenParams.swift in Sources */,
-				55E5AE3223EC7BBB0065EBB0 /* SubtleCrypto.swift in Sources */,
-				55E5AE4123EC7BBB0065EBB0 /* CryptoKey.swift in Sources */,
 				55B1044A2405EA4200EC0E98 /* Logger.swift in Sources */,
-				55E5AE4323EC7BBB0065EBB0 /* Sha.swift in Sources */,
-				55E5AE3823EC7BBB0065EBB0 /* Algorithm.swift in Sources */,
-				55E5AE3323EC7BBB0065EBB0 /* W3cCryptoApiConstants.swift in Sources */,
-				55E5AE3A23EC7BBB0065EBB0 /* RsaHashedKeyAlgorithm.swift in Sources */,
-				55E5AE4223EC7BBB0065EBB0 /* CryptoKeyPair.swift in Sources */,
-				55E5AE3923EC7BBB0065EBB0 /* RsaHashedImportParams.swift in Sources */,
-				55E5AE3C23EC7BBB0065EBB0 /* RsaKeyAlgorithm.swift in Sources */,
-				55E5AE3023EC7BBB0065EBB0 /* KeyUse.swift in Sources */,
-				55E5AE4023EC7BBB0065EBB0 /* KeyFormat.swift in Sources */,
-				55E5AE3F23EC7BBB0065EBB0 /* JsonWebKey.swift in Sources */,
-				55E5AE4423EC7BBB0065EBB0 /* CryptoError.swift in Sources */,
 				5579C7DC23F364370099171E /* PortableIdentityCardError.swift in Sources */,
-				55E5AE3B23EC7BBB0065EBB0 /* EcdsaParams.swift in Sources */,
-				55E5AE9323F31CDA0065EBB0 /* Helpers.swift in Sources */,
-				55E5AE3523EC7BBB0065EBB0 /* AesGcmParams.swift in Sources */,
-				55E5AE3E23EC7BBB0065EBB0 /* KeyScopeType.swift in Sources */,
-				55E5AE3623EC7BBB0065EBB0 /* EcKeyGenParams.swift in Sources */,
-				55E5AE3423EC7BBB0065EBB0 /* RsaHashedKeyGenParams.swift in Sources */,
-				55E5AE3123EC7BBB0065EBB0 /* KeyUsage.swift in Sources */,
-				55E5AE3D23EC7BBB0065EBB0 /* RsaOaepParams.swift in Sources */,
-				55C61F04240D742D008251D3 /* AlgorithmCodingKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,9 +207,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55C61F0C240ECC8B008251D3 /* AesGcmParamsTest.swift in Sources */,
-				55C61F0A240EC485008251D3 /* AlgorithmTest.swift in Sources */,
-				55C61F10240F17B2008251D3 /* AesKeyGenParamsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
