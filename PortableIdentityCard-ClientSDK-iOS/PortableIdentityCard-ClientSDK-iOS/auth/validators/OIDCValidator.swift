@@ -19,8 +19,8 @@ class OIDCValidator: Validator {
         self.publicKeys = publicKeys
     }
     
-    func validate(request: Request) throws -> Bool {
-        throw PortableIdentityCardError.NotImplemented
+    func validate(request: AuthRequest) throws -> Bool {
+        throw PortableIdentityError.NotImplemented
     }
     
     

@@ -16,5 +16,5 @@ protocol Validator {
      
      - Returns: true, if request is valid.
      */
-    func validate(request: Request) throws -> Bool
+    func validate(request: AuthRequest) throws -> Bool
 }

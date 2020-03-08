@@ -19,8 +19,8 @@ class SIOPValidator: Validator {
         self.identifier = identifier
     }
     
-    func validate(request: Request) throws -> Bool {
-        throw PortableIdentityCardError.NotImplemented
+    func validate(request: AuthRequest) throws -> Bool {
+        throw PortableIdentityError.NotImplemented
     }
     
     

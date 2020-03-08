@@ -19,7 +19,7 @@ class ValidatorFactory {
      - Returns: validator for specific request.
      */
     static func makeValidator(token: String) throws -> Validator {
-        throw PortableIdentityCardError.NotImplemented
+        throw PortableIdentityError.NotImplemented
     }
     
 }

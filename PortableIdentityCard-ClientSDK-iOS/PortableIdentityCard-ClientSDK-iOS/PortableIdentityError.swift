@@ -2,7 +2,7 @@
 //  Copyright (C) Microsoft Corporation. All rights reserved.
 //
 
-enum PortableIdentityCardError: Error {
+enum PortableIdentityError: Error {
     
     case IdentifierMalformed
     case NotImplemented
