@@ -1,14 +1,26 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+use_frameworks!
+
+workspace 'sdk'
+
+def sdk_pods
+    pod 'SSZipArchive'
+end
+
+def networking_pods
+    podspec :path => '../networking/networking.podspec'
+end
+
+target 'sdk' do
+    project '../sdk/sdk.xcodeproj'
+    sdk_pods
+    networking_pods
+end
+
+target 'networkingTests' do
+    networking_pods
+end
 
 target 'networking' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for networking
-
-  target 'networkingTests' do
-    # Pods for testing
-  end
-
+    project '../networking/networking.xcodeproj'
+    networking_pods
 end
