@@ -8,6 +8,7 @@ end
 
 def networking_pods
     podspec :path => '../networking/networking.podspec'
+    pod "PromiseKit", "~> 6.8"
 end
 
 target 'sdk' do
