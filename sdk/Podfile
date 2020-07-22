@@ -1,5 +1,6 @@
 use_frameworks!
 
+platform :ios, '11.0'
 workspace '../sdk'
 
 def sdk_pods
@@ -14,10 +15,11 @@ target 'sdk' do
   project '../sdk/sdk.xcodeproj'
   sdk_pods
   networking_pods
+  target 'sdkTests'
 end
 
 target 'networking' do
   project '../networking/networking.xcodeproj'
-  pod "PromiseKit", "~> 6.8"
   networking_pods
+  target 'networkingTests'
 end
