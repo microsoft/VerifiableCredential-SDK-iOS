@@ -7,128 +7,109 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55D1C0C124C23408002A58F9 /* sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1C0B724C23408002A58F9 /* sdk.framework */; };
-		55D1C0C624C23408002A58F9 /* sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1C0C524C23408002A58F9 /* sdkTests.swift */; };
-		55D1C0C824C23408002A58F9 /* sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D1C0BA24C23408002A58F9 /* sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55D7C00924C4D6130090F495 /* networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7C00824C4D6130090F495 /* networking.framework */; };
-		55D7C00A24C4D6130090F495 /* networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7C00824C4D6130090F495 /* networking.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		55D7C01124C89F5F0090F495 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C01024C89F5F0090F495 /* Podfile */; };
-		9929EF7AF32053CD4939D9A2 /* Pods_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B5285C2321E40D746262D8 /* Pods_sdk.framework */; };
+		55D7BFF424C4CBBD0090F495 /* networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7BFEA24C4CBBD0090F495 /* networking.framework */; };
+		55D7BFF924C4CBBD0090F495 /* networkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7BFF824C4CBBD0090F495 /* networkingTests.swift */; };
+		55D7BFFB24C4CBBD0090F495 /* networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D7BFED24C4CBBD0090F495 /* networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55D7C00D24C89B0F0090F495 /* networking.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C00C24C89B0E0090F495 /* networking.podspec */; };
+		CEF33338C36A2A08E9C8D542 /* Pods_networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D8507C0A7266239CD036FDD /* Pods_networking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		55D1C0C224C23408002A58F9 /* PBXContainerItemProxy */ = {
+		55D7BFF524C4CBBD0090F495 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 55D1C0AE24C23408002A58F9 /* Project object */;
+			containerPortal = 55D7BFE124C4CBBD0090F495 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 55D1C0B624C23408002A58F9;
-			remoteInfo = sdk;
+			remoteGlobalIDString = 55D7BFE924C4CBBD0090F495;
+			remoteInfo = networking;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		55D7C00B24C4D6130090F495 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				55D7C00A24C4D6130090F495 /* networking.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		39B5285C2321E40D746262D8 /* Pods_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		50E9B2C2FC7D64648E6C027D /* Pods-sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk.debug.xcconfig"; path = "Target Support Files/Pods-sdk/Pods-sdk.debug.xcconfig"; sourceTree = "<group>"; };
-		55D1C0B724C23408002A58F9 /* sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55D1C0BA24C23408002A58F9 /* sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sdk.h; sourceTree = "<group>"; };
-		55D1C0BB24C23408002A58F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55D1C0C024C23408002A58F9 /* sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		55D1C0C524C23408002A58F9 /* sdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sdkTests.swift; sourceTree = "<group>"; };
-		55D1C0C724C23408002A58F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55D7C00824C4D6130090F495 /* networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55D7C01024C89F5F0090F495 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		A3C335164FC552AC8AB434BB /* Pods-sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk.release.xcconfig"; path = "Target Support Files/Pods-sdk/Pods-sdk.release.xcconfig"; sourceTree = "<group>"; };
+		42CA1E2F2F8D3C690FE1FB6D /* Pods-networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking.debug.xcconfig"; path = "Target Support Files/Pods-networking/Pods-networking.debug.xcconfig"; sourceTree = "<group>"; };
+		5024C7EC25EB5973BB33C735 /* Pods-networking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking.release.xcconfig"; path = "Target Support Files/Pods-networking/Pods-networking.release.xcconfig"; sourceTree = "<group>"; };
+		55D7BFEA24C4CBBD0090F495 /* networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55D7BFED24C4CBBD0090F495 /* networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networking.h; sourceTree = "<group>"; };
+		55D7BFEE24C4CBBD0090F495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55D7BFF324C4CBBD0090F495 /* networkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = networkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55D7BFF824C4CBBD0090F495 /* networkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = networkingTests.swift; sourceTree = "<group>"; };
+		55D7BFFA24C4CBBD0090F495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55D7C00C24C89B0E0090F495 /* networking.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = networking.podspec; sourceTree = "<group>"; };
+		5D8507C0A7266239CD036FDD /* Pods_networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		55D1C0B424C23408002A58F9 /* Frameworks */ = {
+		55D7BFE724C4CBBD0090F495 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D7C00924C4D6130090F495 /* networking.framework in Frameworks */,
-				9929EF7AF32053CD4939D9A2 /* Pods_sdk.framework in Frameworks */,
+				CEF33338C36A2A08E9C8D542 /* Pods_networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55D1C0BD24C23408002A58F9 /* Frameworks */ = {
+		55D7BFF024C4CBBD0090F495 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D1C0C124C23408002A58F9 /* sdk.framework in Frameworks */,
+				55D7BFF424C4CBBD0090F495 /* networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		55D1C0AD24C23408002A58F9 = {
+		55D7BFE024C4CBBD0090F495 = {
 			isa = PBXGroup;
 			children = (
-				55D7C01024C89F5F0090F495 /* Podfile */,
-				55D1C0B924C23408002A58F9 /* sdk */,
-				55D1C0C424C23408002A58F9 /* sdkTests */,
-				55D1C0B824C23408002A58F9 /* Products */,
-				DBB08E8FAF983AA12C589889 /* Frameworks */,
-				7326AA8372742E638364241C /* Pods */,
+				55D7C00C24C89B0E0090F495 /* networking.podspec */,
+				55D7BFEC24C4CBBD0090F495 /* networking */,
+				55D7BFF724C4CBBD0090F495 /* networkingTests */,
+				55D7BFEB24C4CBBD0090F495 /* Products */,
+				BF4B32EEF348709DF16AA070 /* Pods */,
+				F96820A943825B01B3485FDC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		55D1C0B824C23408002A58F9 /* Products */ = {
+		55D7BFEB24C4CBBD0090F495 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				55D1C0B724C23408002A58F9 /* sdk.framework */,
-				55D1C0C024C23408002A58F9 /* sdkTests.xctest */,
+				55D7BFEA24C4CBBD0090F495 /* networking.framework */,
+				55D7BFF324C4CBBD0090F495 /* networkingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		55D1C0B924C23408002A58F9 /* sdk */ = {
+		55D7BFEC24C4CBBD0090F495 /* networking */ = {
 			isa = PBXGroup;
 			children = (
-				55D1C0BA24C23408002A58F9 /* sdk.h */,
-				55D1C0BB24C23408002A58F9 /* Info.plist */,
+				55D7BFED24C4CBBD0090F495 /* networking.h */,
+				55D7BFEE24C4CBBD0090F495 /* Info.plist */,
 			);
-			path = sdk;
+			path = networking;
 			sourceTree = "<group>";
 		};
-		55D1C0C424C23408002A58F9 /* sdkTests */ = {
+		55D7BFF724C4CBBD0090F495 /* networkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				55D1C0C524C23408002A58F9 /* sdkTests.swift */,
-				55D1C0C724C23408002A58F9 /* Info.plist */,
+				55D7BFF824C4CBBD0090F495 /* networkingTests.swift */,
+				55D7BFFA24C4CBBD0090F495 /* Info.plist */,
 			);
-			path = sdkTests;
+			path = networkingTests;
 			sourceTree = "<group>";
 		};
-		7326AA8372742E638364241C /* Pods */ = {
+		BF4B32EEF348709DF16AA070 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				50E9B2C2FC7D64648E6C027D /* Pods-sdk.debug.xcconfig */,
-				A3C335164FC552AC8AB434BB /* Pods-sdk.release.xcconfig */,
+				42CA1E2F2F8D3C690FE1FB6D /* Pods-networking.debug.xcconfig */,
+				5024C7EC25EB5973BB33C735 /* Pods-networking.release.xcconfig */,
 			);
 			name = Pods;
-			path = Pods;
+			path = ../sdk/Pods;
 			sourceTree = "<group>";
 		};
-		DBB08E8FAF983AA12C589889 /* Frameworks */ = {
+		F96820A943825B01B3485FDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				55D7C00824C4D6130090F495 /* networking.framework */,
-				39B5285C2321E40D746262D8 /* Pods_sdk.framework */,
+				5D8507C0A7266239CD036FDD /* Pods_networking.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,74 +117,73 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		55D1C0B224C23408002A58F9 /* Headers */ = {
+		55D7BFE524C4CBBD0090F495 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D1C0C824C23408002A58F9 /* sdk.h in Headers */,
+				55D7BFFB24C4CBBD0090F495 /* networking.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		55D1C0B624C23408002A58F9 /* sdk */ = {
+		55D7BFE924C4CBBD0090F495 /* networking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55D1C0CB24C23408002A58F9 /* Build configuration list for PBXNativeTarget "sdk" */;
+			buildConfigurationList = 55D7BFFE24C4CBBE0090F495 /* Build configuration list for PBXNativeTarget "networking" */;
 			buildPhases = (
-				68DB66AABD563F69E0D0E618 /* [CP] Check Pods Manifest.lock */,
-				55D1C0B224C23408002A58F9 /* Headers */,
-				55D1C0B324C23408002A58F9 /* Sources */,
-				55D1C0B424C23408002A58F9 /* Frameworks */,
-				55D1C0B524C23408002A58F9 /* Resources */,
-				55D7C00B24C4D6130090F495 /* Embed Frameworks */,
+				9BF3904990AD53CF858470F8 /* [CP] Check Pods Manifest.lock */,
+				55D7BFE524C4CBBD0090F495 /* Headers */,
+				55D7BFE624C4CBBD0090F495 /* Sources */,
+				55D7BFE724C4CBBD0090F495 /* Frameworks */,
+				55D7BFE824C4CBBD0090F495 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = sdk;
-			productName = sdk;
-			productReference = 55D1C0B724C23408002A58F9 /* sdk.framework */;
+			name = networking;
+			productName = networking;
+			productReference = 55D7BFEA24C4CBBD0090F495 /* networking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		55D1C0BF24C23408002A58F9 /* sdkTests */ = {
+		55D7BFF224C4CBBD0090F495 /* networkingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55D1C0CE24C23408002A58F9 /* Build configuration list for PBXNativeTarget "sdkTests" */;
+			buildConfigurationList = 55D7C00124C4CBBE0090F495 /* Build configuration list for PBXNativeTarget "networkingTests" */;
 			buildPhases = (
-				55D1C0BC24C23408002A58F9 /* Sources */,
-				55D1C0BD24C23408002A58F9 /* Frameworks */,
-				55D1C0BE24C23408002A58F9 /* Resources */,
+				55D7BFEF24C4CBBD0090F495 /* Sources */,
+				55D7BFF024C4CBBD0090F495 /* Frameworks */,
+				55D7BFF124C4CBBD0090F495 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				55D1C0C324C23408002A58F9 /* PBXTargetDependency */,
+				55D7BFF624C4CBBD0090F495 /* PBXTargetDependency */,
 			);
-			name = sdkTests;
-			productName = sdkTests;
-			productReference = 55D1C0C024C23408002A58F9 /* sdkTests.xctest */;
+			name = networkingTests;
+			productName = networkingTests;
+			productReference = 55D7BFF324C4CBBD0090F495 /* networkingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		55D1C0AE24C23408002A58F9 /* Project object */ = {
+		55D7BFE124C4CBBD0090F495 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Microsoft;
 				TargetAttributes = {
-					55D1C0B624C23408002A58F9 = {
+					55D7BFE924C4CBBD0090F495 = {
 						CreatedOnToolsVersion = 11.5;
 					};
-					55D1C0BF24C23408002A58F9 = {
+					55D7BFF224C4CBBD0090F495 = {
 						CreatedOnToolsVersion = 11.5;
 					};
 				};
 			};
-			buildConfigurationList = 55D1C0B124C23408002A58F9 /* Build configuration list for PBXProject "sdk" */;
+			buildConfigurationList = 55D7BFE424C4CBBD0090F495 /* Build configuration list for PBXProject "networking" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -211,27 +191,27 @@
 				en,
 				Base,
 			);
-			mainGroup = 55D1C0AD24C23408002A58F9;
-			productRefGroup = 55D1C0B824C23408002A58F9 /* Products */;
+			mainGroup = 55D7BFE024C4CBBD0090F495;
+			productRefGroup = 55D7BFEB24C4CBBD0090F495 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				55D1C0B624C23408002A58F9 /* sdk */,
-				55D1C0BF24C23408002A58F9 /* sdkTests */,
+				55D7BFE924C4CBBD0090F495 /* networking */,
+				55D7BFF224C4CBBD0090F495 /* networkingTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		55D1C0B524C23408002A58F9 /* Resources */ = {
+		55D7BFE824C4CBBD0090F495 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D7C01124C89F5F0090F495 /* Podfile in Resources */,
+				55D7C00D24C89B0F0090F495 /* networking.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55D1C0BE24C23408002A58F9 /* Resources */ = {
+		55D7BFF124C4CBBD0090F495 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -241,7 +221,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		68DB66AABD563F69E0D0E618 /* [CP] Check Pods Manifest.lock */ = {
+		9BF3904990AD53CF858470F8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,7 +236,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-sdk-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-networking-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -266,33 +246,33 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		55D1C0B324C23408002A58F9 /* Sources */ = {
+		55D7BFE624C4CBBD0090F495 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55D1C0BC24C23408002A58F9 /* Sources */ = {
+		55D7BFEF24C4CBBD0090F495 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D1C0C624C23408002A58F9 /* sdkTests.swift in Sources */,
+				55D7BFF924C4CBBD0090F495 /* networkingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		55D1C0C324C23408002A58F9 /* PBXTargetDependency */ = {
+		55D7BFF624C4CBBD0090F495 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 55D1C0B624C23408002A58F9 /* sdk */;
-			targetProxy = 55D1C0C224C23408002A58F9 /* PBXContainerItemProxy */;
+			target = 55D7BFE924C4CBBD0090F495 /* networking */;
+			targetProxy = 55D7BFF524C4CBBD0090F495 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		55D1C0C924C23408002A58F9 /* Debug */ = {
+		55D7BFFC24C4CBBE0090F495 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -355,7 +335,7 @@
 			};
 			name = Debug;
 		};
-		55D1C0CA24C23408002A58F9 /* Release */ = {
+		55D7BFFD24C4CBBE0090F495 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -412,9 +392,9 @@
 			};
 			name = Release;
 		};
-		55D1C0CC24C23408002A58F9 /* Debug */ = {
+		55D7BFFF24C4CBBE0090F495 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50E9B2C2FC7D64648E6C027D /* Pods-sdk.debug.xcconfig */;
+			baseConfigurationReference = 42CA1E2F2F8D3C690FE1FB6D /* Pods-networking.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -422,14 +402,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = sdk/Info.plist;
+				INFOPLIST_FILE = networking/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.sdk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networking;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -437,9 +417,9 @@
 			};
 			name = Debug;
 		};
-		55D1C0CD24C23408002A58F9 /* Release */ = {
+		55D7C00024C4CBBE0090F495 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3C335164FC552AC8AB434BB /* Pods-sdk.release.xcconfig */;
+			baseConfigurationReference = 5024C7EC25EB5973BB33C735 /* Pods-networking.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -447,14 +427,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = sdk/Info.plist;
+				INFOPLIST_FILE = networking/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.sdk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networking;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -462,36 +442,36 @@
 			};
 			name = Release;
 		};
-		55D1C0CF24C23408002A58F9 /* Debug */ = {
+		55D7C00224C4CBBE0090F495 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = sdkTests/Info.plist;
+				INFOPLIST_FILE = networkingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.sdkTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networkingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		55D1C0D024C23408002A58F9 /* Release */ = {
+		55D7C00324C4CBBE0090F495 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = sdkTests/Info.plist;
+				INFOPLIST_FILE = networkingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.sdkTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networkingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -501,34 +481,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		55D1C0B124C23408002A58F9 /* Build configuration list for PBXProject "sdk" */ = {
+		55D7BFE424C4CBBD0090F495 /* Build configuration list for PBXProject "networking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				55D1C0C924C23408002A58F9 /* Debug */,
-				55D1C0CA24C23408002A58F9 /* Release */,
+				55D7BFFC24C4CBBE0090F495 /* Debug */,
+				55D7BFFD24C4CBBE0090F495 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55D1C0CB24C23408002A58F9 /* Build configuration list for PBXNativeTarget "sdk" */ = {
+		55D7BFFE24C4CBBE0090F495 /* Build configuration list for PBXNativeTarget "networking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				55D1C0CC24C23408002A58F9 /* Debug */,
-				55D1C0CD24C23408002A58F9 /* Release */,
+				55D7BFFF24C4CBBE0090F495 /* Debug */,
+				55D7C00024C4CBBE0090F495 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55D1C0CE24C23408002A58F9 /* Build configuration list for PBXNativeTarget "sdkTests" */ = {
+		55D7C00124C4CBBE0090F495 /* Build configuration list for PBXNativeTarget "networkingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				55D1C0CF24C23408002A58F9 /* Debug */,
-				55D1C0D024C23408002A58F9 /* Release */,
+				55D7C00224C4CBBE0090F495 /* Debug */,
+				55D7C00324C4CBBE0090F495 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 55D1C0AE24C23408002A58F9 /* Project object */;
+	rootObject = 55D7BFE124C4CBBD0090F495 /* Project object */;
 }
