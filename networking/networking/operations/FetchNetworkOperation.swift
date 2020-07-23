@@ -8,9 +8,6 @@
 
 import Foundation
 
-protocol GetNetworkOperation: BaseNetworkOperation {}
-
-extension GetNetworkOperation {
-    func onSuccess() {}
-    func onFailure() {}
+protocol FetchNetworkOperation: BaseNetworkOperation {
+    
 }

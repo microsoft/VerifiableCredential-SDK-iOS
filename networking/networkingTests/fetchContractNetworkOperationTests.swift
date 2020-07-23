@@ -21,7 +21,7 @@ class FetchContractNetworkOperationTests: XCTestCase {
       configuration.protocolClasses = [UrlProtocolMock.self]
       let urlSession = URLSession.init(configuration: configuration)
       
-      fetchContractApi = FetchContractNetworkOperation(urlSession: urlSession)
+        fetchContractApi = FetchContractNetworkOperation(urlSession: urlSession, url: apiURL)
     }
     
     func testSuccessfulFetchOperation() {
@@ -40,15 +40,10 @@ class FetchContractNetworkOperationTests: XCTestCase {
         let expec = self.expectation(description: "Fire")
         
         fetchContractApi.fire().done { result in
-            switch result {
-            case .success(let data):
-                print(data.id)
-                print(data.type)
-                expec.fulfill()
-            case .failure(let error):
-                print(error)
-                expec.fulfill()
-            }
+            print(result)
+            expec.fulfill()
+        }.catch { error in
+            print(error)
         }
         
         wait(for: [expec], timeout: 5)

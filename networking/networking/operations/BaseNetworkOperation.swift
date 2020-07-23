@@ -6,12 +6,16 @@
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
+import PromiseKit
+
 protocol BaseNetworkOperation {
     associatedtype T
     
-    func fire(url: String) -> T
+    // var call: () -> Promise<T> { get }
     
-    func onSuccess() -> T
+    func fire(url: String) -> Promise<Swift.Result<T, Error>>
+    
+    func onSuccess() -> Promise<Swift.Result<T, Error>>
     
     func onFailure() throws
 }

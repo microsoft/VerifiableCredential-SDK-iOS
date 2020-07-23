@@ -8,8 +8,8 @@
 
 import Foundation
 
-open class FetchPresentationRequest: GetNetworkOperation {
-    func fire(url: String) -> () {
-        <#code#>
-    }
-}
+//class FetchPresentationRequest: GetNetworkOperation {
+//    typealias T = <#type#>
+//    
+//    func fire(url: String) -> () { }
+//}
