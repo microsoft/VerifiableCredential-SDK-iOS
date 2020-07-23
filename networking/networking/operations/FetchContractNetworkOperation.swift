@@ -9,26 +9,35 @@
 import Foundation
 import PromiseKit
 
-class FetchContractNetworkOperation {
+class FetchContractNetworkOperation: BaseNetworkOperation {
     typealias T = MockedContract
     
    // var call: () -> Promise<MockedContract>
     
     let urlSession: URLSession
-    let url: URL
+    var urlRequest: URLRequest?
+    var serializer: MockSerializer?
         
-    init(urlSession: URLSession = URLSession.shared, url: URL) {
+    init(urlSession: URLSession = URLSession.shared) {
         self.urlSession = urlSession
-        self.url = url
+    }
+    
+    func createRequest(withUrl urlString: String) throws {
+        guard let url = URL(string: urlString) else {
+            throw NetworkingError.invalidUrl
+        }
+        self.urlRequest = URLRequest(url: url)
+    }
+    
+    func addSerializer(serializer: MockSerializer) {
+        self.serializer = serializer
     }
     
     func fire() -> Promise<Swift.Result<MockedContract, Error>> {
         return Promise { seal in
-            call().done { result in
-                print(result)
+            call(urlSession: self.urlSession, urlRequest: self.urlRequest!).done { result in
                 seal.fulfill(result)
             }.catch { error in
-                print(error)
                 seal.fulfill(.failure(error))
             }
         }
@@ -36,8 +45,10 @@ class FetchContractNetworkOperation {
     
     func onSuccess(data: Data) -> Swift.Result<MockedContract, Error> {
         do {
-            let contract = try JSONDecoder().decode(MockedContract.self, from: data)
-            return .success(contract)
+            if let contract = try self.serializer?.decode(data: data) {
+                return .success(contract)
+            }
+            return .failure(NetworkingError.serializationError)
         } catch {
             return .failure(error)
         }
@@ -50,23 +61,5 @@ class FetchContractNetworkOperation {
         default:
             return .failure(NetworkingError.unknownNetworkingError)
         }
-    }
-    
-    func call() -> Promise<Swift.Result<MockedContract, Error>> {
-        return firstly {
-                urlSession.dataTask(.promise, with: url)
-            }.compactMap { data, response in
-                guard let httpResponse = response as? HTTPURLResponse else {
-                    throw NetworkingError.unknownNetworkingError
-                }
-                return self.handleResponse(data: data, response: httpResponse)
-            }
-        }
-    
-    private func handleResponse(data: Data, response: HTTPURLResponse) -> Swift.Result<MockedContract, Error> {
-        if response.statusCode < 400 {
-            return self.onSuccess(data: data)
-        }
-        return self.onFailure(response: response)
     }
 }

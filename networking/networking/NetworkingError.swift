@@ -10,4 +10,6 @@ enum NetworkingError: Error {
     case serviceNotFound
     case invalidRequest
     case unknownNetworkingError
+    case invalidUrl
+    case serializationError
 }

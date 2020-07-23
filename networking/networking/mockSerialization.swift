@@ -8,6 +8,10 @@
 
 import Foundation
 
-class MockSerializer: JSONSerialization {
+class MockSerializer {
+    
+    func decode(data: Data) throws -> MockedContract {
+        return try JSONDecoder().decode(MockedContract.self, from: data)
+    }
     
 }
