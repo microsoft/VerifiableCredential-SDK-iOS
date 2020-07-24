@@ -11,22 +11,17 @@ import PromiseKit
 
 @testable import networking
 
-class FetchContractNetworkOperationTests: XCTestCase {
-    var fetchContractApi: FetchContractNetworkOperation!
+class FetchNetworkOperationTests: XCTestCase {
+    var fetchContractApi: FetchNetworkOperation<MockedContract>!
     var expectation: XCTestExpectation!
-    let testUrl = "https://testcontract.com/423"
+    let testUrl = "https://testcontract.com/4235"
     
     override func setUp() {
-      let configuration = URLSessionConfiguration.default
-      configuration.protocolClasses = [UrlProtocolMock.self]
-      let urlSession = URLSession.init(configuration: configuration)
-      fetchContractApi = FetchContractNetworkOperation(urlSession: urlSession)
-        do {
-            try fetchContractApi.createRequest(withUrl: testUrl)
-            fetchContractApi.addSerializer(serializer: MockSerializer())
-        } catch {
-            print(error)
-        }
+        let configuration = URLSessionConfiguration.default
+        configuration.protocolClasses = [UrlProtocolMock.self]
+        let urlSession = URLSession.init(configuration: configuration)
+        let urlRequest = URLRequest(url: URL(string: testUrl)!)
+        fetchContractApi = FetchNetworkOperation(urlRequest: urlRequest, serializer: Serializer(), urlSession: urlSession)
     }
     
     func testSuccessfulFetchOperation() {
@@ -39,7 +34,7 @@ class FetchContractNetworkOperationTests: XCTestCase {
         let data = jsonString.data(using: .utf8)
         UrlProtocolMock.requestHandler = { request in
             let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: 200, httpVersion: nil, headerFields: nil)!
-          return (response, data)
+            return (response, data)
         }
         
         let expec = self.expectation(description: "Fire")
@@ -58,6 +53,7 @@ class FetchContractNetworkOperationTests: XCTestCase {
             expec.fulfill()
         }.catch { error in
             print(error)
+            XCTFail()
         }
         
         wait(for: [expec], timeout: 5)
@@ -72,8 +68,8 @@ class FetchContractNetworkOperationTests: XCTestCase {
                          """
         let data = jsonString.data(using: .utf8)
         UrlProtocolMock.requestHandler = { request in
-          let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: 400, httpVersion: nil, headerFields: nil)!
-          return (response, data)
+            let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: 400, httpVersion: nil, headerFields: nil)!
+            return (response, data)
         }
         
         let expec = self.expectation(description: "Fire")
@@ -96,5 +92,38 @@ class FetchContractNetworkOperationTests: XCTestCase {
         wait(for: [expec], timeout: 5)
     }
     
-
+    func testFetchOperationWithInvalidJSON() {
+        let jsonString = """
+                            {
+                            "id": "test23",
+                            "tye": "type235"
+                            }
+                         """
+        let data = jsonString.data(using: .utf8)
+        UrlProtocolMock.requestHandler = { request in
+            let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: 200, httpVersion: nil, headerFields: nil)!
+            return (response, data)
+        }
+        
+        let expec = self.expectation(description: "Fire")
+        
+        fetchContractApi.fire().done { result in
+            switch result {
+            case .success(let contract):
+                print(contract)
+                XCTFail()
+            case .failure(let error):
+                print(error)
+                XCTAssertTrue(error is DecodingError)
+            }
+            expec.fulfill()
+        }.catch { error in
+            print(error)
+            XCTFail()
+        }
+        
+        wait(for: [expec], timeout: 5)
+    }
+    
+    
 }

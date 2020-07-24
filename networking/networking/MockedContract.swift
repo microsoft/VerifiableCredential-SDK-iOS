@@ -6,7 +6,7 @@
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
-struct MockedContract: Decodable {
+struct MockedContract: Codable {
     let id: String
     let type: String
 }

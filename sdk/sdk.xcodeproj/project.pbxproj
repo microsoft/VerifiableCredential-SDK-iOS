@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,7 @@
 		55D1C0C624C23408002A58F9 /* sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1C0C524C23408002A58F9 /* sdkTests.swift */; };
 		55D1C0C824C23408002A58F9 /* sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D1C0BA24C23408002A58F9 /* sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55D7C00924C4D6130090F495 /* networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7C00824C4D6130090F495 /* networking.framework */; };
-		55D7C00A24C4D6130090F495 /* networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7C00824C4D6130090F495 /* networking.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		55D7C00A24C4D6130090F495 /* networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7C00824C4D6130090F495 /* networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55D7C01124C89F5F0090F495 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C01024C89F5F0090F495 /* Podfile */; };
 		9929EF7AF32053CD4939D9A2 /* Pods_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B5285C2321E40D746262D8 /* Pods_sdk.framework */; };
 		9D05B81BFB05F6FD519868AD /* Pods_sdk_sdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF16D34781F151862D53D7FB /* Pods_sdk_sdkTests.framework */; };
