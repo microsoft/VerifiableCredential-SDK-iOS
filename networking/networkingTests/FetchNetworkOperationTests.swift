@@ -25,18 +25,7 @@ class FetchNetworkOperationTests: XCTestCase {
     }
     
     func testSuccessfulFetchOperation() {
-        let jsonString = """
-                            {
-                            "id": "test23",
-                            "type": "type235"
-                            }
-                         """
-        let data = jsonString.data(using: .utf8)
-        UrlProtocolMock.requestHandler = { request in
-            let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: 200, httpVersion: nil, headerFields: nil)!
-            return (response, data)
-        }
-        
+        self.createMockResponse(responseBody: self.expectedStringifiedContract, statusCode: 200)
         let expec = self.expectation(description: "Fire")
         
         fetchContractApi.fire().done { result in
@@ -60,18 +49,7 @@ class FetchNetworkOperationTests: XCTestCase {
     }
     
     func testFailedFetchOperation() {
-        let jsonString = """
-                            {
-                            "id": "test23",
-                            "type": "type235"
-                            }
-                         """
-        let data = jsonString.data(using: .utf8)
-        UrlProtocolMock.requestHandler = { request in
-            let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: 400, httpVersion: nil, headerFields: nil)!
-            return (response, data)
-        }
-        
+        self.createMockResponse(responseBody: self.expectedStringifiedContract, statusCode: 400)
         let expec = self.expectation(description: "Fire")
         
         fetchContractApi.fire().done { result in
@@ -93,17 +71,13 @@ class FetchNetworkOperationTests: XCTestCase {
     }
     
     func testFetchOperationWithInvalidJSON() {
-        let jsonString = """
+        let expectedResponseBody = """
                             {
                             "id": "test23",
-                            "tye": "type235"
+                            "invalidKey": "type235"
                             }
                          """
-        let data = jsonString.data(using: .utf8)
-        UrlProtocolMock.requestHandler = { request in
-            let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: 200, httpVersion: nil, headerFields: nil)!
-            return (response, data)
-        }
+        self.createMockResponse(responseBody: expectedResponseBody, statusCode: 200)
         
         let expec = self.expectation(description: "Fire")
         
@@ -124,6 +98,22 @@ class FetchNetworkOperationTests: XCTestCase {
         
         wait(for: [expec], timeout: 5)
     }
+    
+    private func createMockResponse(responseBody: String, statusCode: Int) {
+        let data = responseBody.data(using: .utf8)
+        UrlProtocolMock.requestHandler = { request in
+            let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+            return (response, data)
+        }
+    }
+    
+    private let expectedStringifiedContract =
+    """
+        {
+          "id": "test23",
+          "type": "type235"
+        }
+    """
     
     
 }

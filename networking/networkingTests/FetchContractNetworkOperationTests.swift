@@ -28,18 +28,7 @@ class FetchContractNetworkOperationTests: XCTestCase {
     }
     
     func testSuccessfulFetchOperation() {
-        let jsonString = """
-                            {
-                            "id": "test23",
-                            "type": "type235"
-                            }
-                         """
-        let data = jsonString.data(using: .utf8)
-        UrlProtocolMock.requestHandler = { request in
-            let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: 200, httpVersion: nil, headerFields: nil)!
-            return (response, data)
-        }
-        
+        self.createMockResponse(responseBody: expectedStringifiedContract, statusCode: 200)
         let expec = self.expectation(description: "Fire")
         
         fetchContractApi.fire().done { result in
@@ -62,19 +51,8 @@ class FetchContractNetworkOperationTests: XCTestCase {
         wait(for: [expec], timeout: 5)
     }
     
-    func testFailedFetchOperation() {
-        let jsonString = """
-                            {
-                            "id": "test23",
-                            "type": "type235"
-                            }
-                         """
-        let data = jsonString.data(using: .utf8)
-        UrlProtocolMock.requestHandler = { request in
-            let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: 400, httpVersion: nil, headerFields: nil)!
-            return (response, data)
-        }
-        
+    func testNotFoundFailureFetchOperation() {
+        self.createMockResponse(responseBody: expectedStringifiedContract, statusCode: 400)
         let expec = self.expectation(description: "Fire")
         
         fetchContractApi.fire().done { result in
@@ -84,7 +62,7 @@ class FetchContractNetworkOperationTests: XCTestCase {
                 print(contract)
                 XCTFail()
             case .failure(let error):
-                XCTAssertTrue(error is NetworkingError)
+                XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidRequest)
             }
             expec.fulfill()
         }.catch { error in
@@ -96,18 +74,13 @@ class FetchContractNetworkOperationTests: XCTestCase {
     }
     
     func testFetchOperationWithInvalidJSON() {
-        let jsonString = """
+        let invalidContractFormatString = """
                             {
                             "id": "test23",
-                            "tye": "type235"
+                            "invalidKey": "type235"
                             }
                          """
-        let data = jsonString.data(using: .utf8)
-        UrlProtocolMock.requestHandler = { request in
-            let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: 200, httpVersion: nil, headerFields: nil)!
-            return (response, data)
-        }
-        
+        self.createMockResponse(responseBody: invalidContractFormatString, statusCode: 200)
         let expec = self.expectation(description: "Fire")
         
         fetchContractApi.fire().done { result in
@@ -127,6 +100,30 @@ class FetchContractNetworkOperationTests: XCTestCase {
         
         wait(for: [expec], timeout: 5)
     }
+    
+    func testInvalidUrlInput() {
+        let invalidUrl = ""
+        XCTAssertThrowsError(try FetchContractNetworkOperation(withUrl: invalidUrl)) { error in
+            XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl)
+        }
+        
+    }
+    
+    private func createMockResponse(responseBody: String, statusCode: Int) {
+        let data = responseBody.data(using: .utf8)
+        UrlProtocolMock.requestHandler = { request in
+            let response = HTTPURLResponse(url: URL(string: self.testUrl)!, statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+            return (response, data)
+        }
+    }
+    
+    private let expectedStringifiedContract =
+    """
+        {
+          "id": "test23",
+          "type": "type235"
+        }
+    """
     
     
 }
