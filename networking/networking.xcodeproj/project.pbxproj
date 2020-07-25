@@ -7,16 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55B8F24624C8F9070066A9E3 /* FetchPresentationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8F24524C8F9070066A9E3 /* FetchPresentationRequest.swift */; };
-		55B8F24724C8F9070066A9E3 /* FetchPresentationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8F24524C8F9070066A9E3 /* FetchPresentationRequest.swift */; };
 		55B8F24924C924FC0066A9E3 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8F24824C924FC0066A9E3 /* NetworkingError.swift */; };
 		55B8F24A24C924FC0066A9E3 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8F24824C924FC0066A9E3 /* NetworkingError.swift */; };
 		55B8F24C24C9C9A20066A9E3 /* BaseNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8F24B24C9C9A20066A9E3 /* BaseNetworkOperation.swift */; };
 		55B8F24D24C9C9A20066A9E3 /* BaseNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8F24B24C9C9A20066A9E3 /* BaseNetworkOperation.swift */; };
 		55B8F24F24C9CB490066A9E3 /* MockSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8F24E24C9CB490066A9E3 /* MockSerialization.swift */; };
 		55B8F25024C9CB490066A9E3 /* MockSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8F24E24C9CB490066A9E3 /* MockSerialization.swift */; };
-		55CED0A724CA513900A2AAE2 /* FetchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0A624CA513900A2AAE2 /* FetchContract.swift */; };
-		55CED0A824CA513900A2AAE2 /* FetchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0A624CA513900A2AAE2 /* FetchContract.swift */; };
 		55CED0AD24CA558500A2AAE2 /* FetchNetworkOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0AC24CA558500A2AAE2 /* FetchNetworkOperationTests.swift */; };
 		55CED0B124CB3A2900A2AAE2 /* PostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0B024CB3A2900A2AAE2 /* PostNetworkOperation.swift */; };
 		55CED0B224CB3A2900A2AAE2 /* PostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0B024CB3A2900A2AAE2 /* PostNetworkOperation.swift */; };
@@ -29,7 +25,6 @@
 		55CED0C324CCC00000A2AAE2 /* URLResponse+ConvertToHttpUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0C224CCC00000A2AAE2 /* URLResponse+ConvertToHttpUrlResponse.swift */; };
 		55CED0C424CCC00000A2AAE2 /* URLResponse+ConvertToHttpUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0C224CCC00000A2AAE2 /* URLResponse+ConvertToHttpUrlResponse.swift */; };
 		55CED0C724CCC3E000A2AAE2 /* URLResponse+ConvertToHttpUrlResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0C624CCC3E000A2AAE2 /* URLResponse+ConvertToHttpUrlResponseTests.swift */; };
-		55CED0C924CCC93900A2AAE2 /* FetchPresentationRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0C824CCC93900A2AAE2 /* FetchPresentationRequestTests.swift */; };
 		55D7BFF424C4CBBD0090F495 /* networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7BFEA24C4CBBD0090F495 /* networking.framework */; };
 		55D7BFFB24C4CBBD0090F495 /* networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D7BFED24C4CBBD0090F495 /* networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55D7C00D24C89B0F0090F495 /* networking.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C00C24C89B0E0090F495 /* networking.podspec */; };
@@ -56,11 +51,9 @@
 		42CA1E2F2F8D3C690FE1FB6D /* Pods-networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking.debug.xcconfig"; path = "Target Support Files/Pods-networking/Pods-networking.debug.xcconfig"; sourceTree = "<group>"; };
 		49E7B2003781468BAF4E1A8C /* Pods_networking_networkingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_networking_networkingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5024C7EC25EB5973BB33C735 /* Pods-networking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking.release.xcconfig"; path = "Target Support Files/Pods-networking/Pods-networking.release.xcconfig"; sourceTree = "<group>"; };
-		55B8F24524C8F9070066A9E3 /* FetchPresentationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPresentationRequest.swift; sourceTree = "<group>"; };
 		55B8F24824C924FC0066A9E3 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		55B8F24B24C9C9A20066A9E3 /* BaseNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkOperation.swift; sourceTree = "<group>"; };
 		55B8F24E24C9CB490066A9E3 /* MockSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSerialization.swift; sourceTree = "<group>"; };
-		55CED0A624CA513900A2AAE2 /* FetchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContract.swift; sourceTree = "<group>"; };
 		55CED0AC24CA558500A2AAE2 /* FetchNetworkOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNetworkOperationTests.swift; sourceTree = "<group>"; };
 		55CED0B024CB3A2900A2AAE2 /* PostNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkOperation.swift; sourceTree = "<group>"; };
 		55CED0B324CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkOperationTests.swift; sourceTree = "<group>"; };
@@ -69,7 +62,6 @@
 		55CED0BE24CCB17500A2AAE2 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
 		55CED0C224CCC00000A2AAE2 /* URLResponse+ConvertToHttpUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+ConvertToHttpUrlResponse.swift"; sourceTree = "<group>"; };
 		55CED0C624CCC3E000A2AAE2 /* URLResponse+ConvertToHttpUrlResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+ConvertToHttpUrlResponseTests.swift"; sourceTree = "<group>"; };
-		55CED0C824CCC93900A2AAE2 /* FetchPresentationRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPresentationRequestTests.swift; sourceTree = "<group>"; };
 		55D7BFEA24C4CBBD0090F495 /* networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFED24C4CBBD0090F495 /* networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networking.h; sourceTree = "<group>"; };
 		55D7BFEE24C4CBBD0090F495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,9 +101,7 @@
 		55CED0AE24CB39DD00A2AAE2 /* fetch */ = {
 			isa = PBXGroup;
 			children = (
-				55CED0A624CA513900A2AAE2 /* FetchContract.swift */,
 				55D7C01724C8BCC90090F495 /* FetchNetworkOperation.swift */,
-				55B8F24524C8F9070066A9E3 /* FetchPresentationRequest.swift */,
 			);
 			path = fetch;
 			sourceTree = "<group>";
@@ -139,7 +129,6 @@
 			children = (
 				55D7C01A24C8BDCD0090F495 /* FetchContractTests.swift */,
 				55CED0AC24CA558500A2AAE2 /* FetchNetworkOperationTests.swift */,
-				55CED0C824CCC93900A2AAE2 /* FetchPresentationRequestTests.swift */,
 			);
 			path = fetch;
 			sourceTree = "<group>";
@@ -436,14 +425,12 @@
 				55D7C01824C8BCC90090F495 /* FetchNetworkOperation.swift in Sources */,
 				55CED0BF24CCB17500A2AAE2 /* NetworkingConstants.swift in Sources */,
 				55CED0B724CB3DF200A2AAE2 /* PostPresentationResponseNetworkOperation.swift in Sources */,
-				55CED0A724CA513900A2AAE2 /* FetchContract.swift in Sources */,
 				55CED0C324CCC00000A2AAE2 /* URLResponse+ConvertToHttpUrlResponse.swift in Sources */,
 				55B8F24F24C9CB490066A9E3 /* MockSerialization.swift in Sources */,
 				55B8F24924C924FC0066A9E3 /* NetworkingError.swift in Sources */,
 				55CED0B124CB3A2900A2AAE2 /* PostNetworkOperation.swift in Sources */,
 				55D7C01524C8B4D80090F495 /* Retryable.swift in Sources */,
 				55B8F24C24C9C9A20066A9E3 /* BaseNetworkOperation.swift in Sources */,
-				55B8F24624C8F9070066A9E3 /* FetchPresentationRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,14 +439,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				55CED0C724CCC3E000A2AAE2 /* URLResponse+ConvertToHttpUrlResponseTests.swift in Sources */,
-				55CED0A824CA513900A2AAE2 /* FetchContract.swift in Sources */,
 				55CED0C424CCC00000A2AAE2 /* URLResponse+ConvertToHttpUrlResponse.swift in Sources */,
 				55D7C01B24C8BDCD0090F495 /* FetchContractTests.swift in Sources */,
-				55B8F24724C8F9070066A9E3 /* FetchPresentationRequest.swift in Sources */,
 				55CED0C024CCB17500A2AAE2 /* NetworkingConstants.swift in Sources */,
 				55CED0B524CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift in Sources */,
 				55B8F24D24C9C9A20066A9E3 /* BaseNetworkOperation.swift in Sources */,
-				55CED0C924CCC93900A2AAE2 /* FetchPresentationRequestTests.swift in Sources */,
 				55B8F24A24C924FC0066A9E3 /* NetworkingError.swift in Sources */,
 				55B8F25024C9CB490066A9E3 /* MockSerialization.swift in Sources */,
 				55D7C01924C8BCC90090F495 /* FetchNetworkOperation.swift in Sources */,

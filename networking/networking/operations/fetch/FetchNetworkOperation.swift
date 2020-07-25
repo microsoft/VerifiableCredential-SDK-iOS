@@ -14,10 +14,19 @@ open class FetchNetworkOperation<ResponseBody: Codable>: BaseNetworkOperation {
     let urlSession: URLSession
     let urlRequest: URLRequest
     let serializer: Serializer
+    
+    init(withUrl urlStr: String, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
+        guard let url = URL(string: urlStr) else {
+            throw NetworkingError.invalidUrl(withUrl: urlStr)
+        }
+        self.urlRequest = URLRequest(url: url)
+        self.urlSession = urlSession
+        self.serializer = serializer
+    }
         
     init(urlRequest: URLRequest, serializer: Serializer, urlSession: URLSession) {
-        self.urlSession = urlSession
         self.urlRequest = urlRequest
+        self.urlSession = urlSession
         self.serializer = serializer
     }
     
@@ -33,3 +42,7 @@ open class FetchNetworkOperation<ResponseBody: Codable>: BaseNetworkOperation {
         return defaultOnFailure(data: data, response: response, serializer: serializer)
     }
 }
+
+class FetchContract: FetchNetworkOperation<Contract> {}
+class FetchPresentationRequest: FetchNetworkOperation<PresentationRequest> {}
+class FetchIdentifierDocument: FetchNetworkOperation<IdentifierDocument> {}
