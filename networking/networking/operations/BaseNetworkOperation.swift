@@ -10,18 +10,18 @@ import Foundation
 import PromiseKit
 
 protocol BaseNetworkOperation {
-    associatedtype T: Codable
+    associatedtype ResponseBody
     
-    func fire() -> Promise<Swift.Result<T, Error>>
+    func fire() -> Promise<Swift.Result<ResponseBody, Error>>
     
-    func onSuccess(data: Data, response: HTTPURLResponse) -> Swift.Result<T, Error>
+    func onSuccess(data: Data, response: HTTPURLResponse) -> Swift.Result<ResponseBody, Error>
     
-    func onFailure(data: Data, response: HTTPURLResponse) -> Swift.Result<T, Error>
+    func onFailure(data: Data, response: HTTPURLResponse) -> Swift.Result<ResponseBody, Error>
 }
 
 extension BaseNetworkOperation {
     
-    func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<Swift.Result<T, Error>> {
+    func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<Swift.Result<ResponseBody, Error>> {
         let promise = firstly {
             urlSession.dataTask(.promise, with: urlRequest)
         }.then { data, response in
@@ -30,7 +30,7 @@ extension BaseNetworkOperation {
         return promise
     }
     
-    private func handleResponse(data: Data, response: URLResponse) -> Promise<Swift.Result<T, Error>> {
+    private func handleResponse(data: Data, response: URLResponse) -> Promise<Swift.Result<ResponseBody, Error>> {
         return Promise { seal in
             
             guard let httpResponse = response as? HTTPURLResponse else {
@@ -45,16 +45,16 @@ extension BaseNetworkOperation {
         }
     }
     
-    func defaultOnSuccess(data: Data, response: URLResponse, serializer: Serializer) -> Swift.Result<T, Error> {
+    func defaultOnSuccess(data: Data, response: URLResponse, serializer: Serializer) -> Swift.Result<ResponseBody, Error> {
         do {
-            let deserializedObject = try serializer.deserialize(type: T.self, data: data)
-            return .success(deserializedObject)
+            let deserializedObject = try serializer.deserialize(data: data)
+            return .success(deserializedObject as! Self.ResponseBody)
         } catch {
             return .failure(error)
         }
     }
     
-    func defaultOnFailure(data: Data, response: HTTPURLResponse, serializer: Serializer) -> Swift.Result<T, Error> {
+    func defaultOnFailure(data: Data, response: HTTPURLResponse, serializer: Serializer) -> Swift.Result<ResponseBody, Error> {
         switch response.statusCode {
         case 400:
             return .failure(NetworkingError.invalidRequest)

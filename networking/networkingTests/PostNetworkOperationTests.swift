@@ -11,24 +11,24 @@ import PromiseKit
 
 @testable import networking
 
-class FetchNetworkOperationTests: XCTestCase {
-    private var fetchContractApi: FetchNetworkOperation<Contract>!
+class PostNetworkOperationTests: XCTestCase {
+    private var postContractApi: PostNetworkOperation<Contract>!
     private let expectedUrl = "https://testcontract.com/4235"
-    private let expectedHttpResponse = "httpResponse423"
+    private let expectedHttpResponse = "expectedResponse2353"
     
     override func setUp() {
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
-        let urlRequest = URLRequest(url: URL(string: expectedUrl)!)
-        fetchContractApi = FetchNetworkOperation(urlRequest: urlRequest, serializer: Serializer(), urlSession: urlSession)
+        let urlRequest = URLRequest(url: URL(string: self.expectedUrl)!)
+        postContractApi = PostNetworkOperation(urlRequest: urlRequest, serializer: Serializer(), urlSession: urlSession)
     }
     
-    func testSuccessfulFetchOperation() {
+    func testSuccessfulPostOperation() {
         UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, responseBody: self.expectedHttpResponse, statusCode: 200)
         let expec = self.expectation(description: "Fire")
         
-        fetchContractApi.fire().done { result in
+        postContractApi.fire().done { result in
             print(result)
             switch result {
             case .success(let contract):
@@ -42,14 +42,15 @@ class FetchNetworkOperationTests: XCTestCase {
             print(error)
             XCTFail()
         }
+        
         wait(for: [expec], timeout: 5)
     }
     
-    func testFailedFetchOperation() {
+    func testFailedPostOperation() {
         UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, responseBody: self.expectedHttpResponse, statusCode: 400)
         let expec = self.expectation(description: "Fire")
         
-        fetchContractApi.fire().done { result in
+        postContractApi.fire().done { result in
             print(result)
             switch result {
             case .success(let contract):
@@ -63,6 +64,7 @@ class FetchNetworkOperationTests: XCTestCase {
             print(error)
             XCTFail()
         }
+        
         wait(for: [expec], timeout: 5)
     }
 }

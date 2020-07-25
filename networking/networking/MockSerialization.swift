@@ -8,14 +8,22 @@
 
 import Foundation
 
+// Mock Serializer until Serialization layer is implemented
 class Serializer {
     
-    func deserialize<T: Decodable>(type: T.Type, data: Data) throws -> T {
-        return try JSONDecoder().decode(T.self, from: data)
+    func deserialize(data: Data) throws -> Any {
+        return String(data: data, encoding: .utf8)! as Any
     }
     
-    func serialize<T: Encodable>(object: T) throws -> Data {
-        return try JSONEncoder().encode(object)
+    func serialize(object: Any) throws -> Data {
+        return (object as! String).data(using: .utf8)!
     }
-    
 }
+
+// Mock Data Models until Serialization layer is implemented
+typealias PresentationRequest = String
+typealias PresentationServiceResponse = String
+typealias IssuanceServiceResponse = String
+typealias ExchangeServiceResponse = String
+typealias IdentifierDocument = String
+typealias Contract = String

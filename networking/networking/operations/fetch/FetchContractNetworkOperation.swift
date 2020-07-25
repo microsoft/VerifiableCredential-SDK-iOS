@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FetchContractNetworkOperation: FetchNetworkOperation<MockedContract> {
+class FetchContractNetworkOperation: FetchNetworkOperation<Contract> {
     
     init(withUrl urlStr: String, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
         guard let url = URL(string: urlStr) else {

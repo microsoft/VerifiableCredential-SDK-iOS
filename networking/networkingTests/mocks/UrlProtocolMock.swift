@@ -10,6 +10,14 @@ import Foundation
 
 class UrlProtocolMock: URLProtocol {
     
+    static func createMockResponse(httpResponse: String, url: String, responseBody: String, statusCode: Int) {
+        let data = httpResponse.data(using: .utf8)
+        UrlProtocolMock.requestHandler = { request in
+            let response = HTTPURLResponse(url: URL(string: url)!, statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+            return (response, data)
+        }
+    }
+    
     // 1. Handler to test the request and return mock response.
     static var requestHandler: ((URLRequest) throws -> (HTTPURLResponse, Data?))?
     
