@@ -72,7 +72,7 @@ class PostIssuanceResponseTests: XCTestCase {
     
     func testInvalidUrlInput() {
         let invalidUrl = ""
-        XCTAssertThrowsError(try PostPresentationResponse(withUrl: invalidUrl, withBody: "testResponse")) { error in
+        XCTAssertThrowsError(try PostIssuanceResponse(withUrl: invalidUrl, withBody: "testResponse")) { error in
             XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl(withUrl: invalidUrl))
         }
     }
