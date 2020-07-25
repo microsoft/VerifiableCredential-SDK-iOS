@@ -22,8 +22,11 @@ class Serializer {
 
 // Mock Data Models until Serialization layer is implemented
 typealias PresentationRequest = String
+typealias PresentationResponse = String
 typealias PresentationServiceResponse = String
+typealias IssuanceResponse = String
 typealias IssuanceServiceResponse = String
+typealias ExchangeRequest = String
 typealias ExchangeServiceResponse = String
 typealias IdentifierDocument = String
 typealias Contract = String

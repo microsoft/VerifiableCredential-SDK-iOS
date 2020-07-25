@@ -14,20 +14,18 @@ open class FetchNetworkOperation<ResponseBody: Codable>: BaseNetworkOperation {
     let urlSession: URLSession
     let urlRequest: URLRequest
     let serializer: Serializer
-    
-    init(withUrl urlStr: String, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
-        guard let url = URL(string: urlStr) else {
-            throw NetworkingError.invalidUrl(withUrl: urlStr)
-        }
-        self.urlRequest = URLRequest(url: url)
-        self.urlSession = urlSession
-        self.serializer = serializer
-    }
         
     init(urlRequest: URLRequest, serializer: Serializer, urlSession: URLSession) {
         self.urlRequest = urlRequest
         self.urlSession = urlSession
         self.serializer = serializer
+    }
+    
+    convenience init(withUrl urlStr: String, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
+        guard let url = URL(string: urlStr) else {
+            throw NetworkingError.invalidUrl(withUrl: urlStr)
+        }
+        self.init(urlRequest: URLRequest(url: url), serializer: serializer, urlSession: urlSession)
     }
     
     func fire() -> Promise<Swift.Result<ResponseBody, Error>> {
