@@ -11,9 +11,10 @@ import PromiseKit
 
 @testable import networking
 
-class PostPresentationRequestNetworkOperationTests: XCTestCase {
-    private var postContractApi: PostPresentationResponseNetworkOperation!
+class PostPresentationRequestTests: XCTestCase {
+    private var postContractApi: PostPresentationResponse!
     private let expectedUrl = "https://testcontract.com/4235"
+    private let expectedHttpResponse = "testPresentationResponse29384"
     private let testRequestBody = "requestBody2543"
     
     override func setUp() {
@@ -21,7 +22,7 @@ class PostPresentationRequestNetworkOperationTests: XCTestCase {
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
         do {
-            postContractApi = try PostPresentationResponseNetworkOperation(withUrl: self.expectedUrl, withBody: testRequestBody, urlSession: urlSession)
+            postContractApi = try PostPresentationResponse(withUrl: self.expectedUrl, withBody: testRequestBody, urlSession: urlSession)
         } catch {
             print(error)
         }
@@ -59,7 +60,7 @@ class PostPresentationRequestNetworkOperationTests: XCTestCase {
                 print(contract)
                 XCTFail()
             case .failure(let error):
-                XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidRequest)
+                XCTAssertEqual(error as! NetworkingError, NetworkingError.badRequest(withBody: self.expectedHttpResponse))
             }
             expec.fulfill()
         }.catch { error in
@@ -71,10 +72,8 @@ class PostPresentationRequestNetworkOperationTests: XCTestCase {
     
     func testInvalidUrlInput() {
         let invalidUrl = ""
-        XCTAssertThrowsError(try PostPresentationResponseNetworkOperation(withUrl: invalidUrl, withBody: "testResponse")) { error in
-            XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl)
+        XCTAssertThrowsError(try PostPresentationResponse(withUrl: invalidUrl, withBody: "testResponse")) { error in
+            XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl(withUrl: invalidUrl))
         }
     }
-    
-    private let expectedHttpResponse = "testPresentationResponse29384"
 }

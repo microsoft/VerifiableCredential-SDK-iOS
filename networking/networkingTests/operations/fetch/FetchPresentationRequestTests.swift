@@ -1,8 +1,8 @@
 //
-//  FetchContractNetworkOperationTests.swift
+//  FetchPresentationRequestTests.swift
 //  networkingTests
 //
-//  Created by Sydney Morton on 7/22/20.
+//  Created by Sydney Morton on 7/25/20.
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
@@ -11,30 +11,34 @@ import PromiseKit
 
 @testable import networking
 
-class PostNetworkOperationTests: XCTestCase {
-    private var postContractApi: PostNetworkOperation<Contract>!
-    private let expectedUrl = "https://testcontract.com/4235"
-    private let expectedHttpResponse = "expectedResponse2353"
+class FetchPresentationRequestsTests: XCTestCase {
+    private var fetchContractApi: FetchPresentationRequest!
+    private let expectedUrl = "https://testrelyingparty.com/4235"
+    private let expectedHttpResponse = "expectedHttpResponse324"
     
     override func setUp() {
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
-        let urlRequest = URLRequest(url: URL(string: self.expectedUrl)!)
-        postContractApi = PostNetworkOperation(urlRequest: urlRequest, serializer: Serializer(), urlSession: urlSession)
+        do {
+            fetchContractApi = try FetchPresentationRequest(withUrl: expectedUrl, urlSession: urlSession)
+        } catch {
+            print(error)
+        }
     }
     
-    func testSuccessfulPostOperation() {
+    func testSuccessfulFetchOperation() {
         UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, responseBody: self.expectedHttpResponse, statusCode: 200)
         let expec = self.expectation(description: "Fire")
         
-        postContractApi.fire().done { result in
+        fetchContractApi.fire().done { result in
             print(result)
             switch result {
             case .success(let contract):
                 print(contract)
                 XCTAssertEqual(contract, self.expectedHttpResponse)
-            case .failure(_):
+            case .failure(let error):
+                XCTAssertTrue(error is NetworkingError)
                 XCTFail()
             }
             expec.fulfill()
@@ -46,18 +50,18 @@ class PostNetworkOperationTests: XCTestCase {
         wait(for: [expec], timeout: 5)
     }
     
-    func testFailedPostOperation() {
+    func testNotFoundFailureFetchOperation() {
         UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, responseBody: self.expectedHttpResponse, statusCode: 400)
         let expec = self.expectation(description: "Fire")
         
-        postContractApi.fire().done { result in
+        fetchContractApi.fire().done { result in
             print(result)
             switch result {
             case .success(let contract):
                 print(contract)
                 XCTFail()
             case .failure(let error):
-                XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidRequest)
+                XCTAssertEqual(error as! NetworkingError, NetworkingError.badRequest(withBody: self.expectedHttpResponse))
             }
             expec.fulfill()
         }.catch { error in
@@ -66,5 +70,12 @@ class PostNetworkOperationTests: XCTestCase {
         }
         
         wait(for: [expec], timeout: 5)
+    }
+    
+    func testInvalidUrlInput() {
+        let invalidUrl = ""
+        XCTAssertThrowsError(try FetchContract(withUrl: invalidUrl)) { error in
+            XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl(withUrl: invalidUrl))
+        }
     }
 }

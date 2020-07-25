@@ -11,8 +11,8 @@ import PromiseKit
 
 @testable import networking
 
-class FetchContractNetworkOperationTests: XCTestCase {
-    private var fetchContractApi: FetchContractNetworkOperation!
+class FetchContractTests: XCTestCase {
+    private var fetchContractApi: FetchContract!
     private let expectedUrl = "https://testcontract.com/4235"
     private let expectedHttpResponse = "expectedHttpResponse324"
     
@@ -21,7 +21,7 @@ class FetchContractNetworkOperationTests: XCTestCase {
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
         do {
-            fetchContractApi = try FetchContractNetworkOperation(withUrl: expectedUrl, urlSession: urlSession)
+            fetchContractApi = try FetchContract(withUrl: expectedUrl, urlSession: urlSession)
         } catch {
             print(error)
         }
@@ -61,7 +61,7 @@ class FetchContractNetworkOperationTests: XCTestCase {
                 print(contract)
                 XCTFail()
             case .failure(let error):
-                XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidRequest)
+                XCTAssertEqual(error as! NetworkingError, NetworkingError.badRequest(withBody: self.expectedHttpResponse))
             }
             expec.fulfill()
         }.catch { error in
@@ -74,8 +74,8 @@ class FetchContractNetworkOperationTests: XCTestCase {
     
     func testInvalidUrlInput() {
         let invalidUrl = ""
-        XCTAssertThrowsError(try FetchContractNetworkOperation(withUrl: invalidUrl)) { error in
-            XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl)
+        XCTAssertThrowsError(try FetchContract(withUrl: invalidUrl)) { error in
+            XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl(withUrl: invalidUrl))
         }
     }
 }

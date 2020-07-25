@@ -33,33 +33,40 @@ extension BaseNetworkOperation {
     private func handleResponse(data: Data, response: URLResponse) -> Promise<Swift.Result<ResponseBody, Error>> {
         return Promise { seal in
             
-            guard let httpResponse = response as? HTTPURLResponse else {
-                seal.reject(NetworkingError.invalidRequest)
-                return
-            }
+            let successfulStatusCodeRange = 200...299
             
-            if httpResponse.statusCode < 400 {
-                seal.fulfill(self.onSuccess(data: data, response: httpResponse))
+            do {
+                let httpResponse = try response.convertToHttpUrlResponse()
+                if successfulStatusCodeRange.contains(httpResponse.statusCode) {
+                    seal.fulfill(self.onSuccess(data: data, response: httpResponse))
+                }
+                seal.fulfill(self.onFailure(data: data, response: httpResponse))
+            } catch {
+                seal.fulfill(.failure(error))
             }
-            seal.fulfill(self.onFailure(data: data, response: httpResponse))
         }
     }
     
-    func defaultOnSuccess(data: Data, response: URLResponse, serializer: Serializer) -> Swift.Result<ResponseBody, Error> {
-        do {
-            let deserializedObject = try serializer.deserialize(data: data)
-            return .success(deserializedObject as! Self.ResponseBody)
-        } catch {
-            return .failure(error)
-        }
+    func defaultOnSuccess(data: Data, response: HTTPURLResponse, serializer: Serializer) -> Swift.Result<ResponseBody, Error> {
+        let deserializedObject = serializer.deserialize(data: data)
+        return .success(deserializedObject as! Self.ResponseBody)
     }
     
     func defaultOnFailure(data: Data, response: HTTPURLResponse, serializer: Serializer) -> Swift.Result<ResponseBody, Error> {
+        let responseBody = serializer.deserialize(data: data) as! String
         switch response.statusCode {
         case 400:
-            return .failure(NetworkingError.invalidRequest)
+            return .failure(NetworkingError.badRequest(withBody: responseBody))
+        case 401:
+            return .failure(NetworkingError.unauthorized(withBody: responseBody))
+        case 403:
+            return .failure(NetworkingError.forbidden(withBody: responseBody))
+        case 404:
+            return .failure(NetworkingError.notFound(withBody: responseBody))
+        case 500...599:
+            return .failure(NetworkingError.serverError(withBody: responseBody))
         default:
-            return .failure(NetworkingError.unknownNetworkingError)
+            return .failure(NetworkingError.unknownNetworkingError(withBody: responseBody))
         }
     }
 }

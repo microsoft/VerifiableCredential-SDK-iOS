@@ -8,8 +8,14 @@
 
 import Foundation
 
-//class FetchPresentationRequest: GetNetworkOperation {
-//    typealias T = <#type#>
-//    
-//    func fire(url: String) -> () { }
-//}
+class FetchPresentationRequest: FetchNetworkOperation<Contract> {
+    
+    init(withUrl urlStr: String, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
+        guard let url = URL(string: urlStr) else {
+            throw NetworkingError.invalidUrl(withUrl: urlStr)
+        }
+        let urlRequest = URLRequest(url: url)
+        super.init(urlRequest: urlRequest, serializer: serializer, urlSession: urlSession)
+    }
+    
+}

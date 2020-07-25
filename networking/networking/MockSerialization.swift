@@ -11,11 +11,11 @@ import Foundation
 // Mock Serializer until Serialization layer is implemented
 class Serializer {
     
-    func deserialize(data: Data) throws -> Any {
+    func deserialize(data: Data) -> Any {
         return String(data: data, encoding: .utf8)! as Any
     }
     
-    func serialize(object: Any) throws -> Data {
+    func serialize(object: Any) -> Data {
         return (object as! String).data(using: .utf8)!
     }
 }
