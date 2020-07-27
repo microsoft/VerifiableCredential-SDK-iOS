@@ -9,6 +9,10 @@
 import Foundation
 import PromiseKit
 
+/**
+* Base Network Operation class with default methods for all Network Operations.
+* ResponseBody: the type of object returned by the service.
+*/
 protocol BaseNetworkOperation {
     associatedtype ResponseBody
     
