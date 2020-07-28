@@ -6,7 +6,6 @@
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
-import Foundation
 import PromiseKit
 
 open class FetchNetworkOperation<ResponseBody: Codable>: BaseNetworkOperation {

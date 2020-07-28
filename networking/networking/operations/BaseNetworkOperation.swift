@@ -6,13 +6,12 @@
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
-import Foundation
 import PromiseKit
 
 /**
-* Base Network Operation class with default methods for all Network Operations.
-* ResponseBody: the type of object returned by the service.
-*/
+ * Base Network Operation class with default methods for all Network Operations.
+ * ResponseBody: the type of object returned by the service.
+ */
 protocol BaseNetworkOperation {
     associatedtype ResponseBody
     
@@ -39,15 +38,16 @@ extension BaseNetworkOperation {
             
             let successfulStatusCodeRange = 200...299
             
-            do {
-                let httpResponse = try response.convertToHttpUrlResponse()
-                if successfulStatusCodeRange.contains(httpResponse.statusCode) {
-                    seal.fulfill(self.onSuccess(data: data, response: httpResponse))
-                }
-                seal.fulfill(self.onFailure(data: data, response: httpResponse))
-            } catch {
-                seal.fulfill(.failure(error))
+            guard let httpResponse = response as? HTTPURLResponse else {
+                seal.reject(NetworkingError.unableToCaseResponse)
+                return
             }
+            
+            if successfulStatusCodeRange.contains(httpResponse.statusCode) {
+                seal.fulfill(self.onSuccess(data: data, response: httpResponse))
+                return
+            }
+            seal.fulfill(self.onFailure(data: data, response: httpResponse))
         }
     }
     

@@ -6,9 +6,6 @@
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
-import Foundation
-
-import Foundation
 import PromiseKit
 
 open class PostNetworkOperation<ResponseBody, RequestBody>: BaseNetworkOperation {

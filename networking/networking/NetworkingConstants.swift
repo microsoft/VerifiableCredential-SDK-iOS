@@ -6,8 +6,6 @@
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
-import Foundation
-
 class Constants {
     static let POST = "POST"
     static let FORM_URLENCODED = "application/x-www-form-urlencoded"
