@@ -9,12 +9,14 @@
 import Foundation
 
 class Serializer {
+    var data: Data? = nil
     func deserialize<T: Serializable>(_: T.Type, data: Data) throws -> T {
-        return try T.deserialize(object: data) as! T
+        self.data = data
+        return T.init(from: self)
     }
     
     func serialize<T: Serializable>(object: T) throws -> Data {
-        return try object.serialize()
+        return try object.serialize(to: self)
     }
     
 }

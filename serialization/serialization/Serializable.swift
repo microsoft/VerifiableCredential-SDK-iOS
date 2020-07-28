@@ -9,7 +9,15 @@
 import Foundation
 
 protocol Serializable {
-    func serialize() throws -> Data
+    init (from serializer: Serializer)
     
-    static func deserialize(object: Data) throws -> Serializable
+    func serialize(to: Serializer) throws -> Data
+}
+
+extension Serializable {
+    init(from serializer: Serializer) throws {
+        guard let data = serializer.data else {
+            throw SerializationError.nullData
+        }
+    }
 }

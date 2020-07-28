@@ -8,10 +8,11 @@
 
 import Foundation
 
-struct Contract: Serializable, Codable {
+struct Contract: Codable {
     
     let test: String
     let id: String
+    let dict: [String: String]
 
     func serialize() throws -> Data {
         let encoder = JSONEncoder()
