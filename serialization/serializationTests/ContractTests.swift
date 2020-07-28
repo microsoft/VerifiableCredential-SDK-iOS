@@ -11,7 +11,7 @@ import XCTest
 class ContractTests: XCTestCase {
     
     var serializer: Serializer!
-    let expectedContract = Contract(test: "test", id: "42", dict: ["hi": "bye"])
+    let expectedContract = Contract(test: "test", id: "42")
     var expectedSerializedContract: Data!
 
     override func setUpWithError() throws {
@@ -24,7 +24,6 @@ class ContractTests: XCTestCase {
         let contract = try serializer.deserialize(Contract.self, data: expectedSerializedContract)
         XCTAssertEqual(contract.id, "42")
         XCTAssertEqual(contract.test, "test")
-        XCTAssertEqual(contract.dict["hi"], "bye")
     }
     
     func testSerializingContract() throws {

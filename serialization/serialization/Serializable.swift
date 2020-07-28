@@ -9,15 +9,22 @@
 import Foundation
 
 protocol Serializable {
-    init (from serializer: Serializer)
+    init (from serializer: Serializer) throws
     
     func serialize(to: Serializer) throws -> Data
 }
 
-extension Serializable {
+extension Serializable where Self: Codable {
+    func serialize(to: Serializer) throws -> Data {
+        let encoder = JSONEncoder()
+        return try encoder.encode(self)
+    }
+    
     init(from serializer: Serializer) throws {
         guard let data = serializer.data else {
             throw SerializationError.nullData
         }
+        let decoder = JSONDecoder()
+        self = try decoder.decode(Self.self, from: data)
     }
 }

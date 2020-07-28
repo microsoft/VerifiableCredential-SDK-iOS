@@ -8,21 +8,7 @@
 
 import Foundation
 
-struct Contract: Codable {
-    
+struct Contract: Codable, Serializable {
     let test: String
     let id: String
-    let dict: [String: String]
-
-    func serialize() throws -> Data {
-        let encoder = JSONEncoder()
-        return try encoder.encode(self)
-    }
-    
-    static func deserialize(object: Data) throws -> Serializable {
-        let decoder = JSONDecoder()
-        return try decoder.decode(Contract.self, from: object)
-    }
-    
-    
 }
