@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Contract: Codable, Serializable {
+struct MockContract: Codable, Serializable {
     let test: String
     let id: String
 }

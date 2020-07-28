@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Serializable {
-    init (from serializer: Serializer) throws
+    init (with serializer: Serializer, data: Data) throws
     
     func serialize(to: Serializer) throws -> Data
 }
@@ -20,10 +20,7 @@ extension Serializable where Self: Codable {
         return try encoder.encode(self)
     }
     
-    init(from serializer: Serializer) throws {
-        guard let data = serializer.data else {
-            throw SerializationError.nullData
-        }
+    init(with serializer: Serializer, data: Data) throws {
         let decoder = JSONDecoder()
         self = try decoder.decode(Self.self, from: data)
     }

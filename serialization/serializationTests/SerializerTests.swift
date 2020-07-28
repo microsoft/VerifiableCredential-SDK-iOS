@@ -8,10 +8,10 @@
 
 import XCTest
 
-class ContractTests: XCTestCase {
+class SerializerTests: XCTestCase {
     
     var serializer: Serializer!
-    let expectedContract = Contract(test: "test", id: "42")
+    let expectedContract = MockContract(test: "test", id: "42")
     var expectedSerializedContract: Data!
 
     override func setUpWithError() throws {
@@ -21,7 +21,7 @@ class ContractTests: XCTestCase {
     }
 
     func testDeserializingContract() throws {
-        let contract = try serializer.deserialize(Contract.self, data: expectedSerializedContract)
+        let contract = try serializer.deserialize(MockContract.self, data: expectedSerializedContract)
         XCTAssertEqual(contract.id, "42")
         XCTAssertEqual(contract.test, "test")
     }
