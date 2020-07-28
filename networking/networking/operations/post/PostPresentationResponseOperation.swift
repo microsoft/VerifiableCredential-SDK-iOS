@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PostPresentationResponse: PostNetworkOperation<PresentationRequest, PresentationServiceResponse> {
+class PostPresentationResponseOperation: PostNetworkOperation<PresentationRequest, PresentationServiceResponse> {
     
     convenience init(withUrl urlStr: String, withBody body: PresentationRequest, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
         

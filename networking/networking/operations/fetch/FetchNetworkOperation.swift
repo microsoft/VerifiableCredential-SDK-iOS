@@ -40,6 +40,6 @@ open class FetchNetworkOperation<ResponseBody: Codable>: BaseNetworkOperation {
     }
 }
 
-class FetchContract: FetchNetworkOperation<Contract> {}
-class FetchPresentationRequest: FetchNetworkOperation<PresentationRequest> {}
-class FetchIdentifierDocument: FetchNetworkOperation<IdentifierDocument> {}
+class FetchContractOperation: FetchNetworkOperation<Contract> {}
+class FetchPresentationRequestOperation: FetchNetworkOperation<PresentationRequest> {}
+class FetchIdentifierDocumentOperation: FetchNetworkOperation<IdentifierDocument> {}

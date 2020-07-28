@@ -47,5 +47,5 @@ open class PostNetworkOperation<ResponseBody, RequestBody>: BaseNetworkOperation
     }
 }
 
-class PostIssuanceResponse: PostNetworkOperation<IssuanceResponse, IssuanceServiceResponse> {}
-class PostExchangeRequest: PostNetworkOperation<ExchangeRequest, ExchangeServiceResponse> {}
+class PostIssuanceResponseOperation: PostNetworkOperation<IssuanceResponse, IssuanceServiceResponse> {}
+class PostExchangeRequestOperation: PostNetworkOperation<ExchangeRequest, ExchangeServiceResponse> {}

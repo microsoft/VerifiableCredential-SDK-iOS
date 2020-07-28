@@ -11,8 +11,8 @@ import PromiseKit
 
 @testable import networking
 
-class PostIssuanceResponseTests: XCTestCase {
-    private var postContractApi: PostIssuanceResponse!
+class PostPresentationRequestTests: XCTestCase {
+    private var postContractApi: PostPresentationResponseOperation!
     private let expectedUrl = "https://testcontract.com/4235"
     private let expectedHttpResponse = "testPresentationResponse29384"
     private let testRequestBody = "requestBody2543"
@@ -22,7 +22,7 @@ class PostIssuanceResponseTests: XCTestCase {
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
         do {
-            postContractApi = try PostIssuanceResponse(withUrl: self.expectedUrl, withBody: testRequestBody, urlSession: urlSession)
+            postContractApi = try PostPresentationResponseOperation(withUrl: self.expectedUrl, withBody: testRequestBody, urlSession: urlSession)
         } catch {
             print(error)
         }
@@ -72,7 +72,7 @@ class PostIssuanceResponseTests: XCTestCase {
     
     func testInvalidUrlInput() {
         let invalidUrl = ""
-        XCTAssertThrowsError(try PostIssuanceResponse(withUrl: invalidUrl, withBody: "testResponse")) { error in
+        XCTAssertThrowsError(try PostPresentationResponseOperation(withUrl: invalidUrl, withBody: "testResponse")) { error in
             XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl(withUrl: invalidUrl))
         }
     }

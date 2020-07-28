@@ -17,19 +17,19 @@
 		55CED0B124CB3A2900A2AAE2 /* PostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0B024CB3A2900A2AAE2 /* PostNetworkOperation.swift */; };
 		55CED0B224CB3A2900A2AAE2 /* PostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0B024CB3A2900A2AAE2 /* PostNetworkOperation.swift */; };
 		55CED0B524CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0B324CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift */; };
-		55CED0BA24CB843800A2AAE2 /* PostPresentationResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0B924CB843800A2AAE2 /* PostPresentationResponseTests.swift */; };
+		55CED0BA24CB843800A2AAE2 /* PostPresentationResponseOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0B924CB843800A2AAE2 /* PostPresentationResponseOperationTests.swift */; };
 		55CED0BF24CCB17500A2AAE2 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0BE24CCB17500A2AAE2 /* NetworkingConstants.swift */; };
 		55CED0C024CCB17500A2AAE2 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0BE24CCB17500A2AAE2 /* NetworkingConstants.swift */; };
-		55CED0CB24CCD50F00A2AAE2 /* PostPresentationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponse.swift */; };
-		55CED0CC24CCD50F00A2AAE2 /* PostPresentationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponse.swift */; };
-		55CED0CE24CCD6A700A2AAE2 /* PostIssuanceResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0CD24CCD6A700A2AAE2 /* PostIssuanceResponseTests.swift */; };
+		55CED0CB24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift */; };
+		55CED0CC24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift */; };
+		55CED0CE24CCD6A700A2AAE2 /* PostIssuanceResponseOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0CD24CCD6A700A2AAE2 /* PostIssuanceResponseOperationTests.swift */; };
 		55D7BFF424C4CBBD0090F495 /* networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7BFEA24C4CBBD0090F495 /* networking.framework */; };
 		55D7BFFB24C4CBBD0090F495 /* networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D7BFED24C4CBBD0090F495 /* networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55D7C00D24C89B0F0090F495 /* networking.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C00C24C89B0E0090F495 /* networking.podspec */; };
 		55D7C01524C8B4D80090F495 /* Retryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01424C8B4D80090F495 /* Retryable.swift */; };
 		55D7C01824C8BCC90090F495 /* FetchNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01724C8BCC90090F495 /* FetchNetworkOperation.swift */; };
 		55D7C01924C8BCC90090F495 /* FetchNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01724C8BCC90090F495 /* FetchNetworkOperation.swift */; };
-		55D7C01B24C8BDCD0090F495 /* FetchContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01A24C8BDCD0090F495 /* FetchContractTests.swift */; };
+		55D7C01B24C8BDCD0090F495 /* FetchContractOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01A24C8BDCD0090F495 /* FetchContractOperationTests.swift */; };
 		55D7C01E24C8D9440090F495 /* UrlProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01D24C8D9440090F495 /* UrlProtocolMock.swift */; };
 		72ACEF917C1C3DF81E2A2627 /* Pods_networking_networkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7B2003781468BAF4E1A8C /* Pods_networking_networkingTests.framework */; };
 		CEF33338C36A2A08E9C8D542 /* Pods_networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D8507C0A7266239CD036FDD /* Pods_networking.framework */; };
@@ -55,10 +55,10 @@
 		55CED0AC24CA558500A2AAE2 /* FetchNetworkOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNetworkOperationTests.swift; sourceTree = "<group>"; };
 		55CED0B024CB3A2900A2AAE2 /* PostNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkOperation.swift; sourceTree = "<group>"; };
 		55CED0B324CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkOperationTests.swift; sourceTree = "<group>"; };
-		55CED0B924CB843800A2AAE2 /* PostPresentationResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresentationResponseTests.swift; sourceTree = "<group>"; };
+		55CED0B924CB843800A2AAE2 /* PostPresentationResponseOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresentationResponseOperationTests.swift; sourceTree = "<group>"; };
 		55CED0BE24CCB17500A2AAE2 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
-		55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresentationResponse.swift; sourceTree = "<group>"; };
-		55CED0CD24CCD6A700A2AAE2 /* PostIssuanceResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostIssuanceResponseTests.swift; sourceTree = "<group>"; };
+		55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresentationResponseOperation.swift; sourceTree = "<group>"; };
+		55CED0CD24CCD6A700A2AAE2 /* PostIssuanceResponseOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostIssuanceResponseOperationTests.swift; sourceTree = "<group>"; };
 		55D7BFEA24C4CBBD0090F495 /* networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFED24C4CBBD0090F495 /* networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networking.h; sourceTree = "<group>"; };
 		55D7BFEE24C4CBBD0090F495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		55D7C00C24C89B0E0090F495 /* networking.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = networking.podspec; sourceTree = "<group>"; };
 		55D7C01424C8B4D80090F495 /* Retryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retryable.swift; sourceTree = "<group>"; };
 		55D7C01724C8BCC90090F495 /* FetchNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNetworkOperation.swift; sourceTree = "<group>"; };
-		55D7C01A24C8BDCD0090F495 /* FetchContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContractTests.swift; sourceTree = "<group>"; };
+		55D7C01A24C8BDCD0090F495 /* FetchContractOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContractOperationTests.swift; sourceTree = "<group>"; };
 		55D7C01D24C8D9440090F495 /* UrlProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlProtocolMock.swift; sourceTree = "<group>"; };
 		5D8507C0A7266239CD036FDD /* Pods_networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFC5C70E7C37B5F26B3EC9C /* Pods-networking-networkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking-networkingTests.release.xcconfig"; path = "Target Support Files/Pods-networking-networkingTests/Pods-networking-networkingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				55CED0B024CB3A2900A2AAE2 /* PostNetworkOperation.swift */,
-				55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponse.swift */,
+				55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift */,
 			);
 			path = post;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 		55CED0BC24CCB0AA00A2AAE2 /* fetch */ = {
 			isa = PBXGroup;
 			children = (
-				55D7C01A24C8BDCD0090F495 /* FetchContractTests.swift */,
+				55D7C01A24C8BDCD0090F495 /* FetchContractOperationTests.swift */,
 				55CED0AC24CA558500A2AAE2 /* FetchNetworkOperationTests.swift */,
 			);
 			path = fetch;
@@ -134,8 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				55CED0B324CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift */,
-				55CED0B924CB843800A2AAE2 /* PostPresentationResponseTests.swift */,
-				55CED0CD24CCD6A700A2AAE2 /* PostIssuanceResponseTests.swift */,
+				55CED0B924CB843800A2AAE2 /* PostPresentationResponseOperationTests.swift */,
+				55CED0CD24CCD6A700A2AAE2 /* PostIssuanceResponseOperationTests.swift */,
 			);
 			path = post;
 			sourceTree = "<group>";
@@ -403,7 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55D7C01824C8BCC90090F495 /* FetchNetworkOperation.swift in Sources */,
-				55CED0CB24CCD50F00A2AAE2 /* PostPresentationResponse.swift in Sources */,
+				55CED0CB24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift in Sources */,
 				55CED0BF24CCB17500A2AAE2 /* NetworkingConstants.swift in Sources */,
 				55B8F24F24C9CB490066A9E3 /* MockSerialization.swift in Sources */,
 				55B8F24924C924FC0066A9E3 /* NetworkingError.swift in Sources */,
@@ -417,8 +417,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55CED0CC24CCD50F00A2AAE2 /* PostPresentationResponse.swift in Sources */,
-				55D7C01B24C8BDCD0090F495 /* FetchContractTests.swift in Sources */,
+				55CED0CC24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift in Sources */,
+				55D7C01B24C8BDCD0090F495 /* FetchContractOperationTests.swift in Sources */,
 				55CED0C024CCB17500A2AAE2 /* NetworkingConstants.swift in Sources */,
 				55CED0B524CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift in Sources */,
 				55B8F24D24C9C9A20066A9E3 /* BaseNetworkOperation.swift in Sources */,
@@ -426,8 +426,8 @@
 				55B8F25024C9CB490066A9E3 /* MockSerialization.swift in Sources */,
 				55D7C01924C8BCC90090F495 /* FetchNetworkOperation.swift in Sources */,
 				55CED0AD24CA558500A2AAE2 /* FetchNetworkOperationTests.swift in Sources */,
-				55CED0CE24CCD6A700A2AAE2 /* PostIssuanceResponseTests.swift in Sources */,
-				55CED0BA24CB843800A2AAE2 /* PostPresentationResponseTests.swift in Sources */,
+				55CED0CE24CCD6A700A2AAE2 /* PostIssuanceResponseOperationTests.swift in Sources */,
+				55CED0BA24CB843800A2AAE2 /* PostPresentationResponseOperationTests.swift in Sources */,
 				55D7C01E24C8D9440090F495 /* UrlProtocolMock.swift in Sources */,
 				55CED0B224CB3A2900A2AAE2 /* PostNetworkOperation.swift in Sources */,
 			);

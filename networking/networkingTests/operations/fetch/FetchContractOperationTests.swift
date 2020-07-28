@@ -11,34 +11,34 @@ import PromiseKit
 
 @testable import networking
 
-class PostPresentationRequestTests: XCTestCase {
-    private var postContractApi: PostPresentationResponse!
+class FetchContractTests: XCTestCase {
+    private var fetchContractApi: FetchContractOperation!
     private let expectedUrl = "https://testcontract.com/4235"
-    private let expectedHttpResponse = "testPresentationResponse29384"
-    private let testRequestBody = "requestBody2543"
+    private let expectedHttpResponse = "expectedHttpResponse324"
     
     override func setUp() {
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
         do {
-            postContractApi = try PostPresentationResponse(withUrl: self.expectedUrl, withBody: testRequestBody, urlSession: urlSession)
+            fetchContractApi = try FetchContractOperation(withUrl: expectedUrl, urlSession: urlSession)
         } catch {
             print(error)
         }
     }
     
-    func testSuccessfulPostOperation() {
+    func testSuccessfulFetchOperation() {
         UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, responseBody: self.expectedHttpResponse, statusCode: 200)
         let expec = self.expectation(description: "Fire")
-
-        postContractApi.fire().done { result in
+        
+        fetchContractApi.fire().done { result in
             print(result)
             switch result {
-            case .success(let response):
-                print(response)
-                XCTAssertEqual(response, self.expectedHttpResponse)
-            case .failure(_):
+            case .success(let contract):
+                print(contract)
+                XCTAssertEqual(contract, self.expectedHttpResponse)
+            case .failure(let error):
+                XCTAssertTrue(error is NetworkingError)
                 XCTFail()
             }
             expec.fulfill()
@@ -46,14 +46,15 @@ class PostPresentationRequestTests: XCTestCase {
             print(error)
             XCTFail()
         }
+        
         wait(for: [expec], timeout: 5)
     }
     
-    func testFailedPostOperation() {
-        UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: self.expectedUrl, responseBody: self.expectedHttpResponse, statusCode: 400)
+    func testNotFoundFailureFetchOperation() {
+        UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, responseBody: self.expectedHttpResponse, statusCode: 400)
         let expec = self.expectation(description: "Fire")
         
-        postContractApi.fire().done { result in
+        fetchContractApi.fire().done { result in
             print(result)
             switch result {
             case .success(let contract):
@@ -67,12 +68,13 @@ class PostPresentationRequestTests: XCTestCase {
             print(error)
             XCTFail()
         }
+        
         wait(for: [expec], timeout: 5)
     }
     
     func testInvalidUrlInput() {
         let invalidUrl = ""
-        XCTAssertThrowsError(try PostPresentationResponse(withUrl: invalidUrl, withBody: "testResponse")) { error in
+        XCTAssertThrowsError(try FetchContractOperation(withUrl: invalidUrl)) { error in
             XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl(withUrl: invalidUrl))
         }
     }
