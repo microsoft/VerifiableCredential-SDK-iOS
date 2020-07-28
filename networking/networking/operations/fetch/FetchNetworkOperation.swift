@@ -13,15 +13,15 @@ open class FetchNetworkOperation<ResponseBody: Codable>: BaseNetworkOperation {
     
     let urlSession: URLSession
     let urlRequest: URLRequest
-    let serializer: Serializer
+    let serializer: MockSerializer
         
-    init(urlRequest: URLRequest, serializer: Serializer, urlSession: URLSession) {
+    init(urlRequest: URLRequest, serializer: MockSerializer, urlSession: URLSession) {
         self.urlRequest = urlRequest
         self.urlSession = urlSession
         self.serializer = serializer
     }
     
-    convenience init(withUrl urlStr: String, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
+    convenience init(withUrl urlStr: String, serializer: MockSerializer = MockSerializer(), urlSession: URLSession = URLSession.shared) throws {
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }

@@ -9,7 +9,7 @@
 import Foundation
 
 // Mock Serializer until Serialization layer is implemented
-class Serializer {
+class MockSerializer {
     
     func deserialize(data: Data) -> Any {
         return String(data: data, encoding: .utf8)! as Any

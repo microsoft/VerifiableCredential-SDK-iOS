@@ -10,7 +10,7 @@ import Foundation
 
 class PostPresentationResponse: PostNetworkOperation<PresentationRequest, PresentationServiceResponse> {
     
-    convenience init(withUrl urlStr: String, withBody body: PresentationRequest, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
+    convenience init(withUrl urlStr: String, withBody body: PresentationRequest, serializer: MockSerializer = MockSerializer(), urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)

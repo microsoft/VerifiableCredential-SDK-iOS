@@ -7,6 +7,10 @@ def sdk_pods
   pod 'SSZipArchive'
 end
 
+def serialization_pods
+  podspec :path => '../serialization/serialization.podspec'
+end
+
 def networking_pods
   podspec :path => '../networking/networking.podspec'
 end
@@ -18,8 +22,17 @@ target 'sdk' do
   target 'sdkTests'
 end
 
+target 'serialization' do
+  project '../serialization/serialization.xcodeproj'
+  serialization_pods
+  target 'serializationTests'
+end
+
 target 'networking' do
   project '../networking/networking.xcodeproj'
   networking_pods
+  podspec :path => '../serialization/serialization.podspec'
   target 'networkingTests'
 end
+
+#pod "Networking", :path => '../networking/networking.podspec'

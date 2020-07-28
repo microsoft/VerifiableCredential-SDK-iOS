@@ -51,12 +51,12 @@ extension BaseNetworkOperation {
         }
     }
     
-    func defaultOnSuccess(data: Data, response: HTTPURLResponse, serializer: Serializer) -> Swift.Result<ResponseBody, Error> {
+    func defaultOnSuccess(data: Data, response: HTTPURLResponse, serializer: MockSerializer) -> Swift.Result<ResponseBody, Error> {
         let deserializedObject = serializer.deserialize(data: data)
         return .success(deserializedObject as! Self.ResponseBody)
     }
     
-    func defaultOnFailure(data: Data, response: HTTPURLResponse, serializer: Serializer) -> Swift.Result<ResponseBody, Error> {
+    func defaultOnFailure(data: Data, response: HTTPURLResponse, serializer: MockSerializer) -> Swift.Result<ResponseBody, Error> {
         let responseBody = serializer.deserialize(data: data) as! String
         switch response.statusCode {
         case 400:
