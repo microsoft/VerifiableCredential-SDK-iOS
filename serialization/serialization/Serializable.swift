@@ -11,17 +11,15 @@ import Foundation
 protocol Serializable {
     init (with serializer: Serializer, data: Data) throws
     
-    func serialize(to: Serializer) throws -> Data
+    func serialize(to serializer: Serializer) throws -> Data
 }
 
 extension Serializable where Self: Codable {
-    func serialize(to: Serializer) throws -> Data {
-        let encoder = JSONEncoder()
-        return try encoder.encode(self)
+    func serialize(to serializer: Serializer) throws -> Data {
+        return try serializer.encoder.encode(self)
     }
     
     init(with serializer: Serializer, data: Data) throws {
-        let decoder = JSONDecoder()
-        self = try decoder.decode(Self.self, from: data)
+        self = try serializer.decoder.decode(Self.self, from: data)
     }
 }

@@ -9,6 +9,9 @@
 import Foundation
 
 class Serializer {
+    
+    let decoder = JSONDecoder()
+    let encoder = JSONEncoder()
 
     func deserialize<T: Serializable>(_: T.Type, data: Data) throws -> T {
         return try T.init(with: self, data: data)

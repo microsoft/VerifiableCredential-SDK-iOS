@@ -1,10 +1,7 @@
-//
-//  Contract.swift
-//  serialization
-//
-//  Created by Sydney Morton on 7/28/20.
-//  Copyright © 2020 Microsoft. All rights reserved.
-//
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
 struct Contract: Codable, Serializable {
     let id: String
@@ -56,7 +53,9 @@ struct Input: Codable, Serializable {
     let attestations: Attestations
 }
 
-struct Attestations: Codable, Serializable {
+struct Attestations: Codable {
+    let selfIssued: SelfIssued
+    let presentations: [Presentation]
     let idTokens: [IDToken]
 }
 
@@ -74,6 +73,36 @@ struct IDToken: Codable, Serializable {
         case configuration
         case clientID = "client_id"
         case redirectURI = "redirect_uri"
+    }
+}
+
+struct Presentation: Codable {
+    let encrypted: Bool
+    let claims: [Claim]
+    let presentationRequired: Bool
+    let credentialType: String
+    let issuers: [Issuer]
+    let contracts: [String]
+
+    enum CodingKeys: String, CodingKey {
+        case encrypted, claims
+        case presentationRequired = "required"
+        case credentialType, issuers, contracts
+    }
+}
+
+struct Issuer: Codable {
+    let iss: String
+}
+
+struct SelfIssued: Codable {
+    let encrypted: Bool
+    let claims: [Claim]
+    let selfIssuedRequired: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case encrypted, claims
+        case selfIssuedRequired = "required"
     }
 }
 
