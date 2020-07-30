@@ -22,12 +22,9 @@ class serializationTests: XCTestCase {
     }
     
     func testBase64UrlDecoding() throws {
-        let base64Encoded = serializedContract.toBase64URL()
-        print(base64Encoded)
-        let contract = base64Encoded.fromBase64URL()!
-        let dataContract = contract.data(using: .utf8)!
-        print(contract)
-        print(try serializer.deserialize(Contract.self, data: dataContract))
+        let siop = base64UrlEndcodedString.fromBase64URL()!
+        let data = siop.data(using: .utf8)!
+        print(try serializer.deserialize(OpenIdConnectSelfIssuedContents.self, data: data))
         
     }
     

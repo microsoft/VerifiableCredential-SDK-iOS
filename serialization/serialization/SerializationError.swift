@@ -6,6 +6,6 @@
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
-enum SerializationError: Error {
+public enum SerializationError: Error {
     case nullData
 }

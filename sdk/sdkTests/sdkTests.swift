@@ -7,9 +7,14 @@
 //
 
 import XCTest
+import Networking
+import Serialization
+
 @testable import sdk
 
 class sdkTests: XCTestCase {
+    
+    let serializer = Serializer()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -20,8 +25,27 @@ class sdkTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let expec = self.expectation(description: "Fire")
+        let fetch = try FetchContract(withUrl: "https://portableidentitycards.azure-api.net/dev-v1.0/536279f6-15cc-45f2-be2d-61e352b51eef/portableIdentities/contracts/WoodgroveId")
+        fetch.fire().done { result in
+            print(result)
+            
+            switch result {
+            case .success(let stringifiedContract):
+                let data = stringifiedContract.data(using: .utf8)!
+                let contract = try self.serializer.deserialize(Contract.self, data: data)
+                print(contract)
+            case .failure(let error):
+                print(error)
+            }
+            
+            expec.fulfill()
+        }.catch { error in
+            print(error)
+            expec.fulfill()
+        }
+        
+        wait(for: [expec], timeout: 5)
     }
 
     func testPerformanceExample() throws {

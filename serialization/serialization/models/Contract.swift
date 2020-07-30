@@ -3,13 +3,13 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-struct Contract: Codable, Serializable {
+public struct Contract: JSONSerializable {
     let id: String
     let display: Display
     let input: Input
 }
 
-struct Display: Codable, Serializable {
+struct Display: JSONSerializable {
     let id, locale: String
     let contract: String
     let card: Card
@@ -17,7 +17,7 @@ struct Display: Codable, Serializable {
     let claims: [String: Claims]
 }
 
-struct Card: Codable, Serializable {
+struct Card: JSONSerializable {
     let title, issuedBy, backgroundColor, textColor: String
     let logo: Logo
     let cardDescription: String
@@ -28,11 +28,11 @@ struct Card: Codable, Serializable {
     }
 }
 
-struct Claims: Codable, Serializable {
+struct Claims: JSONSerializable {
     let type, label: String
 }
 
-struct Logo: Codable, Serializable {
+struct Logo: JSONSerializable {
     let uri: String
     let logoDescription: String
 
@@ -42,30 +42,30 @@ struct Logo: Codable, Serializable {
     }
 }
 
-struct Consent: Codable, Serializable {
+struct Consent: JSONSerializable {
     let title, instructions: String
 }
 
-struct Input: Codable, Serializable {
+struct Input: JSONSerializable {
     let id: String
     let credentialIssuer: String
     let issuer: String
     let attestations: Attestations
 }
 
-struct Attestations: Codable {
-    let selfIssued: SelfIssued
-    let presentations: [Presentation]
-    let idTokens: [IDToken]
+struct Attestations: JSONSerializable {
+    let selfIssued: SelfIssued?
+    let presentations: [Presentation]?
+    let idTokens: [IDToken]?
 }
 
-struct IDToken: Codable, Serializable {
-    let encrypted: Bool
+struct IDToken: JSONSerializable {
+    let encrypted: Bool?
     let claims: [Claim]
     let idTokenRequired: Bool
     let configuration: String
-    let clientID: String
-    let redirectURI: String
+    let clientID: String?
+    let redirectURI: String?
 
     enum CodingKeys: String, CodingKey {
         case encrypted, claims
@@ -76,13 +76,13 @@ struct IDToken: Codable, Serializable {
     }
 }
 
-struct Presentation: Codable {
-    let encrypted: Bool
+struct Presentation: JSONSerializable {
+    let encrypted: Bool?
     let claims: [Claim]
     let presentationRequired: Bool
     let credentialType: String
-    let issuers: [Issuer]
-    let contracts: [String]
+    let issuers: [Issuer]?
+    let contracts: [String]?
 
     enum CodingKeys: String, CodingKey {
         case encrypted, claims
@@ -91,14 +91,14 @@ struct Presentation: Codable {
     }
 }
 
-struct Issuer: Codable {
+struct Issuer: JSONSerializable {
     let iss: String
 }
 
-struct SelfIssued: Codable {
-    let encrypted: Bool
-    let claims: [Claim]
-    let selfIssuedRequired: Bool
+struct SelfIssued: JSONSerializable {
+    let encrypted: Bool?
+    let claims: [Claim]?
+    let selfIssuedRequired: Bool?
 
     enum CodingKeys: String, CodingKey {
         case encrypted, claims
@@ -106,9 +106,9 @@ struct SelfIssued: Codable {
     }
 }
 
-struct Claim: Codable, Serializable {
-    let claim: String
-    let claimRequired, indexed: Bool
+struct Claim: JSONSerializable {
+    let claim: String?
+    let claimRequired, indexed: Bool?
 
     enum CodingKeys: String, CodingKey {
         case claim

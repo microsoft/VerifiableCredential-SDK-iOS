@@ -3,10 +3,6 @@ use_frameworks!
 platform :ios, '11.0'
 workspace '../sdk'
 
-def sdk_pods
-  pod 'SSZipArchive'
-end
-
 def serialization_pods
   podspec :path => '../serialization/serialization.podspec'
 end
@@ -17,9 +13,14 @@ end
 
 target 'sdk' do
   project '../sdk/sdk.xcodeproj'
-  sdk_pods
-  networking_pods
+  pod 'Networking', path: '../networking'
   target 'sdkTests'
+end
+
+target 'networking' do
+  project '../networking/networking.xcodeproj'
+  networking_pods
+  target 'networkingTests'
 end
 
 target 'serialization' do
@@ -28,11 +29,4 @@ target 'serialization' do
   target 'serializationTests'
 end
 
-target 'networking' do
-  project '../networking/networking.xcodeproj'
-  networking_pods
-  podspec :path => '../serialization/serialization.podspec'
-  target 'networkingTests'
-end
-
-#pod "Networking", :path => '../networking/networking.podspec'
+pod 'Serialization', path: '../serialization'

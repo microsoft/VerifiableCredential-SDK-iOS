@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "VCSerialization"
+  spec.name         = "Serialization"
   spec.version      = "0.0.1"
   spec.summary      = "A short description of serialization."
 
@@ -89,7 +89,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "serialization/**/*.{h,m,swift}"
+  spec.source_files  = "serialization/**/*.swift"
 #  spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"

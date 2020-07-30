@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol Serializable {
+public protocol Serializable {
     init (with serializer: Serializer, data: Data) throws
     
     func serialize(to serializer: Serializer) throws -> Data
 }
 
-extension Serializable where Self: Codable {
+public extension Serializable where Self: Codable {
     func serialize(to serializer: Serializer) throws -> Data {
         return try serializer.encoder.encode(self)
     }
@@ -23,3 +23,5 @@ extension Serializable where Self: Codable {
         self = try serializer.decoder.decode(Self.self, from: data)
     }
 }
+
+public protocol JSONSerializable: Codable & Serializable {}

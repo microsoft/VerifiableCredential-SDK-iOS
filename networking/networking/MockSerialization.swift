@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import Serialization
 
 // Mock Serializer until Serialization layer is implemented
-class MockSerializer {
+public class MockSerializer {
+    
+    let serializer = Serializer()
+    
+    public init() {}
     
     func deserialize(data: Data) -> Any {
         return String(data: data, encoding: .utf8)! as Any
@@ -21,12 +26,12 @@ class MockSerializer {
 }
 
 // Mock Data Models until Serialization layer is implemented
-typealias PresentationRequest = String
-typealias PresentationResponse = String
-typealias PresentationServiceResponse = String
-typealias IssuanceResponse = String
-typealias IssuanceServiceResponse = String
-typealias ExchangeRequest = String
-typealias ExchangeServiceResponse = String
-typealias IdentifierDocument = String
-typealias Contract = String
+public typealias PresentationRequest = String
+public typealias PresentationResponse = String
+public typealias PresentationServiceResponse = String
+public typealias IssuanceResponse = String
+public typealias IssuanceServiceResponse = String
+public typealias ExchangeRequest = String
+public typealias ExchangeServiceResponse = String
+public typealias IdentifierDocument = String
+public typealias Contract = String

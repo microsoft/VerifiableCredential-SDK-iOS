@@ -1,4 +1,6 @@
 PODS:
+  - Networking (0.0.1-beta.0):
+    - PromiseKit
   - PromiseKit (6.13.1):
     - PromiseKit/CorePromise (= 6.13.1)
     - PromiseKit/Foundation (= 6.13.1)
@@ -8,21 +10,28 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.13.1):
     - PromiseKit/CorePromise
-  - SSZipArchive (2.2.3)
+  - Serialization (0.0.1)
 
 DEPENDENCIES:
+  - Networking (from `../networking`)
   - PromiseKit
-  - SSZipArchive
+  - Serialization (from `../serialization`)
 
 SPEC REPOS:
   trunk:
     - PromiseKit
-    - SSZipArchive
+
+EXTERNAL SOURCES:
+  Networking:
+    :path: "../networking"
+  Serialization:
+    :path: "../serialization"
 
 SPEC CHECKSUMS:
+  Networking: e6764ea084e8c2556c36678b0f351966a49088c1
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
-  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  Serialization: e16c46dc7be41e7432d2c48fd5716f1006f8391b
 
-PODFILE CHECKSUM: 457f0046eb2798a796e10ec32da75c88fb09c491
+PODFILE CHECKSUM: b8ddf35d38714d96bcfaa591ae8807e322f9551d
 
 COCOAPODS: 1.8.4
