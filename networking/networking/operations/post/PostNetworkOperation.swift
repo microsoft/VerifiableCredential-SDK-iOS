@@ -10,14 +10,15 @@ import Foundation
 
 import Foundation
 import PromiseKit
+import Serialization
 
-open class PostNetworkOperation<ResponseBody, RequestBody>: BaseNetworkOperation {
+open class PostNetworkOperation<ResponseBody: Serializable, RequestBody: Serializable>: BaseNetworkOperation {
     
     let urlSession: URLSession
     var urlRequest: URLRequest
-    let serializer: MockSerializer
+    let serializer: Serializer
         
-    init(urlRequest: URLRequest, serializer: MockSerializer, urlSession: URLSession) {
+    init(urlRequest: URLRequest, serializer: Serializer, urlSession: URLSession) {
         self.urlSession = urlSession
         self.urlRequest = urlRequest
         self.serializer = serializer
@@ -25,7 +26,7 @@ open class PostNetworkOperation<ResponseBody, RequestBody>: BaseNetworkOperation
         self.urlRequest.httpMethod = Constants.POST
     }
     
-    convenience init(withUrl urlStr: String, withBody body: RequestBody, serializer: MockSerializer = MockSerializer(), urlSession: URLSession = URLSession.shared) throws {
+    convenience init(withUrl urlStr: String, withBody body: RequestBody, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
@@ -33,7 +34,7 @@ open class PostNetworkOperation<ResponseBody, RequestBody>: BaseNetworkOperation
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = Constants.POST
-        urlRequest.httpBody = serializer.serialize(object: body)
+        urlRequest.httpBody = try serializer.serialize(object: body)
         self.init(urlRequest: urlRequest, serializer: serializer, urlSession: urlSession)
     }
     

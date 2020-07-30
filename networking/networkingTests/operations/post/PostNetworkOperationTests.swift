@@ -8,6 +8,7 @@
 
 import XCTest
 import PromiseKit
+import Serialization
 
 @testable import networking
 

@@ -8,20 +8,21 @@
 
 import Foundation
 import PromiseKit
+import Serialization
 
-public class FetchNetworkOperation<ResponseBody: Codable>: BaseNetworkOperation {
+public class FetchNetworkOperation<ResponseBody: Serializable>: BaseNetworkOperation {
     
     let urlSession: URLSession
     let urlRequest: URLRequest
-    let serializer: MockSerializer
+    let serializer: Serializer
         
-    public init(urlRequest: URLRequest, serializer: MockSerializer, urlSession: URLSession) {
+    public init(urlRequest: URLRequest, serializer: Serializer, urlSession: URLSession) {
         self.urlRequest = urlRequest
         self.urlSession = urlSession
         self.serializer = serializer
     }
     
-    public convenience init(withUrl urlStr: String, serializer: MockSerializer = MockSerializer(), urlSession: URLSession = URLSession.shared) throws {
+    public convenience init(withUrl urlStr: String, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }

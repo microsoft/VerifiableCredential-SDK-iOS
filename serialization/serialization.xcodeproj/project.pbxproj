@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -108,7 +108,6 @@
 		55CED0F324CF37D000A2AAE2 = {
 			isa = PBXGroup;
 			children = (
-				55CED15424D2125000A2AAE2 /* extensions */,
 				55CED11724CF383C00A2AAE2 /* serialization.podspec */,
 				55CED0FF24CF37D000A2AAE2 /* serialization */,
 				55CED10A24CF37D000A2AAE2 /* serializationTests */,
@@ -130,6 +129,7 @@
 		55CED0FF24CF37D000A2AAE2 /* serialization */ = {
 			isa = PBXGroup;
 			children = (
+				55CED15424D2125000A2AAE2 /* extensions */,
 				55CED15024D0D6B500A2AAE2 /* models */,
 				55CED10024CF37D000A2AAE2 /* serialization.h */,
 				55CED10124CF37D000A2AAE2 /* Info.plist */,
@@ -226,7 +226,6 @@
 				55CED10224CF37D000A2AAE2 /* Sources */,
 				55CED10324CF37D000A2AAE2 /* Frameworks */,
 				55CED10424CF37D000A2AAE2 /* Resources */,
-				63D43E703A192C4CE09F57A9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -315,23 +314,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		63D43E703A192C4CE09F57A9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-serialization-serializationTests/Pods-serialization-serializationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-serialization-serializationTests/Pods-serialization-serializationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-serialization-serializationTests/Pods-serialization-serializationTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9746D78C1C7757CF4EC1C737 /* [CP] Check Pods Manifest.lock */ = {

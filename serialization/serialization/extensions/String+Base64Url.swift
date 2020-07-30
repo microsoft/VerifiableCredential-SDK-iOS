@@ -5,7 +5,21 @@
 
 import Foundation
 
-extension String {
+extension String: Serializable {
+    
+    public init (with serializer: Serializer, data: Data) throws {
+        guard let str = String(data: data, encoding: .utf8) else {
+            throw SerializationError.nullData
+        }
+        self = str
+    }
+    
+    public func serialize(to serializer: Serializer) throws -> Data {
+        guard let data = self.data(using: .utf8) else {
+            throw SerializationError.nullData
+        }
+        return data
+    }
     
     func fromBase64URL() -> String? {
         var base64 = self

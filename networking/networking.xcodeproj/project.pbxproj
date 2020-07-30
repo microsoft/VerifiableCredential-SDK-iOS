@@ -65,6 +65,7 @@
 		55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresentationResponse.swift; sourceTree = "<group>"; };
 		55CED0CD24CCD6A700A2AAE2 /* PostIssuanceResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostIssuanceResponseTests.swift; sourceTree = "<group>"; };
 		55CED15B24D3049F00A2AAE2 /* serialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = serialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55CED16424D3369B00A2AAE2 /* Serialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Serialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFEA24C4CBBD0090F495 /* networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFED24C4CBBD0090F495 /* networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networking.h; sourceTree = "<group>"; };
 		55D7BFEE24C4CBBD0090F495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -242,6 +243,7 @@
 		F96820A943825B01B3485FDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55CED16424D3369B00A2AAE2 /* Serialization.framework */,
 				55CED15B24D3049F00A2AAE2 /* serialization.framework */,
 				5D8507C0A7266239CD036FDD /* Pods_networking.framework */,
 				49E7B2003781468BAF4E1A8C /* Pods_networking_networkingTests.framework */,

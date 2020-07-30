@@ -14,11 +14,13 @@ end
 target 'sdk' do
   project '../sdk/sdk.xcodeproj'
   pod 'Networking', path: '../networking'
+  pod 'Serialization', path: '../serialization'
   target 'sdkTests'
 end
 
 target 'networking' do
   project '../networking/networking.xcodeproj'
+  pod 'Serialization', path: '../serialization'
   networking_pods
   target 'networkingTests'
 end
@@ -28,5 +30,3 @@ target 'serialization' do
   serialization_pods
   target 'serializationTests'
 end
-
-pod 'Serialization', path: '../serialization'

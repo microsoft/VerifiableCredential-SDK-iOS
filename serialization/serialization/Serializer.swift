@@ -8,7 +8,12 @@
 
 import Foundation
 
-public class Serializer {
+public protocol SerializerProtocol {
+    func deserialize<T: Serializable>(_: T.Type, data: Data) throws -> T
+    func serialize<T: Serializable>(object: T) throws -> Data
+}
+
+public class Serializer: SerializerProtocol {
     
     public init() {}
     

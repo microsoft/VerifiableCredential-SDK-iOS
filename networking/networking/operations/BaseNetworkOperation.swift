@@ -8,13 +8,14 @@
 
 import Foundation
 import PromiseKit
+import Serialization
 
 /**
 * Base Network Operation class with default methods for all Network Operations.
 * ResponseBody: the type of object returned by the service.
 */
 protocol BaseNetworkOperation {
-    associatedtype ResponseBody
+    associatedtype ResponseBody: Serializable
     
     func fire() -> Promise<Swift.Result<ResponseBody, Error>>
     
@@ -51,26 +52,34 @@ extension BaseNetworkOperation {
         }
     }
     
-    func defaultOnSuccess(data: Data, response: HTTPURLResponse, serializer: MockSerializer) -> Swift.Result<ResponseBody, Error> {
-        let deserializedObject = serializer.deserialize(data: data)
-        return .success(deserializedObject as! Self.ResponseBody)
+    func defaultOnSuccess(data: Data, response: HTTPURLResponse, serializer: Serializer) -> Swift.Result<ResponseBody, Error> {
+        do {
+            let deserializedObject = try serializer.deserialize(ResponseBody.self, data: data)
+            return .success(deserializedObject)
+        } catch {
+            return .failure(error)
+        }
     }
     
-    func defaultOnFailure(data: Data, response: HTTPURLResponse, serializer: MockSerializer) -> Swift.Result<ResponseBody, Error> {
-        let responseBody = serializer.deserialize(data: data) as! String
-        switch response.statusCode {
-        case 400:
-            return .failure(NetworkingError.badRequest(withBody: responseBody))
-        case 401:
-            return .failure(NetworkingError.unauthorized(withBody: responseBody))
-        case 403:
-            return .failure(NetworkingError.forbidden(withBody: responseBody))
-        case 404:
-            return .failure(NetworkingError.notFound(withBody: responseBody))
-        case 500...599:
-            return .failure(NetworkingError.serverError(withBody: responseBody))
-        default:
-            return .failure(NetworkingError.unknownNetworkingError(withBody: responseBody))
+    func defaultOnFailure(data: Data, response: HTTPURLResponse, serializer: Serializer) -> Swift.Result<ResponseBody, Error> {
+        do {
+            let responseBody = try serializer.deserialize(ResponseBody.self, data: data)
+            switch response.statusCode {
+            case 400:
+                return .failure(NetworkingError.badRequest(withBody: responseBody as! String))
+            case 401:
+                return .failure(NetworkingError.unauthorized(withBody: responseBody as! String))
+            case 403:
+                return .failure(NetworkingError.forbidden(withBody: responseBody as! String))
+            case 404:
+                return .failure(NetworkingError.notFound(withBody: responseBody as! String))
+            case 500...599:
+                return .failure(NetworkingError.serverError(withBody: responseBody as! String))
+            default:
+                return .failure(NetworkingError.unknownNetworkingError(withBody: responseBody as! String))
+            }
+        } catch {
+            return .failure(error)
         }
     }
 }
