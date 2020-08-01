@@ -15,21 +15,14 @@ final class FetchContractOperation: NetworkOperation {
     var urlSession: URLSession
     var urlRequest: URLRequest
     
-    private init(request: URLRequest, successHandler: SuccessHandler, failureHandler: FailureHandler, session: URLSession = URLSession.shared) {
-        self.urlRequest = request
-        self.successHandler = successHandler
-        self.failureHandler = failureHandler
-        self.urlSession = session
-    }
-    
-    convenience init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
+    init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         
-        let urlRequest = URLRequest(url: url)
-        let successHandler = SimpleSuccessHandler()
-        let failureHandler = SimpleFailureHandler()
-        self.init(request: urlRequest, successHandler: successHandler, failureHandler: failureHandler, session: session)
+        self.urlRequest = URLRequest(url: url)
+        self.successHandler = SimpleSuccessHandler()
+        self.failureHandler = SimpleFailureHandler()
+        self.urlSession = session
     }
 }
