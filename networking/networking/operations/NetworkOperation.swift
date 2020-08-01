@@ -15,29 +15,15 @@ import PromiseKit
 protocol NetworkOperation {
     associatedtype ResponseBody
     
-    var successHandler: SuccessHandler { get set }
-    var failureHandler: FailureHandler { get set }
-    var urlSession: URLSession { get set }
-    var urlRequest: URLRequest { get set }
-    
-    init()
+    var successHandler: SuccessHandler { get }
+    var failureHandler: FailureHandler { get }
+    var urlSession: URLSession { get }
+    var urlRequest: URLRequest { get }
     
     func fire() -> Promise<Swift.Result<ResponseBody, Error>>
-    
-    func onSuccess(data: Data, response: HTTPURLResponse) -> Swift.Result<ResponseBody, Error>
-    
-    func onFailure(data: Data, response: HTTPURLResponse) -> Swift.Result<ResponseBody, Error>
 }
 
 extension NetworkOperation {
-    
-    init(request: URLRequest, successHandler: SuccessHandler, failureHandler: FailureHandler, session: URLSession = URLSession.shared) {
-        self.init()
-        self.urlRequest = request
-        self.successHandler = successHandler
-        self.failureHandler = failureHandler
-        self.urlSession = session
-    }
     
     func fire() -> Promise<Swift.Result<Any, Error>> {
         return call(urlSession: self.urlSession, urlRequest: self.urlRequest)
