@@ -12,8 +12,15 @@ import PromiseKit
  * Base Network Operation class with default methods for all Network Operations.
  * ResponseBody: the type of object returned by the service.
  */
-protocol BaseNetworkOperation {
+protocol NetworkOperation {
     associatedtype ResponseBody
+    
+    var successHandler: SuccessHandler { get set }
+    var failureHandler: FailureHandler { get set }
+    var urlSession: URLSession { get set }
+    var urlRequest: URLRequest { get set }
+    
+    init()
     
     func fire() -> Promise<Swift.Result<ResponseBody, Error>>
     
@@ -22,9 +29,21 @@ protocol BaseNetworkOperation {
     func onFailure(data: Data, response: HTTPURLResponse) -> Swift.Result<ResponseBody, Error>
 }
 
-extension BaseNetworkOperation {
+extension NetworkOperation {
     
-    func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<Swift.Result<ResponseBody, Error>> {
+    init(request: URLRequest, successHandler: SuccessHandler, failureHandler: FailureHandler, session: URLSession = URLSession.shared) {
+        self.init()
+        self.urlRequest = request
+        self.successHandler = successHandler
+        self.failureHandler = failureHandler
+        self.urlSession = session
+    }
+    
+    func fire() -> Promise<Swift.Result<Any, Error>> {
+        return call(urlSession: self.urlSession, urlRequest: self.urlRequest)
+    }
+    
+    func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<Swift.Result<Any, Error>> {
         let promise = firstly {
             urlSession.dataTask(.promise, with: urlRequest)
         }.then { data, response in
@@ -33,7 +52,7 @@ extension BaseNetworkOperation {
         return promise
     }
     
-    private func handleResponse(data: Data, response: URLResponse) -> Promise<Swift.Result<ResponseBody, Error>> {
+    private func handleResponse(data: Data, response: URLResponse) -> Promise<Swift.Result<Any, Error>> {
         return Promise { seal in
             
             let successfulStatusCodeRange = 200...299
@@ -51,27 +70,12 @@ extension BaseNetworkOperation {
         }
     }
     
-    func defaultOnSuccess(data: Data, response: HTTPURLResponse, serializer: Serializer) -> Swift.Result<ResponseBody, Error> {
-        let deserializedObject = serializer.deserialize(data: data)
-        return .success(deserializedObject as! Self.ResponseBody)
+    func onSuccess(data: Data, response: HTTPURLResponse) -> Swift.Result<Any, Error> {
+        return self.successHandler.onSuccess(data: data, response: response)
     }
     
-    func defaultOnFailure(data: Data, response: HTTPURLResponse, serializer: Serializer) -> Swift.Result<ResponseBody, Error> {
-        let responseBody = serializer.deserialize(data: data) as! String
-        switch response.statusCode {
-        case 400:
-            return .failure(NetworkingError.badRequest(withBody: responseBody))
-        case 401:
-            return .failure(NetworkingError.unauthorized(withBody: responseBody))
-        case 403:
-            return .failure(NetworkingError.forbidden(withBody: responseBody))
-        case 404:
-            return .failure(NetworkingError.notFound(withBody: responseBody))
-        case 500...599:
-            return .failure(NetworkingError.serverError(withBody: responseBody))
-        default:
-            return .failure(NetworkingError.unknownNetworkingError(withBody: responseBody))
-        }
+    func onFailure(data: Data, response: HTTPURLResponse) -> Swift.Result<Any, Error> {
+        return self.failureHandler.onFailure(data: data, response: response)
     }
 }
 

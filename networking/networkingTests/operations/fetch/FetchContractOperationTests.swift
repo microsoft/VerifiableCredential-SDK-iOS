@@ -21,7 +21,7 @@ class FetchContractTests: XCTestCase {
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
         do {
-            fetchContractApi = try FetchContractOperation(withUrl: expectedUrl, urlSession: urlSession)
+            fetchContractApi = try FetchContractOperation(withUrl: expectedUrl, session: urlSession)
         } catch {
             print(error)
         }
@@ -36,7 +36,7 @@ class FetchContractTests: XCTestCase {
             switch result {
             case .success(let contract):
                 print(contract)
-                XCTAssertEqual(contract, self.expectedHttpResponse)
+                XCTAssertEqual(contract as! String, self.expectedHttpResponse)
             case .failure(let error):
                 XCTAssertTrue(error is NetworkingError)
                 XCTFail()
