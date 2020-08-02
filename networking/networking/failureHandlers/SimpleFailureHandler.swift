@@ -16,21 +16,21 @@ class SimpleFailureHandler: FailureHandler {
         self.serializer = serializer
     }
     
-    func onFailure(data: Data, response: HTTPURLResponse) -> Result<Any, Error> {
+    func onFailure(data: Data, response: HTTPURLResponse) -> NetworkingError {
         let responseBody = serializer.deserialize(data: data) as! String
         switch response.statusCode {
         case 400:
-            return .failure(NetworkingError.badRequest(withBody: responseBody))
+            return NetworkingError.badRequest(withBody: responseBody)
         case 401:
-            return .failure(NetworkingError.unauthorized(withBody: responseBody))
+            return NetworkingError.unauthorized(withBody: responseBody)
         case 403:
-            return .failure(NetworkingError.forbidden(withBody: responseBody))
+            return NetworkingError.forbidden(withBody: responseBody)
         case 404:
-            return .failure(NetworkingError.notFound(withBody: responseBody))
+            return NetworkingError.notFound(withBody: responseBody)
         case 500...599:
-            return .failure(NetworkingError.serverError(withBody: responseBody))
+            return NetworkingError.serverError(withBody: responseBody)
         default:
-            return .failure(NetworkingError.unknownNetworkingError(withBody: responseBody))
+           return NetworkingError.unknownNetworkingError(withBody: responseBody)
         }
     }
 }

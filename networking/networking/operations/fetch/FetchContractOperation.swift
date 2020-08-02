@@ -10,6 +10,7 @@ import Foundation
 import PromiseKit
 
 final class FetchContractOperation: NetworkOperation {
+    var retryHandler: RetryHandler
     var successHandler: SuccessHandler
     var failureHandler: FailureHandler
     var urlSession: URLSession
@@ -23,6 +24,7 @@ final class FetchContractOperation: NetworkOperation {
         self.urlRequest = URLRequest(url: url)
         self.successHandler = SimpleSuccessHandler()
         self.failureHandler = SimpleFailureHandler()
+        self.retryHandler = NoRetry()
         self.urlSession = session
     }
 }

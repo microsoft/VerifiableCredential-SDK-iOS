@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SuccessHandler {
-    func onSuccess(data: Data, response: HTTPURLResponse) -> Swift.Result<Any, Error>
+    func onSuccess<ResponseBody>(data: Data, response: HTTPURLResponse) throws -> ResponseBody
 }

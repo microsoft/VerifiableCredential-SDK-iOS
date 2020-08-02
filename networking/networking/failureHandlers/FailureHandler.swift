@@ -9,5 +9,5 @@
 import Foundation
 
 protocol FailureHandler {
-    func onFailure(data: Data, response: HTTPURLResponse) -> Swift.Result<Any, Error>
+    func onFailure(data: Data, response: HTTPURLResponse) -> NetworkingError
 }

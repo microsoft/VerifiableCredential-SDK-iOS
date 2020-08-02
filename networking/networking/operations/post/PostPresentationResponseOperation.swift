@@ -9,9 +9,10 @@
 import Foundation
 
 final class PostPresentationResponseOperation: NetworkOperation {
-    
+
     var successHandler: SuccessHandler
     var failureHandler: FailureHandler
+    var retryHandler: RetryHandler
     var urlSession: URLSession
     var urlRequest: URLRequest
     
@@ -20,6 +21,7 @@ final class PostPresentationResponseOperation: NetworkOperation {
         self.successHandler = successHandler
         self.failureHandler = failureHandler
         self.urlSession = session
+        self.retryHandler = NoRetry()
     }
     
     convenience init(withUrl urlStr: String, withBody body: PresentationRequest, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {

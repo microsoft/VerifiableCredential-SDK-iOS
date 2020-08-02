@@ -15,8 +15,8 @@ class SimpleSuccessHandler: SuccessHandler {
     init(serializer: Serializer = Serializer()) {
         self.serializer = serializer
     }
-    func onSuccess(data: Data, response: HTTPURLResponse) -> Result<Any, Error> {
-        let deserializedObject = serializer.deserialize(data: data)
-        return .success(deserializedObject)
+    func onSuccess<ResponseBody>(data: Data, response: HTTPURLResponse) throws -> ResponseBody {
+        let deserializedObject = serializer.deserialize(data: data) as! ResponseBody
+        return deserializedObject
     }
 }

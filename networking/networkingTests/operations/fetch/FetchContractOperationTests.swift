@@ -61,6 +61,7 @@ class FetchContractTests: XCTestCase {
                 print(contract)
                 XCTFail()
             case .failure(let error):
+                print(error)
                 XCTAssertEqual(error as! NetworkingError, NetworkingError.badRequest(withBody: self.expectedHttpResponse))
             }
             expec.fulfill()
@@ -68,7 +69,7 @@ class FetchContractTests: XCTestCase {
             print(error)
             XCTFail()
         }
-        wait(for: [expec], timeout: 5)
+        wait(for: [expec], timeout: 10)
     }
     
     func testFailedFetchOperationUnauthorized() {

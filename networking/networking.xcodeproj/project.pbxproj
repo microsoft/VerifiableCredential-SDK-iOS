@@ -31,10 +31,13 @@
 		55CED17324D5C50B00A2AAE2 /* SimpleFailureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED17124D5C50B00A2AAE2 /* SimpleFailureHandler.swift */; };
 		55CED17724D5C65800A2AAE2 /* FetchContractOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED17624D5C65800A2AAE2 /* FetchContractOperation.swift */; };
 		55CED17824D5C65800A2AAE2 /* FetchContractOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED17624D5C65800A2AAE2 /* FetchContractOperation.swift */; };
+		55CED17A24D6002800A2AAE2 /* NoRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED17924D6002800A2AAE2 /* NoRetry.swift */; };
+		55CED17B24D6002900A2AAE2 /* NoRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED17924D6002800A2AAE2 /* NoRetry.swift */; };
+		55CED17C24D6014E00A2AAE2 /* RetryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01424C8B4D80090F495 /* RetryHandler.swift */; };
 		55D7BFF424C4CBBD0090F495 /* networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7BFEA24C4CBBD0090F495 /* networking.framework */; };
 		55D7BFFB24C4CBBD0090F495 /* networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D7BFED24C4CBBD0090F495 /* networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55D7C00D24C89B0F0090F495 /* networking.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C00C24C89B0E0090F495 /* networking.podspec */; };
-		55D7C01524C8B4D80090F495 /* Retryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01424C8B4D80090F495 /* Retryable.swift */; };
+		55D7C01524C8B4D80090F495 /* RetryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01424C8B4D80090F495 /* RetryHandler.swift */; };
 		55D7C01B24C8BDCD0090F495 /* FetchContractOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01A24C8BDCD0090F495 /* FetchContractOperationTests.swift */; };
 		55D7C01E24C8D9440090F495 /* UrlProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01D24C8D9440090F495 /* UrlProtocolMock.swift */; };
 		72ACEF917C1C3DF81E2A2627 /* Pods_networking_networkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7B2003781468BAF4E1A8C /* Pods_networking_networkingTests.framework */; };
@@ -69,13 +72,14 @@
 		55CED16E24D4999700A2AAE2 /* SimpleSuccessHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSuccessHandler.swift; sourceTree = "<group>"; };
 		55CED17124D5C50B00A2AAE2 /* SimpleFailureHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFailureHandler.swift; sourceTree = "<group>"; };
 		55CED17624D5C65800A2AAE2 /* FetchContractOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContractOperation.swift; sourceTree = "<group>"; };
+		55CED17924D6002800A2AAE2 /* NoRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRetry.swift; sourceTree = "<group>"; };
 		55D7BFEA24C4CBBD0090F495 /* networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFED24C4CBBD0090F495 /* networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networking.h; sourceTree = "<group>"; };
 		55D7BFEE24C4CBBD0090F495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D7BFF324C4CBBD0090F495 /* networkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = networkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFFA24C4CBBD0090F495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D7C00C24C89B0E0090F495 /* networking.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = networking.podspec; sourceTree = "<group>"; };
-		55D7C01424C8B4D80090F495 /* Retryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retryable.swift; sourceTree = "<group>"; };
+		55D7C01424C8B4D80090F495 /* RetryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryHandler.swift; sourceTree = "<group>"; };
 		55D7C01A24C8BDCD0090F495 /* FetchContractOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContractOperationTests.swift; sourceTree = "<group>"; };
 		55D7C01D24C8D9440090F495 /* UrlProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlProtocolMock.swift; sourceTree = "<group>"; };
 		5D8507C0A7266239CD036FDD /* Pods_networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +170,15 @@
 			path = failureHandlers;
 			sourceTree = "<group>";
 		};
+		55CED17D24D6F15A00A2AAE2 /* retryHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				55D7C01424C8B4D80090F495 /* RetryHandler.swift */,
+				55CED17924D6002800A2AAE2 /* NoRetry.swift */,
+			);
+			path = retryHandlers;
+			sourceTree = "<group>";
+		};
 		55D7BFE024C4CBBD0090F495 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +203,7 @@
 		55D7BFEC24C4CBBD0090F495 /* networking */ = {
 			isa = PBXGroup;
 			children = (
+				55CED17D24D6F15A00A2AAE2 /* retryHandlers */,
 				55CED17524D5C63900A2AAE2 /* failureHandlers */,
 				55CED17424D5C62300A2AAE2 /* successHandlers */,
 				55D7C01624C8B6CB0090F495 /* operations */,
@@ -218,7 +232,6 @@
 				55CED0AE24CB39DD00A2AAE2 /* fetch */,
 				55CED0AF24CB3A0E00A2AAE2 /* post */,
 				55B8F24B24C9C9A20066A9E3 /* NetworkOperation.swift */,
-				55D7C01424C8B4D80090F495 /* Retryable.swift */,
 			);
 			path = operations;
 			sourceTree = "<group>";
@@ -437,8 +450,9 @@
 				55CED17224D5C50B00A2AAE2 /* SimpleFailureHandler.swift in Sources */,
 				55B8F24924C924FC0066A9E3 /* NetworkingError.swift in Sources */,
 				55CED16F24D4999700A2AAE2 /* SimpleSuccessHandler.swift in Sources */,
+				55CED17A24D6002800A2AAE2 /* NoRetry.swift in Sources */,
 				55CED16C24D4996E00A2AAE2 /* FailureHandler.swift in Sources */,
-				55D7C01524C8B4D80090F495 /* Retryable.swift in Sources */,
+				55D7C01524C8B4D80090F495 /* RetryHandler.swift in Sources */,
 				55B8F24C24C9C9A20066A9E3 /* NetworkOperation.swift in Sources */,
 				55CED17724D5C65800A2AAE2 /* FetchContractOperation.swift in Sources */,
 			);
@@ -451,12 +465,14 @@
 				55CED17824D5C65800A2AAE2 /* FetchContractOperation.swift in Sources */,
 				55CED0CC24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift in Sources */,
 				55D7C01B24C8BDCD0090F495 /* FetchContractOperationTests.swift in Sources */,
+				55CED17C24D6014E00A2AAE2 /* RetryHandler.swift in Sources */,
 				55CED0C024CCB17500A2AAE2 /* NetworkingConstants.swift in Sources */,
 				55CED0B524CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift in Sources */,
 				55B8F24D24C9C9A20066A9E3 /* NetworkOperation.swift in Sources */,
 				55B8F24A24C924FC0066A9E3 /* NetworkingError.swift in Sources */,
 				55CED17024D4999700A2AAE2 /* SimpleSuccessHandler.swift in Sources */,
 				55B8F25024C9CB490066A9E3 /* MockSerialization.swift in Sources */,
+				55CED17B24D6002900A2AAE2 /* NoRetry.swift in Sources */,
 				55CED16D24D4996E00A2AAE2 /* FailureHandler.swift in Sources */,
 				55CED16A24D4993C00A2AAE2 /* SuccessHandler.swift in Sources */,
 				55CED0AD24CA558500A2AAE2 /* FetchNetworkOperationTests.swift in Sources */,
