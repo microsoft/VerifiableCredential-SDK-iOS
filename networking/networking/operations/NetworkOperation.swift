@@ -13,7 +13,7 @@ import PromiseKit
  * ResponseBody: the type of object returned by the service.
  */
 protocol NetworkOperation {
-    associatedtype ResponseBody = String
+    associatedtype ResponseBody
     
     var successHandler: SuccessHandler { get }
     var failureHandler: FailureHandler { get }

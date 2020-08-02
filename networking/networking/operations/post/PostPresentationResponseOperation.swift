@@ -9,7 +9,8 @@
 import Foundation
 
 final class PostPresentationResponseOperation: NetworkOperation {
-
+    typealias ResponseBody = PresentationServiceResponse
+    
     var successHandler: SuccessHandler
     var failureHandler: FailureHandler
     var retryHandler: RetryHandler

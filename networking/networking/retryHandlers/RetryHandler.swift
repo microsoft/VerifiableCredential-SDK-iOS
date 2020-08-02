@@ -8,46 +8,23 @@
 
 import PromiseKit
 
-protocol RetryHandler {    
-    func onRetry<T>(closure : @escaping () -> Promise<T>) -> Promise<T>
+protocol RetryHandler {
+    
+    var maxRetryCount: Int { get }
+
+    func onRetry<ResponseBody>(closure : @escaping () -> Promise<ResponseBody>) -> Promise<ResponseBody>
 }
 
 extension RetryHandler {
-    func attempt<T>(maximumRetryCount: Int = 3, delayBeforeRetry: DispatchTimeInterval = .seconds(2), _ body: @escaping () -> Promise<T>) -> Promise<T> {
-        var attempts = 0
-        func attempt() -> Promise<T> {
-            attempts += 1
-            print("attempt: \(attempts)")
-            return body().recover { error -> Promise<T> in
-                print("recover")
-                print(error)
-                guard attempts < maximumRetryCount else {
-                    throw error
-                }
-                return after(delayBeforeRetry).then(on: nil, attempt)
-            }
-        }
-        return attempt()
-    }
     
-    func onRetry<T>(closure : @escaping () -> Promise<T>) -> Promise<T> {
-        return Promise<T> { seal in
-            self.attempt {
+    func onRetry<ResponseBody>(closure : @escaping () -> Promise<ResponseBody>) -> Promise<ResponseBody> {
+        return Promise<ResponseBody> { seal in
+            attempt(maximumRetryCount: self.maxRetryCount) {
                 closure()
-            }.done { num in
-                seal.fulfill(num)
+            }.done { responseBody in
+                seal.fulfill(responseBody)
             }.catch { error in
                 seal.reject(error)
-            }
-        }
-    }
-    
-    func flakeyTask(parameters: Int) -> Promise<Int> {
-        return Promise<Int> { seal in
-            if (parameters == 4) {
-                seal.fulfill(parameters)
-            } else {
-                seal.reject(NetworkingError.unknownNetworkingError(withBody: String(parameters)))
             }
         }
     }

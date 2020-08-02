@@ -10,6 +10,8 @@ import Foundation
 import PromiseKit
 
 final class FetchContractOperation: NetworkOperation {
+    typealias ResponseBody = Contract
+    
     var retryHandler: RetryHandler
     var successHandler: SuccessHandler
     var failureHandler: FailureHandler

@@ -17,22 +17,5 @@ class FetchNetworkOperationTests: XCTestCase {
     
     func testSuccessfulFetchOperation() {
         
-        let retryHandler = NoRetry()
-        let foo = 5
-        let expec = self.expectation(description: "Fire")
-        
-        retryHandler.attempt(maximumRetryCount: 3) {
-            retryHandler.flakeyTask(parameters: foo)
-        }.done { num in
-            print(num)
-            expec.fulfill()
-        }.catch { error in
-            print("here")
-            print(error)
-            expec.fulfill()
-        }
-        
-        wait(for: [expec], timeout: 10)
-        
     }
 }
