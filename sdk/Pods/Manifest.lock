@@ -1,12 +1,12 @@
 PODS:
   - Networking (0.0.1-beta.0):
-    - PromiseKit
-  - PromiseKit (6.13.1):
-    - PromiseKit/CorePromise (= 6.13.1)
-    - PromiseKit/Foundation (= 6.13.1)
-    - PromiseKit/UIKit (= 6.13.1)
-  - PromiseKit/CorePromise (6.13.1)
-  - PromiseKit/Foundation (6.13.1):
+    - PromiseKit (= 6.8)
+  - PromiseKit (6.8.0):
+    - PromiseKit/CorePromise (= 6.8.0)
+    - PromiseKit/Foundation (= 6.8.0)
+    - PromiseKit/UIKit (= 6.8.0)
+  - PromiseKit/CorePromise (6.8.0)
+  - PromiseKit/Foundation (6.8.0):
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.8.0):
     - PromiseKit/CorePromise
@@ -14,7 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - Networking (from `../networking`)
-  - PromiseKit
+  - PromiseKit (= 6.8)
   - Serialization (from `../serialization`)
 
 SPEC REPOS:
@@ -28,8 +28,8 @@ EXTERNAL SOURCES:
     :path: "../serialization"
 
 SPEC CHECKSUMS:
-  Networking: e6764ea084e8c2556c36678b0f351966a49088c1
-  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
+  Networking: 6f8b30ec516d5c7d15944ae2b082f575a6c61dfc
+  PromiseKit: 02c93833283c37ce94ef7d25de63d48d62b0754e
   Serialization: e16c46dc7be41e7432d2c48fd5716f1006f8391b
 
 PODFILE CHECKSUM: 44e5b3a81a9cdbc05a2b0936f8db26b711997a18
