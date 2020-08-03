@@ -8,7 +8,7 @@ PODS:
   - PromiseKit/CorePromise (6.13.1)
   - PromiseKit/Foundation (6.13.1):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.13.1):
+  - PromiseKit/UIKit (6.8.0):
     - PromiseKit/CorePromise
   - Serialization (0.0.1)
 
