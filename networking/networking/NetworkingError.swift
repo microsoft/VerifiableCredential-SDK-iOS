@@ -1,13 +1,9 @@
-//
-//  NetworkingError.swift
-//  networking
-//
-//  Created by Sydney Morton on 7/22/20.
-//  Copyright © 2020 Microsoft. All rights reserved.
-//
+/*---------------------------------------------------------------------------------------------
+*  Copyright (c) Microsoft Corporation. All rights reserved.
+*  Licensed under the MIT License. See License.txt in the project root for license information.
+*--------------------------------------------------------------------------------------------*/
 
 enum NetworkingError: Error, Equatable {
-    
     case badRequest(withBody: String)
     case forbidden(withBody: String)
     case invalidUrl(withUrl: String)
@@ -15,4 +11,5 @@ enum NetworkingError: Error, Equatable {
     case serverError(withBody: String)
     case unauthorized(withBody: String)
     case unknownNetworkingError(withBody: String)
+    case unableToCaseResponse
 }
