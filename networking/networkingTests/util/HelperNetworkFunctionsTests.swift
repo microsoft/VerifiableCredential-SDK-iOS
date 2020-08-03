@@ -7,6 +7,8 @@ import XCTest
 import Foundation
 import PromiseKit
 
+@testable import networking
+
 class HelperNetworkFunctionsTests: XCTestCase {
     
     var flakeyTaskCalls = 0

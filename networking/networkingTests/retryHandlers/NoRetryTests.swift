@@ -6,6 +6,8 @@
 import XCTest
 import PromiseKit
 
+@testable import networking
+
 class NoRetryTests: XCTestCase {
     
     let noRetry = NoRetry()

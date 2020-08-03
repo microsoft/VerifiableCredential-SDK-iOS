@@ -5,6 +5,8 @@
 
 import XCTest
 
+@testable import networking
+
 class SimpleSuccessHandlerTests: XCTestCase {
     
     let handler = SimpleSuccessHandler()
