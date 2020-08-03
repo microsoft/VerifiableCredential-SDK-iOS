@@ -1,10 +1,7 @@
-//
-//  SimpleSuccessHandlerTests.swift
-//  networkingTests
-//
-//  Created by Sydney Morton on 8/3/20.
-//  Copyright © 2020 Microsoft. All rights reserved.
-//
+/*---------------------------------------------------------------------------------------------
+*  Copyright (c) Microsoft Corporation. All rights reserved.
+*  Licensed under the MIT License. See License.txt in the project root for license information.
+*--------------------------------------------------------------------------------------------*/
 
 import XCTest
 
