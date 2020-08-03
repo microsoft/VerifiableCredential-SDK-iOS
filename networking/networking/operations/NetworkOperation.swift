@@ -42,14 +42,12 @@ extension NetworkOperation {
     private func handleResponse(data: Data, response: URLResponse) -> Promise<ResponseBody> {
         return Promise { seal in
             
-            let successfulStatusCodeRange = 200...299
-            
             guard let httpResponse = response as? HTTPURLResponse else {
                 seal.reject(NetworkingError.unableToCaseResponse)
                 return
             }
             
-            if successfulStatusCodeRange.contains(httpResponse.statusCode) {
+            if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
                 seal.fulfill(try self.onSuccess(data: data, response: httpResponse))
                 return
             }
