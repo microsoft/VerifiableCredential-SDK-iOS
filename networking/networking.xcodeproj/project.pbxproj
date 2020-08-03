@@ -13,14 +13,11 @@
 		55B8F24D24C9C9A20066A9E3 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8F24B24C9C9A20066A9E3 /* NetworkOperation.swift */; };
 		55B8F24F24C9CB490066A9E3 /* MockSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8F24E24C9CB490066A9E3 /* MockSerialization.swift */; };
 		55B8F25024C9CB490066A9E3 /* MockSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8F24E24C9CB490066A9E3 /* MockSerialization.swift */; };
-		55CED0AD24CA558500A2AAE2 /* FetchNetworkOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0AC24CA558500A2AAE2 /* FetchNetworkOperationTests.swift */; };
-		55CED0B524CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0B324CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift */; };
 		55CED0BA24CB843800A2AAE2 /* PostPresentationResponseOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0B924CB843800A2AAE2 /* PostPresentationResponseOperationTests.swift */; };
 		55CED0BF24CCB17500A2AAE2 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0BE24CCB17500A2AAE2 /* NetworkingConstants.swift */; };
 		55CED0C024CCB17500A2AAE2 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0BE24CCB17500A2AAE2 /* NetworkingConstants.swift */; };
 		55CED0CB24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift */; };
 		55CED0CC24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift */; };
-		55CED0CE24CCD6A700A2AAE2 /* PostIssuanceResponseOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED0CD24CCD6A700A2AAE2 /* PostIssuanceResponseOperationTests.swift */; };
 		55CED16924D4993C00A2AAE2 /* SuccessHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED16824D4993C00A2AAE2 /* SuccessHandler.swift */; };
 		55CED16A24D4993C00A2AAE2 /* SuccessHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED16824D4993C00A2AAE2 /* SuccessHandler.swift */; };
 		55CED16C24D4996E00A2AAE2 /* FailureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED16B24D4996E00A2AAE2 /* FailureHandler.swift */; };
@@ -34,7 +31,6 @@
 		55CED17A24D6002800A2AAE2 /* NoRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED17924D6002800A2AAE2 /* NoRetry.swift */; };
 		55CED17B24D6002900A2AAE2 /* NoRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED17924D6002800A2AAE2 /* NoRetry.swift */; };
 		55CED17C24D6014E00A2AAE2 /* RetryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D7C01424C8B4D80090F495 /* RetryHandler.swift */; };
-		55CED17F24D7395800A2AAE2 /* MockSuccessHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED17E24D7395800A2AAE2 /* MockSuccessHandler.swift */; };
 		55CED18224D73AAE00A2AAE2 /* HelperNetworkFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED18124D73AAE00A2AAE2 /* HelperNetworkFunctions.swift */; };
 		55CED18324D73AAE00A2AAE2 /* HelperNetworkFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED18124D73AAE00A2AAE2 /* HelperNetworkFunctions.swift */; };
 		55CED18624D73B4200A2AAE2 /* HelperNetworkFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED18524D73B4200A2AAE2 /* HelperNetworkFunctionsTests.swift */; };
@@ -65,19 +61,15 @@
 		55B8F24824C924FC0066A9E3 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		55B8F24B24C9C9A20066A9E3 /* NetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		55B8F24E24C9CB490066A9E3 /* MockSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSerialization.swift; sourceTree = "<group>"; };
-		55CED0AC24CA558500A2AAE2 /* FetchNetworkOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNetworkOperationTests.swift; sourceTree = "<group>"; };
-		55CED0B324CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkOperationTests.swift; sourceTree = "<group>"; };
 		55CED0B924CB843800A2AAE2 /* PostPresentationResponseOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresentationResponseOperationTests.swift; sourceTree = "<group>"; };
 		55CED0BE24CCB17500A2AAE2 /* NetworkingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConstants.swift; sourceTree = "<group>"; };
 		55CED0CA24CCD50F00A2AAE2 /* PostPresentationResponseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresentationResponseOperation.swift; sourceTree = "<group>"; };
-		55CED0CD24CCD6A700A2AAE2 /* PostIssuanceResponseOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostIssuanceResponseOperationTests.swift; sourceTree = "<group>"; };
 		55CED16824D4993C00A2AAE2 /* SuccessHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessHandler.swift; sourceTree = "<group>"; };
 		55CED16B24D4996E00A2AAE2 /* FailureHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureHandler.swift; sourceTree = "<group>"; };
 		55CED16E24D4999700A2AAE2 /* SimpleSuccessHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSuccessHandler.swift; sourceTree = "<group>"; };
 		55CED17124D5C50B00A2AAE2 /* SimpleFailureHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFailureHandler.swift; sourceTree = "<group>"; };
 		55CED17624D5C65800A2AAE2 /* FetchContractOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContractOperation.swift; sourceTree = "<group>"; };
 		55CED17924D6002800A2AAE2 /* NoRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRetry.swift; sourceTree = "<group>"; };
-		55CED17E24D7395800A2AAE2 /* MockSuccessHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSuccessHandler.swift; sourceTree = "<group>"; };
 		55CED18124D73AAE00A2AAE2 /* HelperNetworkFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperNetworkFunctions.swift; sourceTree = "<group>"; };
 		55CED18524D73B4200A2AAE2 /* HelperNetworkFunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperNetworkFunctionsTests.swift; sourceTree = "<group>"; };
 		55D7BFEA24C4CBBD0090F495 /* networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				55D7C01A24C8BDCD0090F495 /* FetchContractOperationTests.swift */,
-				55CED0AC24CA558500A2AAE2 /* FetchNetworkOperationTests.swift */,
 			);
 			path = fetch;
 			sourceTree = "<group>";
@@ -152,9 +143,7 @@
 		55CED0BD24CCB0C700A2AAE2 /* post */ = {
 			isa = PBXGroup;
 			children = (
-				55CED0B324CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift */,
 				55CED0B924CB843800A2AAE2 /* PostPresentationResponseOperationTests.swift */,
-				55CED0CD24CCD6A700A2AAE2 /* PostIssuanceResponseOperationTests.swift */,
 			);
 			path = post;
 			sourceTree = "<group>";
@@ -265,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				55D7C01D24C8D9440090F495 /* UrlProtocolMock.swift */,
-				55CED17E24D7395800A2AAE2 /* MockSuccessHandler.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -494,19 +482,15 @@
 				55D7C01B24C8BDCD0090F495 /* FetchContractOperationTests.swift in Sources */,
 				55CED17C24D6014E00A2AAE2 /* RetryHandler.swift in Sources */,
 				55CED0C024CCB17500A2AAE2 /* NetworkingConstants.swift in Sources */,
-				55CED0B524CB3B4C00A2AAE2 /* PostNetworkOperationTests.swift in Sources */,
 				55B8F24D24C9C9A20066A9E3 /* NetworkOperation.swift in Sources */,
 				55B8F24A24C924FC0066A9E3 /* NetworkingError.swift in Sources */,
 				55CED17024D4999700A2AAE2 /* SimpleSuccessHandler.swift in Sources */,
 				55B8F25024C9CB490066A9E3 /* MockSerialization.swift in Sources */,
 				55CED17B24D6002900A2AAE2 /* NoRetry.swift in Sources */,
 				55CED16D24D4996E00A2AAE2 /* FailureHandler.swift in Sources */,
-				55CED17F24D7395800A2AAE2 /* MockSuccessHandler.swift in Sources */,
 				55CED18624D73B4200A2AAE2 /* HelperNetworkFunctionsTests.swift in Sources */,
 				55CED16A24D4993C00A2AAE2 /* SuccessHandler.swift in Sources */,
 				55CED18324D73AAE00A2AAE2 /* HelperNetworkFunctions.swift in Sources */,
-				55CED0AD24CA558500A2AAE2 /* FetchNetworkOperationTests.swift in Sources */,
-				55CED0CE24CCD6A700A2AAE2 /* PostIssuanceResponseOperationTests.swift in Sources */,
 				55CED0BA24CB843800A2AAE2 /* PostPresentationResponseOperationTests.swift in Sources */,
 				55D7C01E24C8D9440090F495 /* UrlProtocolMock.swift in Sources */,
 				55CED17324D5C50B00A2AAE2 /* SimpleFailureHandler.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NoRetry: RetryHandler {
+final class NoRetry: RetryHandler {
     
     let maxRetryCount: Int = 0
 

@@ -21,41 +21,25 @@ protocol NetworkOperation {
     var urlSession: URLSession { get }
     var urlRequest: URLRequest { get }
     
-    func fire() -> Promise<Swift.Result<String, Error>>
+    func fire() -> Promise<ResponseBody>
 }
 
 extension NetworkOperation {
     
-    func fire() -> Promise<Swift.Result<ResponseBody, Error>> {
-        return Promise<Swift.Result<ResponseBody, Error>> { seal in
-            firstly {
-                retryHandler.onRetry {
-                    self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)
-                }
-            }.compactMap { responseBody in
-                seal.fulfill(.success(responseBody))
-            }.catch { error in
-                if error is NetworkingError {
-                    seal.fulfill(.failure(error))
-                } else {
-                    seal.reject(error)
-                }
+    func fire() -> Promise<ResponseBody> {
+        return firstly {
+            retryHandler.onRetry {
+                self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)
             }
         }
     }
     
     func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<ResponseBody> {
-        let promise = firstly {
+        return firstly {
             urlSession.dataTask(.promise, with: urlRequest)
         }.then { data, response in
             self.handleResponse(data: data, response: response)
         }
-        
-        promise.catch { error in
-            print(error)
-        }
-        
-        return promise
     }
     
     private func handleResponse(data: Data, response: URLResponse) -> Promise<ResponseBody> {

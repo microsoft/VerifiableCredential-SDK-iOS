@@ -11,21 +11,13 @@ import Foundation
 final class PostPresentationResponseOperation: NetworkOperation {
     typealias ResponseBody = PresentationServiceResponse
     
-    var successHandler: SuccessHandler
-    var failureHandler: FailureHandler
-    var retryHandler: RetryHandler
-    var urlSession: URLSession
-    var urlRequest: URLRequest
+    let successHandler: SuccessHandler = SimpleSuccessHandler()
+    let failureHandler: FailureHandler = SimpleFailureHandler()
+    let retryHandler: RetryHandler = NoRetry()
+    let urlSession: URLSession
+    let urlRequest: URLRequest
     
-    private init(request: URLRequest, successHandler: SuccessHandler, failureHandler: FailureHandler, session: URLSession = URLSession.shared) {
-        self.urlRequest = request
-        self.successHandler = successHandler
-        self.failureHandler = failureHandler
-        self.urlSession = session
-        self.retryHandler = NoRetry()
-    }
-    
-    convenience init(withUrl urlStr: String, withBody body: PresentationRequest, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
+    init(withUrl urlStr: String, withBody body: PresentationRequest, serializer: Serializer = Serializer(), urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
@@ -35,10 +27,7 @@ final class PostPresentationResponseOperation: NetworkOperation {
         urlRequest.httpMethod = Constants.POST
         urlRequest.httpBody = serializer.serialize(object: body)
         urlRequest.addValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
-        
-        let successHandler = SimpleSuccessHandler()
-        let failureHandler = SimpleFailureHandler()
-        
-        self.init(request: urlRequest, successHandler: successHandler, failureHandler: failureHandler, session: urlSession)
+        self.urlRequest = urlRequest
+        self.urlSession = urlSession
     }
 }

@@ -12,11 +12,11 @@ import PromiseKit
 final class FetchContractOperation: NetworkOperation {
     typealias ResponseBody = Contract
     
-    var retryHandler: RetryHandler
-    var successHandler: SuccessHandler
-    var failureHandler: FailureHandler
-    var urlSession: URLSession
-    var urlRequest: URLRequest
+    let retryHandler: RetryHandler  = NoRetry()
+    let successHandler: SuccessHandler = SimpleSuccessHandler()
+    let failureHandler: FailureHandler = SimpleFailureHandler()
+    let urlSession: URLSession
+    let urlRequest: URLRequest
     
     init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
         guard let url = URL(string: urlStr) else {
@@ -24,9 +24,6 @@ final class FetchContractOperation: NetworkOperation {
         }
         
         self.urlRequest = URLRequest(url: url)
-        self.successHandler = SimpleSuccessHandler()
-        self.failureHandler = SimpleFailureHandler()
-        self.retryHandler = NoRetry()
         self.urlSession = session
     }
 }

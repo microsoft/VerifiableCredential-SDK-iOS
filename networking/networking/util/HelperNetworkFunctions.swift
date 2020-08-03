@@ -20,7 +20,7 @@ func attempt<T>(maximumRetryCount: Int = 3, delayBeforeRetry: DispatchTimeInterv
             guard attempts < maximumRetryCount else {
                 throw error
             }
-            return after(delayBeforeRetry).then(on: nil, attempt)
+            return after(delayBeforeRetry).then(attempt)
         }
     }
     return attempt()
