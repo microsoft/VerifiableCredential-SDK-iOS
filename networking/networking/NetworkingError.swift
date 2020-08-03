@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-enum NetworkingError: Error, Equatable {
+public enum NetworkingError: Error, Equatable {
     case badRequest(withBody: String)
     case forbidden(withBody: String)
     case invalidUrl(withUrl: String)

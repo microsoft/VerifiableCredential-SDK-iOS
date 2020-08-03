@@ -26,19 +26,9 @@ class sdkTests: XCTestCase {
 
     func testExample() throws {
         let expec = self.expectation(description: "Fire")
-        let fetch = try FetchContract(withUrl: "https://portableidentitycards.azure-api.net/dev-v1.0/536279f6-15cc-45f2-be2d-61e352b51eef/portableIdentities/contracts/WoodgroveId")
+        let fetch = try FetchContractOperation(withUrl: "https://portableidentitycards.azure-api.net/dev-v1.0/536279f6-15cc-45f2-be2d-61e352b51eef/portableIdentities/contracts/WoodgroveId")
         fetch.fire().done { result in
             print(result)
-            
-            switch result {
-            case .success(let stringifiedContract):
-                let data = stringifiedContract.data(using: .utf8)!
-                let contract = try self.serializer.deserialize(Contract.self, data: data)
-                print(contract)
-            case .failure(let error):
-                print(error)
-            }
-            
             expec.fulfill()
         }.catch { error in
             print(error)

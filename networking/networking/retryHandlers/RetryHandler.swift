@@ -5,7 +5,7 @@
 
 import PromiseKit
 
-protocol RetryHandler {
+public protocol RetryHandler {
 
     func onRetry<ResponseBody>(closure : @escaping () -> Promise<ResponseBody>) -> Promise<ResponseBody>
 }

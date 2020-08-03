@@ -9,7 +9,7 @@ import PromiseKit
  * Base Network Operation class with default methods for all Network Operations.
  * ResponseBody: the type of object returned by the service.
  */
-protocol NetworkOperation {
+public protocol NetworkOperation {
     associatedtype ResponseBody
     
     var successHandler: SuccessHandler { get }
@@ -23,7 +23,7 @@ protocol NetworkOperation {
 
 extension NetworkOperation {
     
-    func fire() -> Promise<ResponseBody> {
+    public func fire() -> Promise<ResponseBody> {
         return firstly {
             retryHandler.onRetry {
                 self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)

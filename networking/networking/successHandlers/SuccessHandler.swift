@@ -5,6 +5,6 @@
 
 import Foundation
 
-protocol SuccessHandler {
+public protocol SuccessHandler {
     func onSuccess<ResponseBody>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody
 }
