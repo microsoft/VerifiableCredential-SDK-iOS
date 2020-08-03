@@ -1,17 +1,17 @@
 PODS:
-  - PromiseKit (6.13.1):
-    - PromiseKit/CorePromise (= 6.13.1)
-    - PromiseKit/Foundation (= 6.13.1)
-    - PromiseKit/UIKit (= 6.13.1)
-  - PromiseKit/CorePromise (6.13.1)
-  - PromiseKit/Foundation (6.13.1):
+  - PromiseKit (6.8.0):
+    - PromiseKit/CorePromise (= 6.8.0)
+    - PromiseKit/Foundation (= 6.8.0)
+    - PromiseKit/UIKit (= 6.8.0)
+  - PromiseKit/CorePromise (6.8.0)
+  - PromiseKit/Foundation (6.8.0):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.13.1):
+  - PromiseKit/UIKit (6.8.0):
     - PromiseKit/CorePromise
   - SSZipArchive (2.2.3)
 
 DEPENDENCIES:
-  - PromiseKit
+  - PromiseKit (= 6.8)
   - SSZipArchive
 
 SPEC REPOS:
@@ -20,7 +20,7 @@ SPEC REPOS:
     - SSZipArchive
 
 SPEC CHECKSUMS:
-  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
+  PromiseKit: 02c93833283c37ce94ef7d25de63d48d62b0754e
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
 
 PODFILE CHECKSUM: a3a69cda1145369c046fa448491790f37d5bcfcf
