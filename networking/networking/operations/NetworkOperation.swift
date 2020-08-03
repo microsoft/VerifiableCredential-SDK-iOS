@@ -56,16 +56,16 @@ extension NetworkOperation {
                 seal.fulfill(try self.onSuccess(data: data, response: httpResponse))
                 return
             }
-            seal.reject(self.onFailure(data: data, response: httpResponse))
+            seal.reject(try self.onFailure(data: data, response: httpResponse))
         }
     }
     
     func onSuccess(data: Data, response: HTTPURLResponse) throws -> ResponseBody {
-        return try self.successHandler.onSuccess(data: data, response: response)
+        return try self.successHandler.onSuccess(ResponseBody.self, data: data, response: response)
     }
     
-    func onFailure(data: Data, response: HTTPURLResponse) -> NetworkingError {
-        return self.failureHandler.onFailure(data: data, response: response)
+    func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError {
+        return try self.failureHandler.onFailure(ResponseBody.self, data: data, response: response)
     }
 }
 

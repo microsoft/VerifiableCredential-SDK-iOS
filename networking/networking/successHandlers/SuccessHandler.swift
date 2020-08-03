@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SuccessHandler {
-    func onSuccess<ResponseBody>(data: Data, response: HTTPURLResponse) throws -> ResponseBody
+    func onSuccess<ResponseBody>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody
 }

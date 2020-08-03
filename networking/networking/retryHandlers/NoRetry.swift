@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import PromiseKit
 
 final class NoRetry: RetryHandler {
-    
-    let maxRetryCount: Int = 0
 
-    init() {}
+    func onRetry<ResponseBody>(closure : @escaping () -> Promise<ResponseBody>) -> Promise<ResponseBody> {
+        return closure()
+    }
 }

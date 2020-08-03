@@ -22,7 +22,7 @@ class HelperNetworkFunctionsTests: XCTestCase {
         let actualTestNum = 4
         let expec = self.expectation(description: "Fire")
         
-        attempt(maximumRetryCount: 3) {
+        attempt(maximumRetryCount: 1) {
             self.flakeyTask(testNum: actualTestNum)
         }.done { num in
             XCTAssertEqual(self.flakeyTaskCalls, 1)
@@ -37,20 +37,20 @@ class HelperNetworkFunctionsTests: XCTestCase {
         wait(for: [expec], timeout: 10)
     }
     
-    func testAttemptFunction3Retries() {
+    func testAttemptFunction2Retries() {
         
         flakeyTaskCalls = 0
         let actualTestNum = 5
         let expec = self.expectation(description: "Fire")
         
-        attempt(maximumRetryCount: 3) {
+        attempt(maximumRetryCount: 2) {
             self.flakeyTask(testNum: actualTestNum)
         }.done { num in
             print(num)
             expec.fulfill()
             XCTFail()
         }.catch { error in
-            XCTAssertEqual(self.flakeyTaskCalls, 3)
+            XCTAssertEqual(self.flakeyTaskCalls, 2)
             print(error)
             expec.fulfill()
         }

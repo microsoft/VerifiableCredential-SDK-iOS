@@ -1,10 +1,7 @@
-//
-//  SimpleFailureHandler.swift
-//  networking
-//
-//  Created by Sydney Morton on 8/1/20.
-//  Copyright © 2020 Microsoft. All rights reserved.
-//
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
 import Foundation
 
@@ -16,7 +13,7 @@ class SimpleFailureHandler: FailureHandler {
         self.serializer = serializer
     }
     
-    func onFailure(data: Data, response: HTTPURLResponse) -> NetworkingError {
+    func onFailure<ResponseBody>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> NetworkingError {
         let responseBody = serializer.deserialize(data: data) as! String
         switch response.statusCode {
         case 400:

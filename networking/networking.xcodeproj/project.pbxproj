@@ -34,6 +34,9 @@
 		55CED18224D73AAE00A2AAE2 /* HelperNetworkFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED18124D73AAE00A2AAE2 /* HelperNetworkFunctions.swift */; };
 		55CED18324D73AAE00A2AAE2 /* HelperNetworkFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED18124D73AAE00A2AAE2 /* HelperNetworkFunctions.swift */; };
 		55CED18624D73B4200A2AAE2 /* HelperNetworkFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED18524D73B4200A2AAE2 /* HelperNetworkFunctionsTests.swift */; };
+		55CED18924D89BDB00A2AAE2 /* NoRetryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED18824D89BDB00A2AAE2 /* NoRetryTests.swift */; };
+		55CED18C24D89C2200A2AAE2 /* SimpleSuccessHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED18B24D89C2200A2AAE2 /* SimpleSuccessHandlerTests.swift */; };
+		55CED18F24D89C4D00A2AAE2 /* SimpleFailureHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED18E24D89C4C00A2AAE2 /* SimpleFailureHandlerTests.swift */; };
 		55D7BFF424C4CBBD0090F495 /* networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7BFEA24C4CBBD0090F495 /* networking.framework */; };
 		55D7BFFB24C4CBBD0090F495 /* networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D7BFED24C4CBBD0090F495 /* networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55D7C00D24C89B0F0090F495 /* networking.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C00C24C89B0E0090F495 /* networking.podspec */; };
@@ -72,6 +75,9 @@
 		55CED17924D6002800A2AAE2 /* NoRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRetry.swift; sourceTree = "<group>"; };
 		55CED18124D73AAE00A2AAE2 /* HelperNetworkFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperNetworkFunctions.swift; sourceTree = "<group>"; };
 		55CED18524D73B4200A2AAE2 /* HelperNetworkFunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperNetworkFunctionsTests.swift; sourceTree = "<group>"; };
+		55CED18824D89BDB00A2AAE2 /* NoRetryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRetryTests.swift; sourceTree = "<group>"; };
+		55CED18B24D89C2200A2AAE2 /* SimpleSuccessHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSuccessHandlerTests.swift; sourceTree = "<group>"; };
+		55CED18E24D89C4C00A2AAE2 /* SimpleFailureHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFailureHandlerTests.swift; sourceTree = "<group>"; };
 		55D7BFEA24C4CBBD0090F495 /* networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFED24C4CBBD0090F495 /* networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = networking.h; sourceTree = "<group>"; };
 		55D7BFEE24C4CBBD0090F495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,6 +197,30 @@
 			path = util;
 			sourceTree = "<group>";
 		};
+		55CED18724D89BB300A2AAE2 /* retryHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				55CED18824D89BDB00A2AAE2 /* NoRetryTests.swift */,
+			);
+			path = retryHandlers;
+			sourceTree = "<group>";
+		};
+		55CED18A24D89BFD00A2AAE2 /* successHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				55CED18B24D89C2200A2AAE2 /* SimpleSuccessHandlerTests.swift */,
+			);
+			path = successHandlers;
+			sourceTree = "<group>";
+		};
+		55CED18D24D89C2C00A2AAE2 /* failureHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				55CED18E24D89C4C00A2AAE2 /* SimpleFailureHandlerTests.swift */,
+			);
+			path = failureHandlers;
+			sourceTree = "<group>";
+		};
 		55D7BFE024C4CBBD0090F495 = {
 			isa = PBXGroup;
 			children = (
@@ -215,16 +245,16 @@
 		55D7BFEC24C4CBBD0090F495 /* networking */ = {
 			isa = PBXGroup;
 			children = (
-				55CED18024D73A9400A2AAE2 /* util */,
-				55CED17D24D6F15A00A2AAE2 /* retryHandlers */,
 				55CED17524D5C63900A2AAE2 /* failureHandlers */,
-				55CED17424D5C62300A2AAE2 /* successHandlers */,
 				55D7C01624C8B6CB0090F495 /* operations */,
+				55CED17D24D6F15A00A2AAE2 /* retryHandlers */,
+				55CED17424D5C62300A2AAE2 /* successHandlers */,
+				55CED18024D73A9400A2AAE2 /* util */,
+				55D7BFED24C4CBBD0090F495 /* networking.h */,
 				55D7BFEE24C4CBBD0090F495 /* Info.plist */,
 				55B8F24E24C9CB490066A9E3 /* MockSerialization.swift */,
 				55CED0BE24CCB17500A2AAE2 /* NetworkingConstants.swift */,
 				55B8F24824C924FC0066A9E3 /* NetworkingError.swift */,
-				55D7BFED24C4CBBD0090F495 /* networking.h */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -232,9 +262,12 @@
 		55D7BFF724C4CBBD0090F495 /* networkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				55CED18424D73B2A00A2AAE2 /* util */,
+				55CED18D24D89C2C00A2AAE2 /* failureHandlers */,
 				55D7C01C24C8D92B0090F495 /* mocks */,
 				55CED0BB24CCB0A000A2AAE2 /* operations */,
+				55CED18A24D89BFD00A2AAE2 /* successHandlers */,
+				55CED18724D89BB300A2AAE2 /* retryHandlers */,
+				55CED18424D73B2A00A2AAE2 /* util */,
 				55D7BFFA24C4CBBD0090F495 /* Info.plist */,
 			);
 			path = networkingTests;
@@ -485,6 +518,7 @@
 				55B8F24D24C9C9A20066A9E3 /* NetworkOperation.swift in Sources */,
 				55B8F24A24C924FC0066A9E3 /* NetworkingError.swift in Sources */,
 				55CED17024D4999700A2AAE2 /* SimpleSuccessHandler.swift in Sources */,
+				55CED18C24D89C2200A2AAE2 /* SimpleSuccessHandlerTests.swift in Sources */,
 				55B8F25024C9CB490066A9E3 /* MockSerialization.swift in Sources */,
 				55CED17B24D6002900A2AAE2 /* NoRetry.swift in Sources */,
 				55CED16D24D4996E00A2AAE2 /* FailureHandler.swift in Sources */,
@@ -492,6 +526,8 @@
 				55CED16A24D4993C00A2AAE2 /* SuccessHandler.swift in Sources */,
 				55CED18324D73AAE00A2AAE2 /* HelperNetworkFunctions.swift in Sources */,
 				55CED0BA24CB843800A2AAE2 /* PostPresentationResponseOperationTests.swift in Sources */,
+				55CED18924D89BDB00A2AAE2 /* NoRetryTests.swift in Sources */,
+				55CED18F24D89C4D00A2AAE2 /* SimpleFailureHandlerTests.swift in Sources */,
 				55D7C01E24C8D9440090F495 /* UrlProtocolMock.swift in Sources */,
 				55CED17324D5C50B00A2AAE2 /* SimpleFailureHandler.swift in Sources */,
 			);
