@@ -11,6 +11,10 @@ def networking_pods
   podspec :path => '../networking/networking.podspec'
 end
 
+def vccrypto_pods
+  podspec :path => '../VCCrypto/VCCrypto.podspec'
+end
+
 target 'sdk' do
   project '../sdk/sdk.xcodeproj'
   sdk_pods
@@ -22,4 +26,10 @@ target 'networking' do
   project '../networking/networking.xcodeproj'
   networking_pods
   target 'networkingTests'
+end
+
+target 'VCCrypto' do
+  project '../VCCrypto/VCCrypto.xcodeproj'
+  vccrypto_pods
+  target 'VCCryptoTests'
 end
