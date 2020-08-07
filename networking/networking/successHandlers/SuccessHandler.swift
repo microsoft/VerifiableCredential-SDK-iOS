@@ -4,7 +4,8 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+import Serialization
 
 public protocol SuccessHandler {
-    func onSuccess<ResponseBody>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody
+    func onSuccess<ResponseBody: Serializable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody
 }

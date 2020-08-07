@@ -4,13 +4,14 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
+import Serialization
 
 /**
  * Base Network Operation class with default methods for all Network Operations.
  * ResponseBody: the type of object returned by the service.
  */
 public protocol NetworkOperation {
-    associatedtype ResponseBody
+    associatedtype ResponseBody: Serializable
     
     var successHandler: SuccessHandler { get }
     var failureHandler: FailureHandler { get }

@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
+import Serialization
 
 @testable import networking
 
@@ -15,7 +16,7 @@ class SimpleSuccessHandlerTests: XCTestCase {
     let serializer = Serializer()
 
     func testHandleSuccessfulResponse() throws {
-        let serializedResponseBody = serializer.serialize(object: expectedResponseBody)
+        let serializedResponseBody = try serializer.serialize(object: expectedResponseBody)
         let actualResponseBody = try handler.onSuccess(String.self, data: serializedResponseBody, response: response)
         XCTAssertEqual(actualResponseBody, self.expectedResponseBody)
     }

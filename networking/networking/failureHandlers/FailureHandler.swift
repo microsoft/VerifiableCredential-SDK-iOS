@@ -4,7 +4,8 @@
  *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+import Serialization
 
 public protocol FailureHandler {
-    func onFailure<ResponseBody>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> NetworkingError
+    func onFailure<ResponseBody: Serializable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> NetworkingError
 }

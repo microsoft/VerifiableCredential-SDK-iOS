@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+import Serialization
 
 final class PostPresentationResponseOperation: NetworkOperation {
     typealias ResponseBody = PresentationServiceResponse
@@ -22,7 +23,7 @@ final class PostPresentationResponseOperation: NetworkOperation {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = Constants.POST
-        urlRequest.httpBody = serializer.serialize(object: body)
+        urlRequest.httpBody = try serializer.serialize(object: body)
         urlRequest.addValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
         self.urlRequest = urlRequest
         self.urlSession = urlSession

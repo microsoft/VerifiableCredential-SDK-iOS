@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+import Serialization
 
 // TODO Subject to change when Serializer layer is built.
 class SimpleSuccessHandler: SuccessHandler {
@@ -14,7 +15,7 @@ class SimpleSuccessHandler: SuccessHandler {
         self.serializer = serializer
     }
     
-    func onSuccess<ResponseBody>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody {
-        return serializer.deserialize(data: data) as! ResponseBody
+    func onSuccess<ResponseBody: Serializable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody {
+        return try serializer.deserialize(ResponseBody.self, data: data)
     }
 }

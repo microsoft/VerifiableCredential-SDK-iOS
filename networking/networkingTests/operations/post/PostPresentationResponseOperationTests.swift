@@ -5,6 +5,7 @@
 
 import XCTest
 import PromiseKit
+import Serialization
 
 @testable import networking
 
@@ -26,8 +27,8 @@ class PostPresentationRequestTests: XCTestCase {
         }
     }
     
-    func testSuccessfulInit() {
-        let expectedSerializedBody = serializer.serialize(object: expectedRequestBody)
+    func testSuccessfulInit() throws {
+        let expectedSerializedBody = try serializer.serialize(object: expectedRequestBody)
         XCTAssertTrue(postPresentationResponseOperation.successHandler is SimpleSuccessHandler)
         XCTAssertTrue(postPresentationResponseOperation.failureHandler is SimpleFailureHandler)
         XCTAssertTrue(postPresentationResponseOperation.retryHandler is NoRetry)

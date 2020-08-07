@@ -5,6 +5,6 @@
 
 import Foundation
 
-struct IssuanceServiceResponse: JSONSerializable {
-    let vc: String
+struct IssuanceServiceResponse: JSONSerializable, Equatable {
+    let vc: Data
 }

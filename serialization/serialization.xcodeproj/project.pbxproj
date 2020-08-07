@@ -23,6 +23,7 @@
 		55CED15924D2157200A2AAE2 /* OpenIdConnectSelfIssuedToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED15824D2157200A2AAE2 /* OpenIdConnectSelfIssuedToken.swift */; };
 		55D167D324DDC5AF00AD2F98 /* ContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D167D224DDC5AF00AD2F98 /* ContractTests.swift */; };
 		55D167D524DDCE6C00AD2F98 /* JwsTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D167D424DDCE6C00AD2F98 /* JwsTokenTests.swift */; };
+		55D167D724DDD45B00AD2F98 /* IssuanceServiceResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D167D624DDD45B00AD2F98 /* IssuanceServiceResponseTests.swift */; };
 		55E6427D24D9F99B000749EE /* VerifiableCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6427C24D9F99B000749EE /* VerifiableCredential.swift */; };
 		55E6427F24D9FD78000749EE /* IssuanceServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6427E24D9FD78000749EE /* IssuanceServiceResponse.swift */; };
 		55E6428224DA021B000749EE /* VerifiableCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6428124DA021B000749EE /* VerifiableCredentialTests.swift */; };
@@ -61,6 +62,7 @@
 		55CED15824D2157200A2AAE2 /* OpenIdConnectSelfIssuedToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenIdConnectSelfIssuedToken.swift; sourceTree = "<group>"; };
 		55D167D224DDC5AF00AD2F98 /* ContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractTests.swift; sourceTree = "<group>"; };
 		55D167D424DDCE6C00AD2F98 /* JwsTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsTokenTests.swift; sourceTree = "<group>"; };
+		55D167D624DDD45B00AD2F98 /* IssuanceServiceResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseTests.swift; sourceTree = "<group>"; };
 		55E6427C24D9F99B000749EE /* VerifiableCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredential.swift; sourceTree = "<group>"; };
 		55E6427E24D9FD78000749EE /* IssuanceServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponse.swift; sourceTree = "<group>"; };
 		55E6428124DA021B000749EE /* VerifiableCredentialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialTests.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				55D167D224DDC5AF00AD2F98 /* ContractTests.swift */,
 				55E6428124DA021B000749EE /* VerifiableCredentialTests.swift */,
 				55D167D424DDCE6C00AD2F98 /* JwsTokenTests.swift */,
+				55D167D624DDD45B00AD2F98 /* IssuanceServiceResponseTests.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				55E6428224DA021B000749EE /* VerifiableCredentialTests.swift in Sources */,
 				55D167D524DDCE6C00AD2F98 /* JwsTokenTests.swift in Sources */,
 				55D167D324DDC5AF00AD2F98 /* ContractTests.swift in Sources */,
+				55D167D724DDD45B00AD2F98 /* IssuanceServiceResponseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
