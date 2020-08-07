@@ -8,6 +8,8 @@
 
 import Foundation
 
+@testable import serialization
+
 struct MockContract: Codable, Serializable {
     let test: String
     let id: String

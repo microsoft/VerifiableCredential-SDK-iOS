@@ -6,6 +6,10 @@
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
+import Foundation
+
 public enum SerializationError: Error {
     case nullData
+    case unableToStringifyData(withData: Data)
+    case malFormedObject(withData: Data)
 }

@@ -8,6 +8,8 @@
 
 import XCTest
 
+@testable import serialization
+
 class SerializerTests: XCTestCase {
     
     var serializer: Serializer!

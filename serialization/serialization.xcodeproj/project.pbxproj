@@ -3,30 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0D1C4913F349B12F8C13A518 /* Pods_serialization_serializationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8877690582A549F4C61B6685 /* Pods_serialization_serializationTests.framework */; };
+		55C7FFF724DC893200B31E70 /* JwsToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C7FFF624DC893100B31E70 /* JwsToken.swift */; };
 		55CED10724CF37D000A2AAE2 /* serialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CED0FD24CF37D000A2AAE2 /* serialization.framework */; };
 		55CED10C24CF37D000A2AAE2 /* serializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED10B24CF37D000A2AAE2 /* serializationTests.swift */; };
 		55CED10E24CF37D000A2AAE2 /* serialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CED10024CF37D000A2AAE2 /* serialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55CED11824CF383C00A2AAE2 /* serialization.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55CED11724CF383C00A2AAE2 /* serialization.podspec */; };
 		55CED12C24CF3A3800A2AAE2 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED12B24CF3A3800A2AAE2 /* Serializer.swift */; };
-		55CED12D24CF3A3800A2AAE2 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED12B24CF3A3800A2AAE2 /* Serializer.swift */; };
 		55CED13F24CF939C00A2AAE2 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED13E24CF939C00A2AAE2 /* Serializable.swift */; };
-		55CED14024CF939C00A2AAE2 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED13E24CF939C00A2AAE2 /* Serializable.swift */; };
-		55CED14224CF947500A2AAE2 /* MockContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED14124CF947500A2AAE2 /* MockContract.swift */; };
-		55CED14324CF947500A2AAE2 /* MockContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED14124CF947500A2AAE2 /* MockContract.swift */; };
 		55CED14824D0533800A2AAE2 /* SerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED14724D0533800A2AAE2 /* SerializerTests.swift */; };
 		55CED14D24D0913B00A2AAE2 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED14C24D0913B00A2AAE2 /* SerializationError.swift */; };
 		55CED14E24D0913B00A2AAE2 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED14C24D0913B00A2AAE2 /* SerializationError.swift */; };
 		55CED15224D0D6CF00A2AAE2 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED15124D0D6CF00A2AAE2 /* Contract.swift */; };
-		55CED15324D0D6CF00A2AAE2 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED15124D0D6CF00A2AAE2 /* Contract.swift */; };
 		55CED15624D2127000A2AAE2 /* String+Base64Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED15524D2127000A2AAE2 /* String+Base64Url.swift */; };
-		55CED15724D2127000A2AAE2 /* String+Base64Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED15524D2127000A2AAE2 /* String+Base64Url.swift */; };
 		55CED15924D2157200A2AAE2 /* OpenIdConnectSelfIssuedToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED15824D2157200A2AAE2 /* OpenIdConnectSelfIssuedToken.swift */; };
-		55CED15A24D2157200A2AAE2 /* OpenIdConnectSelfIssuedToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED15824D2157200A2AAE2 /* OpenIdConnectSelfIssuedToken.swift */; };
+		55D167D324DDC5AF00AD2F98 /* ContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D167D224DDC5AF00AD2F98 /* ContractTests.swift */; };
+		55D167D524DDCE6C00AD2F98 /* JwsTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D167D424DDCE6C00AD2F98 /* JwsTokenTests.swift */; };
+		55E6427D24D9F99B000749EE /* VerifiableCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6427C24D9F99B000749EE /* VerifiableCredential.swift */; };
+		55E6427F24D9FD78000749EE /* IssuanceServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6427E24D9FD78000749EE /* IssuanceServiceResponse.swift */; };
+		55E6428224DA021B000749EE /* VerifiableCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6428124DA021B000749EE /* VerifiableCredentialTests.swift */; };
+		55F0F2BE24DB1A570050EB86 /* MockContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED14124CF947500A2AAE2 /* MockContract.swift */; };
+		55F0F2C024DB22AB0050EB86 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0F2BF24DB22AB0050EB86 /* JSON.swift */; };
 		B0D5295D6DA01182026F6D0D /* Pods_serialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F27502D0B6F50605479E2487 /* Pods_serialization.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		42CDE24428710515C8B52F8C /* Pods-serialization.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serialization.debug.xcconfig"; path = "Target Support Files/Pods-serialization/Pods-serialization.debug.xcconfig"; sourceTree = "<group>"; };
+		55C7FFF624DC893100B31E70 /* JwsToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsToken.swift; sourceTree = "<group>"; };
 		55CED0FD24CF37D000A2AAE2 /* serialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = serialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CED10024CF37D000A2AAE2 /* serialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = serialization.h; sourceTree = "<group>"; };
 		55CED10124CF37D000A2AAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +59,12 @@
 		55CED15124D0D6CF00A2AAE2 /* Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
 		55CED15524D2127000A2AAE2 /* String+Base64Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64Url.swift"; sourceTree = "<group>"; };
 		55CED15824D2157200A2AAE2 /* OpenIdConnectSelfIssuedToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenIdConnectSelfIssuedToken.swift; sourceTree = "<group>"; };
+		55D167D224DDC5AF00AD2F98 /* ContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractTests.swift; sourceTree = "<group>"; };
+		55D167D424DDCE6C00AD2F98 /* JwsTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsTokenTests.swift; sourceTree = "<group>"; };
+		55E6427C24D9F99B000749EE /* VerifiableCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredential.swift; sourceTree = "<group>"; };
+		55E6427E24D9FD78000749EE /* IssuanceServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponse.swift; sourceTree = "<group>"; };
+		55E6428124DA021B000749EE /* VerifiableCredentialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialTests.swift; sourceTree = "<group>"; };
+		55F0F2BF24DB22AB0050EB86 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		578A3CF596B4350F2A623A80 /* Pods-networking-serialization-serializationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking-serialization-serializationTests.release.xcconfig"; path = "Target Support Files/Pods-networking-serialization-serializationTests/Pods-networking-serialization-serializationTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A6C5CA87C780711AF6AE3D6 /* Pods-serialization-serializationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serialization-serializationTests.release.xcconfig"; path = "Target Support Files/Pods-serialization-serializationTests/Pods-serialization-serializationTests.release.xcconfig"; sourceTree = "<group>"; };
 		7BB8A16FC1DDEF284BA06080 /* Pods-serialization.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serialization.release.xcconfig"; path = "Target Support Files/Pods-serialization/Pods-serialization.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +151,7 @@
 		55CED10A24CF37D000A2AAE2 /* serializationTests */ = {
 			isa = PBXGroup;
 			children = (
+				55E6428024DA01EE000749EE /* models */,
 				55CED14F24D0D64F00A2AAE2 /* mocks */,
 				55CED10B24CF37D000A2AAE2 /* serializationTests.swift */,
 				55CED10D24CF37D000A2AAE2 /* Info.plist */,
@@ -164,6 +173,9 @@
 			children = (
 				55CED15124D0D6CF00A2AAE2 /* Contract.swift */,
 				55CED15824D2157200A2AAE2 /* OpenIdConnectSelfIssuedToken.swift */,
+				55E6427C24D9F99B000749EE /* VerifiableCredential.swift */,
+				55E6427E24D9FD78000749EE /* IssuanceServiceResponse.swift */,
+				55C7FFF624DC893100B31E70 /* JwsToken.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -172,8 +184,19 @@
 			isa = PBXGroup;
 			children = (
 				55CED15524D2127000A2AAE2 /* String+Base64Url.swift */,
+				55F0F2BF24DB22AB0050EB86 /* JSON.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		55E6428024DA01EE000749EE /* models */ = {
+			isa = PBXGroup;
+			children = (
+				55D167D224DDC5AF00AD2F98 /* ContractTests.swift */,
+				55E6428124DA021B000749EE /* VerifiableCredentialTests.swift */,
+				55D167D424DDCE6C00AD2F98 /* JwsTokenTests.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 		7E545D82B01E9FE64E7DFD35 /* Frameworks */ = {
@@ -346,11 +369,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				55CED14D24D0913B00A2AAE2 /* SerializationError.swift in Sources */,
-				55CED14224CF947500A2AAE2 /* MockContract.swift in Sources */,
+				55E6427D24D9F99B000749EE /* VerifiableCredential.swift in Sources */,
 				55CED15624D2127000A2AAE2 /* String+Base64Url.swift in Sources */,
+				55E6427F24D9FD78000749EE /* IssuanceServiceResponse.swift in Sources */,
 				55CED13F24CF939C00A2AAE2 /* Serializable.swift in Sources */,
+				55F0F2C024DB22AB0050EB86 /* JSON.swift in Sources */,
 				55CED15224D0D6CF00A2AAE2 /* Contract.swift in Sources */,
 				55CED15924D2157200A2AAE2 /* OpenIdConnectSelfIssuedToken.swift in Sources */,
+				55C7FFF724DC893200B31E70 /* JwsToken.swift in Sources */,
 				55CED12C24CF3A3800A2AAE2 /* Serializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,15 +385,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55CED15A24D2157200A2AAE2 /* OpenIdConnectSelfIssuedToken.swift in Sources */,
-				55CED14024CF939C00A2AAE2 /* Serializable.swift in Sources */,
 				55CED10C24CF37D000A2AAE2 /* serializationTests.swift in Sources */,
-				55CED12D24CF3A3800A2AAE2 /* Serializer.swift in Sources */,
 				55CED14E24D0913B00A2AAE2 /* SerializationError.swift in Sources */,
-				55CED14324CF947500A2AAE2 /* MockContract.swift in Sources */,
+				55F0F2BE24DB1A570050EB86 /* MockContract.swift in Sources */,
 				55CED14824D0533800A2AAE2 /* SerializerTests.swift in Sources */,
-				55CED15724D2127000A2AAE2 /* String+Base64Url.swift in Sources */,
-				55CED15324D0D6CF00A2AAE2 /* Contract.swift in Sources */,
+				55E6428224DA021B000749EE /* VerifiableCredentialTests.swift in Sources */,
+				55D167D524DDCE6C00AD2F98 /* JwsTokenTests.swift in Sources */,
+				55D167D324DDC5AF00AD2F98 /* ContractTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +545,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.serialization;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -549,6 +574,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.serialization;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
