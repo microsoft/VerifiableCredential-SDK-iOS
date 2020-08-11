@@ -9,8 +9,30 @@
 /* Begin PBXBuildFile section */
 		165BE3E3ACADF60A61A92728 /* Pods_VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2907D3D09461AE7C46EE04 /* Pods_VCCrypto.framework */; };
 		92CDE7B424DC78DD00F95B5D /* VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CDE7AA24DC78DD00F95B5D /* VCCrypto.framework */; };
-		92CDE7B924DC78DD00F95B5D /* VCCryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7B824DC78DD00F95B5D /* VCCryptoTests.swift */; };
 		92CDE7BB24DC78DD00F95B5D /* VCCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92CDE7C924DCA48A00F95B5D /* SecretStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7C824DCA48A00F95B5D /* SecretStoring.swift */; };
+		92CDE7CB24DCA61800F95B5D /* KeychainSecretStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7CA24DCA61800F95B5D /* KeychainSecretStore.swift */; };
+		92CDE7D224DCA6CF00F95B5D /* Secp256k1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7D124DCA6CF00F95B5D /* Secp256k1.swift */; };
+		92CDE7D524DCCE3C00F95B5D /* SecretStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7D424DCCE3C00F95B5D /* SecretStoreMock.swift */; };
+		92CDE7D724DCD07D00F95B5D /* Secp256k1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7D624DCD07D00F95B5D /* Secp256k1Tests.swift */; };
+		92CDE7D924DDBA0500F95B5D /* HmacSha512.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7D824DDBA0500F95B5D /* HmacSha512.swift */; };
+		92CDE7DB24DDC65100F95B5D /* Sha512.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7DA24DDC65100F95B5D /* Sha512.swift */; };
+		92CDE7DE24DDCB9500F95B5D /* Data+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7DD24DDCB9500F95B5D /* Data+Hex.swift */; };
+		92CDE7E024DDD24700F95B5D /* Sha512Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7DF24DDD24700F95B5D /* Sha512Tests.swift */; };
+		92CDE7E224DDF1A900F95B5D /* HmacSha512Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7E124DDF1A900F95B5D /* HmacSha512Tests.swift */; };
+		92CDE7E424DDF42A00F95B5D /* Utf8TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7E324DDF42A00F95B5D /* Utf8TestData.swift */; };
+		92CDE7E624DE109200F95B5D /* Data+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7E524DE109200F95B5D /* Data+Base64.swift */; };
+		92CDE7E824DE1A2000F95B5D /* KeychainSecretStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7E724DE1A2000F95B5D /* KeychainSecretStoreTests.swift */; };
+		92CDE7F024DE1C6100F95B5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7EF24DE1C6100F95B5D /* AppDelegate.swift */; };
+		92CDE7F224DE1C6100F95B5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7F124DE1C6100F95B5D /* SceneDelegate.swift */; };
+		92CDE7F424DE1C6100F95B5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7F324DE1C6100F95B5D /* ContentView.swift */; };
+		92CDE7F624DE1C6800F95B5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92CDE7F524DE1C6800F95B5D /* Assets.xcassets */; };
+		92CDE7F924DE1C6800F95B5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92CDE7F824DE1C6800F95B5D /* Preview Assets.xcassets */; };
+		92CDE7FC24DE1C6800F95B5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CDE7FA24DE1C6800F95B5D /* LaunchScreen.storyboard */; };
+		92CDE80624E1ABEA00F95B5D /* Random32BytesSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80524E1ABEA00F95B5D /* Random32BytesSecret.swift */; };
+		92CDE80824E1F7AF00F95B5D /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80724E1F7AF00F95B5D /* Secret.swift */; };
+		92CDE80A24E2047900F95B5D /* SecretMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80924E2047900F95B5D /* SecretMock.swift */; };
+		92CDE80C24E213AE00F95B5D /* Random32BytesSecretTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80B24E213AE00F95B5D /* Random32BytesSecretTests.swift */; };
 		A093F7C15ACA9C9D5DA4A21E /* Pods_VCCrypto_VCCryptoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383E973BE430D4EB2CF14993 /* Pods_VCCrypto_VCCryptoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +43,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 92CDE7A924DC78DD00F95B5D;
 			remoteInfo = VCCrypto;
+		};
+		92CDE80124DE1C6F00F95B5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92CDE7A124DC78DD00F95B5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92CDE7EC24DE1C6100F95B5D;
+			remoteInfo = VCCryptoTestApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -34,8 +63,32 @@
 		92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCCrypto.h; sourceTree = "<group>"; };
 		92CDE7AE24DC78DD00F95B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92CDE7B324DC78DD00F95B5D /* VCCryptoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCCryptoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		92CDE7B824DC78DD00F95B5D /* VCCryptoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCryptoTests.swift; sourceTree = "<group>"; };
 		92CDE7BA24DC78DD00F95B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92CDE7C824DCA48A00F95B5D /* SecretStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretStoring.swift; sourceTree = "<group>"; };
+		92CDE7CA24DCA61800F95B5D /* KeychainSecretStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSecretStore.swift; sourceTree = "<group>"; };
+		92CDE7D124DCA6CF00F95B5D /* Secp256k1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1.swift; sourceTree = "<group>"; };
+		92CDE7D424DCCE3C00F95B5D /* SecretStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretStoreMock.swift; sourceTree = "<group>"; };
+		92CDE7D624DCD07D00F95B5D /* Secp256k1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1Tests.swift; sourceTree = "<group>"; };
+		92CDE7D824DDBA0500F95B5D /* HmacSha512.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HmacSha512.swift; sourceTree = "<group>"; };
+		92CDE7DA24DDC65100F95B5D /* Sha512.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sha512.swift; sourceTree = "<group>"; };
+		92CDE7DD24DDCB9500F95B5D /* Data+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Hex.swift"; sourceTree = "<group>"; };
+		92CDE7DF24DDD24700F95B5D /* Sha512Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sha512Tests.swift; sourceTree = "<group>"; };
+		92CDE7E124DDF1A900F95B5D /* HmacSha512Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HmacSha512Tests.swift; sourceTree = "<group>"; };
+		92CDE7E324DDF42A00F95B5D /* Utf8TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utf8TestData.swift; sourceTree = "<group>"; };
+		92CDE7E524DE109200F95B5D /* Data+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Base64.swift"; sourceTree = "<group>"; };
+		92CDE7E724DE1A2000F95B5D /* KeychainSecretStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSecretStoreTests.swift; sourceTree = "<group>"; };
+		92CDE7ED24DE1C6100F95B5D /* VCCryptoTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VCCryptoTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92CDE7EF24DE1C6100F95B5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92CDE7F124DE1C6100F95B5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		92CDE7F324DE1C6100F95B5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		92CDE7F524DE1C6800F95B5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92CDE7F824DE1C6800F95B5D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		92CDE7FB24DE1C6800F95B5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92CDE7FD24DE1C6800F95B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92CDE80524E1ABEA00F95B5D /* Random32BytesSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random32BytesSecret.swift; sourceTree = "<group>"; };
+		92CDE80724E1F7AF00F95B5D /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = Storage/Secret.swift; sourceTree = "<group>"; };
+		92CDE80924E2047900F95B5D /* SecretMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretMock.swift; sourceTree = "<group>"; };
+		92CDE80B24E213AE00F95B5D /* Random32BytesSecretTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random32BytesSecretTests.swift; sourceTree = "<group>"; };
 		A190BFD5777A37C07EEDCE97 /* Pods-VCCrypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCCrypto.release.xcconfig"; path = "Target Support Files/Pods-VCCrypto/Pods-VCCrypto.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +110,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		92CDE7EA24DE1C6100F95B5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -74,6 +134,7 @@
 			children = (
 				92CDE7AC24DC78DD00F95B5D /* VCCrypto */,
 				92CDE7B724DC78DD00F95B5D /* VCCryptoTests */,
+				92CDE7EE24DE1C6100F95B5D /* VCCryptoTestApp */,
 				92CDE7AB24DC78DD00F95B5D /* Products */,
 				95C4372D9B0507A165D23F20 /* Pods */,
 				5610A6D3F881AAFA26C7EE61 /* Frameworks */,
@@ -85,6 +146,7 @@
 			children = (
 				92CDE7AA24DC78DD00F95B5D /* VCCrypto.framework */,
 				92CDE7B324DC78DD00F95B5D /* VCCryptoTests.xctest */,
+				92CDE7ED24DE1C6100F95B5D /* VCCryptoTestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +154,9 @@
 		92CDE7AC24DC78DD00F95B5D /* VCCrypto */ = {
 			isa = PBXGroup;
 			children = (
+				92CDE7DC24DDCB2800F95B5D /* Extensions */,
+				92CDE7D024DCA69C00F95B5D /* Algo */,
+				92CDE7CD24DCA67A00F95B5D /* Storage */,
 				92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */,
 				92CDE7AE24DC78DD00F95B5D /* Info.plist */,
 			);
@@ -101,10 +166,77 @@
 		92CDE7B724DC78DD00F95B5D /* VCCryptoTests */ = {
 			isa = PBXGroup;
 			children = (
-				92CDE7B824DC78DD00F95B5D /* VCCryptoTests.swift */,
+				92CDE7D324DCCE1C00F95B5D /* Mocks */,
 				92CDE7BA24DC78DD00F95B5D /* Info.plist */,
+				92CDE7DF24DDD24700F95B5D /* Sha512Tests.swift */,
+				92CDE7E124DDF1A900F95B5D /* HmacSha512Tests.swift */,
+				92CDE7D624DCD07D00F95B5D /* Secp256k1Tests.swift */,
+				92CDE7E724DE1A2000F95B5D /* KeychainSecretStoreTests.swift */,
+				92CDE80B24E213AE00F95B5D /* Random32BytesSecretTests.swift */,
 			);
 			path = VCCryptoTests;
+			sourceTree = "<group>";
+		};
+		92CDE7CD24DCA67A00F95B5D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				92CDE7C824DCA48A00F95B5D /* SecretStoring.swift */,
+				92CDE7CA24DCA61800F95B5D /* KeychainSecretStore.swift */,
+				92CDE80524E1ABEA00F95B5D /* Random32BytesSecret.swift */,
+				92CDE80724E1F7AF00F95B5D /* Secret.swift */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		92CDE7D024DCA69C00F95B5D /* Algo */ = {
+			isa = PBXGroup;
+			children = (
+				92CDE7D124DCA6CF00F95B5D /* Secp256k1.swift */,
+				92CDE7D824DDBA0500F95B5D /* HmacSha512.swift */,
+				92CDE7DA24DDC65100F95B5D /* Sha512.swift */,
+			);
+			path = Algo;
+			sourceTree = "<group>";
+		};
+		92CDE7D324DCCE1C00F95B5D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				92CDE7E324DDF42A00F95B5D /* Utf8TestData.swift */,
+				92CDE7D424DCCE3C00F95B5D /* SecretStoreMock.swift */,
+				92CDE80924E2047900F95B5D /* SecretMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		92CDE7DC24DDCB2800F95B5D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				92CDE7DD24DDCB9500F95B5D /* Data+Hex.swift */,
+				92CDE7E524DE109200F95B5D /* Data+Base64.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		92CDE7EE24DE1C6100F95B5D /* VCCryptoTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				92CDE7EF24DE1C6100F95B5D /* AppDelegate.swift */,
+				92CDE7F124DE1C6100F95B5D /* SceneDelegate.swift */,
+				92CDE7F324DE1C6100F95B5D /* ContentView.swift */,
+				92CDE7F524DE1C6800F95B5D /* Assets.xcassets */,
+				92CDE7FA24DE1C6800F95B5D /* LaunchScreen.storyboard */,
+				92CDE7FD24DE1C6800F95B5D /* Info.plist */,
+				92CDE7F724DE1C6800F95B5D /* Preview Content */,
+			);
+			path = VCCryptoTestApp;
+			sourceTree = "<group>";
+		};
+		92CDE7F724DE1C6800F95B5D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				92CDE7F824DE1C6800F95B5D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		95C4372D9B0507A165D23F20 /* Pods */ = {
@@ -166,11 +298,29 @@
 			);
 			dependencies = (
 				92CDE7B624DC78DD00F95B5D /* PBXTargetDependency */,
+				92CDE80224DE1C6F00F95B5D /* PBXTargetDependency */,
 			);
 			name = VCCryptoTests;
 			productName = VCCryptoTests;
 			productReference = 92CDE7B324DC78DD00F95B5D /* VCCryptoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		92CDE7EC24DE1C6100F95B5D /* VCCryptoTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92CDE7FE24DE1C6800F95B5D /* Build configuration list for PBXNativeTarget "VCCryptoTestApp" */;
+			buildPhases = (
+				92CDE7E924DE1C6100F95B5D /* Sources */,
+				92CDE7EA24DE1C6100F95B5D /* Frameworks */,
+				92CDE7EB24DE1C6100F95B5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VCCryptoTestApp;
+			productName = VCCryptoTestApp;
+			productReference = 92CDE7ED24DE1C6100F95B5D /* VCCryptoTestApp.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -187,6 +337,10 @@
 						LastSwiftMigration = 1150;
 					};
 					92CDE7B224DC78DD00F95B5D = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 92CDE7EC24DE1C6100F95B5D;
+					};
+					92CDE7EC24DE1C6100F95B5D = {
 						CreatedOnToolsVersion = 11.5;
 					};
 				};
@@ -206,6 +360,7 @@
 			targets = (
 				92CDE7A924DC78DD00F95B5D /* VCCrypto */,
 				92CDE7B224DC78DD00F95B5D /* VCCryptoTests */,
+				92CDE7EC24DE1C6100F95B5D /* VCCryptoTestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -222,6 +377,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92CDE7EB24DE1C6100F95B5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92CDE7FC24DE1C6800F95B5D /* LaunchScreen.storyboard in Resources */,
+				92CDE7F924DE1C6800F95B5D /* Preview Assets.xcassets in Resources */,
+				92CDE7F624DE1C6800F95B5D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +461,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92CDE7DB24DDC65100F95B5D /* Sha512.swift in Sources */,
+				92CDE7C924DCA48A00F95B5D /* SecretStoring.swift in Sources */,
+				92CDE7E624DE109200F95B5D /* Data+Base64.swift in Sources */,
+				92CDE7CB24DCA61800F95B5D /* KeychainSecretStore.swift in Sources */,
+				92CDE7DE24DDCB9500F95B5D /* Data+Hex.swift in Sources */,
+				92CDE80624E1ABEA00F95B5D /* Random32BytesSecret.swift in Sources */,
+				92CDE7D924DDBA0500F95B5D /* HmacSha512.swift in Sources */,
+				92CDE80824E1F7AF00F95B5D /* Secret.swift in Sources */,
+				92CDE7D224DCA6CF00F95B5D /* Secp256k1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +477,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92CDE7B924DC78DD00F95B5D /* VCCryptoTests.swift in Sources */,
+				92CDE7D724DCD07D00F95B5D /* Secp256k1Tests.swift in Sources */,
+				92CDE7D524DCCE3C00F95B5D /* SecretStoreMock.swift in Sources */,
+				92CDE80A24E2047900F95B5D /* SecretMock.swift in Sources */,
+				92CDE80C24E213AE00F95B5D /* Random32BytesSecretTests.swift in Sources */,
+				92CDE7E224DDF1A900F95B5D /* HmacSha512Tests.swift in Sources */,
+				92CDE7E424DDF42A00F95B5D /* Utf8TestData.swift in Sources */,
+				92CDE7E024DDD24700F95B5D /* Sha512Tests.swift in Sources */,
+				92CDE7E824DE1A2000F95B5D /* KeychainSecretStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92CDE7E924DE1C6100F95B5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92CDE7F024DE1C6100F95B5D /* AppDelegate.swift in Sources */,
+				92CDE7F224DE1C6100F95B5D /* SceneDelegate.swift in Sources */,
+				92CDE7F424DE1C6100F95B5D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +506,23 @@
 			target = 92CDE7A924DC78DD00F95B5D /* VCCrypto */;
 			targetProxy = 92CDE7B524DC78DD00F95B5D /* PBXContainerItemProxy */;
 		};
+		92CDE80224DE1C6F00F95B5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92CDE7EC24DE1C6100F95B5D /* VCCryptoTestApp */;
+			targetProxy = 92CDE80124DE1C6F00F95B5D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		92CDE7FA24DE1C6800F95B5D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92CDE7FB24DE1C6800F95B5D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		92CDE7BC24DC78DD00F95B5D /* Debug */ = {
@@ -501,6 +708,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3F7D9F84439ED1FE409B4BE9 /* Pods-VCCrypto-VCCryptoTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
 				INFOPLIST_FILE = VCCryptoTests/Info.plist;
@@ -513,6 +721,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VCCryptoTestApp.app/VCCryptoTestApp";
 			};
 			name = Debug;
 		};
@@ -520,6 +729,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 34E7997DA8480F54D3B359FE /* Pods-VCCrypto-VCCryptoTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
 				INFOPLIST_FILE = VCCryptoTests/Info.plist;
@@ -529,6 +739,47 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCCryptoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VCCryptoTestApp.app/VCCryptoTestApp";
+			};
+			name = Release;
+		};
+		92CDE7FF24DE1C6800F95B5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"VCCryptoTestApp/Preview Content\"";
+				DEVELOPMENT_TEAM = UBF8T346G9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = VCCryptoTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCCryptoTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92CDE80024DE1C6800F95B5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"VCCryptoTestApp/Preview Content\"";
+				DEVELOPMENT_TEAM = UBF8T346G9;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = VCCryptoTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCCryptoTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -561,6 +812,15 @@
 			buildConfigurations = (
 				92CDE7C224DC78DD00F95B5D /* Debug */,
 				92CDE7C324DC78DD00F95B5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92CDE7FE24DE1C6800F95B5D /* Build configuration list for PBXNativeTarget "VCCryptoTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92CDE7FF24DE1C6800F95B5D /* Debug */,
+				92CDE80024DE1C6800F95B5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
