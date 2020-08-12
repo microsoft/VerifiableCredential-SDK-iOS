@@ -6,31 +6,35 @@
 import Foundation
 
 enum KeychainStoreError: Error {
-    case SaveToStoreError(status: Int32)
-    case ItemNotFound
-    case ReadFromStoreError(status: Int32)
-    case InvalidItemInStore
-    case ItemAlreadyInStore
-    case InvalidSecretType
-    case InvalidType
+    case saveToStoreError(status: Int32)
+    case itemNotFound
+    case readFromStoreError(status: Int32)
+    case invalidItemInStore
+    case itemAlreadyInStore
+    case invalidType
 }
 
 struct KeychainSecretStore : SecretStoring {
     
     private let vcService = "com.microsoft.vcCrypto"
     
-    func getSecret(id: UUID, type: String) throws -> Data {
+    /// Gets the secret with the id passed in parameter
+    /// - Parameters:
+    ///   - id: The Id of the secret
+    ///   - itemTypeCode: the item type code for the secret
+    /// - Returns: The secret
+    func getSecret(id: UUID, itemTypeCode: String) throws -> Data {
         let query = [kSecClass: kSecClassGenericPassword,
                      kSecAttrAccount: id.uuidString,
                      kSecAttrService: vcService,
-                     kSecAttrType: type,
+                     kSecAttrType: itemTypeCode,
                      kSecReturnData: true] as [String: Any]
         
         var item: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &item)
-        guard status != errSecItemNotFound else { throw KeychainStoreError.ItemNotFound }
-        guard status == errSecSuccess else { throw KeychainStoreError.ReadFromStoreError(status: status) }
-        guard var value = item as? Data else { throw KeychainStoreError.InvalidItemInStore }
+        guard status != errSecItemNotFound else { throw KeychainStoreError.itemNotFound }
+        guard status == errSecSuccess else { throw KeychainStoreError.readFromStoreError(status: status) }
+        guard var value = item as? Data else { throw KeychainStoreError.invalidItemInStore }
         defer {
             let secretSize = value.count
             value.withUnsafeMutableBytes { (secretPtr) in
@@ -42,14 +46,13 @@ struct KeychainSecretStore : SecretStoring {
         return value
     }
     
-    
     /// Save the secret to keychain
     /// Note: the value passed in will be zeroed out after the secret is saved
     /// - Parameters:
     ///   - id: The Id of the secret
-    ///   - type: The secret type (4 chars)
+    ///   - itemTypeCode: The secret type code (4 chars)
     ///   - value: The value of the secret
-    func saveSecret(id: UUID, type: String, value: inout Data) throws  {
+    func saveSecret(id: UUID, itemTypeCode: String, value: inout Data) throws  {
         defer {
             let secretSize = value.count
             value.withUnsafeMutableBytes { (secretPtr) in
@@ -58,7 +61,7 @@ struct KeychainSecretStore : SecretStoring {
             }
         }
         
-        guard type.count == 4 else { throw KeychainStoreError.InvalidType }
+        guard itemTypeCode.count == 4 else { throw KeychainStoreError.invalidType }
         
         // kSecAttrAccount is used to store the secret Id so that we can look it up later
         // kSecAttrService is always set to vcService to enable us to lookup all our secrets later if needed
@@ -66,12 +69,12 @@ struct KeychainSecretStore : SecretStoring {
         let query = [kSecClass: kSecClassGenericPassword,
                      kSecAttrAccount: id.uuidString,
                      kSecAttrService: vcService,
-                     kSecAttrType: type,
+                     kSecAttrType: itemTypeCode,
                      kSecAttrAccessible: kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
                      kSecValueData: value] as [String: Any]
         
         let status = SecItemAdd(query as CFDictionary, nil)
         guard status == errSecSuccess else {
-            throw KeychainStoreError.SaveToStoreError(status: status)}
+            throw KeychainStoreError.saveToStoreError(status: status)}
     }
 }

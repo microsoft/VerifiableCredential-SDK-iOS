@@ -15,9 +15,9 @@ public protocol VCCryptoSecret{
 
 protocol InternalSecret  {
     
-    /// The secret bytes
-    func withUnsafeBytes(f: (UnsafeRawBufferPointer) throws -> Void) throws
+    /// Invokes the closure passed as a param with a buffer pointer to the raw bytes of the secret. 
+    func withUnsafeBytes(_ body: (UnsafeRawBufferPointer) throws -> Void) throws
     
-    /// The 4 characters representing the secret type in the store
-    static var typeName: String { get }
+    /// The 4 characters representing the secret type in the store. This correspond to kSecAttrType in keychain
+    static var itemTypeCode: String { get }
 }

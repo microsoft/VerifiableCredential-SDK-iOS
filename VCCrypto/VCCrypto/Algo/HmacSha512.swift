@@ -6,9 +6,9 @@
 import Foundation
 import CommonCrypto
 
-enum HmacSha512Errors: Error {
+enum HmacSha512Error: Error {
     case invalidMessage
-    case InvalidSecret
+    case invalidSecret
 }
 
 public struct HmacSha512 {
@@ -19,8 +19,8 @@ public struct HmacSha512 {
     ///   - secret: The secret used for authentication
     /// - Returns: The authentication code for the message
     public func authenticate(message: Data, withSecret secret: VCCryptoSecret) throws -> Data {
-        guard message.count > 0 else { throw HmacSha512Errors.invalidMessage }
-        guard secret is Secret else { throw HmacSha512Errors.InvalidSecret }
+        guard message.count > 0 else { throw HmacSha512Error.invalidMessage }
+        guard secret is Secret else { throw HmacSha512Error.invalidSecret }
         
         var messageAuthCode : [UInt8] = [UInt8](repeating: 0, count:Int(CC_SHA512_DIGEST_LENGTH))
         try (secret as! Secret).withUnsafeBytes { (secretPtr) in

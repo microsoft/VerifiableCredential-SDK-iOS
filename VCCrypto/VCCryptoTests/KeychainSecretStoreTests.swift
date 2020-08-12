@@ -16,8 +16,8 @@ class KeychainSecretStoreTests: XCTestCase {
         let secretCopy = Data(secret)
         let store = KeychainSecretStore()
         let secretId = UUID()
-        try store.saveSecret(id: secretId, type: "ABCD", value: &secret)
-        let retreivedSecret = try store.getSecret(id: secretId, type: "ABCD")
+        try store.saveSecret(id: secretId, itemTypeCode: "ABCD", value: &secret)
+        let retreivedSecret = try store.getSecret(id: secretId, itemTypeCode: "ABCD")
         XCTAssertEqual(secretCopy, retreivedSecret)
     }
     
@@ -25,11 +25,11 @@ class KeychainSecretStoreTests: XCTestCase {
         let secretId : UUID = UUID()
         let store = KeychainSecretStore()
         var value = Data(repeating: 1, count: 32)
-        try store.saveSecret(id: secretId, type: "ABCD", value: &value)
+        try store.saveSecret(id: secretId, itemTypeCode: "ABCD", value: &value)
         do {
-            let _ = try store.getSecret(id: secretId, type: "AAAA")
+            let _ = try store.getSecret(id: secretId, itemTypeCode: "AAAA")
             XCTAssertTrue(false)
-        } catch KeychainStoreError.ItemNotFound {
+        } catch KeychainStoreError.itemNotFound {
             // We expect an exception for this case.
         }
     }

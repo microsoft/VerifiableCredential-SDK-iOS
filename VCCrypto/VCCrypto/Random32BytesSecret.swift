@@ -6,7 +6,7 @@
 import Foundation
 
 final class Random32BytesSecret: Secret {
-    static var typeName: String = "r32B"
+    static var itemTypeCode: String = "r32B"
     var id: UUID
     private let store: SecretStoring
     
@@ -29,14 +29,14 @@ final class Random32BytesSecret: Secret {
         guard result == errSecSuccess else { return nil }
         id = UUID()
         do {
-            try self.store.saveSecret(id: id, type: Random32BytesSecret.typeName, value: &value)
+            try self.store.saveSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, value: &value)
         } catch {
             return nil
         }
     }
     
-    func withUnsafeBytes(f: (UnsafeRawBufferPointer) throws -> Void) throws {
-        var value = try self.store.getSecret(id: id, type: Random32BytesSecret.typeName)
+    func withUnsafeBytes(_ body: (UnsafeRawBufferPointer) throws -> Void) throws {
+        var value = try self.store.getSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode)
         defer {
             let secretSize = value.count
             value.withUnsafeMutableBytes { (secretPtr) in
@@ -46,7 +46,7 @@ final class Random32BytesSecret: Secret {
         }
         
         try value.withUnsafeBytes { (valuePtr) in
-            try f(valuePtr)
+            try body(valuePtr)
         }
     }
 }

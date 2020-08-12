@@ -8,7 +8,7 @@ import Foundation
 @testable import VCCrypto
 
 final class SecretMock : Secret {
-    static var typeName: String = "MOCK"
+    static var itemTypeCode: String = "MOCK"
     var id: UUID
     private var value: Data
     
@@ -17,9 +17,9 @@ final class SecretMock : Secret {
         self.id = id
     }
     
-    func withUnsafeBytes(f: (UnsafeRawBufferPointer) throws -> Void) throws {
+    func withUnsafeBytes(_ body: (UnsafeRawBufferPointer) throws -> Void) throws {
         try value.withUnsafeBytes { (valuePtr) in
-            try f(valuePtr)
+            try body(valuePtr)
         }
     }
 }

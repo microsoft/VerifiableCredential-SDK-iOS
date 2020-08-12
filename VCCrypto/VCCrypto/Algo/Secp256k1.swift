@@ -6,14 +6,14 @@
 import Foundation
 import bitcoin_core_secp256k1
 
-enum Secp256k1Errors: Error {
+enum Secp256k1Error: Error {
     case invalidMessageHash
     case invalidSecretKey
     case signatureFailure
     case invalidSignature
     case invalidPublicKey
     case publicKeyCreationFailure
-    case InvalidSecret
+    case invalidSecret
 }
 
 public struct Secp256k1 {
@@ -26,8 +26,8 @@ public struct Secp256k1 {
     public func sign(messageHash: Data, withSecret secret: VCCryptoSecret) throws -> Data {
         
         // Validate params
-        guard secret is Secret else { throw Secp256k1Errors.InvalidSecret }
-        guard messageHash.count == 32 else { throw Secp256k1Errors.invalidMessageHash }
+        guard secret is Secret else { throw Secp256k1Error.invalidSecret }
+        guard messageHash.count == 32 else { throw Secp256k1Error.invalidMessageHash }
         
         // Create the context and signature data structure
         let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN))
@@ -41,7 +41,7 @@ public struct Secp256k1 {
         
         // Sign the message
         try (secret as! Secret).withUnsafeBytes { (secretPtr) in
-            guard secp256k1_ec_seckey_verify(context!, secretPtr.bindMemory(to: UInt8.self).baseAddress.unsafelyUnwrapped) > 0 else { throw Secp256k1Errors.invalidSecretKey }
+            guard secp256k1_ec_seckey_verify(context!, secretPtr.bindMemory(to: UInt8.self).baseAddress.unsafelyUnwrapped) > 0 else { throw Secp256k1Error.invalidSecretKey }
             
             try messageHash.withUnsafeBytes { (msgPtr) in
                 let result = secp256k1_ecdsa_sign(
@@ -52,7 +52,7 @@ public struct Secp256k1 {
                     nil, // noncefp:pointer to a nonce generation function. If NULL, secp256k1_nonce_function_default (secp256k1_nonce_function_rfc6979) is used
                     nil)
                 
-                guard result == 1 else { throw Secp256k1Errors.signatureFailure }
+                guard result == 1 else { throw Secp256k1Error.signatureFailure }
             }
         }
         
@@ -74,9 +74,9 @@ public struct Secp256k1 {
     /// - Returns: True if the signature is valid
     public func isValidSignature(signature: Data, forMessageHash messageHash: Data, usingPublicKey publicKey: Data) throws -> Bool {
         // Validate params
-        guard signature.count == 64 else { throw Secp256k1Errors.invalidSignature }
-        guard messageHash.count == 32 else { throw Secp256k1Errors.invalidMessageHash }
-        guard publicKey.count == 65 else { throw Secp256k1Errors.invalidPublicKey }
+        guard signature.count == 64 else { throw Secp256k1Error.invalidSignature }
+        guard messageHash.count == 32 else { throw Secp256k1Error.invalidMessageHash }
+        guard publicKey.count == 65 else { throw Secp256k1Error.invalidPublicKey }
         
         // Create the context and convert the parsed signature and public key to the appropriate data structure
         let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_VERIFY))!
@@ -99,7 +99,7 @@ public struct Secp256k1 {
                 parsedPubKey,
                 publicKeyPtr.bindMemory(to: UInt8.self).baseAddress!,
                 65)
-            guard result > 0 else { throw Secp256k1Errors.invalidPublicKey}
+            guard result > 0 else { throw Secp256k1Error.invalidPublicKey}
         }
         
         // Validate signature
@@ -116,7 +116,7 @@ public struct Secp256k1 {
     /// - Returns: The public key
     public func createPublicKey(forSecret secret: VCCryptoSecret) throws -> Data {
         // Validate params
-        guard secret is Secret else { throw Secp256k1Errors.InvalidSecret }
+        guard secret is Secret else { throw Secp256k1Error.invalidSecret }
         
         // Create the context and public key data structure
         let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN))!
@@ -129,7 +129,7 @@ public struct Secp256k1 {
                 pubkey,
                 secretPtr.bindMemory(to: UInt8.self).baseAddress!)
             
-            guard result > 0 else { throw Secp256k1Errors.publicKeyCreationFailure }
+            guard result > 0 else { throw Secp256k1Error.publicKeyCreationFailure }
         }
         
         // Serialize the public key
