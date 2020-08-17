@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/dangodb/git/VerifiableCredential-SDK-iOS/VCCrypto/VcCrypto.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:networking/networking.xcodeproj">
    </FileRef>
    <FileRef

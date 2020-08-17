@@ -1,4 +1,5 @@
 PODS:
+  - bitcoin-core-secp256k1 (0.1.6)
   - PromiseKit (6.8.0):
     - PromiseKit/CorePromise (= 6.8.0)
     - PromiseKit/Foundation (= 6.8.0)
@@ -11,18 +12,21 @@ PODS:
   - SSZipArchive (2.2.3)
 
 DEPENDENCIES:
+  - bitcoin-core-secp256k1
   - PromiseKit (= 6.8)
   - SSZipArchive
 
 SPEC REPOS:
   trunk:
+    - bitcoin-core-secp256k1
     - PromiseKit
     - SSZipArchive
 
 SPEC CHECKSUMS:
+  bitcoin-core-secp256k1: c2f87afc7f002cd84ae89b64d32e1ff4fa282f65
   PromiseKit: 02c93833283c37ce94ef7d25de63d48d62b0754e
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
 
-PODFILE CHECKSUM: a3a69cda1145369c046fa448491790f37d5bcfcf
+PODFILE CHECKSUM: 94ea1667e2c34d74f950d9abbf5809b123159ea2
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3
