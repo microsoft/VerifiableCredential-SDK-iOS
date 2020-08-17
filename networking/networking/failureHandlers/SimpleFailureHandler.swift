@@ -8,14 +8,10 @@ import Serialization
 
 class SimpleFailureHandler: FailureHandler {
     
-    let serializer: Serializer
-    
-    init(serializer: Serializer = Serializer()) {
-        self.serializer = serializer
-    }
-    
-    func onFailure<ResponseBody: Serializable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> NetworkingError {
-        let responseBody = try serializer.deserialize(ResponseBody.self, data: data) as! String
+    func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError {
+        guard let responseBody = String(data: data, encoding: .utf8) else {
+            throw NetworkingError.serverError(withBody: "Unable to parse error response")
+        }
         switch response.statusCode {
         case 400:
             return NetworkingError.badRequest(withBody: responseBody)

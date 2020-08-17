@@ -10,7 +10,6 @@ struct JwsToken: Serializable {
     let headers: [String: String]
     let content: String
     let signature: Data?
-    let raw: Data
     
     init(with serializer: Serializer, data: Data) throws {
         guard let stringifiedToken = String(data: data, encoding: .utf8) else {
@@ -32,11 +31,28 @@ struct JwsToken: Serializable {
         }
         self.content = String(splitStringifiedData[1])
         self.signature = String(splitStringifiedData[2]).data(using: .utf8)
-        self.raw = data
     }
     
     func serialize(to serializer: Serializer) throws -> Data {
-        return self.raw
+        let serializedHeaders = try serializer.encoder.encode(self.headers)
+        let nullableBase64EncodedHeaders = String(data: serializedHeaders, encoding: .utf8)?.toBase64URL()
+        
+        guard let base64EncodedHeaders = nullableBase64EncodedHeaders else {
+            throw SerializationError.unableToStringifyData(withData: serializedHeaders)
+        }
+        
+        var compactToken = "\(base64EncodedHeaders).\(self.content)"
+        
+        if let signature = self.signature {
+            let stringifiedSignature = String(data: signature, encoding: .utf8)?.toBase64URL()
+            compactToken = "\(compactToken).\(stringifiedSignature)"
+        }
+        
+        if let serializedToken = compactToken.data(using: .utf8) {
+            return serializedToken
+        } else {
+            throw SerializationError.nullData
+        }
     }
     
     

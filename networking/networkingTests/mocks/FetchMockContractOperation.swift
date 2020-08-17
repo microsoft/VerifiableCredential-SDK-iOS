@@ -6,9 +6,10 @@
 import Foundation
 import PromiseKit
 import Serialization
+@testable import networking
 
-final public class FetchContractOperation: NetworkOperation {
-    public typealias ResponseBody = Contract
+final public class FetchMockContractOperation: NetworkOperation {
+    public typealias ResponseBody = MockContract
     
     public let retryHandler: RetryHandler  = NoRetry()
     public var successHandler: SuccessHandler = SimpleSuccessHandler()

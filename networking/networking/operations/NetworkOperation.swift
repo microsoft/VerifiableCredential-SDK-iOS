@@ -61,7 +61,7 @@ extension NetworkOperation {
     }
     
     func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError {
-        return try self.failureHandler.onFailure(ResponseBody.self, data: data, response: response)
+        return try self.failureHandler.onFailure(data: data, response: response)
     }
 }
 
