@@ -1,6 +1,6 @@
 PODS:
   - Networking (0.0.1-beta.0):
-    - PromiseKit (= 6.8)
+  - bitcoin-core-secp256k1 (0.1.6)
   - PromiseKit (6.8.0):
     - PromiseKit/CorePromise (= 6.8.0)
     - PromiseKit/Foundation (= 6.8.0)
@@ -14,11 +14,13 @@ PODS:
 
 DEPENDENCIES:
   - Networking (from `../networking`)
+  - bitcoin-core-secp256k1
   - PromiseKit (= 6.8)
   - Serialization (from `../serialization`)
 
 SPEC REPOS:
   trunk:
+    - bitcoin-core-secp256k1
     - PromiseKit
 
 EXTERNAL SOURCES:
@@ -29,9 +31,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Networking: 6f8b30ec516d5c7d15944ae2b082f575a6c61dfc
+  bitcoin-core-secp256k1: c2f87afc7f002cd84ae89b64d32e1ff4fa282f65
   PromiseKit: 02c93833283c37ce94ef7d25de63d48d62b0754e
   Serialization: e16c46dc7be41e7432d2c48fd5716f1006f8391b
 
-PODFILE CHECKSUM: 44e5b3a81a9cdbc05a2b0936f8db26b711997a18
+PODFILE CHECKSUM: 94ea1667e2c34d74f950d9abbf5809b123159ea2
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

@@ -147,8 +147,8 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7C579CE66A1E7A9AA33CA5F97F9C22C5;
-			remoteInfo = PromiseKit;
+			remoteGlobalIDString = F60E38364AFF5E1349FF07415B944396;
+			remoteInfo = SSZipArchive;
 		};
 		C543D54446922E0F7FF76A31EAE45778 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -186,6 +186,71 @@
 			remoteInfo = Serialization;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8FF75DF88E2E07A144A149D8948183A0 /* Copy include Public Headers */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(PUBLIC_HEADERS_FOLDER_PATH)/include";
+			dstSubfolderSpec = 16;
+			files = (
+				0E30479716C298C1BDB749F3C9E3A1F8 /* secp256k1.h in Copy include Public Headers */,
+				420A4CDE992248A160D1187AD4FAB17F /* secp256k1_ecdh.h in Copy include Public Headers */,
+				3928F6A2B360D641D1A7311DC36BBC28 /* secp256k1_preallocated.h in Copy include Public Headers */,
+				1BF32F6BA282BCD1B382FC5A97249126 /* secp256k1_recovery.h in Copy include Public Headers */,
+			);
+			name = "Copy include Public Headers";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA32321C755FC7F955F37B3737FC6C25 /* Copy src Private Headers */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(PRIVATE_HEADERS_FOLDER_PATH)/src";
+			dstSubfolderSpec = 16;
+			files = (
+				89763B187A80D85435A986CF13C9D5F0 /* basic-config.h in Copy src Private Headers */,
+				D3AED307340D80EF0A6C86F6C2E11FA3 /* ecdsa.h in Copy src Private Headers */,
+				04AA1E8633638484A00C7D60FC68780E /* ecdsa_impl.h in Copy src Private Headers */,
+				49D0957DF1B74A0FB9A023A661374BF5 /* eckey.h in Copy src Private Headers */,
+				1B9590AD2BAD20A5913225CFE1DA51B4 /* eckey_impl.h in Copy src Private Headers */,
+				29FA8D5858ACC7D2DE9C57F4E48247BA /* ecmult.h in Copy src Private Headers */,
+				04B7927CC01974A99C9C719FACD462A5 /* ecmult_const.h in Copy src Private Headers */,
+				5B36B34C20C8D28F141EA5286A823AEE /* ecmult_const_impl.h in Copy src Private Headers */,
+				97971E0929A0D368700D0E3905D78499 /* ecmult_gen.h in Copy src Private Headers */,
+				CEF8852B245A29617884F59E317E4951 /* ecmult_gen_impl.h in Copy src Private Headers */,
+				60746AC11A84D854D1D1F565924AD153 /* ecmult_impl.h in Copy src Private Headers */,
+				BB7BD35A2490F251AD928AB15698EB67 /* field.h in Copy src Private Headers */,
+				9FC6A996B7DF8B1169ABA86C91D8D9B7 /* field_10x26.h in Copy src Private Headers */,
+				3A65C3D44EE03136F6041EF6EB16AB94 /* field_10x26_impl.h in Copy src Private Headers */,
+				45B73534D19237437602E62C475A0761 /* field_5x52.h in Copy src Private Headers */,
+				1DAB025363E563D73E8CB8551CE88001 /* field_5x52_asm_impl.h in Copy src Private Headers */,
+				6CCD41E547FB564994591E4BA35E11A0 /* field_5x52_impl.h in Copy src Private Headers */,
+				9A8F8B452A4BE7FB402CA1D0A75893BB /* field_5x52_int128_impl.h in Copy src Private Headers */,
+				4B3B51CBB004506D6722B863C48826F6 /* field_impl.h in Copy src Private Headers */,
+				5A41205FC225A935E632059AB1AACB6E /* group.h in Copy src Private Headers */,
+				10A3FA4CA1F653F68487302343A56FA6 /* group_impl.h in Copy src Private Headers */,
+				6D393858D30831462F4FDD6239D1BE78 /* hash.h in Copy src Private Headers */,
+				259E496D30F31D6742E865FC214F5737 /* hash_impl.h in Copy src Private Headers */,
+				8981B5E4B36C5E3FE76C68B1FD74A288 /* num.h in Copy src Private Headers */,
+				DCE37CE8FA63B3FC4C4EC0558790F683 /* num_gmp.h in Copy src Private Headers */,
+				BC2161209CB9699623E7F394B72308A4 /* num_gmp_impl.h in Copy src Private Headers */,
+				F7D975E15BE5E988633F971306E8FA8E /* num_impl.h in Copy src Private Headers */,
+				46EAF6AAE305D742422FAB5FE5005F3A /* scalar.h in Copy src Private Headers */,
+				4BF30922230414AA918289AFB10728C2 /* scalar_4x64.h in Copy src Private Headers */,
+				8353B2F5368E3933409898E80A8DD90D /* scalar_4x64_impl.h in Copy src Private Headers */,
+				EAE539631097B2BB4BB4DDFEFEFCB3DF /* scalar_8x32.h in Copy src Private Headers */,
+				BEA4237E069A690D422468781646864F /* scalar_8x32_impl.h in Copy src Private Headers */,
+				0E3D6D6C585C81E00E46B0A333683A37 /* scalar_impl.h in Copy src Private Headers */,
+				03161E6729F2B06AFD5E369753CC8012 /* scalar_low.h in Copy src Private Headers */,
+				C9125CE8797A9979156CCBCD1F353D09 /* scalar_low_impl.h in Copy src Private Headers */,
+				92F7A388824A509CADA926C40EC9C659 /* scratch.h in Copy src Private Headers */,
+				5FBEE066DF33A07FB252BCAE96CDA1F0 /* scratch_impl.h in Copy src Private Headers */,
+				48A8A8E6574638185D78990AF49F374C /* util.h in Copy src Private Headers */,
+			);
+			name = "Copy src Private Headers";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		002B1E88BA14EBF633CD66EBFBA107E9 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PromiseKit.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -702,6 +767,8 @@
 				0894F527EF50033A03AB4F13D833DCE2 /* Pods_sdk_sdkTests.framework */,
 				286B8FAF32B3B33B419B12764BD214F6 /* Pods_serialization.framework */,
 				17735F57035369990B5E1880CF1A9ECA /* Pods_serialization_serializationTests.framework */,
+				B92E77F62DDEF0A3D824F00BDD710551 /* Pods_VCCrypto.framework */,
+				5A30708FB41AA067BF40DC7853550BCD /* Pods_VCCrypto_VCCryptoTests.framework */,
 				002B1E88BA14EBF633CD66EBFBA107E9 /* PromiseKit.framework */,
 				436EE52E314D9E8D3B28F79500ECBACC /* Serialization.framework */,
 			);
@@ -813,6 +880,19 @@
 				2C104374CB2C7126FE0A36CC76699AF8 /* Pods-sdk-sdkTests */,
 				5F6DB99E9C0B70C9B2659415D2F988AE /* Pods-serialization */,
 				7346C2890BB0F1D4A137BF118F30F38D /* Pods-serialization-serializationTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CD60A9001CCC8114AA198C53CF904DEE /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D2F2EEEE1E6D70261A7758C7ADCCC68F /* Pods-networking */,
+				D0590BFA01C66D74B0F3448AE118F2A5 /* Pods-networking-networkingTests */,
+				8C55F61894A92B8A015FA751E3CC29F1 /* Pods-sdk */,
+				9CE6B1EECF10260514BB1046E61F948C /* Pods-sdk-sdkTests */,
+				5C389E4AF21C7F4E0E57C231F470D5F2 /* Pods-VCCrypto */,
+				0AB664E627B8522EDF5569503DF1CCA2 /* Pods-VCCrypto-VCCryptoTests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -940,9 +1020,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9646F12CDABC72020A692819FDFD71A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80EDE61F351FA302D413DB3A1973193F /* Pods-VCCrypto-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4492C30912080FB6C3BD58B622ECF4C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A6B43D4EC32AB8DD7F4853BE40D95D0 /* Pods-networking-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3020FF5BE409E86C04853BBDEF3E50A7 /* bitcoin-core-secp256k1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A12CB5FAB5E391557CDB0DC8F21665CB /* Build configuration list for PBXNativeTarget "bitcoin-core-secp256k1" */;
+			buildPhases = (
+				53A88A259338E202CDB852A136555F5E /* Headers */,
+				8FF75DF88E2E07A144A149D8948183A0 /* Copy include Public Headers */,
+				CA32321C755FC7F955F37B3737FC6C25 /* Copy src Private Headers */,
+				DA3A8616022CC08C58F183E293302858 /* Sources */,
+				F47FFBCB52B3959F569C573376F57DD9 /* Frameworks */,
+				017295DDFFF608DBCC94ABC334527FF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "bitcoin-core-secp256k1";
+			productName = "bitcoin-core-secp256k1";
+			productReference = 228C193C5D97130985D9AB568E3E7F86 /* bitcoin_core_secp256k1.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		3B9D44D15C1963937A337914BF13BDE3 /* Pods-networking-networkingTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA3811EA30429FC63C493B1B256A0415 /* Build configuration list for PBXNativeTarget "Pods-networking-networkingTests" */;
@@ -1349,6 +1465,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DA3A8616022CC08C58F183E293302858 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3808E473DE3FFB698C31417A00E4FDD8 /* bitcoin-core-secp256k1-dummy.m in Sources */,
+				00A8012BF1178A14B28368B0304B77D5 /* secp256k1.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1459,65 +1584,40 @@
 			};
 			name = Debug;
 		};
-		257497152829C177993B5EC99C1D227A /* Release */ = {
+		137E04AD7EC456A33EB6B8D342E467E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 318D59A0B3BBDBFBBD133A0D24E03C95 /* bitcoin-core-secp256k1.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				MODULEMAP_FILE = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1.modulemap";
+				PRODUCT_MODULE_NAME = bitcoin_core_secp256k1;
+				PRODUCT_NAME = bitcoin_core_secp256k1;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		2739AF863321FA50D59E9E23529F040F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1552,10 +1652,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		2B9C2250939500B9AE5627A6B448B5A7 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1742,9 +1843,47 @@
 			};
 			name = Debug;
 		};
-		99FEA46C2D71C5F22618FF3E5D7B05E3 /* Debug */ = {
+		A39C6155E19336DA39872302BCEBE9CE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E01B01726463584B96C55A57EA834C26 /* Pods-sdk.debug.xcconfig */;
+			baseConfigurationReference = E1A3BBE414F17C1D7F6481AF5A25CEBC /* Pods-VCCrypto.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VCCrypto/Pods-VCCrypto-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VCCrypto/Pods-VCCrypto.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B143110717EBC9F38F12AC7E7D725364 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8388576399AF2CBE9FF19A702E514FF /* PromiseKit.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1813,10 +1952,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		C2A307237E451276B83664BCC64E1E82 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1849,11 +1989,10 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		D463FABCF5ED1EC2D2CC243F1C9EFB7A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2020,8 +2159,6 @@
 				PRODUCT_NAME = Networking;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2221,6 +2358,83 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		ECA4D7D016A11B1997B73E3872C49623 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE7B41735297012567A4DB2FF0DBF8DB /* Pods-VCCrypto-VCCryptoTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VCCrypto-VCCryptoTests/Pods-VCCrypto-VCCryptoTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VCCrypto-VCCryptoTests/Pods-VCCrypto-VCCryptoTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EE57D624D074B7425172F3F0A5EC8D4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 117C3E3C912FF7D7E75759F9980012CF /* Pods-networking.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-networking/Pods-networking-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-networking/Pods-networking.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
