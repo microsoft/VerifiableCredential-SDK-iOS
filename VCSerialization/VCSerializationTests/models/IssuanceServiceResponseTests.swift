@@ -8,7 +8,7 @@
 
 import XCTest
 
-@testable import serialization
+@testable import VCSerialization
 
 class IssuanceServiceResponseTests: XCTestCase {
     

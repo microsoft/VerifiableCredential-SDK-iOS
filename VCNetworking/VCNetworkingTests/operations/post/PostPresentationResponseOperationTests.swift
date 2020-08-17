@@ -5,9 +5,9 @@
 
 import XCTest
 import PromiseKit
-import Serialization
+import VCSerialization
 
-@testable import networking
+@testable import VCNetworking
 
 class PostPresentationRequestTests: XCTestCase {
     private var postPresentationResponseOperation: PostPresentationResponseOperation!

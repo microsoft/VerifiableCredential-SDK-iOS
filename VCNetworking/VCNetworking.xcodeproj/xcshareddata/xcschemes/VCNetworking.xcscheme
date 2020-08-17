@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55CED0FC24CF37D000A2AAE2"
-               BuildableName = "VCSerialization.framework"
-               BlueprintName = "VCSerialization"
-               ReferencedContainer = "container:VCSerialization.xcodeproj">
+               BlueprintIdentifier = "55D7BFE924C4CBBD0090F495"
+               BuildableName = "VCNetworking.framework"
+               BlueprintName = "VCNetworking"
+               ReferencedContainer = "container:VCNetworking.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,27 +26,26 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES"
-      onlyGenerateCoverageForSpecifiedTargets = "YES">
-      <CodeCoverageTargets>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "55CED0FC24CF37D000A2AAE2"
-            BuildableName = "VCSerialization.framework"
-            BlueprintName = "VCSerialization"
-            ReferencedContainer = "container:VCSerialization.xcodeproj">
-         </BuildableReference>
-      </CodeCoverageTargets>
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55CED10524CF37D000A2AAE2"
-               BuildableName = "VCSerializationTests.xctest"
-               BlueprintName = "VCSerializationTests"
-               ReferencedContainer = "container:VCSerialization.xcodeproj">
+               BlueprintIdentifier = "55D7BFF224C4CBBD0090F495"
+               BuildableName = "VCNetworkingTests.xctest"
+               BlueprintName = "VCNetworkingTests"
+               ReferencedContainer = "container:VCNetworking.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "92CDE7B224DC78DD00F95B5D"
+               BuildableName = "VcCryptoTests.xctest"
+               BlueprintName = "VcCryptoTests"
+               ReferencedContainer = "container:../VCCrypto/VcCrypto.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,10 +70,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "55CED0FC24CF37D000A2AAE2"
-            BuildableName = "VCSerialization.framework"
-            BlueprintName = "VCSerialization"
-            ReferencedContainer = "container:VCSerialization.xcodeproj">
+            BlueprintIdentifier = "55D7BFE924C4CBBD0090F495"
+            BuildableName = "VCNetworking.framework"
+            BlueprintName = "VCNetworking"
+            ReferencedContainer = "container:VCNetworking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import Serialization
+import VCSerialization
 
 /**
  * Base Network Operation class with default methods for all Network Operations.

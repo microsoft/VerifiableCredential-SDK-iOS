@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import Serialization
+import VCSerialization
 
 // Mock Serializer until Serialization layer is implemented
 public class MockSerializer: SerializerProtocol {

@@ -5,7 +5,7 @@
 
 import Foundation
 import PromiseKit
-import Serialization
+import VCSerialization
 
 final public class FetchContractOperation: NetworkOperation {
     public typealias ResponseBody = Contract

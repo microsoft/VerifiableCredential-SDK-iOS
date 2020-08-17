@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import Serialization
+import VCSerialization
 
 // TODO Subject to change when Serializer layer is built.
 class SimpleSuccessHandler: SuccessHandler {

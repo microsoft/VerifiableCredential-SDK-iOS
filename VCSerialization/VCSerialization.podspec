@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "Serialization"
+  spec.name         = "VCSerialization"
   spec.version      = "0.0.1"
   spec.summary      = "A short description of serialization."
 

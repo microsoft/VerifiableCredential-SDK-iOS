@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		165BE3E3ACADF60A61A92728 /* Pods_VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2907D3D09461AE7C46EE04 /* Pods_VCCrypto.framework */; };
+		74A2AB18A193E21346F98468 /* Pods_VcCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64F0A28AE2536A69297A3AFD /* Pods_VcCrypto.framework */; };
 		92CDE7B424DC78DD00F95B5D /* VcCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CDE7AA24DC78DD00F95B5D /* VcCrypto.framework */; };
 		92CDE7BB24DC78DD00F95B5D /* VCCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92CDE7C924DCA48A00F95B5D /* SecretStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7C824DCA48A00F95B5D /* SecretStoring.swift */; };
@@ -33,7 +33,7 @@
 		92CDE80824E1F7AF00F95B5D /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80724E1F7AF00F95B5D /* Secret.swift */; };
 		92CDE80A24E2047900F95B5D /* SecretMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80924E2047900F95B5D /* SecretMock.swift */; };
 		92CDE80C24E213AE00F95B5D /* Random32BytesSecretTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80B24E213AE00F95B5D /* Random32BytesSecretTests.swift */; };
-		A093F7C15ACA9C9D5DA4A21E /* Pods_VCCrypto_VCCryptoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383E973BE430D4EB2CF14993 /* Pods_VCCrypto_VCCryptoTests.framework */; };
+		BF51A7CC1EC9D62D6C6C2E55 /* Pods_VcCrypto_VcCryptoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6622C9EDEC12E0CF2C512553 /* Pods_VcCrypto_VcCryptoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +55,14 @@
 
 /* Begin PBXFileReference section */
 		00426198DD69CAD6D4B730EF /* Pods-VCCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCCrypto.debug.xcconfig"; path = "Target Support Files/Pods-VCCrypto/Pods-VCCrypto.debug.xcconfig"; sourceTree = "<group>"; };
+		129B792FBD677BC70EC872B0 /* Pods-VcCrypto-VcCryptoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcCrypto-VcCryptoTests.release.xcconfig"; path = "Target Support Files/Pods-VcCrypto-VcCryptoTests/Pods-VcCrypto-VcCryptoTests.release.xcconfig"; sourceTree = "<group>"; };
+		1D3A78C4A2AC478141DCB6E7 /* Pods-VcCrypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcCrypto.release.xcconfig"; path = "Target Support Files/Pods-VcCrypto/Pods-VcCrypto.release.xcconfig"; sourceTree = "<group>"; };
 		34E7997DA8480F54D3B359FE /* Pods-VCCrypto-VCCryptoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCCrypto-VCCryptoTests.release.xcconfig"; path = "Target Support Files/Pods-VCCrypto-VCCryptoTests/Pods-VCCrypto-VCCryptoTests.release.xcconfig"; sourceTree = "<group>"; };
-		383E973BE430D4EB2CF14993 /* Pods_VCCrypto_VCCryptoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCCrypto_VCCryptoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B3B5DC270DB5EB90DF3BE4D /* Pods-VcCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcCrypto.debug.xcconfig"; path = "Target Support Files/Pods-VcCrypto/Pods-VcCrypto.debug.xcconfig"; sourceTree = "<group>"; };
 		3F7D9F84439ED1FE409B4BE9 /* Pods-VCCrypto-VCCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCCrypto-VCCryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-VCCrypto-VCCryptoTests/Pods-VCCrypto-VCCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4B2907D3D09461AE7C46EE04 /* Pods_VCCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5522EF57275489224DA643D6 /* Pods-VcCrypto-VcCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcCrypto-VcCryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-VcCrypto-VcCryptoTests/Pods-VcCrypto-VcCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		64F0A28AE2536A69297A3AFD /* Pods_VcCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6622C9EDEC12E0CF2C512553 /* Pods_VcCrypto_VcCryptoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcCrypto_VcCryptoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CDE7AA24DC78DD00F95B5D /* VcCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VcCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCCrypto.h; sourceTree = "<group>"; };
 		92CDE7AE24DC78DD00F95B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				165BE3E3ACADF60A61A92728 /* Pods_VCCrypto.framework in Frameworks */,
+				74A2AB18A193E21346F98468 /* Pods_VcCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92CDE7B424DC78DD00F95B5D /* VcCrypto.framework in Frameworks */,
-				A093F7C15ACA9C9D5DA4A21E /* Pods_VCCrypto_VCCryptoTests.framework in Frameworks */,
+				BF51A7CC1EC9D62D6C6C2E55 /* Pods_VcCrypto_VcCryptoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,8 +127,8 @@
 		5610A6D3F881AAFA26C7EE61 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4B2907D3D09461AE7C46EE04 /* Pods_VCCrypto.framework */,
-				383E973BE430D4EB2CF14993 /* Pods_VCCrypto_VCCryptoTests.framework */,
+				64F0A28AE2536A69297A3AFD /* Pods_VcCrypto.framework */,
+				6622C9EDEC12E0CF2C512553 /* Pods_VcCrypto_VcCryptoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -246,6 +250,10 @@
 				A190BFD5777A37C07EEDCE97 /* Pods-VCCrypto.release.xcconfig */,
 				3F7D9F84439ED1FE409B4BE9 /* Pods-VCCrypto-VCCryptoTests.debug.xcconfig */,
 				34E7997DA8480F54D3B359FE /* Pods-VCCrypto-VCCryptoTests.release.xcconfig */,
+				3B3B5DC270DB5EB90DF3BE4D /* Pods-VcCrypto.debug.xcconfig */,
+				1D3A78C4A2AC478141DCB6E7 /* Pods-VcCrypto.release.xcconfig */,
+				5522EF57275489224DA643D6 /* Pods-VcCrypto-VcCryptoTests.debug.xcconfig */,
+				129B792FBD677BC70EC872B0 /* Pods-VcCrypto-VcCryptoTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../sdk/Pods;
@@ -408,7 +416,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VCCrypto-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VcCrypto-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -430,7 +438,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VCCrypto-VCCryptoTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VcCrypto-VcCryptoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -443,15 +451,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCCrypto-VCCryptoTests/Pods-VCCrypto-VCCryptoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VcCrypto-VcCryptoTests/Pods-VcCrypto-VcCryptoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCCrypto-VCCryptoTests/Pods-VCCrypto-VCCryptoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VcCrypto-VcCryptoTests/Pods-VcCrypto-VcCryptoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCCrypto-VCCryptoTests/Pods-VCCrypto-VCCryptoTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcCrypto-VcCryptoTests/Pods-VcCrypto-VcCryptoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -647,7 +655,7 @@
 		};
 		92CDE7BF24DC78DD00F95B5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00426198DD69CAD6D4B730EF /* Pods-VCCrypto.debug.xcconfig */;
+			baseConfigurationReference = 3B3B5DC270DB5EB90DF3BE4D /* Pods-VcCrypto.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -677,7 +685,7 @@
 		};
 		92CDE7C024DC78DD00F95B5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A190BFD5777A37C07EEDCE97 /* Pods-VCCrypto.release.xcconfig */;
+			baseConfigurationReference = 1D3A78C4A2AC478141DCB6E7 /* Pods-VcCrypto.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -706,7 +714,7 @@
 		};
 		92CDE7C224DC78DD00F95B5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F7D9F84439ED1FE409B4BE9 /* Pods-VCCrypto-VCCryptoTests.debug.xcconfig */;
+			baseConfigurationReference = 5522EF57275489224DA643D6 /* Pods-VcCrypto-VcCryptoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -727,7 +735,7 @@
 		};
 		92CDE7C324DC78DD00F95B5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34E7997DA8480F54D3B359FE /* Pods-VCCrypto-VCCryptoTests.release.xcconfig */;
+			baseConfigurationReference = 129B792FBD677BC70EC872B0 /* Pods-VcCrypto-VcCryptoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

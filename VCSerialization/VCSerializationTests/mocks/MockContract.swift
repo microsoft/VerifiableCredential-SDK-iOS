@@ -8,7 +8,7 @@
 
 import Foundation
 
-@testable import serialization
+@testable import VCSerialization
 
 struct MockContract: Codable, Serializable {
     let test: String

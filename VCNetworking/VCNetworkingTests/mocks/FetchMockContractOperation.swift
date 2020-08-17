@@ -5,8 +5,8 @@
 
 import Foundation
 import PromiseKit
-import Serialization
-@testable import networking
+import VCSerialization
+@testable import VCNetworking
 
 final public class FetchMockContractOperation: NetworkOperation {
     public typealias ResponseBody = MockContract

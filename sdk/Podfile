@@ -4,11 +4,11 @@ platform :ios, '11.0'
 workspace '../sdk'
 
 def serialization_pods
-  podspec :path => '../serialization/serialization.podspec'
+  podspec :path => '../VCSerialization/VCSerialization.podspec'
 end
 
 def networking_pods
-  podspec :path => '../networking/networking.podspec'
+  podspec :path => '../VCNetworking/VCNetworking.podspec'
 end
 
 def vccrypto_pods
@@ -17,26 +17,26 @@ end
 
 target 'sdk' do
   project '../sdk/sdk.xcodeproj'
-  pod 'Networking', path: '../networking'
-  pod 'Serialization', path: '../serialization'
+  pod 'VCNetworking', path: '../VCNetworking'
+  pod 'VCSerialization', path: '../VCSerialization'
   target 'sdkTests'
 end
 
 target 'VCNetworking' do
-  project '../networking/networking.xcodeproj'
-  pod 'Serialization', path: '../serialization'
+  project '../VCNetworking/VCNetworking.xcodeproj'
+  pod 'VCSerialization', path: '../VCSerialization'
   networking_pods
-  target 'networkingTests'
+  target 'VCNetworkingTests'
 end
 
 target 'VCSerialization' do
-  project '../serialization/serialization.xcodeproj'
+  project '../VCSerialization/VCSerialization.xcodeproj'
   serialization_pods
-  target 'serializationTests'
+  target 'VCSerializationTests'
 end
 
-target 'VCCrypto' do
-  project '../VCCrypto/VCCrypto.xcodeproj'
+target 'VcCrypto' do
+  project '../VcCrypto/VcCrypto.xcodeproj'
   vccrypto_pods
-  target 'VCCryptoTests'
+  target 'VcCryptoTests'
 end

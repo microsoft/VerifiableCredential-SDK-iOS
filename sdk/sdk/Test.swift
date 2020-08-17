@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Networking
+import VCNetworking
 
 class Test {
     

@@ -4,9 +4,9 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import Serialization
+import VCSerialization
 
-@testable import networking
+@testable import VCNetworking
 
 class SimpleFailureHandlerTests: XCTestCase {
     

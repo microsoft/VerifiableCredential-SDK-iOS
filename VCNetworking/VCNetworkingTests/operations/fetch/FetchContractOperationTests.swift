@@ -6,7 +6,7 @@
 import XCTest
 import PromiseKit
 
-@testable import networking
+@testable import VCNetworking
 
 class FetchContractTests: XCTestCase {
     private var fetchContractOperation: FetchContractOperation!

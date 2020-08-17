@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import Serialization
+import VCSerialization
 
 class SimpleFailureHandler: FailureHandler {
     

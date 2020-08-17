@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import Serialization
+import VCSerialization
 
 final class PostPresentationResponseOperation: NetworkOperation {
     typealias ResponseBody = MockPresentationServiceResponse

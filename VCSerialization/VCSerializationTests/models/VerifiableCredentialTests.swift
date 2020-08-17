@@ -5,7 +5,7 @@
 
 import XCTest
 
-@testable import serialization
+@testable import VCSerialization
 
 class VerifiableCredentialTests: XCTestCase {
     

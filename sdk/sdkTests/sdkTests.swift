@@ -7,8 +7,8 @@
 //
 
 import XCTest
-import Networking
-import Serialization
+import VCNetworking
+import VCSerialization
 
 @testable import sdk
 
