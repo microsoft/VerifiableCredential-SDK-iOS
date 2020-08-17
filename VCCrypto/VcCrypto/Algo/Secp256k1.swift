@@ -23,7 +23,7 @@ public struct Secp256k1 {
     ///   - messageHash: 32 bytes message
     ///   - secret: secret used to sign
     /// - Returns: The R|S signature
-    public func sign(messageHash: Data, withSecret secret: VCCryptoSecret) throws -> Data {
+    public func sign(messageHash: Data, withSecret secret: VcCryptoSecret) throws -> Data {
         
         // Validate params
         guard secret is Secret else { throw Secp256k1Error.invalidSecret }
@@ -114,7 +114,7 @@ public struct Secp256k1 {
     /// Create a public key from a secret
     /// - Parameter secret: The Secret used to generate the public key
     /// - Returns: The public key
-    public func createPublicKey(forSecret secret: VCCryptoSecret) throws -> Data {
+    public func createPublicKey(forSecret secret: VcCryptoSecret) throws -> Data {
         // Validate params
         guard secret is Secret else { throw Secp256k1Error.invalidSecret }
         

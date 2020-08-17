@@ -5,9 +5,9 @@
 
 import Foundation
 
-internal protocol Secret: VCCryptoSecret & InternalSecret {}
+internal protocol Secret: VcCryptoSecret & InternalSecret {}
 
-public protocol VCCryptoSecret{
+public protocol VcCryptoSecret{
     
     /// The secret id
     var id:UUID { get }

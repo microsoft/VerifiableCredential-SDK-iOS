@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "92CDE7EC24DE1C6100F95B5D"
-               BuildableName = "VCCryptoTestApp.app"
-               BlueprintName = "VCCryptoTestApp"
+               BlueprintIdentifier = "92CDE7A924DC78DD00F95B5D"
+               BuildableName = "VcCrypto.framework"
+               BlueprintName = "VcCrypto"
                ReferencedContainer = "container:VCCrypto.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,8 +26,29 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "92CDE7A924DC78DD00F95B5D"
+            BuildableName = "VcCrypto.framework"
+            BlueprintName = "VcCrypto"
+            ReferencedContainer = "container:VCCrypto.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "92CDE7B224DC78DD00F95B5D"
+               BuildableName = "VcCryptoTests.xctest"
+               BlueprintName = "VcCryptoTests"
+               ReferencedContainer = "container:VCCrypto.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -40,16 +61,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "92CDE7EC24DE1C6100F95B5D"
-            BuildableName = "VCCryptoTestApp.app"
-            BlueprintName = "VCCryptoTestApp"
-            ReferencedContainer = "container:VCCrypto.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,16 +68,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "92CDE7EC24DE1C6100F95B5D"
-            BuildableName = "VCCryptoTestApp.app"
-            BlueprintName = "VCCryptoTestApp"
+            BlueprintIdentifier = "92CDE7A924DC78DD00F95B5D"
+            BuildableName = "VcCrypto.framework"
+            BlueprintName = "VcCrypto"
             ReferencedContainer = "container:VCCrypto.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
