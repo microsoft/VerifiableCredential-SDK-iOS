@@ -3,7 +3,7 @@
    LastUpgradeVersion = "1150"
    version = "1.3">
    <BuildAction
-      parallelizeBuildables = "YES"
+      parallelizeBuildables = "NO"
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55CED0FC24CF37D000A2AAE2"
-               BuildableName = "serialization.framework"
-               BlueprintName = "serialization"
-               ReferencedContainer = "container:serialization.xcodeproj">
+               BlueprintIdentifier = "55D7BFE924C4CBBD0090F495"
+               BuildableName = "VCNetworking.framework"
+               BlueprintName = "VCNetworking"
+               ReferencedContainer = "container:VCNetworking.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "55CED0FC24CF37D000A2AAE2"
-            BuildableName = "serialization.framework"
-            BlueprintName = "serialization"
-            ReferencedContainer = "container:serialization.xcodeproj">
+            BlueprintIdentifier = "55D7BFE924C4CBBD0090F495"
+            BuildableName = "VCNetworking.framework"
+            BlueprintName = "VCNetworking"
+            ReferencedContainer = "container:VCNetworking.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -43,10 +43,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55CED10524CF37D000A2AAE2"
-               BuildableName = "serializationTests.xctest"
-               BlueprintName = "serializationTests"
-               ReferencedContainer = "container:serialization.xcodeproj">
+               BlueprintIdentifier = "55D7BFF224C4CBBD0090F495"
+               BuildableName = "VCNetworkingTests.xctest"
+               BlueprintName = "VCNetworkingTests"
+               ReferencedContainer = "container:VCNetworking.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,10 +71,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "55CED0FC24CF37D000A2AAE2"
-            BuildableName = "serialization.framework"
-            BlueprintName = "serialization"
-            ReferencedContainer = "container:serialization.xcodeproj">
+            BlueprintIdentifier = "55D7BFE924C4CBBD0090F495"
+            BuildableName = "VCNetworking.framework"
+            BlueprintName = "VCNetworking"
+            ReferencedContainer = "container:VCNetworking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

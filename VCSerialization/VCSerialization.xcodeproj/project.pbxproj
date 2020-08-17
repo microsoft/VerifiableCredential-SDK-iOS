@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D1C4913F349B12F8C13A518 /* Pods_serialization_serializationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8877690582A549F4C61B6685 /* Pods_serialization_serializationTests.framework */; };
 		55C7FFF724DC893200B31E70 /* JwsToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C7FFF624DC893100B31E70 /* JwsToken.swift */; };
-		55CED10724CF37D000A2AAE2 /* serialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CED0FD24CF37D000A2AAE2 /* serialization.framework */; };
+		55CED10724CF37D000A2AAE2 /* VCSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CED0FD24CF37D000A2AAE2 /* VCSerialization.framework */; };
 		55CED10C24CF37D000A2AAE2 /* serializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CED10B24CF37D000A2AAE2 /* serializationTests.swift */; };
 		55CED10E24CF37D000A2AAE2 /* serialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 55CED10024CF37D000A2AAE2 /* serialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55CED11824CF383C00A2AAE2 /* serialization.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55CED11724CF383C00A2AAE2 /* serialization.podspec */; };
@@ -46,10 +46,10 @@
 /* Begin PBXFileReference section */
 		42CDE24428710515C8B52F8C /* Pods-serialization.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serialization.debug.xcconfig"; path = "Target Support Files/Pods-serialization/Pods-serialization.debug.xcconfig"; sourceTree = "<group>"; };
 		55C7FFF624DC893100B31E70 /* JwsToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsToken.swift; sourceTree = "<group>"; };
-		55CED0FD24CF37D000A2AAE2 /* serialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = serialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55CED0FD24CF37D000A2AAE2 /* VCSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CED10024CF37D000A2AAE2 /* serialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = serialization.h; sourceTree = "<group>"; };
 		55CED10124CF37D000A2AAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55CED10624CF37D000A2AAE2 /* serializationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = serializationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55CED10624CF37D000A2AAE2 /* VCSerializationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCSerializationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CED10B24CF37D000A2AAE2 /* serializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serializationTests.swift; sourceTree = "<group>"; };
 		55CED10D24CF37D000A2AAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55CED11724CF383C00A2AAE2 /* serialization.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = serialization.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -93,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55CED10724CF37D000A2AAE2 /* serialization.framework in Frameworks */,
+				55CED10724CF37D000A2AAE2 /* VCSerialization.framework in Frameworks */,
 				0D1C4913F349B12F8C13A518 /* Pods_serialization_serializationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,8 +132,8 @@
 		55CED0FE24CF37D000A2AAE2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				55CED0FD24CF37D000A2AAE2 /* serialization.framework */,
-				55CED10624CF37D000A2AAE2 /* serializationTests.xctest */,
+				55CED0FD24CF37D000A2AAE2 /* VCSerialization.framework */,
+				55CED10624CF37D000A2AAE2 /* VCSerializationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,9 +236,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		55CED0FC24CF37D000A2AAE2 /* serialization */ = {
+		55CED0FC24CF37D000A2AAE2 /* VCSerialization */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55CED11124CF37D000A2AAE2 /* Build configuration list for PBXNativeTarget "serialization" */;
+			buildConfigurationList = 55CED11124CF37D000A2AAE2 /* Build configuration list for PBXNativeTarget "VCSerialization" */;
 			buildPhases = (
 				2A8D793A01B0F27DE345C9AA /* [CP] Check Pods Manifest.lock */,
 				55CED0F824CF37D000A2AAE2 /* Headers */,
@@ -250,14 +250,14 @@
 			);
 			dependencies = (
 			);
-			name = serialization;
+			name = VCSerialization;
 			productName = serialization;
-			productReference = 55CED0FD24CF37D000A2AAE2 /* serialization.framework */;
+			productReference = 55CED0FD24CF37D000A2AAE2 /* VCSerialization.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		55CED10524CF37D000A2AAE2 /* serializationTests */ = {
+		55CED10524CF37D000A2AAE2 /* VCSerializationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55CED11424CF37D000A2AAE2 /* Build configuration list for PBXNativeTarget "serializationTests" */;
+			buildConfigurationList = 55CED11424CF37D000A2AAE2 /* Build configuration list for PBXNativeTarget "VCSerializationTests" */;
 			buildPhases = (
 				9746D78C1C7757CF4EC1C737 /* [CP] Check Pods Manifest.lock */,
 				55CED10224CF37D000A2AAE2 /* Sources */,
@@ -269,9 +269,9 @@
 			dependencies = (
 				55CED10924CF37D000A2AAE2 /* PBXTargetDependency */,
 			);
-			name = serializationTests;
+			name = VCSerializationTests;
 			productName = serializationTests;
-			productReference = 55CED10624CF37D000A2AAE2 /* serializationTests.xctest */;
+			productReference = 55CED10624CF37D000A2AAE2 /* VCSerializationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -293,7 +293,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 55CED0F724CF37D000A2AAE2 /* Build configuration list for PBXProject "serialization" */;
+			buildConfigurationList = 55CED0F724CF37D000A2AAE2 /* Build configuration list for PBXProject "VCSerialization" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -306,8 +306,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				55CED0FC24CF37D000A2AAE2 /* serialization */,
-				55CED10524CF37D000A2AAE2 /* serializationTests */,
+				55CED0FC24CF37D000A2AAE2 /* VCSerialization */,
+				55CED10524CF37D000A2AAE2 /* VCSerializationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -416,7 +416,7 @@
 /* Begin PBXTargetDependency section */
 		55CED10924CF37D000A2AAE2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 55CED0FC24CF37D000A2AAE2 /* serialization */;
+			target = 55CED0FC24CF37D000A2AAE2 /* VCSerialization */;
 			targetProxy = 55CED10824CF37D000A2AAE2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -642,7 +642,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		55CED0F724CF37D000A2AAE2 /* Build configuration list for PBXProject "serialization" */ = {
+		55CED0F724CF37D000A2AAE2 /* Build configuration list for PBXProject "VCSerialization" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55CED10F24CF37D000A2AAE2 /* Debug */,
@@ -651,7 +651,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55CED11124CF37D000A2AAE2 /* Build configuration list for PBXNativeTarget "serialization" */ = {
+		55CED11124CF37D000A2AAE2 /* Build configuration list for PBXNativeTarget "VCSerialization" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55CED11224CF37D000A2AAE2 /* Debug */,
@@ -660,7 +660,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55CED11424CF37D000A2AAE2 /* Build configuration list for PBXNativeTarget "serializationTests" */ = {
+		55CED11424CF37D000A2AAE2 /* Build configuration list for PBXNativeTarget "VCSerializationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55CED11524CF37D000A2AAE2 /* Debug */,

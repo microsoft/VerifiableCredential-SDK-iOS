@@ -18,14 +18,14 @@ target 'sdk' do
   target 'sdkTests'
 end
 
-target 'networking' do
+target 'VCNetworking' do
   project '../networking/networking.xcodeproj'
   pod 'Serialization', path: '../serialization'
   networking_pods
   target 'networkingTests'
 end
 
-target 'serialization' do
+target 'VCSerialization' do
   project '../serialization/serialization.xcodeproj'
   serialization_pods
   target 'serializationTests'

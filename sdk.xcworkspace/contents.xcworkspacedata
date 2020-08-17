@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:networking/networking.xcodeproj">
+      location = "group:/Users/sydneymorton/Documents/repos/VerifiableCredential-SDK-iOS/networking/VCNetworking.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:sdk/sdk.xcodeproj">
@@ -11,6 +11,6 @@
       location = "group:sdk/Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:serialization/serialization.xcodeproj">
+      location = "group:/Users/sydneymorton/Documents/repos/VerifiableCredential-SDK-iOS/serialization/VCSerialization.xcodeproj">
    </FileRef>
 </Workspace>
