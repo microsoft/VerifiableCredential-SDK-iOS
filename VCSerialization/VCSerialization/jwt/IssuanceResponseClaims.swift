@@ -21,7 +21,7 @@ struct IssuanceResponseClaims: OidcClaims {
     
     let audience = ""
     
-    let publicKey: EllipticCurvePublicKey
+    let publicJwk: Secp256k1Jwk
     
     let contract: String = ""
     
@@ -36,7 +36,7 @@ struct IssuanceResponseClaims: OidcClaims {
         case redirectURI = "redirect_uri"
         case publicKeyThumbprint = "sub"
         case audience = "aud"
-        case publicKey = "sub_jwk"
+        case publicJwk = "sub_jwk"
         case scope, iss, contract, attestations, jti
     }
 }

@@ -3,8 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import SwiftJWT
-
 struct VcClaims: Claims {
     let jti: String
     let iss: String

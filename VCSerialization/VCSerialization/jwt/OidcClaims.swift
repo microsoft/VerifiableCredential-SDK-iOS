@@ -3,9 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import SwiftJWT
-
-public protocol OidcClaims: Claims {
+protocol OidcClaims: Claims {
     var responseType: String { get }
     var responseMode: String { get }
     var clientID: String { get }

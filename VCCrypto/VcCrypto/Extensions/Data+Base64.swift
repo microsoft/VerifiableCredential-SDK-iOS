@@ -18,4 +18,11 @@ extension Data {
        
         self.init(base64Encoded: base64Encoded)
     }
+    
+    public func base64URLEncodedString() -> String {
+        return self.base64EncodedString()
+            .replacingOccurrences(of: "+", with: "-")
+            .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "=", with: "")
+    }
 }

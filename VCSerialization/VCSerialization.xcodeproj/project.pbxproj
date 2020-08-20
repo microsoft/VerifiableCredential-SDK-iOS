@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55ADE22A24EF286200D9990E /* Claims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE22924EF286200D9990E /* Claims.swift */; };
 		55CED10724CF37D000A2AAE2 /* VCSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CED0FD24CF37D000A2AAE2 /* VCSerialization.framework */; };
 		55D167F724EB0B8B00AD2F98 /* VCSerialization.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55D167F624EB0B8B00AD2F98 /* VCSerialization.podspec */; };
 		55D1685E24EB13F000AD2F98 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1684F24EB13F000AD2F98 /* Header.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		0C890FF8B35C0F391C489BEE /* Pods-VCSerialization-VCSerializationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCSerialization-VCSerializationTests.release.xcconfig"; path = "Target Support Files/Pods-VCSerialization-VCSerializationTests/Pods-VCSerialization-VCSerializationTests.release.xcconfig"; sourceTree = "<group>"; };
 		42CDE24428710515C8B52F8C /* Pods-serialization.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serialization.debug.xcconfig"; path = "Target Support Files/Pods-serialization/Pods-serialization.debug.xcconfig"; sourceTree = "<group>"; };
+		55ADE22924EF286200D9990E /* Claims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Claims.swift; sourceTree = "<group>"; };
 		55CED0FD24CF37D000A2AAE2 /* VCSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CED10624CF37D000A2AAE2 /* VCSerializationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCSerializationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D167F624EB0B8B00AD2F98 /* VCSerialization.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCSerialization.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -183,6 +185,7 @@
 				55D1688C24EB2CDF00AD2F98 /* IssuanceResponseClaims.swift */,
 				55D1685824EB13F000AD2F98 /* JwsToken.swift */,
 				55D1689324EB3A4700AD2F98 /* Secp256K1.swift */,
+				55ADE22924EF286200D9990E /* Claims.swift */,
 			);
 			path = jwt;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				55D1688724EB215600AD2F98 /* OidcClaims.swift in Sources */,
 				55D1689224EB2FD200AD2F98 /* PublicKey.swift in Sources */,
 				55D1685F24EB13F000AD2F98 /* Serializable.swift in Sources */,
+				55ADE22A24EF286200D9990E /* Claims.swift in Sources */,
 				55D1686424EB13F100AD2F98 /* IssuanceServiceResponse.swift in Sources */,
 				55D1686824EB13F100AD2F98 /* JSON.swift in Sources */,
 				55D1686024EB13F000AD2F98 /* SerializationError.swift in Sources */,
