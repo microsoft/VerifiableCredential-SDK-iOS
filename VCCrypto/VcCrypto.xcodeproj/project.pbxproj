@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		165BE3E3ACADF60A61A92728 /* Pods_VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2907D3D09461AE7C46EE04 /* Pods_VCCrypto.framework */; };
+		928AAF7124EEDC9D0029A8F9 /* Secp256k1PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAF7024EEDC9D0029A8F9 /* Secp256k1PublicKey.swift */; };
+		928AAF7324EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAF7224EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift */; };
 		92CDE7B424DC78DD00F95B5D /* VcCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CDE7AA24DC78DD00F95B5D /* VcCrypto.framework */; };
 		92CDE7BB24DC78DD00F95B5D /* VCCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92CDE7C924DCA48A00F95B5D /* SecretStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7C824DCA48A00F95B5D /* SecretStoring.swift */; };
@@ -59,6 +61,8 @@
 		383E973BE430D4EB2CF14993 /* Pods_VCCrypto_VCCryptoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCCrypto_VCCryptoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7D9F84439ED1FE409B4BE9 /* Pods-VCCrypto-VCCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCCrypto-VCCryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-VCCrypto-VCCryptoTests/Pods-VCCrypto-VCCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B2907D3D09461AE7C46EE04 /* Pods_VCCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		928AAF7024EEDC9D0029A8F9 /* Secp256k1PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1PublicKey.swift; sourceTree = "<group>"; };
+		928AAF7224EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1PublicKeyTests.swift; sourceTree = "<group>"; };
 		92CDE7AA24DC78DD00F95B5D /* VcCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VcCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCCrypto.h; sourceTree = "<group>"; };
 		92CDE7AE24DC78DD00F95B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,7 +90,7 @@
 		92CDE7FB24DE1C6800F95B5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92CDE7FD24DE1C6800F95B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92CDE80524E1ABEA00F95B5D /* Random32BytesSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random32BytesSecret.swift; sourceTree = "<group>"; };
-		92CDE80724E1F7AF00F95B5D /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = Storage/Secret.swift; sourceTree = "<group>"; };
+		92CDE80724E1F7AF00F95B5D /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		92CDE80924E2047900F95B5D /* SecretMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretMock.swift; sourceTree = "<group>"; };
 		92CDE80B24E213AE00F95B5D /* Random32BytesSecretTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random32BytesSecretTests.swift; sourceTree = "<group>"; };
 		A190BFD5777A37C07EEDCE97 /* Pods-VCCrypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCCrypto.release.xcconfig"; path = "Target Support Files/Pods-VCCrypto/Pods-VCCrypto.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +133,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		928AAF6F24EEDC670029A8F9 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				92CDE80524E1ABEA00F95B5D /* Random32BytesSecret.swift */,
+				92CDE80724E1F7AF00F95B5D /* Secret.swift */,
+				928AAF7024EEDC9D0029A8F9 /* Secp256k1PublicKey.swift */,
+			);
+			path = Keys;
+			sourceTree = "<group>";
+		};
 		92CDE7A024DC78DD00F95B5D = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				92CDE7DC24DDCB2800F95B5D /* Extensions */,
+				928AAF6F24EEDC670029A8F9 /* Keys */,
 				92CDE7D024DCA69C00F95B5D /* Algo */,
 				92CDE7CD24DCA67A00F95B5D /* Storage */,
 				92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */,
@@ -171,6 +186,7 @@
 				92CDE7DF24DDD24700F95B5D /* Sha512Tests.swift */,
 				92CDE7E124DDF1A900F95B5D /* HmacSha512Tests.swift */,
 				92CDE7D624DCD07D00F95B5D /* Secp256k1Tests.swift */,
+				928AAF7224EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift */,
 				92CDE7E724DE1A2000F95B5D /* KeychainSecretStoreTests.swift */,
 				92CDE80B24E213AE00F95B5D /* Random32BytesSecretTests.swift */,
 			);
@@ -182,8 +198,6 @@
 			children = (
 				92CDE7C824DCA48A00F95B5D /* SecretStoring.swift */,
 				92CDE7CA24DCA61800F95B5D /* KeychainSecretStore.swift */,
-				92CDE80524E1ABEA00F95B5D /* Random32BytesSecret.swift */,
-				92CDE80724E1F7AF00F95B5D /* Secret.swift */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -470,6 +484,7 @@
 				92CDE7D924DDBA0500F95B5D /* HmacSha512.swift in Sources */,
 				92CDE80824E1F7AF00F95B5D /* Secret.swift in Sources */,
 				92CDE7D224DCA6CF00F95B5D /* Secp256k1.swift in Sources */,
+				928AAF7124EEDC9D0029A8F9 /* Secp256k1PublicKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928AAF7324EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift in Sources */,
 				92CDE7D724DCD07D00F95B5D /* Secp256k1Tests.swift in Sources */,
 				92CDE7D524DCCE3C00F95B5D /* SecretStoreMock.swift in Sources */,
 				92CDE80A24E2047900F95B5D /* SecretMock.swift in Sources */,

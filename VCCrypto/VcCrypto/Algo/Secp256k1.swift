@@ -72,11 +72,10 @@ public struct Secp256k1 {
     ///   - messageHash: The message hash
     ///   - publicKey: The public key to use to validate the signature
     /// - Returns: True if the signature is valid
-    public func isValidSignature(signature: Data, forMessageHash messageHash: Data, usingPublicKey publicKey: Data) throws -> Bool {
+    public func isValidSignature(signature: Data, forMessageHash messageHash: Data, usingPublicKey publicKey: Secp256k1PublicKey) throws -> Bool {
         // Validate params
         guard signature.count == 64 else { throw Secp256k1Error.invalidSignature }
         guard messageHash.count == 32 else { throw Secp256k1Error.invalidMessageHash }
-        guard publicKey.count == 65 else { throw Secp256k1Error.invalidPublicKey }
         
         // Create the context and convert the parsed signature and public key to the appropriate data structure
         let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_VERIFY))!
@@ -93,7 +92,7 @@ public struct Secp256k1 {
         })
         
         let parsedPubKey = UnsafeMutablePointer<secp256k1_pubkey>.allocate(capacity: 1)
-        try publicKey.withUnsafeBytes { (publicKeyPtr) in
+        try publicKey.uncompressedValue.withUnsafeBytes { (publicKeyPtr) in
             let result = secp256k1_ec_pubkey_parse(
                 context,
                 parsedPubKey,
@@ -114,7 +113,7 @@ public struct Secp256k1 {
     /// Create a public key from a secret
     /// - Parameter secret: The Secret used to generate the public key
     /// - Returns: The public key
-    public func createPublicKey(forSecret secret: VcCryptoSecret) throws -> Data {
+    public func createPublicKey(forSecret secret: VcCryptoSecret) throws -> Secp256k1PublicKey {
         // Validate params
         guard secret is Secret else { throw Secp256k1Error.invalidSecret }
         
@@ -146,6 +145,6 @@ public struct Secp256k1 {
             return
         }
         
-        return publicKey
+        return Secp256k1PublicKey(uncompressedPublicKey: publicKey)!
     }
 }
