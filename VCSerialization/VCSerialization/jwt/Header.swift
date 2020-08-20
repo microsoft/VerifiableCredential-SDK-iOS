@@ -3,9 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
-
-struct Header: JSONSerializable {
+struct Header: Codable {
     /// Type Header Parameter
     public var typ: String?
     /// Algorithm Header Parameter

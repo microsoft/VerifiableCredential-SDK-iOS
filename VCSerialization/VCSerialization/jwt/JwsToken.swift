@@ -55,5 +55,13 @@ struct JwsToken: Serializable {
         }
     }
     
+    func sign() {
+        
+    }
+    
+    func verify() {
+        
+    }
+    
     
 }

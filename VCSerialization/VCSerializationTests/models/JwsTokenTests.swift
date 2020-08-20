@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
+import SwiftJWT
 
 @testable import VCSerialization
 
@@ -36,5 +37,10 @@ class JwsTokenTests: XCTestCase {
         let actualSerializedToken = try serializer.serialize(object: actualToken)
         // XCTAssertEqual(actualSerializedToken, actualToken.raw)
         // XCTAssertEqual(actualSerializedToken, expectedSerializedToken)
+    }
+    
+    func testJWT() {
+        let jwt = JWT(claims: PresentationRequestClaims())
+        print(jwt)
     }
 }

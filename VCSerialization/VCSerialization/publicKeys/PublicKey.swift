@@ -3,11 +3,11 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
-
-
-struct VerifiableCredential {
-    let raw: Data
-    let claims: VcClaims
-    let token: JwsToken
+protocol PublicKey: Codable {
+    var keyType: String { get }
+    var keyId: String { get }
+    var use: String { get }
+    var keyOperations: [String] { get }
+    var algorithm: String { get }
 }
+

@@ -3,22 +3,22 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-public struct Contract: JSONSerializable, Equatable {
-    
+public struct Contract: Codable {
+
     let id: String
     let display: Display
     let input: Input
 }
 
-struct Display: JSONSerializable, Equatable {
+struct Display: Codable {
     let id, locale: String
     let contract: String
     let card: Card
     let consent: Consent
-    let claims: [String: Claims]
+    let claims: [String: vcClaims]
 }
 
-struct Card: JSONSerializable, Equatable {
+struct Card: Codable {
     let title, issuedBy, backgroundColor, textColor: String
     let logo: Logo
     let cardDescription: String
@@ -29,11 +29,11 @@ struct Card: JSONSerializable, Equatable {
     }
 }
 
-struct Claims: JSONSerializable, Equatable {
+struct vcClaims: Codable {
     let type, label: String
 }
 
-struct Logo: JSONSerializable, Equatable {
+struct Logo: Codable {
     let uri: String
     let logoDescription: String
 
@@ -43,24 +43,24 @@ struct Logo: JSONSerializable, Equatable {
     }
 }
 
-struct Consent: JSONSerializable, Equatable {
+struct Consent: Codable {
     let title, instructions: String
 }
 
-struct Input: JSONSerializable, Equatable {
+struct Input: Codable {
     let id: String
     let credentialIssuer: String
     let issuer: String
     let attestations: Attestations
 }
 
-struct Attestations: JSONSerializable, Equatable {
+struct Attestations: Codable {
     let selfIssued: SelfIssued?
     let presentations: [Presentation]?
     let idTokens: [IDToken]?
 }
 
-struct IDToken: JSONSerializable, Equatable {
+struct IDToken: Codable {
     let encrypted: Bool?
     let claims: [Claim]
     let idTokenRequired: Bool
@@ -77,7 +77,7 @@ struct IDToken: JSONSerializable, Equatable {
     }
 }
 
-struct Presentation: JSONSerializable, Equatable {
+struct Presentation: Codable {
     let encrypted: Bool?
     let claims: [Claim]
     let presentationRequired: Bool
@@ -92,11 +92,11 @@ struct Presentation: JSONSerializable, Equatable {
     }
 }
 
-struct Issuer: JSONSerializable, Equatable {
+struct Issuer: Codable {
     let iss: String
 }
 
-struct SelfIssued: JSONSerializable, Equatable {
+struct SelfIssued: Codable {
     let encrypted: Bool?
     let claims: [Claim]?
     let selfIssuedRequired: Bool?
@@ -107,7 +107,7 @@ struct SelfIssued: JSONSerializable, Equatable {
     }
 }
 
-struct Claim: JSONSerializable, Equatable {
+struct Claim: Codable {
     let claim: String?
     let claimRequired, indexed: Bool?
 
