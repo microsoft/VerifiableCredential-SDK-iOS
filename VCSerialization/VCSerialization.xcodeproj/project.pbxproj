@@ -14,6 +14,7 @@
 		55ADE23224F4464B00D9990E /* VcCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE23124F4464B00D9990E /* VcCrypto.framework */; };
 		55ADE23324F4464B00D9990E /* VcCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE23124F4464B00D9990E /* VcCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55ADE23624F4580D00D9990E /* TokenVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE23524F4580D00D9990E /* TokenVerifying.swift */; };
+		55ADE23824F467B500D9990E /* TokenVerifierFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE23724F467B500D9990E /* TokenVerifierFactory.swift */; };
 		55CED10724CF37D000A2AAE2 /* VCSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CED0FD24CF37D000A2AAE2 /* VCSerialization.framework */; };
 		55D167F724EB0B8B00AD2F98 /* VCSerialization.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55D167F624EB0B8B00AD2F98 /* VCSerialization.podspec */; };
 		55D1685E24EB13F000AD2F98 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1684F24EB13F000AD2F98 /* Header.swift */; };
@@ -78,6 +79,7 @@
 		55ADE22F24F4438900D9990E /* TokenSigning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenSigning.swift; sourceTree = "<group>"; };
 		55ADE23124F4464B00D9990E /* VcCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VcCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ADE23524F4580D00D9990E /* TokenVerifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVerifying.swift; sourceTree = "<group>"; };
+		55ADE23724F467B500D9990E /* TokenVerifierFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVerifierFactory.swift; sourceTree = "<group>"; };
 		55CED0FD24CF37D000A2AAE2 /* VCSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CED10624CF37D000A2AAE2 /* VCSerializationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCSerializationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D167F624EB0B8B00AD2F98 /* VCSerialization.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCSerialization.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -216,6 +218,7 @@
 				55ADE22D24F43F6900D9990E /* JwsDecoder.swift */,
 				55ADE22F24F4438900D9990E /* TokenSigning.swift */,
 				55ADE23524F4580D00D9990E /* TokenVerifying.swift */,
+				55ADE23724F467B500D9990E /* TokenVerifierFactory.swift */,
 			);
 			path = jwt;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				55D1688924EB224E00AD2F98 /* PresentationRequestClaims.swift in Sources */,
 				55D1686624EB13F100AD2F98 /* JwsToken.swift in Sources */,
 				55D1686A24EB13F100AD2F98 /* Serializer.swift in Sources */,
+				55ADE23824F467B500D9990E /* TokenVerifierFactory.swift in Sources */,
 				55ADE22C24F43B0D00D9990E /* JwsEncoder.swift in Sources */,
 				55D1688B24EB27D800AD2F98 /* VcClaims.swift in Sources */,
 				55D1689424EB3A4700AD2F98 /* Secp256k1.swift in Sources */,

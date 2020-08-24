@@ -3,24 +3,19 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-/// Basic Claims within a JWS token.
-protocol Claims: Codable {
-    
-    var iat: String? {get}
-    var exp: String? {get}
-    var nbf: String? {get}
+enum TokenVerifierError: Error {
+    case unsupportedAlgorithm(alg: String)
 }
 
-extension Claims {
-    var iat: String? {
-        return nil
-    }
-    
-    var exp: String? {
-        return nil
-    }
-    
-    var nbf: String? {
-        return nil
+class TokenVerifierFactory {
+    static func getVerifier(forAlg alg: String) throws -> TokenVerifying {
+        switch alg {
+        case "ES256K":
+            return Secp256k1Verifier()
+        default:
+            throw TokenVerifierError.unsupportedAlgorithm(alg: alg)
+        }
     }
 }
+
+

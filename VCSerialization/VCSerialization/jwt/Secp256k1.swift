@@ -11,8 +11,8 @@ private let hashAlgorithm = Sha512() // TODO Sha256
 class Secp256k1Signer: TokenSigning {
 
     func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature {
-        let encodedMessage = try encodeMessage(token: token)
         
+        let encodedMessage = try token.getProtectedMessage()
         guard let messageData = encodedMessage.data(using: .utf8) else {
             throw JwsEncoderError.unableToStringifyData
         }
@@ -22,26 +22,21 @@ class Secp256k1Signer: TokenSigning {
         
         return signature
     }
-    
-    private func encodeMessage<T>(token: JwsToken<T>) throws -> String {
-        let encoder = JSONEncoder()
-        let encodedHeader = try encoder.encode(token.headers).base64EncodedData()
-        let encodedContent = try encoder.encode(token.content).base64EncodedData()
-        
-        guard let stringifiedHeader = String(data: encodedHeader, encoding: .utf8) else {
-            throw JwsEncoderError.unableToStringifyData
-        }
-        
-        guard let stringifiedContent = String(data: encodedContent, encoding: .utf8) else {
-            throw JwsEncoderError.unableToStringifyData
-        }
-        return stringifiedHeader  + "." + stringifiedContent
-    }
 }
 
 class Secp256k1Verifier: TokenVerifying {
     func verify<T>(token: JwsToken<T>, publicKeys: [Secp256k1PublicKey]) throws -> Bool {
-        try algorithm.isValidSignature(signature: token.signature!, forMessageHash: token.signature!, usingPublicKey: publicKeys.first!)
+        
+        guard let signature = token.signature else {
+            return false
+        }
+        
+        let encodedMessage = try token.getProtectedMessage()
+        guard let messageData = encodedMessage.data(using: .utf8) else {
+            throw JwsEncoderError.unableToStringifyData
+        }
+        
+        return try algorithm.isValidSignature(signature: signature, forMessageHash: messageData, usingPublicKey: publicKeys.first!)
     }
 }
 

@@ -3,7 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
 import VcCrypto
 
 struct JwsToken<T: Claims> {
@@ -18,21 +17,20 @@ struct JwsToken<T: Claims> {
         self.signature = signature
     }
     
-    init(from encodedToken: String) throws {
+    init?(from encodedToken: String) {
         let decoder = JwsDecoder()
-        self = try decoder.decode(T.self, token: encodedToken)
+        do {
+            self = try decoder.decode(T.self, token: encodedToken)
+        } catch {
+            return nil
+        }
     }
     
     init?(from encodedToken: Data) {
         guard let stringifiedToken = String(data: encodedToken, encoding: .utf8) else {
             return nil
         }
-        let decoder = JwsDecoder()
-        do {
-            self = try decoder.decode(T.self, token: stringifiedToken)
-        } catch {
-            return nil
-        }
+        self.init(from: stringifiedToken)
     }
     
     func serialize() throws -> String {
@@ -44,8 +42,29 @@ struct JwsToken<T: Claims> {
         self.signature = try signer.sign(token: self, withSecret: secret)
     }
     
-    func verify() {
+    func verify(usingPublicKeys keys: [Secp256k1PublicKey]) throws -> Bool {
         
+        guard let algorithm = self.headers.algorithm else {
+            throw TokenVerifierError.unsupportedAlgorithm(alg: "")
+        }
+        
+        let verifier = try TokenVerifierFactory.getVerifier(forAlg: algorithm)
+        return try verifier.verify(token: self, publicKeys: keys)
+    }
+    
+    func getProtectedMessage() throws -> String {
+        let encoder = JSONEncoder()
+        let encodedHeader = try encoder.encode(self.headers).base64EncodedData()
+        let encodedContent = try encoder.encode(self.content).base64EncodedData()
+        
+        guard let stringifiedHeader = String(data: encodedHeader, encoding: .utf8) else {
+            throw JwsEncoderError.unableToStringifyData
+        }
+        
+        guard let stringifiedContent = String(data: encodedContent, encoding: .utf8) else {
+            throw JwsEncoderError.unableToStringifyData
+        }
+        return stringifiedHeader  + "." + stringifiedContent
     }
 }
 
