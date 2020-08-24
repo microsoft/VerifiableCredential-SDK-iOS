@@ -4,12 +4,15 @@
 *--------------------------------------------------------------------------------------------*/
 
 struct Header: Codable {
-    /// Type Header Parameter
-    public var typ: String?
-    /// Algorithm Header Parameter
-    public internal(set) var alg: String?
-    /// JSON Web Key Header Parameter
-    public var jwk: String?
-    /// Key ID Header Parameter
-    public var kid: String?
+    public var type: String?
+    public var algorithm: String?
+    public var jsonWebKey: String?
+    public var keyId: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case type = "typ"
+        case algorithm = "alg"
+        case jsonWebKey = "jwk"
+        case keyId = "kid"
+    }
 }

@@ -3,11 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
+import VcCrypto
 
-
-struct VerifiableCredential {
-    let raw: Data
-    let claims: VcClaims
-    let token: JwsToken<VcClaims>
+protocol TokenSigning {
+    func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature
 }

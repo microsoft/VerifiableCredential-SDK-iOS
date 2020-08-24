@@ -6,6 +6,6 @@
 //  Copyright © 2020 Microsoft. All rights reserved.
 //
 
-protocol Claims {
+protocol Claims: Codable {
     
 }

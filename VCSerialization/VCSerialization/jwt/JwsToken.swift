@@ -4,64 +4,49 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+import VcCrypto
 
-struct JwsToken: Serializable {
+struct JwsToken<T: Claims> {
     
-    let headers: [String: String]
-    let content: String
-    let signature: Data?
+    let headers: Header
+    let content: T
+    var signature: Signature?
     
-    init(with serializer: Serializer, data: Data) throws {
-        guard let stringifiedToken = String(data: data, encoding: .utf8) else {
-            throw SerializationError.unableToStringifyData(withData: data)
-        }
-        let splitStringifiedData = stringifiedToken.split(separator: ".")
-        print(splitStringifiedData)
-        
-        guard let stringifiedHeaders = String(splitStringifiedData[0]).fromBase64URL() else {
-            throw SerializationError.malFormedObject(withData: data)
-        }
-        
-        let encodedHeaders = stringifiedHeaders.data(using: .utf8)
-        
-        if let dataHeaders = encodedHeaders {
-            self.headers = try serializer.decoder.decode([String: String].self, from: dataHeaders)
-        } else {
-            self.headers = [:]
-        }
-        self.content = String(splitStringifiedData[1])
-        self.signature = String(splitStringifiedData[2]).data(using: .utf8)
+    init(headers: Header, content: T, signature: Data?) {
+        self.headers = headers
+        self.content = content
+        self.signature = signature
     }
     
-    func serialize(to serializer: Serializer) throws -> Data {
-        let serializedHeaders = try serializer.encoder.encode(self.headers)
-        let nullableBase64EncodedHeaders = String(data: serializedHeaders, encoding: .utf8)?.toBase64URL()
-        
-        guard let base64EncodedHeaders = nullableBase64EncodedHeaders else {
-            throw SerializationError.unableToStringifyData(withData: serializedHeaders)
+    init(from encodedToken: String) throws {
+        let decoder = JwsDecoder()
+        self = try decoder.decode(T.self, token: encodedToken)
+    }
+    
+    init?(from encodedToken: Data) {
+        guard let stringifiedToken = String(data: encodedToken, encoding: .utf8) else {
+            return nil
         }
-        
-        var compactToken = "\(base64EncodedHeaders).\(self.content)"
-        
-        if let signature = self.signature {
-            let stringifiedSignature = String(data: signature, encoding: .utf8)?.toBase64URL()
-            compactToken = "\(compactToken).\(stringifiedSignature)"
-        }
-        
-        if let serializedToken = compactToken.data(using: .utf8) {
-            return serializedToken
-        } else {
-            throw SerializationError.nullData
+        let decoder = JwsDecoder()
+        do {
+            self = try decoder.decode(T.self, token: stringifiedToken)
+        } catch {
+            return nil
         }
     }
     
-    func sign() {
-        
+    func serialize() throws -> String {
+        let encoder = JwsEncoder()
+        return try encoder.encode(self)
+    }
+    
+    mutating func sign(using signer: TokenSigning, usingSecret secret: VcCryptoSecret) throws {
+        self.signature = try signer.sign(token: self, withSecret: secret)
     }
     
     func verify() {
         
     }
-    
-    
 }
+
+typealias Signature = Data

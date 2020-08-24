@@ -18,6 +18,8 @@ enum Secp256k1Error: Error {
 
 public struct Secp256k1 {
     
+    public init() {}
+    
     /// Sign a message message hash
     /// - Parameters:
     ///   - messageHash: 32 bytes message
