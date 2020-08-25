@@ -22,7 +22,7 @@
 		55ADE28324F5412600D9990E /* TokenSigning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE28224F5412600D9990E /* TokenSigning.swift */; };
 		55ADE28524F5412900D9990E /* TokenVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE28424F5412900D9990E /* TokenVerifying.swift */; };
 		55ADE28724F5412C00D9990E /* TokenVerifierFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE28624F5412C00D9990E /* TokenVerifierFactory.swift */; };
-		55ADE28C24F542A200D9990E /* JwtEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE28B24F542A200D9990E /* JwtEncoderTests.swift */; };
+		55ADE28C24F542A200D9990E /* JwtEncoderDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE28B24F542A200D9990E /* JwtEncoderDecoderTests.swift */; };
 		55ADE28F24F5433500D9990E /* MockClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE28E24F5433500D9990E /* MockClaims.swift */; };
 		55ADE29124F557C800D9990E /* MockSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29024F557C800D9990E /* MockSigner.swift */; };
 		55ADE29324F5583700D9990E /* JwsTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29224F5583700D9990E /* JwsTokenTests.swift */; };
@@ -76,7 +76,7 @@
 		55ADE28624F5412C00D9990E /* TokenVerifierFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVerifierFactory.swift; sourceTree = "<group>"; };
 		55ADE28824F5416B00D9990E /* EllipticCurvePublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EllipticCurvePublicKey.swift; sourceTree = "<group>"; };
 		55ADE28924F5416B00D9990E /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
-		55ADE28B24F542A200D9990E /* JwtEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwtEncoderTests.swift; sourceTree = "<group>"; };
+		55ADE28B24F542A200D9990E /* JwtEncoderDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwtEncoderDecoderTests.swift; sourceTree = "<group>"; };
 		55ADE28E24F5433500D9990E /* MockClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClaims.swift; sourceTree = "<group>"; };
 		55ADE29024F557C800D9990E /* MockSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSigner.swift; sourceTree = "<group>"; };
 		55ADE29224F5583700D9990E /* JwsTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsTokenTests.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 				55ADE28D24F5432000D9990E /* mocks */,
 				55ADE26524F5406000D9990E /* VcJwtTests.swift */,
 				55ADE26724F5406000D9990E /* Info.plist */,
-				55ADE28B24F542A200D9990E /* JwtEncoderTests.swift */,
+				55ADE28B24F542A200D9990E /* JwtEncoderDecoderTests.swift */,
 				55ADE29224F5583700D9990E /* JwsTokenTests.swift */,
 				55ADE29624F56A8100D9990E /* Secp256k1Tests.swift */,
 			);
@@ -397,7 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55ADE29524F559CB00D9990E /* MockVcSecret.swift in Sources */,
-				55ADE28C24F542A200D9990E /* JwtEncoderTests.swift in Sources */,
+				55ADE28C24F542A200D9990E /* JwtEncoderDecoderTests.swift in Sources */,
 				55ADE29124F557C800D9990E /* MockSigner.swift in Sources */,
 				55ADE29724F56A8100D9990E /* Secp256k1Tests.swift in Sources */,
 				55ADE28F24F5433500D9990E /* MockClaims.swift in Sources */,

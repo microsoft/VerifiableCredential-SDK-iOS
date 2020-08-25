@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55CED0FC24CF37D000A2AAE2"
-               BuildableName = "VCSerialization.framework"
-               BlueprintName = "VCSerialization"
-               ReferencedContainer = "container:VCSerialization.xcodeproj">
+               BlueprintIdentifier = "55ADE25624F5406000D9990E"
+               BuildableName = "VcJwt.framework"
+               BlueprintName = "VcJwt"
+               ReferencedContainer = "container:VcJwt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "55CED0FC24CF37D000A2AAE2"
-            BuildableName = "VCSerialization.framework"
-            BlueprintName = "VCSerialization"
-            ReferencedContainer = "container:VCSerialization.xcodeproj">
+            BlueprintIdentifier = "55ADE25624F5406000D9990E"
+            BuildableName = "VcJwt.framework"
+            BlueprintName = "VcJwt"
+            ReferencedContainer = "container:VcJwt.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -43,10 +43,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55CED10524CF37D000A2AAE2"
-               BuildableName = "VCSerializationTests.xctest"
-               BlueprintName = "VCSerializationTests"
-               ReferencedContainer = "container:VCSerialization.xcodeproj">
+               BlueprintIdentifier = "55ADE25F24F5406000D9990E"
+               BuildableName = "VcJwtTests.xctest"
+               BlueprintName = "VcJwtTests"
+               ReferencedContainer = "container:VcJwt.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,10 +71,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "55CED0FC24CF37D000A2AAE2"
-            BuildableName = "VCSerialization.framework"
-            BlueprintName = "VCSerialization"
-            ReferencedContainer = "container:VCSerialization.xcodeproj">
+            BlueprintIdentifier = "55ADE25624F5406000D9990E"
+            BuildableName = "VcJwt.framework"
+            BlueprintName = "VcJwt"
+            ReferencedContainer = "container:VcJwt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

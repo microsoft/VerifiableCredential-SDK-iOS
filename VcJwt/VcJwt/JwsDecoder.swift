@@ -16,19 +16,27 @@ class JwsDecoder {
     func decode<T>(_ type: T.Type, token: String) throws -> JwsToken<T> {
 
         let splitStringifiedData = token.components(separatedBy: ".")
-        print(splitStringifiedData)
         
-        guard splitStringifiedData.count == 3 else {
+        guard splitStringifiedData.count == 3 || splitStringifiedData.count == 2 else {
             throw JwsDecoderError.unsupportedEncodingFormat
         }
         
-        var headers = Header()
-        if let dataHeaders = Data(base64URLEncoded: splitStringifiedData[0]) {
-            headers = try decoder.decode(Header.self, from: dataHeaders)
+        guard let dataHeaders = Data(base64URLEncoded: splitStringifiedData[0]) else {
+            throw JwsDecoderError.unsupportedEncodingFormat
+        }
+        let headers = try decoder.decode(Header.self, from: dataHeaders)
+        
+        guard let dataContents = Data(base64URLEncoded: splitStringifiedData[1]) else {
+            throw JwsDecoderError.unsupportedEncodingFormat
         }
         
-        let content = try decoder.decode(T.self, from: Data(base64URLEncoded: splitStringifiedData[1])!)
-        let signature = Data(base64URLEncoded: splitStringifiedData[2])
-        return JwsToken(headers: headers, content: content, signature: signature)
+        let contents = try decoder.decode(T.self, from: dataContents)
+        
+        var signature: Data?
+        if splitStringifiedData.count == 3 {
+            signature = Data(base64URLEncoded: splitStringifiedData[2])
+        }
+        
+        return JwsToken(headers: headers, content: contents, signature: signature)
     }
 }
