@@ -27,18 +27,9 @@ class JwsEncoder {
     
     private func encodeUsingCompactFormat<T>(token: JwsToken<T>) throws -> String {
         
-        guard let base64EncodedHeaders = String(data: try encoder.encode(token.headers), encoding: .utf8)?.toBase64URL() else {
-            throw JwsEncoderError.unableToStringifyData
-        }
-        
-        guard let base64EncodedContents = String(data: try encoder.encode(token.content), encoding: .utf8)?.toBase64URL() else {
-            throw JwsEncoderError.unableToStringifyData
-        }
-        
-        var compactToken = base64EncodedHeaders + "." + base64EncodedContents
-        
-        if let signature = token.signature, let base64EncodedSignature = String(data: signature, encoding: .utf8)?.toBase64URL() {
-            compactToken = compactToken + "." + base64EncodedSignature
+        var compactToken = try token.getProtectedMessage()
+        if let signature = token.signature?.base64URLEncodedString() {
+            compactToken = compactToken + "." + signature
         }
         return compactToken
     }

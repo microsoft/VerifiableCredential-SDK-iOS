@@ -6,21 +6,19 @@
 import VcCrypto
 
 private let algorithm = Secp256k1()
-private let hashAlgorithm = Sha512() // TODO Sha256
+private let hashAlgorithm = Sha256()
 
 class Secp256k1Signer: TokenSigning {
 
     func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature {
         
         let encodedMessage = try token.getProtectedMessage()
-        guard let messageData = encodedMessage.data(using: .utf8) else {
+        guard let messageData = Data(base64URLEncoded: encodedMessage) else {
             throw JwsEncoderError.unableToStringifyData
         }
         
         let hashedMessage = hashAlgorithm.hash(data: messageData)
-        let signature = try algorithm.sign(messageHash: hashedMessage, withSecret: secret).base64EncodedData()
-        
-        return signature
+        return try algorithm.sign(messageHash: hashedMessage, withSecret: secret)
     }
 }
 

@@ -54,17 +54,9 @@ struct JwsToken<T: Claims> {
     
     func getProtectedMessage() throws -> String {
         let encoder = JSONEncoder()
-        let encodedHeader = try encoder.encode(self.headers).base64EncodedData()
-        let encodedContent = try encoder.encode(self.content).base64EncodedData()
-        
-        guard let stringifiedHeader = String(data: encodedHeader, encoding: .utf8) else {
-            throw JwsEncoderError.unableToStringifyData
-        }
-        
-        guard let stringifiedContent = String(data: encodedContent, encoding: .utf8) else {
-            throw JwsEncoderError.unableToStringifyData
-        }
-        return stringifiedHeader  + "." + stringifiedContent
+        let encodedHeader = try encoder.encode(self.headers).base64URLEncodedString()
+        let encodedContent = try encoder.encode(self.content).base64URLEncodedString()
+        return encodedHeader  + "." + encodedContent
     }
 }
 

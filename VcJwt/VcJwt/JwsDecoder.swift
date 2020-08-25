@@ -23,12 +23,12 @@ class JwsDecoder {
         }
         
         var headers = Header()
-        if let dataHeaders = splitStringifiedData[0].data(using: .utf8) {
+        if let dataHeaders = Data(base64URLEncoded: splitStringifiedData[0]) {
             headers = try decoder.decode(Header.self, from: dataHeaders)
         }
         
-        let content = try decoder.decode(T.self, from: splitStringifiedData[1].data(using: .utf8)!)
-        let signature = String(splitStringifiedData[2]).data(using: .utf8)
+        let content = try decoder.decode(T.self, from: Data(base64URLEncoded: splitStringifiedData[1])!)
+        let signature = Data(base64URLEncoded: splitStringifiedData[2])
         return JwsToken(headers: headers, content: content, signature: signature)
     }
 }

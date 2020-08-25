@@ -5,6 +5,9 @@
       location = "group:sdk/sdk.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:VcJwt/VcJwt.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:VCCrypto/VcCrypto.xcodeproj">
    </FileRef>
    <FileRef

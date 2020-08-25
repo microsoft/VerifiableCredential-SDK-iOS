@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		01C9B1E35154EDB6F7718B31 /* Pods_VcCrypto_VcCryptoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CB9A37E46FD41DA6BE301E /* Pods_VcCrypto_VcCryptoTests.framework */; };
+		55ADE29924F5752500D9990E /* Sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29824F5752500D9990E /* Sha256.swift */; };
+		55ADE29B24F5757100D9990E /* Sha256Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29A24F5757100D9990E /* Sha256Tests.swift */; };
 		928AAF7124EEDC9D0029A8F9 /* Secp256k1PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAF7024EEDC9D0029A8F9 /* Secp256k1PublicKey.swift */; };
 		928AAF7324EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAF7224EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift */; };
 		92CDE7B424DC78DD00F95B5D /* VcCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CDE7AA24DC78DD00F95B5D /* VcCrypto.framework */; };
@@ -36,7 +38,7 @@
 		92CDE80A24E2047900F95B5D /* SecretMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80924E2047900F95B5D /* SecretMock.swift */; };
 		92CDE80C24E213AE00F95B5D /* Random32BytesSecretTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80B24E213AE00F95B5D /* Random32BytesSecretTests.swift */; };
 		95717F1AD7A676CB45490CEB /* Pods_VcCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA19DE04BC120436CF52F1A /* Pods_VcCrypto.framework */; };
-		BF51A7CC1EC9D62D6C6C2E55 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		BF51A7CC1EC9D62D6C6C2E55 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		3B3B5DC270DB5EB90DF3BE4D /* Pods-VcCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcCrypto.debug.xcconfig"; path = "Target Support Files/Pods-VcCrypto/Pods-VcCrypto.debug.xcconfig"; sourceTree = "<group>"; };
 		3F7D9F84439ED1FE409B4BE9 /* Pods-VCCrypto-VCCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCCrypto-VCCryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-VCCrypto-VCCryptoTests/Pods-VCCrypto-VCCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		50CB9A37E46FD41DA6BE301E /* Pods_VcCrypto_VcCryptoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcCrypto_VcCryptoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55ADE29824F5752500D9990E /* Sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256.swift; path = ../../../VCCrypto/VcCrypto/Algo/Sha256.swift; sourceTree = "<group>"; };
+		55ADE29A24F5757100D9990E /* Sha256Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256Tests.swift; path = ../../VCCrypto/VcCryptoTests/Sha256Tests.swift; sourceTree = "<group>"; };
 		5E224D4CE9B3B86C79C7123F /* Pods-VcCrypto-VcCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcCrypto-VcCryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-VcCrypto-VcCryptoTests/Pods-VcCrypto-VcCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FA19DE04BC120436CF52F1A /* Pods_VcCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		928AAF7024EEDC9D0029A8F9 /* Secp256k1PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1PublicKey.swift; sourceTree = "<group>"; };
@@ -115,7 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92CDE7B424DC78DD00F95B5D /* VcCrypto.framework in Frameworks */,
-				BF51A7CC1EC9D62D6C6C2E55 /* BuildFile in Frameworks */,
+				BF51A7CC1EC9D62D6C6C2E55 /* (null) in Frameworks */,
 				01C9B1E35154EDB6F7718B31 /* Pods_VcCrypto_VcCryptoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +193,7 @@
 			children = (
 				92CDE7D324DCCE1C00F95B5D /* Mocks */,
 				92CDE7BA24DC78DD00F95B5D /* Info.plist */,
+				55ADE29A24F5757100D9990E /* Sha256Tests.swift */,
 				92CDE7DF24DDD24700F95B5D /* Sha512Tests.swift */,
 				92CDE7E124DDF1A900F95B5D /* HmacSha512Tests.swift */,
 				92CDE7D624DCD07D00F95B5D /* Secp256k1Tests.swift */,
@@ -214,6 +219,7 @@
 				92CDE7D124DCA6CF00F95B5D /* Secp256k1.swift */,
 				92CDE7D824DDBA0500F95B5D /* HmacSha512.swift */,
 				92CDE7DA24DDC65100F95B5D /* Sha512.swift */,
+				55ADE29824F5752500D9990E /* Sha256.swift */,
 			);
 			path = Algo;
 			sourceTree = "<group>";
@@ -492,6 +498,7 @@
 				92CDE7DE24DDCB9500F95B5D /* Data+Hex.swift in Sources */,
 				92CDE80624E1ABEA00F95B5D /* Random32BytesSecret.swift in Sources */,
 				92CDE7D924DDBA0500F95B5D /* HmacSha512.swift in Sources */,
+				55ADE29924F5752500D9990E /* Sha256.swift in Sources */,
 				92CDE80824E1F7AF00F95B5D /* Secret.swift in Sources */,
 				92CDE7D224DCA6CF00F95B5D /* Secp256k1.swift in Sources */,
 				928AAF7124EEDC9D0029A8F9 /* Secp256k1PublicKey.swift in Sources */,
@@ -510,6 +517,7 @@
 				92CDE7E224DDF1A900F95B5D /* HmacSha512Tests.swift in Sources */,
 				92CDE7E424DDF42A00F95B5D /* Utf8TestData.swift in Sources */,
 				92CDE7E024DDD24700F95B5D /* Sha512Tests.swift in Sources */,
+				55ADE29B24F5757100D9990E /* Sha256Tests.swift in Sources */,
 				92CDE7E824DE1A2000F95B5D /* KeychainSecretStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
