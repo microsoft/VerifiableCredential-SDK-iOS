@@ -3,10 +3,12 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcCrypto
-
-protocol TokenVerifying {
-    func verify<T>(token: JwsToken<T>, usingPublicKey key: Secp256k1PublicKey) throws -> Bool
+public protocol Signing {
+    
+    func sign(messageHash: Data, withSecret secret: VcCryptoSecret) throws -> Data
+    
+    func isValidSignature(signature: Data, forMessageHash messageHash: Data, usingPublicKey publicKey: Secp256k1PublicKey) throws -> Bool
+    
+    
+    
 }
-
-

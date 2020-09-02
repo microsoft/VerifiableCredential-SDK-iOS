@@ -3,10 +3,12 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
+@testable import VcJwt
 import VcCrypto
 
-protocol TokenVerifying {
-    func verify<T>(token: JwsToken<T>, usingPublicKey key: Secp256k1PublicKey) throws -> Bool
+class MockVerifier: TokenVerifying {
+    
+    func verify<T>(token: JwsToken<T>, usingPublicKey key: Secp256k1PublicKey) throws -> Bool {
+        return true
+    }
 }
-
-

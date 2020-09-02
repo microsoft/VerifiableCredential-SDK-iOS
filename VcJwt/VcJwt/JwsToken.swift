@@ -5,6 +5,10 @@
 
 import VcCrypto
 
+enum JwsTokenError: Error {
+    case unsupportedAlgorithm(name: String?)
+}
+
 struct JwsToken<T: Claims> {
     
     let headers: Header
@@ -38,18 +42,17 @@ struct JwsToken<T: Claims> {
         return try encoder.encode(self)
     }
     
-    mutating func sign(using signer: TokenSigning, usingSecret secret: VcCryptoSecret) throws {
+    mutating func sign(using signer: TokenSigning, withSecret secret: VcCryptoSecret) throws {
         self.signature = try signer.sign(token: self, withSecret: secret)
     }
     
-    func verify(usingPublicKeys keys: [Secp256k1PublicKey]) throws -> Bool {
+    func verify(using verifier: TokenVerifying, withPublicKey key: Secp256k1PublicKey) throws -> Bool {
         
-        guard let algorithm = self.headers.algorithm else {
-            throw TokenVerifierError.unsupportedAlgorithm(alg: "")
+        guard self.headers.algorithm == "ES256K" else {
+            throw JwsTokenError.unsupportedAlgorithm(name: self.headers.algorithm)
         }
         
-        let verifier = try TokenVerifierFactory.getVerifier(forAlg: algorithm)
-        return try verifier.verify(token: self, publicKeys: keys)
+        return try verifier.verify(token: self, usingPublicKey: key)
     }
     
     func getProtectedMessage() throws -> String {

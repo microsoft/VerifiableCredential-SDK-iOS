@@ -5,11 +5,6 @@
 
 import Foundation
 
-enum JwsEncoderError: Error {
-    case unsupportedEncodingFormat
-    case unableToStringifyData
-}
-
 enum JwsFormat {
     case compact
 }

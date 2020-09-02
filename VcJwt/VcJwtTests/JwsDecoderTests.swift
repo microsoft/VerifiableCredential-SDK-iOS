@@ -10,9 +10,8 @@ import XCTest
 
 @testable import VcJwt
 
-class JwtEncoderDecoderTests: XCTestCase {
+class JwsDecoderTests: XCTestCase {
     
-    private let encoder = JwsEncoder()
     private let decoder = JwsDecoder()
     private var testToken: JwsToken<MockClaims>!
     private let expectedSignature = "fakeSignature".data(using: .utf8)
@@ -26,23 +25,9 @@ class JwtEncoderDecoderTests: XCTestCase {
     override func setUpWithError() throws {
         testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: expectedSignature)
     }
-    
-    func test() throws {}
-
-    func testEncodeToken() throws {
-        let encodedJws = try encoder.encode(testToken)
-
-        let components = encodedJws.components(separatedBy: ".")
-        let actualContents = try jsonDecoder.decode(MockClaims.self, from: Data(base64URLEncoded: components[1])!)
-        let actualHeaders = try jsonDecoder.decode(Header.self, from: Data(base64URLEncoded: components[0])!)
-        
-        XCTAssertEqual(actualContents, expectedContent)
-        XCTAssertEqual(actualHeaders.keyId, expectedHeader.keyId)
-    }
 
     func testDecodeTokenNoSignature() throws {
         let compactToken = encodedHeader + "." + encodedContent
-        let decoder = JwsDecoder()
         let result = try decoder.decode(MockClaims.self, token: compactToken)
         print(result.content)
         
@@ -54,9 +39,7 @@ class JwtEncoderDecoderTests: XCTestCase {
     func testDecodeSignedToken() throws {
         let base64UrlSignature = expectedSignature!.base64URLEncodedString()
         let compactToken = encodedHeader + "." + encodedContent + "." + base64UrlSignature
-        let decoder = JwsDecoder()
         let result = try decoder.decode(MockClaims.self, token: compactToken)
-        print(result.content)
         
         XCTAssertEqual(result.content, expectedContent)
         XCTAssertEqual(result.headers.keyId, expectedHeader.keyId)
@@ -65,8 +48,16 @@ class JwtEncoderDecoderTests: XCTestCase {
     
     func testMalformedToken() throws {
         let compactToken = encodedHeader
-        let decoder = JwsDecoder()
         XCTAssertThrowsError(try decoder.decode(MockClaims.self, token: compactToken))
     }
-
+    
+    func testMalformedHeader() throws {
+        let compactToken = "+." + encodedContent + "."
+        XCTAssertThrowsError(try decoder.decode(MockClaims.self, token: compactToken))
+    }
+    
+    func testMalformedContent() throws {
+        let compactToken = encodedHeader + ".+."
+        XCTAssertThrowsError(try decoder.decode(MockClaims.self, token: compactToken))
+    }
 }

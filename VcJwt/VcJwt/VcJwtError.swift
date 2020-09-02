@@ -3,10 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcCrypto
-
-protocol TokenVerifying {
-    func verify<T>(token: JwsToken<T>, usingPublicKey key: Secp256k1PublicKey) throws -> Bool
+public enum VcJwtError: Error, Equatable {
+    case unableToParseData
+    case unableToParseString
 }
-
-
