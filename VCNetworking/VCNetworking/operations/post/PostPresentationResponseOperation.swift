@@ -4,18 +4,17 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCSerialization
 
 final class PostPresentationResponseOperation: NetworkOperation {
     typealias ResponseBody = MockPresentationServiceResponse
     
-    let successHandler: SuccessHandler = SimpleSuccessHandler()
+    let successHandler: SuccessHandler = SimpleSuccessHandler(serializer: MockSerializer())
     let failureHandler: FailureHandler = SimpleFailureHandler()
     let retryHandler: RetryHandler = NoRetry()
     let urlSession: URLSession
     let urlRequest: URLRequest
     
-    init(withUrl urlStr: String, withBody body: MockPresentationRequest, serializer: Serializing = Serializer(), urlSession: URLSession = URLSession.shared) throws {
+    init(withUrl urlStr: String, withBody body: MockPresentationRequest, serializer: Serializing, urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)

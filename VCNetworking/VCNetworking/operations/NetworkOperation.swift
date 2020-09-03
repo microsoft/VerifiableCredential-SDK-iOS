@@ -4,14 +4,13 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VCSerialization
 
 /**
  * Base Network Operation class with default methods for all Network Operations.
  * ResponseBody: the type of object returned by the service.
  */
-public protocol NetworkOperation {
-    associatedtype ResponseBody: Serializable
+protocol NetworkOperation {
+    associatedtype ResponseBody: Codable
     
     var successHandler: SuccessHandler { get }
     var failureHandler: FailureHandler { get }
@@ -24,7 +23,7 @@ public protocol NetworkOperation {
 
 extension NetworkOperation {
     
-    public func fire() -> Promise<ResponseBody> {
+    func fire() -> Promise<ResponseBody> {
         return firstly {
             retryHandler.onRetry {
                 self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)
@@ -61,7 +60,6 @@ extension NetworkOperation {
     }
     
     func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError {
-        return try self.failureHandler.onFailure(data: data, response: response)
+        return try self.failureHandler.onFailure(ResponseBody.self, data: data, response: response)
     }
 }
-

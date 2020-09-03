@@ -4,7 +4,6 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VCSerialization
 
 @testable import VCNetworking
 
@@ -12,7 +11,7 @@ class SimpleFailureHandlerTests: XCTestCase {
     
     let handler = SimpleFailureHandler()
     let expectedResponseBody = MockSerializableObject(id: "test")
-    let serializer = Serializer()
+    let serializer = MockSerializer()
 
     func testHandleResponseFailureBadRequest() throws {
         let response = self.createHttpURLResponse(statusCode: 400)

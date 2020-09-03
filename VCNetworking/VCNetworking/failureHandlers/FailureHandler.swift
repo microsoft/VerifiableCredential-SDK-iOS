@@ -4,8 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCSerialization
 
 public protocol FailureHandler {
-    func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError
+    func onFailure<ResponseBody: Codable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> NetworkingError
 }

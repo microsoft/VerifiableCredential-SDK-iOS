@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		44B13C8E8D82DEB08C70D2C8 /* Pods_VCNetworking_VCNetworkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1760D1D0EB268FC94AD12E34 /* Pods_VCNetworking_VCNetworkingTests.framework */; };
+		554090572501570D001246DB /* Serializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554090562501570D001246DB /* Serializing.swift */; };
 		55D167F524EB0AA600AD2F98 /* VCNetworking.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55D167F424EB0AA600AD2F98 /* VCNetworking.podspec */; };
 		55D1681824EB0E1D00AD2F98 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1680224EB0E1C00AD2F98 /* NetworkingError.swift */; };
 		55D1681924EB0E1D00AD2F98 /* HelperNetworkFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1680424EB0E1C00AD2F98 /* HelperNetworkFunctions.swift */; };
@@ -52,6 +53,7 @@
 		1B91901B9650D385F9267D5E /* Pods_VCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42CA1E2F2F8D3C690FE1FB6D /* Pods-networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking.debug.xcconfig"; path = "Target Support Files/Pods-networking/Pods-networking.debug.xcconfig"; sourceTree = "<group>"; };
 		5024C7EC25EB5973BB33C735 /* Pods-networking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking.release.xcconfig"; path = "Target Support Files/Pods-networking/Pods-networking.release.xcconfig"; sourceTree = "<group>"; };
+		554090562501570D001246DB /* Serializing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializing.swift; sourceTree = "<group>"; };
 		55CED16424D3369B00A2AAE2 /* Serialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Serialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D167F424EB0AA600AD2F98 /* VCNetworking.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCNetworking.podspec; sourceTree = "<group>"; };
 		55D1680224EB0E1C00AD2F98 /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				55D1680B24EB0E1C00AD2F98 /* operations */,
 				55D1681124EB0E1C00AD2F98 /* failureHandlers */,
 				55D1681424EB0E1C00AD2F98 /* NetworkingConstants.swift */,
+				554090562501570D001246DB /* Serializing.swift */,
 				55D1681524EB0E1D00AD2F98 /* networking.h */,
 				55D1681624EB0E1D00AD2F98 /* MockSerializer.swift */,
 				55D1681724EB0E1D00AD2F98 /* Info.plist */,
@@ -508,6 +511,7 @@
 				55D1682324EB0E1D00AD2F98 /* NetworkingConstants.swift in Sources */,
 				55D1682124EB0E1D00AD2F98 /* FailureHandler.swift in Sources */,
 				55D1681924EB0E1D00AD2F98 /* HelperNetworkFunctions.swift in Sources */,
+				554090572501570D001246DB /* Serializing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

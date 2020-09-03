@@ -15,7 +15,7 @@ import PromiseKit
 class NetworkOperationTests: XCTestCase {
     private var fetchContractOperation: FetchMockContractOperation!
     private let expectedUrl = "https://testcontract.com/4235"
-    private let expectedHttpResponse = "expectedHttpResponse324"
+    private let expectedHttpResponse = MockSerializableObject(id: "test")
     
     override func setUp() {
         let configuration = URLSessionConfiguration.default
@@ -28,8 +28,8 @@ class NetworkOperationTests: XCTestCase {
         }
     }
     
-    func testSuccessfulFetchOperation() {
-        UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, responseBody: self.expectedHttpResponse, statusCode: 200)
+    func testSuccessfulFetchOperation() throws {
+        try UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, statusCode: 200)
         let expec = self.expectation(description: "Fire")
         
         fetchContractOperation.fire().done { response in
@@ -43,8 +43,8 @@ class NetworkOperationTests: XCTestCase {
         wait(for: [expec], timeout: 5)
     }
     
-    func testFailedFetchOperationBadRequestBody() {
-        UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, responseBody: self.expectedHttpResponse, statusCode: 400)
+    func testFailedFetchOperationBadRequestBody() throws {
+        try UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, statusCode: 400)
         let expec = self.expectation(description: "Fire")
 
         fetchContractOperation.fire().done { response in
@@ -53,7 +53,7 @@ class NetworkOperationTests: XCTestCase {
             XCTFail()
         }.catch { error in
             print(error)
-            XCTAssertEqual(error as! NetworkingError, NetworkingError.badRequest(withBody: self.expectedHttpResponse))
+            XCTAssertEqual(error as! NetworkingError, NetworkingError.badRequest(withBody: "test"))
             expec.fulfill()
         }
         

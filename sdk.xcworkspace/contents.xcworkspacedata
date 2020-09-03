@@ -11,9 +11,6 @@
       location = "group:VCCrypto/VcCrypto.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:VCSerialization/VCSerialization.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:VCNetworking/VCNetworking.xcodeproj">
    </FileRef>
    <FileRef

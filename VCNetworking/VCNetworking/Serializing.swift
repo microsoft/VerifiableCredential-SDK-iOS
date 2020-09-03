@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct VerifiableCredential: Codable {
-    let raw: Data
-    let claims: VcClaims
+public protocol Serializing {
+    func deserialize<T: Codable>(_: T.Type, data: Data) throws -> T
+    func serialize<T: Codable>(object: T) throws -> Data
 }

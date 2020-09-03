@@ -3,10 +3,6 @@ use_frameworks!
 platform :ios, '11.0'
 workspace '../sdk'
 
-def serialization_pods
-  podspec :path => '../VCSerialization/VCSerialization.podspec'
-end
-
 def networking_pods
   podspec :path => '../VCNetworking/VCNetworking.podspec'
 end
@@ -22,22 +18,13 @@ end
 target 'sdk' do
   project '../sdk/sdk.xcodeproj'
   pod 'VCNetworking', path: '../VCNetworking'
-  pod 'VCSerialization', path: '../VCSerialization'
   target 'sdkTests'
 end
 
 target 'VCNetworking' do
   project '../VCNetworking/VCNetworking.xcodeproj'
-  pod 'VCSerialization', path: '../VCSerialization'
   networking_pods
   target 'VCNetworkingTests'
-end
-
-target 'VCSerialization' do
-  project '../VCSerialization/VCSerialization.xcodeproj'
-  pod 'VcJwt', path: '../VcJwt'
-  serialization_pods
-  target 'VCSerializationTests'
 end
 
 target 'VcCrypto' do

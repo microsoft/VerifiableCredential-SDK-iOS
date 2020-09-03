@@ -5,18 +5,17 @@
 
 import Foundation
 import PromiseKit
-import VCSerialization
 
-final public class FetchContractOperation: NetworkOperation {
-    public typealias ResponseBody = MockContract
+final class FetchContractOperation: NetworkOperation {
+    typealias ResponseBody = MockContract
     
-    public let retryHandler: RetryHandler  = NoRetry()
-    public var successHandler: SuccessHandler = SimpleSuccessHandler()
-    public let failureHandler: FailureHandler = SimpleFailureHandler()
-    public let urlSession: URLSession
-    public let urlRequest: URLRequest
+    let retryHandler: RetryHandler  = NoRetry()
+    let successHandler: SuccessHandler = SimpleSuccessHandler(serializer: MockSerializer())
+    let failureHandler: FailureHandler = SimpleFailureHandler()
+    let urlSession: URLSession
+    let urlRequest: URLRequest
     
-    public init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
+    init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }

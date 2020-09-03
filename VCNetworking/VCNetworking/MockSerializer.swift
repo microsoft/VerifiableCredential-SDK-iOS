@@ -4,20 +4,21 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCSerialization
 
 // Mock Serializer until Serialization layer is implemented
 public class MockSerializer: Serializing {
-    public func deserialize<T>(_: T.Type, data: Data) throws -> T where T : Serializable {
-        return String(data: data, encoding: .utf8)! as! T
+    public func deserialize<T>(_: T.Type, data: Data) throws -> T {
+        let decoder = JSONDecoder()
+        return try decoder.decode(MockSerializableObject.self, from: data) as! T
     }
     
-    public func serialize<T>(object: T) throws -> Data where T : Serializable {
-        return (object as! String).data(using: .utf8)!
+    public func serialize<T>(object: T) throws -> Data where T : Codable {
+        let encoder = JSONEncoder()
+        return try encoder.encode(object)
     }
 }
 
-public struct MockSerializableObject: Serializable, Codable, Equatable {
+public struct MockSerializableObject: Codable, Equatable {
     let id: String
 }
 

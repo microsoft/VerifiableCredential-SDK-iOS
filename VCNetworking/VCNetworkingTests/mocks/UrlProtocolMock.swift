@@ -4,11 +4,18 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+@testable import VCNetworking
 
 class UrlProtocolMock: URLProtocol {
     
-    static func createMockResponse(httpResponse: String, url: String, responseBody: String, statusCode: Int) {
-        let data = httpResponse.data(using: .utf8)
+    static func createMockResponse(httpResponse: Any, url: String, statusCode: Int) throws {
+        var data: Data
+        if let response = httpResponse as? String {
+            data = response.data(using: .utf8)!
+        } else {
+            let encoder = JSONEncoder()
+            data = try encoder.encode(httpResponse as! MockSerializableObject)
+        }
         UrlProtocolMock.requestHandler = { request in
             let response = HTTPURLResponse(url: URL(string: url)!, statusCode: statusCode, httpVersion: nil, headerFields: nil)!
             return (response, data)

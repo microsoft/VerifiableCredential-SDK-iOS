@@ -5,7 +5,6 @@
 
 import Foundation
 import PromiseKit
-import VCSerialization
 @testable import VCNetworking
 
 final public class FetchMockContractOperation: NetworkOperation {

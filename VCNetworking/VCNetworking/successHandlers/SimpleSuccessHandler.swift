@@ -4,18 +4,17 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCSerialization
 
 // TODO Subject to change when Serializer layer is built.
 class SimpleSuccessHandler: SuccessHandler {
     
-    let serializer: Serializer
+    let serializer: Serializing
     
-    init(serializer: Serializer = Serializer()) {
+    init(serializer: Serializing) {
         self.serializer = serializer
     }
     
-    func onSuccess<ResponseBody: Serializable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody {
+    func onSuccess<ResponseBody: Codable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody {
         return try serializer.deserialize(ResponseBody.self, data: data)
     }
 }

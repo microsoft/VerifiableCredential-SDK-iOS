@@ -4,7 +4,6 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VCSerialization
 
 @testable import VCNetworking
 
@@ -13,7 +12,7 @@ class SimpleSuccessHandlerTests: XCTestCase {
     let handler = SimpleSuccessHandler()
     var response = HTTPURLResponse()
     let expectedResponseBody = MockSerializableObject(id: "test")
-    let serializer = Serializer()
+    let serializer = MockSerializer()
 
     func testHandleSuccessfulResponse() throws {
         let serializedResponseBody = try serializer.serialize(object: expectedResponseBody)

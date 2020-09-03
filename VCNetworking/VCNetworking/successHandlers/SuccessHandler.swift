@@ -4,8 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCSerialization
 
 public protocol SuccessHandler {
-    func onSuccess<ResponseBody: Serializable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody
+    func onSuccess<ResponseBody: Codable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody
 }

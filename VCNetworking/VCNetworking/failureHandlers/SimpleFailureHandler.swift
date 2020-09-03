@@ -4,14 +4,15 @@
  *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCSerialization
 
 class SimpleFailureHandler: FailureHandler {
     
-    func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError {
+    func onFailure<ResponseBody: Codable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> NetworkingError {
+        
         guard let responseBody = String(data: data, encoding: .utf8) else {
-            throw NetworkingError.serverError(withBody: "Unable to parse error response")
+            throw NetworkingError.unableToCaseResponse
         }
+        
         switch response.statusCode {
         case 400:
             return NetworkingError.badRequest(withBody: responseBody)

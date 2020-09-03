@@ -5,7 +5,6 @@
 
 import XCTest
 import PromiseKit
-import VCSerialization
 
 @testable import VCNetworking
 
@@ -14,7 +13,7 @@ class PostPresentationRequestTests: XCTestCase {
     private let expectedUrl = "https://testcontract.com/4235"
     private let expectedHttpResponse = "testPresentationResponse29384"
     private let expectedRequestBody = MockSerializableObject(id: "test")
-    private let serializer = Serializer()
+    private let serializer = MockSerializer()
     
     override func setUp() {
         let configuration = URLSessionConfiguration.default
