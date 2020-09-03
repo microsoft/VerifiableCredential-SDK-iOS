@@ -3,25 +3,35 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
+import VcJwt
+
 protocol OidcClaims: Claims {
     var responseType: String { get }
     var responseMode: String { get }
     var clientID: String { get }
     var redirectURI: String { get }
-    var scope: String { get }
+    var scope: String? { get }
     var state: String? { get }
     var nonce: String? { get }
-    var iss: String { get }
+    var iss: String? { get }
     var registration: Registration? { get }
     var prompt: String? { get }
 }
 
 extension OidcClaims {
+    var scope: String? {
+        return nil
+    }
+
     var state: String? {
         return nil
     }
     
     var nonce: String? {
+        return nil
+    }
+    
+    var iss: String? {
         return nil
     }
     

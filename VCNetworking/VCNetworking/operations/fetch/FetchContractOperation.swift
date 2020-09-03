@@ -8,7 +8,7 @@ import PromiseKit
 import VCSerialization
 
 final public class FetchContractOperation: NetworkOperation {
-    public typealias ResponseBody = Contract
+    public typealias ResponseBody = MockContract
     
     public let retryHandler: RetryHandler  = NoRetry()
     public var successHandler: SuccessHandler = SimpleSuccessHandler()

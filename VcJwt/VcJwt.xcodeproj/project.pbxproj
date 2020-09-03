@@ -10,12 +10,12 @@
 		47995672177834395CE27F4B /* Pods_VcJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B63B68DC1F3089C55A57704 /* Pods_VcJwt.framework */; };
 		55269351250006020051A358 /* VcJwtError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55269350250006020051A358 /* VcJwtError.swift */; };
 		5540903F25002141001246DB /* MockVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903E25002141001246DB /* MockVerifier.swift */; };
+		5540904725002DC4001246DB /* VcJwt.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5540904625002DC3001246DB /* VcJwt.podspec */; };
+		5540904B2500311E001246DB /* ECPublicJwk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540904A2500311E001246DB /* ECPublicJwk.swift */; };
 		55ADE26124F5406000D9990E /* VcJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE25724F5406000D9990E /* VcJwt.framework */; };
 		55ADE26624F5406000D9990E /* VcJwtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE26524F5406000D9990E /* VcJwtTests.swift */; };
 		55ADE26824F5406000D9990E /* VcJwt.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADE25A24F5406000D9990E /* VcJwt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE27224F5407D00D9990E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27124F5407D00D9990E /* Header.swift */; };
-		55ADE27524F540E000D9990E /* VcCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE27424F540E000D9990E /* VcCrypto.framework */; };
-		55ADE27624F540E000D9990E /* VcCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE27424F540E000D9990E /* VcCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55ADE27924F540F700D9990E /* JwsToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27824F540F700D9990E /* JwsToken.swift */; };
 		55ADE27B24F5410400D9990E /* Secp256k1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27A24F5410300D9990E /* Secp256k1.swift */; };
 		55ADE27D24F5410E00D9990E /* Claims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27C24F5410E00D9990E /* Claims.swift */; };
@@ -44,25 +44,13 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		55ADE27724F540E000D9990E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				55ADE27624F540E000D9990E /* VcCrypto.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		0C51FC8EADD798B32ED3A0AA /* Pods_VcJwt_VcJwtTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcJwt_VcJwtTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		292415DBE3B3CDCB5E13C6A1 /* Pods-VcJwt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcJwt.debug.xcconfig"; path = "Target Support Files/Pods-VcJwt/Pods-VcJwt.debug.xcconfig"; sourceTree = "<group>"; };
 		55269350250006020051A358 /* VcJwtError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcJwtError.swift; sourceTree = "<group>"; };
 		5540903E25002141001246DB /* MockVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVerifier.swift; sourceTree = "<group>"; };
+		5540904625002DC3001246DB /* VcJwt.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VcJwt.podspec; sourceTree = "<group>"; };
+		5540904A2500311E001246DB /* ECPublicJwk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECPublicJwk.swift; sourceTree = "<group>"; };
 		55ADE25724F5406000D9990E /* VcJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VcJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ADE25A24F5406000D9990E /* VcJwt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VcJwt.h; sourceTree = "<group>"; };
 		55ADE25B24F5406000D9990E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,8 +66,6 @@
 		55ADE28024F5412100D9990E /* JwsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsDecoder.swift; sourceTree = "<group>"; };
 		55ADE28224F5412600D9990E /* TokenSigning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenSigning.swift; sourceTree = "<group>"; };
 		55ADE28424F5412900D9990E /* TokenVerifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVerifying.swift; sourceTree = "<group>"; };
-		55ADE28824F5416B00D9990E /* EllipticCurvePublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EllipticCurvePublicKey.swift; sourceTree = "<group>"; };
-		55ADE28924F5416B00D9990E /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		55ADE28B24F542A200D9990E /* JwsEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsEncoderTests.swift; sourceTree = "<group>"; };
 		55ADE28E24F5433500D9990E /* MockClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClaims.swift; sourceTree = "<group>"; };
 		55ADE29024F557C800D9990E /* MockSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSigner.swift; sourceTree = "<group>"; };
@@ -99,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55ADE27524F540E000D9990E /* VcCrypto.framework in Frameworks */,
 				47995672177834395CE27F4B /* Pods_VcJwt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				55ADE27A24F5410300D9990E /* Secp256k1.swift */,
+				5540904A2500311E001246DB /* ECPublicJwk.swift */,
 			);
 			path = algorithms;
 			sourceTree = "<group>";
@@ -127,6 +113,7 @@
 		55ADE24D24F5406000D9990E = {
 			isa = PBXGroup;
 			children = (
+				5540904625002DC3001246DB /* VcJwt.podspec */,
 				55ADE25924F5406000D9990E /* VcJwt */,
 				55ADE26424F5406000D9990E /* VcJwtTests */,
 				55ADE25824F5406000D9990E /* Products */,
@@ -148,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				5526934F24FF32850051A358 /* algorithms */,
-				55ADE28A24F5416B00D9990E /* publicKeys */,
 				55ADE27824F540F700D9990E /* JwsToken.swift */,
 				55ADE27C24F5410E00D9990E /* Claims.swift */,
 				55ADE27124F5407D00D9990E /* Header.swift */,
@@ -186,15 +172,6 @@
 				0C51FC8EADD798B32ED3A0AA /* Pods_VcJwt_VcJwtTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		55ADE28A24F5416B00D9990E /* publicKeys */ = {
-			isa = PBXGroup;
-			children = (
-				55ADE28824F5416B00D9990E /* EllipticCurvePublicKey.swift */,
-				55ADE28924F5416B00D9990E /* PublicKey.swift */,
-			);
-			path = publicKeys;
 			sourceTree = "<group>";
 		};
 		55ADE28D24F5432000D9990E /* mocks */ = {
@@ -243,7 +220,6 @@
 				55ADE25324F5406000D9990E /* Sources */,
 				55ADE25424F5406000D9990E /* Frameworks */,
 				55ADE25524F5406000D9990E /* Resources */,
-				55ADE27724F540E000D9990E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,7 +238,7 @@
 				55ADE25C24F5406000D9990E /* Sources */,
 				55ADE25D24F5406000D9990E /* Frameworks */,
 				55ADE25E24F5406000D9990E /* Resources */,
-				DDA3E4765D044A51D2051E35 /* [CP] Embed Pods Frameworks */,
+				5C71C636009234ECBBC356C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5540904725002DC4001246DB /* VcJwt.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +328,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5C71C636009234ECBBC356C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5DD1545CC10AE8B5EFDDE45C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,23 +367,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DDA3E4765D044A51D2051E35 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -398,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55ADE27D24F5410E00D9990E /* Claims.swift in Sources */,
+				5540904B2500311E001246DB /* ECPublicJwk.swift in Sources */,
 				55ADE27924F540F700D9990E /* JwsToken.swift in Sources */,
 				55ADE27224F5407D00D9990E /* Header.swift in Sources */,
 				55269351250006020051A358 /* VcJwtError.swift in Sources */,

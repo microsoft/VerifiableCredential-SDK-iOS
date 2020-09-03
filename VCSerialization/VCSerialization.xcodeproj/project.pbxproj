@@ -7,26 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55ADE23224F4464B00D9990E /* VcCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE23124F4464B00D9990E /* VcCrypto.framework */; };
-		55ADE23324F4464B00D9990E /* VcCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE23124F4464B00D9990E /* VcCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5540904D250034F0001246DB /* IssuanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540904C250034F0001246DB /* IssuanceResponse.swift */; };
+		554090522500436E001246DB /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540904F2500436E001246DB /* Serializable.swift */; };
+		554090532500436E001246DB /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554090502500436E001246DB /* Serializer.swift */; };
+		554090552500591F001246DB /* MockVcClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554090542500591F001246DB /* MockVcClaims.swift */; };
 		55CED10724CF37D000A2AAE2 /* VCSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55CED0FD24CF37D000A2AAE2 /* VCSerialization.framework */; };
 		55D167F724EB0B8B00AD2F98 /* VCSerialization.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55D167F624EB0B8B00AD2F98 /* VCSerialization.podspec */; };
-		55D1685F24EB13F000AD2F98 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1685024EB13F000AD2F98 /* Serializable.swift */; };
-		55D1686024EB13F000AD2F98 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1685124EB13F000AD2F98 /* SerializationError.swift */; };
 		55D1686124EB13F100AD2F98 /* serialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D1685224EB13F000AD2F98 /* serialization.h */; };
 		55D1686224EB13F100AD2F98 /* VerifiableCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1685424EB13F000AD2F98 /* VerifiableCredential.swift */; };
 		55D1686424EB13F100AD2F98 /* IssuanceServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1685624EB13F000AD2F98 /* IssuanceServiceResponse.swift */; };
 		55D1686524EB13F100AD2F98 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1685724EB13F000AD2F98 /* Contract.swift */; };
-		55D1686724EB13F100AD2F98 /* String+Base64Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1685A24EB13F000AD2F98 /* String+Base64Url.swift */; };
-		55D1686824EB13F100AD2F98 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1685B24EB13F000AD2F98 /* JSON.swift */; };
-		55D1686A24EB13F100AD2F98 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1685D24EB13F000AD2F98 /* Serializer.swift */; };
 		55D1687624EB13FF00AD2F98 /* MockContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1686D24EB13FF00AD2F98 /* MockContract.swift */; };
 		55D1687724EB13FF00AD2F98 /* IssuanceServiceResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1686F24EB13FF00AD2F98 /* IssuanceServiceResponseTests.swift */; };
-		55D1687824EB13FF00AD2F98 /* JwsTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1687024EB13FF00AD2F98 /* JwsTokenTests.swift */; };
 		55D1687924EB13FF00AD2F98 /* ContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1687124EB13FF00AD2F98 /* ContractTests.swift */; };
 		55D1687A24EB13FF00AD2F98 /* VerifiableCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1687224EB13FF00AD2F98 /* VerifiableCredentialTests.swift */; };
 		55D1687D24EB13FF00AD2F98 /* SerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1687524EB13FF00AD2F98 /* SerializerTests.swift */; };
-		55D1688224EB195000AD2F98 /* serializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1687324EB13FF00AD2F98 /* serializationTests.swift */; };
 		55D1688724EB215600AD2F98 /* OidcClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1688624EB215600AD2F98 /* OidcClaims.swift */; };
 		55D1688924EB224E00AD2F98 /* PresentationRequestClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1688824EB224E00AD2F98 /* PresentationRequestClaims.swift */; };
 		55D1688B24EB27D800AD2F98 /* VcClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1688A24EB27D800AD2F98 /* VcClaims.swift */; };
@@ -45,43 +40,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		55ADE23424F4464B00D9990E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				55ADE23324F4464B00D9990E /* VcCrypto.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		0C890FF8B35C0F391C489BEE /* Pods-VCSerialization-VCSerializationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCSerialization-VCSerializationTests.release.xcconfig"; path = "Target Support Files/Pods-VCSerialization-VCSerializationTests/Pods-VCSerialization-VCSerializationTests.release.xcconfig"; sourceTree = "<group>"; };
 		42CDE24428710515C8B52F8C /* Pods-serialization.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serialization.debug.xcconfig"; path = "Target Support Files/Pods-serialization/Pods-serialization.debug.xcconfig"; sourceTree = "<group>"; };
+		5540904C250034F0001246DB /* IssuanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponse.swift; sourceTree = "<group>"; };
+		5540904F2500436E001246DB /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		554090502500436E001246DB /* Serializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
+		554090542500591F001246DB /* MockVcClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVcClaims.swift; sourceTree = "<group>"; };
 		55ADE23124F4464B00D9990E /* VcCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VcCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CED0FD24CF37D000A2AAE2 /* VCSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55CED10624CF37D000A2AAE2 /* VCSerializationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCSerializationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D167F624EB0B8B00AD2F98 /* VCSerialization.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCSerialization.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		55D1685024EB13F000AD2F98 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
-		55D1685124EB13F000AD2F98 /* SerializationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
 		55D1685224EB13F000AD2F98 /* serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serialization.h; sourceTree = "<group>"; };
 		55D1685424EB13F000AD2F98 /* VerifiableCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifiableCredential.swift; sourceTree = "<group>"; };
 		55D1685624EB13F000AD2F98 /* IssuanceServiceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponse.swift; sourceTree = "<group>"; };
 		55D1685724EB13F000AD2F98 /* Contract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
-		55D1685A24EB13F000AD2F98 /* String+Base64Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Base64Url.swift"; sourceTree = "<group>"; };
-		55D1685B24EB13F000AD2F98 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		55D1685C24EB13F000AD2F98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55D1685D24EB13F000AD2F98 /* Serializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
 		55D1686D24EB13FF00AD2F98 /* MockContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockContract.swift; sourceTree = "<group>"; };
 		55D1686F24EB13FF00AD2F98 /* IssuanceServiceResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseTests.swift; sourceTree = "<group>"; };
-		55D1687024EB13FF00AD2F98 /* JwsTokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JwsTokenTests.swift; sourceTree = "<group>"; };
 		55D1687124EB13FF00AD2F98 /* ContractTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractTests.swift; sourceTree = "<group>"; };
 		55D1687224EB13FF00AD2F98 /* VerifiableCredentialTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialTests.swift; sourceTree = "<group>"; };
-		55D1687324EB13FF00AD2F98 /* serializationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = serializationTests.swift; sourceTree = "<group>"; };
 		55D1687424EB13FF00AD2F98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D1687524EB13FF00AD2F98 /* SerializerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializerTests.swift; sourceTree = "<group>"; };
 		55D1688624EB215600AD2F98 /* OidcClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OidcClaims.swift; sourceTree = "<group>"; };
@@ -107,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55ADE23224F4464B00D9990E /* VcCrypto.framework in Frameworks */,
 				79DB45593C1C23E19331BEEB /* Pods_VCSerialization.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,19 +145,17 @@
 		55D1684D24EB13F000AD2F98 /* VCSerialization */ = {
 			isa = PBXGroup;
 			children = (
-				55D1684E24EB13F000AD2F98 /* jwt */,
-				55D1685024EB13F000AD2F98 /* Serializable.swift */,
-				55D1685124EB13F000AD2F98 /* SerializationError.swift */,
-				55D1685224EB13F000AD2F98 /* serialization.h */,
+				554090502500436E001246DB /* Serializer.swift */,
+				5540904F2500436E001246DB /* Serializable.swift */,
 				55D1685324EB13F000AD2F98 /* models */,
-				55D1685924EB13F000AD2F98 /* extensions */,
+				55D1684E24EB13F000AD2F98 /* jwsClaims */,
+				55D1685224EB13F000AD2F98 /* serialization.h */,
 				55D1685C24EB13F000AD2F98 /* Info.plist */,
-				55D1685D24EB13F000AD2F98 /* Serializer.swift */,
 			);
 			path = VCSerialization;
 			sourceTree = "<group>";
 		};
-		55D1684E24EB13F000AD2F98 /* jwt */ = {
+		55D1684E24EB13F000AD2F98 /* jwsClaims */ = {
 			isa = PBXGroup;
 			children = (
 				55D1688624EB215600AD2F98 /* OidcClaims.swift */,
@@ -188,26 +163,18 @@
 				55D1688A24EB27D800AD2F98 /* VcClaims.swift */,
 				55D1688C24EB2CDF00AD2F98 /* IssuanceResponseClaims.swift */,
 			);
-			path = jwt;
+			path = jwsClaims;
 			sourceTree = "<group>";
 		};
 		55D1685324EB13F000AD2F98 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				55D1685424EB13F000AD2F98 /* VerifiableCredential.swift */,
-				55D1685624EB13F000AD2F98 /* IssuanceServiceResponse.swift */,
 				55D1685724EB13F000AD2F98 /* Contract.swift */,
+				55D1685624EB13F000AD2F98 /* IssuanceServiceResponse.swift */,
+				5540904C250034F0001246DB /* IssuanceResponse.swift */,
+				55D1685424EB13F000AD2F98 /* VerifiableCredential.swift */,
 			);
 			path = models;
-			sourceTree = "<group>";
-		};
-		55D1685924EB13F000AD2F98 /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-				55D1685A24EB13F000AD2F98 /* String+Base64Url.swift */,
-				55D1685B24EB13F000AD2F98 /* JSON.swift */,
-			);
-			path = extensions;
 			sourceTree = "<group>";
 		};
 		55D1686B24EB13FF00AD2F98 /* VCSerializationTests */ = {
@@ -215,7 +182,6 @@
 			children = (
 				55D1686C24EB13FF00AD2F98 /* mocks */,
 				55D1686E24EB13FF00AD2F98 /* models */,
-				55D1687324EB13FF00AD2F98 /* serializationTests.swift */,
 				55D1687424EB13FF00AD2F98 /* Info.plist */,
 				55D1687524EB13FF00AD2F98 /* SerializerTests.swift */,
 			);
@@ -226,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				55D1686D24EB13FF00AD2F98 /* MockContract.swift */,
+				554090542500591F001246DB /* MockVcClaims.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -234,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				55D1686F24EB13FF00AD2F98 /* IssuanceServiceResponseTests.swift */,
-				55D1687024EB13FF00AD2F98 /* JwsTokenTests.swift */,
 				55D1687124EB13FF00AD2F98 /* ContractTests.swift */,
 				55D1687224EB13FF00AD2F98 /* VerifiableCredentialTests.swift */,
 			);
@@ -274,7 +240,6 @@
 				55CED0F924CF37D000A2AAE2 /* Sources */,
 				55CED0FA24CF37D000A2AAE2 /* Frameworks */,
 				55CED0FB24CF37D000A2AAE2 /* Resources */,
-				55ADE23424F4464B00D9990E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -413,15 +378,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				55D1688D24EB2CDF00AD2F98 /* IssuanceResponseClaims.swift in Sources */,
-				55D1686724EB13F100AD2F98 /* String+Base64Url.swift in Sources */,
 				55D1688924EB224E00AD2F98 /* PresentationRequestClaims.swift in Sources */,
-				55D1686A24EB13F100AD2F98 /* Serializer.swift in Sources */,
 				55D1688B24EB27D800AD2F98 /* VcClaims.swift in Sources */,
 				55D1688724EB215600AD2F98 /* OidcClaims.swift in Sources */,
-				55D1685F24EB13F000AD2F98 /* Serializable.swift in Sources */,
+				554090532500436E001246DB /* Serializer.swift in Sources */,
+				5540904D250034F0001246DB /* IssuanceResponse.swift in Sources */,
+				554090522500436E001246DB /* Serializable.swift in Sources */,
 				55D1686424EB13F100AD2F98 /* IssuanceServiceResponse.swift in Sources */,
-				55D1686824EB13F100AD2F98 /* JSON.swift in Sources */,
-				55D1686024EB13F000AD2F98 /* SerializationError.swift in Sources */,
 				55D1686224EB13F100AD2F98 /* VerifiableCredential.swift in Sources */,
 				55D1686524EB13F100AD2F98 /* Contract.swift in Sources */,
 			);
@@ -431,13 +394,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D1688224EB195000AD2F98 /* serializationTests.swift in Sources */,
 				55D1687A24EB13FF00AD2F98 /* VerifiableCredentialTests.swift in Sources */,
 				55D1687D24EB13FF00AD2F98 /* SerializerTests.swift in Sources */,
 				55D1687924EB13FF00AD2F98 /* ContractTests.swift in Sources */,
 				55D1687724EB13FF00AD2F98 /* IssuanceServiceResponseTests.swift in Sources */,
 				55D1687624EB13FF00AD2F98 /* MockContract.swift in Sources */,
-				55D1687824EB13FF00AD2F98 /* JwsTokenTests.swift in Sources */,
+				554090552500591F001246DB /* MockVcClaims.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,7 +538,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CDF10049AA712243D4BFFCFE /* Pods-VCSerialization.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -605,7 +566,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BF1D4B542698E979161BBA78 /* Pods-VCSerialization.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

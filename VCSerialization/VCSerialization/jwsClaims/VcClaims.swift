@@ -3,7 +3,9 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct VcClaims: Claims {
+import VcJwt
+
+struct VcClaims: Claims {    
     let jti: String
     let iss: String
     let sub: String
@@ -13,7 +15,7 @@ struct VcClaims: Claims {
 struct VerifiableCredentialDescriptor: Codable {
     let context: [String]
     let type: [String]
-    let credentialSubject: [String: JSON]
+    let credentialSubject: [String: String]
     let credentialStatus: ServiceDescriptor?
     let exchangeService: ServiceDescriptor?
     let revokeService: ServiceDescriptor?

@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		9AE68C3D8E67C47FB2C8E83198549C5F /* VcCrypto */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CAA64A672A550FF145510D88447DC586 /* Build configuration list for PBXAggregateTarget "VcCrypto" */;
+			buildPhases = (
+			);
+			dependencies = (
+				457FD41BF44624F76CA4B0875B50308A /* PBXTargetDependency */,
+			);
+			name = VcCrypto;
+		};
 		A6B79F371F872690B26C831A82F5C805 /* VCSerialization */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 748D42722C6871D7DE237F10D050BFC9 /* Build configuration list for PBXAggregateTarget "VCSerialization" */;
@@ -26,181 +36,190 @@
 			);
 			name = VCNetworking;
 		};
+		EDF830429C5FFC8064C58ABBA5CA0A2E /* VcJwt */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A08D589B2F8C7964801C03AC3B5D226A /* Build configuration list for PBXAggregateTarget "VcJwt" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = VcJwt;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0062DDC5C8321E8463CA7DC4A390B63A /* scalar_4x64.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CBA08A665295E2056C26FFEBDD34ADC /* scalar_4x64.h */; };
 		007813D215A0BE71E1E4D4126DBA8F1D /* NSTask+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 3237E0A6AFFEDEFA869A0B935911434A /* NSTask+AnyPromise.m */; };
-		02D3E8CBD77842E759F4A87C447135EC /* secp256k1_preallocated.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C549A9D2D3EADF98D88710605C195C /* secp256k1_preallocated.h */; };
 		02E93D4CEB854A20F141C5EB6E4CDCEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		041370BEF8F68DF14D99EDD6D16ADB00 /* num_gmp_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 8AA69F9C9527192D189D7D5780F7C574 /* num_gmp_impl.h */; };
-		0838F1B45948E6047E4568E0E97D8D8D /* Pods-VCSerialization-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C3FF8DB49D8B860E4114242DF4366FA0 /* Pods-VCSerialization-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0976B4A149879832691DD5FC1697920D /* num.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B494C053D2E4BB1066CA1D24EB1AD6D /* num.h */; };
-		0AF7A781EE0980A04A32E8426C71A378 /* field_5x52_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CA73410BAD385AFACD9732A9996859E /* field_5x52_impl.h */; };
+		04962D6927F0EBC7B36D70EFCB8341ED /* scalar_low.h in Headers */ = {isa = PBXBuildFile; fileRef = DE99681D72B645575A3B31F1878B6B3E /* scalar_low.h */; };
+		0C7FE14DF3D75AEA6BCDAEFDF6D16BE6 /* scalar_4x64_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 9F7E6155D9D0C1F05D36EF36221BEDAB /* scalar_4x64_impl.h */; };
+		0CA98E1F5CD026D38CC50E193E2C2CAE /* Pods-VCSerialization-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B48CF1F3996FA27378FF3A18546BD1AC /* Pods-VCSerialization-dummy.m */; };
+		0CC6F25BB8104721CC132F3A3492DE79 /* ecdsa.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F77B70178D80BF5067756DE869B9A8 /* ecdsa.h */; };
 		0DC3A51FC74BDA5F1F6F0F787847AE46 /* firstly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA31378D72B1854484A3AE24090C9E23 /* firstly.swift */; };
-		0FAE9D48ADE652FE03B3D34C8656EBA3 /* scalar.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 092C8A6D04604C2959105D64F9C965C9 /* scalar.h */; };
-		10E253EF5B87DFF1A4E145A95ACA05B3 /* field_5x52_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 4CA73410BAD385AFACD9732A9996859E /* field_5x52_impl.h */; };
+		127CC05729CA6C49F23289CBD1B33A21 /* field_5x52_int128_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB30D83F5947CFF59E69DFEE6520A2A /* field_5x52_int128_impl.h */; };
+		128123D41007EF2CEE6FEC4B6DDFABDF /* scalar_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 82755C006283793A77E1BD87508560F5 /* scalar_impl.h */; };
 		1291682E5DBB1088725E035AEBFA521C /* Pods-sdk-sdkTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C511A40A69B1309CD7D1BD67E130CA71 /* Pods-sdk-sdkTests-dummy.m */; };
-		1412EB35DAB00239364A4770BBF4E8A9 /* field_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = D47943C7EA6F97F2323EC971B75DEE8B /* field_impl.h */; };
 		157D661897E4E0B694AE326167B925EE /* Guarantee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35BC4349E1FD5846C567D70FCFF0AC4 /* Guarantee.swift */; };
+		167E4B1DDE01AB1072D449721EF3572E /* secp256k1.c in Sources */ = {isa = PBXBuildFile; fileRef = D62F2EFA7AB63909208572E68F4BB8E3 /* secp256k1.c */; settings = {COMPILER_FLAGS = "-Wno-shorten-64-to-32 -Wno-conditional-uninitialized -Wno-long-long -Wno-overlength-strings -Wno-unused-function"; }; };
 		170F2B353E8857CB25B560E5BC8D851C /* NSURLSession+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 19467827B2F45A595370C58513268EDB /* NSURLSession+AnyPromise.m */; };
-		17D4D49960E35EAC5030A0556ACBAA9D /* basic-config.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 1AB72A6669EFC71F29FFE5B951A85B64 /* basic-config.h */; };
-		189433066B2087CFF0506EAF8E9A5701 /* tests_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04DE1D978C2B59117A5735206C047D69 /* tests_impl.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		173B398B33FF1967C97F1C97E2457BFF /* tests_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04DE1D978C2B59117A5735206C047D69 /* tests_impl.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		17AAF2F787966C84BFAA95423D4D2DDF /* Pods-VcJwt-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DFC3ADE7D0EAC7615D49D59591940B9C /* Pods-VcJwt-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CEDE74CCF37034825911D9E3D864D6A /* hash.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 75FD3CD25D90F4DD1F4FE54AF362269C /* hash.h */; };
 		1D3283CADAE5A7E49E6E563BAC4BEA26 /* AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFFD33A919760ADE3176D92B725531C /* AnyPromise.m */; };
-		1D6749E31DA42918CDAB9BE506EBAE98 /* num_gmp.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CB299F3A6210695F1FD309BAA9AEF75 /* num_gmp.h */; };
-		1D9723BCF06DEEEEB19DB074A02D98B1 /* scalar_low.h in Headers */ = {isa = PBXBuildFile; fileRef = DE99681D72B645575A3B31F1878B6B3E /* scalar_low.h */; };
-		1E387DB79A707C47FE9516F6291EA319 /* assumptions.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = FFDB7DCF590CA80CF4976FF708447B59 /* assumptions.h */; };
+		1EE6E859C9F803756B432B28FDE78DBB /* hash_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 59638B0B1B5532B717C69B560940EFDC /* hash_impl.h */; };
 		20EAD1D9035738A5FCE8DB1DC86992C6 /* CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC754938C9FB23E1FEF34D5F307D640 /* CustomStringConvertible.swift */; };
-		22EC49CBBBD5B0153A0784D9A0303875 /* group.h in Headers */ = {isa = PBXBuildFile; fileRef = A3FBB9478AAA18A15E7DBABBCEBC01FD /* group.h */; };
-		255FBD20ABDBA61202B0A3CF0F0136A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		2277BCFF84E184ADBABCB2C218E1CE00 /* field_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = D47943C7EA6F97F2323EC971B75DEE8B /* field_impl.h */; };
 		26D210114481EAE30A5EB236900005CA /* Pods-VcCrypto-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B81EC69AFC744509FB4484FC0D44D7 /* Pods-VcCrypto-dummy.m */; };
+		27E6D7525C5508FF01EC9CBEF42E4509 /* hash_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 59638B0B1B5532B717C69B560940EFDC /* hash_impl.h */; };
 		29D55AD871DF1964ABD11AAF5E48BBC3 /* AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = AC39F1E8A5A681B26E9B512F3B2C90FB /* AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2CCC33143E5C707C70E7FB31CE386F24 /* Pods-VcJwt-VcJwtTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA98F68788291601DB6C2C0B25E4E5B /* Pods-VcJwt-VcJwtTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A9A2ECFC5B9D43FD4754646294BDA2E /* scalar.h in Headers */ = {isa = PBXBuildFile; fileRef = 092C8A6D04604C2959105D64F9C965C9 /* scalar.h */; };
+		2B2F29CCC0E00B3CCADE66C7ECC19081 /* field_5x52.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 254036BDF02E8B5E0A0B3B8474AFF790 /* field_5x52.h */; };
 		2D0C7B87FF9F9275047C2C14FACC9E93 /* UIView+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80D7C75CDCD587F23CC29B3B1A72D21 /* UIView+Promise.swift */; };
-		2EB2EE45F34B6852A844B62C3BA8DBDD /* ecmult_gen_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21E61B955C6DCF3B115F398121FF0A43 /* ecmult_gen_impl.h */; };
+		2FF9F44E2B1557815134D2FD52694E4B /* scalar_8x32.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 50DDFDB314A42CE9CC5746DF0AC0D1E5 /* scalar_8x32.h */; };
+		3013FBBA8D4A9BCE7568AF4DFF39812F /* field_5x52_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 4CA73410BAD385AFACD9732A9996859E /* field_5x52_impl.h */; };
 		309134D31427D8A84B55D93F03104C93 /* dispatch_promise.m in Sources */ = {isa = PBXBuildFile; fileRef = 522C3CAACE0477E91BB6A3A9D9E9F663 /* dispatch_promise.m */; };
-		309AED6A74CEAC241E7D55616E6487E0 /* scalar.h in Headers */ = {isa = PBXBuildFile; fileRef = 092C8A6D04604C2959105D64F9C965C9 /* scalar.h */; };
-		3310398FB5D74D39035536C535838F7D /* field_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = D47943C7EA6F97F2323EC971B75DEE8B /* field_impl.h */; };
-		33BC373DB1E8952F33840DB4908E59DE /* Pods-VCSerialization-VCSerializationTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A8349BA0E5FDE63F23806C1B1EA520 /* Pods-VCSerialization-VCSerializationTests-dummy.m */; };
-		3482F189EE4CE12A098842FEF2A5A6A6 /* ecmult.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F9948ADFF702D01AEECEFAF7656A276 /* ecmult.h */; };
+		30ECF1F8A95BF3A742F9F8FBD0151BF0 /* ecmult_const.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = FBA66929FE4491B4DC0CF67A2ADAC42E /* ecmult_const.h */; };
 		34DE10A8B540221FEB0069F92503A3CC /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF5A6FC4E52452C68782CE2F701BA4D /* Error.swift */; };
-		3755078ACBBD68EA90CD48E7BBEFB6DB /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 2817BCFFD9EBF0A304905121E1824141 /* util.h */; };
-		387306AC50AC799C7EA41A286201ED39 /* field.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = EEC3F3EDA395D7520424BD541862AA16 /* field.h */; };
-		3A05090509E4F42AF78D659C4747AD64 /* basic-config.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB72A6669EFC71F29FFE5B951A85B64 /* basic-config.h */; };
-		3EBE6F57D4758C0024A166D006AFF5A0 /* main_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = A02DE9E74DEB9A256A9F457666C21E46 /* main_impl.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		36DF15BDC7973AFCF4B2C4560DF684F2 /* Pods-VcJwt-VcJwtTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA98F68788291601DB6C2C0B25E4E5B /* Pods-VcJwt-VcJwtTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A52DB1D21BCAE10D5CC12328729700E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		3A8A39A2CC51F46073A638BF0D3CFA8A /* eckey.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = F4BD4022F180C944F0C037A0C4C719A3 /* eckey.h */; };
+		3BA19753292E7D3672BCD0ECB28AF69C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		3BB3B3EDD1071473F621506B75B57E86 /* group_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 4D555BB7F954235881771E11B587CF7D /* group_impl.h */; };
+		3E1B08E5A2C1E58384F075C8F653537C /* bitcoin-core-secp256k1-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A74FF48648B65F4D615783FBB96091AA /* bitcoin-core-secp256k1-dummy.m */; };
 		3EF0598F35C4D88F4CEC7DD8A250BAEB /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B2B261C3EEEC9F92C5464CD0FAAA13 /* race.m */; };
-		41073EF922C108D214220CD2224CB0AA /* scalar_8x32_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 29C74ECC00EE31C2D221E471208650E3 /* scalar_8x32_impl.h */; };
-		451A7AB74D851DF085BE8B5FF474B926 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		469631F9E9B7B5ED28C9DFCBED1B86FD /* scalar_8x32.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 50DDFDB314A42CE9CC5746DF0AC0D1E5 /* scalar_8x32.h */; };
-		475B96D4F039FC4A576F777465BB0E32 /* secp256k1.h in Copy include Public Headers */ = {isa = PBXBuildFile; fileRef = 11072080A5FE47752615651BC0F878CB /* secp256k1.h */; };
+		3F7B9490387407CEFDC4306E87039BFA /* field_5x52_asm_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 6555C520A49FE51A6FBCB72A7E4E0644 /* field_5x52_asm_impl.h */; };
+		40453F3F1904D3880F1D9F5865614375 /* ecmult.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 5F9948ADFF702D01AEECEFAF7656A276 /* ecmult.h */; };
+		44E9EDDEEA8C5B9712048F9D065B6C4C /* ecmult_const_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 938B36D96A3F24AA449046C0753CAD45 /* ecmult_const_impl.h */; };
 		47C54EFB16CC84D2D9EC24AFF465E521 /* Pods-VcCrypto-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FFBE8C196D6A677F26D021EF23B0303 /* Pods-VcCrypto-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49F35D9A610F07328057A352F8053569 /* tests_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BFEBCBBC1EDAFBB554B2FCCFBF5B5D0 /* tests_impl.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		49325C685ACD95BB2A71E4FA951A87F5 /* ecmult_gen.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 1C04FB4E47DE959155FC5E512E26D630 /* ecmult_gen.h */; };
+		495E6F821F16C52B42444B79176B3093 /* secp256k1_preallocated.h in Copy include Public Headers */ = {isa = PBXBuildFile; fileRef = D4C549A9D2D3EADF98D88710605C195C /* secp256k1_preallocated.h */; };
 		4A613C22671DE0E90BC4F1B70CB3B479 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		4D350655E22078D7C21F119F8A1BB567 /* scratch_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FADC424BE7BF6C4154E9EEC1C2D6B37 /* scratch_impl.h */; };
-		52366ADFC8314DB09EB06FB236C5A5F5 /* field_5x52.h in Headers */ = {isa = PBXBuildFile; fileRef = 254036BDF02E8B5E0A0B3B8474AFF790 /* field_5x52.h */; };
-		5380FE7FBCAD12BC4352A881BF64184B /* hash.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 75FD3CD25D90F4DD1F4FE54AF362269C /* hash.h */; };
-		5498D4FD5B90638EA36C6A5E55CB2F59 /* ecmult_gen.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C04FB4E47DE959155FC5E512E26D630 /* ecmult_gen.h */; };
+		4CE92A0F3E2AB2BD3CB7CC6389A83FC7 /* field_10x26.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = E9620E1C596E2E47F3B680F788369306 /* field_10x26.h */; };
+		4E415A413785A3B44069197F3A536DEE /* Pods-VCSerialization-VCSerializationTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A8349BA0E5FDE63F23806C1B1EA520 /* Pods-VCSerialization-VCSerializationTests-dummy.m */; };
+		513C5C141F115DB01F9C5877EACC498D /* ecmult_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D78F27BB75E50CD2FD6188C55E27373 /* ecmult_impl.h */; };
+		5175A9213A70AAAC436BED04833C7F57 /* ecmult_gen.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C04FB4E47DE959155FC5E512E26D630 /* ecmult_gen.h */; };
+		5218E23F7F9BD828D2370E15EA536B9C /* scalar_low_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 766F71A777BA671115D8917E39170A1C /* scalar_low_impl.h */; };
+		54806BFF8A94540CA146BCD4337C081C /* num_gmp.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 7CB299F3A6210695F1FD309BAA9AEF75 /* num_gmp.h */; };
+		5553F16DA39F70B1B6EF4CD0B388F066 /* secp256k1.h in Headers */ = {isa = PBXBuildFile; fileRef = 11072080A5FE47752615651BC0F878CB /* secp256k1.h */; };
 		56D8783CBF33646ECBF610FCC8EFC43E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
 		582A9D494D23B1C551310B36AE120ACE /* hang.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9610DD10C3F32371E4BD06B2F25A5 /* hang.swift */; };
-		58DD529090B093AE95939DE6C661CFFE /* Pods-VcJwt-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DFC3ADE7D0EAC7615D49D59591940B9C /* Pods-VcJwt-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D7C7DDE310A7CB6E4586A8FCD363DB2 /* field_5x52_asm_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 6555C520A49FE51A6FBCB72A7E4E0644 /* field_5x52_asm_impl.h */; };
-		5D853C2E3B721423A14E7828747C9FC4 /* ecmult_const_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 938B36D96A3F24AA449046C0753CAD45 /* ecmult_const_impl.h */; };
+		590206EDC2307E8C2168320D0003C59A /* tests_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BFEBCBBC1EDAFBB554B2FCCFBF5B5D0 /* tests_impl.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5969807D0767490C7FAF57E73E433D3B /* field_10x26.h in Headers */ = {isa = PBXBuildFile; fileRef = E9620E1C596E2E47F3B680F788369306 /* field_10x26.h */; };
 		5DB57F3E97DE90045FD326E65DD7A45E /* fwd.h in Headers */ = {isa = PBXBuildFile; fileRef = 4315C0CC711137AAEB92AFEA7D43D25A /* fwd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DD2544E2F5A2B7A8D71766F96176CBA /* Pods-VCSerialization-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C3FF8DB49D8B860E4114242DF4366FA0 /* Pods-VCSerialization-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E2625911BE3874644F79C98334AA8AE /* afterlife.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586CD62595B6116F796EC6D4087F32F /* afterlife.swift */; };
 		5E393762CF5329505675EEE724090F06 /* Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BCF208D11EE478A05AAF9800A7E31 /* Deprecations.swift */; };
-		5E61AC99C70C971CEEF4178B027F9C83 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 75FD3CD25D90F4DD1F4FE54AF362269C /* hash.h */; };
-		5F9D526F1F6129B83D0847066D621953 /* Pods-VcJwt-VcJwtTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C77910686D32D0104908C9D9E9EDA97 /* Pods-VcJwt-VcJwtTests-dummy.m */; };
+		5E72C91F7BB69C8984571EEE4824CA56 /* scratch.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = C61EEAA77AC36DB5F3679E2891202A98 /* scratch.h */; };
+		605D8FABF466627ABDAD7388EBE669E8 /* scratch_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 2FADC424BE7BF6C4154E9EEC1C2D6B37 /* scratch_impl.h */; };
 		60D0C409BB446141FC99D1CD5D5D445C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220DA8A861A195B90F9F7D54C61E3B56 /* Configuration.swift */; };
+		615CDF6B72AF227417A0952CEEDC3848 /* field_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = D47943C7EA6F97F2323EC971B75DEE8B /* field_impl.h */; };
+		61C0CED9E188678C919F058C64CBE917 /* bitcoin-core-secp256k1-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1769986EB7E8D241D2DD7CC4E6521A67 /* bitcoin-core-secp256k1-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6468A5C13CF2D853BA8D699574D5FF44 /* field_10x26_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = B6A9E8F5AA16BDB7CA095B0B132DF844 /* field_10x26_impl.h */; };
 		65EE5D43565B34562CA63E9B063A8671 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		66D51CFAD06894D21D81875E392F9F9C /* scalar_8x32_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 29C74ECC00EE31C2D221E471208650E3 /* scalar_8x32_impl.h */; };
+		67135B603F808E68183713E5765DD1F1 /* scalar_4x64_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F7E6155D9D0C1F05D36EF36221BEDAB /* scalar_4x64_impl.h */; };
 		6742741733D04305CB5610A06FD35278 /* when.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CDE7E03F7FFBAB8AEF76950B03A3DB /* when.m */; };
-		67704F3816FAE2618B73D44BBFCC2300 /* secp256k1.h in Headers */ = {isa = PBXBuildFile; fileRef = 11072080A5FE47752615651BC0F878CB /* secp256k1.h */; };
+		6A074E2F079D738F3D8237BB2DA665FA /* ecmult_const.h in Headers */ = {isa = PBXBuildFile; fileRef = FBA66929FE4491B4DC0CF67A2ADAC42E /* ecmult_const.h */; };
 		6B5006AF3059E761AE0ACDDDDA2F1196 /* Pods-sdk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9DA029EC5368B01E229932A52C9278 /* Pods-sdk-dummy.m */; };
-		6C6ADC8DCECC839A4C08C431068E7993 /* hash_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 59638B0B1B5532B717C69B560940EFDC /* hash_impl.h */; };
-		6F2E1052AAD2DFE0ABF751C82C8BD707 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		71012E9A124DE65505DB4050C5C24F11 /* scalar_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 82755C006283793A77E1BD87508560F5 /* scalar_impl.h */; };
-		73F0F0D34E9D84AFEFFD33EE1BE0A722 /* scalar_8x32.h in Headers */ = {isa = PBXBuildFile; fileRef = 50DDFDB314A42CE9CC5746DF0AC0D1E5 /* scalar_8x32.h */; };
+		6D8BA89C98C379ECED581370EBE1CD92 /* ecdsa_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = F5D86CAF969ABF249E5F44E80F70D6FC /* ecdsa_impl.h */; };
+		6E59D57B4AF73D833E81E8D380B6285D /* secp256k1_recovery.h in Headers */ = {isa = PBXBuildFile; fileRef = 9118411113C8AC271ADBD729F3A08037 /* secp256k1_recovery.h */; };
+		70FD9DF9CE7DEF7EC6818EF9703B8CCC /* scalar_4x64.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 4CBA08A665295E2056C26FFEBDD34ADC /* scalar_4x64.h */; };
+		7312821F81430D0DDA5DE998A95E8282 /* field_5x52.h in Headers */ = {isa = PBXBuildFile; fileRef = 254036BDF02E8B5E0A0B3B8474AFF790 /* field_5x52.h */; };
 		7508741780658CF1086F3B3F7AC3D57A /* NSURLSession+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E073F32B53B1BF948756FC0C654B624 /* NSURLSession+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		756E0310E08EC8A3970D6608C1CAB4E5 /* bitcoin-core-secp256k1-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1769986EB7E8D241D2DD7CC4E6521A67 /* bitcoin-core-secp256k1-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7642B80907E8058FB3B67508CC044770 /* num.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 8B494C053D2E4BB1066CA1D24EB1AD6D /* num.h */; };
 		76E2BBA6504D4EC8CB21FBC9F02969CA /* PromiseKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B28B2A2E81B13D1C160294EBE8DA74D /* PromiseKit-dummy.m */; };
-		76F5475803C5D5AE9E505CEDF716196E /* hash_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 59638B0B1B5532B717C69B560940EFDC /* hash_impl.h */; };
-		78C4B62C3B0B3D69A0E29F63AB199C51 /* scalar_low_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 766F71A777BA671115D8917E39170A1C /* scalar_low_impl.h */; };
-		79CEEEA57A2FC05D44679543BEA148A5 /* field_5x52.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 254036BDF02E8B5E0A0B3B8474AFF790 /* field_5x52.h */; };
+		799323431ABB06FFAFD8C5ED23161212 /* num_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = EAF1187BC13645A12EACBF172AAA963B /* num_impl.h */; };
+		7A31D823DFAE2E054E30AAE454B98432 /* ecdsa.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 57F77B70178D80BF5067756DE869B9A8 /* ecdsa.h */; };
+		7BCDE06FCA0E5D3ECC1CD83695A9F1C6 /* field_5x52_asm_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 6555C520A49FE51A6FBCB72A7E4E0644 /* field_5x52_asm_impl.h */; };
+		7CD5B6F4F5CF8C28D698E81E0B080878 /* ecmult.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F9948ADFF702D01AEECEFAF7656A276 /* ecmult.h */; };
+		7CEE635BA2464A2A20B2B4F84FB6C6B1 /* group.h in Headers */ = {isa = PBXBuildFile; fileRef = A3FBB9478AAA18A15E7DBABBCEBC01FD /* group.h */; };
 		8022C0FF236CB784CE80560C2543DF24 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C6B94622B196AE1DE59D3276DE73D5 /* Resolver.swift */; };
-		816745A387BBDF04FB9D0166EDE5E6C8 /* field_5x52_int128_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 0AB30D83F5947CFF59E69DFEE6520A2A /* field_5x52_int128_impl.h */; };
+		8215B8CC79A345D254F6388D9348C3A1 /* secp256k1_ecdh.h in Copy include Public Headers */ = {isa = PBXBuildFile; fileRef = BC57494B77FCC93ACACB308CF9E3631C /* secp256k1_ecdh.h */; };
 		82D5C0A1EB64670CE46081210A41AD8B /* UIView+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = E76431A8C01E16FB984BC641B1482EAA /* UIView+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8445B7D9F0377EF82100C01871C8D9E2 /* Thenable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC04EF6E845E7832336EF1B12AC9E04 /* Thenable.swift */; };
-		85A1AE76789649B5B663B4A99A608545 /* field_10x26_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = B6A9E8F5AA16BDB7CA095B0B132DF844 /* field_10x26_impl.h */; };
-		880D7AF448C96A956DEE09139688A811 /* Pods-VcJwt-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5400C7EF127E27BDCEDD7B7ECD35F /* Pods-VcJwt-dummy.m */; };
+		869FFDEE205BAD4838606AFC0E24DD67 /* field.h in Headers */ = {isa = PBXBuildFile; fileRef = EEC3F3EDA395D7520424BD541862AA16 /* field.h */; };
 		8831B4426EE40154CFDBD55D26166C0E /* UIViewController+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1B990AF95F4DBE8672AC21882386C3 /* UIViewController+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A52D90A0E37D2772C8D19261148EC3B /* ecmult_gen_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21E61B955C6DCF3B115F398121FF0A43 /* ecmult_gen_impl.h */; };
+		8C15DCDFD43578EDA5EF25BDAC664ED6 /* ecdsa_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = F5D86CAF969ABF249E5F44E80F70D6FC /* ecdsa_impl.h */; };
 		8DB4585F7AB5FE464FA5B6ECC42A2FA7 /* Pods-sdk-sdkTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ED6FB38DBB0AFA04F7CD7457971E418 /* Pods-sdk-sdkTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8E05876B2C0C66BF70B1536636B525B9 /* field_5x52_int128_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB30D83F5947CFF59E69DFEE6520A2A /* field_5x52_int128_impl.h */; };
-		8ED1D973DFAA553B05612A5386871B39 /* scalar_4x64.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CBA08A665295E2056C26FFEBDD34ADC /* scalar_4x64.h */; };
+		8EF64DB263F87A20BFBF819CF387A513 /* field_10x26_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = B6A9E8F5AA16BDB7CA095B0B132DF844 /* field_10x26_impl.h */; };
+		8F3C62F12DCDBCC079618CCBA54542F8 /* eckey.h in Headers */ = {isa = PBXBuildFile; fileRef = F4BD4022F180C944F0C037A0C4C719A3 /* eckey.h */; };
 		8FDE0012D19F7BE581A08A1C60F56070 /* LogEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DC8F7031D40A0A47C4F18F42315CAC /* LogEvent.swift */; };
-		9065CFEE356F79C8CD5C0ACE4EC67080 /* ecdsa_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = F5D86CAF969ABF249E5F44E80F70D6FC /* ecdsa_impl.h */; };
-		907171CA27EC958603699AB5E8AFD4BE /* assumptions.h in Headers */ = {isa = PBXBuildFile; fileRef = FFDB7DCF590CA80CF4976FF708447B59 /* assumptions.h */; };
-		923EB0D544D1FF534D842208381FB5DA /* bitcoin-core-secp256k1-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A74FF48648B65F4D615783FBB96091AA /* bitcoin-core-secp256k1-dummy.m */; };
-		934F20B9B2346E2AE1C18BBD260B558C /* ecmult.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 5F9948ADFF702D01AEECEFAF7656A276 /* ecmult.h */; };
+		902AF9717AB07CE7D8C982D0E603A68C /* ecmult_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 4D78F27BB75E50CD2FD6188C55E27373 /* ecmult_impl.h */; };
+		9359B5BEDE0F9A1C0CDE4B8B2DFC8C4D /* scratch.h in Headers */ = {isa = PBXBuildFile; fileRef = C61EEAA77AC36DB5F3679E2891202A98 /* scratch.h */; };
+		93E32E0840F99DE79421E31E8B886E6E /* main_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = F67418A4C5BB88BB468E0B60C5FA963E /* main_impl.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		94467C87C474A8D41C309A5133A8B675 /* UIViewPropertyAnimator+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E76143A41D6054F67BAD6B914A4788 /* UIViewPropertyAnimator+Promise.swift */; };
 		94C4DC0D39AE3F670ED2C15B9F34807E /* Pods-VcCrypto-VcCryptoTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F8AD3E47000640D92DC1FEBB7B2161AC /* Pods-VcCrypto-VcCryptoTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		954ACFBBDA4E465212ABA1BE03C1F1A5 /* main_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = F67418A4C5BB88BB468E0B60C5FA963E /* main_impl.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		959B4E46C362684626F509AD0F939379 /* secp256k1.c in Sources */ = {isa = PBXBuildFile; fileRef = D62F2EFA7AB63909208572E68F4BB8E3 /* secp256k1.c */; settings = {COMPILER_FLAGS = "-Wno-shorten-64-to-32 -Wno-conditional-uninitialized -Wno-long-long -Wno-overlength-strings -Wno-unused-function"; }; };
-		95F8F196B1B73D21B9EA0C8078B79988 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		96BC23C9CAE7A9FDD48B063F0A30931E /* num_gmp.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 7CB299F3A6210695F1FD309BAA9AEF75 /* num_gmp.h */; };
-		9894CE8412713DD8E1C3B211C51F5E05 /* secp256k1_preallocated.h in Copy include Public Headers */ = {isa = PBXBuildFile; fileRef = D4C549A9D2D3EADF98D88710605C195C /* secp256k1_preallocated.h */; };
-		991F892CAAFF08181A77322B5B73B1C5 /* scratch.h in Headers */ = {isa = PBXBuildFile; fileRef = C61EEAA77AC36DB5F3679E2891202A98 /* scratch.h */; };
-		9B9F22BC5E4A8CBEEBB1C32F38EE7D4C /* secp256k1_recovery.h in Copy include Public Headers */ = {isa = PBXBuildFile; fileRef = 9118411113C8AC271ADBD729F3A08037 /* secp256k1_recovery.h */; };
+		9699808CCF1174CD4D51ACCB3A3F6988 /* num_gmp_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 8AA69F9C9527192D189D7D5780F7C574 /* num_gmp_impl.h */; };
+		9AF1CB9B6F8E5EBE5420B396EC003604 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 2817BCFFD9EBF0A304905121E1824141 /* util.h */; };
+		9C83E564AADD9C1F621FAC19DE07F912 /* num_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = EAF1187BC13645A12EACBF172AAA963B /* num_impl.h */; };
+		9E7F1714C21BB42C01032F4E2BF98F61 /* secp256k1_recovery.h in Copy include Public Headers */ = {isa = PBXBuildFile; fileRef = 9118411113C8AC271ADBD729F3A08037 /* secp256k1_recovery.h */; };
+		9EC14E8CEDF7D656021576C555B4BE95 /* scalar_8x32.h in Headers */ = {isa = PBXBuildFile; fileRef = 50DDFDB314A42CE9CC5746DF0AC0D1E5 /* scalar_8x32.h */; };
+		9F38F14D55B31C69D46E9F36C663AE3F /* basic-config.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 1AB72A6669EFC71F29FFE5B951A85B64 /* basic-config.h */; };
 		9F60C4BD58F2FB9F024EDD5281727456 /* after.swift in Sources */ = {isa = PBXBuildFile; fileRef = F673C693801031932449D23955759008 /* after.swift */; };
-		A024588EFD9E3439A44F8C902522B1C0 /* ecmult_const.h in Headers */ = {isa = PBXBuildFile; fileRef = FBA66929FE4491B4DC0CF67A2ADAC42E /* ecmult_const.h */; };
+		9FD195E2521B0D49C1E8DF74D047383C /* num.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 8B494C053D2E4BB1066CA1D24EB1AD6D /* num.h */; };
 		A1292119BDF2A5254EEBDA9480219025 /* Pods-VCNetworking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B98E6337F28030DF5529BD90E630DA /* Pods-VCNetworking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A31B33D4E360B83796BEDA0B85B43DD9 /* ecmult_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D78F27BB75E50CD2FD6188C55E27373 /* ecmult_impl.h */; };
-		A54360B33889074A0244243262CFC444 /* field.h in Headers */ = {isa = PBXBuildFile; fileRef = EEC3F3EDA395D7520424BD541862AA16 /* field.h */; };
-		A580AD66E69C4A6792DA53D315B6D7B4 /* group.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = A3FBB9478AAA18A15E7DBABBCEBC01FD /* group.h */; };
-		A5D6071011F2B517AAB4D787F38FE20D /* group_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 4D555BB7F954235881771E11B587CF7D /* group_impl.h */; };
+		A2CB7D43B0511320372716A44086E9ED /* Pods-VcJwt-VcJwtTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C77910686D32D0104908C9D9E9EDA97 /* Pods-VcJwt-VcJwtTests-dummy.m */; };
+		A3DF146CF00ABFBEEEB93CA8C98E4A0F /* group.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = A3FBB9478AAA18A15E7DBABBCEBC01FD /* group.h */; };
+		A3E609FDE0A65BEB8FCD6C2CA37B59CA /* num_gmp_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AA69F9C9527192D189D7D5780F7C574 /* num_gmp_impl.h */; };
 		A6984C97150DC9D8A271FBCBBC1DCA54 /* race.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04597055A1A7A7F198D489FFEA7C893 /* race.swift */; };
 		A764BF9C3A45EC887EFD0EAB01E935CC /* NSObject+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26A56E3B8F06F12A9276D5074A5B4A7 /* NSObject+Promise.swift */; };
-		A810E258C3E7462CDA4E40924BDC1C18 /* util.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 2817BCFFD9EBF0A304905121E1824141 /* util.h */; };
 		A81C8D7C62F3454A61F7ADCC89C96990 /* AnyPromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6E5B27BB5CB6B4D2846DDF1A5F3CC /* AnyPromise.swift */; };
-		A98B1B3AC0ACF23EDFC4E65C006F399E /* field_10x26_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = B6A9E8F5AA16BDB7CA095B0B132DF844 /* field_10x26_impl.h */; };
 		A9CE6C7080FBCD19569BF940188C2F39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		AA15473F4CA78A251A21D8D4E3C201E1 /* scalar_4x64.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 4CBA08A665295E2056C26FFEBDD34ADC /* scalar_4x64.h */; };
-		AC3D6B70EB965745650465B28DD7E7EE /* group_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D555BB7F954235881771E11B587CF7D /* group_impl.h */; };
-		AE201FCC82DA716661A2BCD145BEEC42 /* ecdsa.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F77B70178D80BF5067756DE869B9A8 /* ecdsa.h */; };
-		B159581BE989FF161043FF44D8D505F0 /* ecdsa_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = F5D86CAF969ABF249E5F44E80F70D6FC /* ecdsa_impl.h */; };
-		B515E41581B0E95ADA65401180515E2A /* scalar_4x64_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F7E6155D9D0C1F05D36EF36221BEDAB /* scalar_4x64_impl.h */; };
-		B59C2CF10E6699C9A0FEA57CE803242A /* scalar_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 82755C006283793A77E1BD87508560F5 /* scalar_impl.h */; };
+		AA80180AEE71E25004BB4B17EDEDD464 /* ecmult_gen_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 21E61B955C6DCF3B115F398121FF0A43 /* ecmult_gen_impl.h */; };
+		AB5AE7BB2DA97A9E849725A2413F33DA /* field_5x52_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CA73410BAD385AFACD9732A9996859E /* field_5x52_impl.h */; };
+		AC189AB1FE874B42B98EDF41A8AC974E /* eckey_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 3CDA2CD70FF5E2272DA0F95B8EE4EEDB /* eckey_impl.h */; };
+		ADA3CD6798264852BCE51FA3CF137E52 /* eckey_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CDA2CD70FF5E2272DA0F95B8EE4EEDB /* eckey_impl.h */; };
+		AE8A2FF70E1FF19F05385C9465FBA051 /* field_5x52_int128_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 0AB30D83F5947CFF59E69DFEE6520A2A /* field_5x52_int128_impl.h */; };
+		B19B894D15BBB62C233BA2E09294369B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		B1DF3554388CDFBE4050CE9D3FC4C616 /* num.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B494C053D2E4BB1066CA1D24EB1AD6D /* num.h */; };
+		B560F923C6F4ABE7E2F9B8C85A4BE442 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		B6466FD0ABC0E5E98497B6384B063401 /* hang.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EF5955F461D82227208AFCEDECA69 /* hang.m */; };
 		B6FD9430FB9CCFE50E93DE797E519FCC /* UIViewController+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F921352F9288D40551163CBCE6FA1E /* UIViewController+AnyPromise.m */; };
 		B835241B5D13D1CB9761057B8CBCDFDF /* Pods-sdk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B3E646099F5DF8BEE408B2E7281C08B /* Pods-sdk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B9518688B0FF3908B8DC811210123538 /* num_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = EAF1187BC13645A12EACBF172AAA963B /* num_impl.h */; };
-		BA1317F411DA8AAF1F178C85C572752B /* secp256k1_recovery.h in Headers */ = {isa = PBXBuildFile; fileRef = 9118411113C8AC271ADBD729F3A08037 /* secp256k1_recovery.h */; };
-		BBABF62635E9844AC9D4ADF18FDC1A7C /* field_10x26.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = E9620E1C596E2E47F3B680F788369306 /* field_10x26.h */; };
-		C0B329CFBC6E9A37A727A715F0D5BE0C /* secp256k1_ecdh.h in Headers */ = {isa = PBXBuildFile; fileRef = BC57494B77FCC93ACACB308CF9E3631C /* secp256k1_ecdh.h */; };
-		C42F04E5534E9762B406C19255EA3966 /* scalar_8x32_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 29C74ECC00EE31C2D221E471208650E3 /* scalar_8x32_impl.h */; };
-		C583A9CD749417AF20278A0CE667C11E /* ecmult_gen_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 21E61B955C6DCF3B115F398121FF0A43 /* ecmult_gen_impl.h */; };
-		C6289718BBF5FBA34AF0C80F40E96D28 /* eckey.h in Headers */ = {isa = PBXBuildFile; fileRef = F4BD4022F180C944F0C037A0C4C719A3 /* eckey.h */; };
-		C76309D95BDF806559E8B34C285857DD /* eckey_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CDA2CD70FF5E2272DA0F95B8EE4EEDB /* eckey_impl.h */; };
+		BB1E618B1BD4B77570BBFCDE02F11F8E /* assumptions.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = FFDB7DCF590CA80CF4976FF708447B59 /* assumptions.h */; };
+		C791131C5098B85172F7B1B7BB1C9CF2 /* secp256k1_ecdh.h in Headers */ = {isa = PBXBuildFile; fileRef = BC57494B77FCC93ACACB308CF9E3631C /* secp256k1_ecdh.h */; };
 		CAD4996BF8ECBA77CD4F1AFA07EAE46B /* Pods-VcCrypto-VcCryptoTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 805FA20795B8B56E62F5458263BE35FD /* Pods-VcCrypto-VcCryptoTests-dummy.m */; };
 		CBE0628C41374467DAD7D28C6BB0DECE /* Catchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D170FB93A9659AC62EB96EEFBD07F89A /* Catchable.swift */; };
-		CCBBED0658AF8EB3866888965C344A98 /* field_10x26.h in Headers */ = {isa = PBXBuildFile; fileRef = E9620E1C596E2E47F3B680F788369306 /* field_10x26.h */; };
+		CC109599EB717FB4B908412C26F16850 /* Pods-VcJwt-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5400C7EF127E27BDCEDD7B7ECD35F /* Pods-VcJwt-dummy.m */; };
+		CD94BBCACE341F873B1D51C641736C0F /* scalar.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 092C8A6D04604C2959105D64F9C965C9 /* scalar.h */; };
+		CE6F1D94FE37E625ECB61BB9980BF5F6 /* scalar_8x32_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 29C74ECC00EE31C2D221E471208650E3 /* scalar_8x32_impl.h */; };
+		CEF1FFB8DC404FF933102526A708A297 /* ecmult_const_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 938B36D96A3F24AA449046C0753CAD45 /* ecmult_const_impl.h */; };
 		D04A7984E0B5A3A092F6DD2FB4B6EA26 /* join.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3593DF8DEA8D63547441DC7AC2A080 /* join.m */; };
-		D0E6FD4447384167B843A17525AE865A /* num_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = EAF1187BC13645A12EACBF172AAA963B /* num_impl.h */; };
-		D1C8A7AF4D842401A93FDCA4BBA4BC37 /* scalar_low.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = DE99681D72B645575A3B31F1878B6B3E /* scalar_low.h */; };
 		D22C1E36DF1D884D2019341A4B019749 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		D63DEBA99E5A3FA2A9A816EBECB31D1B /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBA28790FD69DCD34B262FA4794D03E /* Box.swift */; };
-		D6B6F32BE4B57A03E836F1F600190171 /* eckey_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 3CDA2CD70FF5E2272DA0F95B8EE4EEDB /* eckey_impl.h */; };
-		D8CB0EA922AF7D67C1E92DDC76483D71 /* eckey.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = F4BD4022F180C944F0C037A0C4C719A3 /* eckey.h */; };
-		DB678408A4639B28C6F3E216EA139C03 /* ecmult_const_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 938B36D96A3F24AA449046C0753CAD45 /* ecmult_const_impl.h */; };
-		DC9D6D516E55AD8056DF35BEB129C578 /* scratch_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 2FADC424BE7BF6C4154E9EEC1C2D6B37 /* scratch_impl.h */; };
+		DBB56C770EEED6C61B1552BF4B91429B /* Pods-VCSerialization-VCSerializationTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA9A5D6023876AC62BB0A94B6787414 /* Pods-VCSerialization-VCSerializationTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCB42ABED700C2118F77F8FDCF5F70B3 /* secp256k1_preallocated.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C549A9D2D3EADF98D88710605C195C /* secp256k1_preallocated.h */; };
 		DD0DCDDF37A406834613483F10DE8296 /* UIView+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = E71384D1B500AB043FF90A3C77E5501A /* UIView+AnyPromise.m */; };
-		DE81FCFA01461AAE1281F0066EDE2555 /* ecmult_const.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = FBA66929FE4491B4DC0CF67A2ADAC42E /* ecmult_const.h */; };
-		DE8333BDB69DB2409F0050127AF7DBA1 /* secp256k1_ecdh.h in Copy include Public Headers */ = {isa = PBXBuildFile; fileRef = BC57494B77FCC93ACACB308CF9E3631C /* secp256k1_ecdh.h */; };
-		E0B4A9BD2ED5E3FC0FBD74311C40018B /* ecdsa.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 57F77B70178D80BF5067756DE869B9A8 /* ecdsa.h */; };
-		E23050D07B2501FC1D710358956C983C /* ecmult_gen.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 1C04FB4E47DE959155FC5E512E26D630 /* ecmult_gen.h */; };
-		E51524FB2322A7C50053B2AB3734A489 /* scalar_4x64_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 9F7E6155D9D0C1F05D36EF36221BEDAB /* scalar_4x64_impl.h */; };
-		E73744850B1FEFBB6473233B534F318E /* num_gmp_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AA69F9C9527192D189D7D5780F7C574 /* num_gmp_impl.h */; };
+		DF8EAD4722AC498D0E239DFBF83A7B68 /* basic-config.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB72A6669EFC71F29FFE5B951A85B64 /* basic-config.h */; };
+		E14E81F881B656B09A1B3B2D00475E01 /* assumptions.h in Headers */ = {isa = PBXBuildFile; fileRef = FFDB7DCF590CA80CF4976FF708447B59 /* assumptions.h */; };
+		E1E9D3520BD28ED3C564D9BC5B890D57 /* main_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = A02DE9E74DEB9A256A9F457666C21E46 /* main_impl.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E813DB8CC70E6123A7C7FBAE0E504B81 /* PMKFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FD960E5387CEF78BCE09BD9B0D7E080 /* PMKFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E88FEC7862E707146C09810A14DFC44C /* scalar_low_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 766F71A777BA671115D8917E39170A1C /* scalar_low_impl.h */; };
 		E8A0C6676AFC75F7CF236D5CC7F74BB0 /* PMKUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 98D8EAE390CEF961B0370289A947A522 /* PMKUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E8EB9168B9D6E32CAE6503CC1E478402 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		E9115666403292A31A2B75BBB9D12C26 /* scalar_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 82755C006283793A77E1BD87508560F5 /* scalar_impl.h */; };
 		E93047E3107A4F050B322FBA8DDD6635 /* Pods-VCNetworking-VCNetworkingTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FB09B68808F07D0334C3DD0C987DC0 /* Pods-VCNetworking-VCNetworkingTests-dummy.m */; };
 		E9AB9896FCF00E661FF0FDD11716487C /* NSURLSession+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4500D2B1C260833A564AA518A3283 /* NSURLSession+Promise.swift */; };
-		EB52F2842DF4EEBFF6F52312B5FCA265 /* scratch.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = C61EEAA77AC36DB5F3679E2891202A98 /* scratch.h */; };
+		EA71BE3EA1C0FCBF64CCE199F79DC03D /* group_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D555BB7F954235881771E11B587CF7D /* group_impl.h */; };
+		EBD2442574C3F059F2F2AAA86CF088B2 /* secp256k1.h in Copy include Public Headers */ = {isa = PBXBuildFile; fileRef = 11072080A5FE47752615651BC0F878CB /* secp256k1.h */; };
 		EBE4BD3D7C8F8F00CAF808438B23A1A0 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00AA9B85AE0296B38EE49F201668070 /* Promise.swift */; };
 		EC4A2AF0DE9B68764ECAD72D0F3C5EAB /* after.m in Sources */ = {isa = PBXBuildFile; fileRef = 905C59B04706BE9C024D4C97CC37616D /* after.m */; };
-		ECB2B69E6099B3B9BE181EEE7E9F74A3 /* Pods-VCSerialization-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B48CF1F3996FA27378FF3A18546BD1AC /* Pods-VCSerialization-dummy.m */; };
-		ED7236DF0C354049ABB64EE529055B0D /* ecmult_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 4D78F27BB75E50CD2FD6188C55E27373 /* ecmult_impl.h */; };
+		ED79F258409E99BB8CB18994697BAFEF /* scalar_low.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = DE99681D72B645575A3B31F1878B6B3E /* scalar_low.h */; };
 		EDFF7078C59974F7BB1DF334AC7C47D8 /* NSNotificationCenter+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C06A45625F17E4E194C69314E4A145 /* NSNotificationCenter+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE57819EBA0EA48D2C727B0EFC478BF3 /* Pods-VCNetworking-VCNetworkingTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 07978B69D464D5649AE42DFC584E9D55 /* Pods-VCNetworking-VCNetworkingTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF28F9227CA6F4ACE4C7618C881DF70D /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 75FD3CD25D90F4DD1F4FE54AF362269C /* hash.h */; };
 		EF3A12CAD983F86CD5CBFA744B2612A6 /* when.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360908940B4F77BADE3771D2B9439229 /* when.swift */; };
 		EF48628603687B498141C85B7E6FC141 /* Pods-VCNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 66463BDECB294089D85ACD23E38168E9 /* Pods-VCNetworking-dummy.m */; };
 		EF6DA14F252481AD22FADAF253829E29 /* PromiseKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CC0E54668B48A9784A91C016F12FED0 /* PromiseKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F0A69EDDFA63FFB6BA605920146BC305 /* Pods-VCSerialization-VCSerializationTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA9A5D6023876AC62BB0A94B6787414 /* Pods-VCSerialization-VCSerializationTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F102E171803527CD6F360ABEEB490393 /* field_5x52_asm_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 6555C520A49FE51A6FBCB72A7E4E0644 /* field_5x52_asm_impl.h */; };
 		F11A4AB7236A85C47FA9B33B00A224D4 /* Process+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CA7A569C295010860D536FCC3324BF /* Process+Promise.swift */; };
+		F2750E1A31C27E20517AF6016EA3FE8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		F2C74E8681F4343C2036885563F88E9C /* scratch_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FADC424BE7BF6C4154E9EEC1C2D6B37 /* scratch_impl.h */; };
 		F3130E6206ACC486720380339D54E1EA /* PromiseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A35A5A64A2BA545E671773BE11179C05 /* PromiseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F413DC82A060E79EC20CED3E9994CCC6 /* NSNotificationCenter+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BF2586AEB072F8DB1E6B6BDDF8F4C /* NSNotificationCenter+Promise.swift */; };
+		F425B8776B8206D5DC57D6A8B70BCD58 /* field.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = EEC3F3EDA395D7520424BD541862AA16 /* field.h */; };
+		F4A258988E782EE7CF2B810E54C12F3D /* num_gmp.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CB299F3A6210695F1FD309BAA9AEF75 /* num_gmp.h */; };
+		F64C538EDB0C6BB9EAFA17BF98D8BA99 /* util.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 2817BCFFD9EBF0A304905121E1824141 /* util.h */; };
 		FB93092887EF773B16F5E4544ADA4E2B /* NSTask+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C63CCB86A6BC83026C7E55E16E2B45E /* NSTask+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FBB8D3181C65D4C8E79B576ED218FD0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		FC06D24EDA2AF88B1ADF12A14A4B7977 /* scalar_low_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 766F71A777BA671115D8917E39170A1C /* scalar_low_impl.h */; };
 		FCD66010C23D87F9B0E1EF2A7270A3BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		FD7DF70E33BAB15E17DF298C74CD6FAC /* NSNotificationCenter+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1848FB9DB0AE45FF4D680907B0E98523 /* NSNotificationCenter+AnyPromise.m */; };
 /* End PBXBuildFile section */
@@ -212,6 +231,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7C579CE66A1E7A9AA33CA5F97F9C22C5;
 			remoteInfo = PromiseKit;
+		};
+		16A3D9D084EE6A7ACABE07A6C7859480 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3020FF5BE409E86C04853BBDEF3E50A7;
+			remoteInfo = "bitcoin-core-secp256k1";
+		};
+		1BC9530B95CD2CAAECCCB0E432259E49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AE68C3D8E67C47FB2C8E83198549C5F;
+			remoteInfo = VcCrypto;
 		};
 		3AF4035031E36E983BA9D4DDE1ED1988 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -227,7 +260,7 @@
 			remoteGlobalIDString = 3020FF5BE409E86C04853BBDEF3E50A7;
 			remoteInfo = "bitcoin-core-secp256k1";
 		};
-		473241F8342FA415D15C793356A2B384 /* PBXContainerItemProxy */ = {
+		44A774CCD9F7984737025616B23E8A69 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -255,6 +288,20 @@
 			remoteGlobalIDString = A6B79F371F872690B26C831A82F5C805;
 			remoteInfo = VCSerialization;
 		};
+		6D994315D2B42F6D789F7236625C02DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDF830429C5FFC8064C58ABBA5CA0A2E;
+			remoteInfo = VcJwt;
+		};
+		7251087F3587965D8387D0FE2E4C7DED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AE68C3D8E67C47FB2C8E83198549C5F;
+			remoteInfo = VcCrypto;
+		};
 		7C608A22C1ADB05EC2CC169792DE09FA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -276,7 +323,7 @@
 			remoteGlobalIDString = A6B79F371F872690B26C831A82F5C805;
 			remoteInfo = VCSerialization;
 		};
-		9DBA3F4C5FF69F97F9B0ED2FA9258CD6 /* PBXContainerItemProxy */ = {
+		A64009CE24A51E68AB404C77505A1A72 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -304,6 +351,13 @@
 			remoteGlobalIDString = C5977F8CA3E1CDE64F71D2603E2E5A0E;
 			remoteInfo = VCNetworking;
 		};
+		F90BEE4F397BD1A6A87167DA30702094 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDF830429C5FFC8064C58ABBA5CA0A2E;
+			remoteInfo = VcJwt;
+		};
 		FE952EC7C5C84483717621FEEDABC7E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -314,65 +368,65 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		140B7D352EE45CECEB38A7720D1BE570 /* Copy include Public Headers */ = {
+		7724A5C30DD8B8A784458B3F7DA5D824 /* Copy include Public Headers */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(PUBLIC_HEADERS_FOLDER_PATH)/include";
 			dstSubfolderSpec = 16;
 			files = (
-				475B96D4F039FC4A576F777465BB0E32 /* secp256k1.h in Copy include Public Headers */,
-				DE8333BDB69DB2409F0050127AF7DBA1 /* secp256k1_ecdh.h in Copy include Public Headers */,
-				9894CE8412713DD8E1C3B211C51F5E05 /* secp256k1_preallocated.h in Copy include Public Headers */,
-				9B9F22BC5E4A8CBEEBB1C32F38EE7D4C /* secp256k1_recovery.h in Copy include Public Headers */,
+				EBD2442574C3F059F2F2AAA86CF088B2 /* secp256k1.h in Copy include Public Headers */,
+				8215B8CC79A345D254F6388D9348C3A1 /* secp256k1_ecdh.h in Copy include Public Headers */,
+				495E6F821F16C52B42444B79176B3093 /* secp256k1_preallocated.h in Copy include Public Headers */,
+				9E7F1714C21BB42C01032F4E2BF98F61 /* secp256k1_recovery.h in Copy include Public Headers */,
 			);
 			name = "Copy include Public Headers";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5AAAEEBDA5CF23CCF736436E1B198220 /* Copy src Private Headers */ = {
+		D135A680FBC3E227BBC77B52F877E0FE /* Copy src Private Headers */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(PRIVATE_HEADERS_FOLDER_PATH)/src";
 			dstSubfolderSpec = 16;
 			files = (
-				1E387DB79A707C47FE9516F6291EA319 /* assumptions.h in Copy src Private Headers */,
-				17D4D49960E35EAC5030A0556ACBAA9D /* basic-config.h in Copy src Private Headers */,
-				E0B4A9BD2ED5E3FC0FBD74311C40018B /* ecdsa.h in Copy src Private Headers */,
-				9065CFEE356F79C8CD5C0ACE4EC67080 /* ecdsa_impl.h in Copy src Private Headers */,
-				D8CB0EA922AF7D67C1E92DDC76483D71 /* eckey.h in Copy src Private Headers */,
-				D6B6F32BE4B57A03E836F1F600190171 /* eckey_impl.h in Copy src Private Headers */,
-				934F20B9B2346E2AE1C18BBD260B558C /* ecmult.h in Copy src Private Headers */,
-				DE81FCFA01461AAE1281F0066EDE2555 /* ecmult_const.h in Copy src Private Headers */,
-				DB678408A4639B28C6F3E216EA139C03 /* ecmult_const_impl.h in Copy src Private Headers */,
-				E23050D07B2501FC1D710358956C983C /* ecmult_gen.h in Copy src Private Headers */,
-				C583A9CD749417AF20278A0CE667C11E /* ecmult_gen_impl.h in Copy src Private Headers */,
-				ED7236DF0C354049ABB64EE529055B0D /* ecmult_impl.h in Copy src Private Headers */,
-				387306AC50AC799C7EA41A286201ED39 /* field.h in Copy src Private Headers */,
-				BBABF62635E9844AC9D4ADF18FDC1A7C /* field_10x26.h in Copy src Private Headers */,
-				85A1AE76789649B5B663B4A99A608545 /* field_10x26_impl.h in Copy src Private Headers */,
-				79CEEEA57A2FC05D44679543BEA148A5 /* field_5x52.h in Copy src Private Headers */,
-				F102E171803527CD6F360ABEEB490393 /* field_5x52_asm_impl.h in Copy src Private Headers */,
-				10E253EF5B87DFF1A4E145A95ACA05B3 /* field_5x52_impl.h in Copy src Private Headers */,
-				816745A387BBDF04FB9D0166EDE5E6C8 /* field_5x52_int128_impl.h in Copy src Private Headers */,
-				3310398FB5D74D39035536C535838F7D /* field_impl.h in Copy src Private Headers */,
-				A580AD66E69C4A6792DA53D315B6D7B4 /* group.h in Copy src Private Headers */,
-				A5D6071011F2B517AAB4D787F38FE20D /* group_impl.h in Copy src Private Headers */,
-				5380FE7FBCAD12BC4352A881BF64184B /* hash.h in Copy src Private Headers */,
-				6C6ADC8DCECC839A4C08C431068E7993 /* hash_impl.h in Copy src Private Headers */,
-				7642B80907E8058FB3B67508CC044770 /* num.h in Copy src Private Headers */,
-				96BC23C9CAE7A9FDD48B063F0A30931E /* num_gmp.h in Copy src Private Headers */,
-				041370BEF8F68DF14D99EDD6D16ADB00 /* num_gmp_impl.h in Copy src Private Headers */,
-				B9518688B0FF3908B8DC811210123538 /* num_impl.h in Copy src Private Headers */,
-				0FAE9D48ADE652FE03B3D34C8656EBA3 /* scalar.h in Copy src Private Headers */,
-				AA15473F4CA78A251A21D8D4E3C201E1 /* scalar_4x64.h in Copy src Private Headers */,
-				E51524FB2322A7C50053B2AB3734A489 /* scalar_4x64_impl.h in Copy src Private Headers */,
-				469631F9E9B7B5ED28C9DFCBED1B86FD /* scalar_8x32.h in Copy src Private Headers */,
-				41073EF922C108D214220CD2224CB0AA /* scalar_8x32_impl.h in Copy src Private Headers */,
-				B59C2CF10E6699C9A0FEA57CE803242A /* scalar_impl.h in Copy src Private Headers */,
-				D1C8A7AF4D842401A93FDCA4BBA4BC37 /* scalar_low.h in Copy src Private Headers */,
-				FC06D24EDA2AF88B1ADF12A14A4B7977 /* scalar_low_impl.h in Copy src Private Headers */,
-				EB52F2842DF4EEBFF6F52312B5FCA265 /* scratch.h in Copy src Private Headers */,
-				DC9D6D516E55AD8056DF35BEB129C578 /* scratch_impl.h in Copy src Private Headers */,
-				A810E258C3E7462CDA4E40924BDC1C18 /* util.h in Copy src Private Headers */,
+				BB1E618B1BD4B77570BBFCDE02F11F8E /* assumptions.h in Copy src Private Headers */,
+				9F38F14D55B31C69D46E9F36C663AE3F /* basic-config.h in Copy src Private Headers */,
+				7A31D823DFAE2E054E30AAE454B98432 /* ecdsa.h in Copy src Private Headers */,
+				8C15DCDFD43578EDA5EF25BDAC664ED6 /* ecdsa_impl.h in Copy src Private Headers */,
+				3A8A39A2CC51F46073A638BF0D3CFA8A /* eckey.h in Copy src Private Headers */,
+				AC189AB1FE874B42B98EDF41A8AC974E /* eckey_impl.h in Copy src Private Headers */,
+				40453F3F1904D3880F1D9F5865614375 /* ecmult.h in Copy src Private Headers */,
+				30ECF1F8A95BF3A742F9F8FBD0151BF0 /* ecmult_const.h in Copy src Private Headers */,
+				44E9EDDEEA8C5B9712048F9D065B6C4C /* ecmult_const_impl.h in Copy src Private Headers */,
+				49325C685ACD95BB2A71E4FA951A87F5 /* ecmult_gen.h in Copy src Private Headers */,
+				AA80180AEE71E25004BB4B17EDEDD464 /* ecmult_gen_impl.h in Copy src Private Headers */,
+				902AF9717AB07CE7D8C982D0E603A68C /* ecmult_impl.h in Copy src Private Headers */,
+				F425B8776B8206D5DC57D6A8B70BCD58 /* field.h in Copy src Private Headers */,
+				4CE92A0F3E2AB2BD3CB7CC6389A83FC7 /* field_10x26.h in Copy src Private Headers */,
+				8EF64DB263F87A20BFBF819CF387A513 /* field_10x26_impl.h in Copy src Private Headers */,
+				2B2F29CCC0E00B3CCADE66C7ECC19081 /* field_5x52.h in Copy src Private Headers */,
+				7BCDE06FCA0E5D3ECC1CD83695A9F1C6 /* field_5x52_asm_impl.h in Copy src Private Headers */,
+				3013FBBA8D4A9BCE7568AF4DFF39812F /* field_5x52_impl.h in Copy src Private Headers */,
+				AE8A2FF70E1FF19F05385C9465FBA051 /* field_5x52_int128_impl.h in Copy src Private Headers */,
+				2277BCFF84E184ADBABCB2C218E1CE00 /* field_impl.h in Copy src Private Headers */,
+				A3DF146CF00ABFBEEEB93CA8C98E4A0F /* group.h in Copy src Private Headers */,
+				3BB3B3EDD1071473F621506B75B57E86 /* group_impl.h in Copy src Private Headers */,
+				1CEDE74CCF37034825911D9E3D864D6A /* hash.h in Copy src Private Headers */,
+				1EE6E859C9F803756B432B28FDE78DBB /* hash_impl.h in Copy src Private Headers */,
+				9FD195E2521B0D49C1E8DF74D047383C /* num.h in Copy src Private Headers */,
+				54806BFF8A94540CA146BCD4337C081C /* num_gmp.h in Copy src Private Headers */,
+				9699808CCF1174CD4D51ACCB3A3F6988 /* num_gmp_impl.h in Copy src Private Headers */,
+				799323431ABB06FFAFD8C5ED23161212 /* num_impl.h in Copy src Private Headers */,
+				CD94BBCACE341F873B1D51C641736C0F /* scalar.h in Copy src Private Headers */,
+				70FD9DF9CE7DEF7EC6818EF9703B8CCC /* scalar_4x64.h in Copy src Private Headers */,
+				0C7FE14DF3D75AEA6BCDAEFDF6D16BE6 /* scalar_4x64_impl.h in Copy src Private Headers */,
+				2FF9F44E2B1557815134D2FD52694E4B /* scalar_8x32.h in Copy src Private Headers */,
+				CE6F1D94FE37E625ECB61BB9980BF5F6 /* scalar_8x32_impl.h in Copy src Private Headers */,
+				E9115666403292A31A2B75BBB9D12C26 /* scalar_impl.h in Copy src Private Headers */,
+				ED79F258409E99BB8CB18994697BAFEF /* scalar_low.h in Copy src Private Headers */,
+				E88FEC7862E707146C09810A14DFC44C /* scalar_low_impl.h in Copy src Private Headers */,
+				5E72C91F7BB69C8984571EEE4824CA56 /* scratch.h in Copy src Private Headers */,
+				605D8FABF466627ABDAD7388EBE669E8 /* scratch_impl.h in Copy src Private Headers */,
+				F64C538EDB0C6BB9EAFA17BF98D8BA99 /* util.h in Copy src Private Headers */,
 			);
 			name = "Copy src Private Headers";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +482,7 @@
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		31F2466A7E8D153CA95BF23E8513F91E /* bitcoin-core-secp256k1-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "bitcoin-core-secp256k1-Info.plist"; sourceTree = "<group>"; };
 		3237E0A6AFFEDEFA869A0B935911434A /* NSTask+AnyPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSTask+AnyPromise.m"; path = "Extensions/Foundation/Sources/NSTask+AnyPromise.m"; sourceTree = "<group>"; };
+		32A9B96BF3FCE0ADD12FB3309DBBECD0 /* VcJwt.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VcJwt.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		34FB23F98DD416F442396C1B6EDE4444 /* Pods-VcJwt-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VcJwt-acknowledgements.plist"; sourceTree = "<group>"; };
 		35EBA75B839E0F936F5ED75514A65461 /* Pods-VCSerialization-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VCSerialization-Info.plist"; sourceTree = "<group>"; };
 		360908940B4F77BADE3771D2B9439229 /* when.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = when.swift; path = Sources/when.swift; sourceTree = "<group>"; };
@@ -460,6 +515,7 @@
 		50C9794D4C065380EAB43AD68D8FA2B0 /* Pods-VcCrypto-VcCryptoTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VcCrypto-VcCryptoTests-Info.plist"; sourceTree = "<group>"; };
 		50DDFDB314A42CE9CC5746DF0AC0D1E5 /* scalar_8x32.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = scalar_8x32.h; path = src/scalar_8x32.h; sourceTree = "<group>"; };
 		522C3CAACE0477E91BB6A3A9D9E9F663 /* dispatch_promise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = dispatch_promise.m; path = Sources/dispatch_promise.m; sourceTree = "<group>"; };
+		550BDFE890CD5B74B6C4B395061669FC /* VcJwt.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VcJwt.xcconfig; sourceTree = "<group>"; };
 		57E4AC22224420618B82619882659840 /* Pods_VCSerialization_VCSerializationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VCSerialization_VCSerializationTests.framework; path = "Pods-VCSerialization-VCSerializationTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F77B70178D80BF5067756DE869B9A8 /* ecdsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ecdsa.h; path = src/ecdsa.h; sourceTree = "<group>"; };
 		58B98E6337F28030DF5529BD90E630DA /* Pods-VCNetworking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VCNetworking-umbrella.h"; sourceTree = "<group>"; };
@@ -469,15 +525,16 @@
 		5F9948ADFF702D01AEECEFAF7656A276 /* ecmult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ecmult.h; path = src/ecmult.h; sourceTree = "<group>"; };
 		6349DD8A928AFB24A35295C34D76475D /* Pods-VcCrypto-VcCryptoTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VcCrypto-VcCryptoTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		6555C520A49FE51A6FBCB72A7E4E0644 /* field_5x52_asm_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = field_5x52_asm_impl.h; path = src/field_5x52_asm_impl.h; sourceTree = "<group>"; };
-		65EFF34AC4BCB8475DB5058713CDE813 /* VCNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VCNetworking.xcconfig; sourceTree = "<group>"; };
 		66463BDECB294089D85ACD23E38168E9 /* Pods-VCNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VCNetworking-dummy.m"; sourceTree = "<group>"; };
+		668788E5286EB72A73C0CFB66E8EE5FE /* VCNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VCNetworking.xcconfig; sourceTree = "<group>"; };
 		6CC0E54668B48A9784A91C016F12FED0 /* PromiseKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PromiseKit-umbrella.h"; sourceTree = "<group>"; };
 		6DB9EA9AE0EC0468372A0C4261F4049B /* Pods-sdk-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-sdk-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7124051CC535CDBADC4AF4E5095F30B6 /* Pods-VCNetworking-VCNetworkingTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VCNetworking-VCNetworkingTests.modulemap"; sourceTree = "<group>"; };
 		71B2B261C3EEEC9F92C5464CD0FAAA13 /* race.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = race.m; path = Sources/race.m; sourceTree = "<group>"; };
 		72FB09B68808F07D0334C3DD0C987DC0 /* Pods-VCNetworking-VCNetworkingTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VCNetworking-VCNetworkingTests-dummy.m"; sourceTree = "<group>"; };
-		736EB059C086E4F4B09AEC923298ED78 /* VCNetworking.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VCNetworking.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		74C9B3BC4BA1CF3A126FA52AE423BB15 /* Pods-VCNetworking-VCNetworkingTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VCNetworking-VCNetworkingTests-frameworks.sh"; sourceTree = "<group>"; };
+		74F0776CF06F1FBD9931C0F826D0E174 /* VCSerialization.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VCSerialization.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		751F82D0D555FF85B3BF9A53256C3E4A /* VcCrypto.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VcCrypto.xcconfig; sourceTree = "<group>"; };
 		75BBB72B151E707B33DA1B129252F1DE /* Pods-sdk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-sdk.modulemap"; sourceTree = "<group>"; };
 		75FD3CD25D90F4DD1F4FE54AF362269C /* hash.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = hash.h; path = src/hash.h; sourceTree = "<group>"; };
 		766F71A777BA671115D8917E39170A1C /* scalar_low_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = scalar_low_impl.h; path = src/scalar_low_impl.h; sourceTree = "<group>"; };
@@ -487,7 +544,6 @@
 		7FD48EBE080EEC4760C0CC3E491D8336 /* Pods-sdk-sdkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-sdk-sdkTests.release.xcconfig"; sourceTree = "<group>"; };
 		7FFBE8C196D6A677F26D021EF23B0303 /* Pods-VcCrypto-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VcCrypto-umbrella.h"; sourceTree = "<group>"; };
 		805FA20795B8B56E62F5458263BE35FD /* Pods-VcCrypto-VcCryptoTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VcCrypto-VcCryptoTests-dummy.m"; sourceTree = "<group>"; };
-		80BB2CCDCAD4DFB68DEFD20EA19D9BE3 /* VCSerialization.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VCSerialization.xcconfig; sourceTree = "<group>"; };
 		82755C006283793A77E1BD87508560F5 /* scalar_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = scalar_impl.h; path = src/scalar_impl.h; sourceTree = "<group>"; };
 		83F23CE50D886D9A1B3543CEA92E86BA /* PromiseKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PromiseKit.modulemap; sourceTree = "<group>"; };
 		860F440C2F64CF3AEA6E448F79D0456D /* Pods-VcJwt-VcJwtTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VcJwt-VcJwtTests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -502,7 +558,6 @@
 		9118411113C8AC271ADBD729F3A08037 /* secp256k1_recovery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = secp256k1_recovery.h; path = include/secp256k1_recovery.h; sourceTree = "<group>"; };
 		926DFDA3FD72FB3DE287F706A3AAF6AA /* Pods_VcCrypto_VcCryptoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VcCrypto_VcCryptoTests.framework; path = "Pods-VcCrypto-VcCryptoTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		938B36D96A3F24AA449046C0753CAD45 /* ecmult_const_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ecmult_const_impl.h; path = src/ecmult_const_impl.h; sourceTree = "<group>"; };
-		9444EDA3AA18F03D7477A6E8B1287EF8 /* VCSerialization.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VCSerialization.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95D81C80C5D31438FCD21DCCACC357EE /* Pods-VCNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VCNetworking.modulemap"; sourceTree = "<group>"; };
 		969262B89A334CB5740652AD610F7364 /* Pods-VcCrypto-VcCryptoTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VcCrypto-VcCryptoTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		98D8EAE390CEF961B0370289A947A522 /* PMKUIKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PMKUIKit.h; path = Extensions/UIKit/Sources/PMKUIKit.h; sourceTree = "<group>"; };
@@ -531,12 +586,14 @@
 		B48CF1F3996FA27378FF3A18546BD1AC /* Pods-VCSerialization-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VCSerialization-dummy.m"; sourceTree = "<group>"; };
 		B52DEB5AA7E1C91E7AB5674072E64F6A /* Pods-VcCrypto-VcCryptoTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VcCrypto-VcCryptoTests-frameworks.sh"; sourceTree = "<group>"; };
 		B6A9E8F5AA16BDB7CA095B0B132DF844 /* field_10x26_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = field_10x26_impl.h; path = src/field_10x26_impl.h; sourceTree = "<group>"; };
+		B7962B97ABB69223D851BFF5AF1F1BD6 /* VcCrypto.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VcCrypto.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B8CDE7E03F7FFBAB8AEF76950B03A3DB /* when.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = when.m; path = Sources/when.m; sourceTree = "<group>"; };
 		BBF5A6FC4E52452C68782CE2F701BA4D /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Sources/Error.swift; sourceTree = "<group>"; };
 		BC57494B77FCC93ACACB308CF9E3631C /* secp256k1_ecdh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = secp256k1_ecdh.h; path = include/secp256k1_ecdh.h; sourceTree = "<group>"; };
 		BCD42B30A8ED024E61092E27EA675A9D /* Pods-VcCrypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VcCrypto.release.xcconfig"; sourceTree = "<group>"; };
 		BD321E4F10AB35AB7E445F28D534282B /* Pods-sdk-sdkTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-sdk-sdkTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BED1A8EBA88E4A64EC1DAFBBBE623992 /* Pods-VCSerialization-VCSerializationTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VCSerialization-VCSerializationTests.modulemap"; sourceTree = "<group>"; };
+		BFE2BAA567DFD8E0AB595D6D433273A6 /* VCNetworking.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VCNetworking.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C00AA9B85AE0296B38EE49F201668070 /* Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Promise.swift; path = Sources/Promise.swift; sourceTree = "<group>"; };
 		C3FF8DB49D8B860E4114242DF4366FA0 /* Pods-VCSerialization-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VCSerialization-umbrella.h"; sourceTree = "<group>"; };
 		C511A40A69B1309CD7D1BD67E130CA71 /* Pods-sdk-sdkTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-sdk-sdkTests-dummy.m"; sourceTree = "<group>"; };
@@ -566,6 +623,7 @@
 		E19A00D18B5BB783995EA7AFCCC84B77 /* Pods-VcJwt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VcJwt.release.xcconfig"; sourceTree = "<group>"; };
 		E3751E48F6AC11A7D6A7189470F35481 /* bitcoin-core-secp256k1.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "bitcoin-core-secp256k1.xcconfig"; sourceTree = "<group>"; };
 		E3A8349BA0E5FDE63F23806C1B1EA520 /* Pods-VCSerialization-VCSerializationTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VCSerialization-VCSerializationTests-dummy.m"; sourceTree = "<group>"; };
+		E4E9F01E150D0014ECB77FB137D8387B /* VCSerialization.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VCSerialization.xcconfig; sourceTree = "<group>"; };
 		E586CD62595B6116F796EC6D4087F32F /* afterlife.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = afterlife.swift; path = Extensions/Foundation/Sources/afterlife.swift; sourceTree = "<group>"; };
 		E5C06A45625F17E4E194C69314E4A145 /* NSNotificationCenter+AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNotificationCenter+AnyPromise.h"; path = "Extensions/Foundation/Sources/NSNotificationCenter+AnyPromise.h"; sourceTree = "<group>"; };
 		E71384D1B500AB043FF90A3C77E5501A /* UIView+AnyPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+AnyPromise.m"; path = "Extensions/UIKit/Sources/UIView+AnyPromise.m"; sourceTree = "<group>"; };
@@ -592,20 +650,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1055AA7456CD7C052684FC5D3EAE68F1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				255FBD20ABDBA61202B0A3CF0F0136A5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		46F9214900CE1F500D4E081AC05BDD61 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4A613C22671DE0E90BC4F1B70CB3B479 /* Foundation.framework in Frameworks */,
 				56D8783CBF33646ECBF610FCC8EFC43E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48563F70311A2D922E691BB515E9727B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A52DB1D21BCAE10D5CC12328729700E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,22 +683,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		637AF0C7EEAC75C83F5F659883F17B8C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E8EB9168B9D6E32CAE6503CC1E478402 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		704E7AB8903403890DF04653827A5EAE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6F2E1052AAD2DFE0ABF751C82C8BD707 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		73DAA40AA806F4B07D8519ECACFDA40F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -649,11 +691,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BCE2C4237BE3751B0FBC0E3CCBF7C218 /* Frameworks */ = {
+		99FDB285877F506D947D169C372A3FE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95F8F196B1B73D21B9EA0C8078B79988 /* Foundation.framework in Frameworks */,
+				B19B894D15BBB62C233BA2E09294369B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEAE199313ADB2B68B7CF51BFEB1B909 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BA19753292E7D3672BCD0ECB28AF69C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,35 +731,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF2FC85C785B8D6BA26BB9590F91D179 /* Frameworks */ = {
+		F659FB8030E439F7338F2308B5224B96 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				451A7AB74D851DF085BE8B5FF474B926 /* Foundation.framework in Frameworks */,
+				B560F923C6F4ABE7E2F9B8C85A4BE442 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD4372A1FEE3A3252A8B4C3902B46746 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2750E1A31C27E20517AF6016EA3FE8B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09D7509A79F3ACD28F3114F43F0B2703 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				66D9441B30DEBAD851D0AD8E50ED3F59 /* VCNetworking */,
-				D5AC1E0152B2D6EA0994203960719440 /* VCSerialization */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		0BE1DB5D51D2B8E6C1791DCF90356D35 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				80BB2CCDCAD4DFB68DEFD20EA19D9BE3 /* VCSerialization.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../sdk/Pods/Target Support Files/VCSerialization";
-			sourceTree = "<group>";
-		};
 		0E0C12D7132DA6D63F482C72F4E2210C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,12 +764,33 @@
 			path = "../Target Support Files/PromiseKit";
 			sourceTree = "<group>";
 		};
+		12BE26A2B389A196F4D18C576F14B5C3 /* VCNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				4E59ED9C88CA3F123B1181C7CFBA091E /* Pod */,
+				40DDEB6EF34B0D8B71F3653D58F8E57E /* Support Files */,
+			);
+			name = VCNetworking;
+			path = ../../VCNetworking;
+			sourceTree = "<group>";
+		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E6471CFD78B5DD2711D9D92AF01E6F6 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A429E8E3A424F7931BDDD727AABC71B5 /* VcCrypto */,
+				8F7973EF4198F3C600394B139AB9B0C4 /* VcJwt */,
+				12BE26A2B389A196F4D18C576F14B5C3 /* VCNetworking */,
+				65E3C6B3CC7599EBC3F6BED1A131AFEA /* VCSerialization */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		3B81CB243D1D71696B3962CE9AE96CE3 /* Pods-VcJwt */ = {
@@ -748,6 +809,15 @@
 			path = "Target Support Files/Pods-VcJwt";
 			sourceTree = "<group>";
 		};
+		40DDEB6EF34B0D8B71F3653D58F8E57E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				668788E5286EB72A73C0CFB66E8EE5FE /* VCNetworking.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../sdk/Pods/Target Support Files/VCNetworking";
+			sourceTree = "<group>";
+		};
 		470E18A0DCB23DA2D7B4BCC1B608C139 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -755,6 +825,14 @@
 				80B78CE8897ADDCD57278702C0B8F873 /* PromiseKit */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		4AFCD37257063631FC9961B428E10DDA /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				32A9B96BF3FCE0ADD12FB3309DBBECD0 /* VcJwt.podspec */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		4B41E16F31ACB116833C17DF6E9C6A5D /* Products */ = {
@@ -810,22 +888,22 @@
 			path = "Target Support Files/Pods-VCNetworking-VCNetworkingTests";
 			sourceTree = "<group>";
 		};
-		596095A398CA93292B6AE4DEA227AB74 /* Pod */ = {
+		4E59ED9C88CA3F123B1181C7CFBA091E /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				9444EDA3AA18F03D7477A6E8B1287EF8 /* VCSerialization.podspec */,
+				BFE2BAA567DFD8E0AB595D6D433273A6 /* VCNetworking.podspec */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		66D9441B30DEBAD851D0AD8E50ED3F59 /* VCNetworking */ = {
+		65E3C6B3CC7599EBC3F6BED1A131AFEA /* VCSerialization */ = {
 			isa = PBXGroup;
 			children = (
-				DDD979139864426BB3F0ECAEA72B9651 /* Pod */,
-				FDE224176C54BEE0B66533A9833FA118 /* Support Files */,
+				BBB48D5446E2AF24EE5BBB49D7376BE5 /* Pod */,
+				F2FA6A76C118F28B0C7FA5D9754BA10A /* Support Files */,
 			);
-			name = VCNetworking;
-			path = ../../VCNetworking;
+			name = VCSerialization;
+			path = ../../VCSerialization;
 			sourceTree = "<group>";
 		};
 		6AAB8BED6A989628EEB2EA91684C3FA8 /* Pods-VCSerialization */ = {
@@ -870,6 +948,16 @@
 			);
 			name = PromiseKit;
 			path = PromiseKit;
+			sourceTree = "<group>";
+		};
+		8F7973EF4198F3C600394B139AB9B0C4 /* VcJwt */ = {
+			isa = PBXGroup;
+			children = (
+				4AFCD37257063631FC9961B428E10DDA /* Pod */,
+				A21032519F4D4887C6C7F43D3969CC00 /* Support Files */,
+			);
+			name = VcJwt;
+			path = ../../VcJwt;
 			sourceTree = "<group>";
 		};
 		916CA7DF051F1A81297D56536920167C /* Support Files */ = {
@@ -932,6 +1020,25 @@
 			path = "Target Support Files/Pods-sdk";
 			sourceTree = "<group>";
 		};
+		A21032519F4D4887C6C7F43D3969CC00 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				550BDFE890CD5B74B6C4B395061669FC /* VcJwt.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../sdk/Pods/Target Support Files/VcJwt";
+			sourceTree = "<group>";
+		};
+		A429E8E3A424F7931BDDD727AABC71B5 /* VcCrypto */ = {
+			isa = PBXGroup;
+			children = (
+				FD72BAD47AE62B0EB57B53E04C1D52E0 /* Pod */,
+				C0E97E1F5A097D47DBEC417A7DC5E900 /* Support Files */,
+			);
+			name = VcCrypto;
+			path = ../../VCCrypto;
+			sourceTree = "<group>";
+		};
 		B9C25F747B075FFE207E82D3D005768F /* bitcoin-core-secp256k1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -989,6 +1096,14 @@
 			path = "bitcoin-core-secp256k1";
 			sourceTree = "<group>";
 		};
+		BBB48D5446E2AF24EE5BBB49D7376BE5 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				74F0776CF06F1FBD9931C0F826D0E174 /* VCSerialization.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		BC8B623A1B83D71BD08E4A12F58FFB5A /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1004,6 +1119,15 @@
 				EE5F4C0C64F996FCDD090FC0D96E43FE /* Pods-VCSerialization-VCSerializationTests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C0E97E1F5A097D47DBEC417A7DC5E900 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				751F82D0D555FF85B3BF9A53256C3E4A /* VcCrypto.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../sdk/Pods/Target Support Files/VcCrypto";
 			sourceTree = "<group>";
 		};
 		CE0417C5E574E072BA699AE196741CA5 /* Foundation */ = {
@@ -1029,30 +1153,12 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				09D7509A79F3ACD28F3114F43F0B2703 /* Development Pods */,
+				2E6471CFD78B5DD2711D9D92AF01E6F6 /* Development Pods */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
 				470E18A0DCB23DA2D7B4BCC1B608C139 /* Pods */,
 				4B41E16F31ACB116833C17DF6E9C6A5D /* Products */,
 				BC8B623A1B83D71BD08E4A12F58FFB5A /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		D5AC1E0152B2D6EA0994203960719440 /* VCSerialization */ = {
-			isa = PBXGroup;
-			children = (
-				596095A398CA93292B6AE4DEA227AB74 /* Pod */,
-				0BE1DB5D51D2B8E6C1791DCF90356D35 /* Support Files */,
-			);
-			name = VCSerialization;
-			path = ../../VCSerialization;
-			sourceTree = "<group>";
-		};
-		DDD979139864426BB3F0ECAEA72B9651 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				736EB059C086E4F4B09AEC923298ED78 /* VCNetworking.podspec */,
-			);
-			name = Pod;
 			sourceTree = "<group>";
 		};
 		DFA604FE77157A7E980C88A20D72EBB6 /* Pods-VcCrypto-VcCryptoTests */ = {
@@ -1148,23 +1254,78 @@
 			path = "Target Support Files/Pods-VCSerialization-VCSerializationTests";
 			sourceTree = "<group>";
 		};
-		FDE224176C54BEE0B66533A9833FA118 /* Support Files */ = {
+		F2FA6A76C118F28B0C7FA5D9754BA10A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				65EFF34AC4BCB8475DB5058713CDE813 /* VCNetworking.xcconfig */,
+				E4E9F01E150D0014ECB77FB137D8387B /* VCSerialization.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../sdk/Pods/Target Support Files/VCNetworking";
+			path = "../sdk/Pods/Target Support Files/VCSerialization";
+			sourceTree = "<group>";
+		};
+		FD72BAD47AE62B0EB57B53E04C1D52E0 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				B7962B97ABB69223D851BFF5AF1F1BD6 /* VcCrypto.podspec */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		013E21295BA7C2564EA633FA7ECE1C64 /* Headers */ = {
+		103703A283E676EA9A3226C39131E29A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0A69EDDFA63FFB6BA605920146BC305 /* Pods-VCSerialization-VCSerializationTests-umbrella.h in Headers */,
+				E14E81F881B656B09A1B3B2D00475E01 /* assumptions.h in Headers */,
+				DF8EAD4722AC498D0E239DFBF83A7B68 /* basic-config.h in Headers */,
+				61C0CED9E188678C919F058C64CBE917 /* bitcoin-core-secp256k1-umbrella.h in Headers */,
+				0CC6F25BB8104721CC132F3A3492DE79 /* ecdsa.h in Headers */,
+				6D8BA89C98C379ECED581370EBE1CD92 /* ecdsa_impl.h in Headers */,
+				8F3C62F12DCDBCC079618CCBA54542F8 /* eckey.h in Headers */,
+				ADA3CD6798264852BCE51FA3CF137E52 /* eckey_impl.h in Headers */,
+				7CD5B6F4F5CF8C28D698E81E0B080878 /* ecmult.h in Headers */,
+				6A074E2F079D738F3D8237BB2DA665FA /* ecmult_const.h in Headers */,
+				CEF1FFB8DC404FF933102526A708A297 /* ecmult_const_impl.h in Headers */,
+				5175A9213A70AAAC436BED04833C7F57 /* ecmult_gen.h in Headers */,
+				8A52D90A0E37D2772C8D19261148EC3B /* ecmult_gen_impl.h in Headers */,
+				513C5C141F115DB01F9C5877EACC498D /* ecmult_impl.h in Headers */,
+				869FFDEE205BAD4838606AFC0E24DD67 /* field.h in Headers */,
+				5969807D0767490C7FAF57E73E433D3B /* field_10x26.h in Headers */,
+				6468A5C13CF2D853BA8D699574D5FF44 /* field_10x26_impl.h in Headers */,
+				7312821F81430D0DDA5DE998A95E8282 /* field_5x52.h in Headers */,
+				3F7B9490387407CEFDC4306E87039BFA /* field_5x52_asm_impl.h in Headers */,
+				AB5AE7BB2DA97A9E849725A2413F33DA /* field_5x52_impl.h in Headers */,
+				127CC05729CA6C49F23289CBD1B33A21 /* field_5x52_int128_impl.h in Headers */,
+				615CDF6B72AF227417A0952CEEDC3848 /* field_impl.h in Headers */,
+				7CEE635BA2464A2A20B2B4F84FB6C6B1 /* group.h in Headers */,
+				EA71BE3EA1C0FCBF64CCE199F79DC03D /* group_impl.h in Headers */,
+				EF28F9227CA6F4ACE4C7618C881DF70D /* hash.h in Headers */,
+				27E6D7525C5508FF01EC9CBEF42E4509 /* hash_impl.h in Headers */,
+				93E32E0840F99DE79421E31E8B886E6E /* main_impl.h in Headers */,
+				E1E9D3520BD28ED3C564D9BC5B890D57 /* main_impl.h in Headers */,
+				B1DF3554388CDFBE4050CE9D3FC4C616 /* num.h in Headers */,
+				F4A258988E782EE7CF2B810E54C12F3D /* num_gmp.h in Headers */,
+				A3E609FDE0A65BEB8FCD6C2CA37B59CA /* num_gmp_impl.h in Headers */,
+				9C83E564AADD9C1F621FAC19DE07F912 /* num_impl.h in Headers */,
+				2A9A2ECFC5B9D43FD4754646294BDA2E /* scalar.h in Headers */,
+				0062DDC5C8321E8463CA7DC4A390B63A /* scalar_4x64.h in Headers */,
+				67135B603F808E68183713E5765DD1F1 /* scalar_4x64_impl.h in Headers */,
+				9EC14E8CEDF7D656021576C555B4BE95 /* scalar_8x32.h in Headers */,
+				66D51CFAD06894D21D81875E392F9F9C /* scalar_8x32_impl.h in Headers */,
+				128123D41007EF2CEE6FEC4B6DDFABDF /* scalar_impl.h in Headers */,
+				04962D6927F0EBC7B36D70EFCB8341ED /* scalar_low.h in Headers */,
+				5218E23F7F9BD828D2370E15EA536B9C /* scalar_low_impl.h in Headers */,
+				9359B5BEDE0F9A1C0CDE4B8B2DFC8C4D /* scratch.h in Headers */,
+				F2C74E8681F4343C2036885563F88E9C /* scratch_impl.h in Headers */,
+				5553F16DA39F70B1B6EF4CD0B388F066 /* secp256k1.h in Headers */,
+				C791131C5098B85172F7B1B7BB1C9CF2 /* secp256k1_ecdh.h in Headers */,
+				DCB42ABED700C2118F77F8FDCF5F70B3 /* secp256k1_preallocated.h in Headers */,
+				6E59D57B4AF73D833E81E8D380B6285D /* secp256k1_recovery.h in Headers */,
+				590206EDC2307E8C2168320D0003C59A /* tests_impl.h in Headers */,
+				173B398B33FF1967C97F1C97E2457BFF /* tests_impl.h in Headers */,
+				9AF1CB9B6F8E5EBE5420B396EC003604 /* util.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1192,66 +1353,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3D20CA6A4E0D655EDB4762024D67C0FC /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				907171CA27EC958603699AB5E8AFD4BE /* assumptions.h in Headers */,
-				3A05090509E4F42AF78D659C4747AD64 /* basic-config.h in Headers */,
-				756E0310E08EC8A3970D6608C1CAB4E5 /* bitcoin-core-secp256k1-umbrella.h in Headers */,
-				AE201FCC82DA716661A2BCD145BEEC42 /* ecdsa.h in Headers */,
-				B159581BE989FF161043FF44D8D505F0 /* ecdsa_impl.h in Headers */,
-				C6289718BBF5FBA34AF0C80F40E96D28 /* eckey.h in Headers */,
-				C76309D95BDF806559E8B34C285857DD /* eckey_impl.h in Headers */,
-				3482F189EE4CE12A098842FEF2A5A6A6 /* ecmult.h in Headers */,
-				A024588EFD9E3439A44F8C902522B1C0 /* ecmult_const.h in Headers */,
-				5D853C2E3B721423A14E7828747C9FC4 /* ecmult_const_impl.h in Headers */,
-				5498D4FD5B90638EA36C6A5E55CB2F59 /* ecmult_gen.h in Headers */,
-				2EB2EE45F34B6852A844B62C3BA8DBDD /* ecmult_gen_impl.h in Headers */,
-				A31B33D4E360B83796BEDA0B85B43DD9 /* ecmult_impl.h in Headers */,
-				A54360B33889074A0244243262CFC444 /* field.h in Headers */,
-				CCBBED0658AF8EB3866888965C344A98 /* field_10x26.h in Headers */,
-				A98B1B3AC0ACF23EDFC4E65C006F399E /* field_10x26_impl.h in Headers */,
-				52366ADFC8314DB09EB06FB236C5A5F5 /* field_5x52.h in Headers */,
-				5D7C7DDE310A7CB6E4586A8FCD363DB2 /* field_5x52_asm_impl.h in Headers */,
-				0AF7A781EE0980A04A32E8426C71A378 /* field_5x52_impl.h in Headers */,
-				8E05876B2C0C66BF70B1536636B525B9 /* field_5x52_int128_impl.h in Headers */,
-				1412EB35DAB00239364A4770BBF4E8A9 /* field_impl.h in Headers */,
-				22EC49CBBBD5B0153A0784D9A0303875 /* group.h in Headers */,
-				AC3D6B70EB965745650465B28DD7E7EE /* group_impl.h in Headers */,
-				5E61AC99C70C971CEEF4178B027F9C83 /* hash.h in Headers */,
-				76F5475803C5D5AE9E505CEDF716196E /* hash_impl.h in Headers */,
-				954ACFBBDA4E465212ABA1BE03C1F1A5 /* main_impl.h in Headers */,
-				3EBE6F57D4758C0024A166D006AFF5A0 /* main_impl.h in Headers */,
-				0976B4A149879832691DD5FC1697920D /* num.h in Headers */,
-				1D6749E31DA42918CDAB9BE506EBAE98 /* num_gmp.h in Headers */,
-				E73744850B1FEFBB6473233B534F318E /* num_gmp_impl.h in Headers */,
-				D0E6FD4447384167B843A17525AE865A /* num_impl.h in Headers */,
-				309AED6A74CEAC241E7D55616E6487E0 /* scalar.h in Headers */,
-				8ED1D973DFAA553B05612A5386871B39 /* scalar_4x64.h in Headers */,
-				B515E41581B0E95ADA65401180515E2A /* scalar_4x64_impl.h in Headers */,
-				73F0F0D34E9D84AFEFFD33EE1BE0A722 /* scalar_8x32.h in Headers */,
-				C42F04E5534E9762B406C19255EA3966 /* scalar_8x32_impl.h in Headers */,
-				71012E9A124DE65505DB4050C5C24F11 /* scalar_impl.h in Headers */,
-				1D9723BCF06DEEEEB19DB074A02D98B1 /* scalar_low.h in Headers */,
-				78C4B62C3B0B3D69A0E29F63AB199C51 /* scalar_low_impl.h in Headers */,
-				991F892CAAFF08181A77322B5B73B1C5 /* scratch.h in Headers */,
-				4D350655E22078D7C21F119F8A1BB567 /* scratch_impl.h in Headers */,
-				67704F3816FAE2618B73D44BBFCC2300 /* secp256k1.h in Headers */,
-				C0B329CFBC6E9A37A727A715F0D5BE0C /* secp256k1_ecdh.h in Headers */,
-				02D3E8CBD77842E759F4A87C447135EC /* secp256k1_preallocated.h in Headers */,
-				BA1317F411DA8AAF1F178C85C572752B /* secp256k1_recovery.h in Headers */,
-				49F35D9A610F07328057A352F8053569 /* tests_impl.h in Headers */,
-				189433066B2087CFF0506EAF8E9A5701 /* tests_impl.h in Headers */,
-				3755078ACBBD68EA90CD48E7BBEFB6DB /* util.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		67BC95C751D86294370E8851B89F55B8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EE57819EBA0EA48D2C727B0EFC478BF3 /* Pods-VCNetworking-VCNetworkingTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		961359728599B05DF818CD0B6FACF783 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DD2544E2F5A2B7A8D71766F96176CBA /* Pods-VCSerialization-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A08B55DF095FD501A19FB7890F8980D3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17AAF2F787966C84BFAA95423D4D2DDF /* Pods-VcJwt-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC2203DA80B1741CA5D9837854C92B43 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36DF15BDC7973AFCF4B2C4560DF684F2 /* Pods-VcJwt-VcJwtTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1281,19 +1411,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C418C05B9F9D23C8C770F6EA38C8D75A /* Headers */ = {
+		D66969EC41AE2D7A8498AED7AE229095 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CCC33143E5C707C70E7FB31CE386F24 /* Pods-VcJwt-VcJwtTests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E7849431A2EC41622BDF3628B8DBF48E /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0838F1B45948E6047E4568E0E97D8D8D /* Pods-VCSerialization-umbrella.h in Headers */,
+				DBB56C770EEED6C61B1552BF4B91429B /* Pods-VCSerialization-VCSerializationTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1305,30 +1427,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FEF4D3DCBDE26F43BDC4430AA1E7C5FA /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				58DD529090B093AE95939DE6C661CFFE /* Pods-VcJwt-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		0391E81BCCFB80794D86A002B009DE90 /* Pods-VcJwt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FE1B07A11036927628B29EEC507A3202 /* Build configuration list for PBXNativeTarget "Pods-VcJwt" */;
+			buildConfigurationList = 9E2153A753C83B116C4FB14BC1F849FB /* Build configuration list for PBXNativeTarget "Pods-VcJwt" */;
 			buildPhases = (
-				FEF4D3DCBDE26F43BDC4430AA1E7C5FA /* Headers */,
-				670389827EAB9F656A374A37171EC8F8 /* Sources */,
-				704E7AB8903403890DF04653827A5EAE /* Frameworks */,
-				949CFA12AA86CE7534FFAB02D293F959 /* Resources */,
+				A08B55DF095FD501A19FB7890F8980D3 /* Headers */,
+				278E1F7A6ECF73FFD77BD789D1F83613 /* Sources */,
+				FD4372A1FEE3A3252A8B4C3902B46746 /* Frameworks */,
+				55BA245CED2D5D689E700EF85293026B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				84E31868F051D434260F58E982ABF063 /* PBXTargetDependency */,
+				80F8802E60139D49A0D93A471C27F28A /* PBXTargetDependency */,
+				A16792503F59DF4AD640772BC41D2AC1 /* PBXTargetDependency */,
 			);
 			name = "Pods-VcJwt";
 			productName = "Pods-VcJwt";
@@ -1356,16 +1471,17 @@
 		};
 		2FBF831E9DC6991A61B93E35E111DD7C /* Pods-VCSerialization-VCSerializationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 895246B0A24CC780CCBE872281E96C32 /* Build configuration list for PBXNativeTarget "Pods-VCSerialization-VCSerializationTests" */;
+			buildConfigurationList = 5663A61E0C3E964339C19B1E9D383EF4 /* Build configuration list for PBXNativeTarget "Pods-VCSerialization-VCSerializationTests" */;
 			buildPhases = (
-				013E21295BA7C2564EA633FA7ECE1C64 /* Headers */,
-				EBA09D40EB090A89EE346D3D821B07B9 /* Sources */,
-				BCE2C4237BE3751B0FBC0E3CCBF7C218 /* Frameworks */,
-				F3CF9E316678B87B7BF26EEAF1A83C4C /* Resources */,
+				D66969EC41AE2D7A8498AED7AE229095 /* Headers */,
+				6286B8D81803DB36B8BD10095DC1165F /* Sources */,
+				48563F70311A2D922E691BB515E9727B /* Frameworks */,
+				2CB488FEB7EA1E27DF5E66CBD3B0EFA3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EC0EA7D509F7C09D14C1EEF0E4524679 /* PBXTargetDependency */,
 			);
 			name = "Pods-VCSerialization-VCSerializationTests";
 			productName = "Pods-VCSerialization-VCSerializationTests";
@@ -1374,14 +1490,14 @@
 		};
 		3020FF5BE409E86C04853BBDEF3E50A7 /* bitcoin-core-secp256k1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 63F62C737C117ECA47C7C3E071AFEED4 /* Build configuration list for PBXNativeTarget "bitcoin-core-secp256k1" */;
+			buildConfigurationList = 9216F241A7F28247C884C8E5849B0204 /* Build configuration list for PBXNativeTarget "bitcoin-core-secp256k1" */;
 			buildPhases = (
-				3D20CA6A4E0D655EDB4762024D67C0FC /* Headers */,
-				9A23E59FF290405FD01B83167E4112E6 /* Sources */,
-				637AF0C7EEAC75C83F5F659883F17B8C /* Frameworks */,
-				76234B82A1C36D89E1421DA336AFD485 /* Resources */,
-				140B7D352EE45CECEB38A7720D1BE570 /* Copy include Public Headers */,
-				5AAAEEBDA5CF23CCF736436E1B198220 /* Copy src Private Headers */,
+				103703A283E676EA9A3226C39131E29A /* Headers */,
+				B8E9CB25BA5D860E1C68C7CB65C93803 /* Sources */,
+				BEAE199313ADB2B68B7CF51BFEB1B909 /* Frameworks */,
+				A1F1981C3F7BA5D94269956DEAB033D6 /* Resources */,
+				7724A5C30DD8B8A784458B3F7DA5D824 /* Copy include Public Headers */,
+				D135A680FBC3E227BBC77B52F877E0FE /* Copy src Private Headers */,
 			);
 			buildRules = (
 			);
@@ -1472,17 +1588,18 @@
 		};
 		C482950A93EDEEFD02D6E0B3364BC95C /* Pods-VcJwt-VcJwtTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A3C86BDFD1D37AB76BCE43CA459095D0 /* Build configuration list for PBXNativeTarget "Pods-VcJwt-VcJwtTests" */;
+			buildConfigurationList = EF6E05670007B86C5692DEC4BADB337F /* Build configuration list for PBXNativeTarget "Pods-VcJwt-VcJwtTests" */;
 			buildPhases = (
-				C418C05B9F9D23C8C770F6EA38C8D75A /* Headers */,
-				03E6931AC6B5FD497D3979E1A80309FE /* Sources */,
-				FF2FC85C785B8D6BA26BB9590F91D179 /* Frameworks */,
-				EC266D049C10B421A649388899930818 /* Resources */,
+				AC2203DA80B1741CA5D9837854C92B43 /* Headers */,
+				64431A09561B94CDA4BB2629EA6976F2 /* Sources */,
+				99FDB285877F506D947D169C372A3FE3 /* Frameworks */,
+				1AFE2B23C0F03EF3E32BBCF861DA4EA0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BF39DBE07C3779C94E430C37423E69C2 /* PBXTargetDependency */,
+				909AD507C83093F9CA2D7D3784D7E461 /* PBXTargetDependency */,
+				944B285E7364A5CB07877E60D2222283 /* PBXTargetDependency */,
 			);
 			name = "Pods-VcJwt-VcJwtTests";
 			productName = "Pods-VcJwt-VcJwtTests";
@@ -1532,16 +1649,17 @@
 		};
 		FADA8930B16457C0040757445DFC4679 /* Pods-VCSerialization */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75FE96CFAD58366E426EFE2254B9C5F1 /* Build configuration list for PBXNativeTarget "Pods-VCSerialization" */;
+			buildConfigurationList = 078CCFAB33AC664FF1B59E1D4A3419B9 /* Build configuration list for PBXNativeTarget "Pods-VCSerialization" */;
 			buildPhases = (
-				E7849431A2EC41622BDF3628B8DBF48E /* Headers */,
-				683BCF955787C4325BD9E53DD10F6CC2 /* Sources */,
-				1055AA7456CD7C052684FC5D3EAE68F1 /* Frameworks */,
-				6A48B5476D5C729E174A9B341193AC5F /* Resources */,
+				961359728599B05DF818CD0B6FACF783 /* Headers */,
+				6CD73FCF0471463FF836AD6E0A7A5F9E /* Sources */,
+				F659FB8030E439F7338F2308B5224B96 /* Frameworks */,
+				9C9510566B3B9580E7ED0B060BA17571 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AA7B138F6960884C3D1E4443DC3C540F /* PBXTargetDependency */,
 			);
 			name = "Pods-VCSerialization";
 			productName = "Pods-VCSerialization";
@@ -1582,6 +1700,8 @@
 				FADA8930B16457C0040757445DFC4679 /* Pods-VCSerialization */,
 				2FBF831E9DC6991A61B93E35E111DD7C /* Pods-VCSerialization-VCSerializationTests */,
 				7C579CE66A1E7A9AA33CA5F97F9C22C5 /* PromiseKit */,
+				9AE68C3D8E67C47FB2C8E83198549C5F /* VcCrypto */,
+				EDF830429C5FFC8064C58ABBA5CA0A2E /* VcJwt */,
 				C5977F8CA3E1CDE64F71D2603E2E5A0E /* VCNetworking */,
 				A6B79F371F872690B26C831A82F5C805 /* VCSerialization */,
 			);
@@ -1596,6 +1716,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1AFE2B23C0F03EF3E32BBCF861DA4EA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CB488FEB7EA1E27DF5E66CBD3B0EFA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		409EA903AAA7848EE17474A886579F4C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1603,14 +1737,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6A48B5476D5C729E174A9B341193AC5F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		76234B82A1C36D89E1421DA336AFD485 /* Resources */ = {
+		55BA245CED2D5D689E700EF85293026B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1624,7 +1751,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		949CFA12AA86CE7534FFAB02D293F959 /* Resources */ = {
+		9C9510566B3B9580E7ED0B060BA17571 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1F1981C3F7BA5D94269956DEAB033D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1652,21 +1786,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC266D049C10B421A649388899930818 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EC426B2DF860052427F7D5815097A23C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F3CF9E316678B87B7BF26EEAF1A83C4C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1676,11 +1796,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		03E6931AC6B5FD497D3979E1A80309FE /* Sources */ = {
+		278E1F7A6ECF73FFD77BD789D1F83613 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F9D526F1F6129B83D0847066D621953 /* Pods-VcJwt-VcJwtTests-dummy.m in Sources */,
+				CC109599EB717FB4B908412C26F16850 /* Pods-VcJwt-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1692,19 +1812,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		670389827EAB9F656A374A37171EC8F8 /* Sources */ = {
+		6286B8D81803DB36B8BD10095DC1165F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				880D7AF448C96A956DEE09139688A811 /* Pods-VcJwt-dummy.m in Sources */,
+				4E415A413785A3B44069197F3A536DEE /* Pods-VCSerialization-VCSerializationTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		683BCF955787C4325BD9E53DD10F6CC2 /* Sources */ = {
+		64431A09561B94CDA4BB2629EA6976F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECB2B69E6099B3B9BE181EEE7E9F74A3 /* Pods-VCSerialization-dummy.m in Sources */,
+				A2CB7D43B0511320372716A44086E9ED /* Pods-VcJwt-VcJwtTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CD73FCF0471463FF836AD6E0A7A5F9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CA98E1F5CD026D38CC50E193E2C2CAE /* Pods-VCSerialization-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1716,20 +1844,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9A23E59FF290405FD01B83167E4112E6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				923EB0D544D1FF534D842208381FB5DA /* bitcoin-core-secp256k1-dummy.m in Sources */,
-				959B4E46C362684626F509AD0F939379 /* secp256k1.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ACCD93923F3DEB6B247F72EBF4134397 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6B5006AF3059E761AE0ACDDDDA2F1196 /* Pods-sdk-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8E9CB25BA5D860E1C68C7CB65C93803 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E1B08E5A2C1E58384F075C8F653537C /* bitcoin-core-secp256k1-dummy.m in Sources */,
+				167E4B1DDE01AB1072D449721EF3572E /* secp256k1.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1801,14 +1929,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBA09D40EB090A89EE346D3D821B07B9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				33BC373DB1E8952F33840DB4908E59DE /* Pods-VCSerialization-VCSerializationTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1817,6 +1937,12 @@
 			name = PromiseKit;
 			target = 7C579CE66A1E7A9AA33CA5F97F9C22C5 /* PromiseKit */;
 			targetProxy = 486997520C38F702657BAFC8EA1200C0 /* PBXContainerItemProxy */;
+		};
+		457FD41BF44624F76CA4B0875B50308A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "bitcoin-core-secp256k1";
+			target = 3020FF5BE409E86C04853BBDEF3E50A7 /* bitcoin-core-secp256k1 */;
+			targetProxy = A64009CE24A51E68AB404C77505A1A72 /* PBXContainerItemProxy */;
 		};
 		6863543C935B2DAC06EBC9D8D01B4C90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1830,17 +1956,29 @@
 			target = 7C579CE66A1E7A9AA33CA5F97F9C22C5 /* PromiseKit */;
 			targetProxy = 7F2ABAD67F28F7F627ECEB46CF286E98 /* PBXContainerItemProxy */;
 		};
-		84E31868F051D434260F58E982ABF063 /* PBXTargetDependency */ = {
+		80F8802E60139D49A0D93A471C27F28A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "bitcoin-core-secp256k1";
-			target = 3020FF5BE409E86C04853BBDEF3E50A7 /* bitcoin-core-secp256k1 */;
-			targetProxy = 473241F8342FA415D15C793356A2B384 /* PBXContainerItemProxy */;
+			name = VcCrypto;
+			target = 9AE68C3D8E67C47FB2C8E83198549C5F /* VcCrypto */;
+			targetProxy = 1BC9530B95CD2CAAECCCB0E432259E49 /* PBXContainerItemProxy */;
 		};
 		8736C3DF4685C0297EAED37A73A907D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PromiseKit;
 			target = 7C579CE66A1E7A9AA33CA5F97F9C22C5 /* PromiseKit */;
 			targetProxy = 06F166F9CF56D45BA1A67A0190E98CBB /* PBXContainerItemProxy */;
+		};
+		909AD507C83093F9CA2D7D3784D7E461 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VcCrypto;
+			target = 9AE68C3D8E67C47FB2C8E83198549C5F /* VcCrypto */;
+			targetProxy = 7251087F3587965D8387D0FE2E4C7DED /* PBXContainerItemProxy */;
+		};
+		944B285E7364A5CB07877E60D2222283 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "bitcoin-core-secp256k1";
+			target = 3020FF5BE409E86C04853BBDEF3E50A7 /* bitcoin-core-secp256k1 */;
+			targetProxy = 44A774CCD9F7984737025616B23E8A69 /* PBXContainerItemProxy */;
 		};
 		9702419FB1C6D3779F962AE161FC05CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1866,11 +2004,23 @@
 			target = 7C579CE66A1E7A9AA33CA5F97F9C22C5 /* PromiseKit */;
 			targetProxy = 4BE7064C11C4696C29D4A046A9E1CFF8 /* PBXContainerItemProxy */;
 		};
+		A16792503F59DF4AD640772BC41D2AC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "bitcoin-core-secp256k1";
+			target = 3020FF5BE409E86C04853BBDEF3E50A7 /* bitcoin-core-secp256k1 */;
+			targetProxy = 16A3D9D084EE6A7ACABE07A6C7859480 /* PBXContainerItemProxy */;
+		};
 		A9E5D8B6057F4E24CDBA83ADD8480B2D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = VCSerialization;
 			target = A6B79F371F872690B26C831A82F5C805 /* VCSerialization */;
 			targetProxy = EA6983030A1B9388964E3E52B3D02CAC /* PBXContainerItemProxy */;
+		};
+		AA7B138F6960884C3D1E4443DC3C540F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VcJwt;
+			target = EDF830429C5FFC8064C58ABBA5CA0A2E /* VcJwt */;
+			targetProxy = F90BEE4F397BD1A6A87167DA30702094 /* PBXContainerItemProxy */;
 		};
 		AB058E09C899438041F7CE2C20D95D13 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1878,17 +2028,17 @@
 			target = 7C579CE66A1E7A9AA33CA5F97F9C22C5 /* PromiseKit */;
 			targetProxy = EDB9DAE521BE080BF58040CF97A6AE7D /* PBXContainerItemProxy */;
 		};
-		BF39DBE07C3779C94E430C37423E69C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "bitcoin-core-secp256k1";
-			target = 3020FF5BE409E86C04853BBDEF3E50A7 /* bitcoin-core-secp256k1 */;
-			targetProxy = 9DBA3F4C5FF69F97F9B0ED2FA9258CD6 /* PBXContainerItemProxy */;
-		};
 		CB2D876F2C36B822A5893B6A5B734568 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = VCNetworking;
 			target = C5977F8CA3E1CDE64F71D2603E2E5A0E /* VCNetworking */;
 			targetProxy = 7C608A22C1ADB05EC2CC169792DE09FA /* PBXContainerItemProxy */;
+		};
+		EC0EA7D509F7C09D14C1EEF0E4524679 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VcJwt;
+			target = EDF830429C5FFC8064C58ABBA5CA0A2E /* VcJwt */;
+			targetProxy = 6D994315D2B42F6D789F7236625C02DE /* PBXContainerItemProxy */;
 		};
 		EF4A2BBBC921B5349702CB445FDC8186 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1944,9 +2094,9 @@
 			};
 			name = Release;
 		};
-		1688108EFD2360033426BF7B830017F5 /* Debug */ = {
+		23913CCE14488E0FC55FF0AA1FF182D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A3D7D2FBC8989CCCA24CE3E211104D1 /* Pods-VCSerialization.debug.xcconfig */;
+			baseConfigurationReference = 4066EA2263CC17EF330A2CECF8A8328F /* Pods-VcJwt.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1959,7 +2109,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VCSerialization/Pods-VCSerialization-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-VcJwt/Pods-VcJwt-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1968,7 +2118,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VCSerialization/Pods-VCSerialization.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-VcJwt/Pods-VcJwt.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2042,44 +2192,27 @@
 			};
 			name = Release;
 		};
-		2C6A04BD5C0B0B8B742D6B14B4A07FFB /* Debug */ = {
+		30A282F1ABB14B085960B58C7BE64EB6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3751E48F6AC11A7D6A7189470F35481 /* bitcoin-core-secp256k1.xcconfig */;
+			baseConfigurationReference = 751F82D0D555FF85B3BF9A53256C3E4A /* VcCrypto.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1.modulemap";
-				PRODUCT_MODULE_NAME = bitcoin_core_secp256k1;
-				PRODUCT_NAME = bitcoin_core_secp256k1;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		3522AD4B59BB717D645D2A0A3A590494 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80BB2CCDCAD4DFB68DEFD20EA19D9BE3 /* VCSerialization.xcconfig */;
+			baseConfigurationReference = E4E9F01E150D0014ECB77FB137D8387B /* VCSerialization.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2092,45 +2225,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
-		};
-		3990D0265F7C5E40220CCA7948377E1A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEC06E30C0958B3B76D74038F0DB0C06 /* Pods-VCSerialization.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VCSerialization/Pods-VCSerialization-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VCSerialization/Pods-VCSerialization.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		3A8941954793D9ED7A5EADFDDC8D4599 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2171,44 +2265,6 @@
 			};
 			name = Release;
 		};
-		41FD9AC390F5F6A85244E76CBA8D548A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 254274E39642816A7DC976DF29D722F7 /* Pods-VCSerialization-VCSerializationTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VCSerialization-VCSerializationTests/Pods-VCSerialization-VCSerializationTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VCSerialization-VCSerializationTests/Pods-VCSerialization-VCSerializationTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		42A3B7EA64FBB19D2B0CD36E61B70439 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 197D32657E53FE168863C45E3CFD7169 /* Pods-VCNetworking.debug.xcconfig */;
@@ -2247,7 +2303,83 @@
 			};
 			name = Debug;
 		};
-		4689EFB140910B8CD7FC4F9D762D46B0 /* Release */ = {
+		43088562C8CF76CE75C04B21AB7F4B94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 254274E39642816A7DC976DF29D722F7 /* Pods-VCSerialization-VCSerializationTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VCSerialization-VCSerializationTests/Pods-VCSerialization-VCSerializationTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VCSerialization-VCSerializationTests/Pods-VCSerialization-VCSerializationTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		439232C957DB740EB6EDB9A5359D4176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A3D7D2FBC8989CCCA24CE3E211104D1 /* Pods-VCSerialization.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VCSerialization/Pods-VCSerialization-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VCSerialization/Pods-VCSerialization.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		43C7244FAC352C47A4C55FD96CAC2FF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E19A00D18B5BB783995EA7AFCCC84B77 /* Pods-VcJwt.release.xcconfig */;
 			buildSettings = {
@@ -2288,7 +2420,7 @@
 		};
 		48B734268FA34BF44CD0A8B831DDBE43 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80BB2CCDCAD4DFB68DEFD20EA19D9BE3 /* VCSerialization.xcconfig */;
+			baseConfigurationReference = E4E9F01E150D0014ECB77FB137D8387B /* VCSerialization.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2303,9 +2435,44 @@
 			};
 			name = Release;
 		};
-		5D821D2AF77A9E3D6B65B4F4A91EE940 /* Release */ = {
+		5A9B89AD532B7B100D0CEA675ACF5BC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB72C862853C31A1BEF5C4ACBE542F28 /* Pods-VCSerialization-VCSerializationTests.release.xcconfig */;
+			baseConfigurationReference = E3751E48F6AC11A7D6A7189470F35481 /* bitcoin-core-secp256k1.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1.modulemap";
+				PRODUCT_MODULE_NAME = bitcoin_core_secp256k1;
+				PRODUCT_NAME = bitcoin_core_secp256k1;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5B74F1C2CE3C6AB01DF5925C3812C65E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEC06E30C0958B3B76D74038F0DB0C06 /* Pods-VCSerialization.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2318,7 +2485,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VCSerialization-VCSerializationTests/Pods-VCSerialization-VCSerializationTests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-VCSerialization/Pods-VCSerialization-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2327,7 +2494,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VCSerialization-VCSerializationTests/Pods-VCSerialization-VCSerializationTests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-VCSerialization/Pods-VCSerialization.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2342,9 +2509,83 @@
 			};
 			name = Release;
 		};
-		63D28435CAB7114C598C44A1FC3920B9 /* Debug */ = {
+		622C09FE6801C861677616EDF9E7A045 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65EFF34AC4BCB8475DB5058713CDE813 /* VCNetworking.xcconfig */;
+			baseConfigurationReference = 30C3416F583619A9C6957255AE4D8371 /* Pods-VcJwt-VcJwtTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6303C0C02A8FBAF01334F2F39A448333 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3751E48F6AC11A7D6A7189470F35481 /* bitcoin-core-secp256k1.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1.modulemap";
+				PRODUCT_MODULE_NAME = bitcoin_core_secp256k1;
+				PRODUCT_NAME = bitcoin_core_secp256k1;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6349413DD6F127D42CBC5C544C613052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 751F82D0D555FF85B3BF9A53256C3E4A /* VcCrypto.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2359,41 +2600,20 @@
 			};
 			name = Debug;
 		};
-		76C7EC565619023690A3F8FF79C8462B /* Debug */ = {
+		63D28435CAB7114C598C44A1FC3920B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4066EA2263CC17EF330A2CECF8A8328F /* Pods-VcJwt.debug.xcconfig */;
+			baseConfigurationReference = 668788E5286EB72A73C0CFB66E8EE5FE /* VCNetworking.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VcJwt/Pods-VcJwt-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VcJwt/Pods-VcJwt.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -2471,9 +2691,9 @@
 			};
 			name = Debug;
 		};
-		8DFFE13C121FCED397FF7ACBEBA921BA /* Release */ = {
+		9CDC36E26846680163339C6B63E2997C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5D7E97D6E974637537D379E161DAC1B /* Pods-VcJwt-VcJwtTests.release.xcconfig */;
+			baseConfigurationReference = DB72C862853C31A1BEF5C4ACBE542F28 /* Pods-VCSerialization-VCSerializationTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2486,7 +2706,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-VCSerialization-VCSerializationTests/Pods-VCSerialization-VCSerializationTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2495,7 +2715,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-VCSerialization-VCSerializationTests/Pods-VCSerialization-VCSerializationTests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2664,44 +2884,6 @@
 			};
 			name = Release;
 		};
-		AF30DC8E7C1535E3064548AA836C0809 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30C3416F583619A9C6957255AE4D8371 /* Pods-VcJwt-VcJwtTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		B161DD59D8430817E1F887DA51BAA3E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 108D2F02088298131E5D7FE22B2B701D /* Pods-VcCrypto.debug.xcconfig */;
@@ -2780,7 +2962,7 @@
 		};
 		CE0B8E0313E6E4582B594C33499DC77B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65EFF34AC4BCB8475DB5058713CDE813 /* VCNetworking.xcconfig */;
+			baseConfigurationReference = 668788E5286EB72A73C0CFB66E8EE5FE /* VCNetworking.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2821,6 +3003,45 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-VCNetworking-VCNetworkingTests/Pods-VCNetworking-VCNetworkingTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DBDFE9733404950655944AABF893CF49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5D7E97D6E974637537D379E161DAC1B /* Pods-VcJwt-VcJwtTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2973,41 +3194,40 @@
 			};
 			name = Release;
 		};
-		F220C7F2EE939EC759A41AA11B49D95A /* Release */ = {
+		EAE40C0CD0D37108A8257F3C27E8BEDE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3751E48F6AC11A7D6A7189470F35481 /* bitcoin-core-secp256k1.xcconfig */;
+			baseConfigurationReference = 550BDFE890CD5B74B6C4B395061669FC /* VcJwt.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/bitcoin-core-secp256k1/bitcoin-core-secp256k1.modulemap";
-				PRODUCT_MODULE_NAME = bitcoin_core_secp256k1;
-				PRODUCT_NAME = bitcoin_core_secp256k1;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		EE364A3FE1F37939C09C93C6327BF1CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 550BDFE890CD5B74B6C4B395061669FC /* VcJwt.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -3017,6 +3237,15 @@
 			buildConfigurations = (
 				810751377D09B9E1EC0DF4C59D0080A1 /* Debug */,
 				E4B377AE77F1821330F7166C808972CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		078CCFAB33AC664FF1B59E1D4A3419B9 /* Build configuration list for PBXNativeTarget "Pods-VCSerialization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				439232C957DB740EB6EDB9A5359D4176 /* Debug */,
+				5B74F1C2CE3C6AB01DF5925C3812C65E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3057,11 +3286,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63F62C737C117ECA47C7C3E071AFEED4 /* Build configuration list for PBXNativeTarget "bitcoin-core-secp256k1" */ = {
+		5663A61E0C3E964339C19B1E9D383EF4 /* Build configuration list for PBXNativeTarget "Pods-VCSerialization-VCSerializationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2C6A04BD5C0B0B8B742D6B14B4A07FFB /* Debug */,
-				F220C7F2EE939EC759A41AA11B49D95A /* Release */,
+				43088562C8CF76CE75C04B21AB7F4B94 /* Debug */,
+				9CDC36E26846680163339C6B63E2997C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3084,29 +3313,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75FE96CFAD58366E426EFE2254B9C5F1 /* Build configuration list for PBXNativeTarget "Pods-VCSerialization" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1688108EFD2360033426BF7B830017F5 /* Debug */,
-				3990D0265F7C5E40220CCA7948377E1A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		7D093200FC775B31997674330F3D0A67 /* Build configuration list for PBXAggregateTarget "VCNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63D28435CAB7114C598C44A1FC3920B9 /* Debug */,
 				CE0B8E0313E6E4582B594C33499DC77B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		895246B0A24CC780CCBE872281E96C32 /* Build configuration list for PBXNativeTarget "Pods-VCSerialization-VCSerializationTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				41FD9AC390F5F6A85244E76CBA8D548A /* Debug */,
-				5D821D2AF77A9E3D6B65B4F4A91EE940 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3120,11 +3331,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3C86BDFD1D37AB76BCE43CA459095D0 /* Build configuration list for PBXNativeTarget "Pods-VcJwt-VcJwtTests" */ = {
+		9216F241A7F28247C884C8E5849B0204 /* Build configuration list for PBXNativeTarget "bitcoin-core-secp256k1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AF30DC8E7C1535E3064548AA836C0809 /* Debug */,
-				8DFFE13C121FCED397FF7ACBEBA921BA /* Release */,
+				5A9B89AD532B7B100D0CEA675ACF5BC3 /* Debug */,
+				6303C0C02A8FBAF01334F2F39A448333 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E2153A753C83B116C4FB14BC1F849FB /* Build configuration list for PBXNativeTarget "Pods-VcJwt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23913CCE14488E0FC55FF0AA1FF182D1 /* Debug */,
+				43C7244FAC352C47A4C55FD96CAC2FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A08D589B2F8C7964801C03AC3B5D226A /* Build configuration list for PBXAggregateTarget "VcJwt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE364A3FE1F37939C09C93C6327BF1CC /* Debug */,
+				EAE40C0CD0D37108A8257F3C27E8BEDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3138,11 +3367,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FE1B07A11036927628B29EEC507A3202 /* Build configuration list for PBXNativeTarget "Pods-VcJwt" */ = {
+		CAA64A672A550FF145510D88447DC586 /* Build configuration list for PBXAggregateTarget "VcCrypto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				76C7EC565619023690A3F8FF79C8462B /* Debug */,
-				4689EFB140910B8CD7FC4F9D762D46B0 /* Release */,
+				6349413DD6F127D42CBC5C544C613052 /* Debug */,
+				30A282F1ABB14B085960B58C7BE64EB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF6E05670007B86C5692DEC4BADB337F /* Build configuration list for PBXNativeTarget "Pods-VcJwt-VcJwtTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				622C09FE6801C861677616EDF9E7A045 /* Debug */,
+				DBDFE9733404950655944AABF893CF49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

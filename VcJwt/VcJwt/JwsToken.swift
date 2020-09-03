@@ -9,13 +9,13 @@ enum JwsTokenError: Error {
     case unsupportedAlgorithm(name: String?)
 }
 
-struct JwsToken<T: Claims> {
+public struct JwsToken<T: Claims> {
     
     let headers: Header
     let content: T
     var signature: Signature?
     
-    init(headers: Header, content: T, signature: Data?) {
+    public init(headers: Header, content: T, signature: Data?) {
         self.headers = headers
         self.content = content
         self.signature = signature

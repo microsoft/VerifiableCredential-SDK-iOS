@@ -32,8 +32,6 @@
 		55D1684024EB0E3600AD2F98 /* FetchContractOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1683524EB0E3600AD2F98 /* FetchContractOperationTests.swift */; };
 		55D1684124EB0E3600AD2F98 /* NetworkOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1683624EB0E3600AD2F98 /* NetworkOperationTests.swift */; };
 		55D1684224EB0E3600AD2F98 /* SimpleFailureHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1683824EB0E3600AD2F98 /* SimpleFailureHandlerTests.swift */; };
-		55D1687F24EB16FE00AD2F98 /* VCSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1687E24EB16FE00AD2F98 /* VCSerialization.framework */; };
-		55D1688024EB16FE00AD2F98 /* VCSerialization.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1687E24EB16FE00AD2F98 /* VCSerialization.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55D7BFF424C4CBBD0090F495 /* VCNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7BFEA24C4CBBD0090F495 /* VCNetworking.framework */; };
 		5B07212A5E8EE6A2F69D4916 /* Pods_VCNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B91901B9650D385F9267D5E /* Pods_VCNetworking.framework */; };
 /* End PBXBuildFile section */
@@ -47,20 +45,6 @@
 			remoteInfo = networking;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		55D1688124EB16FE00AD2F98 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				55D1688024EB16FE00AD2F98 /* VCSerialization.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0D60911EE32D37BF1E66EE63 /* Pods-VCNetworking-VCNetworkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking-VCNetworkingTests.debug.xcconfig"; path = "Target Support Files/Pods-VCNetworking-VCNetworkingTests/Pods-VCNetworking-VCNetworkingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D1687F24EB16FE00AD2F98 /* VCSerialization.framework in Frameworks */,
 				5B07212A5E8EE6A2F69D4916 /* Pods_VCNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,7 +340,6 @@
 				55D7BFE624C4CBBD0090F495 /* Sources */,
 				55D7BFE724C4CBBD0090F495 /* Frameworks */,
 				55D7BFE824C4CBBD0090F495 /* Resources */,
-				55D1688124EB16FE00AD2F98 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

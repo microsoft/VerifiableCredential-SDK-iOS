@@ -4,14 +4,14 @@
 *--------------------------------------------------------------------------------------------*/
 
 /// Basic Claims within a JWS token.
-protocol Claims: Codable {
+public protocol Claims: Codable {
     
     var iat: String? { get }
     var exp: String? { get }
     var nbf: String? { get }
 }
 
-extension Claims {
+public extension Claims {
     var iat: String? {
         return nil
     }

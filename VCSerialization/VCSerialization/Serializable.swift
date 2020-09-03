@@ -16,11 +16,11 @@ public protocol Serializable {
 
 public extension Serializable where Self: Codable {
     func serialize(to serializer: Serializer) throws -> Data {
-        return try serializer.encoder.encode(self)
+        return try serializer.jsonEncoder.encode(self)
     }
     
     init(with serializer: Serializer, data: Data) throws {
-        self = try serializer.decoder.decode(Self.self, from: data)
+        self = try serializer.jsonDecoder.decode(Self.self, from: data)
     }
 }
 

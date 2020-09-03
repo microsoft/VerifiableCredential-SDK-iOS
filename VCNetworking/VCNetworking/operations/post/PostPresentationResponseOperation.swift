@@ -15,7 +15,7 @@ final class PostPresentationResponseOperation: NetworkOperation {
     let urlSession: URLSession
     let urlRequest: URLRequest
     
-    init(withUrl urlStr: String, withBody body: MockPresentationRequest, serializer: SerializerProtocol = Serializer(), urlSession: URLSession = URLSession.shared) throws {
+    init(withUrl urlStr: String, withBody body: MockPresentationRequest, serializer: Serializing = Serializer(), urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)

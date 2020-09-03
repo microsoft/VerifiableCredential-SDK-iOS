@@ -5,9 +5,7 @@
 
 import Foundation
 
-
-struct VerifiableCredential {
+struct VerifiableCredential: Codable {
     let raw: Data
     let claims: VcClaims
-    let token: JwsToken<VcClaims>
 }

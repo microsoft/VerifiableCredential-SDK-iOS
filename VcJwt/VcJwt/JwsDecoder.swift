@@ -9,11 +9,13 @@ enum JwsDecoderError: Error {
     case unsupportedEncodingFormat
 }
 
-class JwsDecoder {
+public class JwsDecoder {
     
     private let decoder = JSONDecoder()
     
-    func decode<T>(_ type: T.Type, token: String) throws -> JwsToken<T> {
+    public init() {}
+    
+    public func decode<T>(_ type: T.Type, token: String) throws -> JwsToken<T> {
 
         let splitStringifiedData = token.components(separatedBy: ".")
         

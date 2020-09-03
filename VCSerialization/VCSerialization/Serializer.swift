@@ -7,18 +7,27 @@
 //
 
 import Foundation
+import VcJwt
 
-public protocol SerializerProtocol {
+public enum SerializationError: Error {
+    case nullData
+    case unableToStringifyData(withData: Data)
+    case malFormedObject(withData: Data)
+}
+
+public protocol Serializing {
     func deserialize<T: Serializable>(_: T.Type, data: Data) throws -> T
     func serialize<T: Serializable>(object: T) throws -> Data
 }
 
-public class Serializer: SerializerProtocol {
+public class Serializer: Serializing {
     
     public init() {}
     
-    let decoder = JSONDecoder()
-    let encoder = JSONEncoder()
+    let jsonDecoder = JSONDecoder()
+    let jsonEncoder = JSONEncoder()
+    let jwsDecoder = JwsDecoder()
+    let jwsEncoder = JwsEncoder()
 
     public func deserialize<T: Serializable>(_: T.Type, data: Data) throws -> T {
         return try T.init(with: self, data: data)

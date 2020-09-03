@@ -7,7 +7,7 @@ import Foundation
 import VCSerialization
 
 // Mock Serializer until Serialization layer is implemented
-public class MockSerializer: SerializerProtocol {
+public class MockSerializer: Serializing {
     public func deserialize<T>(_: T.Type, data: Data) throws -> T where T : Serializable {
         return String(data: data, encoding: .utf8)! as! T
     }
@@ -17,13 +17,17 @@ public class MockSerializer: SerializerProtocol {
     }
 }
 
+public struct MockSerializableObject: Serializable, Codable, Equatable {
+    let id: String
+}
+
 // Mock Data Models until Serialization layer is implemented
-public typealias MockPresentationRequest = String
-public typealias MockPresentationResponse = String
-public typealias MockPresentationServiceResponse = String
-public typealias MockIssuanceResponse = String
-public typealias MockIssuanceServiceResponse = String
-public typealias MockExchangeRequest = String
-public typealias MockExchangeServiceResponse = String
-public typealias MockIdentifierDocument = String
-public typealias MockContract = String
+public typealias MockPresentationRequest = MockSerializableObject
+public typealias MockPresentationResponse = MockSerializableObject
+public typealias MockPresentationServiceResponse = MockSerializableObject
+public typealias MockIssuanceResponse = MockSerializableObject
+public typealias MockIssuanceServiceResponse = MockSerializableObject
+public typealias MockExchangeRequest = MockSerializableObject
+public typealias MockExchangeServiceResponse = MockSerializableObject
+public typealias MockIdentifierDocument = MockSerializableObject
+public typealias MockContract = MockSerializableObject

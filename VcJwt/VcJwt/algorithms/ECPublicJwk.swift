@@ -5,7 +5,7 @@
 
 import VcCrypto
 
-struct Secp256k1Jwk: Codable {
+public struct ECPublicJwk: Codable {
     var keyType: String
     var keyId: String
     var use: String
@@ -24,7 +24,7 @@ struct Secp256k1Jwk: Codable {
         case use, x, y
     }
     
-    init?(withPublicKey key: Secp256k1PublicKey, withKeyId kid: String) {
+    public init?(withPublicKey key: Secp256k1PublicKey, withKeyId kid: String) {
         keyType = "EC"
         keyId = kid
         use = "sig"

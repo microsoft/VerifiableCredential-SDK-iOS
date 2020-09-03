@@ -3,7 +3,10 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct PresentationRequestClaims: OidcClaims {
+import VcJwt
+
+struct IssuanceResponseClaims: OidcClaims {
+    
     let responseType: String = ""
     
     let responseMode: String = ""
@@ -12,23 +15,26 @@ struct PresentationRequestClaims: OidcClaims {
     
     let redirectURI: String = ""
     
-    let scope: String = ""
+    let publicKeyThumbprint: String = ""
     
-    let state: String = ""
+    let audience = ""
     
-    let nonce: String = ""
+    let publicJwk: ECPublicJwk
     
-    let iss: String = ""
+    let contract: String = ""
     
-    let registration: Registration = Registration()
+    let jti: String
     
-    let prompt: String = ""
+    let attestations: Attestations
     
     enum CodingKeys: String, CodingKey {
         case responseType = "response_type"
         case responseMode = "response_mode"
         case clientID = "client_id"
         case redirectURI = "redirect_uri"
-        case scope, state, nonce, iss, registration, prompt
+        case publicKeyThumbprint = "sub"
+        case audience = "aud"
+        case publicJwk = "sub_jwk"
+        case contract, attestations, jti
     }
 }

@@ -12,12 +12,12 @@ class SimpleSuccessHandlerTests: XCTestCase {
     
     let handler = SimpleSuccessHandler()
     var response = HTTPURLResponse()
-    let expectedResponseBody = "responseBody4235"
+    let expectedResponseBody = MockSerializableObject(id: "test")
     let serializer = Serializer()
 
     func testHandleSuccessfulResponse() throws {
         let serializedResponseBody = try serializer.serialize(object: expectedResponseBody)
-        let actualResponseBody = try handler.onSuccess(String.self, data: serializedResponseBody, response: response)
+        let actualResponseBody = try handler.onSuccess(MockSerializableObject.self, data: serializedResponseBody, response: response)
         XCTAssertEqual(actualResponseBody, self.expectedResponseBody)
     }
 
