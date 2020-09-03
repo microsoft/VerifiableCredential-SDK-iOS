@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-@testable import VCNetworking
+@testable import VcNetworking
 
 class UrlProtocolMock: URLProtocol {
     

@@ -1,23 +1,21 @@
-//
-//  File.swift
-//  networkingTests
-//
-//  Created by Sydney Morton on 8/17/20.
-//  Copyright © 2020 Microsoft. All rights reserved.
-//
+/*---------------------------------------------------------------------------------------------
+*  Copyright (c) Microsoft Corporation. All rights reserved.
+*  Licensed under the MIT License. See License.txt in the project root for license information.
+*--------------------------------------------------------------------------------------------*/
 
 import Foundation
 import XCTest
 import PromiseKit
 
-@testable import VCNetworking
+@testable import VcNetworking
 
 class NetworkOperationTests: XCTestCase {
     private var fetchContractOperation: FetchMockContractOperation!
     private let expectedUrl = "https://testcontract.com/4235"
     private let expectedHttpResponse = MockSerializableObject(id: "test")
+    private var serializedExpectedResponse: String!
     
-    override func setUp() {
+    override func setUpWithError() throws {
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
@@ -26,6 +24,9 @@ class NetworkOperationTests: XCTestCase {
         } catch {
             print(error)
         }
+        let encoder = JSONEncoder()
+        let encodedResponse = try encoder.encode(expectedHttpResponse)
+        serializedExpectedResponse = String(data: encodedResponse, encoding: .utf8)!
     }
     
     func testSuccessfulFetchOperation() throws {
@@ -53,7 +54,7 @@ class NetworkOperationTests: XCTestCase {
             XCTFail()
         }.catch { error in
             print(error)
-            XCTAssertEqual(error as! NetworkingError, NetworkingError.badRequest(withBody: "test"))
+            XCTAssertEqual(error as! NetworkingError, NetworkingError.badRequest(withBody: self.serializedExpectedResponse))
             expec.fulfill()
         }
         

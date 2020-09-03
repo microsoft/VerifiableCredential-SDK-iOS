@@ -17,7 +17,7 @@
                BlueprintIdentifier = "92CDE7A924DC78DD00F95B5D"
                BuildableName = "VcCrypto.framework"
                BlueprintName = "VcCrypto"
-               ReferencedContainer = "container:VCCrypto.xcodeproj">
+               ReferencedContainer = "container:VcCrypto.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,18 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES"
-      onlyGenerateCoverageForSpecifiedTargets = "YES">
-      <CodeCoverageTargets>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "92CDE7A924DC78DD00F95B5D"
-            BuildableName = "VcCrypto.framework"
-            BlueprintName = "VcCrypto"
-            ReferencedContainer = "container:VCCrypto.xcodeproj">
-         </BuildableReference>
-      </CodeCoverageTargets>
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -46,7 +35,7 @@
                BlueprintIdentifier = "92CDE7B224DC78DD00F95B5D"
                BuildableName = "VcCryptoTests.xctest"
                BlueprintName = "VcCryptoTests"
-               ReferencedContainer = "container:VCCrypto.xcodeproj">
+               ReferencedContainer = "container:VcCrypto.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -74,7 +63,7 @@
             BlueprintIdentifier = "92CDE7A924DC78DD00F95B5D"
             BuildableName = "VcCrypto.framework"
             BlueprintName = "VcCrypto"
-            ReferencedContainer = "container:VCCrypto.xcodeproj">
+            ReferencedContainer = "container:VcCrypto.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

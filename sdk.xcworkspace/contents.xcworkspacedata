@@ -5,18 +5,15 @@
       location = "group:sdk/sdk.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:VcNetworking/VcNetworking.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:VcJwt/VcJwt.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:VCCrypto/VcCrypto.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:VCNetworking/VCNetworking.xcodeproj">
+      location = "group:VcCrypto/VcCrypto.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:sdk/Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:VcCrypto/VcCrypto.xcodeproj">
    </FileRef>
 </Workspace>

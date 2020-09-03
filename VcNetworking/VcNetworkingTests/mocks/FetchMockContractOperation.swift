@@ -5,13 +5,13 @@
 
 import Foundation
 import PromiseKit
-@testable import VCNetworking
+@testable import VcNetworking
 
 final public class FetchMockContractOperation: NetworkOperation {
     public typealias ResponseBody = MockContract
     
     public let retryHandler: RetryHandler  = NoRetry()
-    public var successHandler: SuccessHandler = SimpleSuccessHandler()
+    public var successHandler: SuccessHandler = SimpleSuccessHandler(serializer: MockSerializer())
     public let failureHandler: FailureHandler = SimpleFailureHandler()
     public let urlSession: URLSession
     public let urlRequest: URLRequest

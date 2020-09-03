@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55D7BFE924C4CBBD0090F495"
-               BuildableName = "VCNetworking.framework"
-               BlueprintName = "VCNetworking"
-               ReferencedContainer = "container:VCNetworking.xcodeproj">
+               BlueprintIdentifier = "92CDE7A924DC78DD00F95B5D"
+               BuildableName = "VcCrypto.framework"
+               BlueprintName = "VcCrypto"
+               ReferencedContainer = "container:VcCrypto.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55D7BFF224C4CBBD0090F495"
-               BuildableName = "VCNetworkingTests.xctest"
-               BlueprintName = "VCNetworkingTests"
-               ReferencedContainer = "container:VCNetworking.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "92CDE7B224DC78DD00F95B5D"
                BuildableName = "VcCryptoTests.xctest"
                BlueprintName = "VcCryptoTests"
-               ReferencedContainer = "container:../VCCrypto/VcCrypto.xcodeproj">
+               ReferencedContainer = "container:VcCrypto.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -70,10 +60,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "55D7BFE924C4CBBD0090F495"
-            BuildableName = "VCNetworking.framework"
-            BlueprintName = "VCNetworking"
-            ReferencedContainer = "container:VCNetworking.xcodeproj">
+            BlueprintIdentifier = "92CDE7A924DC78DD00F95B5D"
+            BuildableName = "VcCrypto.framework"
+            BlueprintName = "VcCrypto"
+            ReferencedContainer = "container:VcCrypto.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

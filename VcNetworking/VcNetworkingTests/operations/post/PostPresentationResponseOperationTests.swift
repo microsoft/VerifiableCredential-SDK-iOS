@@ -6,7 +6,7 @@
 import XCTest
 import PromiseKit
 
-@testable import VCNetworking
+@testable import VcNetworking
 
 class PostPresentationRequestTests: XCTestCase {
     private var postPresentationResponseOperation: PostPresentationResponseOperation!
@@ -20,7 +20,7 @@ class PostPresentationRequestTests: XCTestCase {
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
         do {
-            postPresentationResponseOperation = try PostPresentationResponseOperation(withUrl: self.expectedUrl, withBody: expectedRequestBody, urlSession: urlSession)
+            postPresentationResponseOperation = try PostPresentationResponseOperation(withUrl: self.expectedUrl, withBody: expectedRequestBody, serializer: MockSerializer(), urlSession: urlSession)
         } catch {
             print(error)
         }
@@ -40,7 +40,7 @@ class PostPresentationRequestTests: XCTestCase {
     
     func testInvalidUrlInit() {
         let invalidUrl = ""
-        XCTAssertThrowsError(try PostPresentationResponseOperation(withUrl: invalidUrl, withBody: expectedRequestBody)) { error in
+        XCTAssertThrowsError(try PostPresentationResponseOperation(withUrl: invalidUrl, withBody: expectedRequestBody, serializer: MockSerializer())) { error in
             XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl(withUrl: invalidUrl))
         }
     }

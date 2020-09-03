@@ -5,11 +5,11 @@
 
 import XCTest
 
-@testable import VCNetworking
+@testable import VcNetworking
 
 class SimpleSuccessHandlerTests: XCTestCase {
     
-    let handler = SimpleSuccessHandler()
+    let handler = SimpleSuccessHandler(serializer: MockSerializer())
     var response = HTTPURLResponse()
     let expectedResponseBody = MockSerializableObject(id: "test")
     let serializer = MockSerializer()

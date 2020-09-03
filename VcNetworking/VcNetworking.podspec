@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint serialization.podspec' to ensure this is a
+#  Be sure to run `pod spec lint networking.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see https://guides.cocoapods.org/syntax/podspec.html
@@ -15,18 +15,19 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "VCSerialization"
-  spec.version      = "0.0.1"
-  spec.summary      = "A short description of serialization."
+  spec.name         = "VcNetworking"
+  spec.version      = "0.0.1-beta.0"
+  spec.summary      = "An SDK to manage your Verifiable Credential network calls."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = "A subproject for serialization."
+  spec.description  = <<-DESC "An SDK to manage your Verifiable Credential network calls."
+                   DESC
 
-  spec.homepage     = "http://EXAMPLE/serialization"
+  spec.homepage     = "https://github.com/microsoft/VerifiableCredential-SDK-iOS"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -51,10 +52,7 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "sydneymorton" => "symorton@microsoft.com" }
-  # Or just: spec.author    = "sydneymorton"
-  # spec.authors            = { "sydneymorton" => "symorton@microsoft.com" }
-  # spec.social_media_url   = "https://twitter.com/sydneymorton"
+    spec.author             = { "sydneymorton" => "symorton@microsoft.com", "dangodb" => "dangodb@microsoft.com" }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -63,7 +61,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.platform     = :ios
-  # spec.platform     = :ios, "5.0"
+    spec.platform     = :ios, "11.0"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -78,7 +76,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "", :tag => "#{spec.version}" }
+    spec.source       = { :git => "https://github.com/microsoft/VerifiableCredential-SDK-iOS" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,8 +87,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "serialization/**/*.swift"
-#  spec.exclude_files = "Classes/Exclude"
+  spec.source_files  = "networking/**/*.swift"
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -115,10 +112,9 @@ Pod::Spec.new do |spec|
   #  the lib prefix of their name.
   #
 
-  # spec.framework  = "SomeFramework"
+    spec.framework  = "Foundation"
   # spec.frameworks = "SomeFramework", "AnotherFramework"
 
-  # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
 
 
@@ -128,8 +124,10 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # spec.requires_arc = true
+    spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+  
+    spec.dependency "PromiseKit", "6.8"
 
 end
