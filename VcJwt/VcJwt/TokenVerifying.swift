@@ -6,6 +6,7 @@
 import VcCrypto
 
 protocol TokenVerifying {
+    
     func verify<T>(token: JwsToken<T>, usingPublicKey key: Secp256k1PublicKey) throws -> Bool
 }
 

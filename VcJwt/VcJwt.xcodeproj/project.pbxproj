@@ -13,7 +13,6 @@
 		5540904725002DC4001246DB /* VcJwt.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5540904625002DC3001246DB /* VcJwt.podspec */; };
 		5540904B2500311E001246DB /* ECPublicJwk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540904A2500311E001246DB /* ECPublicJwk.swift */; };
 		55ADE26124F5406000D9990E /* VcJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE25724F5406000D9990E /* VcJwt.framework */; };
-		55ADE26624F5406000D9990E /* VcJwtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE26524F5406000D9990E /* VcJwtTests.swift */; };
 		55ADE26824F5406000D9990E /* VcJwt.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADE25A24F5406000D9990E /* VcJwt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE27224F5407D00D9990E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27124F5407D00D9990E /* Header.swift */; };
 		55ADE27924F540F700D9990E /* JwsToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27824F540F700D9990E /* JwsToken.swift */; };
@@ -55,7 +54,6 @@
 		55ADE25A24F5406000D9990E /* VcJwt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VcJwt.h; sourceTree = "<group>"; };
 		55ADE25B24F5406000D9990E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55ADE26024F5406000D9990E /* VcJwtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VcJwtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		55ADE26524F5406000D9990E /* VcJwtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcJwtTests.swift; sourceTree = "<group>"; };
 		55ADE26724F5406000D9990E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55ADE27124F5407D00D9990E /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		55ADE27424F540E000D9990E /* VcCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VcCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				55ADE28D24F5432000D9990E /* mocks */,
-				55ADE26524F5406000D9990E /* VcJwtTests.swift */,
 				55ADE26724F5406000D9990E /* Info.plist */,
 				55ADE28B24F542A200D9990E /* JwsEncoderTests.swift */,
 				55ADE29C24F583DB00D9990E /* JwsDecoderTests.swift */,
@@ -400,7 +397,6 @@
 				55ADE28F24F5433500D9990E /* MockClaims.swift in Sources */,
 				55ADE29D24F583DB00D9990E /* JwsDecoderTests.swift in Sources */,
 				55ADE29324F5583700D9990E /* JwsTokenTests.swift in Sources */,
-				55ADE26624F5406000D9990E /* VcJwtTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

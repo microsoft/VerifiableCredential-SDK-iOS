@@ -8,7 +8,4 @@ public protocol Signing {
     func sign(messageHash: Data, withSecret secret: VcCryptoSecret) throws -> Data
     
     func isValidSignature(signature: Data, forMessageHash messageHash: Data, usingPublicKey publicKey: Secp256k1PublicKey) throws -> Bool
-    
-    
-    
 }
