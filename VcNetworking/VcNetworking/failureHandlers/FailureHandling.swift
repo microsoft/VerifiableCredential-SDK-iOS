@@ -5,6 +5,6 @@
 
 import Foundation
 
-public protocol FailureHandler {
-    func onFailure<ResponseBody: Codable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> NetworkingError
+public protocol FailureHandling {
+    func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError
 }

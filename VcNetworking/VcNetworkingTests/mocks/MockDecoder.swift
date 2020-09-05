@@ -4,7 +4,17 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+@testable import VcNetworking
 
-public protocol SuccessHandler {
-    func onSuccess<ResponseBody: Codable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody
+struct MockDecoder: Decoding {
+    typealias ResponseBody = MockObject
+    
+    func decode(data: Data) throws -> MockObject {
+        let decoder = JSONDecoder()
+        return try decoder.decode(MockObject.self, from: data)
+    }
+}
+
+struct MockObject: Codable, Equatable {
+    let key: String
 }

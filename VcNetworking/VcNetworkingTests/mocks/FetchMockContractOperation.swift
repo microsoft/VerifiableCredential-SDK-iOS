@@ -7,14 +7,14 @@ import Foundation
 import PromiseKit
 @testable import VcNetworking
 
-final public class FetchMockContractOperation: NetworkOperation {
-    public typealias ResponseBody = MockContract
+final class FetchMockContractOperation: NetworkOperation {
+    typealias SuccessHandler = SimpleSuccessHandler
     
-    public let retryHandler: RetryHandler  = NoRetry()
-    public var successHandler: SuccessHandler = SimpleSuccessHandler(serializer: MockSerializer())
-    public let failureHandler: FailureHandler = SimpleFailureHandler()
-    public let urlSession: URLSession
-    public let urlRequest: URLRequest
+    let retryHandler: RetryHandler  = NoRetry()
+    var successHandler: SuccessHandler = SimpleSuccessHandler(decoder: MockDecoder())
+    let failureHandler: FailureHandling = SimpleFailureHandler()
+    let urlSession: URLSession
+    let urlRequest: URLRequest
     
     public init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
         guard let url = URL(string: urlStr) else {

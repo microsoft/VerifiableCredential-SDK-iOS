@@ -5,16 +5,12 @@
 
 import Foundation
 
-// TODO Subject to change when Serializer layer is built.
-class SimpleSuccessHandler<Decoder: Decoding>: SuccessHandling {
+struct ContractDecoder: Decoding {
+    public typealias T = MockContract
     
-    let decoder: Decoder
+    let decoder = JSONDecoder()
     
-    init(decoder: Decoder) {
-        self.decoder = decoder
-    }
-    
-    func onSuccess(data: Data) throws -> Decoder.ResponseBody {
-        return try decoder.decode(data: data)
+    func decode(data: Data) throws -> MockContract {
+        return try decoder.decode(MockContract.self, from: data)
     }
 }

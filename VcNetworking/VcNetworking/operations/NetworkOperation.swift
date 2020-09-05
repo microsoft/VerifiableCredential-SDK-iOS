@@ -10,20 +10,20 @@ import PromiseKit
  * ResponseBody: the type of object returned by the service.
  */
 protocol NetworkOperation {
-    associatedtype ResponseBody: Codable
+    associatedtype SuccessHandler: SuccessHandling
     
     var successHandler: SuccessHandler { get }
-    var failureHandler: FailureHandler { get }
+    var failureHandler: FailureHandling { get }
     var retryHandler: RetryHandler { get }
     var urlSession: URLSession { get }
     var urlRequest: URLRequest { get }
     
-    func fire() -> Promise<ResponseBody>
+    func fire() -> Promise<SuccessHandler.Decoder.ResponseBody>
 }
 
 extension NetworkOperation {
     
-    func fire() -> Promise<ResponseBody> {
+    func fire() -> Promise<SuccessHandler.Decoder.ResponseBody> {
         return firstly {
             retryHandler.onRetry {
                 self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)
@@ -31,7 +31,7 @@ extension NetworkOperation {
         }
     }
     
-    func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<ResponseBody> {
+    func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<SuccessHandler.Decoder.ResponseBody> {
         return firstly {
             urlSession.dataTask(.promise, with: urlRequest)
         }.then { data, response in
@@ -39,7 +39,7 @@ extension NetworkOperation {
         }
     }
     
-    private func handleResponse(data: Data, response: URLResponse) -> Promise<ResponseBody> {
+    private func handleResponse(data: Data, response: URLResponse) -> Promise<SuccessHandler.Decoder.ResponseBody> {
         return Promise { seal in
             
             guard let httpResponse = response as? HTTPURLResponse else {
@@ -48,18 +48,18 @@ extension NetworkOperation {
             }
             
             if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
-                seal.fulfill(try self.onSuccess(data: data, response: httpResponse))
+                seal.fulfill(try self.onSuccess(data: data))
                 return
             }
             seal.reject(try self.onFailure(data: data, response: httpResponse))
         }
     }
     
-    func onSuccess(data: Data, response: HTTPURLResponse) throws -> ResponseBody {
-        return try self.successHandler.onSuccess(ResponseBody.self, data: data, response: response)
+    func onSuccess(data: Data) throws -> SuccessHandler.Decoder.ResponseBody {
+        return try self.successHandler.onSuccess(data: data)
     }
     
     func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError {
-        return try self.failureHandler.onFailure(ResponseBody.self, data: data, response: response)
+        return try self.failureHandler.onFailure(data: data, response: response)
     }
 }

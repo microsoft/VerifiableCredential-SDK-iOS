@@ -7,11 +7,11 @@ import Foundation
 import PromiseKit
 
 final class FetchContractOperation: NetworkOperation {
-    typealias ResponseBody = MockContract
+    typealias SuccessHandler = SimpleSuccessHandler
     
     let retryHandler: RetryHandler  = NoRetry()
-    let successHandler: SuccessHandler = SimpleSuccessHandler(serializer: MockSerializer())
-    let failureHandler: FailureHandler = SimpleFailureHandler()
+    let successHandler: SuccessHandler = SimpleSuccessHandler(decoder: ContractDecoder())
+    let failureHandler: FailureHandling = SimpleFailureHandler()
     let urlSession: URLSession
     let urlRequest: URLRequest
     

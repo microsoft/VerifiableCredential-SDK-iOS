@@ -5,9 +5,9 @@
 
 import Foundation
 
-class SimpleFailureHandler: FailureHandler {
+class SimpleFailureHandler: FailureHandling {
     
-    func onFailure<ResponseBody: Codable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> NetworkingError {
+    func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError {
         
         guard let responseBody = String(data: data, encoding: .utf8) else {
             throw NetworkingError.unableToCaseResponse

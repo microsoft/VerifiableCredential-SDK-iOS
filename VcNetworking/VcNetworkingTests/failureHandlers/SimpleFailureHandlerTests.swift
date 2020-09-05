@@ -23,42 +23,42 @@ class SimpleFailureHandlerTests: XCTestCase {
     func testHandleResponseFailureBadRequest() throws {
         let response = self.createHttpURLResponse(statusCode: 400)
         let serializedResponseBody = try serializer.serialize(object: expectedResponseBody)
-        let actualError = try handler.onFailure(MockSerializableObject.self, data: serializedResponseBody, response: response)
+        let actualError = try handler.onFailure(data: serializedResponseBody, response: response)
         XCTAssertEqual(actualError, NetworkingError.badRequest(withBody: serializedExpectedResponse))
     }
     
     func testHandleResponseFailureUnauthorized() throws {
         let response = self.createHttpURLResponse(statusCode: 401)
         let serializedResponseBody = try serializer.serialize(object: expectedResponseBody)
-        let actualError = try handler.onFailure(MockSerializableObject.self, data: serializedResponseBody, response: response)
+        let actualError = try handler.onFailure(data: serializedResponseBody, response: response)
         XCTAssertEqual(actualError, NetworkingError.unauthorized(withBody: serializedExpectedResponse))
     }
     
     func testHandleResponseFailureForbidden() throws {
         let response = self.createHttpURLResponse(statusCode: 403)
         let serializedResponseBody = try serializer.serialize(object: expectedResponseBody)
-        let actualError = try handler.onFailure(MockSerializableObject.self, data: serializedResponseBody, response: response)
+        let actualError = try handler.onFailure(data: serializedResponseBody, response: response)
         XCTAssertEqual(actualError, NetworkingError.forbidden(withBody: serializedExpectedResponse))
     }
     
     func testHandleResponseFailureNotFound() throws {
         let response = self.createHttpURLResponse(statusCode: 404)
         let serializedResponseBody = try serializer.serialize(object: expectedResponseBody)
-        let actualError = try handler.onFailure(MockSerializableObject.self, data: serializedResponseBody, response: response)
+        let actualError = try handler.onFailure(data: serializedResponseBody, response: response)
         XCTAssertEqual(actualError, NetworkingError.notFound(withBody: serializedExpectedResponse))
     }
     
     func testHandleResponseFailureServiceError() throws {
         let response = self.createHttpURLResponse(statusCode: 500)
         let serializedResponseBody = try serializer.serialize(object: expectedResponseBody)
-        let actualError = try handler.onFailure(MockSerializableObject.self, data: serializedResponseBody, response: response)
+        let actualError = try handler.onFailure(data: serializedResponseBody, response: response)
         XCTAssertEqual(actualError, NetworkingError.serverError(withBody: serializedExpectedResponse))
     }
     
     func testHandleResponseFailureUnknownError() throws {
         let response = self.createHttpURLResponse(statusCode: 600)
         let serializedResponseBody = try serializer.serialize(object: expectedResponseBody)
-        let actualError = try handler.onFailure(MockSerializableObject.self, data: serializedResponseBody, response: response)
+        let actualError = try handler.onFailure(data: serializedResponseBody, response: response)
         XCTAssertEqual(actualError, NetworkingError.unknownNetworkingError(withBody: serializedExpectedResponse))
     }
     

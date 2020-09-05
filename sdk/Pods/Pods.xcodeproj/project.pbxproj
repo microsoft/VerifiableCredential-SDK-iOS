@@ -27,6 +27,15 @@
 			);
 			name = VcCrypto;
 		};
+		EDF830429C5FFC8064C58ABBA5CA0A2E /* VcJwt */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A08D589B2F8C7964801C03AC3B5D226A /* Build configuration list for PBXAggregateTarget "VcJwt" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = VcJwt;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -57,9 +66,7 @@
 		2D0C7B87FF9F9275047C2C14FACC9E93 /* UIView+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80D7C75CDCD587F23CC29B3B1A72D21 /* UIView+Promise.swift */; };
 		2FF9F44E2B1557815134D2FD52694E4B /* scalar_8x32.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 50DDFDB314A42CE9CC5746DF0AC0D1E5 /* scalar_8x32.h */; };
 		3013FBBA8D4A9BCE7568AF4DFF39812F /* field_5x52_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 4CA73410BAD385AFACD9732A9996859E /* field_5x52_impl.h */; };
-		301A2994622F71810829C83C3B5C6E63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		309134D31427D8A84B55D93F03104C93 /* dispatch_promise.m in Sources */ = {isa = PBXBuildFile; fileRef = 522C3CAACE0477E91BB6A3A9D9E9F663 /* dispatch_promise.m */; };
-		30BCA1FE6C490D5BAB5105BFEB8C6CC0 /* Pods-VcNetworking-VcNetworkingTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35576EF1835E96B3BAAF86A6863E83 /* Pods-VcNetworking-VcNetworkingTests-dummy.m */; };
 		30ECF1F8A95BF3A742F9F8FBD0151BF0 /* ecmult_const.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = FBA66929FE4491B4DC0CF67A2ADAC42E /* ecmult_const.h */; };
 		34DE10A8B540221FEB0069F92503A3CC /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF5A6FC4E52452C68782CE2F701BA4D /* Error.swift */; };
 		36DF15BDC7973AFCF4B2C4560DF684F2 /* Pods-VcJwt-VcJwtTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F74A67686579616885C47FBDEE16D7D /* Pods-VcJwt-VcJwtTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,6 +77,8 @@
 		3EF0598F35C4D88F4CEC7DD8A250BAEB /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B2B261C3EEEC9F92C5464CD0FAAA13 /* race.m */; };
 		3F7B9490387407CEFDC4306E87039BFA /* field_5x52_asm_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 6555C520A49FE51A6FBCB72A7E4E0644 /* field_5x52_asm_impl.h */; };
 		40453F3F1904D3880F1D9F5865614375 /* ecmult.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 5F9948ADFF702D01AEECEFAF7656A276 /* ecmult.h */; };
+		4064D64C0C98C0DE5EC3A0E4B463E329 /* Pods-VcNetworking-VcNetworkingTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35576EF1835E96B3BAAF86A6863E83 /* Pods-VcNetworking-VcNetworkingTests-dummy.m */; };
+		419A8646FAD8CFDFFB2C17C77B25979D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		44E9EDDEEA8C5B9712048F9D065B6C4C /* ecmult_const_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 938B36D96A3F24AA449046C0753CAD45 /* ecmult_const_impl.h */; };
 		47C54EFB16CC84D2D9EC24AFF465E521 /* Pods-VcCrypto-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A5FABFD3DF1528E7F959C40B23727338 /* Pods-VcCrypto-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49325C685ACD95BB2A71E4FA951A87F5 /* ecmult_gen.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 1C04FB4E47DE959155FC5E512E26D630 /* ecmult_gen.h */; };
@@ -107,6 +116,7 @@
 		76E2BBA6504D4EC8CB21FBC9F02969CA /* PromiseKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B28B2A2E81B13D1C160294EBE8DA74D /* PromiseKit-dummy.m */; };
 		799323431ABB06FFAFD8C5ED23161212 /* num_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = EAF1187BC13645A12EACBF172AAA963B /* num_impl.h */; };
 		7A31D823DFAE2E054E30AAE454B98432 /* ecdsa.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 57F77B70178D80BF5067756DE869B9A8 /* ecdsa.h */; };
+		7B19B91672C969C29EE7496D77E05F4D /* Pods-VcNetworking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B86999909745D8DAC7F3CBF6A9395EE7 /* Pods-VcNetworking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7BCDE06FCA0E5D3ECC1CD83695A9F1C6 /* field_5x52_asm_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 6555C520A49FE51A6FBCB72A7E4E0644 /* field_5x52_asm_impl.h */; };
 		7CD5B6F4F5CF8C28D698E81E0B080878 /* ecmult.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F9948ADFF702D01AEECEFAF7656A276 /* ecmult.h */; };
 		7CEE635BA2464A2A20B2B4F84FB6C6B1 /* group.h in Headers */ = {isa = PBXBuildFile; fileRef = A3FBB9478AAA18A15E7DBABBCEBC01FD /* group.h */; };
@@ -114,11 +124,10 @@
 		8215B8CC79A345D254F6388D9348C3A1 /* secp256k1_ecdh.h in Copy include Public Headers */ = {isa = PBXBuildFile; fileRef = BC57494B77FCC93ACACB308CF9E3631C /* secp256k1_ecdh.h */; };
 		82D5C0A1EB64670CE46081210A41AD8B /* UIView+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = E76431A8C01E16FB984BC641B1482EAA /* UIView+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8445B7D9F0377EF82100C01871C8D9E2 /* Thenable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC04EF6E845E7832336EF1B12AC9E04 /* Thenable.swift */; };
+		854C65F0F4238C0A4F0ACD2BB923CFE0 /* Pods-VcNetworking-VcNetworkingTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 95ADB8E4CAD8828B1BF6FB48F33CF488 /* Pods-VcNetworking-VcNetworkingTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		869FFDEE205BAD4838606AFC0E24DD67 /* field.h in Headers */ = {isa = PBXBuildFile; fileRef = EEC3F3EDA395D7520424BD541862AA16 /* field.h */; };
 		8831B4426EE40154CFDBD55D26166C0E /* UIViewController+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1B990AF95F4DBE8672AC21882386C3 /* UIViewController+AnyPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A52D90A0E37D2772C8D19261148EC3B /* ecmult_gen_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 21E61B955C6DCF3B115F398121FF0A43 /* ecmult_gen_impl.h */; };
-		8AFF8E5B1323A6458FE2E55D280EE963 /* Pods-VcNetworking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B86999909745D8DAC7F3CBF6A9395EE7 /* Pods-VcNetworking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8BD443A42C5C718BC8843BBC83254152 /* Pods-VcNetworking-VcNetworkingTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 95ADB8E4CAD8828B1BF6FB48F33CF488 /* Pods-VcNetworking-VcNetworkingTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8C15DCDFD43578EDA5EF25BDAC664ED6 /* ecdsa_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = F5D86CAF969ABF249E5F44E80F70D6FC /* ecdsa_impl.h */; };
 		8EF64DB263F87A20BFBF819CF387A513 /* field_10x26_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = B6A9E8F5AA16BDB7CA095B0B132DF844 /* field_10x26_impl.h */; };
 		8F3C62F12DCDBCC079618CCBA54542F8 /* eckey.h in Headers */ = {isa = PBXBuildFile; fileRef = F4BD4022F180C944F0C037A0C4C719A3 /* eckey.h */; };
@@ -136,6 +145,7 @@
 		9F38F14D55B31C69D46E9F36C663AE3F /* basic-config.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 1AB72A6669EFC71F29FFE5B951A85B64 /* basic-config.h */; };
 		9F60C4BD58F2FB9F024EDD5281727456 /* after.swift in Sources */ = {isa = PBXBuildFile; fileRef = F673C693801031932449D23955759008 /* after.swift */; };
 		9FD195E2521B0D49C1E8DF74D047383C /* num.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 8B494C053D2E4BB1066CA1D24EB1AD6D /* num.h */; };
+		A010EF6B836CCACBE7D35DA396851EA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		A2CB7D43B0511320372716A44086E9ED /* Pods-VcJwt-VcJwtTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C21771D239B20B2491846F2B5ABC63 /* Pods-VcJwt-VcJwtTests-dummy.m */; };
 		A3CBE98339DBAF5901D864620063C79F /* Pods-sdk-sdkTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1145C86F40C2887868145ED75A33CFE2 /* Pods-sdk-sdkTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3DF146CF00ABFBEEEB93CA8C98E4A0F /* group.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = A3FBB9478AAA18A15E7DBABBCEBC01FD /* group.h */; };
@@ -155,14 +165,12 @@
 		B6466FD0ABC0E5E98497B6384B063401 /* hang.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EF5955F461D82227208AFCEDECA69 /* hang.m */; };
 		B6FD9430FB9CCFE50E93DE797E519FCC /* UIViewController+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F921352F9288D40551163CBCE6FA1E /* UIViewController+AnyPromise.m */; };
 		BB1E618B1BD4B77570BBFCDE02F11F8E /* assumptions.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = FFDB7DCF590CA80CF4976FF708447B59 /* assumptions.h */; };
-		BFD73D585DF049387B8818B7833016EC /* Pods-VcNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F37EDB0E21047DD31A051CC54A1C2E28 /* Pods-VcNetworking-dummy.m */; };
 		C47AE531A5D2A2399277ED4320A5D11F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		C791131C5098B85172F7B1B7BB1C9CF2 /* secp256k1_ecdh.h in Headers */ = {isa = PBXBuildFile; fileRef = BC57494B77FCC93ACACB308CF9E3631C /* secp256k1_ecdh.h */; };
 		CAD4996BF8ECBA77CD4F1AFA07EAE46B /* Pods-VcCrypto-VcCryptoTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0A196DDAC0BB85EE15E8319C4D3379 /* Pods-VcCrypto-VcCryptoTests-dummy.m */; };
 		CBE0628C41374467DAD7D28C6BB0DECE /* Catchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D170FB93A9659AC62EB96EEFBD07F89A /* Catchable.swift */; };
 		CC109599EB717FB4B908412C26F16850 /* Pods-VcJwt-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5338110A0860CDDD771C68CED55767 /* Pods-VcJwt-dummy.m */; };
 		CD94BBCACE341F873B1D51C641736C0F /* scalar.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 092C8A6D04604C2959105D64F9C965C9 /* scalar.h */; };
-		CDD6E93A8AC6AAF9B5B601C91FCD9ABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		CE6F1D94FE37E625ECB61BB9980BF5F6 /* scalar_8x32_impl.h in Copy src Private Headers */ = {isa = PBXBuildFile; fileRef = 29C74ECC00EE31C2D221E471208650E3 /* scalar_8x32_impl.h */; };
 		CEF1FFB8DC404FF933102526A708A297 /* ecmult_const_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 938B36D96A3F24AA449046C0753CAD45 /* ecmult_const_impl.h */; };
 		D04A7984E0B5A3A092F6DD2FB4B6EA26 /* join.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3593DF8DEA8D63547441DC7AC2A080 /* join.m */; };
@@ -189,6 +197,7 @@
 		EF6DA14F252481AD22FADAF253829E29 /* PromiseKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CC0E54668B48A9784A91C016F12FED0 /* PromiseKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F11A4AB7236A85C47FA9B33B00A224D4 /* Process+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CA7A569C295010860D536FCC3324BF /* Process+Promise.swift */; };
 		F2750E1A31C27E20517AF6016EA3FE8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		F299488F3D1A0EF35559924A8DFA9E22 /* Pods-VcNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F37EDB0E21047DD31A051CC54A1C2E28 /* Pods-VcNetworking-dummy.m */; };
 		F2C74E8681F4343C2036885563F88E9C /* scratch_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FADC424BE7BF6C4154E9EEC1C2D6B37 /* scratch_impl.h */; };
 		F3130E6206ACC486720380339D54E1EA /* PromiseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A35A5A64A2BA545E671773BE11179C05 /* PromiseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F413DC82A060E79EC20CED3E9994CCC6 /* NSNotificationCenter+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BF2586AEB072F8DB1E6B6BDDF8F4C /* NSNotificationCenter+Promise.swift */; };
@@ -201,6 +210,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		125D1CD57A5A5D314949B3140C9BAC61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDF830429C5FFC8064C58ABBA5CA0A2E;
+			remoteInfo = VcJwt;
+		};
 		15FEDFFAF1E043D37DF5D7A836B6D9E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -257,13 +273,6 @@
 			remoteGlobalIDString = 9AE68C3D8E67C47FB2C8E83198549C5F;
 			remoteInfo = VcCrypto;
 		};
-		7F708D884864F4BE02013D4E46BDBE00 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7C579CE66A1E7A9AA33CA5F97F9C22C5;
-			remoteInfo = PromiseKit;
-		};
 		A64009CE24A51E68AB404C77505A1A72 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -271,12 +280,19 @@
 			remoteGlobalIDString = 3020FF5BE409E86C04853BBDEF3E50A7;
 			remoteInfo = "bitcoin-core-secp256k1";
 		};
-		AB4995975A5BD79F01E8DB41F6D8ADFE /* PBXContainerItemProxy */ = {
+		B3A417D71E115F21DB9287DFDA4B99E5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7C579CE66A1E7A9AA33CA5F97F9C22C5;
 			remoteInfo = PromiseKit;
+		};
+		D794752E490CF07827F197281D22967F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDF830429C5FFC8064C58ABBA5CA0A2E;
+			remoteInfo = VcJwt;
 		};
 		E3E0366F469EFA877271E0B1BDF1B6C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -286,6 +302,13 @@
 			remoteInfo = PromiseKit;
 		};
 		F6187785962DE84510431815E226833F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7C579CE66A1E7A9AA33CA5F97F9C22C5;
+			remoteInfo = PromiseKit;
+		};
+		FA8DFC2500F4BA8F76AF1D7981B86BC4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -373,7 +396,6 @@
 		04DE1D978C2B59117A5735206C047D69 /* tests_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = tests_impl.h; path = src/modules/recovery/tests_impl.h; sourceTree = "<group>"; };
 		062F2FD1E832F60DC72B992A028A1A82 /* Pods-VcJwt-VcJwtTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VcJwt-VcJwtTests.debug.xcconfig"; sourceTree = "<group>"; };
 		07EAED9DE7C9C6F3FE2BD665FEA7BDE3 /* Pods-VcCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VcCrypto.debug.xcconfig"; sourceTree = "<group>"; };
-		0835F553980ECBAC01CDB6FB67646096 /* VcNetworking.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VcNetworking.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		0894F527EF50033A03AB4F13D833DCE2 /* Pods_sdk_sdkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_sdk_sdkTests.framework; path = "Pods-sdk-sdkTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		092C8A6D04604C2959105D64F9C965C9 /* scalar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = scalar.h; path = src/scalar.h; sourceTree = "<group>"; };
 		0AB30D83F5947CFF59E69DFEE6520A2A /* field_5x52_int128_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = field_5x52_int128_impl.h; path = src/field_5x52_int128_impl.h; sourceTree = "<group>"; };
@@ -415,6 +437,7 @@
 		318457D8455B7767DAFB37BB9C322DEC /* Pods-VcCrypto-VcCryptoTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VcCrypto-VcCryptoTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		31F2466A7E8D153CA95BF23E8513F91E /* bitcoin-core-secp256k1-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "bitcoin-core-secp256k1-Info.plist"; sourceTree = "<group>"; };
 		3237E0A6AFFEDEFA869A0B935911434A /* NSTask+AnyPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSTask+AnyPromise.m"; path = "Extensions/Foundation/Sources/NSTask+AnyPromise.m"; sourceTree = "<group>"; };
+		33F84AFA739113D104B757BD859B1597 /* VcJwt.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VcJwt.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		360908940B4F77BADE3771D2B9439229 /* when.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = when.swift; path = Sources/when.swift; sourceTree = "<group>"; };
 		36F921352F9288D40551163CBCE6FA1E /* UIViewController+AnyPromise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+AnyPromise.m"; path = "Extensions/UIKit/Sources/UIViewController+AnyPromise.m"; sourceTree = "<group>"; };
 		382B6C94E311CC8E1A255AE88C7C92F6 /* Pods-VcNetworking-VcNetworkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VcNetworking-VcNetworkingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -427,7 +450,6 @@
 		41E581E84D52D93CC8F265CBF419028E /* bitcoin-core-secp256k1-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "bitcoin-core-secp256k1-prefix.pch"; sourceTree = "<group>"; };
 		4315C0CC711137AAEB92AFEA7D43D25A /* fwd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = fwd.h; path = Sources/fwd.h; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		474EB8FDCD80C8B9B1C48E130D9C4C7E /* VcCrypto.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VcCrypto.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		47C21771D239B20B2491846F2B5ABC63 /* Pods-VcJwt-VcJwtTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VcJwt-VcJwtTests-dummy.m"; sourceTree = "<group>"; };
 		49CA7A569C295010860D536FCC3324BF /* Process+Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Process+Promise.swift"; path = "Extensions/Foundation/Sources/Process+Promise.swift"; sourceTree = "<group>"; };
 		4A7EF5955F461D82227208AFCEDECA69 /* hang.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = hang.m; path = Sources/hang.m; sourceTree = "<group>"; };
@@ -444,6 +466,7 @@
 		57F77B70178D80BF5067756DE869B9A8 /* ecdsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ecdsa.h; path = src/ecdsa.h; sourceTree = "<group>"; };
 		59638B0B1B5532B717C69B560940EFDC /* hash_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = hash_impl.h; path = src/hash_impl.h; sourceTree = "<group>"; };
 		5A8A488E8DB257246A94BCB49BAAA738 /* Pods-VcCrypto-VcCryptoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VcCrypto-VcCryptoTests.release.xcconfig"; sourceTree = "<group>"; };
+		5DD2BCBDE13EC3DC93E4A5166E4316C7 /* VcNetworking.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VcNetworking.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5F9948ADFF702D01AEECEFAF7656A276 /* ecmult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ecmult.h; path = src/ecmult.h; sourceTree = "<group>"; };
 		5FF8F40C2340DF635E60E402B82715FD /* Pods-VcNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VcNetworking.release.xcconfig"; sourceTree = "<group>"; };
 		6555C520A49FE51A6FBCB72A7E4E0644 /* field_5x52_asm_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = field_5x52_asm_impl.h; path = src/field_5x52_asm_impl.h; sourceTree = "<group>"; };
@@ -464,6 +487,7 @@
 		83F23CE50D886D9A1B3543CEA92E86BA /* PromiseKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PromiseKit.modulemap; sourceTree = "<group>"; };
 		866DE4B5D8B51608BF7AE4E651BC9DDB /* Pods-VcNetworking-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VcNetworking-acknowledgements.plist"; sourceTree = "<group>"; };
 		86A09FEBE88EA313AAD9DB9CC2B3B5C8 /* Pods-sdk-sdkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-sdk-sdkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8916175F387E6F9C79D70386113834AB /* VcCrypto.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VcCrypto.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8AA69F9C9527192D189D7D5780F7C574 /* num_gmp_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = num_gmp_impl.h; path = src/num_gmp_impl.h; sourceTree = "<group>"; };
 		8B494C053D2E4BB1066CA1D24EB1AD6D /* num.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = num.h; path = src/num.h; sourceTree = "<group>"; };
 		8E073F32B53B1BF948756FC0C654B624 /* NSURLSession+AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLSession+AnyPromise.h"; path = "Extensions/Foundation/Sources/NSURLSession+AnyPromise.h"; sourceTree = "<group>"; };
@@ -497,9 +521,9 @@
 		AAC754938C9FB23E1FEF34D5F307D640 /* CustomStringConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomStringConvertible.swift; path = Sources/CustomStringConvertible.swift; sourceTree = "<group>"; };
 		ABBA28790FD69DCD34B262FA4794D03E /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
 		AC39F1E8A5A681B26E9B512F3B2C90FB /* AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AnyPromise.h; path = Sources/AnyPromise.h; sourceTree = "<group>"; };
+		AF1470B60E3131F98EEFBA21BDECF315 /* VcCrypto.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VcCrypto.xcconfig; sourceTree = "<group>"; };
 		AFA6A86EEA135B7D3F886F3C367CB024 /* Pods-VcNetworking-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VcNetworking-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AFF5CD2D03E16F1C71B411987B4702B2 /* Pods-VcCrypto.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VcCrypto.modulemap"; sourceTree = "<group>"; };
-		B0108C8CDA1A868A4984037EA9ABC4AE /* VcCrypto.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VcCrypto.xcconfig; sourceTree = "<group>"; };
 		B26A56E3B8F06F12A9276D5074A5B4A7 /* NSObject+Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Promise.swift"; path = "Extensions/Foundation/Sources/NSObject+Promise.swift"; sourceTree = "<group>"; };
 		B6A9E8F5AA16BDB7CA095B0B132DF844 /* field_10x26_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = field_10x26_impl.h; path = src/field_10x26_impl.h; sourceTree = "<group>"; };
 		B6EC27AA2CAA5B28A8C123E4E8A03D79 /* Pods-VcJwt-VcJwtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VcJwt-VcJwtTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -519,11 +543,11 @@
 		C47EB4944C05375F2E3EEA2A0D948008 /* Pods-VcJwt-VcJwtTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VcJwt-VcJwtTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C48992D9CBCA6B51CA670EF1C5643EB4 /* Pods-VcNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VcNetworking.modulemap"; sourceTree = "<group>"; };
 		C61EEAA77AC36DB5F3679E2891202A98 /* scratch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = scratch.h; path = src/scratch.h; sourceTree = "<group>"; };
+		C67B26B0E14F927A73F45930A26D54A8 /* VcNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VcNetworking.xcconfig; sourceTree = "<group>"; };
 		CA31378D72B1854484A3AE24090C9E23 /* firstly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = firstly.swift; path = Sources/firstly.swift; sourceTree = "<group>"; };
 		CA5338110A0860CDDD771C68CED55767 /* Pods-VcJwt-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VcJwt-dummy.m"; sourceTree = "<group>"; };
 		CB911877D1551E93C92A6A68217C8C2D /* Pods-VcJwt-VcJwtTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VcJwt-VcJwtTests.modulemap"; sourceTree = "<group>"; };
 		CBC4F120CE3B9E5CA8EB2AA34432C51E /* PromiseKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PromiseKit.xcconfig; sourceTree = "<group>"; };
-		CC69D6B91ABDC771DF760185F03CAE94 /* VcNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VcNetworking.xcconfig; sourceTree = "<group>"; };
 		D04597055A1A7A7F198D489FFEA7C893 /* race.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = race.swift; path = Sources/race.swift; sourceTree = "<group>"; };
 		D170FB93A9659AC62EB96EEFBD07F89A /* Catchable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Catchable.swift; path = Sources/Catchable.swift; sourceTree = "<group>"; };
 		D1E76143A41D6054F67BAD6B914A4788 /* UIViewPropertyAnimator+Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewPropertyAnimator+Promise.swift"; path = "Extensions/UIKit/Sources/UIViewPropertyAnimator+Promise.swift"; sourceTree = "<group>"; };
@@ -536,6 +560,7 @@
 		DC1A8979053D9CEF9AC5A00E418B4BCA /* Pods-VcCrypto-VcCryptoTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VcCrypto-VcCryptoTests-umbrella.h"; sourceTree = "<group>"; };
 		DD1B990AF95F4DBE8672AC21882386C3 /* UIViewController+AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+AnyPromise.h"; path = "Extensions/UIKit/Sources/UIViewController+AnyPromise.h"; sourceTree = "<group>"; };
 		DE99681D72B645575A3B31F1878B6B3E /* scalar_low.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = scalar_low.h; path = src/scalar_low.h; sourceTree = "<group>"; };
+		DEDA988CB03A01925D8867F217BF5AFE /* VcJwt.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VcJwt.xcconfig; sourceTree = "<group>"; };
 		E3751E48F6AC11A7D6A7189470F35481 /* bitcoin-core-secp256k1.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "bitcoin-core-secp256k1.xcconfig"; sourceTree = "<group>"; };
 		E586CD62595B6116F796EC6D4087F32F /* afterlife.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = afterlife.swift; path = Extensions/Foundation/Sources/afterlife.swift; sourceTree = "<group>"; };
 		E5C06A45625F17E4E194C69314E4A145 /* NSNotificationCenter+AnyPromise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNotificationCenter+AnyPromise.h"; path = "Extensions/Foundation/Sources/NSNotificationCenter+AnyPromise.h"; sourceTree = "<group>"; };
@@ -562,6 +587,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1C54A752EF02723F3A8E96222B4CBAD5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				419A8646FAD8CFDFFB2C17C77B25979D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		37F7DC58A16DA323FF0952745A9AFA03 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -587,27 +620,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A50570BF1FD18F4D708F508E7DC294E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				301A2994622F71810829C83C3B5C6E63 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6C247BA6765E272940925E2B84DD477A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C47AE531A5D2A2399277ED4320A5D11F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		94844C1F324432769564EF25E89B8E59 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CDD6E93A8AC6AAF9B5B601C91FCD9ABA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +641,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA19753292E7D3672BCD0ECB28AF69C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9652BDB7C09807318AD235CDD55ACC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A010EF6B836CCACBE7D35DA396851EA5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,14 +671,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01B1B9A752823C1B9A345DFAEDFCBD04 /* VcNetworking */ = {
+		0AF7CDC61F6C6DA3977062CEC279896D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4B3276AC0047202E71F9009756E96E73 /* Pod */,
-				89F6A3C12F2054F88294995F1C6C8E22 /* Support Files */,
+				DEDA988CB03A01925D8867F217BF5AFE /* VcJwt.xcconfig */,
 			);
-			name = VcNetworking;
-			path = ../../VcNetworking;
+			name = "Support Files";
+			path = "../sdk/Pods/Target Support Files/VcJwt";
+			sourceTree = "<group>";
+		};
+		0C5C89BC4145FCDCA792961D3A291C94 /* VcJwt */ = {
+			isa = PBXGroup;
+			children = (
+				8302117875FDB8822C49D3068AD20AB9 /* Pod */,
+				0AF7CDC61F6C6DA3977062CEC279896D /* Support Files */,
+			);
+			name = VcJwt;
+			path = ../../VcJwt;
 			sourceTree = "<group>";
 		};
 		0E0C12D7132DA6D63F482C72F4E2210C /* Support Files */ = {
@@ -712,13 +746,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3EC135C71EFECC181A0DD6C8F076345A /* Development Pods */ = {
+		38419C99D2322CA9DBE0BE1E959D254E /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				628136FF256D5A7BCE7005A02E912F16 /* VcCrypto */,
-				01B1B9A752823C1B9A345DFAEDFCBD04 /* VcNetworking */,
+				8916175F387E6F9C79D70386113834AB /* VcCrypto.podspec */,
 			);
-			name = "Development Pods";
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		3C19EBBAA2DB4E172FB30F1947833692 /* VcCrypto */ = {
+			isa = PBXGroup;
+			children = (
+				38419C99D2322CA9DBE0BE1E959D254E /* Pod */,
+				AECBF0A3ECBEEF4F1EABE93B32DD7ED1 /* Support Files */,
+			);
+			name = VcCrypto;
+			path = ../../VcCrypto;
 			sourceTree = "<group>";
 		};
 		44DB3B6540962DAA972E6396A0DEA627 /* Pods-VcCrypto */ = {
@@ -737,6 +780,14 @@
 			path = "Target Support Files/Pods-VcCrypto";
 			sourceTree = "<group>";
 		};
+		46BE0D1B6B3232F5BC7EB66722FC3AC3 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				5DD2BCBDE13EC3DC93E4A5166E4316C7 /* VcNetworking.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		470E18A0DCB23DA2D7B4BCC1B608C139 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,23 +795,6 @@
 				80B78CE8897ADDCD57278702C0B8F873 /* PromiseKit */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		4B3276AC0047202E71F9009756E96E73 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				0835F553980ECBAC01CDB6FB67646096 /* VcNetworking.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		58695EBD74B14EF101EBD090BDE4ED4F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B0108C8CDA1A868A4984037EA9ABC4AE /* VcCrypto.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../sdk/Pods/Target Support Files/VcCrypto";
 			sourceTree = "<group>";
 		};
 		5D8019271D98757F24ADDF5348B7EB11 /* Pods-VcNetworking */ = {
@@ -795,16 +829,6 @@
 			path = "Target Support Files/Pods-sdk";
 			sourceTree = "<group>";
 		};
-		628136FF256D5A7BCE7005A02E912F16 /* VcCrypto */ = {
-			isa = PBXGroup;
-			children = (
-				9E199CC8FC256BDE3D856C9E520C77ED /* Pod */,
-				58695EBD74B14EF101EBD090BDE4ED4F /* Support Files */,
-			);
-			name = VcCrypto;
-			path = ../../VcCrypto;
-			sourceTree = "<group>";
-		};
 		68C6CC9D04FA963A1BE29F34CE483A38 /* Pods-VcJwt */ = {
 			isa = PBXGroup;
 			children = (
@@ -833,13 +857,12 @@
 			path = PromiseKit;
 			sourceTree = "<group>";
 		};
-		89F6A3C12F2054F88294995F1C6C8E22 /* Support Files */ = {
+		8302117875FDB8822C49D3068AD20AB9 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				CC69D6B91ABDC771DF760185F03CAE94 /* VcNetworking.xcconfig */,
+				33F84AFA739113D104B757BD859B1597 /* VcJwt.podspec */,
 			);
-			name = "Support Files";
-			path = "../sdk/Pods/Target Support Files/VcNetworking";
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		8CCD289A063E8649185814FD38A2177B /* Products */ = {
@@ -887,14 +910,6 @@
 			name = UIKit;
 			sourceTree = "<group>";
 		};
-		9E199CC8FC256BDE3D856C9E520C77ED /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				474EB8FDCD80C8B9B1C48E130D9C4C7E /* VcCrypto.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 		9FFACD569E68DB67EF6AF696B80434CB /* Pods-VcCrypto-VcCryptoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +925,25 @@
 			);
 			name = "Pods-VcCrypto-VcCryptoTests";
 			path = "Target Support Files/Pods-VcCrypto-VcCryptoTests";
+			sourceTree = "<group>";
+		};
+		A28891036741D5267BE5BAB7F9A44B55 /* VcNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				46BE0D1B6B3232F5BC7EB66722FC3AC3 /* Pod */,
+				C70B5E84D0CEBE4FAE7083F9745C9980 /* Support Files */,
+			);
+			name = VcNetworking;
+			path = ../../VcNetworking;
+			sourceTree = "<group>";
+		};
+		AECBF0A3ECBEEF4F1EABE93B32DD7ED1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF1470B60E3131F98EEFBA21BDECF315 /* VcCrypto.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../sdk/Pods/Target Support Files/VcCrypto";
 			sourceTree = "<group>";
 		};
 		B88CA422561E85D5478CBC9BD258C108 /* Pods-sdk-sdkTests */ = {
@@ -986,6 +1020,25 @@
 			path = "bitcoin-core-secp256k1";
 			sourceTree = "<group>";
 		};
+		C261C4A6735F8877DBF6510F5CEF1EE8 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C19EBBAA2DB4E172FB30F1947833692 /* VcCrypto */,
+				0C5C89BC4145FCDCA792961D3A291C94 /* VcJwt */,
+				A28891036741D5267BE5BAB7F9A44B55 /* VcNetworking */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		C70B5E84D0CEBE4FAE7083F9745C9980 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C67B26B0E14F927A73F45930A26D54A8 /* VcNetworking.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../sdk/Pods/Target Support Files/VcNetworking";
+			sourceTree = "<group>";
+		};
 		CE0417C5E574E072BA699AE196741CA5 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1009,7 +1062,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				3EC135C71EFECC181A0DD6C8F076345A /* Development Pods */,
+				C261C4A6735F8877DBF6510F5CEF1EE8 /* Development Pods */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
 				470E18A0DCB23DA2D7B4BCC1B608C139 /* Pods */,
 				8CCD289A063E8649185814FD38A2177B /* Products */,
@@ -1078,14 +1131,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		03D1E6F1D850CAC2B2529D643C875D4A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8BD443A42C5C718BC8843BBC83254152 /* Pods-VcNetworking-VcNetworkingTests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		103703A283E676EA9A3226C39131E29A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1165,11 +1210,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		739A4CFB3EC4BA3DAC2A8EA9EB9C4B11 /* Headers */ = {
+		4D83B18EF0889D5CE43F7CA733C613F6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AFF8E5B1323A6458FE2E55D280EE963 /* Pods-VcNetworking-umbrella.h in Headers */,
+				854C65F0F4238C0A4F0ACD2BB923CFE0 /* Pods-VcNetworking-VcNetworkingTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CBAB31D19A09AC9088009FDA73C936B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B19B91672C969C29EE7496D77E05F4D /* Pods-VcNetworking-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1279,17 +1332,18 @@
 		};
 		43D8979194A185A71B3BFA2BD916AE61 /* Pods-VcNetworking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D17E8ABEE5A30D73112748EF754F5F11 /* Build configuration list for PBXNativeTarget "Pods-VcNetworking" */;
+			buildConfigurationList = FC34797897A9B0F7E06A00E165A0F5AE /* Build configuration list for PBXNativeTarget "Pods-VcNetworking" */;
 			buildPhases = (
-				739A4CFB3EC4BA3DAC2A8EA9EB9C4B11 /* Headers */,
-				042B8296EB54F1A00C0586E1733FC111 /* Sources */,
-				94844C1F324432769564EF25E89B8E59 /* Frameworks */,
-				BD0361CDCB00A033BF9ACEB5556B4BF7 /* Resources */,
+				5CBAB31D19A09AC9088009FDA73C936B /* Headers */,
+				7790A11FD289898EAEBBF30F97ECF3A2 /* Sources */,
+				C9652BDB7C09807318AD235CDD55ACC5 /* Frameworks */,
+				CF161AD645D44EA87C6B05746ACD5973 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3FBD2674496276F18DD315F4F5E46768 /* PBXTargetDependency */,
+				A8FA132FD9555BBCAC19E2792EE7830E /* PBXTargetDependency */,
+				60B94F8C6344471C369ECF52DC309BA8 /* PBXTargetDependency */,
 			);
 			name = "Pods-VcNetworking";
 			productName = "Pods-VcNetworking";
@@ -1317,17 +1371,18 @@
 		};
 		5D7E2303275E26391EE83BD7F317BA41 /* Pods-VcNetworking-VcNetworkingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 39512F69F0F69FA04524BECE0675F360 /* Build configuration list for PBXNativeTarget "Pods-VcNetworking-VcNetworkingTests" */;
+			buildConfigurationList = 1304ED9730204A9058F42C50B574986E /* Build configuration list for PBXNativeTarget "Pods-VcNetworking-VcNetworkingTests" */;
 			buildPhases = (
-				03D1E6F1D850CAC2B2529D643C875D4A /* Headers */,
-				982EB6738A0F40A55B1FD5F153D98842 /* Sources */,
-				5A50570BF1FD18F4D708F508E7DC294E /* Frameworks */,
-				6045744A478BBACDC36AAB6BDDFBC9DB /* Resources */,
+				4D83B18EF0889D5CE43F7CA733C613F6 /* Headers */,
+				FED96CF69B442AEEDFBAEEFACD361BB6 /* Sources */,
+				1C54A752EF02723F3A8E96222B4CBAD5 /* Frameworks */,
+				D8B16F72D55E03662B349B736B44251C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AE11514A9A1D98FBFAB436F9E31C2297 /* PBXTargetDependency */,
+				FADE6CFC6CB8EE7C4DFAA074E9D1062B /* PBXTargetDependency */,
+				D49B87C7545616FAF5C115C4A195258A /* PBXTargetDependency */,
 			);
 			name = "Pods-VcNetworking-VcNetworkingTests";
 			productName = "Pods-VcNetworking-VcNetworkingTests";
@@ -1445,6 +1500,7 @@
 				5D7E2303275E26391EE83BD7F317BA41 /* Pods-VcNetworking-VcNetworkingTests */,
 				7C579CE66A1E7A9AA33CA5F97F9C22C5 /* PromiseKit */,
 				9AE68C3D8E67C47FB2C8E83198549C5F /* VcCrypto */,
+				EDF830429C5FFC8064C58ABBA5CA0A2E /* VcJwt */,
 				37DBAFDC20E13984CC335B195F5E85D9 /* VcNetworking */,
 			);
 		};
@@ -1479,13 +1535,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6045744A478BBACDC36AAB6BDDFBC9DB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		895476880EFCAC03820FBCD3C7221563 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1500,7 +1549,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD0361CDCB00A033BF9ACEB5556B4BF7 /* Resources */ = {
+		CF161AD645D44EA87C6B05746ACD5973 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8B16F72D55E03662B349B736B44251C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1524,14 +1580,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		042B8296EB54F1A00C0586E1733FC111 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BFD73D585DF049387B8818B7833016EC /* Pods-VcNetworking-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		278E1F7A6ECF73FFD77BD789D1F83613 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1548,19 +1596,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7790A11FD289898EAEBBF30F97ECF3A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F299488F3D1A0EF35559924A8DFA9E22 /* Pods-VcNetworking-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		881469A54AE73A87C3E246D81B88E1D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				26D210114481EAE30A5EB236900005CA /* Pods-VcCrypto-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		982EB6738A0F40A55B1FD5F153D98842 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30BCA1FE6C490D5BAB5105BFEB8C6CC0 /* Pods-VcNetworking-VcNetworkingTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1641,20 +1689,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FED96CF69B442AEEDFBAEEFACD361BB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4064D64C0C98C0DE5EC3A0E4B463E329 /* Pods-VcNetworking-VcNetworkingTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3FBD2674496276F18DD315F4F5E46768 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PromiseKit;
-			target = 7C579CE66A1E7A9AA33CA5F97F9C22C5 /* PromiseKit */;
-			targetProxy = 7F708D884864F4BE02013D4E46BDBE00 /* PBXContainerItemProxy */;
-		};
 		457FD41BF44624F76CA4B0875B50308A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "bitcoin-core-secp256k1";
 			target = 3020FF5BE409E86C04853BBDEF3E50A7 /* bitcoin-core-secp256k1 */;
 			targetProxy = A64009CE24A51E68AB404C77505A1A72 /* PBXContainerItemProxy */;
+		};
+		60B94F8C6344471C369ECF52DC309BA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VcJwt;
+			target = EDF830429C5FFC8064C58ABBA5CA0A2E /* VcJwt */;
+			targetProxy = D794752E490CF07827F197281D22967F /* PBXContainerItemProxy */;
 		};
 		746C3C51F707F9563C8B2BBF65270DA9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1710,17 +1766,29 @@
 			target = 3020FF5BE409E86C04853BBDEF3E50A7 /* bitcoin-core-secp256k1 */;
 			targetProxy = 16A3D9D084EE6A7ACABE07A6C7859480 /* PBXContainerItemProxy */;
 		};
-		AE11514A9A1D98FBFAB436F9E31C2297 /* PBXTargetDependency */ = {
+		A8FA132FD9555BBCAC19E2792EE7830E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PromiseKit;
 			target = 7C579CE66A1E7A9AA33CA5F97F9C22C5 /* PromiseKit */;
-			targetProxy = AB4995975A5BD79F01E8DB41F6D8ADFE /* PBXContainerItemProxy */;
+			targetProxy = B3A417D71E115F21DB9287DFDA4B99E5 /* PBXContainerItemProxy */;
+		};
+		D49B87C7545616FAF5C115C4A195258A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VcJwt;
+			target = EDF830429C5FFC8064C58ABBA5CA0A2E /* VcJwt */;
+			targetProxy = 125D1CD57A5A5D314949B3140C9BAC61 /* PBXContainerItemProxy */;
 		};
 		EB5E76E536975C4A6EA9F9261B5358E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PromiseKit;
 			target = 7C579CE66A1E7A9AA33CA5F97F9C22C5 /* PromiseKit */;
 			targetProxy = F6187785962DE84510431815E226833F /* PBXContainerItemProxy */;
+		};
+		FADE6CFC6CB8EE7C4DFAA074E9D1062B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PromiseKit;
+			target = 7C579CE66A1E7A9AA33CA5F97F9C22C5 /* PromiseKit */;
+			targetProxy = FA8DFC2500F4BA8F76AF1D7981B86BC4 /* PBXContainerItemProxy */;
 		};
 		FC068209787B77B57E775FDA74BCC29F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1733,7 +1801,7 @@
 /* Begin XCBuildConfiguration section */
 		11A83B1B9736855FB0A53A7D54FF2A34 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC69D6B91ABDC771DF760185F03CAE94 /* VcNetworking.xcconfig */;
+			baseConfigurationReference = C67B26B0E14F927A73F45930A26D54A8 /* VcNetworking.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1886,7 +1954,7 @@
 		};
 		30A282F1ABB14B085960B58C7BE64EB6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0108C8CDA1A868A4984037EA9ABC4AE /* VcCrypto.xcconfig */;
+			baseConfigurationReference = AF1470B60E3131F98EEFBA21BDECF315 /* VcCrypto.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1899,6 +1967,45 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3981A4E1080D18052D40D010FB1F84F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FF8F40C2340DF635E60E402B82715FD /* Pods-VcNetworking.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VcNetworking/Pods-VcNetworking-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VcNetworking/Pods-VcNetworking.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1927,45 +2034,6 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-VcJwt/Pods-VcJwt.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		4D1FA9D66FD4EB129A4F0A550304B984 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FF8F40C2340DF635E60E402B82715FD /* Pods-VcNetworking.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VcNetworking/Pods-VcNetworking-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VcNetworking/Pods-VcNetworking.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2091,7 +2159,7 @@
 		};
 		6349413DD6F127D42CBC5C544C613052 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0108C8CDA1A868A4984037EA9ABC4AE /* VcCrypto.xcconfig */;
+			baseConfigurationReference = AF1470B60E3131F98EEFBA21BDECF315 /* VcCrypto.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2145,9 +2213,47 @@
 			};
 			name = Release;
 		};
+		7EC7E516F4C611F490952255B158BF7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 382B6C94E311CC8E1A255AE88C7C92F6 /* Pods-VcNetworking-VcNetworkingTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VcNetworking-VcNetworkingTests/Pods-VcNetworking-VcNetworkingTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VcNetworking-VcNetworkingTests/Pods-VcNetworking-VcNetworkingTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		7F768F98B8A21F1F4FD4365EC3E4E98B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC69D6B91ABDC771DF760185F03CAE94 /* VcNetworking.xcconfig */;
+			baseConfigurationReference = C67B26B0E14F927A73F45930A26D54A8 /* VcNetworking.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2197,6 +2303,45 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		91F3DF32C2891AF650F49138CC773E28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 786FCD9A3ADF8E2137058AC66DE66545 /* Pods-VcNetworking-VcNetworkingTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VcNetworking-VcNetworkingTests/Pods-VcNetworking-VcNetworkingTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VcNetworking-VcNetworkingTests/Pods-VcNetworking-VcNetworkingTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		A2D2743E101F3AE09074FBBA4C3DBD44 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2352,44 +2497,6 @@
 			};
 			name = Debug;
 		};
-		B8455EE3E43DD956A3ACF1A67FFB6CBD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75C18A0502EDB790D1E6C8C90918E883 /* Pods-VcNetworking.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VcNetworking/Pods-VcNetworking-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VcNetworking/Pods-VcNetworking.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		C0481FBF7BA4DAB910EBC684DE820E3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DF8D04C1F5CBE76FF631A0B4F81FB5E /* Pods-sdk-sdkTests.release.xcconfig */;
@@ -2428,6 +2535,44 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		C5A728FBCA11D782F350986A31CD8B4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75C18A0502EDB790D1E6C8C90918E883 /* Pods-VcNetworking.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VcNetworking/Pods-VcNetworking-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VcNetworking/Pods-VcNetworking.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		C94F6FC5E8D39A4909964A4167EA008D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2506,44 +2651,6 @@
 			};
 			name = Release;
 		};
-		DD8906C7B63140AA08F8DE52E1480948 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 382B6C94E311CC8E1A255AE88C7C92F6 /* Pods-VcNetworking-VcNetworkingTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VcNetworking-VcNetworkingTests/Pods-VcNetworking-VcNetworkingTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VcNetworking-VcNetworkingTests/Pods-VcNetworking-VcNetworkingTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		DD8F832993327D1DD8046C3CBCBD97CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2608,45 +2715,6 @@
 			};
 			name = Debug;
 		};
-		E294ED01D2112C49E7B9783BE95FCB34 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 786FCD9A3ADF8E2137058AC66DE66545 /* Pods-VcNetworking-VcNetworkingTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VcNetworking-VcNetworkingTests/Pods-VcNetworking-VcNetworkingTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VcNetworking-VcNetworkingTests/Pods-VcNetworking-VcNetworkingTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		E4B377AE77F1821330F7166C808972CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CBC4F120CE3B9E5CA8EB2AA34432C51E /* PromiseKit.xcconfig */;
@@ -2683,6 +2751,41 @@
 			};
 			name = Release;
 		};
+		EAE40C0CD0D37108A8257F3C27E8BEDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEDA988CB03A01925D8867F217BF5AFE /* VcJwt.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE364A3FE1F37939C09C93C6327BF1CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEDA988CB03A01925D8867F217BF5AFE /* VcJwt.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2695,20 +2798,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		1304ED9730204A9058F42C50B574986E /* Build configuration list for PBXNativeTarget "Pods-VcNetworking-VcNetworkingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EC7E516F4C611F490952255B158BF7B /* Debug */,
+				91F3DF32C2891AF650F49138CC773E28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		302FBB27D102EDB725D5228AA068B4E3 /* Build configuration list for PBXNativeTarget "Pods-sdk-sdkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C94F6FC5E8D39A4909964A4167EA008D /* Debug */,
 				C0481FBF7BA4DAB910EBC684DE820E3D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		39512F69F0F69FA04524BECE0675F360 /* Build configuration list for PBXNativeTarget "Pods-VcNetworking-VcNetworkingTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DD8906C7B63140AA08F8DE52E1480948 /* Debug */,
-				E294ED01D2112C49E7B9783BE95FCB34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2767,20 +2870,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A08D589B2F8C7964801C03AC3B5D226A /* Build configuration list for PBXAggregateTarget "VcJwt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE364A3FE1F37939C09C93C6327BF1CC /* Debug */,
+				EAE40C0CD0D37108A8257F3C27E8BEDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CAA64A672A550FF145510D88447DC586 /* Build configuration list for PBXAggregateTarget "VcCrypto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6349413DD6F127D42CBC5C544C613052 /* Debug */,
 				30A282F1ABB14B085960B58C7BE64EB6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D17E8ABEE5A30D73112748EF754F5F11 /* Build configuration list for PBXNativeTarget "Pods-VcNetworking" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B8455EE3E43DD956A3ACF1A67FFB6CBD /* Debug */,
-				4D1FA9D66FD4EB129A4F0A550304B984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2799,6 +2902,15 @@
 			buildConfigurations = (
 				622C09FE6801C861677616EDF9E7A045 /* Debug */,
 				DBDFE9733404950655944AABF893CF49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC34797897A9B0F7E06A00E165A0F5AE /* Build configuration list for PBXNativeTarget "Pods-VcNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5A728FBCA11D782F350986A31CD8B4F /* Debug */,
+				3981A4E1080D18052D40D010FB1F84F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "8F2E4F67-BB3E-49CB-9DEF-F43622AD02E1",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:sdk.xcodeproj",
+        "identifier" : "55D1C0BF24C23408002A58F9",
+        "name" : "sdkTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/VcCrypto\/VcCrypto.xcodeproj",
+        "identifier" : "92CDE7B224DC78DD00F95B5D",
+        "name" : "VcCryptoTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/VcJwt\/VcJwt.xcodeproj",
+        "identifier" : "55ADE25F24F5406000D9990E",
+        "name" : "VcJwtTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/VcNetworking\/VcNetworking.xcodeproj",
+        "identifier" : "55D7BFF224C4CBBD0090F495",
+        "name" : "VcNetworkingTests"
+      }
+    }
+  ],
+  "version" : 1
+}
