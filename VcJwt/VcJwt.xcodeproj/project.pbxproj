@@ -16,7 +16,7 @@
 		55ADE26824F5406000D9990E /* VcJwt.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADE25A24F5406000D9990E /* VcJwt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE27224F5407D00D9990E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27124F5407D00D9990E /* Header.swift */; };
 		55ADE27924F540F700D9990E /* JwsToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27824F540F700D9990E /* JwsToken.swift */; };
-		55ADE27B24F5410400D9990E /* Secp256k1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27A24F5410300D9990E /* Secp256k1.swift */; };
+		55ADE27B24F5410400D9990E /* Secp256k1Signer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27A24F5410300D9990E /* Secp256k1Signer.swift */; };
 		55ADE27D24F5410E00D9990E /* Claims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27C24F5410E00D9990E /* Claims.swift */; };
 		55ADE27F24F5411E00D9990E /* JwsEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27E24F5411E00D9990E /* JwsEncoder.swift */; };
 		55ADE28124F5412100D9990E /* JwsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE28024F5412100D9990E /* JwsDecoder.swift */; };
@@ -30,6 +30,7 @@
 		55ADE29724F56A8100D9990E /* Secp256k1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29624F56A8100D9990E /* Secp256k1Tests.swift */; };
 		55ADE29D24F583DB00D9990E /* JwsDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29C24F583DB00D9990E /* JwsDecoderTests.swift */; };
 		55ADE2A124F585B100D9990E /* ClaimsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE2A024F585B100D9990E /* ClaimsTest.swift */; };
+		55C6C4A6250816500082BE73 /* Secp256k1Verifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A5250816500082BE73 /* Secp256k1Verifier.swift */; };
 		57596ED25B9CC46CA5DC595D /* Pods_VcJwt_VcJwtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C51FC8EADD798B32ED3A0AA /* Pods_VcJwt_VcJwtTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +59,7 @@
 		55ADE27124F5407D00D9990E /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		55ADE27424F540E000D9990E /* VcCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VcCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ADE27824F540F700D9990E /* JwsToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JwsToken.swift; sourceTree = "<group>"; };
-		55ADE27A24F5410300D9990E /* Secp256k1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1.swift; sourceTree = "<group>"; };
+		55ADE27A24F5410300D9990E /* Secp256k1Signer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1Signer.swift; sourceTree = "<group>"; };
 		55ADE27C24F5410E00D9990E /* Claims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Claims.swift; sourceTree = "<group>"; };
 		55ADE27E24F5411E00D9990E /* JwsEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsEncoder.swift; sourceTree = "<group>"; };
 		55ADE28024F5412100D9990E /* JwsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsDecoder.swift; sourceTree = "<group>"; };
@@ -72,6 +73,7 @@
 		55ADE29624F56A8100D9990E /* Secp256k1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1Tests.swift; sourceTree = "<group>"; };
 		55ADE29C24F583DB00D9990E /* JwsDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsDecoderTests.swift; sourceTree = "<group>"; };
 		55ADE2A024F585B100D9990E /* ClaimsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimsTest.swift; sourceTree = "<group>"; };
+		55C6C4A5250816500082BE73 /* Secp256k1Verifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1Verifier.swift; sourceTree = "<group>"; };
 		61998110A525DEEE840A4AEA /* Pods-VcJwt-VcJwtTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcJwt-VcJwtTests.debug.xcconfig"; path = "Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B63B68DC1F3089C55A57704 /* Pods_VcJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7EABCA3EA82A102A88312AC /* Pods-VcJwt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcJwt.release.xcconfig"; path = "Target Support Files/Pods-VcJwt/Pods-VcJwt.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,7 +104,8 @@
 		5526934F24FF32850051A358 /* algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				55ADE27A24F5410300D9990E /* Secp256k1.swift */,
+				55ADE27A24F5410300D9990E /* Secp256k1Signer.swift */,
+				55C6C4A5250816500082BE73 /* Secp256k1Verifier.swift */,
 				5540904A2500311E001246DB /* ECPublicJwk.swift */,
 			);
 			path = algorithms;
@@ -373,13 +376,14 @@
 			files = (
 				55ADE27D24F5410E00D9990E /* Claims.swift in Sources */,
 				5540904B2500311E001246DB /* ECPublicJwk.swift in Sources */,
+				55C6C4A6250816500082BE73 /* Secp256k1Verifier.swift in Sources */,
 				55ADE27924F540F700D9990E /* JwsToken.swift in Sources */,
 				55ADE27224F5407D00D9990E /* Header.swift in Sources */,
 				55269351250006020051A358 /* VcJwtError.swift in Sources */,
 				55ADE28524F5412900D9990E /* TokenVerifying.swift in Sources */,
 				55ADE28124F5412100D9990E /* JwsDecoder.swift in Sources */,
 				55ADE27F24F5411E00D9990E /* JwsEncoder.swift in Sources */,
-				55ADE27B24F5410400D9990E /* Secp256k1.swift in Sources */,
+				55ADE27B24F5410400D9990E /* Secp256k1Signer.swift in Sources */,
 				55ADE28324F5412600D9990E /* TokenSigning.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
