@@ -9,24 +9,34 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.8.0):
     - PromiseKit/CorePromise
-  - SSZipArchive (2.2.3)
+  - VcCrypto (0.0.1-beta.0):
+    - bitcoin-core-secp256k1
+  - VcNetworking (0.0.1-beta.0):
+    - PromiseKit (= 6.8)
 
 DEPENDENCIES:
   - bitcoin-core-secp256k1
   - PromiseKit (= 6.8)
-  - SSZipArchive
+  - VcCrypto (from `../VcCrypto`)
+  - VcNetworking (from `../VcNetworking`)
 
 SPEC REPOS:
   trunk:
     - bitcoin-core-secp256k1
     - PromiseKit
-    - SSZipArchive
+
+EXTERNAL SOURCES:
+  VcCrypto:
+    :path: "../VcCrypto"
+  VcNetworking:
+    :path: "../VcNetworking"
 
 SPEC CHECKSUMS:
   bitcoin-core-secp256k1: c2f87afc7f002cd84ae89b64d32e1ff4fa282f65
   PromiseKit: 02c93833283c37ce94ef7d25de63d48d62b0754e
-  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  VcCrypto: 2dabb8451c0dc3d549e7a326c2c3a11db6788de4
+  VcNetworking: 7357df2c5af0160390e9456263f20ce0fdcabeda
 
-PODFILE CHECKSUM: 94ea1667e2c34d74f950d9abbf5809b123159ea2
+PODFILE CHECKSUM: 587700893476c873d7d0f9a81b2e112be366034a
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.8.4

@@ -16,7 +16,9 @@ enum Secp256k1Error: Error {
     case invalidSecret
 }
 
-public struct Secp256k1 {
+public struct Secp256k1: Signing {
+    
+    public init() {}
     
     /// Sign a message message hash
     /// - Parameters:

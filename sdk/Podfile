@@ -3,33 +3,39 @@ use_frameworks!
 platform :ios, '11.0'
 workspace '../sdk'
 
-def sdk_pods
-  pod 'SSZipArchive'
+def networking_pods
+  podspec :path => '../VcNetworking/VcNetworking.podspec'
 end
 
-def networking_pods
-  podspec :path => '../networking/networking.podspec'
+def vcjwt_pods
+    podspec :path => '../VcJwt/VcJwt.podspec'
 end
 
 def vccrypto_pods
-  podspec :path => '../VCCrypto/VCCrypto.podspec'
+  podspec :path => '../VcCrypto/VcCrypto.podspec'
 end
 
 target 'sdk' do
   project '../sdk/sdk.xcodeproj'
-  sdk_pods
-  networking_pods
+  pod 'VcNetworking', path: '../VcNetworking'
   target 'sdkTests'
 end
 
-target 'networking' do
-  project '../networking/networking.xcodeproj'
+target 'VcNetworking' do
+  project '../VcNetworking/VcNetworking.xcodeproj'
   networking_pods
-  target 'networkingTests'
+  target 'VcNetworkingTests'
 end
 
-target 'VCCrypto' do
-  project '../VCCrypto/VCCrypto.xcodeproj'
+target 'VcCrypto' do
+  project '../VcCrypto/VcCrypto.xcodeproj'
   vccrypto_pods
-  target 'VCCryptoTests'
+  target 'VcCryptoTests'
+end
+
+target 'VcJwt' do
+  project '../VcJwt/VcJwt.xcodeproj'
+  pod 'VcCrypto', path: '../VcCrypto'
+  vcjwt_pods
+  target 'VcJwtTests'
 end
