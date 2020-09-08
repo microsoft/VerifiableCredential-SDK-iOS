@@ -21,10 +21,6 @@ class Secp256k1Tests: XCTestCase {
         expectedResult = hashAlgorithm.hash(data: protectedMessage)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testSigner() throws {
         let signer = Secp256k1Signer(using: MockAlgorithm())!
         let mockSecret = MockVcCryptoSecret(id: UUID())

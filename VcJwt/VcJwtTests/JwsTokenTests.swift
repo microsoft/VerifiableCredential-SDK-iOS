@@ -21,10 +21,6 @@ class JwsTokenTests: XCTestCase {
         testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: expectedSignature)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testInit() throws {
         XCTAssertEqual(testToken.content, expectedContent)
         XCTAssertEqual(testToken.headers.keyId, expectedHeader.keyId)
