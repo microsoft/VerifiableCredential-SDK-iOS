@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550F1D5B25093911009AF467 /* MockDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D5A25093911009AF467 /* MockDecoder.swift */; };
+		550F1D5D25093C0C009AF467 /* MockNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D5C25093C0C009AF467 /* MockNetworkOperation.swift */; };
 		554090572501570D001246DB /* Serializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554090562501570D001246DB /* Serializing.swift */; };
 		55C6C4A925083D370082BE73 /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A825083D370082BE73 /* Decoding.swift */; };
+		55C6C4AB250841000082BE73 /* PresentationServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AA250841000082BE73 /* PresentationServiceResponseDecoder.swift */; };
+		55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AC250843920082BE73 /* ContractDecoder.swift */; };
 		55D167F524EB0AA600AD2F98 /* VcNetworking.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55D167F424EB0AA600AD2F98 /* VcNetworking.podspec */; };
 		55D1681824EB0E1D00AD2F98 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1680224EB0E1C00AD2F98 /* NetworkingError.swift */; };
 		55D1681924EB0E1D00AD2F98 /* HelperNetworkFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1680424EB0E1C00AD2F98 /* HelperNetworkFunctions.swift */; };
@@ -24,7 +28,6 @@
 		55D1682324EB0E1D00AD2F98 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1681424EB0E1C00AD2F98 /* NetworkingConstants.swift */; };
 		55D1682424EB0E1D00AD2F98 /* networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D1681524EB0E1D00AD2F98 /* networking.h */; };
 		55D1682524EB0E1D00AD2F98 /* MockSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1681624EB0E1D00AD2F98 /* MockSerializer.swift */; };
-		55D1683A24EB0E3600AD2F98 /* FetchMockContractOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1682924EB0E3600AD2F98 /* FetchMockContractOperation.swift */; };
 		55D1683B24EB0E3600AD2F98 /* UrlProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1682A24EB0E3600AD2F98 /* UrlProtocolMock.swift */; };
 		55D1683C24EB0E3600AD2F98 /* HelperNetworkFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1682C24EB0E3600AD2F98 /* HelperNetworkFunctionsTests.swift */; };
 		55D1683D24EB0E3600AD2F98 /* SimpleSuccessHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1682E24EB0E3600AD2F98 /* SimpleSuccessHandlerTests.swift */; };
@@ -53,8 +56,12 @@
 		42CA1E2F2F8D3C690FE1FB6D /* Pods-networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking.debug.xcconfig"; path = "Target Support Files/Pods-networking/Pods-networking.debug.xcconfig"; sourceTree = "<group>"; };
 		5024C7EC25EB5973BB33C735 /* Pods-networking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking.release.xcconfig"; path = "Target Support Files/Pods-networking/Pods-networking.release.xcconfig"; sourceTree = "<group>"; };
 		53EC7E545A8798142263F588 /* Pods-VcNetworking-VcNetworkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcNetworking-VcNetworkingTests.debug.xcconfig"; path = "Target Support Files/Pods-VcNetworking-VcNetworkingTests/Pods-VcNetworking-VcNetworkingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		550F1D5A25093911009AF467 /* MockDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDecoder.swift; sourceTree = "<group>"; };
+		550F1D5C25093C0C009AF467 /* MockNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkOperation.swift; sourceTree = "<group>"; };
 		554090562501570D001246DB /* Serializing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializing.swift; sourceTree = "<group>"; };
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
+		55C6C4AA250841000082BE73 /* PresentationServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationServiceResponseDecoder.swift; sourceTree = "<group>"; };
+		55C6C4AC250843920082BE73 /* ContractDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDecoder.swift; sourceTree = "<group>"; };
 		55CED16424D3369B00A2AAE2 /* Serialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Serialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D167F424EB0AA600AD2F98 /* VcNetworking.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VcNetworking.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		55D1680224EB0E1C00AD2F98 /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
@@ -72,7 +79,6 @@
 		55D1681524EB0E1D00AD2F98 /* networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = networking.h; sourceTree = "<group>"; };
 		55D1681624EB0E1D00AD2F98 /* MockSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSerializer.swift; sourceTree = "<group>"; };
 		55D1681724EB0E1D00AD2F98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55D1682924EB0E3600AD2F98 /* FetchMockContractOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchMockContractOperation.swift; sourceTree = "<group>"; };
 		55D1682A24EB0E3600AD2F98 /* UrlProtocolMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlProtocolMock.swift; sourceTree = "<group>"; };
 		55D1682C24EB0E3600AD2F98 /* HelperNetworkFunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperNetworkFunctionsTests.swift; sourceTree = "<group>"; };
 		55D1682E24EB0E3600AD2F98 /* SimpleSuccessHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSuccessHandlerTests.swift; sourceTree = "<group>"; };
@@ -122,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				55C6C4A825083D370082BE73 /* Decoding.swift */,
+				55C6C4AA250841000082BE73 /* PresentationServiceResponseDecoder.swift */,
+				55C6C4AC250843920082BE73 /* ContractDecoder.swift */,
 			);
 			path = decoders;
 			sourceTree = "<group>";
@@ -223,8 +231,9 @@
 		55D1682824EB0E3600AD2F98 /* mocks */ = {
 			isa = PBXGroup;
 			children = (
-				55D1682924EB0E3600AD2F98 /* FetchMockContractOperation.swift */,
 				55D1682A24EB0E3600AD2F98 /* UrlProtocolMock.swift */,
+				550F1D5A25093911009AF467 /* MockDecoder.swift */,
+				550F1D5C25093C0C009AF467 /* MockNetworkOperation.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -524,6 +533,7 @@
 				55D1681D24EB0E1D00AD2F98 /* RetryHandler.swift in Sources */,
 				55D1682524EB0E1D00AD2F98 /* MockSerializer.swift in Sources */,
 				55D1681B24EB0E1D00AD2F98 /* SuccessHandler.swift in Sources */,
+				55C6C4AB250841000082BE73 /* PresentationServiceResponseDecoder.swift in Sources */,
 				55D1681A24EB0E1D00AD2F98 /* SimpleSuccessHandler.swift in Sources */,
 				55D1681E24EB0E1D00AD2F98 /* NetworkOperation.swift in Sources */,
 				55D1681824EB0E1D00AD2F98 /* NetworkingError.swift in Sources */,
@@ -532,6 +542,7 @@
 				55D1682124EB0E1D00AD2F98 /* FailureHandler.swift in Sources */,
 				55D1681924EB0E1D00AD2F98 /* HelperNetworkFunctions.swift in Sources */,
 				554090572501570D001246DB /* Serializing.swift in Sources */,
+				55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,11 +553,12 @@
 				55D1684024EB0E3600AD2F98 /* FetchContractOperationTests.swift in Sources */,
 				55D1683F24EB0E3600AD2F98 /* PostPresentationResponseOperationTests.swift in Sources */,
 				55D1684224EB0E3600AD2F98 /* SimpleFailureHandlerTests.swift in Sources */,
-				55D1683A24EB0E3600AD2F98 /* FetchMockContractOperation.swift in Sources */,
 				55D1683B24EB0E3600AD2F98 /* UrlProtocolMock.swift in Sources */,
+				550F1D5D25093C0C009AF467 /* MockNetworkOperation.swift in Sources */,
 				55D1684124EB0E3600AD2F98 /* NetworkOperationTests.swift in Sources */,
 				55D1683D24EB0E3600AD2F98 /* SimpleSuccessHandlerTests.swift in Sources */,
 				55D1683C24EB0E3600AD2F98 /* HelperNetworkFunctionsTests.swift in Sources */,
+				550F1D5B25093911009AF467 /* MockDecoder.swift in Sources */,
 				55D1683E24EB0E3600AD2F98 /* NoRetryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

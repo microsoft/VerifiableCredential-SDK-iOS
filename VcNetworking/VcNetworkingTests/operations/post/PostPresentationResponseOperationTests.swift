@@ -13,9 +13,9 @@ class PostPresentationRequestTests: XCTestCase {
     private let expectedUrl = "https://testcontract.com/4235"
     private let expectedHttpResponse = "testPresentationResponse29384"
     private let expectedRequestBody = MockSerializableObject(id: "test")
-    private let serializer = MockSerializer()
+    private var expectedEncodedBody: Data!
     
-    override func setUp() {
+    override func setUpWithError() throws {
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
@@ -24,16 +24,17 @@ class PostPresentationRequestTests: XCTestCase {
         } catch {
             print(error)
         }
+        
+        self.expectedEncodedBody = try JSONEncoder().encode(expectedRequestBody)
     }
     
     func testSuccessfulInit() throws {
-        let expectedSerializedBody = try serializer.serialize(object: expectedRequestBody)
         XCTAssertTrue(postPresentationResponseOperation.successHandler is SimpleSuccessHandler)
         XCTAssertTrue(postPresentationResponseOperation.failureHandler is SimpleFailureHandler)
         XCTAssertTrue(postPresentationResponseOperation.retryHandler is NoRetry)
         XCTAssertEqual(postPresentationResponseOperation.urlRequest.url!.absoluteString, expectedUrl)
         XCTAssertEqual(postPresentationResponseOperation.urlRequest.url!.absoluteString, expectedUrl)
-        XCTAssertEqual(postPresentationResponseOperation.urlRequest.httpBody!, expectedSerializedBody)
+        XCTAssertEqual(postPresentationResponseOperation.urlRequest.httpBody!, self.expectedEncodedBody)
         XCTAssertEqual(postPresentationResponseOperation.urlRequest.httpMethod!, Constants.POST)
         XCTAssertEqual(postPresentationResponseOperation.urlRequest.value(forHTTPHeaderField: Constants.CONTENT_TYPE)!, Constants.FORM_URLENCODED)
     }

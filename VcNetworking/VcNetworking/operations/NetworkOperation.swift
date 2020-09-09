@@ -10,20 +10,21 @@ import PromiseKit
  * ResponseBody: the type of object returned by the service.
  */
 protocol NetworkOperation {
-    associatedtype ResponseBody: Codable
+    associatedtype Decoder: Decoding
     
+    var decoder: Decoder { get }
     var successHandler: SuccessHandler { get }
     var failureHandler: FailureHandler { get }
     var retryHandler: RetryHandler { get }
     var urlSession: URLSession { get }
     var urlRequest: URLRequest { get }
     
-    func fire() -> Promise<ResponseBody>
+    func fire() -> Promise<Decoder.ResponseBody>
 }
 
 extension NetworkOperation {
     
-    func fire() -> Promise<ResponseBody> {
+    func fire() -> Promise<Decoder.ResponseBody> {
         return firstly {
             retryHandler.onRetry {
                 self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)
@@ -31,7 +32,7 @@ extension NetworkOperation {
         }
     }
     
-    func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<ResponseBody> {
+    func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<Decoder.ResponseBody> {
         return firstly {
             urlSession.dataTask(.promise, with: urlRequest)
         }.then { data, response in
@@ -39,11 +40,11 @@ extension NetworkOperation {
         }
     }
     
-    private func handleResponse(data: Data, response: URLResponse) -> Promise<ResponseBody> {
+    private func handleResponse(data: Data, response: URLResponse) -> Promise<Decoder.ResponseBody> {
         return Promise { seal in
             
             guard let httpResponse = response as? HTTPURLResponse else {
-                seal.reject(NetworkingError.unableToCaseResponse)
+                seal.reject(NetworkingError.unableToParseData)
                 return
             }
             
@@ -55,11 +56,11 @@ extension NetworkOperation {
         }
     }
     
-    func onSuccess(data: Data, response: HTTPURLResponse) throws -> ResponseBody {
-        return try self.successHandler.onSuccess(ResponseBody.self, data: data, response: response)
+    func onSuccess(data: Data, response: HTTPURLResponse) throws -> Decoder.ResponseBody {
+        return try self.successHandler.onSuccess(data: data, decodeWith: self.decoder)
     }
     
     func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError {
-        return try self.failureHandler.onFailure(ResponseBody.self, data: data, response: response)
+        return try self.failureHandler.onFailure(data: data, response: response)
     }
 }

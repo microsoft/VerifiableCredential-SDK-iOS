@@ -6,9 +6,10 @@
 import Foundation
 
 final class PostPresentationResponseOperation: NetworkOperation {
-    typealias ResponseBody = MockPresentationServiceResponse
+    typealias Decoding = PresentationServiceResponseDecoder
     
-    let successHandler: SuccessHandler = SimpleSuccessHandler(serializer: MockSerializer())
+    let decoder = PresentationServiceResponseDecoder()
+    let successHandler: SuccessHandler = SimpleSuccessHandler()
     let failureHandler: FailureHandler = SimpleFailureHandler()
     let retryHandler: RetryHandler = NoRetry()
     let urlSession: URLSession

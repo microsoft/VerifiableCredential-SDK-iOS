@@ -4,24 +4,24 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import PromiseKit
+@testable import VcNetworking
 
-final class FetchContractOperation: NetworkOperation {
-    typealias Decoder = ContractDecoder
+final class MockNetworkOperation: NetworkOperation {
+    typealias Decoder = MockDecoder
     
-    let decoder: ContractDecoder = ContractDecoder()
-    let retryHandler: RetryHandler  = NoRetry()
+    let decoder: MockDecoder = MockDecoder()
     let successHandler: SuccessHandler = SimpleSuccessHandler()
     let failureHandler: FailureHandler = SimpleFailureHandler()
+    let retryHandler: RetryHandler = NoRetry()
     let urlSession: URLSession
     let urlRequest: URLRequest
     
-    init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
-        guard let url = URL(string: urlStr) else {
-            throw NetworkingError.invalidUrl(withUrl: urlStr)
-        }
-        
-        self.urlRequest = URLRequest(url: url)
-        self.urlSession = session
+    let mockUrl = "mockurl.com"
+    
+    init () {
+        let configuration = URLSessionConfiguration.default
+        configuration.protocolClasses = [UrlProtocolMock.self]
+        self.urlSession = URLSession.init(configuration: configuration)
+        self.urlRequest = URLRequest(url: URL(string: mockUrl)!)
     }
 }

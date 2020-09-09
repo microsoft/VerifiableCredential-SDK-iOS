@@ -5,9 +5,12 @@
 
 import Foundation
 
-class SimpleSuccessHandler: SuccessHandler {
+struct ContractDecoder: Decoding {
+    typealias Decodable = MockContract
     
-    func onSuccess<Decoder: Decoding>(data: Data, decodeWith decoder: Decoder) throws -> Decoder.ResponseBody {
-        return try decoder.decode(data: data)
+    let decoder = JSONDecoder()
+    
+    func decode(data: Data) throws -> MockContract {
+        return try decoder.decode(MockContract.self, from: data)
     }
 }

@@ -4,10 +4,15 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+@testable import VcNetworking
 
-class SimpleSuccessHandler: SuccessHandler {
+struct MockDecoder: Decoding {
+    typealias ResponseBody = MockSerializableObject
     
-    func onSuccess<Decoder: Decoding>(data: Data, decodeWith decoder: Decoder) throws -> Decoder.ResponseBody {
-        return try decoder.decode(data: data)
+    let jsonDecoder = JSONDecoder()
+    
+    func decode(data: Data) throws -> MockSerializableObject {
+        return try jsonDecoder.decode(MockSerializableObject.self, from: data)
     }
 }
+

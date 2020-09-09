@@ -11,5 +11,6 @@ public enum NetworkingError: Error, Equatable {
     case serverError(withBody: String)
     case unauthorized(withBody: String)
     case unknownNetworkingError(withBody: String)
-    case unableToCaseResponse
+    case unableToParseString
+    case unableToParseData
 }

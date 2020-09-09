@@ -24,6 +24,7 @@ end
 target 'VcNetworking' do
   project '../VcNetworking/VcNetworking.xcodeproj'
   networking_pods
+  pod 'VcJwt', path: '../VcJwt'
   target 'VcNetworkingTests'
 end
 
