@@ -10,7 +10,7 @@ import XCTest
 class SimpleFailureHandlerTests: XCTestCase {
     
     private let handler = SimpleFailureHandler()
-    private let expectedResponseBody = MockSerializableObject(id: "test")
+    private let expectedResponseBody = MockObject(id: "test")
     private var encodedResponse: Data!
     private var serializedExpectedResponse: String!
     

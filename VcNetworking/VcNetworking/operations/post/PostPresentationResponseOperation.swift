@@ -9,13 +9,14 @@ final class PostPresentationResponseOperation: NetworkOperation {
     typealias Decoding = PresentationServiceResponseDecoder
     
     let decoder = PresentationServiceResponseDecoder()
+    let encoder = PresentationResponseEncoder()
     let successHandler: SuccessHandler = SimpleSuccessHandler()
     let failureHandler: FailureHandler = SimpleFailureHandler()
     let retryHandler: RetryHandler = NoRetry()
     let urlSession: URLSession
     let urlRequest: URLRequest
     
-    init(withUrl urlStr: String, withBody body: MockPresentationRequest, serializer: Serializing, urlSession: URLSession = URLSession.shared) throws {
+    init(withUrl urlStr: String, withBody body: String, urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
@@ -23,7 +24,7 @@ final class PostPresentationResponseOperation: NetworkOperation {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = Constants.POST
-        urlRequest.httpBody = try serializer.serialize(object: body)
+        urlRequest.httpBody = try self.encoder.encode(value: body)
         urlRequest.addValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
         self.urlRequest = urlRequest
         self.urlSession = urlSession

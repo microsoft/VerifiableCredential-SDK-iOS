@@ -5,7 +5,8 @@
 
 import Foundation
 
-public protocol Serializing {
-    func deserialize<T: Codable>(_: T.Type, data: Data) throws -> T
-    func serialize<T: Codable>(object: T) throws -> Data
+public protocol Encoding {
+    associatedtype RequestBody
+    
+    func encode(value: RequestBody) throws -> Data
 }

@@ -11,7 +11,7 @@ class SimpleSuccessHandlerTests: XCTestCase {
     
     let handler = SimpleSuccessHandler()
     var response = HTTPURLResponse()
-    let expectedResponseBody = MockSerializableObject(id: "test")
+    let expectedResponseBody = MockObject(id: "test")
     let jsonEncoder = JSONEncoder()
     let decoder = MockDecoder()
 

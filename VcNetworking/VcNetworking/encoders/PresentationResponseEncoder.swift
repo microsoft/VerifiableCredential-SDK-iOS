@@ -4,15 +4,12 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-@testable import VcNetworking
+import VcJwt
 
-struct MockDecoder: Decoding {
-    typealias ResponseBody = MockObject
+struct PresentationResponseEncoder: Encoding {
     
-    let jsonDecoder = JSONDecoder()
-    
-    func decode(data: Data) throws -> MockObject {
-        return try jsonDecoder.decode(MockObject.self, from: data)
+    func encode(value: String) throws -> Data {
+        return value.data(using: .utf8)!
     }
+    
 }
-

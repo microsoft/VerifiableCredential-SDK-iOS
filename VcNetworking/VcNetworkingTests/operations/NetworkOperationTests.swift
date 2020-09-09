@@ -12,7 +12,7 @@ import PromiseKit
 class NetworkOperationTests: XCTestCase {
     private var mockNetworkOperation: MockNetworkOperation!
     private let expectedUrl = "https://testcontract.com/4235"
-    private let expectedHttpResponse = MockSerializableObject(id: "test")
+    private let expectedHttpResponse = MockObject(id: "test")
     private var serializedExpectedResponse: String!
     
     override func setUpWithError() throws {

@@ -6,11 +6,11 @@
 import Foundation
 
 struct ContractDecoder: Decoding {
-    typealias Decodable = MockContract
+    typealias Decodable = Contract
     
     let decoder = JSONDecoder()
     
-    func decode(data: Data) throws -> MockContract {
-        return try decoder.decode(MockContract.self, from: data)
+    func decode(data: Data) throws -> Contract {
+        return try decoder.decode(Contract.self, from: data)
     }
 }

@@ -6,13 +6,6 @@
 import Foundation
 @testable import VcNetworking
 
-struct MockDecoder: Decoding {
-    typealias ResponseBody = MockObject
-    
-    let jsonDecoder = JSONDecoder()
-    
-    func decode(data: Data) throws -> MockObject {
-        return try jsonDecoder.decode(MockObject.self, from: data)
-    }
+struct MockObject: Codable, Equatable {
+    let id: String
 }
-
