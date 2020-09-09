@@ -4,13 +4,17 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+import VcJwt
 
-enum DecodingError: Error {
-    case unableToDecodeToken
-}
-
-public protocol Decoding {
-    associatedtype ResponseBody
+struct IssuanceResponseEncoder: Encoding {
     
-    func decode(data: Data) throws -> ResponseBody
+    func encode(value: JwsToken<IssuanceResponseClaims>) throws -> Data {
+        
+        guard let encodedToken = try value.serialize().data(using: .utf8) else {
+            throw NetworkingError.unableToParseString
+        }
+        
+        return encodedToken
+    }
+    
 }

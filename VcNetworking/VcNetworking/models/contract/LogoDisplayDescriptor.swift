@@ -3,9 +3,12 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcCrypto
+struct LogoDisplayDescriptor: Codable {
+    let uri: String
+    let logoDescription: String
 
-public protocol TokenSigning {
-     
-    func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature
+    enum CodingKeys: String, CodingKey {
+        case uri
+        case logoDescription = "description"
+    }
 }

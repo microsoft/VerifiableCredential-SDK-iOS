@@ -3,9 +3,13 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcCrypto
+struct ClaimDescriptor: Codable {
+    let claim: String?
+    let claimRequired, indexed: Bool?
 
-public protocol TokenSigning {
-     
-    func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature
+    enum CodingKeys: String, CodingKey {
+        case claim
+        case claimRequired = "required"
+        case indexed
+    }
 }

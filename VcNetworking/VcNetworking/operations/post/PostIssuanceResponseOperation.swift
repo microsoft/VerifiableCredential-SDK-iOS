@@ -4,19 +4,19 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+import VcJwt
 
-final class PostPresentationResponseOperation: NetworkOperation {
-    typealias Decoding = PresentationServiceResponseDecoder
+final class PostIssuanceResponseOperation: NetworkOperation {
     
-    let decoder = PresentationServiceResponseDecoder()
-    let encoder = PresentationResponseEncoder()
+    let decoder = IssuanceServiceResponseDecoder()
+    let encoder = IssuanceResponseEncoder()
     let successHandler: SuccessHandler = SimpleSuccessHandler()
     let failureHandler: FailureHandler = SimpleFailureHandler()
     let retryHandler: RetryHandler = NoRetry()
     let urlSession: URLSession
     let urlRequest: URLRequest
     
-    init(withUrl urlStr: String, withBody body: String, urlSession: URLSession = URLSession.shared) throws {
+    init(withUrl urlStr: String, withBody body: JwsToken<IssuanceResponseClaims>, urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)

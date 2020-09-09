@@ -3,13 +3,13 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
-import VcJwt
+struct SelfIssuedClaimsDescriptor: Codable {
+    let encrypted: Bool?
+    let claims: [ClaimDescriptor]?
+    let selfIssuedRequired: Bool?
 
-struct PresentationResponseEncoder: Encoding {
-    
-    func encode(value: String) throws -> Data {
-        return value.data(using: .utf8)!
+    enum CodingKeys: String, CodingKey {
+        case encrypted, claims
+        case selfIssuedRequired = "required"
     }
-    
 }

@@ -15,13 +15,13 @@ public struct JwsToken<T: Claims> {
     let content: T
     var signature: Signature?
     
-    public init(headers: Header, content: T, signature: Data?) {
+    init(headers: Header, content: T, signature: Data?) {
         self.headers = headers
         self.content = content
         self.signature = signature
     }
     
-    init?(from encodedToken: String) {
+    public init?(from encodedToken: String) {
         let decoder = JwsDecoder()
         do {
             self = try decoder.decode(T.self, token: encodedToken)
@@ -30,23 +30,23 @@ public struct JwsToken<T: Claims> {
         }
     }
     
-    init?(from encodedToken: Data) {
+    public init?(from encodedToken: Data) {
         guard let stringifiedToken = String(data: encodedToken, encoding: .utf8) else {
             return nil
         }
         self.init(from: stringifiedToken)
     }
     
-    func serialize() throws -> String {
+    public func serialize() throws -> String {
         let encoder = JwsEncoder()
         return try encoder.encode(self)
     }
     
-    mutating func sign(using signer: TokenSigning, withSecret secret: VcCryptoSecret) throws {
+    public mutating func sign(using signer: TokenSigning, withSecret secret: VcCryptoSecret) throws {
         self.signature = try signer.sign(token: self, withSecret: secret)
     }
     
-    func verify(using verifier: TokenVerifying, withPublicKey key: Secp256k1PublicKey) throws -> Bool {
+    public func verify(using verifier: TokenVerifying, withPublicKey key: Secp256k1PublicKey) throws -> Bool {
         
         guard self.headers.algorithm == "ES256K" else {
             throw JwsTokenError.unsupportedAlgorithm(name: self.headers.algorithm)
@@ -63,4 +63,4 @@ public struct JwsToken<T: Claims> {
     }
 }
 
-typealias Signature = Data
+public typealias Signature = Data

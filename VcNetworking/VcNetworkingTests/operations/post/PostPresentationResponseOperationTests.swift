@@ -8,12 +8,12 @@ import PromiseKit
 
 @testable import VcNetworking
 
-class PostPresentationRequestTests: XCTestCase {
-    private var postPresentationResponseOperation: PostPresentationResponseOperation!
+class PostIssuanceResponseOperationTests: XCTestCase {
+    private var postPresentationResponseOperation: PostIssuanceResponseOperation!
     private let expectedUrl = "https://testcontract.com/4235"
     private let expectedHttpResponse = "testPresentationResponse29384"
     private let expectedRequestBody = "Test"
-    private let encoder = PresentationResponseEncoder()
+    private let encoder = IssuanceResponseEncoder()
     private var expectedEncodedBody: Data!
     
     override func setUpWithError() throws {
@@ -23,7 +23,7 @@ class PostPresentationRequestTests: XCTestCase {
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
         do {
-            postPresentationResponseOperation = try PostPresentationResponseOperation(withUrl: self.expectedUrl, withBody: expectedRequestBody, urlSession: urlSession)
+            postPresentationResponseOperation = try PostIssuanceResponseOperation(withUrl: self.expectedUrl, withBody: expectedRequestBody, urlSession: urlSession)
         } catch {
             print(error)
         }
@@ -42,7 +42,7 @@ class PostPresentationRequestTests: XCTestCase {
     
     func testInvalidUrlInit() {
         let invalidUrl = ""
-        XCTAssertThrowsError(try PostPresentationResponseOperation(withUrl: invalidUrl, withBody: expectedRequestBody)) { error in
+        XCTAssertThrowsError(try PostIssuanceResponseOperation(withUrl: invalidUrl, withBody: expectedRequestBody)) { error in
             XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl(withUrl: invalidUrl))
         }
     }

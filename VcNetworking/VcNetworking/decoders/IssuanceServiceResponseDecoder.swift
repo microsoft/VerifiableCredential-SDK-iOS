@@ -6,21 +6,20 @@
 import Foundation
 import VcJwt
 
-struct PresentationServiceResponseDecoder: Decoding {
-    typealias Decodable = JwsToken<VcClaims>
+struct IssuanceServiceResponseDecoder: Decoding {
     
     let jwsDecoder = JwsDecoder()
     let jsonDecoder = JSONDecoder()
     
-    func decode(data: Data) throws -> JwsToken<VcClaims> {
+    func decode(data: Data) throws -> JwsToken<VCClaims> {
         let response = try jsonDecoder.decode(Response.self, from: data)
-        let jwt = try jwsDecoder.decode(VcClaims.self, token: response.vc)
-        return jwt
+        
+        guard let token = JwsToken<VCClaims>(from: response.vc) else {
+            throw DecodingError.unableToDecodeToken
+        }
+        
+        return token
     }
-}
-
-struct VcClaims: Claims {
-    let vc: String
 }
 
 fileprivate struct Response: Codable {
