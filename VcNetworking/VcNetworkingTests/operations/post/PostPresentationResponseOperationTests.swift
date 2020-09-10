@@ -5,6 +5,7 @@
 
 import XCTest
 import PromiseKit
+import VcJwt
 
 @testable import VcNetworking
 
@@ -12,7 +13,7 @@ class PostIssuanceResponseOperationTests: XCTestCase {
     private var postPresentationResponseOperation: PostIssuanceResponseOperation!
     private let expectedUrl = "https://testcontract.com/4235"
     private let expectedHttpResponse = "testPresentationResponse29384"
-    private let expectedRequestBody = "Test"
+    private let expectedRequestBody = JwsToken<IssuanceResponseClaims>(from: "test")!
     private let encoder = IssuanceResponseEncoder()
     private var expectedEncodedBody: Data!
     
