@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import bitcoin_core_secp256k1
+import secp256k1_ios
 
 enum Secp256k1Error: Error {
     case invalidMessageHash
