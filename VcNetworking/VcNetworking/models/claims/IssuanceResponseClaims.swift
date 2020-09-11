@@ -19,13 +19,15 @@ struct IssuanceResponseClaims: OIDCClaims {
     
     let audience = ""
     
-    let publicJwk: ECPublicJwk
+    let did = ""
     
-    let contract: String = ""
+    let publicJwk: ECPublicJwk? = nil
+    
+    let contract: String
     
     let jti: String
     
-    let attestations: AttestationsDescriptor
+    let attestations: AttestationResponseDescriptor? = nil
     
     enum CodingKeys: String, CodingKey {
         case responseType = "response_type"

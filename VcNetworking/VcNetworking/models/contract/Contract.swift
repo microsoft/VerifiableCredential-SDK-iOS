@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-public struct Contract: Codable {
+public struct Contract: Codable, Equatable {
     let id: String
     let display: DisplayDescriptor
     let input: InputDescriptor

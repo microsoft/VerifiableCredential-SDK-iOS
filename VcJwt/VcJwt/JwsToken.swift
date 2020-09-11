@@ -12,7 +12,7 @@ enum JwsTokenError: Error {
 public struct JwsToken<T: Claims> {
     
     let headers: Header
-    let content: T
+    public let content: T
     var signature: Signature?
     
     init(headers: Header, content: T, signature: Data?) {
@@ -26,6 +26,7 @@ public struct JwsToken<T: Claims> {
         do {
             self = try decoder.decode(T.self, token: encodedToken)
         } catch {
+            print(error)
             return nil
         }
     }

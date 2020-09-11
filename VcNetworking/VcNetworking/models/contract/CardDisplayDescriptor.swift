@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct CardDisplayDescriptor: Codable {
+struct CardDisplayDescriptor: Codable, Equatable {
     let title, issuedBy, backgroundColor, textColor: String
     let logo: LogoDisplayDescriptor
     let cardDescription: String

@@ -14,7 +14,7 @@ protocol OIDCClaims: Claims {
     var state: String? { get }
     var nonce: String? { get }
     var iss: String? { get }
-    var registration: Registration? { get }
+    var registration: RegistrationClaims? { get }
     var prompt: String? { get }
 }
 
@@ -35,35 +35,11 @@ extension OIDCClaims {
         return nil
     }
     
-    var registration: Registration? {
+    var registration: RegistrationClaims? {
         return nil
     }
     
     var prompt: String? {
         return nil
-    }
-}
-
-public struct Registration: Codable {
-    let clientName: String
-    let clientPurpose: String
-    let clientUri: String
-    let tosURI: String
-    let logoURI: String
-    
-    init() {
-        clientName = ""
-        clientPurpose = ""
-        clientUri = ""
-        tosURI = ""
-        logoURI = ""
-    }
-
-    enum CodingKeys: String, CodingKey {
-        case clientName = "client_name"
-        case clientPurpose = "client_purpose"
-        case clientUri = "client_uri"
-        case tosURI = "tos_uri"
-        case logoURI = "logo_uri"
     }
 }

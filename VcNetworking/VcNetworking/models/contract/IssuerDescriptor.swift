@@ -3,6 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct IssuerDescriptor: Codable {
+struct IssuerDescriptor: Codable, Equatable {
     let iss: String
 }

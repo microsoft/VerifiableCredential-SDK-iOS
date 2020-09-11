@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct SelfIssuedClaimsDescriptor: Codable {
+struct SelfIssuedClaimsDescriptor: Codable, Equatable {
     let encrypted: Bool?
     let claims: [ClaimDescriptor]?
     let selfIssuedRequired: Bool?

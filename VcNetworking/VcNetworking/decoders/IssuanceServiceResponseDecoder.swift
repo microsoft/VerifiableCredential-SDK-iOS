@@ -12,7 +12,7 @@ struct IssuanceServiceResponseDecoder: Decoding {
     let jsonDecoder = JSONDecoder()
     
     func decode(data: Data) throws -> JwsToken<VCClaims> {
-        let response = try jsonDecoder.decode(Response.self, from: data)
+        let response = try jsonDecoder.decode(IssuanceServiceResponse.self, from: data)
         
         guard let token = JwsToken<VCClaims>(from: response.vc) else {
             throw DecodingError.unableToDecodeToken
@@ -20,8 +20,4 @@ struct IssuanceServiceResponseDecoder: Decoding {
         
         return token
     }
-}
-
-fileprivate struct Response: Codable {
-    let vc: String
 }

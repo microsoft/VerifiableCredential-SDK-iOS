@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct AttestationsDescriptor: Codable {
+struct AttestationsDescriptor: Codable, Equatable {
     let selfIssued: SelfIssuedClaimsDescriptor?
     let presentations: [PresentationDescriptor]?
     let idTokens: [IdTokenDescriptor]?

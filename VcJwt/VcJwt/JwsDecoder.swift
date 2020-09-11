@@ -33,6 +33,9 @@ public class JwsDecoder {
             throw VcJwtError.unableToParseData
         }
         
+        print(String(data: dataContents, encoding: .utf8)!)
+        print("test")
+        
         let contents = try decoder.decode(T.self, from: dataContents)
         
         var signature: Data?

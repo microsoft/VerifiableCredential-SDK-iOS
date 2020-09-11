@@ -3,6 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct ClaimDisplayDescriptor: Codable, Equatable {
-    let type, label: String
+struct IssuanceServiceResponse: Codable {
+    let vc: String
 }

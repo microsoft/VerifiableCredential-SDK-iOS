@@ -13,6 +13,6 @@ Pod::Spec.new do |spec|
   spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   spec.exclude_files = "Classes/Exclude"
   spec.framework  = "Foundation"
-  spec.dependency "bitcoin-core-secp256k1"
+  spec.dependency "secp256k1_ios"
 
 end
