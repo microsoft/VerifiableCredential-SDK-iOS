@@ -4,9 +4,11 @@
  *--------------------------------------------------------------------------------------------*/
 
 struct DisplayDescriptor: Codable, Equatable {
-    let id, locale: String
-    let contract: String
-    let card: CardDisplayDescriptor
-    let consent: ConsentDisplayDescriptor
-    let claims: [String: ClaimDisplayDescriptor]
+    
+    let id: String = ""
+    let locale: String = ""
+    let contract: String = ""
+    let card: CardDisplayDescriptor = CardDisplayDescriptor()
+    let consent: ConsentDisplayDescriptor = ConsentDisplayDescriptor()
+    let claims: [String: ClaimDisplayDescriptor] = [:]
 }

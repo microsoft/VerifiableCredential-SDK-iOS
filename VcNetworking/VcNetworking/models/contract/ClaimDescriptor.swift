@@ -4,8 +4,9 @@
 *--------------------------------------------------------------------------------------------*/
 
 struct ClaimDescriptor: Codable, Equatable {
-    let claim: String?
-    let claimRequired, indexed: Bool?
+    let claim: String = ""
+    let claimRequired: Bool = false
+    let indexed: Bool = false
 
     enum CodingKeys: String, CodingKey {
         case claim

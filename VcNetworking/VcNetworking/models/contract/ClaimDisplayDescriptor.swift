@@ -4,5 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 struct ClaimDisplayDescriptor: Codable, Equatable {
-    let type, label: String
+    
+    let type: String = ""
+    let label: String = ""
 }

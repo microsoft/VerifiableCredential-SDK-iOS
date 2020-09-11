@@ -4,12 +4,13 @@
 *--------------------------------------------------------------------------------------------*/
 
 struct IdTokenDescriptor: Codable, Equatable {
-    let encrypted: Bool?
-    let claims: [ClaimDescriptor]
-    let idTokenRequired: Bool
-    let configuration: String
-    let clientID: String?
-    let redirectURI: String?
+    
+    let encrypted: Bool = false
+    let claims: [ClaimDescriptor] = []
+    let idTokenRequired: Bool = false
+    let configuration: String = ""
+    let clientID: String = ""
+    let redirectURI: String = ""
 
     enum CodingKeys: String, CodingKey {
         case encrypted, claims

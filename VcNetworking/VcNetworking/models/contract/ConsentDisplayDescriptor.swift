@@ -4,5 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 struct ConsentDisplayDescriptor: Codable, Equatable {
-    let title, instructions: String
+    
+    let title: String = ""
+    let instructions: String = ""
 }

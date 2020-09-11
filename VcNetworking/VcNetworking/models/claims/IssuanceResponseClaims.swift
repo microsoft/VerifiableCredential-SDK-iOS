@@ -5,7 +5,7 @@
 
 import VcJwt
 
-struct IssuanceResponseClaims: OIDCClaims {
+public struct IssuanceResponseClaims: OIDCClaims {
     
     let responseType: String = ""
     
@@ -17,15 +17,15 @@ struct IssuanceResponseClaims: OIDCClaims {
     
     let publicKeyThumbprint: String = ""
     
-    let audience = ""
+    let audience: String = ""
     
-    let did = ""
+    let did: String = ""
     
-    let publicJwk: ECPublicJwk? = nil
+    let publicJwk: ECPublicJwk = ECPublicJwk()
     
-    let contract: String
+    let contract: String = ""
     
-    let jti: String
+    let jti: String = ""
     
     let attestations: AttestationResponseDescriptor? = nil
     

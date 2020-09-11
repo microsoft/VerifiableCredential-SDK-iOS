@@ -3,15 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcJwt
-
-struct VCClaims: Claims {
-    let jti: String
-    let iss: String
-    let sub: String
-    let vc: VerifiableCredentialDescriptor
-}
-
 struct VerifiableCredentialDescriptor: Codable {
     let context: [String]
     let type: [String]
@@ -24,9 +15,4 @@ struct VerifiableCredentialDescriptor: Codable {
         case context = "@context"
         case type, credentialSubject, credentialStatus, exchangeService, revokeService
     }
-}
-
-struct ServiceDescriptor: Codable {
-    let id: String
-    let type: String
 }

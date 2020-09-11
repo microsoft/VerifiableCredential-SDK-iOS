@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct RegistrationClaims: Codable {
+public struct RegistrationClaims: Codable, Equatable {
     let clientName: String = ""
     let clientPurpose: String = ""
     let clientUri: String = ""

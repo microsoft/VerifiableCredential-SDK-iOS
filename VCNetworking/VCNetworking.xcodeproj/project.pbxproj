@@ -36,6 +36,8 @@
 		550F1D96250AF076009AF467 /* RegistrationClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D95250AF076009AF467 /* RegistrationClaims.swift */; };
 		550F1D9B250AF135009AF467 /* IssuanceResponseClaimsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D9A250AF135009AF467 /* IssuanceResponseClaimsTests.swift */; };
 		550F1D9D250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D9C250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift */; };
+		550F1D9F250B0C42009AF467 /* VerifiableCredentialDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D9E250B0C42009AF467 /* VerifiableCredentialDescriptor.swift */; };
+		550F1DA1250B0C50009AF467 /* ServiceDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DA0250B0C50009AF467 /* ServiceDescriptor.swift */; };
 		55C6C4A925083D370082BE73 /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A825083D370082BE73 /* Decoding.swift */; };
 		55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */; };
 		55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AC250843920082BE73 /* ContractDecoder.swift */; };
@@ -110,6 +112,8 @@
 		550F1D95250AF076009AF467 /* RegistrationClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationClaims.swift; sourceTree = "<group>"; };
 		550F1D9A250AF135009AF467 /* IssuanceResponseClaimsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseClaimsTests.swift; sourceTree = "<group>"; };
 		550F1D9C250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseEncoderTests.swift; sourceTree = "<group>"; };
+		550F1D9E250B0C42009AF467 /* VerifiableCredentialDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialDescriptor.swift; sourceTree = "<group>"; };
+		550F1DA0250B0C50009AF467 /* ServiceDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDescriptor.swift; sourceTree = "<group>"; };
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
 		55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseDecoder.swift; sourceTree = "<group>"; };
 		55C6C4AC250843920082BE73 /* ContractDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDecoder.swift; sourceTree = "<group>"; };
@@ -196,11 +200,11 @@
 		550F1D6825096E10009AF467 /* claims */ = {
 			isa = PBXGroup;
 			children = (
+				550F1DA2250B0C92009AF467 /* verifiableCredential */,
 				550F1D8F250ADB7E009AF467 /* AttestationResponseDescriptor.swift */,
 				550F1D6B25096EA3009AF467 /* IssuanceResponseClaims.swift */,
 				550F1D6925096E6A009AF467 /* OIDCClaims.swift */,
 				550F1D95250AF076009AF467 /* RegistrationClaims.swift */,
-				550F1D6D25096EE0009AF467 /* VCClaims.swift */,
 			);
 			path = claims;
 			sourceTree = "<group>";
@@ -256,6 +260,16 @@
 				550F1D9A250AF135009AF467 /* IssuanceResponseClaimsTests.swift */,
 			);
 			path = claims;
+			sourceTree = "<group>";
+		};
+		550F1DA2250B0C92009AF467 /* verifiableCredential */ = {
+			isa = PBXGroup;
+			children = (
+				550F1DA0250B0C50009AF467 /* ServiceDescriptor.swift */,
+				550F1D6D25096EE0009AF467 /* VCClaims.swift */,
+				550F1D9E250B0C42009AF467 /* VerifiableCredentialDescriptor.swift */,
+			);
+			path = verifiableCredential;
 			sourceTree = "<group>";
 		};
 		55C6C4A725083D220082BE73 /* decoders */ = {
@@ -667,6 +681,7 @@
 			files = (
 				550F1D6325094691009AF467 /* Encoding.swift in Sources */,
 				550F1D88250994EB009AF467 /* IssuerDescriptor.swift in Sources */,
+				550F1D9F250B0C42009AF467 /* VerifiableCredentialDescriptor.swift in Sources */,
 				550F1D92250AEA99009AF467 /* IssuanceServiceResponse.swift in Sources */,
 				550F1D96250AF076009AF467 /* RegistrationClaims.swift in Sources */,
 				55D1681F24EB0E1D00AD2F98 /* PostIssuanceResponseOperation.swift in Sources */,
@@ -696,6 +711,7 @@
 				550F1D90250ADB7E009AF467 /* AttestationResponseDescriptor.swift in Sources */,
 				550F1D8225099336009AF467 /* AttestationsDescriptor.swift in Sources */,
 				550F1D7425098190009AF467 /* DisplayDescriptor.swift in Sources */,
+				550F1DA1250B0C50009AF467 /* ServiceDescriptor.swift in Sources */,
 				55D1682324EB0E1D00AD2F98 /* NetworkingConstants.swift in Sources */,
 				550F1D6025093E27009AF467 /* Contract.swift in Sources */,
 				55D1682124EB0E1D00AD2F98 /* FailureHandler.swift in Sources */,

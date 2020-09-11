@@ -4,8 +4,9 @@
 *--------------------------------------------------------------------------------------------*/
 
 struct InputDescriptor: Codable, Equatable {
-    let id: String
-    let credentialIssuer: String
-    let issuer: String
-    let attestations: AttestationsDescriptor
+    
+    let id: String = ""
+    let credentialIssuer: String = ""
+    let issuer: String = ""
+    let attestations: AttestationsDescriptor = AttestationsDescriptor()
 }

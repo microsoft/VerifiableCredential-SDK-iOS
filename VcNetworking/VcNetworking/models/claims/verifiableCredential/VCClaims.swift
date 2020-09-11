@@ -3,8 +3,11 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct AttestationsDescriptor: Codable, Equatable {
-    let selfIssued: SelfIssuedClaimsDescriptor = SelfIssuedClaimsDescriptor()
-    let presentations: [PresentationDescriptor] = []
-    let idTokens: [IdTokenDescriptor] = []
+import VcJwt
+
+struct VCClaims: Claims {
+    let jti: String
+    let iss: String
+    let sub: String
+    let vc: VerifiableCredentialDescriptor
 }

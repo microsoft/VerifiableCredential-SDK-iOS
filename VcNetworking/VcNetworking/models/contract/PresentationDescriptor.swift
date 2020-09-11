@@ -4,12 +4,13 @@
 *--------------------------------------------------------------------------------------------*/
 
 struct PresentationDescriptor: Codable, Equatable {
-    let encrypted: Bool?
-    let claims: [ClaimDescriptor]
-    let presentationRequired: Bool
-    let credentialType: String
-    let issuers: [IssuerDescriptor]?
-    let contracts: [String]?
+    
+    let encrypted: Bool = false
+    let claims: [ClaimDescriptor] = []
+    let presentationRequired: Bool = false
+    let credentialType: String = ""
+    let issuers: [IssuerDescriptor] = []
+    let contracts: [String] = []
 
     enum CodingKeys: String, CodingKey {
         case encrypted, claims

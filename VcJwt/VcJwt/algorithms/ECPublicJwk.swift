@@ -24,6 +24,8 @@ public struct ECPublicJwk: Codable {
         case use, x, y
     }
     
+    public init() {}
+    
     public init?(withPublicKey key: Secp256k1PublicKey, withKeyId kid: String) {
         keyType = "EC"
         keyId = kid
