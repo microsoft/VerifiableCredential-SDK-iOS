@@ -17,7 +17,8 @@ class RepositoryTests: XCTestCase {
     let expectedResult = "result2343"
 
     override func setUpWithError() throws {
-        repo = MockRepository(result: expectedResult)
+        let mockFactory = MockNetworkOperationFactory(result: expectedResult)
+        repo = MockRepository(networkOperationFactory: mockFactory)
     }
 
     func testGetRequest() throws {
@@ -33,22 +34,19 @@ class RepositoryTests: XCTestCase {
         }
         wait(for: [expec], timeout: 5)
     }
-//
-//    func testSendResponse() throws {
-//        let encodedToken = TestData.issuanceResponse.rawValue.data(using: .utf8)!
-//        let expectedToken = JwsToken<IssuanceResponseClaims>(from: encodedToken)!
-//        let expectedResponse = IssuanceServiceResponse(vc: try expectedToken.serialize())
-//        try UrlProtocolMock.createMockResponse(response: expectedToken, encodedResponse: encodedToken, url: expectedUrl, statusCode: 200)
-//        let expec = self.expectation(description: "Fire")
-//        try repo.sendIssuanceResponse(withUrl: self.expectedUrl, withBody: expectedToken).done { actualResponse in
-//            XCTAssertEqual(expectedToken.content.exp, actualResponse.content.exp)
-//            expec.fulfill()
-//        }.catch { error in
-//            print(error)
-//            XCTFail()
-//            expec.fulfill()
-//        }
-//        wait(for: [expec], timeout: 5)
-//
-//    }
+    
+    func testGetRequestAndThrowError() throws {
+        let expec = self.expectation(description: "Fire")
+        let factory = NetworkOperationFactory()
+        let repo = MockRepository(networkOperationFactory: factory)
+        try repo.getRequest(withUrl: self.expectedUrl).done { actualResult in
+            XCTFail()
+            expec.fulfill()
+        }.catch { error in
+            XCTAssertEqual(error as! RepositoryError, RepositoryError.unsupportedNetworkOperation)
+            expec.fulfill()
+        }
+        wait(for: [expec], timeout: 5)
+        
+    }
 }

@@ -26,7 +26,9 @@ extension RepositoryProtocol {
         let nullableOperation = try networkOperationFactory.create(FetchOperation.self, withUrl: url)
         
         guard let operation = nullableOperation else {
-            throw RepositoryError.unsupportedNetworkOperation
+            return Promise { seal in
+                seal.reject(RepositoryError.unsupportedNetworkOperation)
+            }
         }
         
         return operation.fire()

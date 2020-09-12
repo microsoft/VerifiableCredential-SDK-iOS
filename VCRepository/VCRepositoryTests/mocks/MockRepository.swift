@@ -12,7 +12,7 @@ class MockRepository: RepositoryProtocol {
     
     let networkOperationFactory: NetworkOperationFactoryProtocol
     
-    init(result: String) {
-        self.networkOperationFactory = MockNetworkOperationFactory(result: result)
+    init(networkOperationFactory: NetworkOperationFactoryProtocol) {
+        self.networkOperationFactory = networkOperationFactory
     }
 }
