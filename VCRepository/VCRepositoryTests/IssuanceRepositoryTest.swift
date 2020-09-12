@@ -3,18 +3,16 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
-import VcJwt
+import XCTest
+import VcNetworking
 
-public struct IssuanceResponseEncoder: Encoding {
+@testable import VCRepository
+
+class IssuanceRepositoryTests: XCTestCase {
     
-    public func encode(value: JwsToken<IssuanceResponseClaims>) throws -> Data {
-        
-        guard let encodedToken = try value.serialize().data(using: .utf8) else {
-            throw NetworkingError.unableToParseString
-        }
-        
-        return encodedToken
+    func testInit() {
+        let repo = IssuanceRepository()
+        XCTAssert(repo.networkOperationFactory is NetworkOperationFactory)
     }
-    
+
 }

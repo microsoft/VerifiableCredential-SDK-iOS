@@ -6,17 +6,15 @@
 import Foundation
 import VcJwt
 
-final class PostIssuanceResponseOperation: NetworkOperation {
+public class PostIssuanceResponseOperation: NetworkOperation {
+    public typealias ResponseBody = VerifiableCredential
     
-    let decoder = IssuanceServiceResponseDecoder()
+    public let decoder = IssuanceServiceResponseDecoder()
     let encoder = IssuanceResponseEncoder()
-    let successHandler: SuccessHandler = SimpleSuccessHandler()
-    let failureHandler: FailureHandler = SimpleFailureHandler()
-    let retryHandler: RetryHandler = NoRetry()
-    let urlSession: URLSession
-    let urlRequest: URLRequest
+    public let urlSession: URLSession
+    public let urlRequest: URLRequest
     
-    init(withUrl urlStr: String, withBody body: JwsToken<IssuanceResponseClaims>, urlSession: URLSession = URLSession.shared) throws {
+    public init(withUrl urlStr: String, withBody body: JwsToken<IssuanceResponseClaims>, urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
@@ -30,3 +28,5 @@ final class PostIssuanceResponseOperation: NetworkOperation {
         self.urlSession = urlSession
     }
 }
+
+public typealias VerifiableCredential = JwsToken<VCClaims>

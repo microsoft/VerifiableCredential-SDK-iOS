@@ -5,10 +5,19 @@
 
 import Foundation
 import VcNetworking
+import VcJwt
+import PromiseKit
 
-class IssuanceRepository {
+enum IssuanceRepositoryError: Error {
+    case unsupportedNetworkOperation
+}
+
+struct IssuanceRepository: RepositoryProtocol {
+    public typealias FetchOperation = FetchContractOperation
     
-    func getIssuanceRequest() {}
+    let networkOperationFactory: NetworkOperationFactoryProtocol = NetworkOperationFactory()
     
-    func sendIssuanceResponse() {}
+//    public func sendIssuanceResponse(withUrl url: String, withBody body: JwsToken<IssuanceResponseClaims>) throws -> Promise<JwsToken<VCClaims>> {
+//        return try PostIssuanceResponseOperation(withUrl: url, withBody: body).fire()
+//    }
 }

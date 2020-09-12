@@ -3,11 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcJwt
+import VcNetworking
 
-public struct VCClaims: Claims {
-    let jti: String
-    let iss: String
-    let sub: String
-    let vc: VerifiableCredentialDescriptor
+protocol NetworkOperationFactoryProtocol {
+    func create<T: NetworkOperation>(_ type: T.Type, withUrl url: String) throws -> T?
 }

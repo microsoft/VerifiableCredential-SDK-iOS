@@ -5,12 +5,12 @@
 
 import Foundation
 
-struct ContractDecoder: Decoding {
+public struct ContractDecoder: Decoding {
     typealias Decodable = Contract
     
     let decoder = JSONDecoder()
     
-    func decode(data: Data) throws -> Contract {
+    public func decode(data: Data) throws -> Contract {
         return try decoder.decode(Contract.self, from: data)
     }
 }

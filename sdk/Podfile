@@ -29,6 +29,7 @@ target 'VCRepository' do
   project '../VCRepository/VCRepository.xcodeproj'
   vcrepository_pods
   pod 'VcNetworking', path: '../VcNetworking'
+  pod 'VcJwt', path: '../VcJwt'
   target 'VCRepositoryTests'
 end
 

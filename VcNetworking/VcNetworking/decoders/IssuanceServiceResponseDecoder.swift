@@ -6,12 +6,12 @@
 import Foundation
 import VcJwt
 
-struct IssuanceServiceResponseDecoder: Decoding {
+public struct IssuanceServiceResponseDecoder: Decoding {
     
     let jwsDecoder = JwsDecoder()
     let jsonDecoder = JSONDecoder()
     
-    func decode(data: Data) throws -> JwsToken<VCClaims> {
+    public func decode(data: Data) throws -> JwsToken<VCClaims> {
         let response = try jsonDecoder.decode(IssuanceServiceResponse.self, from: data)
         
         guard let token = JwsToken<VCClaims>(from: response.vc) else {

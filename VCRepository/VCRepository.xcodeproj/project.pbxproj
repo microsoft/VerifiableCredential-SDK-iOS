@@ -10,10 +10,18 @@
 		360C1207616F0FD8D6C2E302 /* Pods_VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E709F61C665C6B7ABB4A71F /* Pods_VCRepository.framework */; };
 		533C969522DDFC9B99DB6C9D /* Pods_VCRepository_VCRepositoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03073965006E2423E0746275 /* Pods_VCRepository_VCRepositoryTests.framework */; };
 		550F1DBE250BD898009AF467 /* VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550F1DB4250BD898009AF467 /* VCRepository.framework */; };
-		550F1DC3250BD898009AF467 /* VCRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DC2250BD898009AF467 /* VCRepositoryTests.swift */; };
+		550F1DC3250BD898009AF467 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DC2250BD898009AF467 /* RepositoryTests.swift */; };
 		550F1DC5250BD898009AF467 /* VCRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 550F1DB7250BD898009AF467 /* VCRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		550F1DCF250BD96E009AF467 /* VCRepository.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 550F1DCE250BD96E009AF467 /* VCRepository.podspec */; };
 		550F1DD1250BDA05009AF467 /* IssuanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD0250BDA05009AF467 /* IssuanceRepository.swift */; };
+		550F1DD4250BE862009AF467 /* MockNetworkOperationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD3250BE862009AF467 /* MockNetworkOperationFactory.swift */; };
+		550F1DD6250BEB1D009AF467 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD5250BEB1D009AF467 /* TestData.swift */; };
+		550F1DD8250C0975009AF467 /* NetworkOperationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD7250C0975009AF467 /* NetworkOperationFactory.swift */; };
+		550F1DDA250C0997009AF467 /* NetworkOperationFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD9250C0997009AF467 /* NetworkOperationFactoryProtocol.swift */; };
+		550F1DE2250D4964009AF467 /* MockNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DDD250C1293009AF467 /* MockNetworkOperation.swift */; };
+		550F1DE4250D4AD2009AF467 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE3250D4AD2009AF467 /* RepositoryProtocol.swift */; };
+		550F1DE6250D4F73009AF467 /* MockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE5250D4F73009AF467 /* MockRepository.swift */; };
+		550F1DE8250D5027009AF467 /* IssuanceRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE7250D5027009AF467 /* IssuanceRepositoryTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +42,18 @@
 		550F1DB7250BD898009AF467 /* VCRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCRepository.h; sourceTree = "<group>"; };
 		550F1DB8250BD898009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550F1DBD250BD898009AF467 /* VCRepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCRepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		550F1DC2250BD898009AF467 /* VCRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCRepositoryTests.swift; sourceTree = "<group>"; };
+		550F1DC2250BD898009AF467 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 		550F1DC4250BD898009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550F1DCE250BD96E009AF467 /* VCRepository.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCRepository.podspec; sourceTree = "<group>"; };
 		550F1DD0250BDA05009AF467 /* IssuanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRepository.swift; sourceTree = "<group>"; };
+		550F1DD3250BE862009AF467 /* MockNetworkOperationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkOperationFactory.swift; sourceTree = "<group>"; };
+		550F1DD5250BEB1D009AF467 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		550F1DD7250C0975009AF467 /* NetworkOperationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperationFactory.swift; sourceTree = "<group>"; };
+		550F1DD9250C0997009AF467 /* NetworkOperationFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperationFactoryProtocol.swift; sourceTree = "<group>"; };
+		550F1DDD250C1293009AF467 /* MockNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkOperation.swift; sourceTree = "<group>"; };
+		550F1DE3250D4AD2009AF467 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
+		550F1DE5250D4F73009AF467 /* MockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepository.swift; sourceTree = "<group>"; };
+		550F1DE7250D5027009AF467 /* IssuanceRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRepositoryTest.swift; sourceTree = "<group>"; };
 		6BAEA69B3863302556895D89 /* Pods-VCRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository.debug.xcconfig"; path = "Target Support Files/Pods-VCRepository/Pods-VCRepository.debug.xcconfig"; sourceTree = "<group>"; };
 		A5307F9968E0120E9184BDDE /* Pods-VCRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository.release.xcconfig"; path = "Target Support Files/Pods-VCRepository/Pods-VCRepository.release.xcconfig"; sourceTree = "<group>"; };
 		D2B54B8D2B4EE21C89C6AE68 /* Pods-VCRepository-VCRepositoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository-VCRepositoryTests.debug.xcconfig"; path = "Target Support Files/Pods-VCRepository-VCRepositoryTests/Pods-VCRepository-VCRepositoryTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				550F1DD0250BDA05009AF467 /* IssuanceRepository.swift */,
+				550F1DE3250D4AD2009AF467 /* RepositoryProtocol.swift */,
+				550F1DD7250C0975009AF467 /* NetworkOperationFactory.swift */,
+				550F1DD9250C0997009AF467 /* NetworkOperationFactoryProtocol.swift */,
 				550F1DB7250BD898009AF467 /* VCRepository.h */,
 				550F1DB8250BD898009AF467 /* Info.plist */,
 			);
@@ -98,10 +117,23 @@
 		550F1DC1250BD898009AF467 /* VCRepositoryTests */ = {
 			isa = PBXGroup;
 			children = (
-				550F1DC2250BD898009AF467 /* VCRepositoryTests.swift */,
+				550F1DD2250BE851009AF467 /* mocks */,
+				550F1DE7250D5027009AF467 /* IssuanceRepositoryTest.swift */,
+				550F1DC2250BD898009AF467 /* RepositoryTests.swift */,
 				550F1DC4250BD898009AF467 /* Info.plist */,
 			);
 			path = VCRepositoryTests;
+			sourceTree = "<group>";
+		};
+		550F1DD2250BE851009AF467 /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				550F1DD3250BE862009AF467 /* MockNetworkOperationFactory.swift */,
+				550F1DDD250C1293009AF467 /* MockNetworkOperation.swift */,
+				550F1DE5250D4F73009AF467 /* MockRepository.swift */,
+				550F1DD5250BEB1D009AF467 /* TestData.swift */,
+			);
+			path = mocks;
 			sourceTree = "<group>";
 		};
 		A07373F763B0DBDAAB3903D3 /* Pods */ = {
@@ -303,7 +335,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550F1DDA250C0997009AF467 /* NetworkOperationFactoryProtocol.swift in Sources */,
+				550F1DE4250D4AD2009AF467 /* RepositoryProtocol.swift in Sources */,
 				550F1DD1250BDA05009AF467 /* IssuanceRepository.swift in Sources */,
+				550F1DD8250C0975009AF467 /* NetworkOperationFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +346,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				550F1DC3250BD898009AF467 /* VCRepositoryTests.swift in Sources */,
+				550F1DE8250D5027009AF467 /* IssuanceRepositoryTest.swift in Sources */,
+				550F1DD6250BEB1D009AF467 /* TestData.swift in Sources */,
+				550F1DC3250BD898009AF467 /* RepositoryTests.swift in Sources */,
+				550F1DE6250D4F73009AF467 /* MockRepository.swift in Sources */,
+				550F1DE2250D4964009AF467 /* MockNetworkOperation.swift in Sources */,
+				550F1DD4250BE862009AF467 /* MockNetworkOperationFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +490,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6BAEA69B3863302556895D89 /* Pods-VCRepository.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherit)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -477,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A5307F9968E0120E9184BDDE /* Pods-VCRepository.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherit)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -503,7 +545,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D2B54B8D2B4EE21C89C6AE68 /* Pods-VCRepository-VCRepositoryTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherit)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
 				INFOPLIST_FILE = VCRepositoryTests/Info.plist;
@@ -523,7 +565,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0744A599A04DA8ACB75C76FD /* Pods-VCRepository-VCRepositoryTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherit)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
 				INFOPLIST_FILE = VCRepositoryTests/Info.plist;
