@@ -38,7 +38,6 @@
 		550F1D9D250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D9C250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift */; };
 		550F1D9F250B0C42009AF467 /* VerifiableCredentialDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D9E250B0C42009AF467 /* VerifiableCredentialDescriptor.swift */; };
 		550F1DA1250B0C50009AF467 /* ServiceDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DA0250B0C50009AF467 /* ServiceDescriptor.swift */; };
-		550F1DE1250D4017009AF467 /* FetchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE0250D4017009AF467 /* FetchOperation.swift */; };
 		550F1DEC250D668D009AF467 /* PostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */; };
 		55C6C4A925083D370082BE73 /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A825083D370082BE73 /* Decoding.swift */; };
 		55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */; };
@@ -116,7 +115,6 @@
 		550F1D9C250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseEncoderTests.swift; sourceTree = "<group>"; };
 		550F1D9E250B0C42009AF467 /* VerifiableCredentialDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialDescriptor.swift; sourceTree = "<group>"; };
 		550F1DA0250B0C50009AF467 /* ServiceDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDescriptor.swift; sourceTree = "<group>"; };
-		550F1DE0250D4017009AF467 /* FetchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchOperation.swift; sourceTree = "<group>"; };
 		550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkOperation.swift; sourceTree = "<group>"; };
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
 		55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseDecoder.swift; sourceTree = "<group>"; };
@@ -354,7 +352,6 @@
 			isa = PBXGroup;
 			children = (
 				55D1681024EB0E1C00AD2F98 /* FetchContractOperation.swift */,
-				550F1DE0250D4017009AF467 /* FetchOperation.swift */,
 			);
 			path = fetch;
 			sourceTree = "<group>";
@@ -688,7 +685,6 @@
 				550F1D6325094691009AF467 /* Encoding.swift in Sources */,
 				550F1D88250994EB009AF467 /* IssuerDescriptor.swift in Sources */,
 				550F1D9F250B0C42009AF467 /* VerifiableCredentialDescriptor.swift in Sources */,
-				550F1DE1250D4017009AF467 /* FetchOperation.swift in Sources */,
 				550F1D92250AEA99009AF467 /* IssuanceServiceResponse.swift in Sources */,
 				550F1D96250AF076009AF467 /* RegistrationClaims.swift in Sources */,
 				55D1681F24EB0E1D00AD2F98 /* PostIssuanceResponseOperation.swift in Sources */,
