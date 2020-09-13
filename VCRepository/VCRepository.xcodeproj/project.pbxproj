@@ -23,6 +23,9 @@
 		550F1DE6250D4F73009AF467 /* MockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE5250D4F73009AF467 /* MockRepository.swift */; };
 		550F1DE8250D5027009AF467 /* IssuanceRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE7250D5027009AF467 /* IssuanceRepositoryTests.swift */; };
 		550F1DEA250D599F009AF467 /* NetworkOperationFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE9250D599F009AF467 /* NetworkOperationFactoryTests.swift */; };
+		550F1DEE250E753A009AF467 /* MockPostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DED250E753A009AF467 /* MockPostNetworkOperation.swift */; };
+		550F1DF0250E7583009AF467 /* MockDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DEF250E7583009AF467 /* MockDecoder.swift */; };
+		550F1DF2250E758F009AF467 /* MockEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DF1250E758E009AF467 /* MockEncoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		550F1DE5250D4F73009AF467 /* MockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepository.swift; sourceTree = "<group>"; };
 		550F1DE7250D5027009AF467 /* IssuanceRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRepositoryTests.swift; sourceTree = "<group>"; };
 		550F1DE9250D599F009AF467 /* NetworkOperationFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperationFactoryTests.swift; sourceTree = "<group>"; };
+		550F1DED250E753A009AF467 /* MockPostNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPostNetworkOperation.swift; sourceTree = "<group>"; };
+		550F1DEF250E7583009AF467 /* MockDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDecoder.swift; sourceTree = "<group>"; };
+		550F1DF1250E758E009AF467 /* MockEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEncoder.swift; sourceTree = "<group>"; };
 		6BAEA69B3863302556895D89 /* Pods-VCRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository.debug.xcconfig"; path = "Target Support Files/Pods-VCRepository/Pods-VCRepository.debug.xcconfig"; sourceTree = "<group>"; };
 		A5307F9968E0120E9184BDDE /* Pods-VCRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository.release.xcconfig"; path = "Target Support Files/Pods-VCRepository/Pods-VCRepository.release.xcconfig"; sourceTree = "<group>"; };
 		D2B54B8D2B4EE21C89C6AE68 /* Pods-VCRepository-VCRepositoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository-VCRepositoryTests.debug.xcconfig"; path = "Target Support Files/Pods-VCRepository-VCRepositoryTests/Pods-VCRepository-VCRepositoryTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,8 +139,11 @@
 			children = (
 				550F1DD3250BE862009AF467 /* MockNetworkOperationFactory.swift */,
 				550F1DDD250C1293009AF467 /* MockNetworkOperation.swift */,
+				550F1DED250E753A009AF467 /* MockPostNetworkOperation.swift */,
 				550F1DE5250D4F73009AF467 /* MockRepository.swift */,
 				550F1DD5250BEB1D009AF467 /* TestData.swift */,
+				550F1DEF250E7583009AF467 /* MockDecoder.swift */,
+				550F1DF1250E758E009AF467 /* MockEncoder.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -352,7 +361,10 @@
 				550F1DE8250D5027009AF467 /* IssuanceRepositoryTests.swift in Sources */,
 				550F1DD6250BEB1D009AF467 /* TestData.swift in Sources */,
 				550F1DC3250BD898009AF467 /* RepositoryTests.swift in Sources */,
+				550F1DF0250E7583009AF467 /* MockDecoder.swift in Sources */,
 				550F1DEA250D599F009AF467 /* NetworkOperationFactoryTests.swift in Sources */,
+				550F1DEE250E753A009AF467 /* MockPostNetworkOperation.swift in Sources */,
+				550F1DF2250E758F009AF467 /* MockEncoder.swift in Sources */,
 				550F1DE6250D4F73009AF467 /* MockRepository.swift in Sources */,
 				550F1DE2250D4964009AF467 /* MockNetworkOperation.swift in Sources */,
 				550F1DD4250BE862009AF467 /* MockNetworkOperationFactory.swift in Sources */,

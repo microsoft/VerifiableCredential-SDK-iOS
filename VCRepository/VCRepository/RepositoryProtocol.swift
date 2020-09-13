@@ -14,23 +14,26 @@ enum RepositoryError: Error {
 
 protocol RepositoryProtocol {
     associatedtype FetchOperation: NetworkOperation
+    associatedtype PostOperation: PostNetworkOperation
     
     var networkOperationFactory: NetworkOperationFactoryProtocol { get }
     
-    func getRequest(withUrl url: String) throws -> Promise<FetchOperation.ResponseBody>
+    func getRequest(withUrl url: String)-> Promise<FetchOperation.ResponseBody>
+    
+    func sendResponse(withUrl url: String, withBody body: PostOperation.RequestBody) -> Promise<PostOperation.ResponseBody>
 }
 
 extension RepositoryProtocol {
     
-    func getRequest(withUrl url: String) throws -> Promise<FetchOperation.ResponseBody> {
-        let nullableOperation = try networkOperationFactory.create(FetchOperation.self, withUrl: url)
-        
-        guard let operation = nullableOperation else {
-            return Promise { seal in
-                seal.reject(RepositoryError.unsupportedNetworkOperation)
-            }
+    func getRequest(withUrl url: String) -> Promise<FetchOperation.ResponseBody> {
+        return networkOperationFactory.createFetchOperation(FetchOperation.self, withUrl: url).then { operation in
+            operation.fire()
         }
-        
-        return operation.fire()
+    }
+    
+    func sendResponse(withUrl url: String, withBody body: PostOperation.RequestBody) -> Promise<PostOperation.ResponseBody> {
+        return networkOperationFactory.createPostOperation(PostOperation.self, withUrl: url, withRequestBody: body).then { operation in
+            operation.fire()
+        }
     }
 }

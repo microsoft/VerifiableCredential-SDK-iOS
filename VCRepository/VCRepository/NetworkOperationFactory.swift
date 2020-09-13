@@ -4,15 +4,30 @@
 *--------------------------------------------------------------------------------------------*/
 
 import VcNetworking
+import VcJwt
+import PromiseKit
 
 class NetworkOperationFactory: NetworkOperationFactoryProtocol {
     
-    func create<T: NetworkOperation>(_ type: T.Type, withUrl url: String) throws -> T? {
-        switch type {
-        case is FetchContractOperation.Type:
-            return try FetchContractOperation(withUrl: url) as? T
-        default:
-            return nil
+    func createFetchOperation<T: NetworkOperation>(_ type: T.Type, withUrl url: String) -> Promise<T> {
+        return Promise { seal in
+            switch type {
+            case is FetchContractOperation.Type:
+                seal.fulfill(try FetchContractOperation(withUrl: url) as! T)
+            default:
+                seal.reject(RepositoryError.unsupportedNetworkOperation)
+            }
+        }
+    }
+    
+    func createPostOperation<T: PostNetworkOperation>(_ type: T.Type, withUrl url: String, withRequestBody body: T.RequestBody) -> Promise<T> {
+        return Promise { seal in
+            switch type {
+            case is PostIssuanceResponseOperation.Type:
+                seal.fulfill(try PostIssuanceResponseOperation(withUrl: url, withBody: body as! JwsToken<IssuanceResponseClaims>) as! T)
+            default:
+                seal.reject(RepositoryError.unsupportedNetworkOperation)
+            }
         }
     }
 }

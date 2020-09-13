@@ -4,18 +4,26 @@
 *--------------------------------------------------------------------------------------------*/
 
 import VcNetworking
+import PromiseKit
 
 @testable import VCRepository
 
 class MockNetworkOperationFactory: NetworkOperationFactoryProtocol {
-    
     let result: String
     
     init(result: String) {
         self.result = result
     }
     
-    func create<T: NetworkOperation>(_ type: T.Type, withUrl url: String) throws -> T? {
-        return MockNetworkOperation(url: url, result: result) as? T
+    func createFetchOperation<T: NetworkOperation>(_ type: T.Type, withUrl url: String) -> Promise<T> {
+        return Promise { seal in
+            seal.fulfill(MockNetworkOperation(url: url, result: result) as! T)
+        }
+    }
+    
+    func createPostOperation<T: PostNetworkOperation>(_ type: T.Type, withUrl url: String, withRequestBody body: T.RequestBody) -> Promise<T> {
+        return Promise { seal in
+            seal.fulfill(MockPostNetworkOperation(url: url, result: result) as! T)
+        }
     }
 }

@@ -6,10 +6,13 @@
 import VcNetworking
 import PromiseKit
 
-class MockNetworkOperation: NetworkOperation {
+class MockPostNetworkOperation: PostNetworkOperation {
+    typealias Encoder = MockEncoder
+    typealias RequestBody = String
     typealias Decoder = MockDecoder
     
     var decoder: MockDecoder = MockDecoder()
+    var encoder: MockEncoder = MockEncoder()
     var urlSession: URLSession = URLSession.shared
     var urlRequest: URLRequest
     static var wasFireCalled: Bool = false
@@ -22,7 +25,7 @@ class MockNetworkOperation: NetworkOperation {
     
     func fire() -> Promise<String> {
         return Promise { seal in
-            MockNetworkOperation.wasFireCalled = true
+            MockPostNetworkOperation.wasFireCalled = true
             seal.fulfill(self.result)
         }
     }

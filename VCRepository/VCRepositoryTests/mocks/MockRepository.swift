@@ -9,6 +9,7 @@ import VcNetworking
 
 class MockRepository: RepositoryProtocol {
     typealias FetchOperation = MockNetworkOperation
+    typealias PostOperation = MockPostNetworkOperation
     
     let networkOperationFactory: NetworkOperationFactoryProtocol
     
