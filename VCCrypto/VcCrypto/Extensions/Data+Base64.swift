@@ -7,16 +7,13 @@ import Foundation
 
 extension Data {
     public init?(base64URLEncoded base64URLString: String) {
-        var base64Encoded = base64URLString
+        let paddingLength = 4 - base64URLString.count % 4
+        let padding = (paddingLength < 4) ? String(repeating: "=", count: paddingLength) : ""
+        let base64EncodedString = base64URLString
             .replacingOccurrences(of: "-", with: "+")
             .replacingOccurrences(of: "_", with: "/")
-        
-        let paddingCount = 4 - base64Encoded.count % 4
-        for _ in 0...paddingCount {
-            base64Encoded.append("=")
-        }
-       
-        self.init(base64Encoded: base64Encoded)
+            + padding
+        self.init(base64Encoded: base64EncodedString)
     }
     
     public func base64URLEncodedString() -> String {

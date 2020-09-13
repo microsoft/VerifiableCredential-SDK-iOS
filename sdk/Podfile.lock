@@ -11,6 +11,7 @@ PODS:
   - secp256k1_ios (0.1.3)
   - VcCrypto (0.0.1-beta.0):
     - secp256k1_ios
+  - VcJwt (0.0.1-beta.0)
   - VcNetworking (0.0.1-beta.0):
     - PromiseKit (= 6.8)
 
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - PromiseKit (= 6.8)
   - secp256k1_ios
   - VcCrypto (from `../VcCrypto`)
+  - VcJwt (from `../VcJwt`)
   - VcNetworking (from `../VcNetworking`)
 
 SPEC REPOS:
@@ -28,6 +30,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   VcCrypto:
     :path: "../VcCrypto"
+  VcJwt:
+    :path: "../VcJwt"
   VcNetworking:
     :path: "../VcNetworking"
 
@@ -35,8 +39,9 @@ SPEC CHECKSUMS:
   PromiseKit: 02c93833283c37ce94ef7d25de63d48d62b0754e
   secp256k1_ios: ac9ef04e761f43c58012b28548afa91493761f17
   VcCrypto: 2f6830953cfa2a5eab877f5671acf02dce031947
+  VcJwt: f3fb553a844ce0ca779b6522c4476db568f9177b
   VcNetworking: 7357df2c5af0160390e9456263f20ce0fdcabeda
 
-PODFILE CHECKSUM: 587700893476c873d7d0f9a81b2e112be366034a
+PODFILE CHECKSUM: a2caf27520325e2af8d36a4fd856887baf90891a
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.8.4

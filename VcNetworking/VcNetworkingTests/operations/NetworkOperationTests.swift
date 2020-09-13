@@ -10,30 +10,22 @@ import PromiseKit
 @testable import VcNetworking
 
 class NetworkOperationTests: XCTestCase {
-    private var fetchContractOperation: FetchMockContractOperation!
+    private var mockNetworkOperation: MockNetworkOperation!
     private let expectedUrl = "https://testcontract.com/4235"
-    private let expectedHttpResponse = MockSerializableObject(id: "test")
+    private let expectedHttpResponse = MockObject(id: "test")
     private var serializedExpectedResponse: String!
     
     override func setUpWithError() throws {
-        let configuration = URLSessionConfiguration.default
-        configuration.protocolClasses = [UrlProtocolMock.self]
-        let urlSession = URLSession.init(configuration: configuration)
-        do {
-            fetchContractOperation = try FetchMockContractOperation(withUrl: expectedUrl, session: urlSession)
-        } catch {
-            print(error)
-        }
-        let encoder = JSONEncoder()
-        let encodedResponse = try encoder.encode(expectedHttpResponse)
-        serializedExpectedResponse = String(data: encodedResponse, encoding: .utf8)!
+        self.mockNetworkOperation = MockNetworkOperation()
+        let encodedResponse = try JSONEncoder().encode(expectedHttpResponse)
+        self.serializedExpectedResponse = String(data: encodedResponse, encoding: .utf8)!
     }
     
     func testSuccessfulFetchOperation() throws {
         try UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, statusCode: 200)
         let expec = self.expectation(description: "Fire")
         
-        fetchContractOperation.fire().done { response in
+        self.mockNetworkOperation.fire().done { response in
             print(response)
             expec.fulfill()
         }.catch { error in
@@ -48,7 +40,7 @@ class NetworkOperationTests: XCTestCase {
         try UrlProtocolMock.createMockResponse(httpResponse: self.expectedHttpResponse, url: expectedUrl, statusCode: 400)
         let expec = self.expectation(description: "Fire")
 
-        fetchContractOperation.fire().done { response in
+        self.mockNetworkOperation.fire().done { response in
             print(response)
             expec.fulfill()
             XCTFail()

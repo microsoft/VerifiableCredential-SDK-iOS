@@ -9,14 +9,15 @@ import XCTest
 
 class SimpleSuccessHandlerTests: XCTestCase {
     
-    let handler = SimpleSuccessHandler(serializer: MockSerializer())
+    let handler = SimpleSuccessHandler()
     var response = HTTPURLResponse()
-    let expectedResponseBody = MockSerializableObject(id: "test")
-    let serializer = MockSerializer()
+    let expectedResponseBody = MockObject(id: "test")
+    let jsonEncoder = JSONEncoder()
+    let decoder = MockDecoder()
 
     func testHandleSuccessfulResponse() throws {
-        let serializedResponseBody = try serializer.serialize(object: expectedResponseBody)
-        let actualResponseBody = try handler.onSuccess(MockSerializableObject.self, data: serializedResponseBody, response: response)
+        let encodedResponseBody = try jsonEncoder.encode(expectedResponseBody)
+        let actualResponseBody = try handler.onSuccess(data: encodedResponseBody, decodeWith: decoder)
         XCTAssertEqual(actualResponseBody, self.expectedResponseBody)
     }
 

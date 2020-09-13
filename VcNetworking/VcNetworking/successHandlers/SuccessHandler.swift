@@ -6,5 +6,5 @@
 import Foundation
 
 public protocol SuccessHandler {
-    func onSuccess<ResponseBody: Codable>(_ type: ResponseBody.Type, data: Data, response: HTTPURLResponse) throws -> ResponseBody
+    func onSuccess<Decoder: Decoding>(data: Data, decodeWith decoder: Decoder) throws -> Decoder.ResponseBody
 }

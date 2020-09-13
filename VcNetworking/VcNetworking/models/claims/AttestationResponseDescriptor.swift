@@ -3,9 +3,9 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
+import VcJwt
 
-public protocol Serializing {
-    func deserialize<T: Codable>(_: T.Type, data: Data) throws -> T
-    func serialize<T: Codable>(object: T) throws -> Data
+struct AttestationResponseDescriptor: Codable {
+    let idTokens: [String: String]? = nil
+    let presentations: [String: String]? = nil
 }

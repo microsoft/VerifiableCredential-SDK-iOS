@@ -12,9 +12,9 @@ class ClaimsTest: XCTestCase {
 
     func testMockClaims() throws {
         let claims = MockClaims(key: expectedValue)
-        XCTAssertNil(claims.exp)
-        XCTAssertNil(claims.iat)
-        XCTAssertNil(claims.nbf)
+        XCTAssertEqual(claims.iat, "")
+        XCTAssertEqual(claims.exp, "")
+        XCTAssertEqual(claims.nbf, "")
         XCTAssertEqual(claims.key, expectedValue)
     }
 }

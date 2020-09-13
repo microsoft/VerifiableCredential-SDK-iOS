@@ -14,7 +14,7 @@ class UrlProtocolMock: URLProtocol {
             data = response.data(using: .utf8)!
         } else {
             let encoder = JSONEncoder()
-            data = try encoder.encode(httpResponse as! MockSerializableObject)
+            data = try encoder.encode(httpResponse as! MockObject)
         }
         UrlProtocolMock.requestHandler = { request in
             let response = HTTPURLResponse(url: URL(string: url)!, statusCode: statusCode, httpVersion: nil, headerFields: nil)!
