@@ -7,193 +7,197 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C9ACD5E6E0C268FB0D71397 /* Pods_sdk_sdkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2E98ABBE07BDF1F55AA8AE /* Pods_sdk_sdkTests.framework */; };
-		55CED16324D30B9600A2AAE2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C01024C89F5F0090F495 /* Podfile */; };
-		55D1C0C124C23408002A58F9 /* sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1C0B724C23408002A58F9 /* sdk.framework */; };
-		55D1C0C824C23408002A58F9 /* sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D1C0BA24C23408002A58F9 /* sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55D7C01124C89F5F0090F495 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C01024C89F5F0090F495 /* Podfile */; };
-		8D66D2B29344A6C132FD5350 /* Pods_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8CC7F64D974BC9DD3482E /* Pods_sdk.framework */; };
+		550F1E07250EDB96009AF467 /* VCUseCases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550F1DFD250EDB96009AF467 /* VCUseCases.framework */; };
+		550F1E0C250EDB96009AF467 /* VCUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E0B250EDB96009AF467 /* VCUseCasesTests.swift */; };
+		550F1E0E250EDB96009AF467 /* VCUseCases.h in Headers */ = {isa = PBXBuildFile; fileRef = 550F1E00250EDB96009AF467 /* VCUseCases.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		550F1E18250EDBC6009AF467 /* VCUseCases.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 550F1E17250EDBC6009AF467 /* VCUseCases.podspec */; };
+		550F1E1A250EDCFB009AF467 /* IssuanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E19250EDCFB009AF467 /* IssuanceUseCase.swift */; };
+		64A67BA6A7FA6789F10DD2EE /* Pods_VCUseCases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491ED979905A8CB483218DC6 /* Pods_VCUseCases.framework */; };
+		ECC0D97258BCAC61D53D86C5 /* Pods_VCUseCases_VCUseCasesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8639CD77315DD3C44A1484F9 /* Pods_VCUseCases_VCUseCasesTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		55D1C0C224C23408002A58F9 /* PBXContainerItemProxy */ = {
+		550F1E08250EDB96009AF467 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 55D1C0AE24C23408002A58F9 /* Project object */;
+			containerPortal = 550F1DF4250EDB96009AF467 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 55D1C0B624C23408002A58F9;
-			remoteInfo = sdk;
+			remoteGlobalIDString = 550F1DFC250EDB96009AF467;
+			remoteInfo = VCUseCases;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C2E98ABBE07BDF1F55AA8AE /* Pods_sdk_sdkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sdk_sdkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CF0342C76EE7746FE58B4ED /* Pods-sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk.release.xcconfig"; path = "Target Support Files/Pods-sdk/Pods-sdk.release.xcconfig"; sourceTree = "<group>"; };
-		349AB7B837727A93CB913825 /* Pods-sdk-sdkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk-sdkTests.debug.xcconfig"; path = "Target Support Files/Pods-sdk-sdkTests/Pods-sdk-sdkTests.debug.xcconfig"; sourceTree = "<group>"; };
-		54B8CC7F64D974BC9DD3482E /* Pods_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55D1C0B724C23408002A58F9 /* sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55D1C0BA24C23408002A58F9 /* sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sdk.h; sourceTree = "<group>"; };
-		55D1C0BB24C23408002A58F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55D1C0C024C23408002A58F9 /* sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		55D1C0C724C23408002A58F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55D7C00824C4D6130090F495 /* networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55D7C01024C89F5F0090F495 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		955316A122FD1418EFEFD9B4 /* Pods-sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk.debug.xcconfig"; path = "Target Support Files/Pods-sdk/Pods-sdk.debug.xcconfig"; sourceTree = "<group>"; };
-		D88DA946ACBB22592304B69E /* Pods-sdk-sdkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk-sdkTests.release.xcconfig"; path = "Target Support Files/Pods-sdk-sdkTests/Pods-sdk-sdkTests.release.xcconfig"; sourceTree = "<group>"; };
+		3901ED2D646061DA414170CC /* Pods-VCUseCases-VCUseCasesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCases-VCUseCasesTests.debug.xcconfig"; path = "Target Support Files/Pods-VCUseCases-VCUseCasesTests/Pods-VCUseCases-VCUseCasesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		491ED979905A8CB483218DC6 /* Pods_VCUseCases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCUseCases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		550F1DFD250EDB96009AF467 /* VCUseCases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCUseCases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		550F1E00250EDB96009AF467 /* VCUseCases.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCUseCases.h; sourceTree = "<group>"; };
+		550F1E01250EDB96009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		550F1E06250EDB96009AF467 /* VCUseCasesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCUseCasesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		550F1E0B250EDB96009AF467 /* VCUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCUseCasesTests.swift; sourceTree = "<group>"; };
+		550F1E0D250EDB96009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		550F1E17250EDBC6009AF467 /* VCUseCases.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCUseCases.podspec; sourceTree = "<group>"; };
+		550F1E19250EDCFB009AF467 /* IssuanceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceUseCase.swift; sourceTree = "<group>"; };
+		81BD50F98B1F8DF696CD0B21 /* Pods-VCUseCases-VCUseCasesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCases-VCUseCasesTests.release.xcconfig"; path = "Target Support Files/Pods-VCUseCases-VCUseCasesTests/Pods-VCUseCases-VCUseCasesTests.release.xcconfig"; sourceTree = "<group>"; };
+		8639CD77315DD3C44A1484F9 /* Pods_VCUseCases_VCUseCasesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCUseCases_VCUseCasesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A22615C50879F8033896FD69 /* Pods-VCUseCases.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCases.debug.xcconfig"; path = "Target Support Files/Pods-VCUseCases/Pods-VCUseCases.debug.xcconfig"; sourceTree = "<group>"; };
+		C44447CE22840BB788A71E57 /* Pods-VCUseCases.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCases.release.xcconfig"; path = "Target Support Files/Pods-VCUseCases/Pods-VCUseCases.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		55D1C0B424C23408002A58F9 /* Frameworks */ = {
+		550F1DFA250EDB96009AF467 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D66D2B29344A6C132FD5350 /* Pods_sdk.framework in Frameworks */,
+				64A67BA6A7FA6789F10DD2EE /* Pods_VCUseCases.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55D1C0BD24C23408002A58F9 /* Frameworks */ = {
+		550F1E03250EDB96009AF467 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D1C0C124C23408002A58F9 /* sdk.framework in Frameworks */,
-				1C9ACD5E6E0C268FB0D71397 /* Pods_sdk_sdkTests.framework in Frameworks */,
+				550F1E07250EDB96009AF467 /* VCUseCases.framework in Frameworks */,
+				ECC0D97258BCAC61D53D86C5 /* Pods_VCUseCases_VCUseCasesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		55D1C0AD24C23408002A58F9 = {
+		550F1DF3250EDB96009AF467 = {
 			isa = PBXGroup;
 			children = (
-				55D7C01024C89F5F0090F495 /* Podfile */,
-				55D1C0B924C23408002A58F9 /* sdk */,
-				55D1C0C424C23408002A58F9 /* sdkTests */,
-				55D1C0B824C23408002A58F9 /* Products */,
-				DBB08E8FAF983AA12C589889 /* Frameworks */,
-				7326AA8372742E638364241C /* Pods */,
+				550F1E17250EDBC6009AF467 /* VCUseCases.podspec */,
+				550F1DFF250EDB96009AF467 /* VCUseCases */,
+				550F1E0A250EDB96009AF467 /* VCUseCasesTests */,
+				550F1DFE250EDB96009AF467 /* Products */,
+				FD64C2ECC45976EDFD778ABC /* Pods */,
+				9E61A19A6719E0363C9184C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		55D1C0B824C23408002A58F9 /* Products */ = {
+		550F1DFE250EDB96009AF467 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				55D1C0B724C23408002A58F9 /* sdk.framework */,
-				55D1C0C024C23408002A58F9 /* sdkTests.xctest */,
+				550F1DFD250EDB96009AF467 /* VCUseCases.framework */,
+				550F1E06250EDB96009AF467 /* VCUseCasesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		55D1C0B924C23408002A58F9 /* sdk */ = {
+		550F1DFF250EDB96009AF467 /* VCUseCases */ = {
 			isa = PBXGroup;
 			children = (
-				55D1C0BA24C23408002A58F9 /* sdk.h */,
-				55D1C0BB24C23408002A58F9 /* Info.plist */,
+				550F1E00250EDB96009AF467 /* VCUseCases.h */,
+				550F1E01250EDB96009AF467 /* Info.plist */,
+				550F1E19250EDCFB009AF467 /* IssuanceUseCase.swift */,
 			);
-			path = sdk;
+			path = VCUseCases;
 			sourceTree = "<group>";
 		};
-		55D1C0C424C23408002A58F9 /* sdkTests */ = {
+		550F1E0A250EDB96009AF467 /* VCUseCasesTests */ = {
 			isa = PBXGroup;
 			children = (
-				55D1C0C724C23408002A58F9 /* Info.plist */,
+				550F1E0B250EDB96009AF467 /* VCUseCasesTests.swift */,
+				550F1E0D250EDB96009AF467 /* Info.plist */,
 			);
-			path = sdkTests;
+			path = VCUseCasesTests;
 			sourceTree = "<group>";
 		};
-		7326AA8372742E638364241C /* Pods */ = {
+		9E61A19A6719E0363C9184C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				955316A122FD1418EFEFD9B4 /* Pods-sdk.debug.xcconfig */,
-				2CF0342C76EE7746FE58B4ED /* Pods-sdk.release.xcconfig */,
-				349AB7B837727A93CB913825 /* Pods-sdk-sdkTests.debug.xcconfig */,
-				D88DA946ACBB22592304B69E /* Pods-sdk-sdkTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		DBB08E8FAF983AA12C589889 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				55D7C00824C4D6130090F495 /* networking.framework */,
-				54B8CC7F64D974BC9DD3482E /* Pods_sdk.framework */,
-				0C2E98ABBE07BDF1F55AA8AE /* Pods_sdk_sdkTests.framework */,
+				491ED979905A8CB483218DC6 /* Pods_VCUseCases.framework */,
+				8639CD77315DD3C44A1484F9 /* Pods_VCUseCases_VCUseCasesTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD64C2ECC45976EDFD778ABC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A22615C50879F8033896FD69 /* Pods-VCUseCases.debug.xcconfig */,
+				C44447CE22840BB788A71E57 /* Pods-VCUseCases.release.xcconfig */,
+				3901ED2D646061DA414170CC /* Pods-VCUseCases-VCUseCasesTests.debug.xcconfig */,
+				81BD50F98B1F8DF696CD0B21 /* Pods-VCUseCases-VCUseCasesTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../sdk/Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		55D1C0B224C23408002A58F9 /* Headers */ = {
+		550F1DF8250EDB96009AF467 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D1C0C824C23408002A58F9 /* sdk.h in Headers */,
+				550F1E0E250EDB96009AF467 /* VCUseCases.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		55D1C0B624C23408002A58F9 /* sdk */ = {
+		550F1DFC250EDB96009AF467 /* VCUseCases */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55D1C0CB24C23408002A58F9 /* Build configuration list for PBXNativeTarget "sdk" */;
+			buildConfigurationList = 550F1E11250EDB96009AF467 /* Build configuration list for PBXNativeTarget "VCUseCases" */;
 			buildPhases = (
-				D2524EC95AABC2F8190D2717 /* [CP] Check Pods Manifest.lock */,
-				55D1C0B224C23408002A58F9 /* Headers */,
-				55D1C0B324C23408002A58F9 /* Sources */,
-				55D1C0B424C23408002A58F9 /* Frameworks */,
-				55D1C0B524C23408002A58F9 /* Resources */,
+				EE5733E421324458CF67A0E0 /* [CP] Check Pods Manifest.lock */,
+				550F1DF8250EDB96009AF467 /* Headers */,
+				550F1DF9250EDB96009AF467 /* Sources */,
+				550F1DFA250EDB96009AF467 /* Frameworks */,
+				550F1DFB250EDB96009AF467 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = sdk;
-			productName = sdk;
-			productReference = 55D1C0B724C23408002A58F9 /* sdk.framework */;
+			name = VCUseCases;
+			productName = VCUseCases;
+			productReference = 550F1DFD250EDB96009AF467 /* VCUseCases.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		55D1C0BF24C23408002A58F9 /* sdkTests */ = {
+		550F1E05250EDB96009AF467 /* VCUseCasesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55D1C0CE24C23408002A58F9 /* Build configuration list for PBXNativeTarget "sdkTests" */;
+			buildConfigurationList = 550F1E14250EDB96009AF467 /* Build configuration list for PBXNativeTarget "VCUseCasesTests" */;
 			buildPhases = (
-				959AEBD2E12A27E975259392 /* [CP] Check Pods Manifest.lock */,
-				55D1C0BC24C23408002A58F9 /* Sources */,
-				55D1C0BD24C23408002A58F9 /* Frameworks */,
-				55D1C0BE24C23408002A58F9 /* Resources */,
-				9BD6D16C8ED2D69EC2365D54 /* [CP] Embed Pods Frameworks */,
+				5F28E41482A0D0D506130EF2 /* [CP] Check Pods Manifest.lock */,
+				550F1E02250EDB96009AF467 /* Sources */,
+				550F1E03250EDB96009AF467 /* Frameworks */,
+				550F1E04250EDB96009AF467 /* Resources */,
+				9EB677CA5719BE354E2FECE9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				55D1C0C324C23408002A58F9 /* PBXTargetDependency */,
+				550F1E09250EDB96009AF467 /* PBXTargetDependency */,
 			);
-			name = sdkTests;
-			productName = sdkTests;
-			productReference = 55D1C0C024C23408002A58F9 /* sdkTests.xctest */;
+			name = VCUseCasesTests;
+			productName = VCUseCasesTests;
+			productReference = 550F1E06250EDB96009AF467 /* VCUseCasesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		55D1C0AE24C23408002A58F9 /* Project object */ = {
+		550F1DF4250EDB96009AF467 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Microsoft;
 				TargetAttributes = {
-					55D1C0B624C23408002A58F9 = {
+					550F1DFC250EDB96009AF467 = {
 						CreatedOnToolsVersion = 11.5;
 						LastSwiftMigration = 1150;
 					};
-					55D1C0BF24C23408002A58F9 = {
+					550F1E05250EDB96009AF467 = {
 						CreatedOnToolsVersion = 11.5;
 					};
 				};
 			};
-			buildConfigurationList = 55D1C0B124C23408002A58F9 /* Build configuration list for PBXProject "sdk" */;
+			buildConfigurationList = 550F1DF7250EDB96009AF467 /* Build configuration list for PBXProject "VCUseCases" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -201,38 +205,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 55D1C0AD24C23408002A58F9;
-			productRefGroup = 55D1C0B824C23408002A58F9 /* Products */;
+			mainGroup = 550F1DF3250EDB96009AF467;
+			productRefGroup = 550F1DFE250EDB96009AF467 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				55D1C0B624C23408002A58F9 /* sdk */,
-				55D1C0BF24C23408002A58F9 /* sdkTests */,
+				550F1DFC250EDB96009AF467 /* VCUseCases */,
+				550F1E05250EDB96009AF467 /* VCUseCasesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		55D1C0B524C23408002A58F9 /* Resources */ = {
+		550F1DFB250EDB96009AF467 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D7C01124C89F5F0090F495 /* Podfile in Resources */,
+				550F1E18250EDBC6009AF467 /* VCUseCases.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55D1C0BE24C23408002A58F9 /* Resources */ = {
+		550F1E04250EDB96009AF467 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55CED16324D30B9600A2AAE2 /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		959AEBD2E12A27E975259392 /* [CP] Check Pods Manifest.lock */ = {
+		5F28E41482A0D0D506130EF2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -247,31 +250,31 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-sdk-sdkTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VCUseCases-VCUseCasesTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9BD6D16C8ED2D69EC2365D54 /* [CP] Embed Pods Frameworks */ = {
+		9EB677CA5719BE354E2FECE9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sdk-sdkTests/Pods-sdk-sdkTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VCUseCases-VCUseCasesTests/Pods-VCUseCases-VCUseCasesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sdk-sdkTests/Pods-sdk-sdkTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VCUseCases-VCUseCasesTests/Pods-VCUseCases-VCUseCasesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sdk-sdkTests/Pods-sdk-sdkTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCUseCases-VCUseCasesTests/Pods-VCUseCases-VCUseCasesTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D2524EC95AABC2F8190D2717 /* [CP] Check Pods Manifest.lock */ = {
+		EE5733E421324458CF67A0E0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -286,7 +289,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-sdk-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VCUseCases-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -296,32 +299,34 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		55D1C0B324C23408002A58F9 /* Sources */ = {
+		550F1DF9250EDB96009AF467 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550F1E1A250EDCFB009AF467 /* IssuanceUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55D1C0BC24C23408002A58F9 /* Sources */ = {
+		550F1E02250EDB96009AF467 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550F1E0C250EDB96009AF467 /* VCUseCasesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		55D1C0C324C23408002A58F9 /* PBXTargetDependency */ = {
+		550F1E09250EDB96009AF467 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 55D1C0B624C23408002A58F9 /* sdk */;
-			targetProxy = 55D1C0C224C23408002A58F9 /* PBXContainerItemProxy */;
+			target = 550F1DFC250EDB96009AF467 /* VCUseCases */;
+			targetProxy = 550F1E08250EDB96009AF467 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		55D1C0C924C23408002A58F9 /* Debug */ = {
+		550F1E0F250EDB96009AF467 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -384,7 +389,7 @@
 			};
 			name = Debug;
 		};
-		55D1C0CA24C23408002A58F9 /* Release */ = {
+		550F1E10250EDB96009AF467 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -441,11 +446,10 @@
 			};
 			name = Release;
 		};
-		55D1C0CC24C23408002A58F9 /* Debug */ = {
+		550F1E12250EDB96009AF467 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 955316A122FD1418EFEFD9B4 /* Pods-sdk.debug.xcconfig */;
+			baseConfigurationReference = A22615C50879F8033896FD69 /* Pods-VCUseCases.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -453,29 +457,26 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = sdk/Info.plist;
+				INFOPLIST_FILE = VCUseCases/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.sdk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCUseCases;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		55D1C0CD24C23408002A58F9 /* Release */ = {
+		550F1E13250EDB96009AF467 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CF0342C76EE7746FE58B4ED /* Pods-sdk.release.xcconfig */;
+			baseConfigurationReference = C44447CE22840BB788A71E57 /* Pods-VCUseCases.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -483,55 +484,55 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = sdk/Info.plist;
+				INFOPLIST_FILE = VCUseCases/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.sdk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCUseCases;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		55D1C0CF24C23408002A58F9 /* Debug */ = {
+		550F1E15250EDB96009AF467 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 349AB7B837727A93CB913825 /* Pods-sdk-sdkTests.debug.xcconfig */;
+			baseConfigurationReference = 3901ED2D646061DA414170CC /* Pods-VCUseCases-VCUseCasesTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = sdkTests/Info.plist;
+				INFOPLIST_FILE = VCUseCasesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.sdkTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCUseCasesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		55D1C0D024C23408002A58F9 /* Release */ = {
+		550F1E16250EDB96009AF467 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D88DA946ACBB22592304B69E /* Pods-sdk-sdkTests.release.xcconfig */;
+			baseConfigurationReference = 81BD50F98B1F8DF696CD0B21 /* Pods-VCUseCases-VCUseCasesTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = sdkTests/Info.plist;
+				INFOPLIST_FILE = VCUseCasesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.sdkTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCUseCasesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -541,34 +542,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		55D1C0B124C23408002A58F9 /* Build configuration list for PBXProject "sdk" */ = {
+		550F1DF7250EDB96009AF467 /* Build configuration list for PBXProject "VCUseCases" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				55D1C0C924C23408002A58F9 /* Debug */,
-				55D1C0CA24C23408002A58F9 /* Release */,
+				550F1E0F250EDB96009AF467 /* Debug */,
+				550F1E10250EDB96009AF467 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55D1C0CB24C23408002A58F9 /* Build configuration list for PBXNativeTarget "sdk" */ = {
+		550F1E11250EDB96009AF467 /* Build configuration list for PBXNativeTarget "VCUseCases" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				55D1C0CC24C23408002A58F9 /* Debug */,
-				55D1C0CD24C23408002A58F9 /* Release */,
+				550F1E12250EDB96009AF467 /* Debug */,
+				550F1E13250EDB96009AF467 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55D1C0CE24C23408002A58F9 /* Build configuration list for PBXNativeTarget "sdkTests" */ = {
+		550F1E14250EDB96009AF467 /* Build configuration list for PBXNativeTarget "VCUseCasesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				55D1C0CF24C23408002A58F9 /* Debug */,
-				55D1C0D024C23408002A58F9 /* Release */,
+				550F1E15250EDB96009AF467 /* Debug */,
+				550F1E16250EDB96009AF467 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 55D1C0AE24C23408002A58F9 /* Project object */;
+	rootObject = 550F1DF4250EDB96009AF467 /* Project object */;
 }

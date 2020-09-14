@@ -10,18 +10,20 @@ enum RepositoryError: Error {
     case unsupportedNetworkOperation
 }
 
-protocol RepositoryProtocol {
+public protocol RepositoryProtocol {
     associatedtype FetchOperation: NetworkOperation
     associatedtype PostOperation: PostNetworkOperation
     
     var networkOperationFactory: NetworkOperationFactoryProtocol { get }
+    
+    init()
     
     func getRequest(withUrl url: String)-> Promise<FetchOperation.ResponseBody>
     
     func sendResponse(withUrl url: String, withBody body: PostOperation.RequestBody) -> Promise<PostOperation.ResponseBody>
 }
 
-extension RepositoryProtocol {
+public extension RepositoryProtocol {
     
     func getRequest(withUrl url: String) -> Promise<FetchOperation.ResponseBody> {
         return networkOperationFactory.createFetchOperation(FetchOperation.self, withUrl: url).then { operation in

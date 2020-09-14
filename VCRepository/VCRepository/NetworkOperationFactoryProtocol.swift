@@ -6,7 +6,7 @@
 import VcNetworking
 import PromiseKit
 
-protocol NetworkOperationFactoryProtocol {
+public protocol NetworkOperationFactoryProtocol {
     func createFetchOperation<T: NetworkOperation>(_ type: T.Type, withUrl url: String) -> Promise<T>
     
     func createPostOperation<T: PostNetworkOperation>(_ type: T.Type, withUrl url: String, withRequestBody body: T.RequestBody) -> Promise<T>

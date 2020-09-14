@@ -3,13 +3,12 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcNetworking
+import VcCrypto
 
-public struct IssuanceRepository: RepositoryProtocol {
-    public typealias FetchOperation = FetchContractOperation
-    public typealias PostOperation = PostIssuanceResponseOperation
+public struct KeyId: VcCryptoSecret {
+    public let id: UUID
     
-    public let networkOperationFactory: NetworkOperationFactoryProtocol = NetworkOperationFactory()
-    
-    public init() {}
+    public init(id: UUID) {
+        self.id = id
+    }
 }

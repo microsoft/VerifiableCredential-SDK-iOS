@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		47995672177834395CE27F4B /* Pods_VcJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B63B68DC1F3089C55A57704 /* Pods_VcJwt.framework */; };
+		550F1E20250F059E009AF467 /* KeyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E1F250F059E009AF467 /* KeyId.swift */; };
 		55269351250006020051A358 /* VcJwtError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55269350250006020051A358 /* VcJwtError.swift */; };
 		5540903F25002141001246DB /* MockVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903E25002141001246DB /* MockVerifier.swift */; };
 		5540904725002DC4001246DB /* VcJwt.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5540904625002DC3001246DB /* VcJwt.podspec */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		0C51FC8EADD798B32ED3A0AA /* Pods_VcJwt_VcJwtTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcJwt_VcJwtTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		292415DBE3B3CDCB5E13C6A1 /* Pods-VcJwt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcJwt.debug.xcconfig"; path = "Target Support Files/Pods-VcJwt/Pods-VcJwt.debug.xcconfig"; sourceTree = "<group>"; };
+		550F1E1F250F059E009AF467 /* KeyId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyId.swift; sourceTree = "<group>"; };
 		55269350250006020051A358 /* VcJwtError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcJwtError.swift; sourceTree = "<group>"; };
 		5540903E25002141001246DB /* MockVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVerifier.swift; sourceTree = "<group>"; };
 		5540904625002DC3001246DB /* VcJwt.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VcJwt.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -141,6 +143,7 @@
 				55ADE27124F5407D00D9990E /* Header.swift */,
 				55ADE27E24F5411E00D9990E /* JwsEncoder.swift */,
 				55ADE28024F5412100D9990E /* JwsDecoder.swift */,
+				550F1E1F250F059E009AF467 /* KeyId.swift */,
 				55ADE28224F5412600D9990E /* TokenSigning.swift */,
 				55ADE28424F5412900D9990E /* TokenVerifying.swift */,
 				55269350250006020051A358 /* VcJwtError.swift */,
@@ -382,6 +385,7 @@
 				55269351250006020051A358 /* VcJwtError.swift in Sources */,
 				55ADE28524F5412900D9990E /* TokenVerifying.swift in Sources */,
 				55ADE28124F5412100D9990E /* JwsDecoder.swift in Sources */,
+				550F1E20250F059E009AF467 /* KeyId.swift in Sources */,
 				55ADE27F24F5411E00D9990E /* JwsEncoder.swift in Sources */,
 				55ADE27B24F5410400D9990E /* Secp256k1Signer.swift in Sources */,
 				55ADE28324F5412600D9990E /* TokenSigning.swift in Sources */,
