@@ -8,7 +8,7 @@ import PromiseKit
 
 @testable import VCRepository
 
-class MockNetworkOperationFactory: NetworkOperationFactoryProtocol {
+class MockNetworkOperationFactory: NetworkOperationCreating {
     let result: String
     
     init(result: String) {

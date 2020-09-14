@@ -7,7 +7,11 @@ import VcNetworking
 import VcJwt
 import PromiseKit
 
-class NetworkOperationFactory: NetworkOperationFactoryProtocol {
+enum RepositoryError: Error {
+    case unsupportedNetworkOperation
+}
+
+class NetworkOperationFactory: NetworkOperationCreating {
     
     func createFetchOperation<T: NetworkOperation>(_ type: T.Type, withUrl url: String) -> Promise<T> {
         return Promise { seal in

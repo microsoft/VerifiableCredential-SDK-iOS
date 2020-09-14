@@ -6,8 +6,12 @@
 import VcNetworking
 import PromiseKit
 
-protocol NetworkOperationFactoryProtocol {
-    func createFetchOperation<T: NetworkOperation>(_ type: T.Type, withUrl url: String) -> Promise<T>
+protocol ApiCalling: Fetching, Posting { }
+
+class ApiCalls: ApiCalling {
+    let networkOperationFactory: NetworkOperationCreating
     
-    func createPostOperation<T: PostNetworkOperation>(_ type: T.Type, withUrl url: String, withRequestBody body: T.RequestBody) -> Promise<T>
+    init(networkOperationFactory: NetworkOperationCreating = NetworkOperationFactory()) {
+        self.networkOperationFactory = networkOperationFactory
+    }
 }

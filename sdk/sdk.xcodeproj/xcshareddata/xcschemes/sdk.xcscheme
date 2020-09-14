@@ -180,6 +180,16 @@
                ReferencedContainer = "container:../VcNetworking/VcNetworking.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "550F1DBC250BD898009AF467"
+               BuildableName = "VCRepositoryTests.xctest"
+               BlueprintName = "VCRepositoryTests"
+               ReferencedContainer = "container:../VCRepository/VCRepository.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

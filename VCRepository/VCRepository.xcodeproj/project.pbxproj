@@ -17,15 +17,18 @@
 		550F1DD4250BE862009AF467 /* MockNetworkOperationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD3250BE862009AF467 /* MockNetworkOperationFactory.swift */; };
 		550F1DD6250BEB1D009AF467 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD5250BEB1D009AF467 /* TestData.swift */; };
 		550F1DD8250C0975009AF467 /* NetworkOperationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD7250C0975009AF467 /* NetworkOperationFactory.swift */; };
-		550F1DDA250C0997009AF467 /* NetworkOperationFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD9250C0997009AF467 /* NetworkOperationFactoryProtocol.swift */; };
+		550F1DDA250C0997009AF467 /* NetworkOperationCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD9250C0997009AF467 /* NetworkOperationCreating.swift */; };
 		550F1DE2250D4964009AF467 /* MockNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DDD250C1293009AF467 /* MockNetworkOperation.swift */; };
-		550F1DE4250D4AD2009AF467 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE3250D4AD2009AF467 /* RepositoryProtocol.swift */; };
 		550F1DE6250D4F73009AF467 /* MockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE5250D4F73009AF467 /* MockRepository.swift */; };
 		550F1DE8250D5027009AF467 /* IssuanceRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE7250D5027009AF467 /* IssuanceRepositoryTests.swift */; };
 		550F1DEA250D599F009AF467 /* NetworkOperationFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE9250D599F009AF467 /* NetworkOperationFactoryTests.swift */; };
 		550F1DEE250E753A009AF467 /* MockPostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DED250E753A009AF467 /* MockPostNetworkOperation.swift */; };
 		550F1DF0250E7583009AF467 /* MockDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DEF250E7583009AF467 /* MockDecoder.swift */; };
 		550F1DF2250E758F009AF467 /* MockEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DF1250E758E009AF467 /* MockEncoder.swift */; };
+		550F1E22250FC74E009AF467 /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E21250FC74E009AF467 /* Posting.swift */; };
+		550F1E24250FC783009AF467 /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E23250FC783009AF467 /* Fetching.swift */; };
+		550F1E26250FCA28009AF467 /* MockIssuanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E25250FCA28009AF467 /* MockIssuanceRepository.swift */; };
+		550F1E2A250FD7AB009AF467 /* ApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E29250FD7AB009AF467 /* ApiCalls.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,15 +56,18 @@
 		550F1DD3250BE862009AF467 /* MockNetworkOperationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkOperationFactory.swift; sourceTree = "<group>"; };
 		550F1DD5250BEB1D009AF467 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		550F1DD7250C0975009AF467 /* NetworkOperationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperationFactory.swift; sourceTree = "<group>"; };
-		550F1DD9250C0997009AF467 /* NetworkOperationFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperationFactoryProtocol.swift; sourceTree = "<group>"; };
+		550F1DD9250C0997009AF467 /* NetworkOperationCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperationCreating.swift; sourceTree = "<group>"; };
 		550F1DDD250C1293009AF467 /* MockNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkOperation.swift; sourceTree = "<group>"; };
-		550F1DE3250D4AD2009AF467 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
 		550F1DE5250D4F73009AF467 /* MockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepository.swift; sourceTree = "<group>"; };
 		550F1DE7250D5027009AF467 /* IssuanceRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRepositoryTests.swift; sourceTree = "<group>"; };
 		550F1DE9250D599F009AF467 /* NetworkOperationFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperationFactoryTests.swift; sourceTree = "<group>"; };
 		550F1DED250E753A009AF467 /* MockPostNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPostNetworkOperation.swift; sourceTree = "<group>"; };
 		550F1DEF250E7583009AF467 /* MockDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDecoder.swift; sourceTree = "<group>"; };
 		550F1DF1250E758E009AF467 /* MockEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEncoder.swift; sourceTree = "<group>"; };
+		550F1E21250FC74E009AF467 /* Posting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
+		550F1E23250FC783009AF467 /* Fetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetching.swift; sourceTree = "<group>"; };
+		550F1E25250FCA28009AF467 /* MockIssuanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceRepository.swift; sourceTree = "<group>"; };
+		550F1E29250FD7AB009AF467 /* ApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCalls.swift; sourceTree = "<group>"; };
 		6BAEA69B3863302556895D89 /* Pods-VCRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository.debug.xcconfig"; path = "Target Support Files/Pods-VCRepository/Pods-VCRepository.debug.xcconfig"; sourceTree = "<group>"; };
 		A5307F9968E0120E9184BDDE /* Pods-VCRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository.release.xcconfig"; path = "Target Support Files/Pods-VCRepository/Pods-VCRepository.release.xcconfig"; sourceTree = "<group>"; };
 		D2B54B8D2B4EE21C89C6AE68 /* Pods-VCRepository-VCRepositoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository-VCRepositoryTests.debug.xcconfig"; path = "Target Support Files/Pods-VCRepository-VCRepositoryTests/Pods-VCRepository-VCRepositoryTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,11 +119,13 @@
 			isa = PBXGroup;
 			children = (
 				550F1DD0250BDA05009AF467 /* IssuanceRepository.swift */,
-				550F1DE3250D4AD2009AF467 /* RepositoryProtocol.swift */,
 				550F1DD7250C0975009AF467 /* NetworkOperationFactory.swift */,
-				550F1DD9250C0997009AF467 /* NetworkOperationFactoryProtocol.swift */,
+				550F1DD9250C0997009AF467 /* NetworkOperationCreating.swift */,
+				550F1E23250FC783009AF467 /* Fetching.swift */,
+				550F1E21250FC74E009AF467 /* Posting.swift */,
 				550F1DB7250BD898009AF467 /* VCRepository.h */,
 				550F1DB8250BD898009AF467 /* Info.plist */,
+				550F1E29250FD7AB009AF467 /* ApiCalls.swift */,
 			);
 			path = VCRepository;
 			sourceTree = "<group>";
@@ -144,6 +152,7 @@
 				550F1DD5250BEB1D009AF467 /* TestData.swift */,
 				550F1DEF250E7583009AF467 /* MockDecoder.swift */,
 				550F1DF1250E758E009AF467 /* MockEncoder.swift */,
+				550F1E25250FCA28009AF467 /* MockIssuanceRepository.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -347,10 +356,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				550F1DDA250C0997009AF467 /* NetworkOperationFactoryProtocol.swift in Sources */,
-				550F1DE4250D4AD2009AF467 /* RepositoryProtocol.swift in Sources */,
+				550F1DDA250C0997009AF467 /* NetworkOperationCreating.swift in Sources */,
+				550F1E24250FC783009AF467 /* Fetching.swift in Sources */,
 				550F1DD1250BDA05009AF467 /* IssuanceRepository.swift in Sources */,
 				550F1DD8250C0975009AF467 /* NetworkOperationFactory.swift in Sources */,
+				550F1E2A250FD7AB009AF467 /* ApiCalls.swift in Sources */,
+				550F1E22250FC74E009AF467 /* Posting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +378,7 @@
 				550F1DF2250E758F009AF467 /* MockEncoder.swift in Sources */,
 				550F1DE6250D4F73009AF467 /* MockRepository.swift in Sources */,
 				550F1DE2250D4964009AF467 /* MockNetworkOperation.swift in Sources */,
+				550F1E26250FCA28009AF467 /* MockIssuanceRepository.swift in Sources */,
 				550F1DD4250BE862009AF467 /* MockNetworkOperationFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
