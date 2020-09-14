@@ -3,15 +3,12 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcNetworking
-import PromiseKit
+import VcCrypto
 
-public protocol ApiCalling: Fetching, Posting { }
-
-public class ApiCalls: ApiCalling {
-    public let networkOperationFactory: NetworkOperationCreating
+public struct KeyId: VcCryptoSecret {
+    public let id: UUID
     
-    public init(networkOperationFactory: NetworkOperationCreating = NetworkOperationFactory()) {
-        self.networkOperationFactory = networkOperationFactory
+    public init(id: UUID) {
+        self.id = id
     }
 }

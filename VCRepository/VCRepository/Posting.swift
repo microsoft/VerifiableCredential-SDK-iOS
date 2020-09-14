@@ -6,13 +6,13 @@
 import VcNetworking
 import PromiseKit
 
-protocol Posting {
+public protocol Posting {
     var networkOperationFactory: NetworkOperationCreating { get }
     
     func post<PostOp: PostNetworkOperation>(_ type: PostOp.Type, usingUrl url: String, withBody body: PostOp.RequestBody) -> Promise<PostOp.ResponseBody>
 }
 
-extension Posting {
+public extension Posting {
     
     func post<PostOp: PostNetworkOperation>(_ type: PostOp.Type, usingUrl url: String, withBody body: PostOp.RequestBody) -> Promise<PostOp.ResponseBody> {
         return networkOperationFactory.createPostOperation(PostOp.self, withUrl: url, withRequestBody: body).then { operation in

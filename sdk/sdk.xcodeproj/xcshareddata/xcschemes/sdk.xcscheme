@@ -132,6 +132,34 @@
                ReferencedContainer = "container:../VCRepository/VCRepository.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "550F1E3425101758009AF467"
+               BuildableName = "VCUseCase.framework"
+               BlueprintName = "VCUseCase"
+               ReferencedContainer = "container:../VCUseCase/VCUseCase.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "550F1E3D25101759009AF467"
+               BuildableName = "VCUseCaseTests.xctest"
+               BlueprintName = "VCUseCaseTests"
+               ReferencedContainer = "container:../VCUseCase/VCUseCase.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
