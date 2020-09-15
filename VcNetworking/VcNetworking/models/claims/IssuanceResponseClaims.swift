@@ -7,27 +7,51 @@ import VcJwt
 
 public struct IssuanceResponseClaims: OIDCClaims {
     
-    let responseType: String = ""
+    public let responseType: String
     
-    let responseMode: String = ""
+    public let responseMode: String
     
-    let clientID: String = ""
+    public let clientID: String
     
-    let redirectURI: String = ""
+    public let redirectURI: String
     
-    let publicKeyThumbprint: String = ""
+    public let publicKeyThumbprint: String
     
-    let audience: String = ""
+    public let audience: String
     
-    let did: String = ""
+    public let did: String
     
-    let publicJwk: ECPublicJwk = ECPublicJwk()
+    public let publicJwk: ECPublicJwk
     
-    let contract: String = ""
+    public let contract: String
     
-    let jti: String = ""
+    public let jti: String
     
-    let attestations: AttestationResponseDescriptor? = nil
+    public let attestations: AttestationResponseDescriptor?
+    
+    public init(responseType: String = "",
+                responseMode: String = "",
+                clientID: String = "",
+                redirectURI: String = "",
+                publicKeyThumbprint: String = "",
+                audience: String = "",
+                did: String = "",
+                publicJwk: ECPublicJwk = ECPublicJwk(),
+                contract: String = "",
+                jti: String = "",
+                attestations: AttestationResponseDescriptor? = nil) {
+        self.responseType = responseType
+        self.responseMode = responseMode
+        self.clientID = clientID
+        self.redirectURI = redirectURI
+        self.publicKeyThumbprint = publicKeyThumbprint
+        self.audience = audience
+        self.did = did
+        self.publicJwk = publicJwk
+        self.contract = contract
+        self.jti = jti
+        self.attestations = attestations
+    }
     
     enum CodingKeys: String, CodingKey {
         case responseType = "response_type"
@@ -37,6 +61,6 @@ public struct IssuanceResponseClaims: OIDCClaims {
         case publicKeyThumbprint = "sub"
         case audience = "aud"
         case publicJwk = "sub_jwk"
-        case contract, attestations, jti
+        case contract, attestations, jti, did
     }
 }

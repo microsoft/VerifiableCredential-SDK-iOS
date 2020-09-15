@@ -3,6 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct IssuerDescriptor: Codable, Equatable {
-    public let iss: String = ""
+struct MockIssuanceResponse {
+    var requestedIdTokenMap: RequestedIdTokenMap = [:]
 }
+
+public typealias RequestedIdTokenMap = [String:String]

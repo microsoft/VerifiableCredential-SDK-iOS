@@ -12,6 +12,9 @@
 		550F1E4625101759009AF467 /* VCUseCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 550F1E3825101758009AF467 /* VCUseCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		550F1E522510179B009AF467 /* VCUseCase.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 550F1E512510179B009AF467 /* VCUseCase.podspec */; };
 		550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E532510195A009AF467 /* IssuanceUseCase.swift */; };
+		550F1E5825102E6D009AF467 /* MockIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5725102E6D009AF467 /* MockIdentifier.swift */; };
+		550F1E5A25103958009AF467 /* MockIssuanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5925103958009AF467 /* MockIssuanceResponse.swift */; };
+		550F1E5D25103B74009AF467 /* IssuanceResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */; };
 		A7EF5F9DE7F5ABCA30BC8DF8 /* Pods_VCUseCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23448DADA5FB0E226F1CCC2 /* Pods_VCUseCase.framework */; };
 		F0A81613FD80367910913502 /* Pods_VCUseCase_VCUseCaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC6C2788E69ADE7C292089B /* Pods_VCUseCase_VCUseCaseTests.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +39,9 @@
 		550F1E4525101759009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550F1E512510179B009AF467 /* VCUseCase.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCUseCase.podspec; sourceTree = "<group>"; };
 		550F1E532510195A009AF467 /* IssuanceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceUseCase.swift; sourceTree = "<group>"; };
+		550F1E5725102E6D009AF467 /* MockIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIdentifier.swift; sourceTree = "<group>"; };
+		550F1E5925103958009AF467 /* MockIssuanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceResponse.swift; sourceTree = "<group>"; };
+		550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseFormatter.swift; sourceTree = "<group>"; };
 		6C4F46088C30714FB29E1421 /* Pods-VCUseCase-VCUseCaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCase-VCUseCaseTests.release.xcconfig"; path = "Target Support Files/Pods-VCUseCase-VCUseCaseTests/Pods-VCUseCase-VCUseCaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF52C305D80BE754E7CD4002 /* Pods-VCUseCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCase.debug.xcconfig"; path = "Target Support Files/Pods-VCUseCase/Pods-VCUseCase.debug.xcconfig"; sourceTree = "<group>"; };
 		DAC6C2788E69ADE7C292089B /* Pods_VCUseCase_VCUseCaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCUseCase_VCUseCaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,9 +94,12 @@
 		550F1E3725101758009AF467 /* VCUseCase */ = {
 			isa = PBXGroup;
 			children = (
+				550F1E5B25103B5B009AF467 /* formatters */,
+				550F1E532510195A009AF467 /* IssuanceUseCase.swift */,
 				550F1E3825101758009AF467 /* VCUseCase.h */,
 				550F1E3925101758009AF467 /* Info.plist */,
-				550F1E532510195A009AF467 /* IssuanceUseCase.swift */,
+				550F1E5725102E6D009AF467 /* MockIdentifier.swift */,
+				550F1E5925103958009AF467 /* MockIssuanceResponse.swift */,
 			);
 			path = VCUseCase;
 			sourceTree = "<group>";
@@ -102,6 +111,14 @@
 				550F1E4525101759009AF467 /* Info.plist */,
 			);
 			path = VCUseCaseTests;
+			sourceTree = "<group>";
+		};
+		550F1E5B25103B5B009AF467 /* formatters */ = {
+			isa = PBXGroup;
+			children = (
+				550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */,
+			);
+			path = formatters;
 			sourceTree = "<group>";
 		};
 		612206B03D2FA79521F0127B /* Frameworks */ = {
@@ -303,6 +320,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550F1E5A25103958009AF467 /* MockIssuanceResponse.swift in Sources */,
+				550F1E5825102E6D009AF467 /* MockIdentifier.swift in Sources */,
+				550F1E5D25103B74009AF467 /* IssuanceResponseFormatter.swift in Sources */,
 				550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

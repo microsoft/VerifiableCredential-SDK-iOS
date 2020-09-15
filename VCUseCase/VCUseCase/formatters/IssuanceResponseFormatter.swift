@@ -3,6 +3,17 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct IssuerDescriptor: Codable, Equatable {
-    public let iss: String = ""
+
+import PromiseKit
+import VCRepository
+import VcNetworking
+import VcJwt
+
+class IssuanceResponseFormatter {
+    
+    func format() -> JwsToken<IssuanceResponseClaims>? {
+        let claims = IssuanceResponseClaims()
+        return nil
+    }
+
 }

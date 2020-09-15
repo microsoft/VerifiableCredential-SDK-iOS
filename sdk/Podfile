@@ -35,6 +35,7 @@ target 'VCUseCase' do
   pod 'VCRepository', path: '../VCRepository'
   pod 'VcNetworking', path: '../VcNetworking'
   pod 'VcJwt', path: '../VcJwt'
+  pod 'VcCrypto', path: '../VcCrypto'
   target 'VCUseCaseTests'
 end
 

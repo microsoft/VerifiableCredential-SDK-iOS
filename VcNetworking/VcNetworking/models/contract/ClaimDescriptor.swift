@@ -3,10 +3,10 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct ClaimDescriptor: Codable, Equatable {
-    let claim: String = ""
-    let claimRequired: Bool = false
-    let indexed: Bool = false
+public struct ClaimDescriptor: Codable, Equatable {
+    public let claim: String = ""
+    public let claimRequired: Bool = false
+    public let indexed: Bool = false
 
     enum CodingKeys: String, CodingKey {
         case claim

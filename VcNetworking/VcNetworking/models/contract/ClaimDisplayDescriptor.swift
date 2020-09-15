@@ -3,8 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct ClaimDisplayDescriptor: Codable, Equatable {
+public struct ClaimDisplayDescriptor: Codable, Equatable {
     
-    let type: String = ""
-    let label: String = ""
+    public let type: String = ""
+    public let label: String = ""
 }
