@@ -7,14 +7,8 @@ import VcJwt
 
 public struct IssuanceResponseClaims: OIDCClaims {
     
-    public let responseType: String
-    
-    public let responseMode: String
-    
-    public let clientID: String
-    
-    public let redirectURI: String
-    
+    public let issuer: String = "https://self-issued.me"
+        
     public let publicKeyThumbprint: String
     
     public let audience: String
@@ -29,21 +23,19 @@ public struct IssuanceResponseClaims: OIDCClaims {
     
     public let attestations: AttestationResponseDescriptor?
     
-    public init(responseType: String = "",
-                responseMode: String = "",
-                clientID: String = "",
-                redirectURI: String = "",
-                publicKeyThumbprint: String = "",
+    public let iat: Double?
+    
+    public let exp: Double?
+    
+    public init(publicKeyThumbprint: String = "",
                 audience: String = "",
                 did: String = "",
                 publicJwk: ECPublicJwk = ECPublicJwk(),
                 contract: String = "",
                 jti: String = "",
-                attestations: AttestationResponseDescriptor? = nil) {
-        self.responseType = responseType
-        self.responseMode = responseMode
-        self.clientID = clientID
-        self.redirectURI = redirectURI
+                attestations: AttestationResponseDescriptor? = nil,
+                iat: Double? = nil,
+                exp: Double? = nil) {
         self.publicKeyThumbprint = publicKeyThumbprint
         self.audience = audience
         self.did = did
@@ -51,16 +43,15 @@ public struct IssuanceResponseClaims: OIDCClaims {
         self.contract = contract
         self.jti = jti
         self.attestations = attestations
+        self.iat = iat
+        self.exp = exp
     }
     
     enum CodingKeys: String, CodingKey {
-        case responseType = "response_type"
-        case responseMode = "response_mode"
-        case clientID = "client_id"
-        case redirectURI = "redirect_uri"
+        case issuer = "iss"
         case publicKeyThumbprint = "sub"
         case audience = "aud"
         case publicJwk = "sub_jwk"
-        case contract, attestations, jti, did
+        case contract, attestations, jti, did, iat, exp
     }
 }

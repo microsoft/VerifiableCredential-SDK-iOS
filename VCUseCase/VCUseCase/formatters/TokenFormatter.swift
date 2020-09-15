@@ -3,18 +3,15 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-@testable import VcJwt
-import XCTest
 
-class ClaimsTest: XCTestCase {
+import PromiseKit
+import VCRepository
+import VcNetworking
+import VcJwt
+
+class TokenFormatter {
     
-    let expectedValue = "test43"
-
-    func testMockClaims() throws {
-        let claims = MockClaims(key: expectedValue)
-        XCTAssertNil(claims.iat)
-        XCTAssertNil(claims.exp)
-        XCTAssertNil(claims.nbf)
-        XCTAssertEqual(claims.key, expectedValue)
+    func format<T: Claims>(token: JwsToken<T>, usingKeyId: KeyId) {
+        
     }
 }

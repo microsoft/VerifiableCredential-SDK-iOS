@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		550F1E3F25101759009AF467 /* VCUseCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550F1E3525101758009AF467 /* VCUseCase.framework */; };
-		550F1E4425101759009AF467 /* VCUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E4325101759009AF467 /* VCUseCaseTests.swift */; };
+		550F1E4425101759009AF467 /* IssuanceUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */; };
 		550F1E4625101759009AF467 /* VCUseCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 550F1E3825101758009AF467 /* VCUseCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		550F1E522510179B009AF467 /* VCUseCase.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 550F1E512510179B009AF467 /* VCUseCase.podspec */; };
 		550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E532510195A009AF467 /* IssuanceUseCase.swift */; };
 		550F1E5825102E6D009AF467 /* MockIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5725102E6D009AF467 /* MockIdentifier.swift */; };
 		550F1E5A25103958009AF467 /* MockIssuanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5925103958009AF467 /* MockIssuanceResponse.swift */; };
 		550F1E5D25103B74009AF467 /* IssuanceResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */; };
+		550F1E5F25104344009AF467 /* TokenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5E25104344009AF467 /* TokenFormatter.swift */; };
 		A7EF5F9DE7F5ABCA30BC8DF8 /* Pods_VCUseCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23448DADA5FB0E226F1CCC2 /* Pods_VCUseCase.framework */; };
 		F0A81613FD80367910913502 /* Pods_VCUseCase_VCUseCaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC6C2788E69ADE7C292089B /* Pods_VCUseCase_VCUseCaseTests.framework */; };
 /* End PBXBuildFile section */
@@ -35,13 +36,14 @@
 		550F1E3825101758009AF467 /* VCUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCUseCase.h; sourceTree = "<group>"; };
 		550F1E3925101758009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550F1E3E25101759009AF467 /* VCUseCaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCUseCaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		550F1E4325101759009AF467 /* VCUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCUseCaseTests.swift; sourceTree = "<group>"; };
+		550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceUseCaseTests.swift; sourceTree = "<group>"; };
 		550F1E4525101759009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550F1E512510179B009AF467 /* VCUseCase.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCUseCase.podspec; sourceTree = "<group>"; };
 		550F1E532510195A009AF467 /* IssuanceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceUseCase.swift; sourceTree = "<group>"; };
 		550F1E5725102E6D009AF467 /* MockIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIdentifier.swift; sourceTree = "<group>"; };
 		550F1E5925103958009AF467 /* MockIssuanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceResponse.swift; sourceTree = "<group>"; };
 		550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseFormatter.swift; sourceTree = "<group>"; };
+		550F1E5E25104344009AF467 /* TokenFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenFormatter.swift; sourceTree = "<group>"; };
 		6C4F46088C30714FB29E1421 /* Pods-VCUseCase-VCUseCaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCase-VCUseCaseTests.release.xcconfig"; path = "Target Support Files/Pods-VCUseCase-VCUseCaseTests/Pods-VCUseCase-VCUseCaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF52C305D80BE754E7CD4002 /* Pods-VCUseCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCase.debug.xcconfig"; path = "Target Support Files/Pods-VCUseCase/Pods-VCUseCase.debug.xcconfig"; sourceTree = "<group>"; };
 		DAC6C2788E69ADE7C292089B /* Pods_VCUseCase_VCUseCaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCUseCase_VCUseCaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,7 +109,7 @@
 		550F1E4225101759009AF467 /* VCUseCaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				550F1E4325101759009AF467 /* VCUseCaseTests.swift */,
+				550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */,
 				550F1E4525101759009AF467 /* Info.plist */,
 			);
 			path = VCUseCaseTests;
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */,
+				550F1E5E25104344009AF467 /* TokenFormatter.swift */,
 			);
 			path = formatters;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			files = (
 				550F1E5A25103958009AF467 /* MockIssuanceResponse.swift in Sources */,
 				550F1E5825102E6D009AF467 /* MockIdentifier.swift in Sources */,
+				550F1E5F25104344009AF467 /* TokenFormatter.swift in Sources */,
 				550F1E5D25103B74009AF467 /* IssuanceResponseFormatter.swift in Sources */,
 				550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */,
 			);
@@ -331,7 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				550F1E4425101759009AF467 /* VCUseCaseTests.swift in Sources */,
+				550F1E4425101759009AF467 /* IssuanceUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

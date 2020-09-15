@@ -7,7 +7,7 @@ import VcCrypto
 
 public struct Secp256k1Signer: TokenSigning {
     
-    private let algorithm: Signing
+    public let algorithm: Signing
     private let hashAlgorithm: Sha256
     
     public init(using algorithm: Signing = Secp256k1(), andHashAlgorithm hashAlg: Sha256 = Sha256()) {

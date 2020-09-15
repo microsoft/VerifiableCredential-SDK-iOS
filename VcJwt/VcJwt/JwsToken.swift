@@ -15,7 +15,7 @@ public struct JwsToken<T: Claims> {
     public let content: T
     var signature: Signature?
     
-    init(headers: Header, content: T, signature: Data?) {
+    public init(headers: Header, content: T, signature: Data? = nil) {
         self.headers = headers
         self.content = content
         self.signature = signature

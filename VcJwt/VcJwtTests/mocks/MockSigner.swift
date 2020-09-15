@@ -8,6 +8,8 @@ import VcCrypto
 
 class MockSigner: TokenSigning {
     
+    var algorithm: Signing = MockAlgorithm()
+    
     func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature where T : Claims {
         return "fakeSignature".data(using: .utf8)!
     }

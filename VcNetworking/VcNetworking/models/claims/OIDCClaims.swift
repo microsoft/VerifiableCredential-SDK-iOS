@@ -13,12 +13,28 @@ protocol OIDCClaims: Claims {
     var scope: String { get }
     var state: String { get }
     var nonce: String { get }
-    var iss: String { get }
+    var issuer: String { get }
     var registration: RegistrationClaims { get }
     var prompt: String { get }
 }
 
 extension OIDCClaims {
+    var responseType: String {
+        return ""
+    }
+    
+    var responseMode: String {
+        return ""
+    }
+    
+    var clientID: String {
+        return ""
+    }
+    
+    var redirectURI: String {
+        return ""
+    }
+    
     var scope: String {
         return ""
     }
@@ -31,7 +47,7 @@ extension OIDCClaims {
         return ""
     }
     
-    var iss: String {
+    var issuer: String {
         return ""
     }
     

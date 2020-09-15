@@ -9,7 +9,10 @@ public struct Header: Codable {
     public let jsonWebKey: String?
     public let keyId: String?
     
-    public init(type: String? = nil, algorithm: String? = nil, jsonWebKey: String? = nil, keyId: String? = nil) {
+    public init(type: String? = nil,
+                algorithm: String? = nil,
+                jsonWebKey: String? = nil,
+                keyId: String? = nil) {
         self.type = type
         self.algorithm = algorithm
         self.jsonWebKey = jsonWebKey

@@ -8,4 +8,5 @@ import VcNetworking
 
 struct MockIdentifier {
     let keyId: KeyId = KeyId(id: UUID())
+    let id: String = "did:ion:test"
 }
