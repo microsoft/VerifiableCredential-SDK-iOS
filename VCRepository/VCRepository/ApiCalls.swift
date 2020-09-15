@@ -3,18 +3,15 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
-import VcJwt
+import VcNetworking
+import PromiseKit
 
-public struct IssuanceResponseEncoder: Encoding {
+protocol ApiCalling: Fetching, Posting { }
+
+class ApiCalls: ApiCalling {
+    let networkOperationFactory: NetworkOperationCreating
     
-    public func encode(value: JwsToken<IssuanceResponseClaims>) throws -> Data {
-        
-        guard let encodedToken = try value.serialize().data(using: .utf8) else {
-            throw NetworkingError.unableToParseString
-        }
-        
-        return encodedToken
+    init(networkOperationFactory: NetworkOperationCreating = NetworkOperationFactory()) {
+        self.networkOperationFactory = networkOperationFactory
     }
-    
 }

@@ -3,11 +3,12 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcJwt
+import PromiseKit
 
-public struct VCClaims: Claims {
-    let jti: String
-    let iss: String
-    let sub: String
-    let vc: VerifiableCredentialDescriptor
+/**
+ * Post Network Operation Protocol with default methods for all Post Network Operations.
+ */
+public protocol PostNetworkOperation: NetworkOperation {
+    associatedtype Encoder: Encoding
+    associatedtype RequestBody where RequestBody == Encoder.RequestBody
 }

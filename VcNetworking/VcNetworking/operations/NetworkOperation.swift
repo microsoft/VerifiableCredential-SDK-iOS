@@ -9,8 +9,9 @@ import PromiseKit
  * Base Network Operation class with default methods for all Network Operations.
  * ResponseBody: the type of object returned by the service.
  */
-protocol NetworkOperation {
+public protocol NetworkOperation {
     associatedtype Decoder: Decoding
+    associatedtype ResponseBody where Decoder.ResponseBody == ResponseBody
     
     var decoder: Decoder { get }
     var successHandler: SuccessHandler { get }
@@ -19,12 +20,28 @@ protocol NetworkOperation {
     var urlSession: URLSession { get }
     var urlRequest: URLRequest { get }
     
-    func fire() -> Promise<Decoder.ResponseBody>
+    func fire() -> Promise<ResponseBody>
 }
 
-extension NetworkOperation {
+public extension NetworkOperation {
     
-    func fire() -> Promise<Decoder.ResponseBody> {
+    var successHandler: SuccessHandler {
+        return SimpleSuccessHandler()
+    }
+    
+    var failureHandler: FailureHandler {
+        return SimpleFailureHandler()
+    }
+    
+    var retryHandler: RetryHandler {
+        return NoRetry()
+    }
+    
+    var urlSession: URLSession {
+        return URLSession.shared
+    }
+    
+    func fire() -> Promise<ResponseBody> {
         return firstly {
             retryHandler.onRetry {
                 self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)
@@ -32,7 +49,7 @@ extension NetworkOperation {
         }
     }
     
-    func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<Decoder.ResponseBody> {
+    private func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<ResponseBody> {
         return firstly {
             urlSession.dataTask(.promise, with: urlRequest)
         }.then { data, response in
@@ -40,7 +57,7 @@ extension NetworkOperation {
         }
     }
     
-    private func handleResponse(data: Data, response: URLResponse) -> Promise<Decoder.ResponseBody> {
+    private func handleResponse(data: Data, response: URLResponse) -> Promise<ResponseBody> {
         return Promise { seal in
             
             guard let httpResponse = response as? HTTPURLResponse else {
@@ -56,11 +73,11 @@ extension NetworkOperation {
         }
     }
     
-    func onSuccess(data: Data, response: HTTPURLResponse) throws -> Decoder.ResponseBody {
+    private func onSuccess(data: Data, response: HTTPURLResponse) throws -> ResponseBody {
         return try self.successHandler.onSuccess(data: data, decodeWith: self.decoder)
     }
     
-    func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError {
+    private func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError {
         return try self.failureHandler.onFailure(data: data, response: response)
     }
 }

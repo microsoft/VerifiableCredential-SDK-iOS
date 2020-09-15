@@ -7,6 +7,7 @@ import Foundation
 @testable import VcNetworking
 
 final class MockNetworkOperation: NetworkOperation {
+    typealias ResponseBody = MockDecoder.ResponseBody
     typealias Decoder = MockDecoder
     
     let decoder: MockDecoder = MockDecoder()

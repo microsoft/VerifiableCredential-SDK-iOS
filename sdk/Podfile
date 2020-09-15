@@ -3,6 +3,10 @@ use_frameworks!
 platform :ios, '11.0'
 workspace '../sdk'
 
+def vcrepository_pods
+  podspec :path => '../VCRepository/VCRepository.podspec'
+end
+
 def networking_pods
   podspec :path => '../VcNetworking/VcNetworking.podspec'
 end
@@ -19,6 +23,14 @@ target 'sdk' do
   project '../sdk/sdk.xcodeproj'
   pod 'VcNetworking', path: '../VcNetworking'
   target 'sdkTests'
+end
+
+target 'VCRepository' do
+  project '../VCRepository/VCRepository.xcodeproj'
+  vcrepository_pods
+  pod 'VcNetworking', path: '../VcNetworking'
+  pod 'VcJwt', path: '../VcJwt'
+  target 'VCRepositoryTests'
 end
 
 target 'VcNetworking' do

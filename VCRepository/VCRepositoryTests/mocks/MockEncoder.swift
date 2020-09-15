@@ -3,18 +3,14 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
-import VcJwt
+import VcNetworking
 
-public struct IssuanceResponseEncoder: Encoding {
+@testable import VCRepository
+
+class MockEncoder: Encoding {
+    typealias RequestBody = String
     
-    public func encode(value: JwsToken<IssuanceResponseClaims>) throws -> Data {
-        
-        guard let encodedToken = try value.serialize().data(using: .utf8) else {
-            throw NetworkingError.unableToParseString
-        }
-        
-        return encodedToken
+    func encode(value: String) throws -> Data {
+        return value.data(using: .utf8)!
     }
-    
 }

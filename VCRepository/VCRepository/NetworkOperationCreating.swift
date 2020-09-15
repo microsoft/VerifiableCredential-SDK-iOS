@@ -3,11 +3,11 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcJwt
+import VcNetworking
+import PromiseKit
 
-public struct VCClaims: Claims {
-    let jti: String
-    let iss: String
-    let sub: String
-    let vc: VerifiableCredentialDescriptor
+protocol NetworkOperationCreating {
+    func createFetchOperation<T: NetworkOperation>(_ type: T.Type, withUrl url: String) -> Promise<T>
+    
+    func createPostOperation<T: PostNetworkOperation>(_ type: T.Type, withUrl url: String, withRequestBody body: T.RequestBody) -> Promise<T>
 }

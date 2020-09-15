@@ -6,17 +6,14 @@
 import Foundation
 import PromiseKit
 
-final class FetchContractOperation: NetworkOperation {
-    typealias Decoder = ContractDecoder
+public class FetchContractOperation: NetworkOperation {
+    public typealias ResponseBody = Contract
     
-    let decoder: ContractDecoder = ContractDecoder()
-    let retryHandler: RetryHandler  = NoRetry()
-    let successHandler: SuccessHandler = SimpleSuccessHandler()
-    let failureHandler: FailureHandler = SimpleFailureHandler()
-    let urlSession: URLSession
-    let urlRequest: URLRequest
+    public let decoder: ContractDecoder = ContractDecoder()
+    public let urlSession: URLSession
+    public let urlRequest: URLRequest
     
-    init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
+    public init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
