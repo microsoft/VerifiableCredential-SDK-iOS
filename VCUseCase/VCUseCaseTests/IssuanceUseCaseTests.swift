@@ -7,28 +7,42 @@
 //
 
 import XCTest
+import VCRepository
+import VcNetworking
+
 @testable import VCUseCase
 
 class IssuanceUseCaseTests: XCTestCase {
+    
+    var usecase: IssuanceUseCase!
+    var contract: Contract!
+    let expectedUrl = "https://test3523.com"
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let repo = IssuanceRepository(apiCalls: MockApiCalls())
+        let formatter = IssuanceResponseFormatter(signer: MockTokenSigner())
+        usecase = IssuanceUseCase(formatter: formatter, repo: repo)
+        
+        let encodedContract = TestData.contract.rawValue.data(using: .utf8)!
+        self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+//
+//    func testGetRequest() throws {
+//        usecase.getRequest(usingUrl: expectedUrl)
+//    }
+    
+    func testSendResponse() throws {
+        let expec = self.expectation(description: "Fire")
+        usecase.send(response: MockIssuanceResponse(from: self.contract, contractUri: self.expectedUrl)).done {
+            response in
+            print(response)
+            expec.fulfill()
+        }.catch { error in
+            print(error)
+            expec.fulfill()
         }
+        
+        wait(for: [expec], timeout: 5)
     }
 
 }

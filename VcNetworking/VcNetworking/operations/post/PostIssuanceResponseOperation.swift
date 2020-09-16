@@ -6,7 +6,8 @@
 import Foundation
 import VcJwt
 
-public class PostIssuanceResponseOperation: PostNetworkOperation {
+public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
+    
     public typealias Encoder = IssuanceResponseEncoder
     public typealias RequestBody = JwsToken<IssuanceResponseClaims>
     public typealias ResponseBody = VerifiableCredential

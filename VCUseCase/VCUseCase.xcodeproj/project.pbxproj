@@ -16,6 +16,9 @@
 		550F1E5A25103958009AF467 /* MockIssuanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5925103958009AF467 /* MockIssuanceResponse.swift */; };
 		550F1E5D25103B74009AF467 /* IssuanceResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */; };
 		550F1E5F25104344009AF467 /* TokenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5E25104344009AF467 /* TokenFormatter.swift */; };
+		550F1E63251165D6009AF467 /* MockApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E62251165D6009AF467 /* MockApiCalls.swift */; };
+		550F1E6625116CD6009AF467 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6525116CD6009AF467 /* TestData.swift */; };
+		550F1E6825116E86009AF467 /* MockTokenSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6725116E86009AF467 /* MockTokenSigner.swift */; };
 		A7EF5F9DE7F5ABCA30BC8DF8 /* Pods_VCUseCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23448DADA5FB0E226F1CCC2 /* Pods_VCUseCase.framework */; };
 		F0A81613FD80367910913502 /* Pods_VCUseCase_VCUseCaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC6C2788E69ADE7C292089B /* Pods_VCUseCase_VCUseCaseTests.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +47,9 @@
 		550F1E5925103958009AF467 /* MockIssuanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceResponse.swift; sourceTree = "<group>"; };
 		550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseFormatter.swift; sourceTree = "<group>"; };
 		550F1E5E25104344009AF467 /* TokenFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenFormatter.swift; sourceTree = "<group>"; };
+		550F1E62251165D6009AF467 /* MockApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiCalls.swift; sourceTree = "<group>"; };
+		550F1E6525116CD6009AF467 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		550F1E6725116E86009AF467 /* MockTokenSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTokenSigner.swift; sourceTree = "<group>"; };
 		6C4F46088C30714FB29E1421 /* Pods-VCUseCase-VCUseCaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCase-VCUseCaseTests.release.xcconfig"; path = "Target Support Files/Pods-VCUseCase-VCUseCaseTests/Pods-VCUseCase-VCUseCaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF52C305D80BE754E7CD4002 /* Pods-VCUseCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCase.debug.xcconfig"; path = "Target Support Files/Pods-VCUseCase/Pods-VCUseCase.debug.xcconfig"; sourceTree = "<group>"; };
 		DAC6C2788E69ADE7C292089B /* Pods_VCUseCase_VCUseCaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCUseCase_VCUseCaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +115,7 @@
 		550F1E4225101759009AF467 /* VCUseCaseTests */ = {
 			isa = PBXGroup;
 			children = (
+				550F1E64251165DB009AF467 /* mocks */,
 				550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */,
 				550F1E4525101759009AF467 /* Info.plist */,
 			);
@@ -122,6 +129,16 @@
 				550F1E5E25104344009AF467 /* TokenFormatter.swift */,
 			);
 			path = formatters;
+			sourceTree = "<group>";
+		};
+		550F1E64251165DB009AF467 /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				550F1E62251165D6009AF467 /* MockApiCalls.swift */,
+				550F1E6725116E86009AF467 /* MockTokenSigner.swift */,
+				550F1E6525116CD6009AF467 /* TestData.swift */,
+			);
+			path = mocks;
 			sourceTree = "<group>";
 		};
 		612206B03D2FA79521F0127B /* Frameworks */ = {
@@ -335,7 +352,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550F1E6625116CD6009AF467 /* TestData.swift in Sources */,
+				550F1E63251165D6009AF467 /* MockApiCalls.swift in Sources */,
 				550F1E4425101759009AF467 /* IssuanceUseCaseTests.swift in Sources */,
+				550F1E6825116E86009AF467 /* MockTokenSigner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

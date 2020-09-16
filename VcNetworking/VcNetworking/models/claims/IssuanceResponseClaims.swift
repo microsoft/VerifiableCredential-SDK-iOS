@@ -15,7 +15,7 @@ public struct IssuanceResponseClaims: OIDCClaims {
     
     public let did: String
     
-    public let publicJwk: ECPublicJwk
+    public let publicJwk: ECPublicJwk?
     
     public let contract: String
     
@@ -30,7 +30,7 @@ public struct IssuanceResponseClaims: OIDCClaims {
     public init(publicKeyThumbprint: String = "",
                 audience: String = "",
                 did: String = "",
-                publicJwk: ECPublicJwk = ECPublicJwk(),
+                publicJwk: ECPublicJwk? = nil,
                 contract: String = "",
                 jti: String = "",
                 attestations: AttestationResponseDescriptor? = nil,

@@ -25,8 +25,11 @@ class IssuanceUseCase {
         return self.repo.getRequest(withUrl: url)
     }
 
-    func send(response: MockIssuanceResponse, usingUrl url: String) throws -> Promise<VerifiableCredential> {
-        let signedToken = try self.formatter.format(response: response, usingIdentifier: self.masterIdentifier)
-        return self.repo.sendResponse(usingUrl: url, withBody: signedToken)
+    func send(response: MockIssuanceResponse) -> Promise<VerifiableCredential> {
+        return firstly {
+            self.formatter.format(response: response, usingIdentifier: self.masterIdentifier)
+        }.then { signedToken in
+            self.repo.sendResponse(usingUrl: response.contract.input.credentialIssuer, withBody: signedToken)
+        }
     }
 }

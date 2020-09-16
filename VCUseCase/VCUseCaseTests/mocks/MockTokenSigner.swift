@@ -4,14 +4,15 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
+import VcJwt
+import VcCrypto
 
-internal protocol InternalPostNetworkOperation: PostNetworkOperation, InternalPostOperation {}
+@testable import VCUseCase
 
-public protocol PostNetworkOperation: NetworkOperation {
-    associatedtype RequestBody
-}
-
-protocol InternalPostOperation: InternalNetworkOperation {
-    associatedtype Encoder: Encoding
-    associatedtype RequestBody where RequestBody == Encoder.RequestBody
+struct MockTokenSigner: TokenSigning {
+    var algorithm: Signing = Secp256k1()
+    
+    func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature where T : Claims {
+        return Data(count: 64)
+    }
 }

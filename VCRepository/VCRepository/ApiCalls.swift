@@ -6,10 +6,19 @@
 import VcNetworking
 import PromiseKit
 
-public protocol ApiCalling: Fetching, Posting { }
+internal protocol InternalApiCalling: InternalApi, ApiCalling { }
 
-public class ApiCalls: ApiCalling {
-    public let networkOperationFactory: NetworkOperationCreating
+public protocol ApiCalling {
+    func get<FetchOp: NetworkOperation>(_ type: FetchOp.Type, usingUrl url: String) -> Promise<FetchOp.ResponseBody>
+    
+    func post<PostOp: PostNetworkOperation>(_ type: PostOp.Type, usingUrl url: String, withBody body: PostOp.RequestBody) -> Promise<PostOp.ResponseBody>
+}
+
+protocol InternalApi: Fetching, Posting { }
+
+public class ApiCalls: InternalApiCalling {
+    
+    let networkOperationFactory: NetworkOperationCreating
     
     public init(networkOperationFactory: NetworkOperationCreating = NetworkOperationFactory()) {
         self.networkOperationFactory = networkOperationFactory

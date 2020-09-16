@@ -20,11 +20,6 @@ class IssuanceRepositoryTests: XCTestCase {
         repo = IssuanceRepository(apiCalls: MockApiCalls(factory: mockFactory))
     }
     
-    func testInit() {
-        let repo = IssuanceRepository()
-        XCTAssert(repo.apiCalls is ApiCalls)
-    }
-    
     func testGetCalled() {
         let expec = self.expectation(description: "Fire")
         repo.getRequest(withUrl: expectedUrl).done { actualResult in
@@ -40,8 +35,10 @@ class IssuanceRepositoryTests: XCTestCase {
     }
     
     func testPostCalled() {
+        
         let expec = self.expectation(description: "Fire")
-        let token = JwsToken<IssuanceResponseClaims>(from: TestData.issuanceResponse.rawValue)!
+        let token = JwsToken<IssuanceResponseClaims>(headers: Header(), content: IssuanceResponseClaims())
+        
         repo.sendResponse(usingUrl: expectedUrl, withBody: token).done { actualResult in
             XCTFail()
             expec.fulfill()

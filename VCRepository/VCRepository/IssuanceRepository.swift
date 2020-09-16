@@ -9,7 +9,7 @@ import VcJwt
 
 public class IssuanceRepository {
     
-    let apiCalls: ApiCalling
+    private let apiCalls: ApiCalling
     
     public init(apiCalls: ApiCalling = ApiCalls()) {
         self.apiCalls = apiCalls
