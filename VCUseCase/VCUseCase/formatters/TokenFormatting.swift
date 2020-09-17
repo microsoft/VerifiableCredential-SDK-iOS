@@ -9,9 +9,8 @@ import VCRepository
 import VcNetworking
 import VcJwt
 
-class TokenFormatter {
+protocol TokenFormatting {
+    associatedtype TokenClaims: Claims
     
-    func format<T: Claims>(token: JwsToken<T>, usingKeyId: KeyId) {
-        
-    }
+    func format(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) -> Promise<JwsToken<TokenClaims>>
 }

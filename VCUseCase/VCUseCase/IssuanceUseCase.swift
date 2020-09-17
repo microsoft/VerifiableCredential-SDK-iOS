@@ -9,13 +9,18 @@ import VCRepository
 import VcNetworking
 import VcJwt
 
+enum IssuanceUseCaseError: Error {
+    case test
+}
+
 class IssuanceUseCase {
+    typealias TokenFormatter = IssuanceResponseFormatter
     
     let masterIdentifier: MockIdentifier = MockIdentifier()
     let formatter: IssuanceResponseFormatter
     let repo: IssuanceRepository
     
-    init(formatter: IssuanceResponseFormatter = IssuanceResponseFormatter(),
+    init(formatter: TokenFormatter = IssuanceResponseFormatter(),
          repo: IssuanceRepository = IssuanceRepository()) {
         self.formatter = formatter
         self.repo = repo
@@ -25,11 +30,10 @@ class IssuanceUseCase {
         return self.repo.getRequest(withUrl: url)
     }
 
-    func send(response: MockIssuanceResponse) -> Promise<VerifiableCredential> {
-        return firstly {
-            self.formatter.format(response: response, usingIdentifier: self.masterIdentifier)
-        }.then { signedToken in
-            self.repo.sendResponse(usingUrl: response.contract.input.credentialIssuer, withBody: signedToken)
-        }
+    func send(token: JwsToken<IssuanceResponseClaims>) -> Promise<VerifiableCredential> {
+        
+        // let signedToken = self.formatter.format(response: response, usingIdentifier: self.masterIdentifier)
+        
+        return self.repo.sendResponse(usingUrl:  "https://test3523.com", withBody: token)
     }
 }

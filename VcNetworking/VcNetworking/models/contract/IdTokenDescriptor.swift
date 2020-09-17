@@ -5,12 +5,12 @@
 
 public struct IdTokenDescriptor: Codable, Equatable {
     
-    public let encrypted: Bool = false
-    public let claims: [ClaimDescriptor] = []
-    public let idTokenRequired: Bool = false
-    public let configuration: String = ""
-    public let clientID: String = ""
-    public let redirectURI: String = ""
+    public let encrypted: Bool?
+    public let claims: [ClaimDescriptor]?
+    public let idTokenRequired: Bool?
+    public let configuration: String?
+    public let clientID: String?
+    public let redirectURI: String?
 
     enum CodingKeys: String, CodingKey {
         case encrypted, claims

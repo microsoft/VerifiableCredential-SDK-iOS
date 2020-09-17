@@ -5,8 +5,8 @@
 
 public struct LogoDisplayDescriptor: Codable, Equatable {
     
-    public let uri: String = ""
-    public let logoDescription: String = ""
+    public let uri: String?
+    public let logoDescription: String?
 
     enum CodingKeys: String, CodingKey {
         case uri

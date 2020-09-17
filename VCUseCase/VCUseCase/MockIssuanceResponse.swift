@@ -12,11 +12,16 @@ struct MockIssuanceResponse {
     let audience: String
     let requestedIdTokenMap: RequestedIdTokenMap = [:]
     
-    init(from contract: Contract, contractUri: String, expiryInSeconds exp: Int = 300) {
+    init(from contract: Contract, contractUri: String, expiryInSeconds exp: Int = 300) throws {
         self.contract = contract
         self.contractUri = contractUri
         self.expiryInSeconds = exp
-        self.audience = contract.input.credentialIssuer
+        guard let aud = contract.input?.credentialIssuer else {
+            throw IssuanceUseCaseError.test
+        }
+        
+        self.audience = aud
+        print(self.audience)
     }
 }
 

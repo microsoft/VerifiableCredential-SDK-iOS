@@ -4,5 +4,5 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct IssuerDescriptor: Codable, Equatable {
-    public let iss: String = ""
+    public let iss: String?
 }

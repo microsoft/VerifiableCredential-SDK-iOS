@@ -9,6 +9,7 @@
 import XCTest
 import VCRepository
 import VcNetworking
+import VcJwt
 
 @testable import VCUseCase
 
@@ -20,20 +21,34 @@ class IssuanceUseCaseTests: XCTestCase {
 
     override func setUpWithError() throws {
         let repo = IssuanceRepository(apiCalls: MockApiCalls())
-        let formatter = IssuanceResponseFormatter(signer: MockTokenSigner())
-        usecase = IssuanceUseCase(formatter: formatter, repo: repo)
+        let formatter = MockIssuanceResponseFormatter()
+        self.usecase = IssuanceUseCase(formatter: formatter, repo: repo)
         
         let encodedContract = TestData.contract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
     }
-//
-//    func testGetRequest() throws {
-//        usecase.getRequest(usingUrl: expectedUrl)
-//    }
+
+    func testGetRequest() throws {
+        let expec = self.expectation(description: "Fire")
+        usecase.getRequest(usingUrl: expectedUrl).done {
+            request in
+            print(request)
+            expec.fulfill()
+        }.catch { error in
+            print(error)
+            expec.fulfill()
+        }
+        
+        wait(for: [expec], timeout: 5)
+    }
     
     func testSendResponse() throws {
         let expec = self.expectation(description: "Fire")
-        usecase.send(response: MockIssuanceResponse(from: self.contract, contractUri: self.expectedUrl)).done {
+        let repo = IssuanceRepository(apiCalls: MockApiCalls())
+        let formatter = MockIssuanceResponseFormatter()
+        let usecase = IssuanceUseCase(formatter: formatter, repo: repo)
+        let signedToken = JwsToken<IssuanceResponseClaims>(headers: Header(), content: IssuanceResponseClaims())
+        usecase.send(token: signedToken).done {
             response in
             print(response)
             expec.fulfill()
@@ -42,7 +57,7 @@ class IssuanceUseCaseTests: XCTestCase {
             expec.fulfill()
         }
         
-        wait(for: [expec], timeout: 5)
+        wait(for: [expec], timeout: 20)
     }
 
 }

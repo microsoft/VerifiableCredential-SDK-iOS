@@ -5,7 +5,8 @@
 
 public struct Contract: Codable, Equatable {
     
-    public let id: String = ""
-    public let display: DisplayDescriptor = DisplayDescriptor()
-    public let input: InputDescriptor = InputDescriptor()
+    public let id: String?
+    public let display: DisplayDescriptor?
+    public let input: InputDescriptor?
+    
 }

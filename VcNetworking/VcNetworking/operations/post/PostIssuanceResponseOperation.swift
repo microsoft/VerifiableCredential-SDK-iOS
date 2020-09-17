@@ -7,15 +7,15 @@ import Foundation
 import VcJwt
 
 public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
-    
-    public typealias Encoder = IssuanceResponseEncoder
+
+    typealias Encoder = IssuanceResponseEncoder
     public typealias RequestBody = JwsToken<IssuanceResponseClaims>
     public typealias ResponseBody = VerifiableCredential
     
-    public let decoder = IssuanceServiceResponseDecoder()
+    let decoder = IssuanceServiceResponseDecoder()
     let encoder = IssuanceResponseEncoder()
-    public let urlSession: URLSession
-    public let urlRequest: URLRequest
+    let urlSession: URLSession
+    public var urlRequest: URLRequest
     
     public init(withUrl urlStr: String, withBody body: JwsToken<IssuanceResponseClaims>, urlSession: URLSession = URLSession.shared) throws {
         
@@ -23,11 +23,14 @@ public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = Constants.POST
-        urlRequest.httpBody = try self.encoder.encode(value: body)
-        urlRequest.addValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
-        self.urlRequest = urlRequest
+        var request = URLRequest(url: url)
+        request.httpMethod = Constants.POST
+        request.httpBody = try self.encoder.encode(value: body)
+        print(String(data: request.httpBody!, encoding: .utf8)!)
+        request.addValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
+        
+        
+        self.urlRequest = URLRequest(url: URL(string: "https://test.com")!)
         self.urlSession = urlSession
     }
 }

@@ -18,14 +18,15 @@ class IssuanceResponseFormatter {
         self.signer = signer
     }
     
-    func format(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) -> Promise<JwsToken<IssuanceResponseClaims>> {
-        return Promise { seal in
-            let header = self.formatHeaders()
-            let content = try self.formatClaims(response: response, usingIdentifier: identifier)
-            var token = JwsToken(headers: header, content: content)
-            try token.sign(using: self.signer, withSecret: identifier.keyId)
-            seal.fulfill(token)
-        }
+    func format(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) throws -> JwsToken<IssuanceResponseClaims> {
+        let header = self.formatHeaders()
+        let content = try self.formatClaims(response: response, usingIdentifier: identifier)
+        var token = JwsToken(headers: header, content: content)
+        print("here")
+        print(token.content)
+        print(header)
+        // try token.sign(using: self.signer, withSecret: identifier.keyId)
+        return token
     }
     
     private func formatHeaders() -> Header {
@@ -38,8 +39,12 @@ class IssuanceResponseFormatter {
         let formattedPublicKey = ECPublicJwk(withPublicKey: publicKey, withKeyId: identifier.keyId.id.uuidString)
         let (iat, exp) = self.createIatAndExp(expiryInSeconds: response.expiryInSeconds)
         
+        guard let audience = response.contract.input?.credentialIssuer else {
+            throw IssuanceUseCaseError.test
+        }
+        
         return IssuanceResponseClaims(publicKeyThumbprint: try formattedPublicKey.getThumbprint(),
-                                      audience: response.contract.input.credentialIssuer,
+                                      audience: audience,
                                       did: identifier.id,
                                       publicJwk: formattedPublicKey,
                                       contract: response.contractUri,

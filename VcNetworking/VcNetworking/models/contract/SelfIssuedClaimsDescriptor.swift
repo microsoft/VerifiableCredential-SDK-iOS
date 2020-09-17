@@ -5,9 +5,9 @@
 
 public struct SelfIssuedClaimsDescriptor: Codable, Equatable {
     
-    public let encrypted: Bool = false
-    public let claims: [ClaimDescriptor] = []
-    public let selfIssuedRequired: Bool = false
+    public let encrypted: Bool?
+    public let claims: [ClaimDescriptor]?
+    public let selfIssuedRequired: Bool?
 
     enum CodingKeys: String, CodingKey {
         case encrypted, claims

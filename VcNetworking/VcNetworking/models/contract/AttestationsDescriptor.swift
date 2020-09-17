@@ -4,7 +4,8 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct AttestationsDescriptor: Codable, Equatable {
-    public let selfIssued: SelfIssuedClaimsDescriptor = SelfIssuedClaimsDescriptor()
-    public let presentations: [PresentationDescriptor] = []
-    public let idTokens: [IdTokenDescriptor] = []
+    public let selfIssued: SelfIssuedClaimsDescriptor?
+    public let presentations: [PresentationDescriptor]?
+    public let idTokens: [IdTokenDescriptor]?
+
 }

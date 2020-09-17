@@ -5,8 +5,9 @@
 
 public struct InputDescriptor: Codable, Equatable {
     
-    public let id: String = ""
-    public let credentialIssuer: String = ""
-    public let issuer: String = ""
-    public let attestations: AttestationsDescriptor = AttestationsDescriptor()
+    public let id: String?
+    public let credentialIssuer: String?
+    public let issuer: String?
+    public let attestations: AttestationsDescriptor?
+    
 }

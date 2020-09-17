@@ -5,6 +5,7 @@
 
 public struct ConsentDisplayDescriptor: Codable, Equatable {
     
-    public let title: String = ""
-    public let instructions: String = ""
+    public let title: String?
+    public let instructions: String?
+
 }

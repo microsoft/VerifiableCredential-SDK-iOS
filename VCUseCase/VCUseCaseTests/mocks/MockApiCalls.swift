@@ -31,7 +31,7 @@ class MockApiCalls: ApiCalling {
         }
     }
     
-    func post<PostOp>(_ type: PostOp.Type, usingUrl url: String, withBody body: PostOp.RequestBody) -> Promise<PostOp.ResponseBody> where PostOp : PostNetworkOperation {
+    func post<PostOp: PostNetworkOperation>(_ type: PostOp.Type, usingUrl url: String, withBody body: PostOp.RequestBody) -> Promise<PostOp.ResponseBody> {
         Self.wasPostCalled = true
         return Promise { seal in
             seal.reject(MockIssuanceRepoError.doNotWantToResolveRealObject)

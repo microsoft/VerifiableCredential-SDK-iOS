@@ -15,7 +15,23 @@ protocol Posting {
 extension Posting {
     
     public func post<PostOp: PostNetworkOperation>(_ type: PostOp.Type, usingUrl url: String, withBody body: PostOp.RequestBody) -> Promise<PostOp.ResponseBody> {
-        return networkOperationFactory.createPostOperation(PostOp.self, withUrl: url, withRequestBody: body).then { operation in
+        return firstly {
+            networkOperationFactory.createPostOperation(PostOp.self, withUrl: url, withRequestBody: body)
+        }.then { operation in
+            self.test(operation: operation)
+        }
+    }
+    
+    private func test<PostOp: PostNetworkOperation>(operation: PostOp?) -> Promise<PostOp.ResponseBody> {
+        return Promise<PostOp> { seal in
+            print(operation)
+            
+            if operation != nil {
+                seal.reject(RepositoryError.unsupportedNetworkOperation)
+            } else {
+                seal.fulfill(operation!)
+            }
+        }.then { operation in
             operation.fire()
         }
     }

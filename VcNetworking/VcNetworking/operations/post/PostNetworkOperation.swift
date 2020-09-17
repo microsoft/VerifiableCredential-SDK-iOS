@@ -5,7 +5,7 @@
 
 import PromiseKit
 
-internal protocol InternalPostNetworkOperation: PostNetworkOperation, InternalPostOperation {}
+internal protocol InternalPostNetworkOperation: PostNetworkOperation & InternalPostOperation {}
 
 public protocol PostNetworkOperation: NetworkOperation {
     associatedtype RequestBody
