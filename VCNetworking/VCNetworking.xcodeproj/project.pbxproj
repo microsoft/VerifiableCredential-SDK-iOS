@@ -148,7 +148,7 @@
 		55D1683924EB0E3600AD2F98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D1687E24EB16FE00AD2F98 /* VCSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFEA24C4CBBD0090F495 /* VcNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VcNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55D7BFF324C4CBBD0090F495 /* VCNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = VCNetworkingTests.xctest; path = VcNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55D7BFF324C4CBBD0090F495 /* VcNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VcNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFC5C70E7C37B5F26B3EC9C /* Pods-networking-networkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking-networkingTests.release.xcconfig"; path = "Target Support Files/Pods-networking-networkingTests/Pods-networking-networkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		85A55BEB5EF86373FCF91943 /* Pods_VcNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CCEA58DE28868E44CEDFAE /* Pods-VcNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcNetworking.release.xcconfig"; path = "Target Support Files/Pods-VcNetworking/Pods-VcNetworking.release.xcconfig"; sourceTree = "<group>"; };
@@ -471,7 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				55D7BFEA24C4CBBD0090F495 /* VcNetworking.framework */,
-				55D7BFF324C4CBBD0090F495 /* VCNetworkingTests.xctest */,
+				55D7BFF324C4CBBD0090F495 /* VcNetworkingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -557,7 +557,7 @@
 			);
 			name = VcNetworkingTests;
 			productName = networkingTests;
-			productReference = 55D7BFF324C4CBBD0090F495 /* VCNetworkingTests.xctest */;
+			productReference = 55D7BFF324C4CBBD0090F495 /* VcNetworkingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -950,6 +950,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networkingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -970,6 +971,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networkingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

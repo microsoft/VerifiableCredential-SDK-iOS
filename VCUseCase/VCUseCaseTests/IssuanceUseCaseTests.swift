@@ -51,6 +51,7 @@ class IssuanceUseCaseTests: XCTestCase {
         usecase.send(token: signedToken).done {
             response in
             print(response)
+            XCTFail()
             expec.fulfill()
         }.catch { error in
             print(error)
