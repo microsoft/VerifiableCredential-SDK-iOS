@@ -26,11 +26,9 @@ public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
         var request = URLRequest(url: url)
         request.httpMethod = Constants.POST
         request.httpBody = try self.encoder.encode(value: body)
-        print(String(data: request.httpBody!, encoding: .utf8)!)
         request.addValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
         
-        
-        self.urlRequest = URLRequest(url: URL(string: "https://test.com")!)
+        self.urlRequest = request
         self.urlSession = urlSession
     }
 }

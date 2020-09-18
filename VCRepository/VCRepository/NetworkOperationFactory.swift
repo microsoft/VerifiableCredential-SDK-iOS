@@ -26,13 +26,13 @@ public class NetworkOperationFactory: NetworkOperationCreating {
         }
     }
     
-    public func createPostOperation<T: PostNetworkOperation>(_ type: T.Type, withUrl url: String, withRequestBody body: T.RequestBody) -> Promise<T?> {
+    public func createPostOperation<T: PostNetworkOperation>(_ type: T.Type, withUrl url: String, withRequestBody body: T.RequestBody) -> Promise<T> {
         return Promise { seal in
             switch type {
             case is PostIssuanceResponseOperation.Type:
                 do {
                     let operation = try PostIssuanceResponseOperation(withUrl: url, withBody: body as! JwsToken<IssuanceResponseClaims>)
-                    seal.fulfill(operation as? T)
+                    seal.fulfill(operation as! T)
                 } catch {
                     seal.reject(error)
                 }

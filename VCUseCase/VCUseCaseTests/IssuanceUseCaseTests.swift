@@ -44,7 +44,7 @@ class IssuanceUseCaseTests: XCTestCase {
     
     func testSendResponse() throws {
         let expec = self.expectation(description: "Fire")
-        let repo = IssuanceRepository(apiCalls: MockApiCalls())
+        let repo = IssuanceRepository(apiCalls: ApiCalls())
         let formatter = MockIssuanceResponseFormatter()
         let usecase = IssuanceUseCase(formatter: formatter, repo: repo)
         let signedToken = JwsToken<IssuanceResponseClaims>(headers: Header(), content: IssuanceResponseClaims())
