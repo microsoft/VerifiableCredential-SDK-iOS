@@ -9,7 +9,7 @@ import VCRepository
 
 @testable import VCUseCase
 
-enum MockIssuanceRepoError: Error {
+enum MockError: Error {
     case doNotWantToResolveRealObject
 }
 
@@ -27,14 +27,14 @@ class MockApiCalls: ApiCalling {
     func get<FetchOp>(_ type: FetchOp.Type, usingUrl url: String) -> Promise<FetchOp.ResponseBody> where FetchOp : NetworkOperation {
         Self.wasGetCalled = true
         return Promise { seal in
-            seal.reject(MockIssuanceRepoError.doNotWantToResolveRealObject)
+            seal.reject(MockError.doNotWantToResolveRealObject)
         }
     }
     
     func post<PostOp: PostNetworkOperation>(_ type: PostOp.Type, usingUrl url: String, withBody body: PostOp.RequestBody) -> Promise<PostOp.ResponseBody> {
         Self.wasPostCalled = true
         return Promise { seal in
-            seal.reject(MockIssuanceRepoError.doNotWantToResolveRealObject)
+            seal.reject(MockError.doNotWantToResolveRealObject)
         }
     }
 }

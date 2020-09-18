@@ -18,35 +18,42 @@ class IssuanceResponseFormatter {
         self.signer = signer
     }
     
-    func format(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) throws -> JwsToken<IssuanceResponseClaims> {
-        let header = self.formatHeaders()
+    func format(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) -> Promise<JwsToken<IssuanceResponseClaims>> {
+        return Promise<JwsToken<IssuanceResponseClaims>> { seal in
+            do {
+                seal.fulfill(try self.createToken(response: response, usingIdentifier: identifier))
+            } catch {
+                seal.reject(error)
+            }
+        }
+    }
+    
+    func createToken(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) throws -> JwsToken<IssuanceResponseClaims> {
+        let headers = self.formatHeaders(usingIdentifier: identifier)
         let content = try self.formatClaims(response: response, usingIdentifier: identifier)
-        var token = JwsToken(headers: header, content: content)
-        print("here")
-        print(token.content)
-        print(header)
-        // try token.sign(using: self.signer, withSecret: identifier.keyId)
+        print(content)
+        var token = JwsToken(headers: headers, content: content)
+        try token.sign(using: self.signer, withSecret: identifier.keyId)
         return token
     }
     
-    private func formatHeaders() -> Header {
-        return Header(keyId: "keyId")
+    private func formatHeaders(usingIdentifier identifier: MockIdentifier) -> Header {
+        return Header(type: "JWT", algorithm: identifier.algorithm, keyId: identifier.id)
     }
     
     private func formatClaims(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponseClaims {
         
-        let publicKey = try signer.algorithm.createPublicKey(forSecret: identifier.keyId)
-        let formattedPublicKey = ECPublicJwk(withPublicKey: publicKey, withKeyId: identifier.keyId.id.uuidString)
+        let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: "AwM_sign_ion_1")
         let (iat, exp) = self.createIatAndExp(expiryInSeconds: response.expiryInSeconds)
         
         guard let audience = response.contract.input?.credentialIssuer else {
             throw IssuanceUseCaseError.test
         }
         
-        return IssuanceResponseClaims(publicKeyThumbprint: try formattedPublicKey.getThumbprint(),
+        return IssuanceResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                       audience: audience,
                                       did: identifier.id,
-                                      publicJwk: formattedPublicKey,
+                                      publicJwk: publicKey,
                                       contract: response.contractUri,
                                       jti: UUID().uuidString,
                                       attestations: self.formatAttestations(response: response),
@@ -55,11 +62,11 @@ class IssuanceResponseFormatter {
     }
     
     private func formatAttestations(response: MockIssuanceResponse) -> AttestationResponseDescriptor? {
-        return nil
+        return AttestationResponseDescriptor(selfIssued: ["Name": "syd"])
     }
     
     private func createIatAndExp(expiryInSeconds: Int) -> (Double, Double) {
-        let iat = Date().timeIntervalSince1970
+        let iat = (Date().timeIntervalSince1970).rounded(.down)
         let exp = iat + Double(expiryInSeconds)
         return (iat, exp)
     }

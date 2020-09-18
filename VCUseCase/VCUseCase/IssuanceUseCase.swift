@@ -13,12 +13,17 @@ enum IssuanceUseCaseError: Error {
     case test
 }
 
-class IssuanceUseCase {
+public class IssuanceUseCase {
     typealias TokenFormatter = IssuanceResponseFormatter
     
     let masterIdentifier: MockIdentifier = MockIdentifier()
     let formatter: IssuanceResponseFormatter
     let repo: IssuanceRepository
+    
+    public init() {
+        self.formatter = IssuanceResponseFormatter()
+        self.repo = IssuanceRepository()
+    }
     
     init(formatter: TokenFormatter = IssuanceResponseFormatter(),
          repo: IssuanceRepository = IssuanceRepository()) {
@@ -26,14 +31,15 @@ class IssuanceUseCase {
         self.repo = repo
     }
 
-    func getRequest(usingUrl url: String) -> Promise<Contract> {
+    public func getRequest(usingUrl url: String) -> Promise<Contract> {
         return self.repo.getRequest(withUrl: url)
     }
 
-    func send(token: JwsToken<IssuanceResponseClaims>) -> Promise<VerifiableCredential> {
-        
-        // let signedToken = self.formatter.format(response: response, usingIdentifier: self.masterIdentifier)
-        
-        return self.repo.sendResponse(usingUrl:  "https://test3523.com", withBody: token)
+    public func send(response: MockIssuanceResponse) -> Promise<VerifiableCredential> {
+        return firstly {
+            self.formatter.format(response: response, usingIdentifier: self.masterIdentifier)
+        }.then { signedToken in
+            self.repo.sendResponse(usingUrl:  response.audience, withBody: signedToken)
+        }
     }
 }

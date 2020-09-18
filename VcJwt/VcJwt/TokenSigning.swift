@@ -6,8 +6,8 @@
 import VcCrypto
 
 public protocol TokenSigning {
-    
-    var algorithm: Signing { get }
      
     func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature
+    
+    func getPublicJwk(from secret: VcCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk
 }

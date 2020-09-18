@@ -5,7 +5,7 @@
 
 import VcNetworking
 
-struct MockIssuanceResponse {
+public struct MockIssuanceResponse {
     let contract: Contract
     let contractUri: String
     let expiryInSeconds: Int

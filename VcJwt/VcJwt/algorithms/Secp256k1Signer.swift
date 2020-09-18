@@ -7,7 +7,7 @@ import VcCrypto
 
 public struct Secp256k1Signer: TokenSigning {
     
-    public let algorithm: Signing
+    private let algorithm: Signing
     private let hashAlgorithm: Sha256
     
     public init(using algorithm: Signing = Secp256k1(), andHashAlgorithm hashAlg: Sha256 = Sha256()) {
@@ -25,5 +25,10 @@ public struct Secp256k1Signer: TokenSigning {
         
         let hashedMessage = hashAlgorithm.hash(data: messageData)
         return try algorithm.sign(messageHash: hashedMessage, withSecret: secret)
+    }
+    
+    public func getPublicJwk(from secret: VcCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk {
+        let key = try self.algorithm.createPublicKey(forSecret: secret)
+        return ECPublicJwk(withPublicKey: key, withKeyId: keyId)
     }
 }

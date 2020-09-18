@@ -10,9 +10,20 @@ import VcCrypto
 @testable import VCUseCase
 
 struct MockTokenSigner: TokenSigning {
-    var algorithm: Signing = Secp256k1()
+    
+    let x: String
+    let y: String
+    
+    init(x: String, y: String) {
+        self.x = x
+        self.y = y
+    }
     
     func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature where T : Claims {
         return Data(count: 64)
+    }
+    
+    func getPublicJwk(from secret: VcCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk {
+        return ECPublicJwk(x: self.x, y: self.y, keyId: keyId)
     }
 }

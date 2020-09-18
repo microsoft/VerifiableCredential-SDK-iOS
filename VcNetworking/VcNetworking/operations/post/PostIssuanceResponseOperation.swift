@@ -15,7 +15,7 @@ public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
     let decoder = IssuanceServiceResponseDecoder()
     let encoder = IssuanceResponseEncoder()
     let urlSession: URLSession
-    public var urlRequest: URLRequest
+    var urlRequest: URLRequest
     
     public init(withUrl urlStr: String, withBody body: JwsToken<IssuanceResponseClaims>, urlSession: URLSession = URLSession.shared) throws {
         

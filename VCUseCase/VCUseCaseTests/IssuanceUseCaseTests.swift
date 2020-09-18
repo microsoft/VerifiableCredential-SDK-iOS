@@ -26,6 +26,8 @@ class IssuanceUseCaseTests: XCTestCase {
         
         let encodedContract = TestData.contract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
+        
+        MockIssuanceResponseFormatter.wasFormatCalled = false
     }
 
     func testGetRequest() throws {
@@ -33,9 +35,12 @@ class IssuanceUseCaseTests: XCTestCase {
         usecase.getRequest(usingUrl: expectedUrl).done {
             request in
             print(request)
+            XCTFail()
             expec.fulfill()
         }.catch { error in
             print(error)
+            XCTAssert(MockApiCalls.wasGetCalled)
+            XCTAssert(error is MockError)
             expec.fulfill()
         }
         
@@ -44,17 +49,17 @@ class IssuanceUseCaseTests: XCTestCase {
     
     func testSendResponse() throws {
         let expec = self.expectation(description: "Fire")
-        let repo = IssuanceRepository(apiCalls: ApiCalls())
-        let formatter = MockIssuanceResponseFormatter()
-        let usecase = IssuanceUseCase(formatter: formatter, repo: repo)
-        let signedToken = JwsToken<IssuanceResponseClaims>(headers: Header(), content: IssuanceResponseClaims())
-        usecase.send(token: signedToken).done {
+        let response = try MockIssuanceResponse(from: contract, contractUri: expectedUrl)
+        usecase.send(response: response).done {
             response in
             print(response)
             XCTFail()
             expec.fulfill()
         }.catch { error in
             print(error)
+            XCTAssert(MockIssuanceResponseFormatter.wasFormatCalled)
+            XCTAssert(MockApiCalls.wasPostCalled)
+            XCTAssert(error is MockError)
             expec.fulfill()
         }
         
