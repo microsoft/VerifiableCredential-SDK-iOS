@@ -14,6 +14,7 @@ PODS:
   - VcJwt (0.0.1-beta.0)
   - VcNetworking (0.0.1-beta.0):
     - PromiseKit
+    - secp256k1_ios
   - VCRepository (0.0.1-beta.0)
 
 DEPENDENCIES:
@@ -44,7 +45,7 @@ SPEC CHECKSUMS:
   secp256k1_ios: ac9ef04e761f43c58012b28548afa91493761f17
   VcCrypto: 2f6830953cfa2a5eab877f5671acf02dce031947
   VcJwt: f3fb553a844ce0ca779b6522c4476db568f9177b
-  VcNetworking: e6020bcaaeed3b41b30b307d7d0fef3d0c599c01
+  VcNetworking: e762eae1c01eb9051b3e788e07e87b9ab2b26b38
   VCRepository: 7c0149cc4cb10efc11b7895c02a56d353d0030e4
 
 PODFILE CHECKSUM: 57ad949de45b6a88667e6ecfc44f89cac4999f03

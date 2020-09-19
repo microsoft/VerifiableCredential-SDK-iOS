@@ -69,7 +69,7 @@
 		3F7D9F84439ED1FE409B4BE9 /* Pods-VCCrypto-VCCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCCrypto-VCCryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-VCCrypto-VCCryptoTests/Pods-VCCrypto-VCCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		50CB9A37E46FD41DA6BE301E /* Pods_VcCrypto_VcCryptoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcCrypto_VcCryptoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5540903C25000F6A001246DB /* Signing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signing.swift; sourceTree = "<group>"; };
-		5540904825002DEE001246DB /* VcCrypto.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VcCrypto.podspec; sourceTree = "<group>"; };
+		5540904825002DEE001246DB /* VcCrypto.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VcCrypto.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		55ADE29824F5752500D9990E /* Sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256.swift; path = ../../../VCCrypto/VcCrypto/Algo/Sha256.swift; sourceTree = "<group>"; };
 		55ADE29A24F5757100D9990E /* Sha256Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256Tests.swift; path = ../../VCCrypto/VcCryptoTests/Sha256Tests.swift; sourceTree = "<group>"; };
 		5E224D4CE9B3B86C79C7123F /* Pods-VcCrypto-VcCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcCrypto-VcCryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-VcCrypto-VcCryptoTests/Pods-VcCrypto-VcCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -619,7 +619,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
-				MACH_O_TYPE = mh_dylib;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -677,7 +676,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
-				MACH_O_TYPE = mh_dylib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -708,7 +706,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VcCrypto;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -738,7 +736,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VcCrypto;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

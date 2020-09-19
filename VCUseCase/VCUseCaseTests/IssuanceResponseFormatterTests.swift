@@ -35,12 +35,10 @@ class IssuanceResponseFormatterTests: XCTestCase {
         formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier).done {
             request in
             print(try request.serialize())
-            XCTFail()
             expec.fulfill()
         }.catch { error in
             print(error)
-            XCTAssert(MockApiCalls.wasGetCalled)
-            XCTAssert(error is MockError)
+            XCTFail()
             expec.fulfill()
         }
         
