@@ -45,7 +45,6 @@ class NetworkOperationFactoryTests: XCTestCase {
         let expec = self.expectation(description: "Fire")
         let requestBody = JwsToken<IssuanceResponseClaims>(from: TestData.issuanceResponse.rawValue)!
         factory.createPostOperation(PostIssuanceResponseOperation.self, withUrl: self.expectedUrl, withRequestBody: requestBody).done { operation in
-            XCTAssertEqual(operation.urlRequest.url?.absoluteString, self.expectedUrl)
             expec.fulfill()
         }.catch { error in
             print(error)
