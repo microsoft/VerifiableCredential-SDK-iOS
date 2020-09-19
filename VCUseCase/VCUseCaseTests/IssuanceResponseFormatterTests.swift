@@ -33,8 +33,12 @@ class IssuanceResponseFormatterTests: XCTestCase {
     func testFormatToken() throws {
         let expec = self.expectation(description: "Fire")
         formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier).done {
-            request in
-            print(try request.serialize())
+            formattedToken in
+            XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.id)
+            XCTAssertEqual(formattedToken.content.contract, self.mockResponse.contractUri)
+            XCTAssertEqual(formattedToken.content.audience, self.mockResponse.audience)
+            XCTAssert(MockTokenSigner.wasSignCalled)
+            XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
             expec.fulfill()
         }.catch { error in
             print(error)
