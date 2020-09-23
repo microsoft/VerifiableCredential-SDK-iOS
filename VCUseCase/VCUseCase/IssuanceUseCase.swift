@@ -35,11 +35,20 @@ public class IssuanceUseCase {
         return self.repo.getRequest(withUrl: url)
     }
 
-    public func send(response: MockIssuanceResponse) -> Promise<VerifiableCredential> {
+    func send(response: MockIssuanceResponse, identifier: MockIdentifier) -> Promise<VerifiableCredential> {
         return firstly {
-            self.formatter.format(response: response, usingIdentifier: self.masterIdentifier)
+            self.formatter.format(response: response, usingIdentifier: identifier)
         }.then { signedToken in
-            self.repo.sendResponse(usingUrl:  response.audience, withBody: signedToken)
+            self.test(signedToken: signedToken, audience: response.audience)
         }
+    }
+    
+    func test(signedToken: JwsToken<IssuanceResponseClaims>, audience: String) -> Promise<VerifiableCredential> {
+        do {
+            print(try signedToken.serialize())
+        } catch {
+            print("unable to serialize")
+        }
+        return self.repo.sendResponse(usingUrl:  audience, withBody: signedToken)
     }
 }

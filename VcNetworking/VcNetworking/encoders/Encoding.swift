@@ -5,7 +5,7 @@
 
 import Foundation
 
-public protocol Encoding {
+protocol Encoding {
     associatedtype RequestBody
     
     func encode(value: RequestBody) throws -> Data

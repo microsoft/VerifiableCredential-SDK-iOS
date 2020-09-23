@@ -46,7 +46,7 @@ extension InternalNetworkOperation {
     public func fire() -> Promise<ResponseBody> {
         return firstly {
             retryHandler.onRetry {
-                self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)
+                return self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)
             }
         }
     }

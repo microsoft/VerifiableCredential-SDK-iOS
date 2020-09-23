@@ -12,7 +12,7 @@ public struct MockIssuanceResponse {
     let audience: String
     let requestedIdTokenMap: RequestedIdTokenMap = [:]
     
-    init(from contract: Contract, contractUri: String, expiryInSeconds exp: Int = 300) throws {
+    init(from contract: Contract, contractUri: String, expiryInSeconds exp: Int = 3000) throws {
         self.contract = contract
         self.contractUri = contractUri
         self.expiryInSeconds = exp

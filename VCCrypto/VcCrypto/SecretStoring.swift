@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol SecretStoring {
+public protocol SecretStoring {
     
     func getSecret(id: UUID, itemTypeCode: String) throws -> Data
     func saveSecret(id: UUID, itemTypeCode: String, value: inout Data) throws

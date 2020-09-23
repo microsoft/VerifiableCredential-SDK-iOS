@@ -38,12 +38,13 @@ class IssuanceResponseFormatter {
     }
     
     private func formatHeaders(usingIdentifier identifier: MockIdentifier) -> Header {
-        return Header(type: "JWT", algorithm: identifier.algorithm, keyId: identifier.id)
+        let keyId = identifier.id + "#yyw_sign_UhNohtMh_1"
+        return Header(type: "JWT", algorithm: identifier.algorithm, keyId: keyId)
     }
     
     private func formatClaims(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponseClaims {
         
-        let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: "AwM_sign_ion_1")
+        let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: "#yyw_sign_UhNohtMh_1")
         let (iat, exp) = self.createIatAndExp(expiryInSeconds: response.expiryInSeconds)
         
         guard let audience = response.contract.input?.credentialIssuer else {

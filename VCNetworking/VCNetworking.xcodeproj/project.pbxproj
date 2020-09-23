@@ -40,6 +40,7 @@
 		550F1DA1250B0C50009AF467 /* ServiceDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DA0250B0C50009AF467 /* ServiceDescriptor.swift */; };
 		550F1DEC250D668D009AF467 /* PostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */; };
 		550F1E6C25128C33009AF467 /* PropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6B25128C33009AF467 /* PropertyWrapper.swift */; };
+		555756F5251ADA62009979AB /* JSONCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756F4251ADA62009979AB /* JSONCodingKeys.swift */; };
 		55C6C4A925083D370082BE73 /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A825083D370082BE73 /* Decoding.swift */; };
 		55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */; };
 		55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AC250843920082BE73 /* ContractDecoder.swift */; };
@@ -118,6 +119,7 @@
 		550F1DA0250B0C50009AF467 /* ServiceDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDescriptor.swift; sourceTree = "<group>"; };
 		550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkOperation.swift; sourceTree = "<group>"; };
 		550F1E6B25128C33009AF467 /* PropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapper.swift; sourceTree = "<group>"; };
+		555756F4251ADA62009979AB /* JSONCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodingKeys.swift; sourceTree = "<group>"; };
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
 		55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseDecoder.swift; sourceTree = "<group>"; };
 		55C6C4AC250843920082BE73 /* ContractDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDecoder.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				550F1D722509814F009AF467 /* contract */,
 				550F1D6825096E10009AF467 /* claims */,
 				550F1D91250AEA99009AF467 /* IssuanceServiceResponse.swift */,
+				555756F4251ADA62009979AB /* JSONCodingKeys.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				55D1682224EB0E1D00AD2F98 /* SimpleFailureHandler.swift in Sources */,
 				55D1682024EB0E1D00AD2F98 /* FetchContractOperation.swift in Sources */,
 				55D1681D24EB0E1D00AD2F98 /* RetryHandler.swift in Sources */,
+				555756F5251ADA62009979AB /* JSONCodingKeys.swift in Sources */,
 				550F1D7A2509827C009AF467 /* LogoDisplayDescriptor.swift in Sources */,
 				550F1D6C25096EA3009AF467 /* IssuanceResponseClaims.swift in Sources */,
 				550F1D76250981C4009AF467 /* CardDisplayDescriptor.swift in Sources */,
