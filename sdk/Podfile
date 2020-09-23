@@ -25,7 +25,11 @@ end
 
 target 'sdk' do
   project '../sdk/sdk.xcodeproj'
+  pod 'VCUseCase', path: '../VCUseCase'
+  pod 'VCRepository', path: '../VCRepository'
   pod 'VcNetworking', path: '../VcNetworking'
+  pod 'VcJwt', path: '../VcJwt'
+  pod 'VcCrypto', path: '../VcCrypto'
   target 'sdkTests'
 end
 

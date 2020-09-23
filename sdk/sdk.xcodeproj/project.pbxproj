@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		555756F7251B9C25009979AB /* IssuanceFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756F6251B9C25009979AB /* IssuanceFlowTests.swift */; };
+		555756FA251B9C86009979AB /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756F9251B9C86009979AB /* TestData.swift */; };
+		555756FC251B9CB1009979AB /* MockSecretStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756FB251B9CB1009979AB /* MockSecretStore.swift */; };
 		55CED16324D30B9600A2AAE2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C01024C89F5F0090F495 /* Podfile */; };
 		55D1C0C124C23408002A58F9 /* sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1C0B724C23408002A58F9 /* sdk.framework */; };
 		55D1C0C824C23408002A58F9 /* sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D1C0BA24C23408002A58F9 /* sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		1A53970D70A6527ED432DF36 /* Pods-sdk-sdkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk-sdkTests.debug.xcconfig"; path = "Target Support Files/Pods-sdk-sdkTests/Pods-sdk-sdkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		555756F6251B9C25009979AB /* IssuanceFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceFlowTests.swift; sourceTree = "<group>"; };
+		555756F9251B9C86009979AB /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		555756FB251B9CB1009979AB /* MockSecretStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSecretStore.swift; sourceTree = "<group>"; };
 		55D1C0B724C23408002A58F9 /* sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D1C0BA24C23408002A58F9 /* sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sdk.h; sourceTree = "<group>"; };
 		55D1C0BB24C23408002A58F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		555756F8251B9C5C009979AB /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				555756F9251B9C86009979AB /* TestData.swift */,
+				555756FB251B9CB1009979AB /* MockSecretStore.swift */,
+			);
+			path = mocks;
+			sourceTree = "<group>";
+		};
 		55D1C0AD24C23408002A58F9 = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +110,9 @@
 		55D1C0C424C23408002A58F9 /* sdkTests */ = {
 			isa = PBXGroup;
 			children = (
+				555756F8251B9C5C009979AB /* mocks */,
 				55D1C0C724C23408002A58F9 /* Info.plist */,
+				555756F6251B9C25009979AB /* IssuanceFlowTests.swift */,
 			);
 			path = sdkTests;
 			sourceTree = "<group>";
@@ -190,6 +207,7 @@
 					};
 					55D1C0BF24C23408002A58F9 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -307,6 +325,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555756FC251B9CB1009979AB /* MockSecretStore.swift in Sources */,
+				555756F7251B9C25009979AB /* IssuanceFlowTests.swift in Sources */,
+				555756FA251B9C86009979AB /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +525,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1A53970D70A6527ED432DF36 /* Pods-sdk-sdkTests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
 				INFOPLIST_FILE = sdkTests/Info.plist;
@@ -514,6 +536,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.sdkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -523,6 +546,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 783AC0710D4BE3EA04DA7D84 /* Pods-sdk-sdkTests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
 				INFOPLIST_FILE = sdkTests/Info.plist;

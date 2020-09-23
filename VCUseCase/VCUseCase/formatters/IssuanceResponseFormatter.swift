@@ -10,15 +10,19 @@ import VcNetworking
 import VcJwt
 import VcCrypto
 
-class IssuanceResponseFormatter {
+enum IssuanceResponseFormatterError: Error {
+    case noAudienceSpecifiedInContract
+}
+
+public class IssuanceResponseFormatter {
     
     let signer: TokenSigning
     
-    init(signer: TokenSigning = Secp256k1Signer()) {
+    public init(signer: TokenSigning = Secp256k1Signer()) {
         self.signer = signer
     }
     
-    func format(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) -> Promise<JwsToken<IssuanceResponseClaims>> {
+    func format(response: IssuanceResponse, usingIdentifier identifier: MockIdentifier) -> Promise<JwsToken<IssuanceResponseClaims>> {
         return Promise<JwsToken<IssuanceResponseClaims>> { seal in
             do {
                 seal.fulfill(try self.createToken(response: response, usingIdentifier: identifier))
@@ -28,31 +32,26 @@ class IssuanceResponseFormatter {
         }
     }
     
-    func createToken(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) throws -> JwsToken<IssuanceResponseClaims> {
+    func createToken(response: IssuanceResponse, usingIdentifier identifier: MockIdentifier) throws -> JwsToken<IssuanceResponseClaims> {
         let headers = self.formatHeaders(usingIdentifier: identifier)
         let content = try self.formatClaims(response: response, usingIdentifier: identifier)
-        print(content)
         var token = JwsToken(headers: headers, content: content)
         try token.sign(using: self.signer, withSecret: identifier.keyId)
         return token
     }
     
     private func formatHeaders(usingIdentifier identifier: MockIdentifier) -> Header {
-        let keyId = identifier.id + "#yyw_sign_UhNohtMh_1"
+        let keyId = identifier.id + identifier.keyReference
         return Header(type: "JWT", algorithm: identifier.algorithm, keyId: keyId)
     }
     
-    private func formatClaims(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponseClaims {
+    private func formatClaims(response: IssuanceResponse, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponseClaims {
         
-        let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: "#yyw_sign_UhNohtMh_1")
+        let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: identifier.keyReference)
         let (iat, exp) = self.createIatAndExp(expiryInSeconds: response.expiryInSeconds)
         
-        guard let audience = response.contract.input?.credentialIssuer else {
-            throw IssuanceUseCaseError.test
-        }
-        
         return IssuanceResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
-                                      audience: audience,
+                                      audience: response.audience,
                                       did: identifier.id,
                                       publicJwk: publicKey,
                                       contract: response.contractUri,
@@ -62,8 +61,8 @@ class IssuanceResponseFormatter {
                                       exp: exp)
     }
     
-    private func formatAttestations(response: MockIssuanceResponse) -> AttestationResponseDescriptor? {
-        return AttestationResponseDescriptor(selfIssued: ["Name": "syd"])
+    private func formatAttestations(response: IssuanceResponse) -> AttestationResponseDescriptor? {
+        return AttestationResponseDescriptor(idTokens: response.requestedIdTokenMap, selfIssued: response.requestedSelfAttestedClaimMap)
     }
     
     private func createIatAndExp(expiryInSeconds: Int) -> (Double, Double) {

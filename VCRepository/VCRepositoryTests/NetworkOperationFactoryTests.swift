@@ -57,7 +57,7 @@ class NetworkOperationFactoryTests: XCTestCase {
     
     func testCreateUnsupportedPostOperation() throws {
         let expec = self.expectation(description: "Fire")
-        factory.createPostOperation(MockPostNetworkOperation.self, withUrl:   self.expectedUrl, withRequestBody: "Test").done { operation in
+        factory.createPostOperation(MockPostNetworkOperation.self, withUrl: self.expectedUrl, withRequestBody: "Test").done { operation in
             XCTFail()
             expec.fulfill()
         }.catch { error in

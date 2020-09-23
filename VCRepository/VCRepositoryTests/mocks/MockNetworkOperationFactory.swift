@@ -23,7 +23,7 @@ class MockNetworkOperationFactory: NetworkOperationCreating {
     
     func createPostOperation<T: PostNetworkOperation>(_ type: T.Type, withUrl url: String, withRequestBody body: T.RequestBody) -> Promise<T> {
         return Promise { seal in
-            seal.fulfill(MockPostNetworkOperation(url: url, result: result) as! T)
+            seal.fulfill(MockPostNetworkOperation(result: result) as! T)
         }
     }
 }

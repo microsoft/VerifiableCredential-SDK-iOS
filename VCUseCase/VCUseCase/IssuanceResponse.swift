@@ -5,19 +5,24 @@
 
 import VcNetworking
 
-public struct MockIssuanceResponse {
+enum IssuanceResponseError: Error {
+    case noAudienceSpecifiedInContract
+}
+
+public struct IssuanceResponse {
     let contract: Contract
     let contractUri: String
     let expiryInSeconds: Int
     let audience: String
-    let requestedIdTokenMap: RequestedIdTokenMap = [:]
+    public let requestedIdTokenMap: RequestedIdTokenMap = [:]
+    public let requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
     
-    init(from contract: Contract, contractUri: String, expiryInSeconds exp: Int = 3000) throws {
+    public init(from contract: Contract, contractUri: String, expiryInSeconds exp: Int = 3000) throws {
         self.contract = contract
         self.contractUri = contractUri
         self.expiryInSeconds = exp
         guard let aud = contract.input?.credentialIssuer else {
-            throw IssuanceUseCaseError.test
+            throw IssuanceResponseError.noAudienceSpecifiedInContract
         }
         
         self.audience = aud
@@ -26,3 +31,4 @@ public struct MockIssuanceResponse {
 }
 
 public typealias RequestedIdTokenMap = [String:String]
+public typealias RequestedSelfAttestedClaimMap = [String: String]

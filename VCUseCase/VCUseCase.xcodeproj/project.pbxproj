@@ -13,9 +13,8 @@
 		550F1E522510179B009AF467 /* VCUseCase.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 550F1E512510179B009AF467 /* VCUseCase.podspec */; };
 		550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E532510195A009AF467 /* IssuanceUseCase.swift */; };
 		550F1E5825102E6D009AF467 /* MockIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5725102E6D009AF467 /* MockIdentifier.swift */; };
-		550F1E5A25103958009AF467 /* MockIssuanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5925103958009AF467 /* MockIssuanceResponse.swift */; };
+		550F1E5A25103958009AF467 /* IssuanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5925103958009AF467 /* IssuanceResponse.swift */; };
 		550F1E5D25103B74009AF467 /* IssuanceResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */; };
-		550F1E5F25104344009AF467 /* TokenFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5E25104344009AF467 /* TokenFormatting.swift */; };
 		550F1E63251165D6009AF467 /* MockApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E62251165D6009AF467 /* MockApiCalls.swift */; };
 		550F1E6625116CD6009AF467 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6525116CD6009AF467 /* TestData.swift */; };
 		550F1E6825116E86009AF467 /* MockTokenSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6725116E86009AF467 /* MockTokenSigner.swift */; };
@@ -47,9 +46,8 @@
 		550F1E512510179B009AF467 /* VCUseCase.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCUseCase.podspec; sourceTree = "<group>"; };
 		550F1E532510195A009AF467 /* IssuanceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceUseCase.swift; sourceTree = "<group>"; };
 		550F1E5725102E6D009AF467 /* MockIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIdentifier.swift; sourceTree = "<group>"; };
-		550F1E5925103958009AF467 /* MockIssuanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceResponse.swift; sourceTree = "<group>"; };
+		550F1E5925103958009AF467 /* IssuanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponse.swift; sourceTree = "<group>"; };
 		550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseFormatter.swift; sourceTree = "<group>"; };
-		550F1E5E25104344009AF467 /* TokenFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenFormatting.swift; sourceTree = "<group>"; };
 		550F1E62251165D6009AF467 /* MockApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiCalls.swift; sourceTree = "<group>"; };
 		550F1E6525116CD6009AF467 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		550F1E6725116E86009AF467 /* MockTokenSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTokenSigner.swift; sourceTree = "<group>"; };
@@ -113,7 +111,7 @@
 				550F1E3825101758009AF467 /* VCUseCase.h */,
 				550F1E3925101758009AF467 /* Info.plist */,
 				550F1E5725102E6D009AF467 /* MockIdentifier.swift */,
-				550F1E5925103958009AF467 /* MockIssuanceResponse.swift */,
+				550F1E5925103958009AF467 /* IssuanceResponse.swift */,
 			);
 			path = VCUseCase;
 			sourceTree = "<group>";
@@ -133,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */,
-				550F1E5E25104344009AF467 /* TokenFormatting.swift */,
 			);
 			path = formatters;
 			sourceTree = "<group>";
@@ -349,9 +346,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				550F1E5A25103958009AF467 /* MockIssuanceResponse.swift in Sources */,
+				550F1E5A25103958009AF467 /* IssuanceResponse.swift in Sources */,
 				550F1E5825102E6D009AF467 /* MockIdentifier.swift in Sources */,
-				550F1E5F25104344009AF467 /* TokenFormatting.swift in Sources */,
 				550F1E5D25103B74009AF467 /* IssuanceResponseFormatter.swift in Sources */,
 				550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */,
 			);

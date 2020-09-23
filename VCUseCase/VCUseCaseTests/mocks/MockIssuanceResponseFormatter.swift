@@ -18,7 +18,7 @@ class MockIssuanceResponseFormatter: IssuanceResponseFormatter {
         print("hello")
     }
     
-    override func format(response: MockIssuanceResponse, usingIdentifier identifier: MockIdentifier) -> Promise<JwsToken<IssuanceResponseClaims>> {
+    override func format(response: IssuanceResponse, usingIdentifier identifier: MockIdentifier) -> Promise<JwsToken<IssuanceResponseClaims>> {
             Self.wasFormatCalled = true
         return Promise { seal in
             seal.fulfill(JwsToken<IssuanceResponseClaims>(headers: Header(), content: IssuanceResponseClaims(), signature: Data(count: 64)))

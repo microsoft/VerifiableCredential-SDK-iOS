@@ -14,7 +14,7 @@ class IssuanceResponseFormatterTests: XCTestCase {
     
     var formatter: IssuanceResponseFormatter!
     var contract: Contract!
-    var mockResponse: MockIssuanceResponse!
+    var mockResponse: IssuanceResponse!
     var mockIdentifier: MockIdentifier!
     let expectedContractUrl = "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert"
 
@@ -25,7 +25,7 @@ class IssuanceResponseFormatterTests: XCTestCase {
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
         
-        try self.mockResponse = MockIssuanceResponse(from: self.contract, contractUri: self.expectedContractUrl)
+        try self.mockResponse = IssuanceResponse(from: self.contract, contractUri: self.expectedContractUrl)
         
         self.mockIdentifier = MockIdentifier()
     }

@@ -9,10 +9,6 @@ import VCRepository
 import VcNetworking
 import VcJwt
 
-enum IssuanceUseCaseError: Error {
-    case test
-}
-
 public class IssuanceUseCase {
     typealias TokenFormatter = IssuanceResponseFormatter
     
@@ -25,7 +21,7 @@ public class IssuanceUseCase {
         self.repo = IssuanceRepository()
     }
     
-    init(formatter: TokenFormatter = IssuanceResponseFormatter(),
+    init(formatter: IssuanceResponseFormatter = IssuanceResponseFormatter(),
          repo: IssuanceRepository = IssuanceRepository()) {
         self.formatter = formatter
         self.repo = repo
@@ -35,20 +31,11 @@ public class IssuanceUseCase {
         return self.repo.getRequest(withUrl: url)
     }
 
-    func send(response: MockIssuanceResponse, identifier: MockIdentifier) -> Promise<VerifiableCredential> {
+    public func send(response: IssuanceResponse, identifier: MockIdentifier) -> Promise<VerifiableCredential> {
         return firstly {
             self.formatter.format(response: response, usingIdentifier: identifier)
         }.then { signedToken in
-            self.test(signedToken: signedToken, audience: response.audience)
+            self.repo.sendResponse(usingUrl:  response.audience, withBody: signedToken)
         }
-    }
-    
-    func test(signedToken: JwsToken<IssuanceResponseClaims>, audience: String) -> Promise<VerifiableCredential> {
-        do {
-            print(try signedToken.serialize())
-        } catch {
-            print("unable to serialize")
-        }
-        return self.repo.sendResponse(usingUrl:  audience, withBody: signedToken)
     }
 }

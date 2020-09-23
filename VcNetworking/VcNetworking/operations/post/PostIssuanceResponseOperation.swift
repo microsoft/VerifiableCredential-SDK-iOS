@@ -28,8 +28,6 @@ public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
         request.httpBody = try self.encoder.encode(value: body)
         request.setValue("text/plain", forHTTPHeaderField: Constants.CONTENT_TYPE)
         
-        print(request.allHTTPHeaderFields)
-        
         self.urlRequest = request
         self.urlSession = urlSession
     }
