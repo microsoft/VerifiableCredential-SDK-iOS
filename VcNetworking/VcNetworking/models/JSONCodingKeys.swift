@@ -15,7 +15,6 @@ public struct JSONCodingKeys: CodingKey {
     }
 }
 
-
 public extension KeyedDecodingContainer {
     
     func decode(_ type: Dictionary<String, Any>.Type, forKey key: K) throws -> Dictionary<String, Any> {
@@ -76,7 +75,6 @@ public extension UnkeyedDecodingContainer {
         return try nestedContainer.decode(type)
     }
 }
-
 
 public extension KeyedEncodingContainerProtocol where Key == JSONCodingKeys {
     mutating func encode(_ value: Dictionary<String, Any>) throws {

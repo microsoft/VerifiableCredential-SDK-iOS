@@ -34,7 +34,8 @@ class KeychainSecretStoreTests: XCTestCase {
         }
     }
     
-    func testD() throws {
+    // Here until Identifier is implemented.
+    func testHardCodedD() throws {
         let store = KeychainSecretStore()
         let key = Random32BytesSecret(withStore: store)!
         let retreivedSecret = try store.getSecret(id: key.id, itemTypeCode: Random32BytesSecret.itemTypeCode)

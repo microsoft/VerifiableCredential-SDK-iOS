@@ -30,12 +30,7 @@ public class NetworkOperationFactory: NetworkOperationCreating {
         return Promise { seal in
             switch type {
             case is PostIssuanceResponseOperation.Type:
-                do {
-                    let operation = try PostIssuanceResponseOperation(withUrl: url, withBody: body as! JwsToken<IssuanceResponseClaims>)
-                    seal.fulfill(operation as! T)
-                } catch {
-                    seal.reject(error)
-                }
+                seal.fulfill(try PostIssuanceResponseOperation(withUrl: url, withBody: body as! JwsToken<IssuanceResponseClaims>) as! T)
             default:
                 seal.reject(RepositoryError.unsupportedNetworkOperation)
             }

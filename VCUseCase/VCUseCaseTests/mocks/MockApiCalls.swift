@@ -14,15 +14,14 @@ enum MockError: Error {
 }
 
 class MockApiCalls: ApiCalling {
+    
     let networkOperationFactory: NetworkOperationCreating
+    static var wasGetCalled: Bool = false
+    static var wasPostCalled: Bool = false
     
     init(factory: NetworkOperationCreating = NetworkOperationFactory()) {
         self.networkOperationFactory = factory
     }
-    
-    
-    static var wasGetCalled: Bool = false
-    static var wasPostCalled: Bool = false
     
     func get<FetchOp>(_ type: FetchOp.Type, usingUrl url: String) -> Promise<FetchOp.ResponseBody> where FetchOp : NetworkOperation {
         Self.wasGetCalled = true

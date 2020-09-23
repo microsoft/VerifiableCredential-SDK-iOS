@@ -40,28 +40,3 @@ struct VerifiableCredentialDescriptor: Codable {
         
     }
 }
-
-struct CodableObj: Codable {
-    let value: Any
-    
-    enum CodingKeys: String, CodingKey {
-        case value
-    }
-    
-    init(from decoder: Decoder) throws {
-        let property = try decoder.container(keyedBy: CodingKeys.self)
-        
-        if let v = try? property.decode(String.self, forKey: .value) {
-            value = v
-        } else if let v = try? property.decode(Bool.self, forKey: .value)  {
-            value = v
-        } else {
-            value = ""
-        }
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(value as! String, forKey: .value)
-    }
-}

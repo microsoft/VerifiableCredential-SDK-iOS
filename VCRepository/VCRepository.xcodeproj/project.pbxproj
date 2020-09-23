@@ -24,7 +24,6 @@
 		550F1DEA250D599F009AF467 /* NetworkOperationFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DE9250D599F009AF467 /* NetworkOperationFactoryTests.swift */; };
 		550F1DEE250E753A009AF467 /* MockPostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DED250E753A009AF467 /* MockPostNetworkOperation.swift */; };
 		550F1DF0250E7583009AF467 /* MockDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DEF250E7583009AF467 /* MockDecoder.swift */; };
-		550F1DF2250E758F009AF467 /* MockEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DF1250E758E009AF467 /* MockEncoder.swift */; };
 		550F1E22250FC74E009AF467 /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E21250FC74E009AF467 /* Posting.swift */; };
 		550F1E24250FC783009AF467 /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E23250FC783009AF467 /* Fetching.swift */; };
 		550F1E26250FCA28009AF467 /* MockApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E25250FCA28009AF467 /* MockApiCalls.swift */; };
@@ -63,7 +62,6 @@
 		550F1DE9250D599F009AF467 /* NetworkOperationFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperationFactoryTests.swift; sourceTree = "<group>"; };
 		550F1DED250E753A009AF467 /* MockPostNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPostNetworkOperation.swift; sourceTree = "<group>"; };
 		550F1DEF250E7583009AF467 /* MockDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDecoder.swift; sourceTree = "<group>"; };
-		550F1DF1250E758E009AF467 /* MockEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEncoder.swift; sourceTree = "<group>"; };
 		550F1E21250FC74E009AF467 /* Posting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
 		550F1E23250FC783009AF467 /* Fetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetching.swift; sourceTree = "<group>"; };
 		550F1E25250FCA28009AF467 /* MockApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiCalls.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				550F1DE5250D4F73009AF467 /* MockRepository.swift */,
 				550F1DD5250BEB1D009AF467 /* TestData.swift */,
 				550F1DEF250E7583009AF467 /* MockDecoder.swift */,
-				550F1DF1250E758E009AF467 /* MockEncoder.swift */,
 				550F1E25250FCA28009AF467 /* MockApiCalls.swift */,
 			);
 			path = mocks;
@@ -375,7 +372,6 @@
 				550F1DF0250E7583009AF467 /* MockDecoder.swift in Sources */,
 				550F1DEA250D599F009AF467 /* NetworkOperationFactoryTests.swift in Sources */,
 				550F1DEE250E753A009AF467 /* MockPostNetworkOperation.swift in Sources */,
-				550F1DF2250E758F009AF467 /* MockEncoder.swift in Sources */,
 				550F1DE6250D4F73009AF467 /* MockRepository.swift in Sources */,
 				550F1DE2250D4964009AF467 /* MockNetworkOperation.swift in Sources */,
 				550F1E26250FCA28009AF467 /* MockApiCalls.swift in Sources */,

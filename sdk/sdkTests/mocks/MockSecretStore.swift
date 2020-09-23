@@ -3,7 +3,6 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-
 import Foundation
 @testable import VcCrypto
 internal class SecretStoreMock: SecretStoring {

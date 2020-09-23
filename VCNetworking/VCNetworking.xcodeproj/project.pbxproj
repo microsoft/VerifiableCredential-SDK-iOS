@@ -39,7 +39,6 @@
 		550F1D9F250B0C42009AF467 /* VerifiableCredentialDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D9E250B0C42009AF467 /* VerifiableCredentialDescriptor.swift */; };
 		550F1DA1250B0C50009AF467 /* ServiceDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DA0250B0C50009AF467 /* ServiceDescriptor.swift */; };
 		550F1DEC250D668D009AF467 /* PostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */; };
-		550F1E6C25128C33009AF467 /* PropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6B25128C33009AF467 /* PropertyWrapper.swift */; };
 		555756F5251ADA62009979AB /* JSONCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756F4251ADA62009979AB /* JSONCodingKeys.swift */; };
 		55C6C4A925083D370082BE73 /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A825083D370082BE73 /* Decoding.swift */; };
 		55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */; };
@@ -118,7 +117,6 @@
 		550F1D9E250B0C42009AF467 /* VerifiableCredentialDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialDescriptor.swift; sourceTree = "<group>"; };
 		550F1DA0250B0C50009AF467 /* ServiceDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDescriptor.swift; sourceTree = "<group>"; };
 		550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkOperation.swift; sourceTree = "<group>"; };
-		550F1E6B25128C33009AF467 /* PropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapper.swift; sourceTree = "<group>"; };
 		555756F4251ADA62009979AB /* JSONCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodingKeys.swift; sourceTree = "<group>"; };
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
 		55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseDecoder.swift; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 				55D1680224EB0E1C00AD2F98 /* NetworkingError.swift */,
 				55D1681524EB0E1D00AD2F98 /* networking.h */,
 				55D1681724EB0E1D00AD2F98 /* Info.plist */,
-				550F1E6B25128C33009AF467 /* PropertyWrapper.swift */,
 			);
 			path = VcNetworking;
 			sourceTree = "<group>";
@@ -711,7 +708,6 @@
 				55D1681A24EB0E1D00AD2F98 /* SimpleSuccessHandler.swift in Sources */,
 				550F1D6E25096EE0009AF467 /* VCClaims.swift in Sources */,
 				550F1D7C250982C3009AF467 /* ConsentDisplayDescriptor.swift in Sources */,
-				550F1E6C25128C33009AF467 /* PropertyWrapper.swift in Sources */,
 				550F1D8C25099549009AF467 /* ClaimDescriptor.swift in Sources */,
 				550F1D842509938E009AF467 /* IdTokenDescriptor.swift in Sources */,
 				550F1D8A25099522009AF467 /* SelfIssuedClaimsDescriptor.swift in Sources */,

@@ -35,7 +35,6 @@ class IssuanceRepositoryTests: XCTestCase {
     }
     
     func testPostCalled() {
-        
         let expec = self.expectation(description: "Fire")
         let token = JwsToken<IssuanceResponseClaims>(headers: Header(), content: IssuanceResponseClaims())
         
