@@ -160,6 +160,34 @@
                ReferencedContainer = "container:../VCUseCase/VCUseCase.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5557572D251BC575009979AB"
+               BuildableName = "VCEntities.framework"
+               BlueprintName = "VCEntities"
+               ReferencedContainer = "container:../VCEntities/VCEntities.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "55575736251BC575009979AB"
+               BuildableName = "VCEntitiesTests.xctest"
+               BlueprintName = "VCEntitiesTests"
+               ReferencedContainer = "container:../VCEntities/VCEntities.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -216,6 +244,26 @@
                BuildableName = "VCRepositoryTests.xctest"
                BlueprintName = "VCRepositoryTests"
                ReferencedContainer = "container:../VCRepository/VCRepository.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "55575736251BC575009979AB"
+               BuildableName = "VCEntitiesTests.xctest"
+               BlueprintName = "VCEntitiesTests"
+               ReferencedContainer = "container:../VCEntities/VCEntities.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "550F1E3D25101759009AF467"
+               BuildableName = "VCUseCaseTests.xctest"
+               BlueprintName = "VCUseCaseTests"
+               ReferencedContainer = "container:../VCUseCase/VCUseCase.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

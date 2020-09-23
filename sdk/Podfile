@@ -15,6 +15,10 @@ def networking_pods
   podspec :path => '../VCNetworking/VCNetworking.podspec'
 end
 
+def vcentities_pods
+  podspec :path => '../VCEntities/VCEntities.podspec'
+end
+
 def vcjwt_pods
     podspec :path => '../VCJwt/VCJwt.podspec'
 end
@@ -56,6 +60,14 @@ target 'VCNetworking' do
   networking_pods
   pod 'VCJwt', path: '../VCJwt'
   target 'VCNetworkingTests'
+end
+
+target 'VCEntities' do
+  project '../VCEntities/VCEntities.xcodeproj'
+  vcentities_pods
+  pod 'VCJwt', path: '../VCJwt'
+  pod 'VCCrypto', path: '../VCCrypto'
+  target 'VCVCEntitiesTests'
 end
 
 target 'VCJwt' do
