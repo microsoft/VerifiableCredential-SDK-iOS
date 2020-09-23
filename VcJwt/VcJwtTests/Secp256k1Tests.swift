@@ -27,6 +27,19 @@ class Secp256k1Tests: XCTestCase {
         let result = try signer.sign(token: testToken, withSecret: mockSecret)
         XCTAssertEqual(result, expectedResult)
     }
+    
+    func testGetPublicKey() throws {
+        let expectedX = Data(count: 32)
+        let expectedY = Data(count: 32)
+        let signer = Secp256k1Signer(using: MockAlgorithm(x: expectedX, y: expectedY))
+        let expectedKeyId = "keyId354"
+        let expectedPubKey = ECPublicJwk(x: expectedX.base64URLEncodedString(), y: expectedY.base64URLEncodedString(), keyId: expectedKeyId)
+        let mockSecret = MockVcCryptoSecret(id: UUID())
+        let result = try signer.getPublicJwk(from: mockSecret, withKeyId: expectedKeyId)
+        XCTAssertEqual(result.x, expectedPubKey.x)
+        XCTAssertEqual(result.y, expectedPubKey.y)
+        XCTAssertEqual(result.keyId, expectedPubKey.keyId)
+    }
 
     func testVerifierWithNoSignature() throws {
         let verifier = Secp256k1Verifier()

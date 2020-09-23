@@ -15,10 +15,23 @@ struct MockVcCryptoSecret: VcCryptoSecret {
 }
 
 struct MockAlgorithm: Signing {
-    func createPublicKey(forSecret secret: VcCryptoSecret) throws -> Secp256k1PublicKey {
-        throw MockError.unimplemented
+    
+    let x: Data
+    let y: Data
+    
+    init() {
+        self.x = Data(count: 32)
+        self.y = Data(count: 32)
     }
     
+    init(x: Data, y: Data) {
+        self.x = x
+        self.y = y
+    }
+    
+    func createPublicKey(forSecret secret: VcCryptoSecret) throws -> Secp256k1PublicKey {
+        return Secp256k1PublicKey(x: self.x, y: self.y)!
+    }
     
     func sign(messageHash: Data, withSecret secret: VcCryptoSecret) throws -> Data {
         return messageHash
