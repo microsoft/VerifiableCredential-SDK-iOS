@@ -20,9 +20,9 @@ struct VerifiableCredentialDescriptor: Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         context = try values.decode([String].self, forKey: .context)
         type = try values.decode([String].self, forKey: .type)
-        credentialStatus = try values.decode(ServiceDescriptor.self, forKey: .credentialStatus)
-        exchangeService = try values.decode(ServiceDescriptor.self, forKey: .exchangeService)
-        revokeService = try values.decode(ServiceDescriptor.self, forKey: .revokeService)
+        credentialStatus = try values.decodeIfPresent(ServiceDescriptor.self, forKey: .credentialStatus)
+        exchangeService = try values.decodeIfPresent(ServiceDescriptor.self, forKey: .exchangeService)
+        revokeService = try values.decodeIfPresent(ServiceDescriptor.self, forKey: .revokeService)
         credentialSubject = try values.decode(Dictionary<String, Any>.self, forKey: .credentialSubject)
     }
     
@@ -31,9 +31,9 @@ struct VerifiableCredentialDescriptor: Codable {
         try container.encode(context, forKey: .context)
         try container.encode(type, forKey: .type)
         try container.encode(credentialSubject, forKey: .credentialSubject)
-        try container.encode(credentialStatus, forKey: .credentialStatus)
-        try container.encode(exchangeService, forKey: .exchangeService)
-        try container.encode(revokeService, forKey: .revokeService)
+        try container.encodeIfPresent(credentialStatus, forKey: .credentialStatus)
+        try container.encodeIfPresent(exchangeService, forKey: .exchangeService)
+        try container.encodeIfPresent(revokeService, forKey: .revokeService)
     }
     
     private func decodeCredentialStatus(using decoder: Decoder) {
