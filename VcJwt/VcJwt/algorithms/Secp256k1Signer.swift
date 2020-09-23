@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcCrypto
+import VCCrypto
 
 public struct Secp256k1Signer: TokenSigning {
     
@@ -15,19 +15,19 @@ public struct Secp256k1Signer: TokenSigning {
         self.hashAlgorithm = hashAlg
     }
 
-    public func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature {
+    public func sign<T>(token: JwsToken<T>, withSecret secret: VCCryptoSecret) throws -> Signature {
         
         let encodedMessage = try token.getProtectedMessage()
 
         guard let messageData = encodedMessage.data(using: .ascii) else {
-            throw VcJwtError.unableToParseData
+            throw VCJwtError.unableToParseData
         }
         
         let hashedMessage = hashAlgorithm.hash(data: messageData)
         return try algorithm.sign(messageHash: hashedMessage, withSecret: secret)
     }
     
-    public func getPublicJwk(from secret: VcCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk {
+    public func getPublicJwk(from secret: VCCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk {
         let key = try self.algorithm.createPublicKey(forSecret: secret)
         return ECPublicJwk(withPublicKey: key, withKeyId: keyId)
     }

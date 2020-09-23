@@ -11,13 +11,13 @@
       location = "group:VCRepository/VCRepository.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:VcNetworking/VcNetworking.xcodeproj">
+      location = "group:VCNetworking/VCNetworking.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:VcJwt/VcJwt.xcodeproj">
+      location = "group:VCJwt/VCJwt.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:VcCrypto/VcCrypto.xcodeproj">
+      location = "group:VCCrypto/VCCrypto.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:sdk/Pods/Pods.xcodeproj">

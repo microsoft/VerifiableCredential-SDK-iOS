@@ -5,9 +5,9 @@
 
 import XCTest
 import PromiseKit
-import VcJwt
+import VCJwt
 
-@testable import VcNetworking
+@testable import VCNetworking
 
 class PostIssuanceResponseOperationTests: XCTestCase {
     private var postPresentationResponseOperation: PostIssuanceResponseOperation!

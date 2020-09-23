@@ -3,9 +3,9 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcCrypto
+import VCCrypto
 
-public struct KeyId: VcCryptoSecret {
+public struct KeyId: VCCryptoSecret {
     public let id: UUID
     
     public init(id: UUID) {

@@ -50,7 +50,7 @@
 		550F1DBD250BD898009AF467 /* VCRepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCRepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		550F1DC2250BD898009AF467 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 		550F1DC4250BD898009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		550F1DCE250BD96E009AF467 /* VCRepository.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCRepository.podspec; sourceTree = "<group>"; };
+		550F1DCE250BD96E009AF467 /* VCRepository.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCRepository.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		550F1DD0250BDA05009AF467 /* IssuanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRepository.swift; sourceTree = "<group>"; };
 		550F1DD3250BE862009AF467 /* MockNetworkOperationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkOperationFactory.swift; sourceTree = "<group>"; };
 		550F1DD5250BEB1D009AF467 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };

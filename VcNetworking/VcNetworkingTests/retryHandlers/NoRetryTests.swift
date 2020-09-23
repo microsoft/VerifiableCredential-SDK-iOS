@@ -6,7 +6,7 @@
 import XCTest
 import PromiseKit
 
-@testable import VcNetworking
+@testable import VCNetworking
 
 class NoRetryTests: XCTestCase {
     

@@ -5,9 +5,9 @@
 
 import PromiseKit
 import VCRepository
-import VcNetworking
-import VcJwt
-import VcCrypto
+import VCNetworking
+import VCJwt
+import VCCrypto
 
 enum IssuanceResponseFormatterError: Error {
     case noAudienceSpecifiedInContract

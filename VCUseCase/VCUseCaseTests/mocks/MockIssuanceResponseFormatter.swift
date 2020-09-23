@@ -3,8 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcJwt
-import VcNetworking
+import VCJwt
+import VCNetworking
 import PromiseKit
 import VCRepository
 

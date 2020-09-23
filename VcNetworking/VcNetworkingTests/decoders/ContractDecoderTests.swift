@@ -5,7 +5,7 @@
 
 import XCTest
 
-@testable import VcNetworking
+@testable import VCNetworking
 
 class ContractDecoderTests: XCTestCase {
     

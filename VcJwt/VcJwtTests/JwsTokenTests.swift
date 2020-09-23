@@ -3,8 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-@testable import VcJwt
-import VcCrypto
+@testable import VCJwt
+import VCCrypto
 import XCTest
 
 class JwsTokenTests: XCTestCase {
@@ -67,7 +67,7 @@ class JwsTokenTests: XCTestCase {
     func testSigning() throws {
         var testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: nil)
         let signer = MockSigner()
-        let secret = MockVcCryptoSecret(id: UUID())
+        let secret = MockVCCryptoSecret(id: UUID())
         try testToken.sign(using: signer, withSecret: secret)
         XCTAssertEqual(testToken.signature, "fakeSignature".data(using: .utf8)!)
     }

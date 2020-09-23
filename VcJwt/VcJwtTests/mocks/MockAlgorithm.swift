@@ -3,14 +3,14 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-@testable import VcJwt
-import VcCrypto
+@testable import VCJwt
+import VCCrypto
 
 enum MockError: Error {
     case unimplemented
 }
 
-struct MockVcCryptoSecret: VcCryptoSecret {
+struct MockVCCryptoSecret: VCCryptoSecret {
     let id: UUID
 }
 
@@ -29,11 +29,11 @@ struct MockAlgorithm: Signing {
         self.y = y
     }
     
-    func createPublicKey(forSecret secret: VcCryptoSecret) throws -> Secp256k1PublicKey {
+    func createPublicKey(forSecret secret: VCCryptoSecret) throws -> Secp256k1PublicKey {
         return Secp256k1PublicKey(x: self.x, y: self.y)!
     }
     
-    func sign(messageHash: Data, withSecret secret: VcCryptoSecret) throws -> Data {
+    func sign(messageHash: Data, withSecret secret: VCCryptoSecret) throws -> Data {
         return messageHash
     }
     

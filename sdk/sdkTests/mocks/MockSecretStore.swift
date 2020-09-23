@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-@testable import VcCrypto
+@testable import VCCrypto
 internal class SecretStoreMock: SecretStoring {
     
     private var memoryStore = [UUID: Data]()

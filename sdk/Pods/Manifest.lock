@@ -9,21 +9,23 @@ PODS:
   - PromiseKit/UIKit (6.8.0):
     - PromiseKit/CorePromise
   - secp256k1_ios (0.1.3)
-  - VcCrypto (0.0.1-beta.0):
+  - VCCrypto (0.0.1-beta.0):
     - secp256k1_ios
-  - VcJwt (0.0.1-beta.0)
-  - VcNetworking (0.0.1-beta.0):
+  - VCJwt (0.0.1-beta.0)
+  - VCNetworking (0.0.1-beta.0):
     - PromiseKit
     - secp256k1_ios
   - VCRepository (0.0.1-beta.0)
+  - VCUseCase (0.0.1-beta.0)
 
 DEPENDENCIES:
   - PromiseKit
   - secp256k1_ios
-  - VcCrypto (from `../VcCrypto`)
-  - VcJwt (from `../VcJwt`)
-  - VcNetworking (from `../VcNetworking`)
+  - VCCrypto (from `../VCCrypto`)
+  - VCJwt (from `../VCJwt`)
+  - VCNetworking (from `../VCNetworking`)
   - VCRepository (from `../VCRepository`)
+  - VCUseCase (from `../VCUseCase`)
 
 SPEC REPOS:
   trunk:
@@ -31,23 +33,26 @@ SPEC REPOS:
     - secp256k1_ios
 
 EXTERNAL SOURCES:
-  VcCrypto:
-    :path: "../VcCrypto"
-  VcJwt:
-    :path: "../VcJwt"
-  VcNetworking:
-    :path: "../VcNetworking"
+  VCCrypto:
+    :path: "../VCCrypto"
+  VCJwt:
+    :path: "../VCJwt"
+  VCNetworking:
+    :path: "../VCNetworking"
   VCRepository:
     :path: "../VCRepository"
+  VCUseCase:
+    :path: "../VCUseCase"
 
 SPEC CHECKSUMS:
   PromiseKit: 02c93833283c37ce94ef7d25de63d48d62b0754e
   secp256k1_ios: ac9ef04e761f43c58012b28548afa91493761f17
-  VcCrypto: 2f6830953cfa2a5eab877f5671acf02dce031947
-  VcJwt: f3fb553a844ce0ca779b6522c4476db568f9177b
-  VcNetworking: e762eae1c01eb9051b3e788e07e87b9ab2b26b38
+  VCCrypto: 8f5f55ba657cc40d3e014dbd5a232056b225850f
+  VCJwt: 328846df76f27bf015260673e64a94b6be6c6917
+  VCNetworking: f5acef68620300a895630addd440d7037c67938a
   VCRepository: 7c0149cc4cb10efc11b7895c02a56d353d0030e4
+  VCUseCase: fb18b41eb8e05e2e3f4bb3fee6b6072531b0c5c6
 
-PODFILE CHECKSUM: 57ad949de45b6a88667e6ecfc44f89cac4999f03
+PODFILE CHECKSUM: 807d9c2e946bbccd8d8659d2987fd2d0595e8fa3
 
 COCOAPODS: 1.8.4

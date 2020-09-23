@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public enum VcJwtError: Error, Equatable {
+public enum VCJwtError: Error, Equatable {
     case unableToParseData
     case unableToParseString
 }

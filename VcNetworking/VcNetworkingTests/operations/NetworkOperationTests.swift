@@ -7,7 +7,7 @@ import Foundation
 import XCTest
 import PromiseKit
 
-@testable import VcNetworking
+@testable import VCNetworking
 
 class NetworkOperationTests: XCTestCase {
     private var mockNetworkOperation: MockNetworkOperation!

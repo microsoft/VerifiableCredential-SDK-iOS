@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "VcNetworking"
+  spec.name         = "VCNetworking"
   spec.version      = "0.0.1-beta.0"
   spec.summary      = "An SDK to manage your Verifiable Credential network calls."
 

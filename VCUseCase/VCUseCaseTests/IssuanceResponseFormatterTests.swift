@@ -5,8 +5,8 @@
 
 import XCTest
 import VCRepository
-import VcNetworking
-import VcJwt
+import VCNetworking
+import VCJwt
 
 @testable import VCUseCase
 

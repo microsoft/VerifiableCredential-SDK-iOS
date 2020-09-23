@@ -5,7 +5,7 @@
 
 import Foundation
 import XCTest
-@testable import VcCrypto
+@testable import VCCrypto
 
 class HmacSha512Tests: XCTestCase {
     

@@ -6,8 +6,8 @@
 
 import PromiseKit
 import VCRepository
-import VcNetworking
-import VcJwt
+import VCNetworking
+import VCJwt
 
 public class IssuanceUseCase {
     typealias TokenFormatter = IssuanceResponseFormatter

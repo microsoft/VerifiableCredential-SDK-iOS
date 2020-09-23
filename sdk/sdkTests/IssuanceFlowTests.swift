@@ -8,9 +8,9 @@
 
 import XCTest
 import VCRepository
-import VcNetworking
-import VcJwt
-import VcCrypto
+import VCNetworking
+import VCJwt
+import VCCrypto
 import VCUseCase
 
 class IssuanceUseCaseTests: XCTestCase {

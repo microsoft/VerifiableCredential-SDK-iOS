@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcCrypto
+import VCCrypto
 
 enum JwsTokenError: Error {
     case unsupportedAlgorithm(name: String?)
@@ -43,7 +43,7 @@ public struct JwsToken<T: Claims> {
         return try encoder.encode(self)
     }
     
-    public mutating func sign(using signer: TokenSigning, withSecret secret: VcCryptoSecret) throws {
+    public mutating func sign(using signer: TokenSigning, withSecret secret: VCCryptoSecret) throws {
         self.signature = try signer.sign(token: self, withSecret: secret)
     }
     

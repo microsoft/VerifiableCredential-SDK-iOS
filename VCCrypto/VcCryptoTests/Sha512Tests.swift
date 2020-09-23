@@ -6,7 +6,7 @@
 import Foundation
 
 import XCTest
-@testable import VcCrypto
+@testable import VCCrypto
 
 class Sha512Tests: XCTestCase {
     func testUtf() throws {

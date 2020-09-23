@@ -5,7 +5,7 @@
 
 
 import Foundation
-@testable import VcCrypto
+@testable import VCCrypto
 
 final class SecretMock : Secret {
     static var itemTypeCode: String = "MOCK"

@@ -3,8 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-@testable import VcJwt
-import VcCrypto
+@testable import VCJwt
+import VCCrypto
 
 class MockVerifier: TokenVerifying {
     
