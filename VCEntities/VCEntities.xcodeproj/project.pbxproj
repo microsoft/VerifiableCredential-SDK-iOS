@@ -66,7 +66,7 @@
 		55575737251BC575009979AB /* VCEntitiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCEntitiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5557573C251BC575009979AB /* VCEntitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCEntitiesTests.swift; sourceTree = "<group>"; };
 		5557573E251BC575009979AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55575748251BC5B9009979AB /* VCEntities.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCEntities.podspec; sourceTree = "<group>"; };
+		55575748251BC5B9009979AB /* VCEntities.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCEntities.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5557574B251BC6CE009979AB /* AttestationsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttestationsDescriptor.swift; sourceTree = "<group>"; };
 		5557574C251BC6CE009979AB /* PresentationDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationDescriptor.swift; sourceTree = "<group>"; };
 		5557574D251BC6CE009979AB /* ConsentDisplayDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDisplayDescriptor.swift; sourceTree = "<group>"; };
