@@ -5,6 +5,7 @@
 
 import Foundation
 import PromiseKit
+import VCEntities
 
 public class FetchContractOperation: InternalNetworkOperation {
     public typealias ResponseBody = Contract

@@ -5,7 +5,7 @@
 
 import XCTest
 import VCNetworking
-import VCJwt
+import VCEntities
 
 @testable import VCRepository
 
@@ -36,7 +36,7 @@ class IssuanceRepositoryTests: XCTestCase {
     
     func testPostCalled() {
         let expec = self.expectation(description: "Fire")
-        let token = JwsToken<IssuanceResponseClaims>(headers: Header(), content: IssuanceResponseClaims())
+        let token = IssuanceResponse(from: TestData.issuanceResponse.rawValue)!
         
         repo.sendResponse(usingUrl: expectedUrl, withBody: token).done { actualResult in
             XCTFail()

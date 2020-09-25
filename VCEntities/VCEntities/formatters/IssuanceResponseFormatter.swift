@@ -3,9 +3,6 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import PromiseKit
-import VCRepository
-import VCNetworking
 import VCJwt
 import VCCrypto
 
@@ -13,7 +10,7 @@ enum IssuanceResponseFormatterError: Error {
     case noAudienceSpecifiedInContract
 }
 
-public class IssuanceResponseFormatter {
+public class IssuanceResponseFormatter: IssuanceResponseFormatting {
     
     let signer: TokenSigning
     
@@ -21,17 +18,11 @@ public class IssuanceResponseFormatter {
         self.signer = signer
     }
     
-    func format(response: IssuanceResponse, usingIdentifier identifier: MockIdentifier) -> Promise<JwsToken<IssuanceResponseClaims>> {
-        return Promise<JwsToken<IssuanceResponseClaims>> { seal in
-            do {
-                seal.fulfill(try self.createToken(response: response, usingIdentifier: identifier))
-            } catch {
-                seal.reject(error)
-            }
-        }
+    public func format(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponse {
+        return try self.createToken(response: response, usingIdentifier: identifier)
     }
     
-    func createToken(response: IssuanceResponse, usingIdentifier identifier: MockIdentifier) throws -> JwsToken<IssuanceResponseClaims> {
+    private func createToken(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponse {
         let headers = self.formatHeaders(usingIdentifier: identifier)
         let content = try self.formatClaims(response: response, usingIdentifier: identifier)
         var token = JwsToken(headers: headers, content: content)
@@ -44,7 +35,7 @@ public class IssuanceResponseFormatter {
         return Header(type: "JWT", algorithm: identifier.algorithm, keyId: keyId)
     }
     
-    private func formatClaims(response: IssuanceResponse, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponseClaims {
+    private func formatClaims(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponseClaims {
         
         let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: identifier.keyReference)
         let (iat, exp) = self.createIatAndExp(expiryInSeconds: response.expiryInSeconds)
@@ -60,7 +51,7 @@ public class IssuanceResponseFormatter {
                                       exp: exp)
     }
     
-    private func formatAttestations(response: IssuanceResponse) -> AttestationResponseDescriptor? {
+    private func formatAttestations(response: IssuanceResponseContainer) -> AttestationResponseDescriptor? {
         return AttestationResponseDescriptor(idTokens: response.requestedIdTokenMap, selfIssued: response.requestedSelfAttestedClaimMap)
     }
     

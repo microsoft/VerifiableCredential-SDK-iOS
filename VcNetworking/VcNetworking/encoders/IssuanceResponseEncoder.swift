@@ -4,11 +4,11 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCJwt
+import VCEntities
 
 struct IssuanceResponseEncoder: Encoding {
     
-    func encode(value: JwsToken<IssuanceResponseClaims>) throws -> Data {
+    func encode(value: IssuanceResponse) throws -> Data {
         
         guard let encodedToken = try value.serialize().data(using: .ascii) else {
             throw NetworkingError.unableToParseString

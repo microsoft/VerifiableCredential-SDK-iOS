@@ -5,9 +5,6 @@
       location = "group:sdk/sdk.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:VCEntities/VCEntities.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:VCUseCase/VCUseCase.xcodeproj">
    </FileRef>
    <FileRef
@@ -17,6 +14,9 @@
       location = "group:VCNetworking/VCNetworking.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:VCNetworking/../VCEntities/VCEntities.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:VCJwt/VCJwt.xcodeproj">
    </FileRef>
    <FileRef
@@ -24,5 +24,8 @@
    </FileRef>
    <FileRef
       location = "group:sdk/Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:VCEntities/VCEntities.xcodeproj">
    </FileRef>
 </Workspace>

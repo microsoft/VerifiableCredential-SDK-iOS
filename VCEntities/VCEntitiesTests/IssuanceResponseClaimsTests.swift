@@ -5,7 +5,7 @@
 
 import XCTest
 
-@testable import VCNetworking
+@testable import VCEntities
 
 class IssuanceResponseClaimsTests: XCTestCase {
     

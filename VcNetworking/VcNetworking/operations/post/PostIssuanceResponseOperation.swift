@@ -4,12 +4,12 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCJwt
+import VCEntities
 
 public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
 
     typealias Encoder = IssuanceResponseEncoder
-    public typealias RequestBody = JwsToken<IssuanceResponseClaims>
+    public typealias RequestBody = IssuanceResponse
     public typealias ResponseBody = VerifiableCredential
     
     let decoder = IssuanceServiceResponseDecoder()
@@ -17,7 +17,7 @@ public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
     let urlSession: URLSession
     let urlRequest: URLRequest
     
-    public init(withUrl urlStr: String, withBody body: JwsToken<IssuanceResponseClaims>, urlSession: URLSession = URLSession.shared) throws {
+    public init(withUrl urlStr: String, withBody body: IssuanceResponse, urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
@@ -32,5 +32,3 @@ public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
         self.urlSession = urlSession
     }
 }
-
-public typealias VerifiableCredential = JwsToken<VCClaims>

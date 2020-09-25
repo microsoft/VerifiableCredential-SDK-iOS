@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+import VCEntities
 
 public struct ContractDecoder: Decoding {
     typealias Decodable = Contract

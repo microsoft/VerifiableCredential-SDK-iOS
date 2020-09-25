@@ -5,7 +5,7 @@
 
 import XCTest
 import VCNetworking
-import VCJwt
+import VCEntities
 
 @testable import VCRepository
 
@@ -43,7 +43,7 @@ class NetworkOperationFactoryTests: XCTestCase {
     
     func testCreatePostIssuanceResponseOperation() throws {
         let expec = self.expectation(description: "Fire")
-        let requestBody = JwsToken<IssuanceResponseClaims>(from: TestData.issuanceResponse.rawValue)!
+        let requestBody = IssuanceResponse(from: TestData.issuanceResponse.rawValue)!
         factory.createPostOperation(PostIssuanceResponseOperation.self, withUrl: self.expectedUrl, withRequestBody: requestBody).done { operation in
             expec.fulfill()
         }.catch { error in

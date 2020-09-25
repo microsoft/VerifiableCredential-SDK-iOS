@@ -6,8 +6,11 @@
 import VCJwt
 
 public struct VCClaims: Claims {
-    let jti: String
-    let iss: String
-    let sub: String
-    let vc: VerifiableCredentialDescriptor
+    public let jti: String
+    public let iss: String
+    public let sub: String
+    public let vc: VerifiableCredentialDescriptor
 }
+
+public typealias IssuanceResponse = JwsToken<IssuanceResponseClaims>
+public typealias VerifiableCredential = JwsToken<VCClaims>

@@ -116,6 +116,7 @@
 		550F1DB6250BD898009AF467 /* VCRepository */ = {
 			isa = PBXGroup;
 			children = (
+				550F1E29250FD7AB009AF467 /* ApiCalls.swift */,
 				550F1DD0250BDA05009AF467 /* IssuanceRepository.swift */,
 				550F1DD7250C0975009AF467 /* NetworkOperationFactory.swift */,
 				550F1DD9250C0997009AF467 /* NetworkOperationCreating.swift */,
@@ -123,7 +124,6 @@
 				550F1E21250FC74E009AF467 /* Posting.swift */,
 				550F1DB7250BD898009AF467 /* VCRepository.h */,
 				550F1DB8250BD898009AF467 /* Info.plist */,
-				550F1E29250FD7AB009AF467 /* ApiCalls.swift */,
 			);
 			path = VCRepository;
 			sourceTree = "<group>";

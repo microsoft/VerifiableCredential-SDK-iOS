@@ -5,9 +5,7 @@
 
 import XCTest
 import VCRepository
-import VCNetworking
-import VCJwt
-import VCCrypto
+import VCEntities
 
 @testable import VCUseCase
 
@@ -52,7 +50,7 @@ class IssuanceUseCaseTests: XCTestCase {
     
     func testSendResponse() throws {
         let expec = self.expectation(description: "Fire")
-        let response = try IssuanceResponse(from: contract, contractUri: expectedUrl)
+        let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)
         usecase.send(response: response, identifier: MockIdentifier()).done {
             response in
             print(response)
