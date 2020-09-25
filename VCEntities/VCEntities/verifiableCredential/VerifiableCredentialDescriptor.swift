@@ -16,6 +16,15 @@ public struct VerifiableCredentialDescriptor: Codable {
         case type, credentialSubject, credentialStatus, exchangeService, revokeService
     }
     
+    init(context: [String], type: [String], credentialSubject: Dictionary<String, Any>) {
+        self.context = context
+        self.type = type
+        self.credentialSubject = credentialSubject
+        self.credentialStatus = nil
+        self.exchangeService = nil
+        self.revokeService = nil
+    }
+    
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         context = try values.decode([String].self, forKey: .context)

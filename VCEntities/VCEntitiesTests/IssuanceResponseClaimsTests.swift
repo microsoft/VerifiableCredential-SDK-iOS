@@ -11,15 +11,15 @@ class IssuanceResponseClaimsTests: XCTestCase {
     
     func testInit() {
         let claims = IssuanceResponseClaims()
-        XCTAssertEqual(claims.scope, "")
-        XCTAssertEqual(claims.state, "")
-        XCTAssertEqual(claims.nonce, "")
+        XCTAssertNil(claims.scope)
+        XCTAssertNil(claims.state)
+        XCTAssertNil(claims.nonce)
         XCTAssertNil(claims.iat)
         XCTAssertNil(claims.exp)
         XCTAssertNil(claims.nbf)
-        XCTAssertEqual(claims.registration, RegistrationClaims())
+        XCTAssertNil(claims.registration)
         XCTAssertEqual(claims.issuer, "https://self-issued.me")
-        XCTAssertEqual(claims.prompt, "")
+        XCTAssertNil(claims.prompt)
     }
     
 }

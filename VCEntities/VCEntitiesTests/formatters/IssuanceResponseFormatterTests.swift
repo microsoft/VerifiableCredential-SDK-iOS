@@ -4,9 +4,6 @@
  *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VCRepository
-import VCNetworking
-import VCJwt
 
 @testable import VCEntities
 
