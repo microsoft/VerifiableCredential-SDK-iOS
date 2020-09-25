@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
+import VCEntities
 
 @testable import VCNetworking
 

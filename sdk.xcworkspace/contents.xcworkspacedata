@@ -14,6 +14,9 @@
       location = "group:VCNetworking/VCNetworking.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:VCEntities/VCEntities.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:VCJwt/VCJwt.xcodeproj">
    </FileRef>
    <FileRef

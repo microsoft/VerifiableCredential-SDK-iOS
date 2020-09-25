@@ -4,14 +4,14 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VCJwt
+import VCEntities
 
 @testable import VCNetworking
 
 class IssuanceServiceResponseDecoderTests: XCTestCase {
     
     let expectedResponse = IssuanceServiceResponse(vc: TestData.verifiableCredential.rawValue)
-    let expectedToken = JwsToken<VCClaims>(from: TestData.verifiableCredential.rawValue)!
+    let expectedToken = VerifiableCredential(from: TestData.verifiableCredential.rawValue)!
     var encodedResponse: Data!
     let decoder = IssuanceServiceResponseDecoder()
     

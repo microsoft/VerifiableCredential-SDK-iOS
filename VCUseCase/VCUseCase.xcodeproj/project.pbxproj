@@ -12,14 +12,10 @@
 		550F1E4625101759009AF467 /* VCUseCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 550F1E3825101758009AF467 /* VCUseCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		550F1E522510179B009AF467 /* VCUseCase.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 550F1E512510179B009AF467 /* VCUseCase.podspec */; };
 		550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E532510195A009AF467 /* IssuanceUseCase.swift */; };
-		550F1E5825102E6D009AF467 /* MockIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5725102E6D009AF467 /* MockIdentifier.swift */; };
-		550F1E5A25103958009AF467 /* IssuanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5925103958009AF467 /* IssuanceResponse.swift */; };
-		550F1E5D25103B74009AF467 /* IssuanceResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */; };
 		550F1E63251165D6009AF467 /* MockApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E62251165D6009AF467 /* MockApiCalls.swift */; };
 		550F1E6625116CD6009AF467 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6525116CD6009AF467 /* TestData.swift */; };
 		550F1E6825116E86009AF467 /* MockTokenSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6725116E86009AF467 /* MockTokenSigner.swift */; };
 		550F1E6A25125BC6009AF467 /* MockIssuanceResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6925125BC6009AF467 /* MockIssuanceResponseFormatter.swift */; };
-		557ACCCC251541620012CAD1 /* IssuanceResponseFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557ACCCB251541620012CAD1 /* IssuanceResponseFormatterTests.swift */; };
 		A7EF5F9DE7F5ABCA30BC8DF8 /* Pods_VCUseCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23448DADA5FB0E226F1CCC2 /* Pods_VCUseCase.framework */; };
 		F0A81613FD80367910913502 /* Pods_VCUseCase_VCUseCaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC6C2788E69ADE7C292089B /* Pods_VCUseCase_VCUseCaseTests.framework */; };
 /* End PBXBuildFile section */
@@ -42,16 +38,12 @@
 		550F1E3E25101759009AF467 /* VCUseCaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCUseCaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceUseCaseTests.swift; sourceTree = "<group>"; };
 		550F1E4525101759009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		550F1E512510179B009AF467 /* VCUseCase.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCUseCase.podspec; sourceTree = "<group>"; };
+		550F1E512510179B009AF467 /* VCUseCase.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCUseCase.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		550F1E532510195A009AF467 /* IssuanceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceUseCase.swift; sourceTree = "<group>"; };
-		550F1E5725102E6D009AF467 /* MockIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIdentifier.swift; sourceTree = "<group>"; };
-		550F1E5925103958009AF467 /* IssuanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponse.swift; sourceTree = "<group>"; };
-		550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseFormatter.swift; sourceTree = "<group>"; };
 		550F1E62251165D6009AF467 /* MockApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiCalls.swift; sourceTree = "<group>"; };
 		550F1E6525116CD6009AF467 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		550F1E6725116E86009AF467 /* MockTokenSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTokenSigner.swift; sourceTree = "<group>"; };
 		550F1E6925125BC6009AF467 /* MockIssuanceResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceResponseFormatter.swift; sourceTree = "<group>"; };
-		557ACCCB251541620012CAD1 /* IssuanceResponseFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseFormatterTests.swift; sourceTree = "<group>"; };
 		6C4F46088C30714FB29E1421 /* Pods-VCUseCase-VCUseCaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCase-VCUseCaseTests.release.xcconfig"; path = "Target Support Files/Pods-VCUseCase-VCUseCaseTests/Pods-VCUseCase-VCUseCaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF52C305D80BE754E7CD4002 /* Pods-VCUseCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCUseCase.debug.xcconfig"; path = "Target Support Files/Pods-VCUseCase/Pods-VCUseCase.debug.xcconfig"; sourceTree = "<group>"; };
 		DAC6C2788E69ADE7C292089B /* Pods_VCUseCase_VCUseCaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCUseCase_VCUseCaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,12 +96,9 @@
 		550F1E3725101758009AF467 /* VCUseCase */ = {
 			isa = PBXGroup;
 			children = (
-				550F1E5B25103B5B009AF467 /* formatters */,
 				550F1E532510195A009AF467 /* IssuanceUseCase.swift */,
 				550F1E3825101758009AF467 /* VCUseCase.h */,
 				550F1E3925101758009AF467 /* Info.plist */,
-				550F1E5725102E6D009AF467 /* MockIdentifier.swift */,
-				550F1E5925103958009AF467 /* IssuanceResponse.swift */,
 			);
 			path = VCUseCase;
 			sourceTree = "<group>";
@@ -118,19 +107,10 @@
 			isa = PBXGroup;
 			children = (
 				550F1E64251165DB009AF467 /* mocks */,
-				557ACCCB251541620012CAD1 /* IssuanceResponseFormatterTests.swift */,
 				550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */,
 				550F1E4525101759009AF467 /* Info.plist */,
 			);
 			path = VCUseCaseTests;
-			sourceTree = "<group>";
-		};
-		550F1E5B25103B5B009AF467 /* formatters */ = {
-			isa = PBXGroup;
-			children = (
-				550F1E5C25103B74009AF467 /* IssuanceResponseFormatter.swift */,
-			);
-			path = formatters;
 			sourceTree = "<group>";
 		};
 		550F1E64251165DB009AF467 /* mocks */ = {
@@ -206,7 +186,7 @@
 				550F1E3A25101759009AF467 /* Sources */,
 				550F1E3B25101759009AF467 /* Frameworks */,
 				550F1E3C25101759009AF467 /* Resources */,
-				F01FA762070A9AEBDF33BEF3 /* [CP] Embed Pods Frameworks */,
+				24DD12A66C231D3188F7FA8A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,6 +255,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		24DD12A66C231D3188F7FA8A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VCUseCase-VCUseCaseTests/Pods-VCUseCase-VCUseCaseTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VCUseCase-VCUseCaseTests/Pods-VCUseCase-VCUseCaseTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCUseCase-VCUseCaseTests/Pods-VCUseCase-VCUseCaseTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4C5A70CCDC55C070F1C4E53D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,23 +316,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F01FA762070A9AEBDF33BEF3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCUseCase-VCUseCaseTests/Pods-VCUseCase-VCUseCaseTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCUseCase-VCUseCaseTests/Pods-VCUseCase-VCUseCaseTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCUseCase-VCUseCaseTests/Pods-VCUseCase-VCUseCaseTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -343,9 +323,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				550F1E5A25103958009AF467 /* IssuanceResponse.swift in Sources */,
-				550F1E5825102E6D009AF467 /* MockIdentifier.swift in Sources */,
-				550F1E5D25103B74009AF467 /* IssuanceResponseFormatter.swift in Sources */,
 				550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +335,6 @@
 				550F1E63251165D6009AF467 /* MockApiCalls.swift in Sources */,
 				550F1E6A25125BC6009AF467 /* MockIssuanceResponseFormatter.swift in Sources */,
 				550F1E4425101759009AF467 /* IssuanceUseCaseTests.swift in Sources */,
-				557ACCCC251541620012CAD1 /* IssuanceResponseFormatterTests.swift in Sources */,
 				550F1E6825116E86009AF467 /* MockTokenSigner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

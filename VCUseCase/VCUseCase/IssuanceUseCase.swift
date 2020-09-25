@@ -1,19 +1,17 @@
 /*---------------------------------------------------------------------------------------------
-*  Copyright (c) Microsoft Corporation. All rights reserved.
-*  Licensed under the MIT License. See License.txt in the project root for license information.
-*--------------------------------------------------------------------------------------------*/
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
 
 import PromiseKit
 import VCRepository
-import VCNetworking
-import VCJwt
+import VCEntities
 
 public class IssuanceUseCase {
-    typealias TokenFormatter = IssuanceResponseFormatter
     
     let masterIdentifier: MockIdentifier = MockIdentifier()
-    let formatter: IssuanceResponseFormatter
+    let formatter: IssuanceResponseFormatting
     let repo: IssuanceRepository
     
     public init() {
@@ -21,21 +19,31 @@ public class IssuanceUseCase {
         self.repo = IssuanceRepository()
     }
     
-    init(formatter: IssuanceResponseFormatter = IssuanceResponseFormatter(),
-         repo: IssuanceRepository = IssuanceRepository()) {
+    init(formatter: IssuanceResponseFormatting,
+         repo: IssuanceRepository) {
         self.formatter = formatter
         self.repo = repo
     }
-
+    
     public func getRequest(usingUrl url: String) -> Promise<Contract> {
         return self.repo.getRequest(withUrl: url)
     }
-
-    public func send(response: IssuanceResponse, identifier: MockIdentifier) -> Promise<VerifiableCredential> {
+    
+    public func send(response: IssuanceResponseContainer, identifier: MockIdentifier) -> Promise<VerifiableCredential> {
         return firstly {
-            self.formatter.format(response: response, usingIdentifier: identifier)
+            self.formatIssuanceResponse(response: response, identifier: identifier)
         }.then { signedToken in
             self.repo.sendResponse(usingUrl:  response.audience, withBody: signedToken)
+        }
+    }
+    
+    private func formatIssuanceResponse(response: IssuanceResponseContainer, identifier: MockIdentifier) -> Promise<IssuanceResponse> {
+        return Promise { seal in
+            do {
+                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: identifier))
+            } catch {
+                seal.reject(error)
+            }
         }
     }
 }

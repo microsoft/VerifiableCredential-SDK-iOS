@@ -5,7 +5,7 @@
 
 import VCNetworking
 import PromiseKit
-import VCJwt
+import VCEntities
 
 public class IssuanceRepository {
     
@@ -19,7 +19,7 @@ public class IssuanceRepository {
         return self.apiCalls.get(FetchContractOperation.self, usingUrl: url)
     }
     
-    public func sendResponse(usingUrl url: String, withBody body: JwsToken<IssuanceResponseClaims>) -> Promise<VerifiableCredential> {
+    public func sendResponse(usingUrl url: String, withBody body: IssuanceResponse) -> Promise<VerifiableCredential> {
         return self.apiCalls.post(PostIssuanceResponseOperation.self, usingUrl: url, withBody: body)
     }
 }

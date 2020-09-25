@@ -8,10 +8,9 @@
 
 import XCTest
 import VCRepository
-import VCNetworking
-import VCJwt
 import VCCrypto
 import VCUseCase
+import VCEntities
 
 class IssuanceUseCaseTests: XCTestCase {
     
@@ -43,7 +42,7 @@ class IssuanceUseCaseTests: XCTestCase {
         let expec = self.expectation(description: "Fire")
         
         let contractUri = "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert"
-        let response = try IssuanceResponse(from: contract, contractUri: contractUri)
+        let response = try IssuanceResponseContainer(from: contract, contractUri: contractUri)
         
         usecase.send(response: response, identifier: identifier).done {
             response in

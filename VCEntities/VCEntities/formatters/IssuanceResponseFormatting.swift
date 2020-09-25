@@ -3,7 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct ServiceDescriptor: Codable {
-    let id: String
-    let type: String
+public protocol IssuanceResponseFormatting {
+    func format(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponse
 }

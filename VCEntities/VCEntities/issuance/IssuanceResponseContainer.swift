@@ -3,17 +3,15 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCNetworking
-
 enum IssuanceResponseError: Error {
     case noAudienceSpecifiedInContract
 }
 
-public struct IssuanceResponse {
-    let contract: Contract
-    let contractUri: String
+public struct IssuanceResponseContainer {
+    public let contract: Contract
+    public let contractUri: String
     let expiryInSeconds: Int
-    let audience: String
+    public let audience: String
     public let requestedIdTokenMap: RequestedIdTokenMap = [:]
     public let requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
     

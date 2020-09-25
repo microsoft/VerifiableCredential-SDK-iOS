@@ -3,11 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCJwt
+@testable import VCEntities
 
-public struct VCClaims: Claims {
-    let jti: String
-    let iss: String
-    let sub: String
-    let vc: VerifiableCredentialDescriptor
-}
+struct MockOIDCClaims: OIDCClaims { }

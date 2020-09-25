@@ -4,17 +4,16 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCJwt
+import VCEntities
 
 public struct IssuanceServiceResponseDecoder: Decoding {
     
-    let jwsDecoder = JwsDecoder()
     let jsonDecoder = JSONDecoder()
     
-    public func decode(data: Data) throws -> JwsToken<VCClaims> {
+    public func decode(data: Data) throws -> VerifiableCredential {
         let response = try jsonDecoder.decode(IssuanceServiceResponse.self, from: data)
         
-        guard let token = JwsToken<VCClaims>(from: response.vc) else {
+        guard let token = VerifiableCredential(from: response.vc) else {
             throw DecodingError.unableToDecodeToken
         }
         

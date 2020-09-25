@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct VerifiableCredentialDescriptor: Codable {
+public struct VerifiableCredentialDescriptor: Codable {
     let context: [String]
     let type: [String]
     let credentialSubject: Dictionary<String, Any>
@@ -16,7 +16,16 @@ struct VerifiableCredentialDescriptor: Codable {
         case type, credentialSubject, credentialStatus, exchangeService, revokeService
     }
     
-    init(from decoder: Decoder) throws {
+    init(context: [String], type: [String], credentialSubject: Dictionary<String, Any>) {
+        self.context = context
+        self.type = type
+        self.credentialSubject = credentialSubject
+        self.credentialStatus = nil
+        self.exchangeService = nil
+        self.revokeService = nil
+    }
+    
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         context = try values.decode([String].self, forKey: .context)
         type = try values.decode([String].self, forKey: .type)
@@ -26,7 +35,7 @@ struct VerifiableCredentialDescriptor: Codable {
         credentialSubject = try values.decode(Dictionary<String, Any>.self, forKey: .credentialSubject)
     }
     
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(context, forKey: .context)
         try container.encode(type, forKey: .type)
@@ -34,9 +43,5 @@ struct VerifiableCredentialDescriptor: Codable {
         try container.encodeIfPresent(credentialStatus, forKey: .credentialStatus)
         try container.encodeIfPresent(exchangeService, forKey: .exchangeService)
         try container.encodeIfPresent(revokeService, forKey: .revokeService)
-    }
-    
-    private func decodeCredentialStatus(using decoder: Decoder) {
-        
     }
 }

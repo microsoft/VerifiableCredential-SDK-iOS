@@ -4,13 +4,13 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VCJwt
+import VCEntities
 
 @testable import VCNetworking
 
 class IssuanceResponseEncoderTests: XCTestCase {
     
-    let expectedToken = JwsToken<IssuanceResponseClaims>(from: TestData.issuanceResponse.rawValue)!
+    let expectedToken = IssuanceResponse(from: TestData.issuanceResponse.rawValue)!
     let encoder = IssuanceResponseEncoder()
     
     func testEncoding() throws {

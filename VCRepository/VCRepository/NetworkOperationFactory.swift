@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import VCNetworking
-import VCJwt
+import VCEntities
 import PromiseKit
 
 enum RepositoryError: Error {
@@ -30,7 +30,7 @@ public class NetworkOperationFactory: NetworkOperationCreating {
         return Promise { seal in
             switch type {
             case is PostIssuanceResponseOperation.Type:
-                seal.fulfill(try PostIssuanceResponseOperation(withUrl: url, withBody: body as! JwsToken<IssuanceResponseClaims>) as! T)
+                seal.fulfill(try PostIssuanceResponseOperation(withUrl: url, withBody: body as! IssuanceResponse) as! T)
             default:
                 seal.reject(RepositoryError.unsupportedNetworkOperation)
             }

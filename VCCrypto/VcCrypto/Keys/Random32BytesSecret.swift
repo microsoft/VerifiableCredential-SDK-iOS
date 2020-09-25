@@ -29,7 +29,7 @@ public class Random32BytesSecret: Secret {
         guard result == errSecSuccess else { return nil }
         id = UUID()
         
-        // Hard coded until Identifier creation is implemented.
+        // Hard coded until Identifier creation is implemented (security bug 1152963)
         let secretStr = "rbe1f0bbMoDXB6YXwxxAA_nSPpv6LbBJIuKtr4Bjq_c"
         var secret = Data(base64URLEncoded: secretStr)!
         

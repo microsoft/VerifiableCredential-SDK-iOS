@@ -3,26 +3,30 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCJwt
-import VCNetworking
 import PromiseKit
-import VCRepository
+import VCEntities
 
 @testable import VCUseCase
 
-class MockIssuanceResponseFormatter: IssuanceResponseFormatter {
+enum MockIssuanceResponseFormatterError: Error {
+    case doNotWantToResolveRealObject
+}
+
+class MockIssuanceResponseFormatter: IssuanceResponseFormatting {
     
     static var wasFormatCalled = false
+    let shouldSucceed: Bool
     
-    init() {
-        print("hello")
+    init(shouldSucceed: Bool) {
+        self.shouldSucceed = shouldSucceed
     }
     
-    override func format(response: IssuanceResponse, usingIdentifier identifier: MockIdentifier) -> Promise<JwsToken<IssuanceResponseClaims>> {
-            Self.wasFormatCalled = true
-        return Promise { seal in
-            seal.fulfill(JwsToken<IssuanceResponseClaims>(headers: Header(), content: IssuanceResponseClaims(), signature: Data(count: 64)))
+    func format(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponse {
+        Self.wasFormatCalled = true
+        if (shouldSucceed) {
+            return IssuanceResponse(from: TestData.issuanceResponse.rawValue)!
+        } else {
+            throw MockIssuanceResponseFormatterError.doNotWantToResolveRealObject
         }
     }
-    
 }

@@ -14,8 +14,8 @@
 		5540903F25002141001246DB /* MockVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903E25002141001246DB /* MockVerifier.swift */; };
 		5540904725002DC4001246DB /* VCJwt.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5540904625002DC3001246DB /* VCJwt.podspec */; };
 		5540904B2500311E001246DB /* ECPublicJwk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540904A2500311E001246DB /* ECPublicJwk.swift */; };
+		5577E875251EA08D005250BC /* VCJwt.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADE25A24F5406000D9990E /* VCJwt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE26124F5406000D9990E /* VCJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE25724F5406000D9990E /* VCJwt.framework */; };
-		55ADE26824F5406000D9990E /* VCJwt.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADE25A24F5406000D9990E /* VCJwt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE27224F5407D00D9990E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27124F5407D00D9990E /* Header.swift */; };
 		55ADE27924F540F700D9990E /* JwsToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27824F540F700D9990E /* JwsToken.swift */; };
 		55ADE27B24F5410400D9990E /* Secp256k1Signer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27A24F5410300D9990E /* Secp256k1Signer.swift */; };
@@ -210,7 +210,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55ADE26824F5406000D9990E /* VCJwt.h in Headers */,
+				5577E875251EA08D005250BC /* VCJwt.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

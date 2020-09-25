@@ -5,7 +5,6 @@
 
 import VCJwt
 import VCCrypto
-import VCNetworking
 
 public struct MockIdentifier {
     let keyId: VCCryptoSecret
