@@ -10,12 +10,12 @@
 		01C9B1E35154EDB6F7718B31 /* Pods_VCCrypto_VCCryptoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CB9A37E46FD41DA6BE301E /* Pods_VCCrypto_VCCryptoTests.framework */; };
 		5540903D25000F6A001246DB /* Signing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903C25000F6A001246DB /* Signing.swift */; };
 		5540904925002DEE001246DB /* VCCrypto.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5540904825002DEE001246DB /* VCCrypto.podspec */; };
+		5577E874251E9F99005250BC /* VCCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE29924F5752500D9990E /* Sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29824F5752500D9990E /* Sha256.swift */; };
 		55ADE29B24F5757100D9990E /* Sha256Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29A24F5757100D9990E /* Sha256Tests.swift */; };
 		928AAF7124EEDC9D0029A8F9 /* Secp256k1PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAF7024EEDC9D0029A8F9 /* Secp256k1PublicKey.swift */; };
 		928AAF7324EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAF7224EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift */; };
 		92CDE7B424DC78DD00F95B5D /* VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CDE7AA24DC78DD00F95B5D /* VCCrypto.framework */; };
-		92CDE7BB24DC78DD00F95B5D /* VCCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92CDE7C924DCA48A00F95B5D /* SecretStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7C824DCA48A00F95B5D /* SecretStoring.swift */; };
 		92CDE7CB24DCA61800F95B5D /* KeychainSecretStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7CA24DCA61800F95B5D /* KeychainSecretStore.swift */; };
 		92CDE7D224DCA6CF00F95B5D /* Secp256k1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE7D124DCA6CF00F95B5D /* Secp256k1.swift */; };
@@ -294,7 +294,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92CDE7BB24DC78DD00F95B5D /* VCCrypto.h in Headers */,
+				5577E874251E9F99005250BC /* VCCrypto.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
