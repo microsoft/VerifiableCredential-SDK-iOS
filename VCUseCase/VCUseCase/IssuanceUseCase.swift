@@ -30,11 +30,18 @@ public class IssuanceUseCase {
     }
     
     public func send(response: IssuanceResponseContainer, identifier: MockIdentifier) -> Promise<VerifiableCredential> {
-        do {
-            let signedToken = try self.formatter.format(response: response, usingIdentifier: identifier)
-            return self.repo.sendResponse(usingUrl:  response.audience, withBody: signedToken)
-        } catch {
-            return Promise { seal in
+        return firstly {
+            self.formatIssuanceResponse(response: response, identifier: identifier)
+        }.then { signedToken in
+            self.repo.sendResponse(usingUrl:  response.audience, withBody: signedToken)
+        }
+    }
+    
+    private func formatIssuanceResponse(response: IssuanceResponseContainer, identifier: MockIdentifier) -> Promise<IssuanceResponse> {
+        return Promise { seal in
+            do {
+                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: identifier))
+            } catch {
                 seal.reject(error)
             }
         }
