@@ -56,6 +56,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5557572D251BC575009979AB"
+               BuildableName = "VCEntities.framework"
+               BlueprintName = "VCEntities"
+               ReferencedContainer = "container:../VCEntities/VCEntities.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "55D7BFE924C4CBBD0090F495"
                BuildableName = "VCNetworking.framework"
                BlueprintName = "VCNetworking"
@@ -88,20 +102,6 @@
                BuildableName = "VCUseCase.framework"
                BlueprintName = "VCUseCase"
                ReferencedContainer = "container:../VCUseCase/VCUseCase.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5557572D251BC575009979AB"
-               BuildableName = "VCEntities.framework"
-               BlueprintName = "VCEntities"
-               ReferencedContainer = "container:../VCEntities/VCEntities.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
