@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 
-  spec.name         = "VcCrypto"
+  spec.name         = "VCCrypto"
   spec.version      = "0.0.1-beta.0"
   spec.summary      = "An SDK to manage your Verifiable Credential cryptography."
   spec.description  = <<-DESC "An SDK to manage your Verifiable Credential cryptography."

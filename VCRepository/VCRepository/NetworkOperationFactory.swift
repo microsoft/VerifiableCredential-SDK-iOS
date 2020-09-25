@@ -3,8 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcNetworking
-import VcJwt
+import VCNetworking
+import VCJwt
 import PromiseKit
 
 enum RepositoryError: Error {

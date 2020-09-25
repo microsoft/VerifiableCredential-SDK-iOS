@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-@testable import VcCrypto
+@testable import VCCrypto
 
 class Secp256k1Tests: XCTestCase {
     

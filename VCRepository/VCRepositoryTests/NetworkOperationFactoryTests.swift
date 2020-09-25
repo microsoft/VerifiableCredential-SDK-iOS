@@ -4,8 +4,8 @@
  *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VcNetworking
-import VcJwt
+import VCNetworking
+import VCJwt
 
 @testable import VCRepository
 

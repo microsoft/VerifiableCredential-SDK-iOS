@@ -3,9 +3,9 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-@testable import VcJwt
+@testable import VCJwt
 import XCTest
-import VcCrypto
+import VCCrypto
 
 class Secp256k1Tests: XCTestCase {
     
@@ -23,7 +23,7 @@ class Secp256k1Tests: XCTestCase {
 
     func testSigner() throws {
         let signer = Secp256k1Signer(using: MockAlgorithm())
-        let mockSecret = MockVcCryptoSecret(id: UUID())
+        let mockSecret = MockVCCryptoSecret(id: UUID())
         let result = try signer.sign(token: testToken, withSecret: mockSecret)
         XCTAssertEqual(result, expectedResult)
     }
@@ -34,7 +34,7 @@ class Secp256k1Tests: XCTestCase {
         let signer = Secp256k1Signer(using: MockAlgorithm(x: expectedX, y: expectedY))
         let expectedKeyId = "keyId354"
         let expectedPubKey = ECPublicJwk(x: expectedX.base64URLEncodedString(), y: expectedY.base64URLEncodedString(), keyId: expectedKeyId)
-        let mockSecret = MockVcCryptoSecret(id: UUID())
+        let mockSecret = MockVCCryptoSecret(id: UUID())
         let result = try signer.getPublicJwk(from: mockSecret, withKeyId: expectedKeyId)
         XCTAssertEqual(result.x, expectedPubKey.x)
         XCTAssertEqual(result.y, expectedPubKey.y)

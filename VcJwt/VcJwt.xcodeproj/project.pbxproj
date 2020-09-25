@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		47995672177834395CE27F4B /* Pods_VcJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B63B68DC1F3089C55A57704 /* Pods_VcJwt.framework */; };
+		47995672177834395CE27F4B /* Pods_VCJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B63B68DC1F3089C55A57704 /* Pods_VCJwt.framework */; };
 		550F1E56251019BA009AF467 /* KeyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E55251019BA009AF467 /* KeyId.swift */; };
 		550F1E6125115866009AF467 /* ECPublicJwkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6025115866009AF467 /* ECPublicJwkTests.swift */; };
-		55269351250006020051A358 /* VcJwtError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55269350250006020051A358 /* VcJwtError.swift */; };
+		55269351250006020051A358 /* VCJwtError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55269350250006020051A358 /* VCJwtError.swift */; };
 		5540903F25002141001246DB /* MockVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903E25002141001246DB /* MockVerifier.swift */; };
-		5540904725002DC4001246DB /* VcJwt.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5540904625002DC3001246DB /* VcJwt.podspec */; };
+		5540904725002DC4001246DB /* VCJwt.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5540904625002DC3001246DB /* VCJwt.podspec */; };
 		5540904B2500311E001246DB /* ECPublicJwk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540904A2500311E001246DB /* ECPublicJwk.swift */; };
-		55ADE26124F5406000D9990E /* VcJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE25724F5406000D9990E /* VcJwt.framework */; };
-		55ADE26824F5406000D9990E /* VcJwt.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADE25A24F5406000D9990E /* VcJwt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55ADE26124F5406000D9990E /* VCJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE25724F5406000D9990E /* VCJwt.framework */; };
+		55ADE26824F5406000D9990E /* VCJwt.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADE25A24F5406000D9990E /* VCJwt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE27224F5407D00D9990E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27124F5407D00D9990E /* Header.swift */; };
 		55ADE27924F540F700D9990E /* JwsToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27824F540F700D9990E /* JwsToken.swift */; };
 		55ADE27B24F5410400D9990E /* Secp256k1Signer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27A24F5410300D9990E /* Secp256k1Signer.swift */; };
@@ -33,7 +33,7 @@
 		55ADE29D24F583DB00D9990E /* JwsDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29C24F583DB00D9990E /* JwsDecoderTests.swift */; };
 		55ADE2A124F585B100D9990E /* ClaimsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE2A024F585B100D9990E /* ClaimsTest.swift */; };
 		55C6C4A6250816500082BE73 /* Secp256k1Verifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A5250816500082BE73 /* Secp256k1Verifier.swift */; };
-		57596ED25B9CC46CA5DC595D /* Pods_VcJwt_VcJwtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C51FC8EADD798B32ED3A0AA /* Pods_VcJwt_VcJwtTests.framework */; };
+		57596ED25B9CC46CA5DC595D /* Pods_VCJwt_VCJwtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C51FC8EADD798B32ED3A0AA /* Pods_VCJwt_VCJwtTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,23 +42,23 @@
 			containerPortal = 55ADE24E24F5406000D9990E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 55ADE25624F5406000D9990E;
-			remoteInfo = VcJwt;
+			remoteInfo = VCJwt;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C51FC8EADD798B32ED3A0AA /* Pods_VcJwt_VcJwtTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcJwt_VcJwtTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		292415DBE3B3CDCB5E13C6A1 /* Pods-VcJwt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcJwt.debug.xcconfig"; path = "Target Support Files/Pods-VcJwt/Pods-VcJwt.debug.xcconfig"; sourceTree = "<group>"; };
+		0C51FC8EADD798B32ED3A0AA /* Pods_VCJwt_VCJwtTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCJwt_VCJwtTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		292415DBE3B3CDCB5E13C6A1 /* Pods-VCJwt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCJwt.debug.xcconfig"; path = "Target Support Files/Pods-VCJwt/Pods-VCJwt.debug.xcconfig"; sourceTree = "<group>"; };
 		550F1E55251019BA009AF467 /* KeyId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyId.swift; sourceTree = "<group>"; };
 		550F1E6025115866009AF467 /* ECPublicJwkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECPublicJwkTests.swift; sourceTree = "<group>"; };
-		55269350250006020051A358 /* VcJwtError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcJwtError.swift; sourceTree = "<group>"; };
+		55269350250006020051A358 /* VCJwtError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCJwtError.swift; sourceTree = "<group>"; };
 		5540903E25002141001246DB /* MockVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVerifier.swift; sourceTree = "<group>"; };
-		5540904625002DC3001246DB /* VcJwt.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VcJwt.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5540904625002DC3001246DB /* VCJwt.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCJwt.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5540904A2500311E001246DB /* ECPublicJwk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECPublicJwk.swift; sourceTree = "<group>"; };
-		55ADE25724F5406000D9990E /* VcJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VcJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55ADE25A24F5406000D9990E /* VcJwt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VcJwt.h; sourceTree = "<group>"; };
+		55ADE25724F5406000D9990E /* VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55ADE25A24F5406000D9990E /* VCJwt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCJwt.h; sourceTree = "<group>"; };
 		55ADE25B24F5406000D9990E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55ADE26024F5406000D9990E /* VcJwtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VcJwtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55ADE26024F5406000D9990E /* VCJwtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCJwtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ADE26724F5406000D9990E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55ADE27124F5407D00D9990E /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		55ADE27424F540E000D9990E /* VcCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VcCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,10 +78,10 @@
 		55ADE29C24F583DB00D9990E /* JwsDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsDecoderTests.swift; sourceTree = "<group>"; };
 		55ADE2A024F585B100D9990E /* ClaimsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimsTest.swift; sourceTree = "<group>"; };
 		55C6C4A5250816500082BE73 /* Secp256k1Verifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1Verifier.swift; sourceTree = "<group>"; };
-		61998110A525DEEE840A4AEA /* Pods-VcJwt-VcJwtTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcJwt-VcJwtTests.debug.xcconfig"; path = "Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7B63B68DC1F3089C55A57704 /* Pods_VcJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7EABCA3EA82A102A88312AC /* Pods-VcJwt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcJwt.release.xcconfig"; path = "Target Support Files/Pods-VcJwt/Pods-VcJwt.release.xcconfig"; sourceTree = "<group>"; };
-		BCB89E456565497660DB294E /* Pods-VcJwt-VcJwtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcJwt-VcJwtTests.release.xcconfig"; path = "Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests.release.xcconfig"; sourceTree = "<group>"; };
+		61998110A525DEEE840A4AEA /* Pods-VCJwt-VCJwtTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCJwt-VCJwtTests.debug.xcconfig"; path = "Target Support Files/Pods-VCJwt-VCJwtTests/Pods-VCJwt-VCJwtTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B63B68DC1F3089C55A57704 /* Pods_VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7EABCA3EA82A102A88312AC /* Pods-VCJwt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCJwt.release.xcconfig"; path = "Target Support Files/Pods-VCJwt/Pods-VCJwt.release.xcconfig"; sourceTree = "<group>"; };
+		BCB89E456565497660DB294E /* Pods-VCJwt-VCJwtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCJwt-VCJwtTests.release.xcconfig"; path = "Target Support Files/Pods-VCJwt-VCJwtTests/Pods-VCJwt-VCJwtTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47995672177834395CE27F4B /* Pods_VcJwt.framework in Frameworks */,
+				47995672177834395CE27F4B /* Pods_VCJwt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55ADE26124F5406000D9990E /* VcJwt.framework in Frameworks */,
-				57596ED25B9CC46CA5DC595D /* Pods_VcJwt_VcJwtTests.framework in Frameworks */,
+				55ADE26124F5406000D9990E /* VCJwt.framework in Frameworks */,
+				57596ED25B9CC46CA5DC595D /* Pods_VCJwt_VCJwtTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,9 +118,9 @@
 		55ADE24D24F5406000D9990E = {
 			isa = PBXGroup;
 			children = (
-				5540904625002DC3001246DB /* VcJwt.podspec */,
-				55ADE25924F5406000D9990E /* VcJwt */,
-				55ADE26424F5406000D9990E /* VcJwtTests */,
+				5540904625002DC3001246DB /* VCJwt.podspec */,
+				55ADE25924F5406000D9990E /* VCJwt */,
+				55ADE26424F5406000D9990E /* VCJwtTests */,
 				55ADE25824F5406000D9990E /* Products */,
 				55ADE27324F540E000D9990E /* Frameworks */,
 				E4C99449B45161CA965C1ACD /* Pods */,
@@ -130,13 +130,13 @@
 		55ADE25824F5406000D9990E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				55ADE25724F5406000D9990E /* VcJwt.framework */,
-				55ADE26024F5406000D9990E /* VcJwtTests.xctest */,
+				55ADE25724F5406000D9990E /* VCJwt.framework */,
+				55ADE26024F5406000D9990E /* VCJwtTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		55ADE25924F5406000D9990E /* VcJwt */ = {
+		55ADE25924F5406000D9990E /* VCJwt */ = {
 			isa = PBXGroup;
 			children = (
 				5526934F24FF32850051A358 /* algorithms */,
@@ -148,14 +148,14 @@
 				55ADE28024F5412100D9990E /* JwsDecoder.swift */,
 				55ADE28224F5412600D9990E /* TokenSigning.swift */,
 				55ADE28424F5412900D9990E /* TokenVerifying.swift */,
-				55269350250006020051A358 /* VcJwtError.swift */,
-				55ADE25A24F5406000D9990E /* VcJwt.h */,
+				55269350250006020051A358 /* VCJwtError.swift */,
+				55ADE25A24F5406000D9990E /* VCJwt.h */,
 				55ADE25B24F5406000D9990E /* Info.plist */,
 			);
-			path = VcJwt;
+			path = VCJwt;
 			sourceTree = "<group>";
 		};
-		55ADE26424F5406000D9990E /* VcJwtTests */ = {
+		55ADE26424F5406000D9990E /* VCJwtTests */ = {
 			isa = PBXGroup;
 			children = (
 				55ADE28D24F5432000D9990E /* mocks */,
@@ -167,15 +167,15 @@
 				55ADE29624F56A8100D9990E /* Secp256k1Tests.swift */,
 				55ADE2A024F585B100D9990E /* ClaimsTest.swift */,
 			);
-			path = VcJwtTests;
+			path = VCJwtTests;
 			sourceTree = "<group>";
 		};
 		55ADE27324F540E000D9990E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				55ADE27424F540E000D9990E /* VcCrypto.framework */,
-				7B63B68DC1F3089C55A57704 /* Pods_VcJwt.framework */,
-				0C51FC8EADD798B32ED3A0AA /* Pods_VcJwt_VcJwtTests.framework */,
+				7B63B68DC1F3089C55A57704 /* Pods_VCJwt.framework */,
+				0C51FC8EADD798B32ED3A0AA /* Pods_VCJwt_VCJwtTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,10 +194,10 @@
 		E4C99449B45161CA965C1ACD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				292415DBE3B3CDCB5E13C6A1 /* Pods-VcJwt.debug.xcconfig */,
-				B7EABCA3EA82A102A88312AC /* Pods-VcJwt.release.xcconfig */,
-				61998110A525DEEE840A4AEA /* Pods-VcJwt-VcJwtTests.debug.xcconfig */,
-				BCB89E456565497660DB294E /* Pods-VcJwt-VcJwtTests.release.xcconfig */,
+				292415DBE3B3CDCB5E13C6A1 /* Pods-VCJwt.debug.xcconfig */,
+				B7EABCA3EA82A102A88312AC /* Pods-VCJwt.release.xcconfig */,
+				61998110A525DEEE840A4AEA /* Pods-VCJwt-VCJwtTests.debug.xcconfig */,
+				BCB89E456565497660DB294E /* Pods-VCJwt-VCJwtTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../sdk/Pods;
@@ -210,16 +210,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55ADE26824F5406000D9990E /* VcJwt.h in Headers */,
+				55ADE26824F5406000D9990E /* VCJwt.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		55ADE25624F5406000D9990E /* VcJwt */ = {
+		55ADE25624F5406000D9990E /* VCJwt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55ADE26B24F5406000D9990E /* Build configuration list for PBXNativeTarget "VcJwt" */;
+			buildConfigurationList = 55ADE26B24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCJwt" */;
 			buildPhases = (
 				027F4614F321EBC181865447 /* [CP] Check Pods Manifest.lock */,
 				55ADE25224F5406000D9990E /* Headers */,
@@ -231,14 +231,14 @@
 			);
 			dependencies = (
 			);
-			name = VcJwt;
-			productName = VcJwt;
-			productReference = 55ADE25724F5406000D9990E /* VcJwt.framework */;
+			name = VCJwt;
+			productName = VCJwt;
+			productReference = 55ADE25724F5406000D9990E /* VCJwt.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		55ADE25F24F5406000D9990E /* VcJwtTests */ = {
+		55ADE25F24F5406000D9990E /* VCJwtTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55ADE26E24F5406000D9990E /* Build configuration list for PBXNativeTarget "VcJwtTests" */;
+			buildConfigurationList = 55ADE26E24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCJwtTests" */;
 			buildPhases = (
 				5DD1545CC10AE8B5EFDDE45C /* [CP] Check Pods Manifest.lock */,
 				55ADE25C24F5406000D9990E /* Sources */,
@@ -251,9 +251,9 @@
 			dependencies = (
 				55ADE26324F5406000D9990E /* PBXTargetDependency */,
 			);
-			name = VcJwtTests;
-			productName = VcJwtTests;
-			productReference = 55ADE26024F5406000D9990E /* VcJwtTests.xctest */;
+			name = VCJwtTests;
+			productName = VCJwtTests;
+			productReference = 55ADE26024F5406000D9990E /* VCJwtTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -274,7 +274,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VcJwt" */;
+			buildConfigurationList = 55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VCJwt" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -287,8 +287,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				55ADE25624F5406000D9990E /* VcJwt */,
-				55ADE25F24F5406000D9990E /* VcJwtTests */,
+				55ADE25624F5406000D9990E /* VCJwt */,
+				55ADE25F24F5406000D9990E /* VCJwtTests */,
 			);
 		};
 /* End PBXProject section */
@@ -298,7 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5540904725002DC4001246DB /* VcJwt.podspec in Resources */,
+				5540904725002DC4001246DB /* VCJwt.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +327,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VcJwt-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VCJwt-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -340,15 +340,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VCJwt-VCJwtTests/Pods-VCJwt-VCJwtTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-VCJwt-VCJwtTests/Pods-VCJwt-VCJwtTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VcJwt-VcJwtTests/Pods-VcJwt-VcJwtTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCJwt-VCJwtTests/Pods-VCJwt-VCJwtTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5DD1545CC10AE8B5EFDDE45C /* [CP] Check Pods Manifest.lock */ = {
@@ -366,7 +366,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VcJwt-VcJwtTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VCJwt-VCJwtTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -385,7 +385,7 @@
 				55C6C4A6250816500082BE73 /* Secp256k1Verifier.swift in Sources */,
 				55ADE27924F540F700D9990E /* JwsToken.swift in Sources */,
 				55ADE27224F5407D00D9990E /* Header.swift in Sources */,
-				55269351250006020051A358 /* VcJwtError.swift in Sources */,
+				55269351250006020051A358 /* VCJwtError.swift in Sources */,
 				55ADE28524F5412900D9990E /* TokenVerifying.swift in Sources */,
 				55ADE28124F5412100D9990E /* JwsDecoder.swift in Sources */,
 				550F1E56251019BA009AF467 /* KeyId.swift in Sources */,
@@ -417,7 +417,7 @@
 /* Begin PBXTargetDependency section */
 		55ADE26324F5406000D9990E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 55ADE25624F5406000D9990E /* VcJwt */;
+			target = 55ADE25624F5406000D9990E /* VCJwt */;
 			targetProxy = 55ADE26224F5406000D9990E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -545,7 +545,7 @@
 		};
 		55ADE26C24F5406000D9990E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 292415DBE3B3CDCB5E13C6A1 /* Pods-VcJwt.debug.xcconfig */;
+			baseConfigurationReference = 292415DBE3B3CDCB5E13C6A1 /* Pods-VCJwt.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -553,7 +553,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = VcJwt/Info.plist;
+				INFOPLIST_FILE = VCJwt/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -562,8 +562,8 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VcJwt;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCJwt;
+				PRODUCT_NAME = VCJwt;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -572,7 +572,7 @@
 		};
 		55ADE26D24F5406000D9990E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7EABCA3EA82A102A88312AC /* Pods-VcJwt.release.xcconfig */;
+			baseConfigurationReference = B7EABCA3EA82A102A88312AC /* Pods-VCJwt.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -580,7 +580,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = VcJwt/Info.plist;
+				INFOPLIST_FILE = VCJwt/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -589,8 +589,8 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VcJwt;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCJwt;
+				PRODUCT_NAME = VCJwt;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -599,18 +599,18 @@
 		};
 		55ADE26F24F5406000D9990E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61998110A525DEEE840A4AEA /* Pods-VcJwt-VcJwtTests.debug.xcconfig */;
+			baseConfigurationReference = 61998110A525DEEE840A4AEA /* Pods-VCJwt-VCJwtTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = VcJwtTests/Info.plist;
+				INFOPLIST_FILE = VCJwtTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VcJwtTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCJwtTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -619,18 +619,18 @@
 		};
 		55ADE27024F5406000D9990E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCB89E456565497660DB294E /* Pods-VcJwt-VcJwtTests.release.xcconfig */;
+			baseConfigurationReference = BCB89E456565497660DB294E /* Pods-VCJwt-VCJwtTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = VcJwtTests/Info.plist;
+				INFOPLIST_FILE = VCJwtTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VcJwtTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCJwtTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -640,7 +640,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VcJwt" */ = {
+		55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VCJwt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55ADE26924F5406000D9990E /* Debug */,
@@ -649,7 +649,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55ADE26B24F5406000D9990E /* Build configuration list for PBXNativeTarget "VcJwt" */ = {
+		55ADE26B24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCJwt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55ADE26C24F5406000D9990E /* Debug */,
@@ -658,7 +658,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55ADE26E24F5406000D9990E /* Build configuration list for PBXNativeTarget "VcJwtTests" */ = {
+		55ADE26E24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCJwtTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55ADE26F24F5406000D9990E /* Debug */,

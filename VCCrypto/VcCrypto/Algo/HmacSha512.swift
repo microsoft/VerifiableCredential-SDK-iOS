@@ -18,7 +18,7 @@ public struct HmacSha512 {
     ///   - message: The message to authenticate
     ///   - secret: The secret used for authentication
     /// - Returns: The authentication code for the message
-    public func authenticate(message: Data, withSecret secret: VcCryptoSecret) throws -> Data {
+    public func authenticate(message: Data, withSecret secret: VCCryptoSecret) throws -> Data {
         guard message.count > 0 else { throw HmacSha512Error.invalidMessage }
         guard secret is Secret else { throw HmacSha512Error.invalidSecret }
         
@@ -38,7 +38,7 @@ public struct HmacSha512 {
     ///   - message: The message
     ///   - secret: The secret used
     /// - Returns: True if the authentication code is valid
-    public func isValidAuthenticationCode(_ mac: Data, authenticating message: Data, withSecret secret: VcCryptoSecret) throws -> Bool {
+    public func isValidAuthenticationCode(_ mac: Data, authenticating message: Data, withSecret secret: VCCryptoSecret) throws -> Bool {
         let authCode = try self.authenticate(message: message, withSecret: secret)
         return mac == authCode
     }

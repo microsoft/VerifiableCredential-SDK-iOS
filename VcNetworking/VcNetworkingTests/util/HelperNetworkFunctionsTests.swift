@@ -7,7 +7,7 @@ import XCTest
 import Foundation
 import PromiseKit
 
-@testable import VcNetworking
+@testable import VCNetworking
 
 class HelperNetworkFunctionsTests: XCTestCase {
     

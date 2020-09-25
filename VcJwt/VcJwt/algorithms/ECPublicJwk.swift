@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcCrypto
+import VCCrypto
 
 public struct ECPublicJwk: Codable {
     var keyType: String = ""
@@ -49,7 +49,7 @@ public struct ECPublicJwk: Codable {
         let hashAlgorithm = Sha256()
         
         guard let encodedJwk = self.getMinimumAlphabeticJwk().data(using: .utf8) else {
-            throw VcJwtError.unableToParseString
+            throw VCJwtError.unableToParseString
         }
         print(String(data: encodedJwk, encoding: .utf8)!)
         

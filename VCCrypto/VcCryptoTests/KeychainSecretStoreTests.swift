@@ -7,7 +7,7 @@ import Foundation
 
 
 import XCTest
-@testable import VcCrypto
+@testable import VCCrypto
 
 class KeychainSecretStoreTests: XCTestCase {
     

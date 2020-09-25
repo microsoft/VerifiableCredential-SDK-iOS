@@ -3,11 +3,11 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcCrypto
+import VCCrypto
 
 public protocol TokenSigning {
      
-    func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature
+    func sign<T>(token: JwsToken<T>, withSecret secret: VCCryptoSecret) throws -> Signature
     
-    func getPublicJwk(from secret: VcCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk
+    func getPublicJwk(from secret: VCCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk
 }

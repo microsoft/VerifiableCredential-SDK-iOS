@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcCrypto
+import VCCrypto
 
 public struct Secp256k1Verifier: TokenVerifying {
     
@@ -22,7 +22,7 @@ public struct Secp256k1Verifier: TokenVerifying {
         }
         
         guard let encodedMessage = try token.getProtectedMessage().data(using: .utf8) else {
-            throw VcJwtError.unableToParseString
+            throw VCJwtError.unableToParseString
         }
         
         let hashedMessage = self.hashAlgorithm.hash(data: encodedMessage)

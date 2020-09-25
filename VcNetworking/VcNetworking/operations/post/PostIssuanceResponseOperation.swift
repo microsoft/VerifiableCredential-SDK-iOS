@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VcJwt
+import VCJwt
 
 public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
 

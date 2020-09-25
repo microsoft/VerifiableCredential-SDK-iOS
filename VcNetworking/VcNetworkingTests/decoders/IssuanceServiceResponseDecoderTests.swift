@@ -4,9 +4,9 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VcJwt
+import VCJwt
 
-@testable import VcNetworking
+@testable import VCNetworking
 
 class IssuanceServiceResponseDecoderTests: XCTestCase {
     

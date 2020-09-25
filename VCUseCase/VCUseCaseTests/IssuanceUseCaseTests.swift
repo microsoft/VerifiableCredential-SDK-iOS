@@ -5,9 +5,9 @@
 
 import XCTest
 import VCRepository
-import VcNetworking
-import VcJwt
-import VcCrypto
+import VCNetworking
+import VCJwt
+import VCCrypto
 
 @testable import VCUseCase
 

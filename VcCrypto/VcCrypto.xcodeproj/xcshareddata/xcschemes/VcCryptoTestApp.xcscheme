@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "92CDE7EC24DE1C6100F95B5D"
-               BuildableName = "VcCryptoTestApp.app"
-               BlueprintName = "VcCryptoTestApp"
-               ReferencedContainer = "container:VcCrypto.xcodeproj">
+               BuildableName = "VCCryptoTestApp.app"
+               BlueprintName = "VCCryptoTestApp"
+               ReferencedContainer = "container:VCCrypto.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "92CDE7EC24DE1C6100F95B5D"
-            BuildableName = "VcCryptoTestApp.app"
-            BlueprintName = "VcCryptoTestApp"
-            ReferencedContainer = "container:VcCrypto.xcodeproj">
+            BuildableName = "VCCryptoTestApp.app"
+            BlueprintName = "VCCryptoTestApp"
+            ReferencedContainer = "container:VCCrypto.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "92CDE7EC24DE1C6100F95B5D"
-            BuildableName = "VcCryptoTestApp.app"
-            BlueprintName = "VcCryptoTestApp"
-            ReferencedContainer = "container:VcCrypto.xcodeproj">
+            BuildableName = "VCCryptoTestApp.app"
+            BlueprintName = "VCCryptoTestApp"
+            ReferencedContainer = "container:VCCrypto.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

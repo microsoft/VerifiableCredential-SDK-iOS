@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "92CDE7A924DC78DD00F95B5D"
-               BuildableName = "VcCrypto.framework"
-               BlueprintName = "VcCrypto"
-               ReferencedContainer = "container:../VcCrypto/VcCrypto.xcodeproj">
+               BuildableName = "VCCrypto.framework"
+               BlueprintName = "VCCrypto"
+               ReferencedContainer = "container:../VCCrypto/VCCrypto.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "55ADE25624F5406000D9990E"
-               BuildableName = "VcJwt.framework"
-               BlueprintName = "VcJwt"
-               ReferencedContainer = "container:../VcJwt/VcJwt.xcodeproj">
+               BuildableName = "VCJwt.framework"
+               BlueprintName = "VCJwt"
+               ReferencedContainer = "container:../VCJwt/VCJwt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -57,9 +57,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "55D7BFE924C4CBBD0090F495"
-               BuildableName = "VcNetworking.framework"
-               BlueprintName = "VcNetworking"
-               ReferencedContainer = "container:../VcNetworking/VcNetworking.xcodeproj">
+               BuildableName = "VCNetworking.framework"
+               BlueprintName = "VCNetworking"
+               ReferencedContainer = "container:../VCNetworking/VCNetworking.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -85,9 +85,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "92CDE7B224DC78DD00F95B5D"
-               BuildableName = "VcCryptoTests.xctest"
-               BlueprintName = "VcCryptoTests"
-               ReferencedContainer = "container:../VcCrypto/VcCrypto.xcodeproj">
+               BuildableName = "VCCryptoTests.xctest"
+               BlueprintName = "VCCryptoTests"
+               ReferencedContainer = "container:../VCCrypto/VCCrypto.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -99,9 +99,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "55ADE25F24F5406000D9990E"
-               BuildableName = "VcJwtTests.xctest"
-               BlueprintName = "VcJwtTests"
-               ReferencedContainer = "container:../VcJwt/VcJwt.xcodeproj">
+               BuildableName = "VCJwtTests.xctest"
+               BlueprintName = "VCJwtTests"
+               ReferencedContainer = "container:../VCJwt/VCJwt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -113,9 +113,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "55D7BFF224C4CBBD0090F495"
-               BuildableName = "VcNetworkingTests.xctest"
-               BlueprintName = "VcNetworkingTests"
-               ReferencedContainer = "container:../VcNetworking/VcNetworking.xcodeproj">
+               BuildableName = "VCNetworkingTests.xctest"
+               BlueprintName = "VCNetworkingTests"
+               ReferencedContainer = "container:../VCNetworking/VCNetworking.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -183,9 +183,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "92CDE7B224DC78DD00F95B5D"
-               BuildableName = "VcCryptoTests.xctest"
-               BlueprintName = "VcCryptoTests"
-               ReferencedContainer = "container:../VcCrypto/VcCrypto.xcodeproj">
+               BuildableName = "VCCryptoTests.xctest"
+               BlueprintName = "VCCryptoTests"
+               ReferencedContainer = "container:../VCCrypto/VCCrypto.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -193,9 +193,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "55ADE25F24F5406000D9990E"
-               BuildableName = "VcJwtTests.xctest"
-               BlueprintName = "VcJwtTests"
-               ReferencedContainer = "container:../VcJwt/VcJwt.xcodeproj">
+               BuildableName = "VCJwtTests.xctest"
+               BlueprintName = "VCJwtTests"
+               ReferencedContainer = "container:../VCJwt/VCJwt.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -203,9 +203,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "55D7BFF224C4CBBD0090F495"
-               BuildableName = "VcNetworkingTests.xctest"
-               BlueprintName = "VcNetworkingTests"
-               ReferencedContainer = "container:../VcNetworking/VcNetworking.xcodeproj">
+               BuildableName = "VCNetworkingTests.xctest"
+               BlueprintName = "VCNetworkingTests"
+               ReferencedContainer = "container:../VCNetworking/VCNetworking.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference

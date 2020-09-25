@@ -4,9 +4,9 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VcCrypto
+import VCCrypto
 
-@testable import VcJwt
+@testable import VCJwt
 
 class ECPublicJwkTests: XCTestCase {
     

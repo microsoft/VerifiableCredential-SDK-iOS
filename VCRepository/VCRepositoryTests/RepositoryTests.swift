@@ -5,8 +5,8 @@
 
 import XCTest
 import PromiseKit
-import VcNetworking
-import VcJwt
+import VCNetworking
+import VCJwt
 
 @testable import VCRepository
 

@@ -3,9 +3,9 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcNetworking
+import VCNetworking
 import PromiseKit
-import VcJwt
+import VCJwt
 
 public class IssuanceRepository {
     

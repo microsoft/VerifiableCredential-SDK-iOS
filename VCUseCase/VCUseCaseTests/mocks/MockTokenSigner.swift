@@ -4,8 +4,8 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VcJwt
-import VcCrypto
+import VCJwt
+import VCCrypto
 
 @testable import VCUseCase
 
@@ -22,12 +22,12 @@ struct MockTokenSigner: TokenSigning {
         self.y = y
     }
     
-    func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature where T : Claims {
+    func sign<T>(token: JwsToken<T>, withSecret secret: VCCryptoSecret) throws -> Signature where T : Claims {
         MockTokenSigner.wasSignCalled = true
         return Data(count: 64)
     }
     
-    func getPublicJwk(from secret: VcCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk {
+    func getPublicJwk(from secret: VCCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk {
         MockTokenSigner.wasGetPublicJwkCalled = true
         return ECPublicJwk(x: self.x, y: self.y, keyId: keyId)
     }
