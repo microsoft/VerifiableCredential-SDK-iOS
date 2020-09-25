@@ -13,5 +13,7 @@ Pod::Spec.new do |spec|
   spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   spec.exclude_files = "Classes/Exclude"
   spec.framework  = "Foundation"
+  spec.dependency "PromiseKit"
+  spec.dependency "secp256k1_ios"
 
 end

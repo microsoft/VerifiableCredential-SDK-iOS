@@ -32,6 +32,7 @@ target 'sdk' do
   pod 'VCUseCase', path: '../VCUseCase'
   pod 'VCRepository', path: '../VCRepository'
   pod 'VCNetworking', path: '../VCNetworking'
+  pod 'VCEntities', path: '../VCEntities'
   pod 'VCJwt', path: '../VCJwt'
   pod 'VCCrypto', path: '../VCCrypto'
   target 'sdkTests'

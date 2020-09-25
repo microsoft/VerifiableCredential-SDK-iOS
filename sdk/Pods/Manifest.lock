@@ -17,7 +17,9 @@ PODS:
     - PromiseKit
     - secp256k1_ios
   - VCRepository (0.0.1-beta.0)
-  - VCUseCase (0.0.1-beta.0)
+  - VCUseCase (0.0.1-beta.0):
+    - PromiseKit
+    - secp256k1_ios
 
 DEPENDENCIES:
   - PromiseKit
@@ -56,8 +58,8 @@ SPEC CHECKSUMS:
   VCJwt: 328846df76f27bf015260673e64a94b6be6c6917
   VCNetworking: f5acef68620300a895630addd440d7037c67938a
   VCRepository: 7c0149cc4cb10efc11b7895c02a56d353d0030e4
-  VCUseCase: fb18b41eb8e05e2e3f4bb3fee6b6072531b0c5c6
+  VCUseCase: 52860bbec1f1a16aca26a187df7c9de23e494064
 
-PODFILE CHECKSUM: 48f7693482318a5951ac544657a81c287efe0d45
+PODFILE CHECKSUM: 11a2f04d31711cb99bf61bf49e99a6b7e964ba4c
 
 COCOAPODS: 1.8.4
