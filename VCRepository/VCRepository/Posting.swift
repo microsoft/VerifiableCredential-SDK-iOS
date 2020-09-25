@@ -14,8 +14,10 @@ protocol Posting {
 
 extension Posting {
     
-    func post<PostOp: PostNetworkOperation>(_ type: PostOp.Type, usingUrl url: String, withBody body: PostOp.RequestBody) -> Promise<PostOp.ResponseBody> {
-        return networkOperationFactory.createPostOperation(PostOp.self, withUrl: url, withRequestBody: body).then { operation in
+    public func post<PostOp: PostNetworkOperation>(_ type: PostOp.Type, usingUrl url: String, withBody body: PostOp.RequestBody) -> Promise<PostOp.ResponseBody> {
+        return firstly {
+            networkOperationFactory.createPostOperation(PostOp.self, withUrl: url, withRequestBody: body)
+        }.then { operation in
             operation.fire()
         }
     }

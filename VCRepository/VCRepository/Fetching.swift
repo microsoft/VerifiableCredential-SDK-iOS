@@ -8,13 +8,11 @@ import PromiseKit
 
 protocol Fetching {
     var networkOperationFactory: NetworkOperationCreating { get }
-    
-    func get<FetchOp: NetworkOperation>(_ type: FetchOp.Type, usingUrl url: String) -> Promise<FetchOp.ResponseBody>
 }
 
 extension Fetching {
     
-    func get<FetchOp: NetworkOperation>(_ type: FetchOp.Type, usingUrl url: String) -> Promise<FetchOp.ResponseBody> {
+    public func get<FetchOp: NetworkOperation>(_ type: FetchOp.Type, usingUrl url: String) -> Promise<FetchOp.ResponseBody> {
         return networkOperationFactory.createFetchOperation(FetchOp.self, withUrl: url).then { operation in
             operation.fire()
         }

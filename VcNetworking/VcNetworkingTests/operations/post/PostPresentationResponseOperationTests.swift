@@ -34,7 +34,7 @@ class PostIssuanceResponseOperationTests: XCTestCase {
         XCTAssertEqual(postPresentationResponseOperation.urlRequest.url!.absoluteString, expectedUrl)
         XCTAssertEqual(postPresentationResponseOperation.urlRequest.httpBody!, self.expectedEncodedBody)
         XCTAssertEqual(postPresentationResponseOperation.urlRequest.httpMethod!, Constants.POST)
-        XCTAssertEqual(postPresentationResponseOperation.urlRequest.value(forHTTPHeaderField: Constants.CONTENT_TYPE)!, Constants.FORM_URLENCODED)
+        XCTAssertEqual(postPresentationResponseOperation.urlRequest.value(forHTTPHeaderField: Constants.CONTENT_TYPE)!, Constants.PLAIN_TEXT)
     }
 
     func testInvalidUrlInit() {

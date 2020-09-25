@@ -3,6 +3,10 @@ use_frameworks!
 platform :ios, '11.0'
 workspace '../sdk'
 
+def vcusecase_pods
+  podspec :path => '../VCUseCase/VCUseCase.podspec'
+end
+
 def vcrepository_pods
   podspec :path => '../VCRepository/VCRepository.podspec'
 end
@@ -21,8 +25,22 @@ end
 
 target 'sdk' do
   project '../sdk/sdk.xcodeproj'
+  pod 'VCUseCase', path: '../VCUseCase'
+  pod 'VCRepository', path: '../VCRepository'
   pod 'VcNetworking', path: '../VcNetworking'
+  pod 'VcJwt', path: '../VcJwt'
+  pod 'VcCrypto', path: '../VcCrypto'
   target 'sdkTests'
+end
+
+target 'VCUseCase' do
+  project '../VCUseCase/VCUseCase.xcodeproj'
+  vcusecase_pods
+  pod 'VCRepository', path: '../VCRepository'
+  pod 'VcNetworking', path: '../VcNetworking'
+  pod 'VcJwt', path: '../VcJwt'
+  pod 'VcCrypto', path: '../VcCrypto'
+  target 'VCUseCaseTests'
 end
 
 target 'VCRepository' do

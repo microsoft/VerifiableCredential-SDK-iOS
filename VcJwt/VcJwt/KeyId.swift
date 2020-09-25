@@ -3,14 +3,12 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VcNetworking
+import VcCrypto
 
-@testable import VCRepository
-
-class MockEncoder: Encoding {
-    typealias RequestBody = String
+public struct KeyId: VcCryptoSecret {
+    public let id: UUID
     
-    func encode(value: String) throws -> Data {
-        return value.data(using: .utf8)!
+    public init(id: UUID) {
+        self.id = id
     }
 }

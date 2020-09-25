@@ -3,8 +3,9 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct ConsentDisplayDescriptor: Codable, Equatable {
+public struct ConsentDisplayDescriptor: Codable, Equatable {
     
-    let title: String = ""
-    let instructions: String = ""
+    public let title: String?
+    public let instructions: String?
+
 }

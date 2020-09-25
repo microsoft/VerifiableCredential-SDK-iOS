@@ -5,7 +5,16 @@
 
 import VcJwt
 
-struct AttestationResponseDescriptor: Codable {
-    let idTokens: [String: String]? = nil
-    let presentations: [String: String]? = nil
+public struct AttestationResponseDescriptor: Codable {
+    public let idTokens: [String: String]?
+    public let presentations: [String: String]?
+    public let selfIssued: [String: String]?
+    
+    public init(idTokens: [String: String]? = nil,
+                presentations: [String: String]? = nil,
+                selfIssued: [String: String]? = nil) {
+        self.idTokens = idTokens
+        self.presentations = presentations
+        self.selfIssued = selfIssued
+    }
 }

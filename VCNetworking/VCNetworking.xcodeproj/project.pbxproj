@@ -39,6 +39,7 @@
 		550F1D9F250B0C42009AF467 /* VerifiableCredentialDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D9E250B0C42009AF467 /* VerifiableCredentialDescriptor.swift */; };
 		550F1DA1250B0C50009AF467 /* ServiceDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DA0250B0C50009AF467 /* ServiceDescriptor.swift */; };
 		550F1DEC250D668D009AF467 /* PostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */; };
+		555756F5251ADA62009979AB /* JSONCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756F4251ADA62009979AB /* JSONCodingKeys.swift */; };
 		55C6C4A925083D370082BE73 /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A825083D370082BE73 /* Decoding.swift */; };
 		55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */; };
 		55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AC250843920082BE73 /* ContractDecoder.swift */; };
@@ -116,6 +117,7 @@
 		550F1D9E250B0C42009AF467 /* VerifiableCredentialDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialDescriptor.swift; sourceTree = "<group>"; };
 		550F1DA0250B0C50009AF467 /* ServiceDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDescriptor.swift; sourceTree = "<group>"; };
 		550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkOperation.swift; sourceTree = "<group>"; };
+		555756F4251ADA62009979AB /* JSONCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodingKeys.swift; sourceTree = "<group>"; };
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
 		55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseDecoder.swift; sourceTree = "<group>"; };
 		55C6C4AC250843920082BE73 /* ContractDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDecoder.swift; sourceTree = "<group>"; };
@@ -146,7 +148,7 @@
 		55D1683924EB0E3600AD2F98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D1687E24EB16FE00AD2F98 /* VCSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFEA24C4CBBD0090F495 /* VcNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VcNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55D7BFF324C4CBBD0090F495 /* VCNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = VCNetworkingTests.xctest; path = VcNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55D7BFF324C4CBBD0090F495 /* VcNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VcNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFC5C70E7C37B5F26B3EC9C /* Pods-networking-networkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking-networkingTests.release.xcconfig"; path = "Target Support Files/Pods-networking-networkingTests/Pods-networking-networkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		85A55BEB5EF86373FCF91943 /* Pods_VcNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VcNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CCEA58DE28868E44CEDFAE /* Pods-VcNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VcNetworking.release.xcconfig"; path = "Target Support Files/Pods-VcNetworking/Pods-VcNetworking.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				550F1D722509814F009AF467 /* contract */,
 				550F1D6825096E10009AF467 /* claims */,
 				550F1D91250AEA99009AF467 /* IssuanceServiceResponse.swift */,
+				555756F4251ADA62009979AB /* JSONCodingKeys.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -468,7 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				55D7BFEA24C4CBBD0090F495 /* VcNetworking.framework */,
-				55D7BFF324C4CBBD0090F495 /* VCNetworkingTests.xctest */,
+				55D7BFF324C4CBBD0090F495 /* VcNetworkingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -554,7 +557,7 @@
 			);
 			name = VcNetworkingTests;
 			productName = networkingTests;
-			productReference = 55D7BFF324C4CBBD0090F495 /* VCNetworkingTests.xctest */;
+			productReference = 55D7BFF324C4CBBD0090F495 /* VcNetworkingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -693,6 +696,7 @@
 				55D1682224EB0E1D00AD2F98 /* SimpleFailureHandler.swift in Sources */,
 				55D1682024EB0E1D00AD2F98 /* FetchContractOperation.swift in Sources */,
 				55D1681D24EB0E1D00AD2F98 /* RetryHandler.swift in Sources */,
+				555756F5251ADA62009979AB /* JSONCodingKeys.swift in Sources */,
 				550F1D7A2509827C009AF467 /* LogoDisplayDescriptor.swift in Sources */,
 				550F1D6C25096EA3009AF467 /* IssuanceResponseClaims.swift in Sources */,
 				550F1D76250981C4009AF467 /* CardDisplayDescriptor.swift in Sources */,
@@ -896,7 +900,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networking;
 				PRODUCT_NAME = VcNetworking;
 				SKIP_INSTALL = YES;
@@ -924,7 +928,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networking;
 				PRODUCT_NAME = VcNetworking;
 				SKIP_INSTALL = YES;
@@ -946,6 +950,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_bundle;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networkingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -966,6 +971,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_bundle;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networkingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

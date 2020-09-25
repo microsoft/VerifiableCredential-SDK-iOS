@@ -7,19 +7,12 @@ import VcNetworking
 import PromiseKit
 
 class MockPostNetworkOperation: PostNetworkOperation {
-    typealias Encoder = MockEncoder
     typealias RequestBody = String
-    typealias Decoder = MockDecoder
     
-    var decoder: MockDecoder = MockDecoder()
-    var encoder: MockEncoder = MockEncoder()
-    var urlSession: URLSession = URLSession.shared
-    var urlRequest: URLRequest
     static var wasFireCalled: Bool = false
     let result: String
     
-    init(url: String, result: String) {
-        self.urlRequest = URLRequest(url: URL(string: url)!)
+    init(result: String) {
         self.result = result
     }
     

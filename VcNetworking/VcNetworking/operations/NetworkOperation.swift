@@ -5,11 +5,15 @@
 
 import PromiseKit
 
-/**
- * Base Network Operation class with default methods for all Network Operations.
- * ResponseBody: the type of object returned by the service.
- */
+internal protocol InternalNetworkOperation: NetworkOperation & InternalOperation {}
+
 public protocol NetworkOperation {
+    associatedtype ResponseBody
+    
+    func fire() -> Promise<ResponseBody>
+}
+
+protocol InternalOperation {
     associatedtype Decoder: Decoding
     associatedtype ResponseBody where Decoder.ResponseBody == ResponseBody
     
@@ -19,11 +23,9 @@ public protocol NetworkOperation {
     var retryHandler: RetryHandler { get }
     var urlSession: URLSession { get }
     var urlRequest: URLRequest { get }
-    
-    func fire() -> Promise<ResponseBody>
 }
 
-public extension NetworkOperation {
+extension InternalNetworkOperation {
     
     var successHandler: SuccessHandler {
         return SimpleSuccessHandler()
@@ -41,10 +43,10 @@ public extension NetworkOperation {
         return URLSession.shared
     }
     
-    func fire() -> Promise<ResponseBody> {
+    public func fire() -> Promise<ResponseBody> {
         return firstly {
             retryHandler.onRetry {
-                self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)
+                return self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)
             }
         }
     }

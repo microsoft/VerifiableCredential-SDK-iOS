@@ -6,15 +6,16 @@
 import Foundation
 import VcJwt
 
-public class PostIssuanceResponseOperation: PostNetworkOperation {
-    public typealias Encoder = IssuanceResponseEncoder
+public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
+
+    typealias Encoder = IssuanceResponseEncoder
     public typealias RequestBody = JwsToken<IssuanceResponseClaims>
     public typealias ResponseBody = VerifiableCredential
     
-    public let decoder = IssuanceServiceResponseDecoder()
+    let decoder = IssuanceServiceResponseDecoder()
     let encoder = IssuanceResponseEncoder()
-    public let urlSession: URLSession
-    public let urlRequest: URLRequest
+    let urlSession: URLSession
+    let urlRequest: URLRequest
     
     public init(withUrl urlStr: String, withBody body: JwsToken<IssuanceResponseClaims>, urlSession: URLSession = URLSession.shared) throws {
         
@@ -22,11 +23,12 @@ public class PostIssuanceResponseOperation: PostNetworkOperation {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = Constants.POST
-        urlRequest.httpBody = try self.encoder.encode(value: body)
-        urlRequest.addValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
-        self.urlRequest = urlRequest
+        var request = URLRequest(url: url)
+        request.httpMethod = Constants.POST
+        request.httpBody = try self.encoder.encode(value: body)
+        request.setValue(Constants.PLAIN_TEXT, forHTTPHeaderField: Constants.CONTENT_TYPE)
+        
+        self.urlRequest = request
         self.urlSession = urlSession
     }
 }

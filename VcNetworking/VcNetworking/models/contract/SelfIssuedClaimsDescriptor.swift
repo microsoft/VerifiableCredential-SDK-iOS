@@ -3,11 +3,11 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct SelfIssuedClaimsDescriptor: Codable, Equatable {
+public struct SelfIssuedClaimsDescriptor: Codable, Equatable {
     
-    let encrypted: Bool = false
-    let claims: [ClaimDescriptor] = []
-    let selfIssuedRequired: Bool = false
+    public let encrypted: Bool?
+    public let claims: [ClaimDescriptor]?
+    public let selfIssuedRequired: Bool?
 
     enum CodingKeys: String, CodingKey {
         case encrypted, claims

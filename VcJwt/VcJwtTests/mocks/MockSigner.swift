@@ -12,4 +12,8 @@ class MockSigner: TokenSigning {
         return "fakeSignature".data(using: .utf8)!
     }
     
+    func getPublicJwk(from secret: VcCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk {
+        return ECPublicJwk(x: "x", y: "y", keyId: "keyId")
+    }
+    
 }

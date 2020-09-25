@@ -7,36 +7,51 @@ import VcJwt
 
 public struct IssuanceResponseClaims: OIDCClaims {
     
-    let responseType: String = ""
+    public let issuer: String = "https://self-issued.me"
+        
+    public let publicKeyThumbprint: String
     
-    let responseMode: String = ""
+    public let audience: String
     
-    let clientID: String = ""
+    public let did: String
     
-    let redirectURI: String = ""
+    public let publicJwk: ECPublicJwk?
     
-    let publicKeyThumbprint: String = ""
+    public let contract: String
     
-    let audience: String = ""
+    public let jti: String
     
-    let did: String = ""
+    public let attestations: AttestationResponseDescriptor?
     
-    let publicJwk: ECPublicJwk = ECPublicJwk()
+    public let iat: Double?
     
-    let contract: String = ""
+    public let exp: Double?
     
-    let jti: String = ""
-    
-    let attestations: AttestationResponseDescriptor? = nil
+    public init(publicKeyThumbprint: String = "",
+                audience: String = "",
+                did: String = "",
+                publicJwk: ECPublicJwk? = nil,
+                contract: String = "",
+                jti: String = "",
+                attestations: AttestationResponseDescriptor? = nil,
+                iat: Double? = nil,
+                exp: Double? = nil) {
+        self.publicKeyThumbprint = publicKeyThumbprint
+        self.audience = audience
+        self.did = did
+        self.publicJwk = publicJwk
+        self.contract = contract
+        self.jti = jti
+        self.attestations = attestations
+        self.iat = iat
+        self.exp = exp
+    }
     
     enum CodingKeys: String, CodingKey {
-        case responseType = "response_type"
-        case responseMode = "response_mode"
-        case clientID = "client_id"
-        case redirectURI = "redirect_uri"
+        case issuer = "iss"
         case publicKeyThumbprint = "sub"
         case audience = "aud"
         case publicJwk = "sub_jwk"
-        case contract, attestations, jti
+        case contract, attestations, jti, did, iat, exp
     }
 }

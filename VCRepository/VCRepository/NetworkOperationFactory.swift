@@ -11,9 +11,11 @@ enum RepositoryError: Error {
     case unsupportedNetworkOperation
 }
 
-class NetworkOperationFactory: NetworkOperationCreating {
+public class NetworkOperationFactory: NetworkOperationCreating {
     
-    func createFetchOperation<T: NetworkOperation>(_ type: T.Type, withUrl url: String) -> Promise<T> {
+    public init() {}
+    
+    public func createFetchOperation<T: NetworkOperation>(_ type: T.Type, withUrl url: String) -> Promise<T> {
         return Promise { seal in
             switch type {
             case is FetchContractOperation.Type:
@@ -24,7 +26,7 @@ class NetworkOperationFactory: NetworkOperationCreating {
         }
     }
     
-    func createPostOperation<T: PostNetworkOperation>(_ type: T.Type, withUrl url: String, withRequestBody body: T.RequestBody) -> Promise<T> {
+    public func createPostOperation<T: PostNetworkOperation>(_ type: T.Type, withUrl url: String, withRequestBody body: T.RequestBody) -> Promise<T> {
         return Promise { seal in
             switch type {
             case is PostIssuanceResponseOperation.Type:

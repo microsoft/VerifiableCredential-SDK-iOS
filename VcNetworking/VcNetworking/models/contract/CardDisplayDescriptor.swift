@@ -3,14 +3,14 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct CardDisplayDescriptor: Codable, Equatable {
+public struct CardDisplayDescriptor: Codable, Equatable {
     
-    let title: String = ""
-    let issuedBy: String = ""
-    let backgroundColor: String = ""
-    let textColor: String = ""
-    let logo: LogoDisplayDescriptor = LogoDisplayDescriptor()
-    let cardDescription: String = ""
+    public let title: String?
+    public let issuedBy: String?
+    public let backgroundColor: String?
+    public let textColor: String?
+    public let logo: LogoDisplayDescriptor?
+    public let cardDescription: String?
 
     enum CodingKeys: String, CodingKey {
         case title, issuedBy, backgroundColor, textColor, logo

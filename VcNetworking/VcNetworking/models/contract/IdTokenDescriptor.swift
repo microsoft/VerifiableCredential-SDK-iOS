@@ -3,14 +3,14 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct IdTokenDescriptor: Codable, Equatable {
+public struct IdTokenDescriptor: Codable, Equatable {
     
-    let encrypted: Bool = false
-    let claims: [ClaimDescriptor] = []
-    let idTokenRequired: Bool = false
-    let configuration: String = ""
-    let clientID: String = ""
-    let redirectURI: String = ""
+    public let encrypted: Bool?
+    public let claims: [ClaimDescriptor]?
+    public let idTokenRequired: Bool?
+    public let configuration: String?
+    public let clientID: String?
+    public let redirectURI: String?
 
     enum CodingKeys: String, CodingKey {
         case encrypted, claims

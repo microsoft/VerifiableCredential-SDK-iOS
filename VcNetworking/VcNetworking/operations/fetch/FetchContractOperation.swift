@@ -6,7 +6,7 @@
 import Foundation
 import PromiseKit
 
-public class FetchContractOperation: NetworkOperation {
+public class FetchContractOperation: InternalNetworkOperation {
     public typealias ResponseBody = Contract
     
     public let decoder: ContractDecoder = ContractDecoder()

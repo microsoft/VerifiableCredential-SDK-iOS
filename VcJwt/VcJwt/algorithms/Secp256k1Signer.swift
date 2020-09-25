@@ -5,25 +5,30 @@
 
 import VcCrypto
 
-struct Secp256k1Signer: TokenSigning {
+public struct Secp256k1Signer: TokenSigning {
     
     private let algorithm: Signing
     private let hashAlgorithm: Sha256
     
-    init?(using algorithm: Signing = Secp256k1(), andHashAlgorithm hashAlg: Sha256 = Sha256()) {
+    public init(using algorithm: Signing = Secp256k1(), andHashAlgorithm hashAlg: Sha256 = Sha256()) {
         self.algorithm = algorithm
         self.hashAlgorithm = hashAlg
     }
 
-    func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature {
+    public func sign<T>(token: JwsToken<T>, withSecret secret: VcCryptoSecret) throws -> Signature {
         
         let encodedMessage = try token.getProtectedMessage()
 
-        guard let messageData = encodedMessage.data(using: .utf8) else {
+        guard let messageData = encodedMessage.data(using: .ascii) else {
             throw VcJwtError.unableToParseData
         }
         
         let hashedMessage = hashAlgorithm.hash(data: messageData)
         return try algorithm.sign(messageHash: hashedMessage, withSecret: secret)
+    }
+    
+    public func getPublicJwk(from secret: VcCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk {
+        let key = try self.algorithm.createPublicKey(forSecret: secret)
+        return ECPublicJwk(withPublicKey: key, withKeyId: keyId)
     }
 }

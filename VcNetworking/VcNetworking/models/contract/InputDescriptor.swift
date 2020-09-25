@@ -3,10 +3,11 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct InputDescriptor: Codable, Equatable {
+public struct InputDescriptor: Codable, Equatable {
     
-    let id: String = ""
-    let credentialIssuer: String = ""
-    let issuer: String = ""
-    let attestations: AttestationsDescriptor = AttestationsDescriptor()
+    public let id: String?
+    public let credentialIssuer: String?
+    public let issuer: String?
+    public let attestations: AttestationsDescriptor?
+    
 }

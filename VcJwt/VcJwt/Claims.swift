@@ -6,21 +6,21 @@
 /// Basic Claims within a JWS token.
 public protocol Claims: Codable {
     
-    var iat: String { get }
-    var exp: String { get }
-    var nbf: String { get }
+    var iat: Double? { get }
+    var exp: Double? { get }
+    var nbf: Double? { get }
 }
 
 public extension Claims {
-    var iat: String {
-        return ""
+    var iat: Double? {
+        return nil
     }
     
-    var exp: String {
-        return ""
+    var exp: Double? {
+        return nil
     }
     
-    var nbf: String {
-        return ""
+    var nbf: Double? {
+        return nil
     }
 }

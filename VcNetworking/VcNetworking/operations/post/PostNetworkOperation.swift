@@ -5,10 +5,13 @@
 
 import PromiseKit
 
-/**
- * Post Network Operation Protocol with default methods for all Post Network Operations.
- */
+internal protocol InternalPostNetworkOperation: PostNetworkOperation & InternalPostOperation {}
+
 public protocol PostNetworkOperation: NetworkOperation {
+    associatedtype RequestBody
+}
+
+protocol InternalPostOperation: InternalNetworkOperation {
     associatedtype Encoder: Encoding
     associatedtype RequestBody where RequestBody == Encoder.RequestBody
 }

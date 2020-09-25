@@ -22,17 +22,30 @@ class Secp256k1Tests: XCTestCase {
     }
 
     func testSigner() throws {
-        let signer = Secp256k1Signer(using: MockAlgorithm())!
+        let signer = Secp256k1Signer(using: MockAlgorithm())
         let mockSecret = MockVcCryptoSecret(id: UUID())
         let result = try signer.sign(token: testToken, withSecret: mockSecret)
         XCTAssertEqual(result, expectedResult)
+    }
+    
+    func testGetPublicKey() throws {
+        let expectedX = Data(count: 32)
+        let expectedY = Data(count: 32)
+        let signer = Secp256k1Signer(using: MockAlgorithm(x: expectedX, y: expectedY))
+        let expectedKeyId = "keyId354"
+        let expectedPubKey = ECPublicJwk(x: expectedX.base64URLEncodedString(), y: expectedY.base64URLEncodedString(), keyId: expectedKeyId)
+        let mockSecret = MockVcCryptoSecret(id: UUID())
+        let result = try signer.getPublicJwk(from: mockSecret, withKeyId: expectedKeyId)
+        XCTAssertEqual(result.x, expectedPubKey.x)
+        XCTAssertEqual(result.y, expectedPubKey.y)
+        XCTAssertEqual(result.keyId, expectedPubKey.keyId)
     }
 
     func testVerifierWithNoSignature() throws {
         let verifier = Secp256k1Verifier()
         testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: nil)
         let publicKey = Secp256k1PublicKey(x: Data(count: 32), y: Data(count: 32))!
-        let result = try verifier!.verify(token: testToken, usingPublicKey: publicKey)
+        let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
         XCTAssertEqual(result, false)
     }
     
@@ -40,7 +53,7 @@ class Secp256k1Tests: XCTestCase {
         let verifier = Secp256k1Verifier(using: MockAlgorithm())
         testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: "testSignature".data(using: .utf8))
         let publicKey = Secp256k1PublicKey(x: Data(count: 32), y: Data(count: 32))!
-        let result = try verifier!.verify(token: testToken, usingPublicKey: publicKey)
+        let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
         XCTAssertEqual(result, true)
     }
 }

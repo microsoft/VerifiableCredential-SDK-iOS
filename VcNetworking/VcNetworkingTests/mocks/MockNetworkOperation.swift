@@ -6,7 +6,7 @@
 import Foundation
 @testable import VcNetworking
 
-final class MockNetworkOperation: NetworkOperation {
+final class MockNetworkOperation: InternalNetworkOperation {
     typealias ResponseBody = MockDecoder.ResponseBody
     typealias Decoder = MockDecoder
     
