@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		47995672177834395CE27F4B /* Pods_VCJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B63B68DC1F3089C55A57704 /* Pods_VCJwt.framework */; };
 		550F1E56251019BA009AF467 /* KeyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E55251019BA009AF467 /* KeyId.swift */; };
 		550F1E6125115866009AF467 /* ECPublicJwkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6025115866009AF467 /* ECPublicJwkTests.swift */; };
 		55269351250006020051A358 /* VCJwtError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55269350250006020051A358 /* VCJwtError.swift */; };
@@ -33,7 +32,6 @@
 		55ADE29D24F583DB00D9990E /* JwsDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29C24F583DB00D9990E /* JwsDecoderTests.swift */; };
 		55ADE2A124F585B100D9990E /* ClaimsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE2A024F585B100D9990E /* ClaimsTest.swift */; };
 		55C6C4A6250816500082BE73 /* Secp256k1Verifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A5250816500082BE73 /* Secp256k1Verifier.swift */; };
-		57596ED25B9CC46CA5DC595D /* Pods_VCJwt_VCJwtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C51FC8EADD798B32ED3A0AA /* Pods_VCJwt_VCJwtTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C51FC8EADD798B32ED3A0AA /* Pods_VCJwt_VCJwtTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCJwt_VCJwtTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		292415DBE3B3CDCB5E13C6A1 /* Pods-VCJwt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCJwt.debug.xcconfig"; path = "Target Support Files/Pods-VCJwt/Pods-VCJwt.debug.xcconfig"; sourceTree = "<group>"; };
 		550F1E55251019BA009AF467 /* KeyId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyId.swift; sourceTree = "<group>"; };
 		550F1E6025115866009AF467 /* ECPublicJwkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECPublicJwkTests.swift; sourceTree = "<group>"; };
 		55269350250006020051A358 /* VCJwtError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCJwtError.swift; sourceTree = "<group>"; };
@@ -78,10 +74,6 @@
 		55ADE29C24F583DB00D9990E /* JwsDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsDecoderTests.swift; sourceTree = "<group>"; };
 		55ADE2A024F585B100D9990E /* ClaimsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimsTest.swift; sourceTree = "<group>"; };
 		55C6C4A5250816500082BE73 /* Secp256k1Verifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1Verifier.swift; sourceTree = "<group>"; };
-		61998110A525DEEE840A4AEA /* Pods-VCJwt-VCJwtTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCJwt-VCJwtTests.debug.xcconfig"; path = "Target Support Files/Pods-VCJwt-VCJwtTests/Pods-VCJwt-VCJwtTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7B63B68DC1F3089C55A57704 /* Pods_VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7EABCA3EA82A102A88312AC /* Pods-VCJwt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCJwt.release.xcconfig"; path = "Target Support Files/Pods-VCJwt/Pods-VCJwt.release.xcconfig"; sourceTree = "<group>"; };
-		BCB89E456565497660DB294E /* Pods-VCJwt-VCJwtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCJwt-VCJwtTests.release.xcconfig"; path = "Target Support Files/Pods-VCJwt-VCJwtTests/Pods-VCJwt-VCJwtTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47995672177834395CE27F4B /* Pods_VCJwt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +89,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				55ADE26124F5406000D9990E /* VCJwt.framework in Frameworks */,
-				57596ED25B9CC46CA5DC595D /* Pods_VCJwt_VCJwtTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +113,6 @@
 				55ADE26424F5406000D9990E /* VCJwtTests */,
 				55ADE25824F5406000D9990E /* Products */,
 				55ADE27324F540E000D9990E /* Frameworks */,
-				E4C99449B45161CA965C1ACD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,8 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				55ADE27424F540E000D9990E /* VcCrypto.framework */,
-				7B63B68DC1F3089C55A57704 /* Pods_VCJwt.framework */,
-				0C51FC8EADD798B32ED3A0AA /* Pods_VCJwt_VCJwtTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -189,18 +176,6 @@
 				5540903E25002141001246DB /* MockVerifier.swift */,
 			);
 			path = mocks;
-			sourceTree = "<group>";
-		};
-		E4C99449B45161CA965C1ACD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				292415DBE3B3CDCB5E13C6A1 /* Pods-VCJwt.debug.xcconfig */,
-				B7EABCA3EA82A102A88312AC /* Pods-VCJwt.release.xcconfig */,
-				61998110A525DEEE840A4AEA /* Pods-VCJwt-VCJwtTests.debug.xcconfig */,
-				BCB89E456565497660DB294E /* Pods-VCJwt-VCJwtTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../sdk/Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,7 +196,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55ADE26B24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCJwt" */;
 			buildPhases = (
-				027F4614F321EBC181865447 /* [CP] Check Pods Manifest.lock */,
 				55ADE25224F5406000D9990E /* Headers */,
 				55ADE25324F5406000D9990E /* Sources */,
 				55ADE25424F5406000D9990E /* Frameworks */,
@@ -240,11 +214,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55ADE26E24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCJwtTests" */;
 			buildPhases = (
-				5DD1545CC10AE8B5EFDDE45C /* [CP] Check Pods Manifest.lock */,
 				55ADE25C24F5406000D9990E /* Sources */,
 				55ADE25D24F5406000D9990E /* Frameworks */,
 				55ADE25E24F5406000D9990E /* Resources */,
-				5C71C636009234ECBBC356C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,7 +246,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VCJwt" */;
+			buildConfigurationList = 55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VcJwt" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -310,70 +282,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		027F4614F321EBC181865447 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VCJwt-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5C71C636009234ECBBC356C5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCJwt-VCJwtTests/Pods-VCJwt-VCJwtTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCJwt-VCJwtTests/Pods-VCJwt-VCJwtTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCJwt-VCJwtTests/Pods-VCJwt-VCJwtTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5DD1545CC10AE8B5EFDDE45C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VCJwt-VCJwtTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		55ADE25324F5406000D9990E /* Sources */ = {
@@ -545,7 +453,6 @@
 		};
 		55ADE26C24F5406000D9990E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 292415DBE3B3CDCB5E13C6A1 /* Pods-VCJwt.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -572,7 +479,6 @@
 		};
 		55ADE26D24F5406000D9990E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7EABCA3EA82A102A88312AC /* Pods-VCJwt.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -599,7 +505,6 @@
 		};
 		55ADE26F24F5406000D9990E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61998110A525DEEE840A4AEA /* Pods-VCJwt-VCJwtTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -619,7 +524,6 @@
 		};
 		55ADE27024F5406000D9990E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCB89E456565497660DB294E /* Pods-VCJwt-VCJwtTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -640,7 +544,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VCJwt" */ = {
+		55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VcJwt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55ADE26924F5406000D9990E /* Debug */,

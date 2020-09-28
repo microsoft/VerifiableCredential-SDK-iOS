@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A598C6765710B74251D4B61 /* Pods_VCNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FE4AECEFA5F7536F50FC43 /* Pods_VCNetworking.framework */; };
 		550F1D5B25093911009AF467 /* MockDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D5A25093911009AF467 /* MockDecoder.swift */; };
 		550F1D5D25093C0C009AF467 /* MockNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D5C25093C0C009AF467 /* MockNetworkOperation.swift */; };
 		550F1D6325094691009AF467 /* Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D6225094691009AF467 /* Encoding.swift */; };
@@ -43,8 +44,7 @@
 		55D1684124EB0E3600AD2F98 /* NetworkOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1683624EB0E3600AD2F98 /* NetworkOperationTests.swift */; };
 		55D1684224EB0E3600AD2F98 /* SimpleFailureHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1683824EB0E3600AD2F98 /* SimpleFailureHandlerTests.swift */; };
 		55D7BFF424C4CBBD0090F495 /* VCNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7BFEA24C4CBBD0090F495 /* VCNetworking.framework */; };
-		A6C7A28227DA34259B3CC172 /* Pods_VCNetworking_VCNetworkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B0F633C36D4D69EE8776F1 /* Pods_VCNetworking_VCNetworkingTests.framework */; };
-		F6692FEB36711957A84F94ED /* Pods_VCNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A55BEB5EF86373FCF91943 /* Pods_VCNetworking.framework */; };
+		F30F8FDEF8256BBBEE092D76 /* Pods_VCNetworking_VCNetworkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D1148D51AFD5B642E2D6ACD /* Pods_VCNetworking_VCNetworkingTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D60911EE32D37BF1E66EE63 /* Pods-VCNetworking-VCNetworkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking-VCNetworkingTests.debug.xcconfig"; path = "Target Support Files/Pods-VCNetworking-VCNetworkingTests/Pods-VCNetworking-VCNetworkingTests.debug.xcconfig"; sourceTree = "<group>"; };
-		42CA1E2F2F8D3C690FE1FB6D /* Pods-networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking.debug.xcconfig"; path = "Target Support Files/Pods-networking/Pods-networking.debug.xcconfig"; sourceTree = "<group>"; };
-		5024C7EC25EB5973BB33C735 /* Pods-networking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking.release.xcconfig"; path = "Target Support Files/Pods-networking/Pods-networking.release.xcconfig"; sourceTree = "<group>"; };
-		53EC7E545A8798142263F588 /* Pods-VCNetworking-VCNetworkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking-VCNetworkingTests.debug.xcconfig"; path = "Target Support Files/Pods-VCNetworking-VCNetworkingTests/Pods-VCNetworking-VCNetworkingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1FBFD227499729E7B3E625DC /* Pods-VCNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking.release.xcconfig"; path = "Target Support Files/Pods-VCNetworking/Pods-VCNetworking.release.xcconfig"; sourceTree = "<group>"; };
 		550F1D5A25093911009AF467 /* MockDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDecoder.swift; sourceTree = "<group>"; };
 		550F1D5C25093C0C009AF467 /* MockNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkOperation.swift; sourceTree = "<group>"; };
 		550F1D6225094691009AF467 /* Encoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoding.swift; sourceTree = "<group>"; };
@@ -103,16 +100,11 @@
 		55D1687E24EB16FE00AD2F98 /* VCSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFEA24C4CBBD0090F495 /* VCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFF324C4CBBD0090F495 /* VCNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DFC5C70E7C37B5F26B3EC9C /* Pods-networking-networkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking-networkingTests.release.xcconfig"; path = "Target Support Files/Pods-networking-networkingTests/Pods-networking-networkingTests.release.xcconfig"; sourceTree = "<group>"; };
-		85A55BEB5EF86373FCF91943 /* Pods_VCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		89CCEA58DE28868E44CEDFAE /* Pods-VCNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking.release.xcconfig"; path = "Target Support Files/Pods-VCNetworking/Pods-VCNetworking.release.xcconfig"; sourceTree = "<group>"; };
-		A46088D1C73190244404C7C7 /* Pods-VCNetworking-VCNetworkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking-VCNetworkingTests.release.xcconfig"; path = "Target Support Files/Pods-VCNetworking-VCNetworkingTests/Pods-VCNetworking-VCNetworkingTests.release.xcconfig"; sourceTree = "<group>"; };
-		AFA2D0476976BC2114B96D2F /* Pods-VCNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking.release.xcconfig"; path = "Target Support Files/Pods-VCNetworking/Pods-VCNetworking.release.xcconfig"; sourceTree = "<group>"; };
-		C39DDFD3C4C30C89ECEAB002 /* Pods-networking-networkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-networking-networkingTests.debug.xcconfig"; path = "Target Support Files/Pods-networking-networkingTests/Pods-networking-networkingTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D06BAEDC5739990141D82F63 /* Pods-VCNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking.debug.xcconfig"; path = "Target Support Files/Pods-VCNetworking/Pods-VCNetworking.debug.xcconfig"; sourceTree = "<group>"; };
-		D7B0F633C36D4D69EE8776F1 /* Pods_VCNetworking_VCNetworkingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCNetworking_VCNetworkingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEF39F91A77C5C0108618A8C /* Pods-VCNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking.debug.xcconfig"; path = "Target Support Files/Pods-VCNetworking/Pods-VCNetworking.debug.xcconfig"; sourceTree = "<group>"; };
-		F97D90719DF11C1C6EE8633C /* Pods-VCNetworking-VCNetworkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking-VCNetworkingTests.release.xcconfig"; path = "Target Support Files/Pods-VCNetworking-VCNetworkingTests/Pods-VCNetworking-VCNetworkingTests.release.xcconfig"; sourceTree = "<group>"; };
+		600E0C67EE005F3E8EABC1E3 /* Pods-VCNetworking-VCNetworkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking-VCNetworkingTests.debug.xcconfig"; path = "Target Support Files/Pods-VCNetworking-VCNetworkingTests/Pods-VCNetworking-VCNetworkingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		76C50DCC1BD8E0DB05828171 /* Pods-VCNetworking-VCNetworkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking-VCNetworkingTests.release.xcconfig"; path = "Target Support Files/Pods-VCNetworking-VCNetworkingTests/Pods-VCNetworking-VCNetworkingTests.release.xcconfig"; sourceTree = "<group>"; };
+		7D1148D51AFD5B642E2D6ACD /* Pods_VCNetworking_VCNetworkingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCNetworking_VCNetworkingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1FE4AECEFA5F7536F50FC43 /* Pods_VCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF5A83315E8CCAFBBC4942C0 /* Pods-VCNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCNetworking.debug.xcconfig"; path = "Target Support Files/Pods-VCNetworking/Pods-VCNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6692FEB36711957A84F94ED /* Pods_VCNetworking.framework in Frameworks */,
+				4A598C6765710B74251D4B61 /* Pods_VCNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,13 +121,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				55D7BFF424C4CBBD0090F495 /* VCNetworking.framework in Frameworks */,
-				A6C7A28227DA34259B3CC172 /* Pods_VCNetworking_VCNetworkingTests.framework in Frameworks */,
+				F30F8FDEF8256BBBEE092D76 /* Pods_VCNetworking_VCNetworkingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		364BCA1E49710F51D8139896 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF5A83315E8CCAFBBC4942C0 /* Pods-VCNetworking.debug.xcconfig */,
+				1FBFD227499729E7B3E625DC /* Pods-VCNetworking.release.xcconfig */,
+				600E0C67EE005F3E8EABC1E3 /* Pods-VCNetworking-VCNetworkingTests.debug.xcconfig */,
+				76C50DCC1BD8E0DB05828171 /* Pods-VCNetworking-VCNetworkingTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../sdk/Pods;
+			sourceTree = "<group>";
+		};
 		550F1D6125094679009AF467 /* encoders */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,8 +349,8 @@
 				55D1680124EB0E1C00AD2F98 /* VCNetworking */,
 				55D1682724EB0E3600AD2F98 /* VCNetworkingTests */,
 				55D7BFEB24C4CBBD0090F495 /* Products */,
-				BF4B32EEF348709DF16AA070 /* Pods */,
 				F96820A943825B01B3485FDC /* Frameworks */,
+				364BCA1E49710F51D8139896 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -359,33 +363,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BF4B32EEF348709DF16AA070 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				42CA1E2F2F8D3C690FE1FB6D /* Pods-networking.debug.xcconfig */,
-				5024C7EC25EB5973BB33C735 /* Pods-networking.release.xcconfig */,
-				C39DDFD3C4C30C89ECEAB002 /* Pods-networking-networkingTests.debug.xcconfig */,
-				7DFC5C70E7C37B5F26B3EC9C /* Pods-networking-networkingTests.release.xcconfig */,
-				DEF39F91A77C5C0108618A8C /* Pods-VCNetworking.debug.xcconfig */,
-				AFA2D0476976BC2114B96D2F /* Pods-VCNetworking.release.xcconfig */,
-				0D60911EE32D37BF1E66EE63 /* Pods-VCNetworking-VCNetworkingTests.debug.xcconfig */,
-				F97D90719DF11C1C6EE8633C /* Pods-VCNetworking-VCNetworkingTests.release.xcconfig */,
-				D06BAEDC5739990141D82F63 /* Pods-VCNetworking.debug.xcconfig */,
-				89CCEA58DE28868E44CEDFAE /* Pods-VCNetworking.release.xcconfig */,
-				53EC7E545A8798142263F588 /* Pods-VCNetworking-VCNetworkingTests.debug.xcconfig */,
-				A46088D1C73190244404C7C7 /* Pods-VCNetworking-VCNetworkingTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../sdk/Pods;
-			sourceTree = "<group>";
-		};
 		F96820A943825B01B3485FDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				55D1687E24EB16FE00AD2F98 /* VCSerialization.framework */,
 				55CED16424D3369B00A2AAE2 /* Serialization.framework */,
-				85A55BEB5EF86373FCF91943 /* Pods_VCNetworking.framework */,
-				D7B0F633C36D4D69EE8776F1 /* Pods_VCNetworking_VCNetworkingTests.framework */,
+				B1FE4AECEFA5F7536F50FC43 /* Pods_VCNetworking.framework */,
+				7D1148D51AFD5B642E2D6ACD /* Pods_VCNetworking_VCNetworkingTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -408,7 +392,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55D7BFFE24C4CBBE0090F495 /* Build configuration list for PBXNativeTarget "VCNetworking" */;
 			buildPhases = (
-				9BF3904990AD53CF858470F8 /* [CP] Check Pods Manifest.lock */,
+				8A255281F6EA9DD51E0981CF /* [CP] Check Pods Manifest.lock */,
 				55D7BFE524C4CBBD0090F495 /* Headers */,
 				55D7BFE624C4CBBD0090F495 /* Sources */,
 				55D7BFE724C4CBBD0090F495 /* Frameworks */,
@@ -427,11 +411,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55D7C00124C4CBBE0090F495 /* Build configuration list for PBXNativeTarget "VCNetworkingTests" */;
 			buildPhases = (
-				16837A313CA656E1F9DC889B /* [CP] Check Pods Manifest.lock */,
+				A85F38B51AFBF1B4376E223C /* [CP] Check Pods Manifest.lock */,
 				55D7BFEF24C4CBBD0090F495 /* Sources */,
 				55D7BFF024C4CBBD0090F495 /* Frameworks */,
 				55D7BFF124C4CBBD0090F495 /* Resources */,
-				CF9648333208B2E767CE590F /* [CP] Embed Pods Frameworks */,
+				E2064754E6F107A7C3550120 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -500,29 +484,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		16837A313CA656E1F9DC889B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VCNetworking-VCNetworkingTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9BF3904990AD53CF858470F8 /* [CP] Check Pods Manifest.lock */ = {
+		8A255281F6EA9DD51E0981CF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -544,7 +506,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF9648333208B2E767CE590F /* [CP] Embed Pods Frameworks */ = {
+		A85F38B51AFBF1B4376E223C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VCNetworking-VCNetworkingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2064754E6F107A7C3550120 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -744,7 +728,7 @@
 		};
 		55D7BFFF24C4CBBE0090F495 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D06BAEDC5739990141D82F63 /* Pods-VCNetworking.debug.xcconfig */;
+			baseConfigurationReference = FF5A83315E8CCAFBBC4942C0 /* Pods-VCNetworking.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -772,7 +756,7 @@
 		};
 		55D7C00024C4CBBE0090F495 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89CCEA58DE28868E44CEDFAE /* Pods-VCNetworking.release.xcconfig */;
+			baseConfigurationReference = 1FBFD227499729E7B3E625DC /* Pods-VCNetworking.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -799,7 +783,7 @@
 		};
 		55D7C00224C4CBBE0090F495 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53EC7E545A8798142263F588 /* Pods-VCNetworking-VCNetworkingTests.debug.xcconfig */;
+			baseConfigurationReference = 600E0C67EE005F3E8EABC1E3 /* Pods-VCNetworking-VCNetworkingTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
@@ -820,7 +804,7 @@
 		};
 		55D7C00324C4CBBE0090F495 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A46088D1C73190244404C7C7 /* Pods-VCNetworking-VCNetworkingTests.release.xcconfig */;
+			baseConfigurationReference = 76C50DCC1BD8E0DB05828171 /* Pods-VCNetworking-VCNetworkingTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
