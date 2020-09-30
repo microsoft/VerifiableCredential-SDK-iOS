@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import secp256k1_ios
+import Secp256k1
 
 enum Secp256k1Error: Error {
     case invalidMessageHash
@@ -30,7 +30,7 @@ public struct Secp256k1: Signing {
         // Validate params
         guard secret is Secret else { throw Secp256k1Error.invalidSecret }
         guard messageHash.count == 32 else { throw Secp256k1Error.invalidMessageHash }
-        
+
         // Create the context and signature data structure
         let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN))
         defer { secp256k1_context_destroy(context) }

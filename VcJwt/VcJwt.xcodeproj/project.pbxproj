@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,6 @@
 		550F1E6125115866009AF467 /* ECPublicJwkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6025115866009AF467 /* ECPublicJwkTests.swift */; };
 		55269351250006020051A358 /* VCJwtError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55269350250006020051A358 /* VCJwtError.swift */; };
 		5540903F25002141001246DB /* MockVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903E25002141001246DB /* MockVerifier.swift */; };
-		5540904725002DC4001246DB /* VCJwt.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5540904625002DC3001246DB /* VCJwt.podspec */; };
 		5540904B2500311E001246DB /* ECPublicJwk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540904A2500311E001246DB /* ECPublicJwk.swift */; };
 		5577E875251EA08D005250BC /* VCJwt.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADE25A24F5406000D9990E /* VCJwt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE26124F5406000D9990E /* VCJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE25724F5406000D9990E /* VCJwt.framework */; };
@@ -32,6 +31,7 @@
 		55ADE29D24F583DB00D9990E /* JwsDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29C24F583DB00D9990E /* JwsDecoderTests.swift */; };
 		55ADE2A124F585B100D9990E /* ClaimsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE2A024F585B100D9990E /* ClaimsTest.swift */; };
 		55C6C4A6250816500082BE73 /* Secp256k1Verifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A5250816500082BE73 /* Secp256k1Verifier.swift */; };
+		92E2998F252522D000B25BB6 /* VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E2998E252522D000B25BB6 /* VCCrypto.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,6 @@
 		550F1E6025115866009AF467 /* ECPublicJwkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECPublicJwkTests.swift; sourceTree = "<group>"; };
 		55269350250006020051A358 /* VCJwtError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCJwtError.swift; sourceTree = "<group>"; };
 		5540903E25002141001246DB /* MockVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVerifier.swift; sourceTree = "<group>"; };
-		5540904625002DC3001246DB /* VCJwt.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCJwt.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5540904A2500311E001246DB /* ECPublicJwk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECPublicJwk.swift; sourceTree = "<group>"; };
 		55ADE25724F5406000D9990E /* VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ADE25A24F5406000D9990E /* VCJwt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCJwt.h; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		55ADE29C24F583DB00D9990E /* JwsDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwsDecoderTests.swift; sourceTree = "<group>"; };
 		55ADE2A024F585B100D9990E /* ClaimsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimsTest.swift; sourceTree = "<group>"; };
 		55C6C4A5250816500082BE73 /* Secp256k1Verifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1Verifier.swift; sourceTree = "<group>"; };
+		92E2998E252522D000B25BB6 /* VCCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E2998F252522D000B25BB6 /* VCCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +109,6 @@
 		55ADE24D24F5406000D9990E = {
 			isa = PBXGroup;
 			children = (
-				5540904625002DC3001246DB /* VCJwt.podspec */,
 				55ADE25924F5406000D9990E /* VCJwt */,
 				55ADE26424F5406000D9990E /* VCJwtTests */,
 				55ADE25824F5406000D9990E /* Products */,
@@ -162,6 +162,7 @@
 		55ADE27324F540E000D9990E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92E2998E252522D000B25BB6 /* VCCrypto.framework */,
 				55ADE27424F540E000D9990E /* VcCrypto.framework */,
 			);
 			name = Frameworks;
@@ -246,7 +247,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VcJwt" */;
+			buildConfigurationList = 55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VCJwt" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -270,7 +271,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5540904725002DC4001246DB /* VCJwt.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,9 +454,10 @@
 		55ADE26C24F5406000D9990E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_MODULES_AUTOLINK = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UBF8T346G9;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -468,7 +469,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCJwt;
 				PRODUCT_NAME = VCJwt;
 				SKIP_INSTALL = YES;
@@ -480,9 +481,10 @@
 		55ADE26D24F5406000D9990E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_MODULES_AUTOLINK = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UBF8T346G9;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -494,7 +496,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = mh_dylib;
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCJwt;
 				PRODUCT_NAME = VCJwt;
 				SKIP_INSTALL = YES;
@@ -544,7 +546,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VcJwt" */ = {
+		55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VCJwt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55ADE26924F5406000D9990E /* Debug */,

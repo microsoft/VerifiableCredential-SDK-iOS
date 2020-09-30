@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "container:"
+      name = "Submodules">
+      <FileRef
+         location = "group:Submodules/Secp256k1/Secp256k1.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Submodules/PromiseKit/PromiseKit.xcodeproj">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:sdk/sdk.xcodeproj">
    </FileRef>
@@ -21,8 +31,5 @@
    </FileRef>
    <FileRef
       location = "group:VCCrypto/VCCrypto.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:sdk/Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

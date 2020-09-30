@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		55575738251BC575009979AB /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5557572E251BC575009979AB /* VCEntities.framework */; };
 		5557573D251BC575009979AB /* VCEntitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557573C251BC575009979AB /* VCEntitiesTests.swift */; };
 		5557573F251BC575009979AB /* VCEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 55575731251BC575009979AB /* VCEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55575749251BC5B9009979AB /* VCEntities.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 55575748251BC5B9009979AB /* VCEntities.podspec */; };
 		55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557574B251BC6CE009979AB /* AttestationsDescriptor.swift */; };
 		55575764251BC6CF009979AB /* PresentationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557574C251BC6CE009979AB /* PresentationDescriptor.swift */; };
 		55575765251BC6CF009979AB /* ConsentDisplayDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557574D251BC6CE009979AB /* ConsentDisplayDescriptor.swift */; };
@@ -47,6 +46,7 @@
 		557BFC5D251E697F005B5B24 /* MockTokenSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BFC5B251E697F005B5B24 /* MockTokenSigner.swift */; };
 		557BFC5E251E697F005B5B24 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BFC5C251E697F005B5B24 /* TestData.swift */; };
 		557BFC60251E6A6A005B5B24 /* IssuanceResponseFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BFC5F251E6A6A005B5B24 /* IssuanceResponseFormatting.swift */; };
+		92E2998B252522C300B25BB6 /* VCJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E2998A252522C300B25BB6 /* VCJwt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,6 @@
 		55575737251BC575009979AB /* VCEntitiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCEntitiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5557573C251BC575009979AB /* VCEntitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCEntitiesTests.swift; sourceTree = "<group>"; };
 		5557573E251BC575009979AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55575748251BC5B9009979AB /* VCEntities.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCEntities.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5557574B251BC6CE009979AB /* AttestationsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttestationsDescriptor.swift; sourceTree = "<group>"; };
 		5557574C251BC6CE009979AB /* PresentationDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationDescriptor.swift; sourceTree = "<group>"; };
 		5557574D251BC6CE009979AB /* ConsentDisplayDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDisplayDescriptor.swift; sourceTree = "<group>"; };
@@ -103,6 +102,7 @@
 		557BFC5B251E697F005B5B24 /* MockTokenSigner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTokenSigner.swift; sourceTree = "<group>"; };
 		557BFC5C251E697F005B5B24 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		557BFC5F251E6A6A005B5B24 /* IssuanceResponseFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseFormatting.swift; sourceTree = "<group>"; };
+		92E2998A252522C300B25BB6 /* VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E2998B252522C300B25BB6 /* VCJwt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,10 +128,10 @@
 		55575724251BC575009979AB = {
 			isa = PBXGroup;
 			children = (
-				55575748251BC5B9009979AB /* VCEntities.podspec */,
 				55575730251BC575009979AB /* VCEntities */,
 				5557573B251BC575009979AB /* VCEntitiesTests */,
 				5557572F251BC575009979AB /* Products */,
+				92E29989252522C300B25BB6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,6 +278,14 @@
 			path = mocks;
 			sourceTree = "<group>";
 		};
+		92E29989252522C300B25BB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92E2998A252522C300B25BB6 /* VCJwt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -370,7 +379,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55575749251BC5B9009979AB /* VCEntities.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,19 +578,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_MODULES_AUTOLINK = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UBF8T346G9;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VCEntities/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCEntities;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -596,19 +607,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_MODULES_AUTOLINK = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UBF8T346G9;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VCEntities/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCEntities;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
