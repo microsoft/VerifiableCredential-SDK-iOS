@@ -23,7 +23,6 @@
 		92E7A9CA2524E45B000E8246 /* num_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A95C2524E45B000E8246 /* num_impl.h */; };
 		92E7A9CC2524E45B000E8246 /* field.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A95E2524E45B000E8246 /* field.h */; };
 		92E7A9CE2524E45B000E8246 /* field_5x52_asm_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9602524E45B000E8246 /* field_5x52_asm_impl.h */; };
-		92E7A9CF2524E45B000E8246 /* ecmult_static_context.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9612524E45B000E8246 /* ecmult_static_context.h */; };
 		92E7A9D22524E45B000E8246 /* field_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9642524E45B000E8246 /* field_impl.h */; };
 		92E7A9D32524E45B000E8246 /* scalar_4x64.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9652524E45B000E8246 /* scalar_4x64.h */; };
 		92E7A9D42524E45B000E8246 /* basic-config.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9662524E45B000E8246 /* basic-config.h */; };
@@ -84,7 +83,6 @@
 		92E7A95C2524E45B000E8246 /* num_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = num_impl.h; sourceTree = "<group>"; };
 		92E7A95E2524E45B000E8246 /* field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field.h; sourceTree = "<group>"; };
 		92E7A9602524E45B000E8246 /* field_5x52_asm_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field_5x52_asm_impl.h; sourceTree = "<group>"; };
-		92E7A9612524E45B000E8246 /* ecmult_static_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecmult_static_context.h; sourceTree = "<group>"; };
 		92E7A9642524E45B000E8246 /* field_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field_impl.h; sourceTree = "<group>"; };
 		92E7A9652524E45B000E8246 /* scalar_4x64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scalar_4x64.h; sourceTree = "<group>"; };
 		92E7A9662524E45B000E8246 /* basic-config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "basic-config.h"; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 				92E7A95C2524E45B000E8246 /* num_impl.h */,
 				92E7A95E2524E45B000E8246 /* field.h */,
 				92E7A9602524E45B000E8246 /* field_5x52_asm_impl.h */,
-				92E7A9612524E45B000E8246 /* ecmult_static_context.h */,
 				92E7A9642524E45B000E8246 /* field_impl.h */,
 				92E7A9652524E45B000E8246 /* scalar_4x64.h */,
 				92E7A9662524E45B000E8246 /* basic-config.h */,
@@ -330,7 +327,6 @@
 				92E7AA242524E6F2000E8246 /* lax_der_privatekey_parsing.h in Headers */,
 				92E7A9E12524E45B000E8246 /* ecmult.h in Headers */,
 				92E7A9EA2524E45B000E8246 /* assumptions.h in Headers */,
-				92E7A9CF2524E45B000E8246 /* ecmult_static_context.h in Headers */,
 				92E7A9BD2524E45B000E8246 /* field_10x26_impl.h in Headers */,
 				92E7A9C02524E45B000E8246 /* scratch.h in Headers */,
 				92E7A9D42524E45B000E8246 /* basic-config.h in Headers */,
@@ -582,6 +578,7 @@
 					"-Wno-overlength-strings",
 					"-W",
 					"-DHAVE_CONFIG_H=1",
+					"-Wno-shorten-64-to-32",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.Secp256k1;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -631,6 +628,7 @@
 					"-Wno-overlength-strings",
 					"-W",
 					"-DHAVE_CONFIG_H=1",
+					"-Wno-shorten-64-to-32",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.Secp256k1;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

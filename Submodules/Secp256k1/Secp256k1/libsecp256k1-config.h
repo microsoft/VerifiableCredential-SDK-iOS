@@ -96,7 +96,7 @@
 /* #undef USE_ASM_X86_64 */
 
 /* Define this symbol to use a statically generated ecmult table */
-#define USE_ECMULT_STATIC_PRECOMPUTATION 1
+/* #undef USE_ECMULT_STATIC_PRECOMPUTATION */
 
 /* Define this symbol to use endomorphism optimization */
 /* #undef USE_ENDOMORPHISM */
