@@ -122,6 +122,66 @@
                ReferencedContainer = "container:sdk.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "92CDE7B224DC78DD00F95B5D"
+               BuildableName = "VCCryptoTests.xctest"
+               BlueprintName = "VCCryptoTests"
+               ReferencedContainer = "container:../VCCrypto/VCCrypto.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "55575736251BC575009979AB"
+               BuildableName = "VCEntitiesTests.xctest"
+               BlueprintName = "VCEntitiesTests"
+               ReferencedContainer = "container:../VCEntities/VCEntities.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "55ADE25F24F5406000D9990E"
+               BuildableName = "VCJwtTests.xctest"
+               BlueprintName = "VCJwtTests"
+               ReferencedContainer = "container:../VCJwt/VCJwt.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "55D7BFF224C4CBBD0090F495"
+               BuildableName = "VCNetworkingTests.xctest"
+               BlueprintName = "VCNetworkingTests"
+               ReferencedContainer = "container:../VCNetworking/VCNetworking.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "550F1DBC250BD898009AF467"
+               BuildableName = "VCRepositoryTests.xctest"
+               BlueprintName = "VCRepositoryTests"
+               ReferencedContainer = "container:../VCRepository/VCRepository.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "550F1E3D25101759009AF467"
+               BuildableName = "VCUseCaseTests.xctest"
+               BlueprintName = "VCUseCaseTests"
+               ReferencedContainer = "container:../VCUseCase/VCUseCase.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

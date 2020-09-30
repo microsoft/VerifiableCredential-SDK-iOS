@@ -3,17 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		555756F7251B9C25009979AB /* IssuanceFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756F6251B9C25009979AB /* IssuanceFlowTests.swift */; };
 		555756FA251B9C86009979AB /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756F9251B9C86009979AB /* TestData.swift */; };
 		555756FC251B9CB1009979AB /* MockSecretStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756FB251B9CB1009979AB /* MockSecretStore.swift */; };
-		55CED16324D30B9600A2AAE2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C01024C89F5F0090F495 /* Podfile */; };
 		55D1C0C124C23408002A58F9 /* sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1C0B724C23408002A58F9 /* sdk.framework */; };
 		55D1C0C824C23408002A58F9 /* sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D1C0BA24C23408002A58F9 /* sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55D7C01124C89F5F0090F495 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 55D7C01024C89F5F0090F495 /* Podfile */; };
+		922D7E762525244F00E4C8B5 /* VCUseCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922D7E752525244F00E4C8B5 /* VCUseCase.framework */; };
+		922D7E772525244F00E4C8B5 /* VCUseCase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 922D7E752525244F00E4C8B5 /* VCUseCase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +26,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		922D7E782525244F00E4C8B5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				922D7E772525244F00E4C8B5 /* VCUseCase.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		555756F6251B9C25009979AB /* IssuanceFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceFlowTests.swift; sourceTree = "<group>"; };
 		555756F9251B9C86009979AB /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
@@ -36,7 +50,7 @@
 		55D1C0C024C23408002A58F9 /* sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D1C0C724C23408002A58F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D7C00824C4D6130090F495 /* networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55D7C01024C89F5F0090F495 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		922D7E752525244F00E4C8B5 /* VCUseCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCUseCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				922D7E762525244F00E4C8B5 /* VCUseCase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +85,10 @@
 		55D1C0AD24C23408002A58F9 = {
 			isa = PBXGroup;
 			children = (
-				55D7C01024C89F5F0090F495 /* Podfile */,
 				55D1C0B924C23408002A58F9 /* sdk */,
 				55D1C0C424C23408002A58F9 /* sdkTests */,
 				55D1C0B824C23408002A58F9 /* Products */,
 				DBB08E8FAF983AA12C589889 /* Frameworks */,
-				7326AA8372742E638364241C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,16 +120,10 @@
 			path = sdkTests;
 			sourceTree = "<group>";
 		};
-		7326AA8372742E638364241C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		DBB08E8FAF983AA12C589889 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				922D7E752525244F00E4C8B5 /* VCUseCase.framework */,
 				55D7C00824C4D6130090F495 /* networking.framework */,
 			);
 			name = Frameworks;
@@ -144,6 +151,7 @@
 				55D1C0B324C23408002A58F9 /* Sources */,
 				55D1C0B424C23408002A58F9 /* Frameworks */,
 				55D1C0B524C23408002A58F9 /* Resources */,
+				922D7E782525244F00E4C8B5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,7 +224,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D7C01124C89F5F0090F495 /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +231,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55CED16324D30B9600A2AAE2 /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +398,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -421,6 +428,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

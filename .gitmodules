@@ -1,0 +1,9 @@
+[submodule "Submodules/PromiseKit"]
+	path = Submodules/PromiseKit
+	url = https://github.com/mxcl/PromiseKit.git
+[submodule "Submodules/Foundation"]
+	path = Submodules/Foundation
+	url = https://github.com/PromiseKit/Foundation.git
+[submodule "Submodules/Secp256k1/bitcoin-core/secp256k1"]
+	path = Submodules/Secp256k1/bitcoin-core/secp256k1
+	url = https://github.com/bitcoin-core/secp256k1.git

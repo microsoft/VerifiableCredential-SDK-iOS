@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		550F1DBE250BD898009AF467 /* VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550F1DB4250BD898009AF467 /* VCRepository.framework */; };
 		550F1DC3250BD898009AF467 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DC2250BD898009AF467 /* RepositoryTests.swift */; };
 		550F1DC5250BD898009AF467 /* VCRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 550F1DB7250BD898009AF467 /* VCRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		550F1DCF250BD96E009AF467 /* VCRepository.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 550F1DCE250BD96E009AF467 /* VCRepository.podspec */; };
 		550F1DD1250BDA05009AF467 /* IssuanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD0250BDA05009AF467 /* IssuanceRepository.swift */; };
 		550F1DD4250BE862009AF467 /* MockNetworkOperationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD3250BE862009AF467 /* MockNetworkOperationFactory.swift */; };
 		550F1DD6250BEB1D009AF467 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DD5250BEB1D009AF467 /* TestData.swift */; };
@@ -26,8 +25,8 @@
 		550F1E24250FC783009AF467 /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E23250FC783009AF467 /* Fetching.swift */; };
 		550F1E26250FCA28009AF467 /* MockApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E25250FCA28009AF467 /* MockApiCalls.swift */; };
 		550F1E2A250FD7AB009AF467 /* ApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E29250FD7AB009AF467 /* ApiCalls.swift */; };
-		8D199B0420B6C430BE5BF02D /* Pods_VCRepository_VCRepositoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94604B1E74EBBE56B1F65D3 /* Pods_VCRepository_VCRepositoryTests.framework */; };
-		C271C02B2E9C838B5A12DF64 /* Pods_VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CE1235F63AF7DC4CDCCEAA /* Pods_VCRepository.framework */; };
+		92E7AA3425251AF2000E8246 /* VCNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E7AA3325251AF2000E8246 /* VCNetworking.framework */; };
+		92E7AA3825251B14000E8246 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E7AA3725251B14000E8246 /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,15 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B01ED2A5DE29C3F95BEA12A /* Pods-VCRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository.release.xcconfig"; path = "Target Support Files/Pods-VCRepository/Pods-VCRepository.release.xcconfig"; sourceTree = "<group>"; };
-		30248F9729EC96145881CD97 /* Pods-VCRepository-VCRepositoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository-VCRepositoryTests.debug.xcconfig"; path = "Target Support Files/Pods-VCRepository-VCRepositoryTests/Pods-VCRepository-VCRepositoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		550F1DB4250BD898009AF467 /* VCRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		550F1DB7250BD898009AF467 /* VCRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCRepository.h; sourceTree = "<group>"; };
 		550F1DB8250BD898009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550F1DBD250BD898009AF467 /* VCRepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCRepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		550F1DC2250BD898009AF467 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 		550F1DC4250BD898009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		550F1DCE250BD96E009AF467 /* VCRepository.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCRepository.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		550F1DD0250BDA05009AF467 /* IssuanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRepository.swift; sourceTree = "<group>"; };
 		550F1DD3250BE862009AF467 /* MockNetworkOperationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkOperationFactory.swift; sourceTree = "<group>"; };
 		550F1DD5250BEB1D009AF467 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
@@ -65,10 +61,9 @@
 		550F1E23250FC783009AF467 /* Fetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetching.swift; sourceTree = "<group>"; };
 		550F1E25250FCA28009AF467 /* MockApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiCalls.swift; sourceTree = "<group>"; };
 		550F1E29250FD7AB009AF467 /* ApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCalls.swift; sourceTree = "<group>"; };
-		7A93BB42AAD1170F1F44D2CA /* Pods-VCRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository.debug.xcconfig"; path = "Target Support Files/Pods-VCRepository/Pods-VCRepository.debug.xcconfig"; sourceTree = "<group>"; };
-		892B207EE2F0EE8302841B87 /* Pods-VCRepository-VCRepositoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VCRepository-VCRepositoryTests.release.xcconfig"; path = "Target Support Files/Pods-VCRepository-VCRepositoryTests/Pods-VCRepository-VCRepositoryTests.release.xcconfig"; sourceTree = "<group>"; };
-		C6CE1235F63AF7DC4CDCCEAA /* Pods_VCRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C94604B1E74EBBE56B1F65D3 /* Pods_VCRepository_VCRepositoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VCRepository_VCRepositoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92E7AA3325251AF2000E8246 /* VCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92E7AA3725251B14000E8246 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92E7AA3A25251B1A000E8246 /* PMKFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PMKFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C271C02B2E9C838B5A12DF64 /* Pods_VCRepository.framework in Frameworks */,
+				92E7AA3425251AF2000E8246 /* VCNetworking.framework in Frameworks */,
+				92E7AA3825251B14000E8246 /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +81,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				550F1DBE250BD898009AF467 /* VCRepository.framework in Frameworks */,
-				8D199B0420B6C430BE5BF02D /* Pods_VCRepository_VCRepositoryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +90,9 @@
 		550F1DAA250BD898009AF467 = {
 			isa = PBXGroup;
 			children = (
-				550F1DCE250BD96E009AF467 /* VCRepository.podspec */,
 				550F1DB6250BD898009AF467 /* VCRepository */,
 				550F1DC1250BD898009AF467 /* VCRepositoryTests */,
 				550F1DB5250BD898009AF467 /* Products */,
-				7C717FC38C3DDD590ABED1FE /* Pods */,
 				D9DA666634364F5E857419F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -154,23 +147,12 @@
 			path = mocks;
 			sourceTree = "<group>";
 		};
-		7C717FC38C3DDD590ABED1FE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7A93BB42AAD1170F1F44D2CA /* Pods-VCRepository.debug.xcconfig */,
-				1B01ED2A5DE29C3F95BEA12A /* Pods-VCRepository.release.xcconfig */,
-				30248F9729EC96145881CD97 /* Pods-VCRepository-VCRepositoryTests.debug.xcconfig */,
-				892B207EE2F0EE8302841B87 /* Pods-VCRepository-VCRepositoryTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../sdk/Pods;
-			sourceTree = "<group>";
-		};
 		D9DA666634364F5E857419F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C6CE1235F63AF7DC4CDCCEAA /* Pods_VCRepository.framework */,
-				C94604B1E74EBBE56B1F65D3 /* Pods_VCRepository_VCRepositoryTests.framework */,
+				92E7AA3A25251B1A000E8246 /* PMKFoundation.framework */,
+				92E7AA3725251B14000E8246 /* PromiseKit.framework */,
+				92E7AA3325251AF2000E8246 /* VCNetworking.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -193,7 +175,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 550F1DC8250BD898009AF467 /* Build configuration list for PBXNativeTarget "VCRepository" */;
 			buildPhases = (
-				5EB035BCAE2E8FBD99F6B4FC /* [CP] Check Pods Manifest.lock */,
 				550F1DAF250BD898009AF467 /* Headers */,
 				550F1DB0250BD898009AF467 /* Sources */,
 				550F1DB1250BD898009AF467 /* Frameworks */,
@@ -212,11 +193,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 550F1DCB250BD898009AF467 /* Build configuration list for PBXNativeTarget "VCRepositoryTests" */;
 			buildPhases = (
-				B05DC6E025FE80A4547B05CE /* [CP] Check Pods Manifest.lock */,
 				550F1DB9250BD898009AF467 /* Sources */,
 				550F1DBA250BD898009AF467 /* Frameworks */,
 				550F1DBB250BD898009AF467 /* Resources */,
-				7987866E1DAFE62A1D09FD15 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,7 +250,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				550F1DCF250BD96E009AF467 /* VCRepository.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,70 +261,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5EB035BCAE2E8FBD99F6B4FC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VCRepository-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7987866E1DAFE62A1D09FD15 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCRepository-VCRepositoryTests/Pods-VCRepository-VCRepositoryTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VCRepository-VCRepositoryTests/Pods-VCRepository-VCRepositoryTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VCRepository-VCRepositoryTests/Pods-VCRepository-VCRepositoryTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B05DC6E025FE80A4547B05CE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VCRepository-VCRepositoryTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		550F1DB0250BD898009AF467 /* Sources */ = {
@@ -512,23 +426,24 @@
 		};
 		550F1DC9250BD898009AF467 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A93BB42AAD1170F1F44D2CA /* Pods-VCRepository.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_MODULES_AUTOLINK = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UBF8T346G9;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VCRepository/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCRepository;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -540,23 +455,24 @@
 		};
 		550F1DCA250BD898009AF467 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B01ED2A5DE29C3F95BEA12A /* Pods-VCRepository.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_MODULES_AUTOLINK = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UBF8T346G9;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VCRepository/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCRepository;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -567,7 +483,6 @@
 		};
 		550F1DCC250BD898009AF467 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30248F9729EC96145881CD97 /* Pods-VCRepository-VCRepositoryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -588,7 +503,6 @@
 		};
 		550F1DCD250BD898009AF467 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 892B207EE2F0EE8302841B87 /* Pods-VCRepository-VCRepositoryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
