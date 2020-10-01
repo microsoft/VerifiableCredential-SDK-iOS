@@ -3,14 +3,13 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct IssuanceMetadata: Codable {
+public struct SubmissionDescriptor: Codable {
     
-    public let contract: String
+    public let id: String
     
-    public let issuerDid: String
-
-    enum CodingKeys: String, CodingKey {
-        case contract = "manifest"
-        case issuerDid = "did"
-    }
+    public let path: String
+    
+    public let format: String
+    
+    public let encoding: String
 }

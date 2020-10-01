@@ -7,8 +7,6 @@ import VCJwt
 
 public struct PresentationRequestClaims: OIDCClaims {
     
-    public let audience: String
-    
     public let clientID: String
     
     public let issuer: String
@@ -22,7 +20,6 @@ public struct PresentationRequestClaims: OIDCClaims {
     public let presentationDefinition: PresentationDefinition
     
     enum CodingKeys: String, CodingKey {
-        case audience = "aud"
         case clientID = "client_id"
         case issuer = "iss"
         case presentationDefinition = "presentation_definition"

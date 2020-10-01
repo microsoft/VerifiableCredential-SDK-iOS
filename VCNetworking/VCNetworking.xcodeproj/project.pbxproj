@@ -17,6 +17,9 @@
 		550F1D94250AEDBE009AF467 /* ContractDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D93250AEDBE009AF467 /* ContractDecoderTests.swift */; };
 		550F1D9D250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D9C250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift */; };
 		550F1DEC250D668D009AF467 /* PostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */; };
+		5518CC6C2526472000C7A21B /* PresentationResponseEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC6B2526472000C7A21B /* PresentationResponseEncoder.swift */; };
+		5518CC6E2526479900C7A21B /* PostPresentationResponseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC6D2526479900C7A21B /* PostPresentationResponseOperation.swift */; };
+		5518CC702526483C00C7A21B /* PresentationServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC6F2526483C00C7A21B /* PresentationServiceResponseDecoder.swift */; };
 		5584E4A42526234C00A9DE58 /* FetchPresentationRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */; };
 		5584E4A6252623EA00A9DE58 /* PresentationRequestDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */; };
 		55C6C4A925083D370082BE73 /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A825083D370082BE73 /* Decoding.swift */; };
@@ -81,6 +84,9 @@
 		550F1D93250AEDBE009AF467 /* ContractDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDecoderTests.swift; sourceTree = "<group>"; };
 		550F1D9C250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseEncoderTests.swift; sourceTree = "<group>"; };
 		550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkOperation.swift; sourceTree = "<group>"; };
+		5518CC6B2526472000C7A21B /* PresentationResponseEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationResponseEncoder.swift; sourceTree = "<group>"; };
+		5518CC6D2526479900C7A21B /* PostPresentationResponseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresentationResponseOperation.swift; sourceTree = "<group>"; };
+		5518CC6F2526483C00C7A21B /* PresentationServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationServiceResponseDecoder.swift; sourceTree = "<group>"; };
 		5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPresentationRequestOperation.swift; sourceTree = "<group>"; };
 		5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestDecoder.swift; sourceTree = "<group>"; };
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
@@ -161,6 +167,7 @@
 			children = (
 				550F1D6225094691009AF467 /* Encoding.swift */,
 				550F1D64250946CF009AF467 /* IssuanceResponseEncoder.swift */,
+				5518CC6B2526472000C7A21B /* PresentationResponseEncoder.swift */,
 			);
 			path = encoders;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 				55C6C4AC250843920082BE73 /* ContractDecoder.swift */,
 				55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */,
 				5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */,
+				5518CC6F2526483C00C7A21B /* PresentationServiceResponseDecoder.swift */,
 			);
 			path = decoders;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 			children = (
 				55D1680E24EB0E1C00AD2F98 /* PostIssuanceResponseOperation.swift */,
 				550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */,
+				5518CC6D2526479900C7A21B /* PostPresentationResponseOperation.swift */,
 			);
 			path = post;
 			sourceTree = "<group>";
@@ -555,16 +564,19 @@
 				5584E4A42526234C00A9DE58 /* FetchPresentationRequestOperation.swift in Sources */,
 				55D1681E24EB0E1D00AD2F98 /* NetworkOperation.swift in Sources */,
 				55D1681824EB0E1D00AD2F98 /* NetworkingError.swift in Sources */,
+				5518CC6E2526479900C7A21B /* PostPresentationResponseOperation.swift in Sources */,
 				922D7E6E252523FD00E4C8B5 /* NSObject+Promise.swift in Sources */,
 				55C6C4A925083D370082BE73 /* Decoding.swift in Sources */,
 				550F1DEC250D668D009AF467 /* PostNetworkOperation.swift in Sources */,
 				55D1682324EB0E1D00AD2F98 /* NetworkingConstants.swift in Sources */,
 				5584E4A6252623EA00A9DE58 /* PresentationRequestDecoder.swift in Sources */,
+				5518CC6C2526472000C7A21B /* PresentationResponseEncoder.swift in Sources */,
 				55D1682124EB0E1D00AD2F98 /* FailureHandler.swift in Sources */,
 				922D7E6A252523FD00E4C8B5 /* afterlife.swift in Sources */,
 				922D7E71252523FD00E4C8B5 /* Process+Promise.swift in Sources */,
 				922D7E6D252523FD00E4C8B5 /* NSURLSession+AnyPromise.m in Sources */,
 				55D1681924EB0E1D00AD2F98 /* HelperNetworkFunctions.swift in Sources */,
+				5518CC702526483C00C7A21B /* PresentationServiceResponseDecoder.swift in Sources */,
 				922D7E68252523FD00E4C8B5 /* NSNotificationCenter+Promise.swift in Sources */,
 				55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */,
 			);

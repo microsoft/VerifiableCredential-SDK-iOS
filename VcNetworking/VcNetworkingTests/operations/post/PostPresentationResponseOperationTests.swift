@@ -23,7 +23,7 @@ class PostIssuanceResponseOperationTests: XCTestCase {
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [UrlProtocolMock.self]
         let urlSession = URLSession.init(configuration: configuration)
-        postPresentationResponseOperation = try PostIssuanceResponseOperation(withUrl: self.expectedUrl, withBody: expectedRequestBody, urlSession: urlSession)
+        postPresentationResponseOperation = try PostIssuanceResponseOperation(usingUrl: self.expectedUrl, withBody: expectedRequestBody, urlSession: urlSession)
     }
 
     func testSuccessfulInit() throws {
@@ -39,7 +39,7 @@ class PostIssuanceResponseOperationTests: XCTestCase {
 
     func testInvalidUrlInit() {
         let invalidUrl = ""
-        XCTAssertThrowsError(try PostIssuanceResponseOperation(withUrl: invalidUrl, withBody: expectedRequestBody)) { error in
+        XCTAssertThrowsError(try PostIssuanceResponseOperation(usingUrl: invalidUrl, withBody: expectedRequestBody)) { error in
             XCTAssertEqual(error as! NetworkingError, NetworkingError.invalidUrl(withUrl: invalidUrl))
         }
     }

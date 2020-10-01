@@ -6,18 +6,18 @@
 import Foundation
 import VCEntities
 
-public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
+public class PostPresentationResponseOperation: InternalPostNetworkOperation {
 
-    typealias Encoder = IssuanceResponseEncoder
-    public typealias RequestBody = IssuanceResponse
-    public typealias ResponseBody = VerifiableCredential
+    typealias Encoder = PresentationResponseEncoder
+    public typealias RequestBody = PresentationResponse
+    public typealias ResponseBody = String?
     
-    let decoder = IssuanceServiceResponseDecoder()
-    let encoder = IssuanceResponseEncoder()
+    let decoder = PresentationServiceResponseDecoder()
+    let encoder = PresentationResponseEncoder()
     let urlSession: URLSession
     let urlRequest: URLRequest
     
-    public init(usingUrl urlStr: String, withBody body: IssuanceResponse, urlSession: URLSession = URLSession.shared) throws {
+    public init(usingUrl urlStr: String, withBody body: PresentationResponse, urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
