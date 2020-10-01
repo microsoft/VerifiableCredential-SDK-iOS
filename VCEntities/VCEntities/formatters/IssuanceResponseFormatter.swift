@@ -6,11 +6,7 @@
 import VCJwt
 import VCCrypto
 
-enum IssuanceResponseFormatterError: Error {
-    case noAudienceSpecifiedInContract
-}
-
-public class IssuanceResponseFormatter: IssuanceResponseFormatting {
+public class IssuanceResponseFormatter: ResponseFormatting {
     
     let signer: TokenSigning
     

@@ -3,25 +3,24 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-enum IssuanceResponseError: Error {
-    case noAudienceSpecifiedInContract
+enum PresentationResponseError: Error {
+    case noAudienceSpecifiedInRequest
 }
 
-public struct IssuanceResponseContainer {
-    public let contract: Contract
-    public let contractUri: String
+public struct PresentationResponseContainer {
+    let request: PresentationRequest
     let expiryInSeconds: Int
-    public let audience: String
+    let audience: String
     public let requestedIdTokenMap: RequestedIdTokenMap = [:]
     public let requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
+    public let requestVCMap: RequestedVerifiableCredentialMap = [:]
     
-    public init(from contract: Contract, contractUri: String, expiryInSeconds exp: Int = 3000) throws {
-        self.contract = contract
-        self.contractUri = contractUri
+    public init(from request: PresentationRequest, expiryInSeconds exp: Int = 3000) throws {
+        self.request = request
         self.expiryInSeconds = exp
         
-        guard let aud = contract.input?.credentialIssuer else {
-            throw IssuanceResponseError.noAudienceSpecifiedInContract
+        guard let aud = request.content.audience else {
+            throw PresentationResponseError.noAudienceSpecifiedInRequest
         }
         
         self.audience = aud

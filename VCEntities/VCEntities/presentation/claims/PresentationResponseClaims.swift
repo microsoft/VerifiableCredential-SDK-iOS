@@ -17,13 +17,15 @@ public struct PresentationResponseClaims: OIDCClaims {
     
     public let publicJwk: ECPublicJwk?
     
-    public let contract: String
-    
     public let jti: String
     
     public let presentationSubmission: PresentationSubmission?
     
     public let attestations: AttestationResponseDescriptor?
+    
+    public let state: String?
+    
+    public let nonce: String?
     
     public let iat: Double?
     
@@ -33,19 +35,21 @@ public struct PresentationResponseClaims: OIDCClaims {
                 audience: String = "",
                 did: String = "",
                 publicJwk: ECPublicJwk? = nil,
-                contract: String = "",
                 jti: String = "",
-                attestations: AttestationResponseDescriptor? = nil,
                 presentationSubmission: PresentationSubmission? = nil,
+                attestations: AttestationResponseDescriptor? = nil,
+                state: String?,
+                nonce: String?,
                 iat: Double? = nil,
                 exp: Double? = nil) {
         self.publicKeyThumbprint = publicKeyThumbprint
         self.audience = audience
         self.did = did
         self.publicJwk = publicJwk
-        self.contract = contract
         self.jti = jti
         self.attestations = attestations
+        self.state = state
+        self.nonce = nonce
         self.iat = iat
         self.exp = exp
         self.presentationSubmission = presentationSubmission
@@ -57,7 +61,7 @@ public struct PresentationResponseClaims: OIDCClaims {
         case presentationSubmission = "presentation_submission"
         case audience = "aud"
         case publicJwk = "sub_jwk"
-        case contract, attestations, jti, did, iat, exp
+        case attestations, jti, did, iat, exp, state, nonce
     }
 }
 
