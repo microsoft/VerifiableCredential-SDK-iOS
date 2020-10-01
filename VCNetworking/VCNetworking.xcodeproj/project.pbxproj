@@ -17,6 +17,8 @@
 		550F1D94250AEDBE009AF467 /* ContractDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D93250AEDBE009AF467 /* ContractDecoderTests.swift */; };
 		550F1D9D250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1D9C250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift */; };
 		550F1DEC250D668D009AF467 /* PostNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */; };
+		5584E4A42526234C00A9DE58 /* FetchPresentationRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */; };
+		5584E4A6252623EA00A9DE58 /* PresentationRequestDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */; };
 		55C6C4A925083D370082BE73 /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A825083D370082BE73 /* Decoding.swift */; };
 		55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */; };
 		55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AC250843920082BE73 /* ContractDecoder.swift */; };
@@ -79,6 +81,8 @@
 		550F1D93250AEDBE009AF467 /* ContractDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDecoderTests.swift; sourceTree = "<group>"; };
 		550F1D9C250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseEncoderTests.swift; sourceTree = "<group>"; };
 		550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkOperation.swift; sourceTree = "<group>"; };
+		5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPresentationRequestOperation.swift; sourceTree = "<group>"; };
+		5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestDecoder.swift; sourceTree = "<group>"; };
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
 		55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseDecoder.swift; sourceTree = "<group>"; };
 		55C6C4AC250843920082BE73 /* ContractDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDecoder.swift; sourceTree = "<group>"; };
@@ -182,8 +186,9 @@
 			isa = PBXGroup;
 			children = (
 				55C6C4A825083D370082BE73 /* Decoding.swift */,
-				55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */,
 				55C6C4AC250843920082BE73 /* ContractDecoder.swift */,
+				55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */,
+				5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */,
 			);
 			path = decoders;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				55D1681024EB0E1C00AD2F98 /* FetchContractOperation.swift */,
+				5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */,
 			);
 			path = fetch;
 			sourceTree = "<group>";
@@ -546,12 +552,14 @@
 				922D7E6C252523FD00E4C8B5 /* NSURLSession+Promise.swift in Sources */,
 				922D7E69252523FD00E4C8B5 /* NSNotificationCenter+AnyPromise.m in Sources */,
 				55D1681A24EB0E1D00AD2F98 /* SimpleSuccessHandler.swift in Sources */,
+				5584E4A42526234C00A9DE58 /* FetchPresentationRequestOperation.swift in Sources */,
 				55D1681E24EB0E1D00AD2F98 /* NetworkOperation.swift in Sources */,
 				55D1681824EB0E1D00AD2F98 /* NetworkingError.swift in Sources */,
 				922D7E6E252523FD00E4C8B5 /* NSObject+Promise.swift in Sources */,
 				55C6C4A925083D370082BE73 /* Decoding.swift in Sources */,
 				550F1DEC250D668D009AF467 /* PostNetworkOperation.swift in Sources */,
 				55D1682324EB0E1D00AD2F98 /* NetworkingConstants.swift in Sources */,
+				5584E4A6252623EA00A9DE58 /* PresentationRequestDecoder.swift in Sources */,
 				55D1682124EB0E1D00AD2F98 /* FailureHandler.swift in Sources */,
 				922D7E6A252523FD00E4C8B5 /* afterlife.swift in Sources */,
 				922D7E71252523FD00E4C8B5 /* Process+Promise.swift in Sources */,

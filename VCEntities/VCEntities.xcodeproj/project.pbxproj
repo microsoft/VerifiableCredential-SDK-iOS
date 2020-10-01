@@ -18,7 +18,7 @@
 		55575768251BC6CF009979AB /* ClaimDisplayDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55575750251BC6CE009979AB /* ClaimDisplayDescriptor.swift */; };
 		55575769251BC6CF009979AB /* IssuerDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55575751251BC6CE009979AB /* IssuerDescriptor.swift */; };
 		5557576A251BC6CF009979AB /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55575752251BC6CE009979AB /* Contract.swift */; };
-		5557576B251BC6CF009979AB /* InputDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55575753251BC6CE009979AB /* InputDescriptor.swift */; };
+		5557576B251BC6CF009979AB /* ContractInputDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55575753251BC6CE009979AB /* ContractInputDescriptor.swift */; };
 		5557576C251BC6CF009979AB /* CardDisplayDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55575754251BC6CE009979AB /* CardDisplayDescriptor.swift */; };
 		5557576D251BC6CF009979AB /* SelfIssuedClaimsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55575755251BC6CE009979AB /* SelfIssuedClaimsDescriptor.swift */; };
 		5557576E251BC6CF009979AB /* ClaimDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55575756251BC6CE009979AB /* ClaimDescriptor.swift */; };
@@ -46,6 +46,11 @@
 		557BFC5D251E697F005B5B24 /* MockTokenSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BFC5B251E697F005B5B24 /* MockTokenSigner.swift */; };
 		557BFC5E251E697F005B5B24 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BFC5C251E697F005B5B24 /* TestData.swift */; };
 		557BFC60251E6A6A005B5B24 /* IssuanceResponseFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BFC5F251E6A6A005B5B24 /* IssuanceResponseFormatting.swift */; };
+		5584E49925255ACA00A9DE58 /* PresentationRequestClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E49825255ACA00A9DE58 /* PresentationRequestClaims.swift */; };
+		5584E49C2525641600A9DE58 /* PresentationDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E49B2525641600A9DE58 /* PresentationDefinition.swift */; };
+		5584E49E252564A600A9DE58 /* PresentationInputDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E49D252564A600A9DE58 /* PresentationInputDescriptor.swift */; };
+		5584E4A02525656500A9DE58 /* SchemaDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E49F2525656500A9DE58 /* SchemaDescriptor.swift */; };
+		5584E4A2252565D900A9DE58 /* IssuanceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A1252565D900A9DE58 /* IssuanceMetadata.swift */; };
 		92E2998B252522C300B25BB6 /* VCJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E2998A252522C300B25BB6 /* VCJwt.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +79,7 @@
 		55575750251BC6CE009979AB /* ClaimDisplayDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimDisplayDescriptor.swift; sourceTree = "<group>"; };
 		55575751251BC6CE009979AB /* IssuerDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuerDescriptor.swift; sourceTree = "<group>"; };
 		55575752251BC6CE009979AB /* Contract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
-		55575753251BC6CE009979AB /* InputDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputDescriptor.swift; sourceTree = "<group>"; };
+		55575753251BC6CE009979AB /* ContractInputDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractInputDescriptor.swift; sourceTree = "<group>"; };
 		55575754251BC6CE009979AB /* CardDisplayDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDisplayDescriptor.swift; sourceTree = "<group>"; };
 		55575755251BC6CE009979AB /* SelfIssuedClaimsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfIssuedClaimsDescriptor.swift; sourceTree = "<group>"; };
 		55575756251BC6CE009979AB /* ClaimDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimDescriptor.swift; sourceTree = "<group>"; };
@@ -102,6 +107,11 @@
 		557BFC5B251E697F005B5B24 /* MockTokenSigner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTokenSigner.swift; sourceTree = "<group>"; };
 		557BFC5C251E697F005B5B24 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		557BFC5F251E6A6A005B5B24 /* IssuanceResponseFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseFormatting.swift; sourceTree = "<group>"; };
+		5584E49825255ACA00A9DE58 /* PresentationRequestClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestClaims.swift; sourceTree = "<group>"; };
+		5584E49B2525641600A9DE58 /* PresentationDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDefinition.swift; sourceTree = "<group>"; };
+		5584E49D252564A600A9DE58 /* PresentationInputDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationInputDescriptor.swift; sourceTree = "<group>"; };
+		5584E49F2525656500A9DE58 /* SchemaDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaDescriptor.swift; sourceTree = "<group>"; };
+		5584E4A1252565D900A9DE58 /* IssuanceMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceMetadata.swift; sourceTree = "<group>"; };
 		92E2998A252522C300B25BB6 /* VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -147,6 +157,7 @@
 		55575730251BC575009979AB /* VCEntities */ = {
 			isa = PBXGroup;
 			children = (
+				5584E49725255A8F00A9DE58 /* presentation */,
 				5577E865251E830B005250BC /* identifier */,
 				5577E864251E82B2005250BC /* verifiableCredential */,
 				5577E862251E8284005250BC /* issuance */,
@@ -186,7 +197,7 @@
 				55575750251BC6CE009979AB /* ClaimDisplayDescriptor.swift */,
 				55575751251BC6CE009979AB /* IssuerDescriptor.swift */,
 				55575752251BC6CE009979AB /* Contract.swift */,
-				55575753251BC6CE009979AB /* InputDescriptor.swift */,
+				55575753251BC6CE009979AB /* ContractInputDescriptor.swift */,
 				55575754251BC6CE009979AB /* CardDisplayDescriptor.swift */,
 				55575755251BC6CE009979AB /* SelfIssuedClaimsDescriptor.swift */,
 				55575756251BC6CE009979AB /* ClaimDescriptor.swift */,
@@ -276,6 +287,26 @@
 				5577E872251E9007005250BC /* MockOIDCClaims.swift */,
 			);
 			path = mocks;
+			sourceTree = "<group>";
+		};
+		5584E49725255A8F00A9DE58 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5584E49A2525640000A9DE58 /* presentationExchange */,
+				5584E49825255ACA00A9DE58 /* PresentationRequestClaims.swift */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		5584E49A2525640000A9DE58 /* presentationExchange */ = {
+			isa = PBXGroup;
+			children = (
+				5584E49B2525641600A9DE58 /* PresentationDefinition.swift */,
+				5584E49D252564A600A9DE58 /* PresentationInputDescriptor.swift */,
+				5584E49F2525656500A9DE58 /* SchemaDescriptor.swift */,
+				5584E4A1252565D900A9DE58 /* IssuanceMetadata.swift */,
+			);
+			path = presentationExchange;
 			sourceTree = "<group>";
 		};
 		92E29989252522C300B25BB6 /* Frameworks */ = {
@@ -397,17 +428,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				557BFC53251E665D005B5B24 /* IssuanceResponseFormatter.swift in Sources */,
+				5584E4A02525656500A9DE58 /* SchemaDescriptor.swift in Sources */,
 				55575766251BC6CF009979AB /* LogoDisplayDescriptor.swift in Sources */,
 				5557576F251BC6CF009979AB /* IdTokenDescriptor.swift in Sources */,
 				55575772251BC6CF009979AB /* ServiceDescriptor.swift in Sources */,
 				5557576E251BC6CF009979AB /* ClaimDescriptor.swift in Sources */,
-				5557576B251BC6CF009979AB /* InputDescriptor.swift in Sources */,
+				5557576B251BC6CF009979AB /* ContractInputDescriptor.swift in Sources */,
 				55575764251BC6CF009979AB /* PresentationDescriptor.swift in Sources */,
 				55575768251BC6CF009979AB /* ClaimDisplayDescriptor.swift in Sources */,
 				55575767251BC6CF009979AB /* DisplayDescriptor.swift in Sources */,
 				55575769251BC6CF009979AB /* IssuerDescriptor.swift in Sources */,
 				55575778251BC6CF009979AB /* JSONCodingKeys.swift in Sources */,
 				55575774251BC6CF009979AB /* VCClaims.swift in Sources */,
+				5584E49925255ACA00A9DE58 /* PresentationRequestClaims.swift in Sources */,
 				55575771251BC6CF009979AB /* AttestationResponseDescriptor.swift in Sources */,
 				55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */,
 				55575773251BC6CF009979AB /* VerifiableCredentialDescriptor.swift in Sources */,
@@ -419,8 +452,11 @@
 				55575765251BC6CF009979AB /* ConsentDisplayDescriptor.swift in Sources */,
 				557BFC54251E665D005B5B24 /* MockIdentifier.swift in Sources */,
 				557BFC60251E6A6A005B5B24 /* IssuanceResponseFormatting.swift in Sources */,
+				5584E49C2525641600A9DE58 /* PresentationDefinition.swift in Sources */,
+				5584E4A2252565D900A9DE58 /* IssuanceMetadata.swift in Sources */,
 				5557576A251BC6CF009979AB /* Contract.swift in Sources */,
 				5557576D251BC6CF009979AB /* SelfIssuedClaimsDescriptor.swift in Sources */,
+				5584E49E252564A600A9DE58 /* PresentationInputDescriptor.swift in Sources */,
 				55575775251BC6CF009979AB /* IssuanceResponseClaims.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

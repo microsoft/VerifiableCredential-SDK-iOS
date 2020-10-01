@@ -7,6 +7,6 @@ public struct Contract: Codable, Equatable {
     
     public let id: String?
     public let display: DisplayDescriptor?
-    public let input: InputDescriptor?
+    public let input: ContractInputDescriptor?
     
 }

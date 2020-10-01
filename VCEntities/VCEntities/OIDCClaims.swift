@@ -6,6 +6,7 @@
 import VCJwt
 
 protocol OIDCClaims: Claims {
+    var audience: String? { get }
     var responseType: String? { get }
     var responseMode: String? { get }
     var clientID: String? { get }
@@ -19,6 +20,10 @@ protocol OIDCClaims: Claims {
 }
 
 extension OIDCClaims {
+    var audience: String? {
+        return nil
+    }
+    
     var responseType: String? {
         return nil
     }
