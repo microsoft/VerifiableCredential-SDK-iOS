@@ -27,6 +27,7 @@
 		550F1E2A250FD7AB009AF467 /* ApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E29250FD7AB009AF467 /* ApiCalls.swift */; };
 		5518CC6025262CF700C7A21B /* PresentationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC5F25262CF700C7A21B /* PresentationRepository.swift */; };
 		5518CC6225263C2E00C7A21B /* PresentationRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC6125263C2E00C7A21B /* PresentationRepositoryTests.swift */; };
+		551F304D2527EA5A0081D5E7 /* ApiCallsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F304C2527EA5A0081D5E7 /* ApiCallsTests.swift */; };
 		92E7AA3425251AF2000E8246 /* VCNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E7AA3325251AF2000E8246 /* VCNetworking.framework */; };
 		92E7AA3825251B14000E8246 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E7AA3725251B14000E8246 /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		550F1E29250FD7AB009AF467 /* ApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCalls.swift; sourceTree = "<group>"; };
 		5518CC5F25262CF700C7A21B /* PresentationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRepository.swift; sourceTree = "<group>"; };
 		5518CC6125263C2E00C7A21B /* PresentationRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRepositoryTests.swift; sourceTree = "<group>"; };
+		551F304C2527EA5A0081D5E7 /* ApiCallsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCallsTests.swift; sourceTree = "<group>"; };
 		92E7AA3325251AF2000E8246 /* VCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E7AA3725251B14000E8246 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E7AA3A25251B1A000E8246 /* PMKFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PMKFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 				550F1DE7250D5027009AF467 /* IssuanceRepositoryTests.swift */,
 				5518CC6125263C2E00C7A21B /* PresentationRepositoryTests.swift */,
 				550F1DE9250D599F009AF467 /* NetworkOperationFactoryTests.swift */,
+				551F304C2527EA5A0081D5E7 /* ApiCallsTests.swift */,
 				550F1DC2250BD898009AF467 /* RepositoryTests.swift */,
 				550F1DC4250BD898009AF467 /* Info.plist */,
 			);
@@ -293,6 +296,7 @@
 				550F1DF0250E7583009AF467 /* MockDecoder.swift in Sources */,
 				550F1DEA250D599F009AF467 /* NetworkOperationFactoryTests.swift in Sources */,
 				5518CC6225263C2E00C7A21B /* PresentationRepositoryTests.swift in Sources */,
+				551F304D2527EA5A0081D5E7 /* ApiCallsTests.swift in Sources */,
 				550F1DEE250E753A009AF467 /* MockPostNetworkOperation.swift in Sources */,
 				550F1DE6250D4F73009AF467 /* MockRepository.swift in Sources */,
 				550F1DE2250D4964009AF467 /* MockNetworkOperation.swift in Sources */,

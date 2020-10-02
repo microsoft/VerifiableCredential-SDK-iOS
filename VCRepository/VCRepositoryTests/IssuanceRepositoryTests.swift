@@ -27,7 +27,7 @@ class IssuanceRepositoryTests: XCTestCase {
             expec.fulfill()
         }.catch { error in
             XCTAssert(MockApiCalls.wasGetCalled)
-            XCTAssert(error is MockIssuanceRepoError)
+            XCTAssert(error is MockRepoError)
             expec.fulfill()
         }
         
@@ -43,7 +43,7 @@ class IssuanceRepositoryTests: XCTestCase {
             expec.fulfill()
         }.catch { error in
             XCTAssert(MockApiCalls.wasPostCalled)
-            XCTAssert(error is MockIssuanceRepoError)
+            XCTAssert(error is MockRepoError)
             expec.fulfill()
         }
         

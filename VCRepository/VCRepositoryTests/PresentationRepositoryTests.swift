@@ -27,44 +27,27 @@ class PresentationRepositoryTests: XCTestCase {
             expec.fulfill()
         }.catch { error in
             XCTAssert(MockApiCalls.wasGetCalled)
-            XCTAssert(error is MockIssuanceRepoError)
+            XCTAssert(error is MockRepoError)
             expec.fulfill()
         }
         
         wait(for: [expec], timeout: 5)
     }
     
-    func testReal() {
-        let url = "https://test-relyingparty.azurewebsites.net/request/jarIpvtW2FMJmA"
+    func testPostCalled() {
         let expec = self.expectation(description: "Fire")
-        let repo = PresentationRepository()
-        repo.getRequest(withUrl: url).done { actualResult in
-            print(actualResult)
+        let token = PresentationResponse(from: TestData.presentationResponse.rawValue)!
+
+        repo.sendResponse(usingUrl: expectedUrl, withBody: token).done { actualResult in
             XCTFail()
             expec.fulfill()
         }.catch { error in
-            XCTAssert(MockApiCalls.wasGetCalled)
-            XCTAssert(error is MockIssuanceRepoError)
+            XCTAssert(MockApiCalls.wasPostCalled)
+            XCTAssert(error is MockRepoError)
             expec.fulfill()
         }
-        
+
         wait(for: [expec], timeout: 5)
     }
-    
-//    func testPostCalled() {
-//        let expec = self.expectation(description: "Fire")
-//        let token = IssuanceResponse(from: TestData.issuanceResponse.rawValue)!
-//
-//        repo.sendResponse(usingUrl: expectedUrl, withBody: token).done { actualResult in
-//            XCTFail()
-//            expec.fulfill()
-//        }.catch { error in
-//            XCTAssert(MockApiCalls.wasPostCalled)
-//            XCTAssert(error is MockIssuanceRepoError)
-//            expec.fulfill()
-//        }
-//
-//        wait(for: [expec], timeout: 5)
-//    }
 
 }

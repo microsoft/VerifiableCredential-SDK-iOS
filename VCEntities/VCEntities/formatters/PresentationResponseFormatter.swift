@@ -9,7 +9,11 @@ import VCCrypto
 let CREDENTIAL_PATH = "$.attestations.presentations."
 let CREDENTIAL_ENCODING = "base64Url"
 
-public class PresentationResponseFormatter: ResponseFormatting {
+public protocol PresentationResponseFormatting {
+    func format(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> PresentationResponse
+}
+
+public class PresentationResponseFormatter: PresentationResponseFormatting {
     
     let signer: TokenSigning
     let vpFormatter: VerifiablePresentationFormatter

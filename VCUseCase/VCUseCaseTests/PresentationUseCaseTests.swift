@@ -9,22 +9,23 @@ import VCEntities
 
 @testable import VCUseCase
 
-class IssuanceUseCaseTests: XCTestCase {
+class PresentationUseCaseTests: XCTestCase {
     
-    var usecase: IssuanceUseCase!
+    var usecase: PresentationUseCase!
     var contract: Contract!
     let expectedUrl = "https://test3523.com"
 
     override func setUpWithError() throws {
-        let repo = IssuanceRepository(apiCalls: MockApiCalls())
-        let formatter = MockIssuanceResponseFormatter(shouldSucceed: true)
-        self.usecase = IssuanceUseCase(formatter: formatter, repo: repo)
+        let repo = PresentationRepository(apiCalls: MockApiCalls())
+        let formatter = PresentationResponseFormatter()
+        self.usecase = PresentationUseCase(formatter: formatter, repo: repo)
         
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
         
-        MockIssuanceResponseFormatter.wasFormatCalled = false
+        // MockPResponseFormatter.wasFormatCalled = false
         MockApiCalls.wasPostCalled = false
+        MockApiCalls.wasGetCalled = false
     }
     
     func testPublicInit() {
@@ -41,6 +42,7 @@ class IssuanceUseCaseTests: XCTestCase {
             XCTFail()
             expec.fulfill()
         }.catch { error in
+            print(error)
             XCTAssert(MockApiCalls.wasGetCalled)
             XCTAssert(error is MockError)
             expec.fulfill()
@@ -49,30 +51,29 @@ class IssuanceUseCaseTests: XCTestCase {
         wait(for: [expec], timeout: 5)
     }
     
-    func testSendResponse() throws {
-        let expec = self.expectation(description: "Fire")
-        let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)
-        usecase.send(response: response, identifier: MockIdentifier()).done {
-            response in
-            print(response)
-            XCTFail()
-            expec.fulfill()
-        }.catch { error in
-            print(error)
-            XCTAssert(MockIssuanceResponseFormatter.wasFormatCalled)
-            XCTAssert(MockApiCalls.wasPostCalled)
-            XCTAssert(error is MockError)
-            expec.fulfill()
-        }
-        
-        wait(for: [expec], timeout: 20)
-    }
+//    func testSendResponse() throws {
+//        let expec = self.expectation(description: "Fire")
+//        let response = try PresentationResponseContainer(from: PresentationResponseContainer(from: <#T##PresentationRequest#>))
+//        usecase.send(response: response, identifier: MockIdentifier()).done {
+//            response in
+//            print(response)
+//            XCTFail()
+//            expec.fulfill()
+//        }.catch { error in
+//            XCTAssert(MockIssuanceResponseFormatter.wasFormatCalled)
+//            XCTAssert(MockApiCalls.wasPostCalled)
+//            XCTAssert(error is MockError)
+//            expec.fulfill()
+//        }
+//
+//        wait(for: [expec], timeout: 20)
+//    }
     
     func testSendResponseFailedToFormat() throws {
         let expec = self.expectation(description: "Fire")
         
         let repo = IssuanceRepository(apiCalls: MockApiCalls())
-        let formatter = MockIssuanceResponseFormatter(shouldSucceed: false)
+        let formatter = IssuanceResponseFormatter()
         let usecase = IssuanceUseCase(formatter: formatter, repo: repo)
         
         let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)

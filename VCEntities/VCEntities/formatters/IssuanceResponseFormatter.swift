@@ -6,7 +6,11 @@
 import VCJwt
 import VCCrypto
 
-public class IssuanceResponseFormatter: ResponseFormatting {
+public protocol IssuanceResponseFormatting {
+    func format(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponse
+}
+
+public class IssuanceResponseFormatter: IssuanceResponseFormatting {
     
     let signer: TokenSigning
     

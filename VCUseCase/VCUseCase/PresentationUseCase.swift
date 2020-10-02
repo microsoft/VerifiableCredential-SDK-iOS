@@ -15,7 +15,7 @@ enum PresentationUseCaseError: Error {
 public class PresentationUseCase {
     
     let masterIdentifier: MockIdentifier = MockIdentifier()
-    let formatter: PresentationResponseFormatter
+    let formatter: PresentationResponseFormatting
     let repo: PresentationRepository
     
     public init() {
@@ -23,7 +23,7 @@ public class PresentationUseCase {
         self.repo = PresentationRepository()
     }
     
-    init(formatter: PresentationResponseFormatter,
+    init(formatter: PresentationResponseFormatting,
          repo: PresentationRepository) {
         self.formatter = formatter
         self.repo = repo
