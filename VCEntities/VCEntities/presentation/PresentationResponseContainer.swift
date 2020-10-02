@@ -10,7 +10,7 @@ enum PresentationResponseError: Error {
 public struct PresentationResponseContainer {
     let request: PresentationRequest
     let expiryInSeconds: Int
-    let audience: String?
+    public let audience: String?
     public var requestedIdTokenMap: RequestedIdTokenMap = [:]
     public var requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
     public var requestVCMap: RequestedVerifiableCredentialMap = [:]
