@@ -41,6 +41,7 @@
 		555CE08A25267FE500C1C938 /* VerifiablePresentationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE08925267FE500C1C938 /* VerifiablePresentationFormatter.swift */; };
 		555CE08D2526810100C1C938 /* VerifiablePresentationClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE08C2526810100C1C938 /* VerifiablePresentationClaims.swift */; };
 		555CE08F2526822300C1C938 /* VerifiablePresentationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE08E2526822300C1C938 /* VerifiablePresentationDescriptor.swift */; };
+		555CE0912526A21B00C1C938 /* PresentationResponseFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE0902526A21B00C1C938 /* PresentationResponseFormatterTests.swift */; };
 		5577E867251E8368005250BC /* MockCodableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E866251E8368005250BC /* MockCodableObject.swift */; };
 		5577E869251E8395005250BC /* JSONCodingKeysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E868251E8395005250BC /* JSONCodingKeysTests.swift */; };
 		5577E86C251E86C2005250BC /* VerifiableCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E86B251E86C2005250BC /* VerifiableCredentialTests.swift */; };
@@ -111,6 +112,7 @@
 		555CE08925267FE500C1C938 /* VerifiablePresentationFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiablePresentationFormatter.swift; sourceTree = "<group>"; };
 		555CE08C2526810100C1C938 /* VerifiablePresentationClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiablePresentationClaims.swift; sourceTree = "<group>"; };
 		555CE08E2526822300C1C938 /* VerifiablePresentationDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiablePresentationDescriptor.swift; sourceTree = "<group>"; };
+		555CE0902526A21B00C1C938 /* PresentationResponseFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationResponseFormatterTests.swift; sourceTree = "<group>"; };
 		5577E866251E8368005250BC /* MockCodableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCodableObject.swift; sourceTree = "<group>"; };
 		5577E868251E8395005250BC /* JSONCodingKeysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodingKeysTests.swift; sourceTree = "<group>"; };
 		5577E86B251E86C2005250BC /* VerifiableCredentialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialTests.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				557BFC58251E68EA005B5B24 /* IssuanceResponseFormatterTests.swift */,
+				555CE0902526A21B00C1C938 /* PresentationResponseFormatterTests.swift */,
 			);
 			path = formatters;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				5577E86F251E8EB3005250BC /* IssuanceServiceResponseTests.swift in Sources */,
 				557BFC5D251E697F005B5B24 /* MockTokenSigner.swift in Sources */,
 				5577E867251E8368005250BC /* MockCodableObject.swift in Sources */,
+				555CE0912526A21B00C1C938 /* PresentationResponseFormatterTests.swift in Sources */,
 				5577E873251E9007005250BC /* MockOIDCClaims.swift in Sources */,
 				5577E869251E8395005250BC /* JSONCodingKeysTests.swift in Sources */,
 			);

@@ -12,8 +12,8 @@ public struct IssuanceResponseContainer {
     public let contractUri: String
     let expiryInSeconds: Int
     public let audience: String
-    public let requestedIdTokenMap: RequestedIdTokenMap = [:]
-    public let requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
+    public var requestedIdTokenMap: RequestedIdTokenMap = [:]
+    public var requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
     
     public init(from contract: Contract, contractUri: String, expiryInSeconds exp: Int = 3000) throws {
         self.contract = contract

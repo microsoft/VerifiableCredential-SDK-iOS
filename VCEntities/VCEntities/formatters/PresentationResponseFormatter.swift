@@ -12,10 +12,11 @@ let CREDENTIAL_ENCODING = "base64Url"
 public class PresentationResponseFormatter: ResponseFormatting {
     
     let signer: TokenSigning
-    let vpFormatter: VerifiablePresentationFormatter = VerifiablePresentationFormatter()
+    let vpFormatter: VerifiablePresentationFormatter
     
     public init(signer: TokenSigning = Secp256k1Signer()) {
         self.signer = signer
+        self.vpFormatter = VerifiablePresentationFormatter(signer: signer)
     }
     
     public func format(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> PresentationResponse {
@@ -43,7 +44,7 @@ public class PresentationResponseFormatter: ResponseFormatting {
         let attestations = try self.formatAttestations(response: response, usingIdentifier: identifier)
         
         return PresentationResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
-                                          audience: response.audience,
+                                          audience: response.request.content.redirectURI,
                                           did: identifier.id,
                                           publicJwk: publicKey,
                                           jti: UUID().uuidString,
@@ -68,7 +69,7 @@ public class PresentationResponseFormatter: ResponseFormatting {
     
     private func createPresentations(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> [String: String] {
         return try response.requestVCMap.mapValues { verifiableCredential in
-            let vp = try self.vpFormatter.format(toWrap: verifiableCredential, withAudience: response.audience, withExpiryInSeconds: response.expiryInSeconds, usingIdentifier: identifier)
+            let vp = try self.vpFormatter.format(toWrap: verifiableCredential, withAudience: response.request.content.issuer, withExpiryInSeconds: response.expiryInSeconds, usingIdentifier: identifier)
             return try vp.serialize()
         }
     }

@@ -22,6 +22,7 @@ class VerifiablePresentationFormatter {
                        withExpiryInSeconds exp: Int,
                        usingIdentifier identifier: MockIdentifier) throws -> VerifiablePresentation {
         
+        let headers = self.formatHeaders(usingIdentifier: identifier)
         let (iat, exp) = self.createIatAndExp(expiryInSeconds: exp)
         let verifiablePresentationDescriptor = try self.createVerifiablePresentationDescriptor(toWrap: vc)
         
@@ -33,7 +34,7 @@ class VerifiablePresentationFormatter {
                                                     iat: iat,
                                                     exp: exp)
         
-        var token = JwsToken<VerifiablePresentationClaims>(headers: Header(), content: vpClaims)
+        var token = JwsToken<VerifiablePresentationClaims>(headers: headers, content: vpClaims)
         try token.sign(using: self.signer, withSecret: identifier.keyId)
         return token
     }
@@ -42,6 +43,11 @@ class VerifiablePresentationFormatter {
         return VerifiablePresentationDescriptor(context: [CONTEXT],
                                                 type: [TYPE],
                                                 verifiableCredential: [try vc.serialize()])
+    }
+    
+    private func formatHeaders(usingIdentifier identifier: MockIdentifier) -> Header {
+        let keyId = identifier.id + identifier.keyReference
+        return Header(type: identifier.keyType, algorithm: identifier.algorithm, keyId: keyId)
     }
     
     private func createIatAndExp(expiryInSeconds: Int) -> (Double, Double) {

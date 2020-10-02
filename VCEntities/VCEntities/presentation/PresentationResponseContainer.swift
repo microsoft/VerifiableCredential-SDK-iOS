@@ -10,19 +10,17 @@ enum PresentationResponseError: Error {
 public struct PresentationResponseContainer {
     let request: PresentationRequest
     let expiryInSeconds: Int
-    let audience: String
-    public let requestedIdTokenMap: RequestedIdTokenMap = [:]
-    public let requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
-    public let requestVCMap: RequestedVerifiableCredentialMap = [:]
+    let audience: String?
+    public var requestedIdTokenMap: RequestedIdTokenMap = [:]
+    public var requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
+    public var requestVCMap: RequestedVerifiableCredentialMap = [:]
     
-    public init(from request: PresentationRequest, expiryInSeconds exp: Int = 3000) throws {
-        self.request = request
+    public init(from presentationRequest: PresentationRequest, expiryInSeconds exp: Int = 3000) throws {
+        
+        self.audience = presentationRequest.content.redirectURI
+        self.request = presentationRequest
         self.expiryInSeconds = exp
         
-        guard let aud = request.content.audience else {
-            throw PresentationResponseError.noAudienceSpecifiedInRequest
-        }
-        
-        self.audience = aud
+        print(request.content.redirectURI)
     }
 }
