@@ -30,18 +30,10 @@ public class PresentationUseCase {
     }
     
     public func getRequest(usingUrl urlStr: String) -> Promise<PresentationRequest> {
-        let url = URL(string: urlStr)!
-        print(url)
-        let urlComponents = URLComponents(string: urlStr)!
-        if let queryItems = urlComponents.percentEncodedQueryItems {
-            for queryItem in queryItems {
-                if queryItem.name == "request_uri" {
-                    return self.repo.getRequest(withUrl: queryItem.value!)
-                }
-            }
-        }
-        return Promise { seal in
-            seal.reject(PresentationUseCaseError.notImplemented)
+        return firstly {
+            self.getRequestUri(from: urlStr)
+        }.then { requestUri in
+            self.repo.getRequest(withUrl: requestUri)
         }
     }
     
@@ -50,6 +42,24 @@ public class PresentationUseCase {
             self.formatPresentationResponse(response: response, identifier: identifier)
         }.then { signedToken in
             self.repo.sendResponse(usingUrl:  response.audience!, withBody: signedToken)
+        }
+    }
+    
+    private func getRequestUri(from urlStr: String) -> Promise<String> {
+        return Promise { seal in
+            
+            guard let urlComponents = URLComponents(string: urlStr) else { return seal.reject(PresentationUseCaseError.notImplemented) }
+            
+            guard let queryItems = urlComponents.percentEncodedQueryItems else { return seal.reject(PresentationUseCaseError.notImplemented) }
+            
+            for queryItem in queryItems {
+                if queryItem.name == "request_uri" {
+                    guard let value = queryItem.value else { return seal.reject(PresentationUseCaseError.notImplemented) }
+                    return seal.fulfill(value)
+                }
+            }
+            
+            return seal.reject(PresentationUseCaseError.notImplemented)
         }
     }
     

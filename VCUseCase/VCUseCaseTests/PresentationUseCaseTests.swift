@@ -13,7 +13,7 @@ class PresentationUseCaseTests: XCTestCase {
     
     var usecase: PresentationUseCase!
     var contract: Contract!
-    let expectedUrl = "https://test3523.com"
+    let expectedUrl = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/UZWlr4uOY13QiA"
 
     override func setUpWithError() throws {
         let repo = PresentationRepository(apiCalls: MockApiCalls())
