@@ -8,6 +8,10 @@ import PromiseKit
 import VCRepository
 import VCEntities
 
+enum PresentationUseCaseError: Error {
+    case notImplemented
+}
+
 public class PresentationUseCase {
     
     let masterIdentifier: MockIdentifier = MockIdentifier()
@@ -25,8 +29,20 @@ public class PresentationUseCase {
         self.repo = repo
     }
     
-    public func getRequest(usingUrl url: String) -> Promise<PresentationRequest> {
-        return self.repo.getRequest(withUrl: url)
+    public func getRequest(usingUrl urlStr: String) -> Promise<PresentationRequest> {
+        let url = URL(string: urlStr)!
+        print(url)
+        let urlComponents = URLComponents(string: urlStr)!
+        if let queryItems = urlComponents.percentEncodedQueryItems {
+            for queryItem in queryItems {
+                if queryItem.name == "request_uri" {
+                    return self.repo.getRequest(withUrl: queryItem.value!)
+                }
+            }
+        }
+        return Promise { seal in
+            seal.reject(PresentationUseCaseError.notImplemented)
+        }
     }
     
     public func send(response: PresentationResponseContainer, identifier: MockIdentifier) -> Promise<String?> {

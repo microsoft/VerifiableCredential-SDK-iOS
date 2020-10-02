@@ -12,7 +12,7 @@ enum MockIssuanceResponseFormatterError: Error {
     case doNotWantToResolveRealObject
 }
 
-class MockIssuanceResponseFormatter: IssuanceResponseFormatting {
+class MockIssuanceResponseFormatter: ResponseFormatting {
     
     static var wasFormatCalled = false
     let shouldSucceed: Bool

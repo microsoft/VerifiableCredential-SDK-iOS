@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		553032832527C17C0054CD63 /* VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553032822527C17C0054CD63 /* VCCrypto.framework */; };
+		553032842527C17C0054CD63 /* VCCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 553032822527C17C0054CD63 /* VCCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		553032862527C1940054CD63 /* VCJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553032852527C1940054CD63 /* VCJwt.framework */; };
+		553032872527C1940054CD63 /* VCJwt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 553032852527C1940054CD63 /* VCJwt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		553032892527C19A0054CD63 /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553032882527C19A0054CD63 /* VCEntities.framework */; };
+		5530328A2527C19A0054CD63 /* VCEntities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 553032882527C19A0054CD63 /* VCEntities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5530328F2527C7CD0054CD63 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5530328E2527C7CD0054CD63 /* PromiseKit.framework */; };
+		553032902527C7CD0054CD63 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5530328E2527C7CD0054CD63 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		555756F7251B9C25009979AB /* IssuanceFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756F6251B9C25009979AB /* IssuanceFlowTests.swift */; };
 		555756FA251B9C86009979AB /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756F9251B9C86009979AB /* TestData.swift */; };
 		555756FC251B9CB1009979AB /* MockSecretStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756FB251B9CB1009979AB /* MockSecretStore.swift */; };
@@ -33,6 +41,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				553032842527C17C0054CD63 /* VCCrypto.framework in Embed Frameworks */,
+				553032872527C1940054CD63 /* VCJwt.framework in Embed Frameworks */,
+				553032902527C7CD0054CD63 /* PromiseKit.framework in Embed Frameworks */,
+				5530328A2527C19A0054CD63 /* VCEntities.framework in Embed Frameworks */,
 				922D7E772525244F00E4C8B5 /* VCUseCase.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -41,6 +53,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		553032822527C17C0054CD63 /* VCCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		553032852527C1940054CD63 /* VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		553032882527C19A0054CD63 /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5530328E2527C7CD0054CD63 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		555756F6251B9C25009979AB /* IssuanceFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceFlowTests.swift; sourceTree = "<group>"; };
 		555756F9251B9C86009979AB /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		555756FB251B9CB1009979AB /* MockSecretStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSecretStore.swift; sourceTree = "<group>"; };
@@ -58,6 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553032832527C17C0054CD63 /* VCCrypto.framework in Frameworks */,
+				553032862527C1940054CD63 /* VCJwt.framework in Frameworks */,
+				5530328F2527C7CD0054CD63 /* PromiseKit.framework in Frameworks */,
+				553032892527C19A0054CD63 /* VCEntities.framework in Frameworks */,
 				922D7E762525244F00E4C8B5 /* VCUseCase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +143,10 @@
 		DBB08E8FAF983AA12C589889 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5530328E2527C7CD0054CD63 /* PromiseKit.framework */,
+				553032882527C19A0054CD63 /* VCEntities.framework */,
+				553032852527C1940054CD63 /* VCJwt.framework */,
+				553032822527C17C0054CD63 /* VCCrypto.framework */,
 				922D7E752525244F00E4C8B5 /* VCUseCase.framework */,
 				55D7C00824C4D6130090F495 /* networking.framework */,
 			);

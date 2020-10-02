@@ -15,6 +15,8 @@
 		550F1E6625116CD6009AF467 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6525116CD6009AF467 /* TestData.swift */; };
 		550F1E6825116E86009AF467 /* MockTokenSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6725116E86009AF467 /* MockTokenSigner.swift */; };
 		550F1E6A25125BC6009AF467 /* MockIssuanceResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6925125BC6009AF467 /* MockIssuanceResponseFormatter.swift */; };
+		5530328C2527C78E0054CD63 /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5530328B2527C78E0054CD63 /* VCEntities.framework */; };
+		5530328D2527C78E0054CD63 /* VCEntities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5530328B2527C78E0054CD63 /* VCEntities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		555CE0932526AD0400C1C938 /* PresentationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE0922526AD0400C1C938 /* PresentationUseCase.swift */; };
 		922D7E7A2525248900E4C8B5 /* VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922D7E792525248900E4C8B5 /* VCRepository.framework */; };
 		922D7E7F2525264400E4C8B5 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B9682425240AE600F64AB0 /* PromiseKit.framework */; };
@@ -38,6 +40,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5530328D2527C78E0054CD63 /* VCEntities.framework in Embed Frameworks */,
 				922D7E802525264400E4C8B5 /* PromiseKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -57,6 +60,7 @@
 		550F1E6525116CD6009AF467 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		550F1E6725116E86009AF467 /* MockTokenSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTokenSigner.swift; sourceTree = "<group>"; };
 		550F1E6925125BC6009AF467 /* MockIssuanceResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceResponseFormatter.swift; sourceTree = "<group>"; };
+		5530328B2527C78E0054CD63 /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		555CE0922526AD0400C1C938 /* PresentationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUseCase.swift; sourceTree = "<group>"; };
 		922D7E792525248900E4C8B5 /* VCRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B9681C25240AB800F64AB0 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5530328C2527C78E0054CD63 /* VCEntities.framework in Frameworks */,
 				922D7E7A2525248900E4C8B5 /* VCRepository.framework in Frameworks */,
 				922D7E7F2525264400E4C8B5 /* PromiseKit.framework in Frameworks */,
 			);
@@ -139,6 +144,7 @@
 		8A1DACB8079028BD52F83396 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5530328B2527C78E0054CD63 /* VCEntities.framework */,
 				922D7E792525248900E4C8B5 /* VCRepository.framework */,
 				92B9682425240AE600F64AB0 /* PromiseKit.framework */,
 				92B9682025240ADD00F64AB0 /* PMKFoundation.framework */,

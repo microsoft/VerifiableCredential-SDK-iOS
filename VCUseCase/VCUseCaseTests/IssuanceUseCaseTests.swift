@@ -17,7 +17,7 @@ class IssuanceUseCaseTests: XCTestCase {
 
     override func setUpWithError() throws {
         let repo = IssuanceRepository(apiCalls: MockApiCalls())
-        let formatter = MockIssuanceResponseFormatter(shouldSucceed: true)
+        let formatter = IssuanceResponseFormatter()
         self.usecase = IssuanceUseCase(formatter: formatter, repo: repo)
         
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
@@ -71,7 +71,7 @@ class IssuanceUseCaseTests: XCTestCase {
         let expec = self.expectation(description: "Fire")
         
         let repo = IssuanceRepository(apiCalls: MockApiCalls())
-        let formatter = MockIssuanceResponseFormatter(shouldSucceed: false)
+        let formatter = IssuanceResponseFormatter()
         let usecase = IssuanceUseCase(formatter: formatter, repo: repo)
         
         let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)

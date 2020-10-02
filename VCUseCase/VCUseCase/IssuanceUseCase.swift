@@ -9,9 +9,10 @@ import VCRepository
 import VCEntities
 
 public class IssuanceUseCase {
+    typealias ResponseFormatting = IssuanceResponseFormatter
     
     let masterIdentifier: MockIdentifier = MockIdentifier()
-    let formatter: IssuanceResponseFormatting
+    let formatter: ResponseFormatting
     let repo: IssuanceRepository
     
     public init() {
@@ -19,7 +20,7 @@ public class IssuanceUseCase {
         self.repo = IssuanceRepository()
     }
     
-    init(formatter: IssuanceResponseFormatting,
+    init(formatter: ResponseFormatting,
          repo: IssuanceRepository) {
         self.formatter = formatter
         self.repo = repo

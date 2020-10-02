@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct PresentationInputDescriptor: Codable {
+    
     public let id: String
     
     public let schema: SchemaDescriptor

@@ -5,7 +5,7 @@
 
 public struct PresentationDefinition: Codable {
     
-    let inputDescriptors: [PresentationInputDescriptor]
+    public let inputDescriptors: [PresentationInputDescriptor]
     
     enum CodingKeys: String, CodingKey {
         case inputDescriptors = "input_descriptors"
