@@ -24,22 +24,17 @@ public class PresentationResponseFormatter: ResponseFormatting {
     }
     
     private func createToken(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> PresentationResponse {
-        let headers = self.formatHeaders(usingIdentifier: identifier)
+        let headers = formatHeaders(usingIdentifier: identifier)
         let content = try self.formatClaims(response: response, usingIdentifier: identifier)
         var token = JwsToken(headers: headers, content: content)
         try token.sign(using: self.signer, withSecret: identifier.keyId)
         return token
     }
     
-    private func formatHeaders(usingIdentifier identifier: MockIdentifier) -> Header {
-        let keyId = identifier.id + identifier.keyReference
-        return Header(type: identifier.keyType, algorithm: identifier.algorithm, keyId: keyId)
-    }
-    
     private func formatClaims(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> PresentationResponseClaims {
         
         let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: identifier.keyReference)
-        let (iat, exp) = self.createIatAndExp(expiryInSeconds: response.expiryInSeconds)
+        let (iat, exp) = createIatAndExp(expiryInSeconds: response.expiryInSeconds)
         let presentationSubmission = self.formatPresentationSubmission(response: response, keyType: identifier.keyType)
         let attestations = try self.formatAttestations(response: response, usingIdentifier: identifier)
         
@@ -73,11 +68,4 @@ public class PresentationResponseFormatter: ResponseFormatting {
             return try vp.serialize()
         }
     }
-    
-    private func createIatAndExp(expiryInSeconds: Int) -> (Double, Double) {
-        let iat = (Date().timeIntervalSince1970).rounded(.down)
-        let exp = iat + Double(expiryInSeconds)
-        return (iat, exp)
-    }
-    
 }

@@ -22,8 +22,8 @@ class VerifiablePresentationFormatter {
                        withExpiryInSeconds exp: Int,
                        usingIdentifier identifier: MockIdentifier) throws -> VerifiablePresentation {
         
-        let headers = self.formatHeaders(usingIdentifier: identifier)
-        let (iat, exp) = self.createIatAndExp(expiryInSeconds: exp)
+        let headers = formatHeaders(usingIdentifier: identifier)
+        let (iat, exp) = createIatAndExp(expiryInSeconds: exp)
         let verifiablePresentationDescriptor = try self.createVerifiablePresentationDescriptor(toWrap: vc)
         
         let vpClaims = VerifiablePresentationClaims(vpId: UUID().uuidString,
@@ -44,16 +44,4 @@ class VerifiablePresentationFormatter {
                                                 type: [TYPE],
                                                 verifiableCredential: [try vc.serialize()])
     }
-    
-    private func formatHeaders(usingIdentifier identifier: MockIdentifier) -> Header {
-        let keyId = identifier.id + identifier.keyReference
-        return Header(type: identifier.keyType, algorithm: identifier.algorithm, keyId: keyId)
-    }
-    
-    private func createIatAndExp(expiryInSeconds: Int) -> (Double, Double) {
-        let iat = (Date().timeIntervalSince1970).rounded(.down)
-        let exp = iat + Double(expiryInSeconds)
-        return (iat, exp)
-    }
-
 }

@@ -15,6 +15,7 @@ class PresentationResponseFormatterTests: XCTestCase {
     var mockResponse: PresentationResponseContainer!
     var mockIdentifier: MockIdentifier!
     let expectedContractUrl = "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert"
+    let expectedCredentialType = "test435"
     
     override func setUpWithError() throws {
         let signer = MockTokenSigner(x: "x", y: "y")
@@ -27,7 +28,7 @@ class PresentationResponseFormatterTests: XCTestCase {
         let vc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)
         
         self.mockResponse = try PresentationResponseContainer(from: self.request)
-        self.mockResponse.requestVCMap["test"] = vc
+        self.mockResponse.requestVCMap[expectedCredentialType] = vc
         
         self.mockIdentifier = MockIdentifier()
     }
@@ -35,14 +36,18 @@ class PresentationResponseFormatterTests: XCTestCase {
     func testFormatToken() throws {
         let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
         XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.id)
+        XCTAssertNotNil(formattedToken.content.exp)
+        XCTAssertNotNil(formattedToken.content.iat)
+        XCTAssertNotNil(formattedToken.content.jti)
         XCTAssertEqual(formattedToken.content.audience, self.mockResponse.audience)
+        XCTAssertNotNil(formattedToken.content.attestations!.presentations!.first!.value)
+        XCTAssertEqual(formattedToken.content.attestations!.presentations!.first!.key, expectedCredentialType)
+        XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.id, expectedCredentialType)
+        XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.id, expectedCredentialType)
+        XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.path, "$.attestations.presentations." + expectedCredentialType)
+        XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.encoding, "base64Url")
+        XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.format, "JWT")
         XCTAssert(MockTokenSigner.wasSignCalled)
         XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
     }
-    
-    func testRequest() throws {
-        let result = try self.formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
-        print(try result.serialize())
-    }
-    
 }

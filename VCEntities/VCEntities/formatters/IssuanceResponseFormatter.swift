@@ -19,22 +19,17 @@ public class IssuanceResponseFormatter: ResponseFormatting {
     }
     
     private func createToken(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponse {
-        let headers = self.formatHeaders(usingIdentifier: identifier)
+        let headers = formatHeaders(usingIdentifier: identifier)
         let content = try self.formatClaims(response: response, usingIdentifier: identifier)
         var token = JwsToken(headers: headers, content: content)
         try token.sign(using: self.signer, withSecret: identifier.keyId)
         return token
     }
     
-    private func formatHeaders(usingIdentifier identifier: MockIdentifier) -> Header {
-        let keyId = identifier.id + identifier.keyReference
-        return Header(type: "JWT", algorithm: identifier.algorithm, keyId: keyId)
-    }
-    
     private func formatClaims(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponseClaims {
         
         let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: identifier.keyReference)
-        let (iat, exp) = self.createIatAndExp(expiryInSeconds: response.expiryInSeconds)
+        let (iat, exp) = createIatAndExp(expiryInSeconds: response.expiryInSeconds)
         
         return IssuanceResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                       audience: response.audience,
@@ -50,11 +45,4 @@ public class IssuanceResponseFormatter: ResponseFormatting {
     private func formatAttestations(response: IssuanceResponseContainer) -> AttestationResponseDescriptor? {
         return AttestationResponseDescriptor(idTokens: response.requestedIdTokenMap, selfIssued: response.requestedSelfAttestedClaimMap)
     }
-    
-    private func createIatAndExp(expiryInSeconds: Int) -> (Double, Double) {
-        let iat = (Date().timeIntervalSince1970).rounded(.down)
-        let exp = iat + Double(expiryInSeconds)
-        return (iat, exp)
-    }
-    
 }

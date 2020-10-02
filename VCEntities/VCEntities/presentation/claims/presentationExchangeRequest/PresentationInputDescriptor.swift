@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct PresentationInputDescriptor: Codable {
+public struct PresentationInputDescriptor: Codable, Equatable {
     
     public let id: String
     

@@ -13,6 +13,7 @@
 		5518CC7225264C6F00C7A21B /* PresentationResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC7125264C6F00C7A21B /* PresentationResponseFormatter.swift */; };
 		5518CC7425264CAD00C7A21B /* PresentationResponseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC7325264CAD00C7A21B /* PresentationResponseContainer.swift */; };
 		5518CC7625264D5700C7A21B /* ResponseMappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC7525264D5700C7A21B /* ResponseMappings.swift */; };
+		551F30432527DC050081D5E7 /* FormatterHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F30422527DC050081D5E7 /* FormatterHelpers.swift */; };
 		55575738251BC575009979AB /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5557572E251BC575009979AB /* VCEntities.framework */; };
 		5557573D251BC575009979AB /* VCEntitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557573C251BC575009979AB /* VCEntitiesTests.swift */; };
 		5557573F251BC575009979AB /* VCEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 55575731251BC575009979AB /* VCEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -81,6 +82,7 @@
 		5518CC7125264C6F00C7A21B /* PresentationResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationResponseFormatter.swift; sourceTree = "<group>"; };
 		5518CC7325264CAD00C7A21B /* PresentationResponseContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationResponseContainer.swift; sourceTree = "<group>"; };
 		5518CC7525264D5700C7A21B /* ResponseMappings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMappings.swift; sourceTree = "<group>"; };
+		551F30422527DC050081D5E7 /* FormatterHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterHelpers.swift; sourceTree = "<group>"; };
 		5557572E251BC575009979AB /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55575731251BC575009979AB /* VCEntities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCEntities.h; sourceTree = "<group>"; };
 		55575732251BC575009979AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				557BFC51251E665D005B5B24 /* IssuanceResponseFormatter.swift */,
 				5518CC7125264C6F00C7A21B /* PresentationResponseFormatter.swift */,
 				555CE08925267FE500C1C938 /* VerifiablePresentationFormatter.swift */,
+				551F30422527DC050081D5E7 /* FormatterHelpers.swift */,
 			);
 			path = formatters;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				557BFC56251E6701005B5B24 /* IssuanceResponseContainer.swift in Sources */,
 				55575776251BC6CF009979AB /* RegistrationClaims.swift in Sources */,
 				55575777251BC6CF009979AB /* IssuanceServiceResponse.swift in Sources */,
+				551F30432527DC050081D5E7 /* FormatterHelpers.swift in Sources */,
 				55575765251BC6CF009979AB /* ConsentDisplayDescriptor.swift in Sources */,
 				557BFC54251E665D005B5B24 /* MockIdentifier.swift in Sources */,
 				557BFC60251E6A6A005B5B24 /* ResponseFormatting.swift in Sources */,

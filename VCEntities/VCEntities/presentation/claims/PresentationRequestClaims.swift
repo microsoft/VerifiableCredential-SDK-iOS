@@ -5,7 +5,7 @@
 
 import VCJwt
 
-public struct PresentationRequestClaims: OIDCClaims {
+public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
     public let clientID: String
     
