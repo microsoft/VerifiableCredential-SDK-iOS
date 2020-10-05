@@ -39,8 +39,13 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         
         let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: identifier.keyReference)
         let (iat, exp) = createIatAndExp(expiryInSeconds: response.expiryInSeconds)
-        let presentationSubmission = self.formatPresentationSubmission(response: response, keyType: identifier.keyType)
-        let attestations = try self.formatAttestations(response: response, usingIdentifier: identifier)
+        
+        var presentationSubmission: PresentationSubmission? = nil
+        var attestations: AttestationResponseDescriptor? = nil
+        if (!response.requestVCMap.isEmpty) {
+            presentationSubmission = self.formatPresentationSubmission(response: response, keyType: identifier.keyType)
+            attestations = try self.formatAttestations(response: response, usingIdentifier: identifier)
+        }
         
         return PresentationResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                           audience: response.request.content.redirectURI,

@@ -23,18 +23,18 @@ class PresentationResponseFormatterTests: XCTestCase {
         
         let encodedRequest = TestData.presentationRequest.rawValue.data(using: .utf8)!
         self.request = JwsToken(from: encodedRequest)
-        print(self.request.content.redirectURI)
-        
-        let vc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)
         
         self.mockResponse = try PresentationResponseContainer(from: self.request)
-        self.mockResponse.requestVCMap[expectedCredentialType] = vc
         
         self.mockIdentifier = MockIdentifier()
     }
     
     func testFormatToken() throws {
+        let vc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)
+        self.mockResponse.requestVCMap[expectedCredentialType] = vc
+        
         let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
+        
         XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.id)
         XCTAssertNotNil(formattedToken.content.exp)
         XCTAssertNotNil(formattedToken.content.iat)
@@ -47,6 +47,20 @@ class PresentationResponseFormatterTests: XCTestCase {
         XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.path, "$.attestations.presentations." + expectedCredentialType)
         XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.encoding, "base64Url")
         XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.format, "JWT")
+        XCTAssert(MockTokenSigner.wasSignCalled)
+        XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
+    }
+    
+    func testFormatTokenNoVcs() throws {
+
+        let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
+        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.id)
+        XCTAssertNotNil(formattedToken.content.exp)
+        XCTAssertNotNil(formattedToken.content.iat)
+        XCTAssertNotNil(formattedToken.content.jti)
+        XCTAssertEqual(formattedToken.content.audience, self.mockResponse.audience)
+        XCTAssertNil(formattedToken.content.attestations)
+        XCTAssertNil(formattedToken.content.presentationSubmission)
         XCTAssert(MockTokenSigner.wasSignCalled)
         XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
     }
