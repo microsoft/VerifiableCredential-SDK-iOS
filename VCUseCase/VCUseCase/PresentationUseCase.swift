@@ -9,7 +9,10 @@ import VCRepository
 import VCEntities
 
 enum PresentationUseCaseError: Error {
-    case notImplemented
+    case inputStringNotUri
+    case noQueryParametersOnUri
+    case noValueForRequestUriQueryParameter
+    case noRequestUriQueryParameter
 }
 
 public class PresentationUseCase {
@@ -31,7 +34,7 @@ public class PresentationUseCase {
     
     public func getRequest(usingUrl urlStr: String) -> Promise<PresentationRequest> {
         return firstly {
-            self.getRequestUri(from: urlStr)
+            self.getRequestUriPromise(from: urlStr)
         }.then { requestUri in
             self.repo.getRequest(withUrl: requestUri)
         }
@@ -41,26 +44,33 @@ public class PresentationUseCase {
         return firstly {
             self.formatPresentationResponse(response: response, identifier: identifier)
         }.then { signedToken in
-            self.repo.sendResponse(usingUrl:  response.audience!, withBody: signedToken)
+            self.repo.sendResponse(usingUrl:  response.audience, withBody: signedToken)
         }
     }
     
-    private func getRequestUri(from urlStr: String) -> Promise<String> {
+    private func getRequestUriPromise(from urlStr: String) -> Promise<String> {
         return Promise { seal in
-            
-            guard let urlComponents = URLComponents(string: urlStr) else { return seal.reject(PresentationUseCaseError.notImplemented) }
-            
-            guard let queryItems = urlComponents.percentEncodedQueryItems else { return seal.reject(PresentationUseCaseError.notImplemented) }
-            
-            for queryItem in queryItems {
-                if queryItem.name == "request_uri" {
-                    guard let value = queryItem.value else { return seal.reject(PresentationUseCaseError.notImplemented) }
-                    return seal.fulfill(value)
-                }
+            do {
+                seal.fulfill(try self.getRequestUri(from: urlStr))
+            } catch {
+                seal.reject(error)
             }
-            
-            return seal.reject(PresentationUseCaseError.notImplemented)
         }
+    }
+    
+    private func getRequestUri(from urlStr: String) throws -> String {
+        
+        guard let urlComponents = URLComponents(string: urlStr) else { throw PresentationUseCaseError.inputStringNotUri }
+        guard let queryItems = urlComponents.percentEncodedQueryItems else { throw PresentationUseCaseError.noQueryParametersOnUri }
+        
+        for queryItem in queryItems {
+            if queryItem.name == "request_uri" {
+                guard let value = queryItem.value else { throw PresentationUseCaseError.noValueForRequestUriQueryParameter }
+                return value
+            }
+        }
+        
+        throw PresentationUseCaseError.noRequestUriQueryParameter
     }
     
     private func formatPresentationResponse(response: PresentationResponseContainer, identifier: MockIdentifier) -> Promise<PresentationResponse> {
