@@ -10,5 +10,4 @@ public struct PresentationDefinition: Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case inputDescriptors = "input_descriptors"
     }
-
 }
