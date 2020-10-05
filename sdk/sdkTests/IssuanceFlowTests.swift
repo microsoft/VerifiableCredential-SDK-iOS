@@ -93,18 +93,6 @@ class IssuanceUseCaseTests: XCTestCase {
             expec.fulfill()
         }
         
-        //        let contractUri = "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert"
-        //        let response = try IssuanceResponseContainer(from: contract, contractUri: contractUri)
-        //
-        //        issuanceUseCase.send(response: response, identifier: identifier).done {
-        //            response in
-        //            print(response)
-        //            expec.fulfill()
-        //        }.catch { error in
-        //            print(error)
-        //            expec.fulfill()
-        //        }
-        
         wait(for: [expec], timeout: 20)
     }
     
