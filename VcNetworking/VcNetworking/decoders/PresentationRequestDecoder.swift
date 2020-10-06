@@ -6,14 +6,14 @@
 import Foundation
 import VCEntities
 
-struct IssuanceResponseEncoder: Encoding {
+public struct PresentationRequestDecoder: Decoding {
     
-    func encode(value: IssuanceResponse) throws -> Data {
+    public func decode(data: Data) throws -> PresentationRequest {
         
-        guard let encodedToken = try value.serialize().data(using: .ascii) else {
-            throw NetworkingError.unableToParseString
+        guard let token = PresentationRequest(from: data) else {
+            throw DecodingError.unableToDecodeToken
         }
         
-        return encodedToken
+        return token
     }
 }

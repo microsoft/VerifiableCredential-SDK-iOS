@@ -6,9 +6,9 @@
 import Foundation
 import VCEntities
 
-struct IssuanceResponseEncoder: Encoding {
+struct PresentationResponseEncoder: Encoding {
     
-    func encode(value: IssuanceResponse) throws -> Data {
+    func encode(value: PresentationResponse) throws -> Data {
         
         guard let encodedToken = try value.serialize().data(using: .ascii) else {
             throw NetworkingError.unableToParseString

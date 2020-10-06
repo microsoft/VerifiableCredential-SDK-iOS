@@ -46,15 +46,14 @@ public struct ECPublicJwk: Codable {
     }
     
     public func getThumbprint() throws -> String {
+        
         let hashAlgorithm = Sha256()
         
         guard let encodedJwk = self.getMinimumAlphabeticJwk().data(using: .utf8) else {
             throw VCJwtError.unableToParseString
         }
-        print(String(data: encodedJwk, encoding: .utf8)!)
         
         let hash = hashAlgorithm.hash(data: encodedJwk)
-        // print(String(data: hash, encoding: .utf8)!)
         return hash.base64URLEncodedString()
     }
 }

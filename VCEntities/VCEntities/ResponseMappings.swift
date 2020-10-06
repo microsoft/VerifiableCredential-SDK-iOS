@@ -3,17 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
-import VCEntities
-
-struct IssuanceResponseEncoder: Encoding {
-    
-    func encode(value: IssuanceResponse) throws -> Data {
-        
-        guard let encodedToken = try value.serialize().data(using: .ascii) else {
-            throw NetworkingError.unableToParseString
-        }
-        
-        return encodedToken
-    }
-}
+public typealias RequestedIdTokenMap = [String:String]
+public typealias RequestedSelfAttestedClaimMap = [String: String]
+public typealias RequestedVerifiableCredentialMap = [String: VerifiableCredential]

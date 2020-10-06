@@ -4,16 +4,10 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCEntities
 
-struct IssuanceResponseEncoder: Encoding {
+public struct PresentationServiceResponseDecoder: Decoding {
     
-    func encode(value: IssuanceResponse) throws -> Data {
-        
-        guard let encodedToken = try value.serialize().data(using: .ascii) else {
-            throw NetworkingError.unableToParseString
-        }
-        
-        return encodedToken
+    public func decode(data: Data) throws -> String? {
+        return nil
     }
 }

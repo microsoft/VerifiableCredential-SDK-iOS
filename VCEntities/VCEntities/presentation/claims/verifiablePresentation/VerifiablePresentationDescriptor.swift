@@ -3,17 +3,16 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
-import VCEntities
-
-struct IssuanceResponseEncoder: Encoding {
+struct VerifiablePresentationDescriptor: Codable {
     
-    func encode(value: IssuanceResponse) throws -> Data {
-        
-        guard let encodedToken = try value.serialize().data(using: .ascii) else {
-            throw NetworkingError.unableToParseString
-        }
-        
-        return encodedToken
+    let context: [String]
+    
+    let type: [String]
+    
+    let verifiableCredential: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case context = "@context"
+        case type, verifiableCredential
     }
 }

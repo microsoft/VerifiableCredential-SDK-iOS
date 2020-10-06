@@ -9,15 +9,15 @@ import VCEntities
 
 @testable import VCRepository
 
-class IssuanceRepositoryTests: XCTestCase {
+class PresentationRepositoryTests: XCTestCase {
     
-    var repo: IssuanceRepository!
+    var repo: PresentationRepository!
     let expectedResult = "Result235"
     let expectedUrl = "https://test352.com"
     
     override func setUpWithError() throws {
         let mockFactory = MockNetworkOperationFactory(result: expectedResult)
-        repo = IssuanceRepository(apiCalls: MockApiCalls(factory: mockFactory))
+        repo = PresentationRepository(apiCalls: MockApiCalls(factory: mockFactory))
     }
     
     func testGetCalled() {
@@ -36,8 +36,8 @@ class IssuanceRepositoryTests: XCTestCase {
     
     func testPostCalled() {
         let expec = self.expectation(description: "Fire")
-        let token = IssuanceResponse(from: TestData.issuanceResponse.rawValue)!
-        
+        let token = PresentationResponse(from: TestData.presentationResponse.rawValue)!
+
         repo.sendResponse(usingUrl: expectedUrl, withBody: token).done { actualResult in
             XCTFail()
             expec.fulfill()
@@ -46,7 +46,7 @@ class IssuanceRepositoryTests: XCTestCase {
             XCTAssert(error is MockRepoError)
             expec.fulfill()
         }
-        
+
         wait(for: [expec], timeout: 5)
     }
 

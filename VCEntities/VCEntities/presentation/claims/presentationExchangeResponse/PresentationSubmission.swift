@@ -3,17 +3,10 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
-import VCEntities
-
-struct IssuanceResponseEncoder: Encoding {
+public struct PresentationSubmission: Codable {
+    public let submissionDescriptors: [SubmissionDescriptor]
     
-    func encode(value: IssuanceResponse) throws -> Data {
-        
-        guard let encodedToken = try value.serialize().data(using: .ascii) else {
-            throw NetworkingError.unableToParseString
-        }
-        
-        return encodedToken
+    enum CodingKeys: String, CodingKey {
+        case submissionDescriptors = "descriptor_map"
     }
 }

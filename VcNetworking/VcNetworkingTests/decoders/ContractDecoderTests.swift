@@ -23,5 +23,4 @@ class ContractDecoderTests: XCTestCase {
         let actualContract = try decoder.decode(data: encodedContract)
         XCTAssertEqual(actualContract, expectedContract)
     }
-
 }

@@ -58,6 +58,7 @@ class IssuanceUseCaseTests: XCTestCase {
             XCTFail()
             expec.fulfill()
         }.catch { error in
+            print(error)
             XCTAssert(MockIssuanceResponseFormatter.wasFormatCalled)
             XCTAssert(MockApiCalls.wasPostCalled)
             XCTAssert(error is MockError)

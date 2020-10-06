@@ -3,6 +3,11 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public protocol IssuanceResponseFormatting {
-    func format(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponse
+public struct ContractInputDescriptor: Codable, Equatable {
+    
+    public let id: String?
+    public let credentialIssuer: String?
+    public let issuer: String?
+    public let attestations: AttestationsDescriptor?
+    
 }
