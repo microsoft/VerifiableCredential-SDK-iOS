@@ -20,7 +20,5 @@ public struct PresentationResponseContainer {
         self.audience = presentationRequest.content.redirectURI
         self.request = presentationRequest
         self.expiryInSeconds = exp
-        
-        print(request.content.redirectURI)
     }
 }

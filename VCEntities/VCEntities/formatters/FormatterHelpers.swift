@@ -5,10 +5,10 @@
 
 import VCJwt
 
-func createIatAndExp(expiryInSeconds: Int) -> (Double, Double) {
+func createTokenTimeConstraints(expiryInSeconds: Int) -> TokenTimeConstraints {
     let iat = (Date().timeIntervalSince1970).rounded(.down)
     let exp = iat + Double(expiryInSeconds)
-    return (iat, exp)
+    return TokenTimeConstraints(issuedAt: iat, expiration: exp)
 }
 
 func formatHeaders(usingIdentifier identifier: MockIdentifier) -> Header {

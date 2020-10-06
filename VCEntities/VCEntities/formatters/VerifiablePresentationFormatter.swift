@@ -23,7 +23,7 @@ class VerifiablePresentationFormatter {
                        usingIdentifier identifier: MockIdentifier) throws -> VerifiablePresentation {
         
         let headers = formatHeaders(usingIdentifier: identifier)
-        let (iat, exp) = createIatAndExp(expiryInSeconds: exp)
+        let timeConstraints = createTokenTimeConstraints(expiryInSeconds: exp)
         let verifiablePresentationDescriptor = try self.createVerifiablePresentationDescriptor(toWrap: vc)
         
         let vpClaims = VerifiablePresentationClaims(vpId: UUID().uuidString,
@@ -31,8 +31,8 @@ class VerifiablePresentationFormatter {
                                                     verifiablePresentation: verifiablePresentationDescriptor,
                                                     issuerOfVp: identifier.id,
                                                     audience: audience,
-                                                    iat: iat,
-                                                    exp: exp)
+                                                    iat: timeConstraints.issuedAt,
+                                                    exp: timeConstraints.expiration)
         
         var token = JwsToken<VerifiablePresentationClaims>(headers: headers, content: vpClaims)
         try token.sign(using: self.signer, withSecret: identifier.keyId)

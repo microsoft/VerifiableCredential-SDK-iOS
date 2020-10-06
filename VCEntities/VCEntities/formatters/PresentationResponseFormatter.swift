@@ -4,7 +4,6 @@
  *--------------------------------------------------------------------------------------------*/
 
 import VCJwt
-import VCCrypto
 
 let CREDENTIAL_PATH = "$.attestations.presentations."
 let CREDENTIAL_ENCODING = "base64Url"
@@ -38,7 +37,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
     private func formatClaims(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> PresentationResponseClaims {
         
         let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: identifier.keyReference)
-        let (iat, exp) = createIatAndExp(expiryInSeconds: response.expiryInSeconds)
+        let timeConstraints = createTokenTimeConstraints(expiryInSeconds: response.expiryInSeconds)
         
         var presentationSubmission: PresentationSubmission? = nil
         var attestations: AttestationResponseDescriptor? = nil
@@ -56,8 +55,8 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
                                           attestations: attestations,
                                           state: response.request.content.state,
                                           nonce: response.request.content.nonce,
-                                          iat: iat,
-                                          exp: exp)
+                                          iat: timeConstraints.issuedAt,
+                                          exp: timeConstraints.expiration)
     }
     
     private func formatPresentationSubmission(response: PresentationResponseContainer, keyType: String) -> PresentationSubmission {

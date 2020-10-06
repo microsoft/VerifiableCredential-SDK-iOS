@@ -4,7 +4,6 @@
  *--------------------------------------------------------------------------------------------*/
 
 import VCJwt
-import VCCrypto
 
 public protocol IssuanceResponseFormatting {
     func format(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponse
@@ -33,7 +32,7 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
     private func formatClaims(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponseClaims {
         
         let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: identifier.keyReference)
-        let (iat, exp) = createIatAndExp(expiryInSeconds: response.expiryInSeconds)
+        let timeConstraints = createTokenTimeConstraints(expiryInSeconds: response.expiryInSeconds)
         
         return IssuanceResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                       audience: response.audience,
@@ -42,8 +41,8 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
                                       contract: response.contractUri,
                                       jti: UUID().uuidString,
                                       attestations: self.formatAttestations(response: response),
-                                      iat: iat,
-                                      exp: exp)
+                                      iat: timeConstraints.issuedAt,
+                                      exp: timeConstraints.expiration)
     }
     
     private func formatAttestations(response: IssuanceResponseContainer) -> AttestationResponseDescriptor? {
