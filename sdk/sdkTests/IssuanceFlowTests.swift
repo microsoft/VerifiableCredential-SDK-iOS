@@ -27,8 +27,7 @@ class IssuanceUseCaseTests: XCTestCase {
     func testIssuance() throws {
         
         let cryptoOp = CryptoOperations(secretStore: SecretStoreMock())
-        let key = try cryptoOp.generateKey()
-        let identifier = MockIdentifier(keyId: key)
+        let identifier = try IdentifierCreator(cryptoOperations: cryptoOp).create()
 
         let usecase = IssuanceUseCase()
         let expec = self.expectation(description: "Fire")
@@ -51,8 +50,7 @@ class IssuanceUseCaseTests: XCTestCase {
     func testPresentation() throws {
         
         let cryptoOp = CryptoOperations(secretStore: SecretStoreMock())
-        let key = try cryptoOp.generateKey()
-        let identifier = MockIdentifier(keyId: key)
+        let identifier = try IdentifierCreator(cryptoOperations: cryptoOp).create()
         
         let issuanceUseCase = IssuanceUseCase()
         let presentationUseCase = PresentationUseCase()
@@ -79,7 +77,7 @@ class IssuanceUseCaseTests: XCTestCase {
         wait(for: [expec], timeout: 20)
     }
     
-    private func getIssuanceResponse(useCase: IssuanceUseCase, contract: Contract, identifier: MockIdentifier) throws -> Promise<VerifiableCredential> {
+    private func getIssuanceResponse(useCase: IssuanceUseCase, contract: Contract, identifier: Identifier) throws -> Promise<VerifiableCredential> {
         let response = try IssuanceResponseContainer(from: contract, contractUri: "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert")
         return useCase.send(response: response, identifier: identifier)
     }

@@ -21,7 +21,7 @@ class MockPresentationResponseFormatter: PresentationResponseFormatting {
         self.shouldSucceed = shouldSucceed
     }
     
-    func format(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> PresentationResponse {
+    func format(response: PresentationResponseContainer, usingIdentifier identifier: Identifier) throws -> PresentationResponse {
         Self.wasFormatCalled = true
         if (shouldSucceed) {
             return PresentationResponse(from: TestData.presentationResponse.rawValue)!

@@ -10,9 +10,19 @@ public struct Identifier {
     let didDocumentKeys: [KeyContainer]
     let updateKey: KeyContainer
     let recoveryKey: KeyContainer
+    
+    public init(longformId: String,
+                didDocumentKeys: [KeyContainer],
+                updateKey: KeyContainer,
+                recoveryKey: KeyContainer) {
+        self.longformId = longformId
+        self.didDocumentKeys = didDocumentKeys
+        self.updateKey = updateKey
+        self.recoveryKey = recoveryKey
+    }
 }
 
-struct KeyContainer {
+public struct KeyContainer {
     
     /// key reference to key in Secret Store
     let keyReference: VCCryptoSecret
@@ -22,4 +32,10 @@ struct KeyContainer {
     
     /// Always ES256K because we only support Secp256k1 keys
     let algorithm: String = "ES256K"
+    
+    public init(keyReference: VCCryptoSecret,
+                keyId: String) {
+        self.keyReference = keyReference
+        self.keyId = keyId
+    }
 }
