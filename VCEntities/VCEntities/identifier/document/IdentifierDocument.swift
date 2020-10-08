@@ -4,7 +4,6 @@
 *--------------------------------------------------------------------------------------------*/
 
 import VCJwt
-import VCCrypto
 
 struct IdentifierDocument: Codable {
     let publicKeys: [IdentifierDocumentPublicKey]
