@@ -10,7 +10,6 @@ import VCEntities
 
 public class IssuanceUseCase {
     
-    let masterIdentifier: MockIdentifier = MockIdentifier()
     let formatter: IssuanceResponseFormatting
     let repo: IssuanceRepository
     

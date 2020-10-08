@@ -7,17 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		553032832527C17C0054CD63 /* VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553032822527C17C0054CD63 /* VCCrypto.framework */; };
-		553032842527C17C0054CD63 /* VCCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 553032822527C17C0054CD63 /* VCCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		553032862527C1940054CD63 /* VCJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553032852527C1940054CD63 /* VCJwt.framework */; };
 		553032872527C1940054CD63 /* VCJwt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 553032852527C1940054CD63 /* VCJwt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		553032892527C19A0054CD63 /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553032882527C19A0054CD63 /* VCEntities.framework */; };
 		5530328A2527C19A0054CD63 /* VCEntities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 553032882527C19A0054CD63 /* VCEntities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5530328F2527C7CD0054CD63 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5530328E2527C7CD0054CD63 /* PromiseKit.framework */; };
 		553032902527C7CD0054CD63 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5530328E2527C7CD0054CD63 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		555756F7251B9C25009979AB /* IssuanceFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756F6251B9C25009979AB /* IssuanceFlowTests.swift */; };
-		555756FA251B9C86009979AB /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756F9251B9C86009979AB /* TestData.swift */; };
-		555756FC251B9CB1009979AB /* MockSecretStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555756FB251B9CB1009979AB /* MockSecretStore.swift */; };
 		55D1C0C124C23408002A58F9 /* sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1C0B724C23408002A58F9 /* sdk.framework */; };
 		55D1C0C824C23408002A58F9 /* sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 55D1C0BA24C23408002A58F9 /* sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		922D7E762525244F00E4C8B5 /* VCUseCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922D7E752525244F00E4C8B5 /* VCUseCase.framework */; };
@@ -41,7 +36,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				553032842527C17C0054CD63 /* VCCrypto.framework in Embed Frameworks */,
 				553032872527C1940054CD63 /* VCJwt.framework in Embed Frameworks */,
 				553032902527C7CD0054CD63 /* PromiseKit.framework in Embed Frameworks */,
 				5530328A2527C19A0054CD63 /* VCEntities.framework in Embed Frameworks */,
@@ -57,15 +51,11 @@
 		553032852527C1940054CD63 /* VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		553032882527C19A0054CD63 /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5530328E2527C7CD0054CD63 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		555756F6251B9C25009979AB /* IssuanceFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceFlowTests.swift; sourceTree = "<group>"; };
-		555756F9251B9C86009979AB /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
-		555756FB251B9CB1009979AB /* MockSecretStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSecretStore.swift; sourceTree = "<group>"; };
 		55D1C0B724C23408002A58F9 /* sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D1C0BA24C23408002A58F9 /* sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sdk.h; sourceTree = "<group>"; };
 		55D1C0BB24C23408002A58F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D1C0C024C23408002A58F9 /* sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D1C0C724C23408002A58F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55D7C00824C4D6130090F495 /* networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		922D7E752525244F00E4C8B5 /* VCUseCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCUseCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -74,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				553032832527C17C0054CD63 /* VCCrypto.framework in Frameworks */,
 				553032862527C1940054CD63 /* VCJwt.framework in Frameworks */,
 				5530328F2527C7CD0054CD63 /* PromiseKit.framework in Frameworks */,
 				553032892527C19A0054CD63 /* VCEntities.framework in Frameworks */,
@@ -93,15 +82,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		555756F8251B9C5C009979AB /* mocks */ = {
-			isa = PBXGroup;
-			children = (
-				555756F9251B9C86009979AB /* TestData.swift */,
-				555756FB251B9CB1009979AB /* MockSecretStore.swift */,
-			);
-			path = mocks;
-			sourceTree = "<group>";
-		};
 		55D1C0AD24C23408002A58F9 = {
 			isa = PBXGroup;
 			children = (
@@ -133,9 +113,7 @@
 		55D1C0C424C23408002A58F9 /* sdkTests */ = {
 			isa = PBXGroup;
 			children = (
-				555756F8251B9C5C009979AB /* mocks */,
 				55D1C0C724C23408002A58F9 /* Info.plist */,
-				555756F6251B9C25009979AB /* IssuanceFlowTests.swift */,
 			);
 			path = sdkTests;
 			sourceTree = "<group>";
@@ -148,7 +126,6 @@
 				553032852527C1940054CD63 /* VCJwt.framework */,
 				553032822527C17C0054CD63 /* VCCrypto.framework */,
 				922D7E752525244F00E4C8B5 /* VCUseCase.framework */,
-				55D7C00824C4D6130090F495 /* networking.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -272,9 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				555756FC251B9CB1009979AB /* MockSecretStore.swift in Sources */,
-				555756F7251B9C25009979AB /* IssuanceFlowTests.swift in Sources */,
-				555756FA251B9C86009979AB /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +386,6 @@
 		55D1C0CC24C23408002A58F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -442,7 +415,6 @@
 		55D1C0CD24C23408002A58F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -471,6 +443,7 @@
 		55D1C0CF24C23408002A58F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
@@ -491,6 +464,7 @@
 		55D1C0D024C23408002A58F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;

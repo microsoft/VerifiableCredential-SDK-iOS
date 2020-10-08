@@ -14,10 +14,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55D1C0B624C23408002A58F9"
-               BuildableName = "sdk.framework"
-               BlueprintName = "sdk"
-               ReferencedContainer = "container:sdk.xcodeproj">
+               BlueprintIdentifier = "92B9684C25240F2100F64AB0"
+               BuildableName = "Secp256k1.framework"
+               BlueprintName = "Secp256k1"
+               ReferencedContainer = "container:../Submodules/Secp256k1/Secp256k1.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "63B0AC561D595E1B00FA21D9"
+               BuildableName = "PromiseKit.framework"
+               BlueprintName = "PromiseKit"
+               ReferencedContainer = "container:../Submodules/PromiseKit/PromiseKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -102,6 +116,20 @@
                BuildableName = "VCUseCase.framework"
                BlueprintName = "VCUseCase"
                ReferencedContainer = "container:../VCUseCase/VCUseCase.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "55D1C0B624C23408002A58F9"
+               BuildableName = "sdk.framework"
+               BlueprintName = "sdk"
+               ReferencedContainer = "container:sdk.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -17,6 +17,9 @@
 		550F1E6A25125BC6009AF467 /* MockIssuanceResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6925125BC6009AF467 /* MockIssuanceResponseFormatter.swift */; };
 		551F304F2527EAF40081D5E7 /* PresentationUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F304E2527EAF40081D5E7 /* PresentationUseCaseTests.swift */; };
 		551F30512527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F30502527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift */; };
+		5525397A252FCB26003202D5 /* VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55253979252FCB26003202D5 /* VCCrypto.framework */; };
+		5525397E252FCC7D003202D5 /* SecretStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525397D252FCC7D003202D5 /* SecretStoreMock.swift */; };
+		55253980252FCDEF003202D5 /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525397F252FCDEF003202D5 /* FlowTests.swift */; };
 		5530328C2527C78E0054CD63 /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5530328B2527C78E0054CD63 /* VCEntities.framework */; };
 		555CE0932526AD0400C1C938 /* PresentationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE0922526AD0400C1C938 /* PresentationUseCase.swift */; };
 		55AF7490252FBF5B006A8B25 /* MockVCCryptoSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */; };
@@ -48,11 +51,13 @@
 		550F1E6925125BC6009AF467 /* MockIssuanceResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceResponseFormatter.swift; sourceTree = "<group>"; };
 		551F304E2527EAF40081D5E7 /* PresentationUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUseCaseTests.swift; sourceTree = "<group>"; };
 		551F30502527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPresentationResponseFormatter.swift; sourceTree = "<group>"; };
+		55253979252FCB26003202D5 /* VCCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5525397D252FCC7D003202D5 /* SecretStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretStoreMock.swift; sourceTree = "<group>"; };
+		5525397F252FCDEF003202D5 /* FlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTests.swift; sourceTree = "<group>"; };
 		5530328B2527C78E0054CD63 /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		555CE0922526AD0400C1C938 /* PresentationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUseCase.swift; sourceTree = "<group>"; };
 		55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVCCryptoSecret.swift; sourceTree = "<group>"; };
 		922D7E792525248900E4C8B5 /* VCRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92B9681C25240AB800F64AB0 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B9682025240ADD00F64AB0 /* PMKFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PMKFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B9682425240AE600F64AB0 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -62,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5525397A252FCB26003202D5 /* VCCrypto.framework in Frameworks */,
 				5530328C2527C78E0054CD63 /* VCEntities.framework in Frameworks */,
 				922D7E7A2525248900E4C8B5 /* VCRepository.framework in Frameworks */,
 				922D7E7F2525264400E4C8B5 /* PromiseKit.framework in Frameworks */,
@@ -116,6 +122,7 @@
 				550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */,
 				551F304E2527EAF40081D5E7 /* PresentationUseCaseTests.swift */,
 				550F1E4525101759009AF467 /* Info.plist */,
+				5525397F252FCDEF003202D5 /* FlowTests.swift */,
 			);
 			path = VCUseCaseTests;
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 				551F30502527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift */,
 				550F1E6525116CD6009AF467 /* TestData.swift */,
 				55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */,
+				5525397D252FCC7D003202D5 /* SecretStoreMock.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -136,11 +144,11 @@
 		8A1DACB8079028BD52F83396 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55253979252FCB26003202D5 /* VCCrypto.framework */,
 				5530328B2527C78E0054CD63 /* VCEntities.framework */,
 				922D7E792525248900E4C8B5 /* VCRepository.framework */,
 				92B9682425240AE600F64AB0 /* PromiseKit.framework */,
 				92B9682025240ADD00F64AB0 /* PMKFoundation.framework */,
-				92B9681C25240AB800F64AB0 /* PromiseKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,8 +277,10 @@
 				550F1E63251165D6009AF467 /* MockApiCalls.swift in Sources */,
 				550F1E6A25125BC6009AF467 /* MockIssuanceResponseFormatter.swift in Sources */,
 				551F30512527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift in Sources */,
+				55253980252FCDEF003202D5 /* FlowTests.swift in Sources */,
 				55AF7490252FBF5B006A8B25 /* MockVCCryptoSecret.swift in Sources */,
 				550F1E4425101759009AF467 /* IssuanceUseCaseTests.swift in Sources */,
+				5525397E252FCC7D003202D5 /* SecretStoreMock.swift in Sources */,
 				550F1E6825116E86009AF467 /* MockTokenSigner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

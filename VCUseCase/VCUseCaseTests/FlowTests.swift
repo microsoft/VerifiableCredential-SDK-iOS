@@ -1,23 +1,20 @@
-//
-//  VCUseCaseTests.swift
-//  VCUseCaseTests
-//
-//  Created by Sydney Morton on 9/14/20.
-//  Copyright © 2020 Microsoft. All rights reserved.
-//
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
 import XCTest
 import VCRepository
-import VCCrypto
-import VCUseCase
 import VCEntities
+import VCCrypto
 import PromiseKit
 
-class IssuanceUseCaseTests: XCTestCase {
+@testable import VCUseCase
+
+/// testing flows until we get into App
+class FlowTests: XCTestCase {
     
-    var usecase: IssuanceUseCase!
     var contract: Contract!
-    let expectedUrl = "https://test3523.com"
     
     override func setUpWithError() throws {
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
@@ -57,7 +54,7 @@ class IssuanceUseCaseTests: XCTestCase {
         
         let expec = self.expectation(description: "Fire")
         
-        let requestUri = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/UZWlr4uOY13QiA"
+        let requestUri = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/hd6M8DH6ON3Jlw"
         
         firstly {
             presentationUseCase.getRequest(usingUrl: requestUri)
@@ -82,4 +79,3 @@ class IssuanceUseCaseTests: XCTestCase {
         return useCase.send(response: response, identifier: identifier)
     }
 }
-

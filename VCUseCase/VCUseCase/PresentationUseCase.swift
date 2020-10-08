@@ -16,7 +16,6 @@ enum PresentationUseCaseError: Error {
 
 public class PresentationUseCase {
     
-    let masterIdentifier: MockIdentifier = MockIdentifier()
     let formatter: PresentationResponseFormatting
     let repo: PresentationRepository
     

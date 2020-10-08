@@ -63,7 +63,6 @@
 		922D7E70252523FD00E4C8B5 /* PMKFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 922D7E4B252523FD00E4C8B5 /* PMKFoundation.h */; };
 		922D7E71252523FD00E4C8B5 /* Process+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7E4C252523FD00E4C8B5 /* Process+Promise.swift */; };
 		922D7E72252523FD00E4C8B5 /* NSTask+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 922D7E4D252523FD00E4C8B5 /* NSTask+AnyPromise.m */; };
-		92E299832525228500B25BB6 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E299822525228500B25BB6 /* PromiseKit.framework */; };
 		92E29993252522ED00B25BB6 /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E29992252522ED00B25BB6 /* VCEntities.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,7 +99,6 @@
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
 		55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseDecoder.swift; sourceTree = "<group>"; };
 		55C6C4AC250843920082BE73 /* ContractDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDecoder.swift; sourceTree = "<group>"; };
-		55CED16424D3369B00A2AAE2 /* Serialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Serialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D1680224EB0E1C00AD2F98 /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		55D1680424EB0E1C00AD2F98 /* HelperNetworkFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperNetworkFunctions.swift; sourceTree = "<group>"; };
 		55D1680624EB0E1C00AD2F98 /* SimpleSuccessHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSuccessHandler.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 		55D1683624EB0E3600AD2F98 /* NetworkOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperationTests.swift; sourceTree = "<group>"; };
 		55D1683824EB0E3600AD2F98 /* SimpleFailureHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleFailureHandlerTests.swift; sourceTree = "<group>"; };
 		55D1683924EB0E3600AD2F98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55D1687E24EB16FE00AD2F98 /* VCSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFEA24C4CBBD0090F495 /* VCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFF324C4CBBD0090F495 /* VCNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		922D7E42252523FD00E4C8B5 /* NSURLSession+AnyPromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+AnyPromise.h"; sourceTree = "<group>"; };
@@ -139,14 +136,9 @@
 		922D7E4B252523FD00E4C8B5 /* PMKFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMKFoundation.h; sourceTree = "<group>"; };
 		922D7E4C252523FD00E4C8B5 /* Process+Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Process+Promise.swift"; sourceTree = "<group>"; };
 		922D7E4D252523FD00E4C8B5 /* NSTask+AnyPromise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+AnyPromise.m"; sourceTree = "<group>"; };
-		92B9682725240B6200F64AB0 /* PMKFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PMKFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B9682B25240B6B00F64AB0 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92E299822525228500B25BB6 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92E29986252522A300B25BB6 /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E29992252522ED00B25BB6 /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E7AA3D25251B95000E8246 /* PMKFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PMKFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92E7AA4125251B9C000E8246 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92E7AA4425251E6C000E8246 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +147,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E29993252522ED00B25BB6 /* VCEntities.framework in Frameworks */,
-				92E299832525228500B25BB6 /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,15 +424,8 @@
 			isa = PBXGroup;
 			children = (
 				92E29992252522ED00B25BB6 /* VCEntities.framework */,
-				92E29986252522A300B25BB6 /* VCEntities.framework */,
-				92E299822525228500B25BB6 /* PromiseKit.framework */,
-				92E7AA4425251E6C000E8246 /* PromiseKit.framework */,
-				92E7AA4125251B9C000E8246 /* PromiseKit.framework */,
 				92E7AA3D25251B95000E8246 /* PMKFoundation.framework */,
 				92B9682B25240B6B00F64AB0 /* PromiseKit.framework */,
-				92B9682725240B6200F64AB0 /* PMKFoundation.framework */,
-				55D1687E24EB16FE00AD2F98 /* VCSerialization.framework */,
-				55CED16424D3369B00A2AAE2 /* Serialization.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
