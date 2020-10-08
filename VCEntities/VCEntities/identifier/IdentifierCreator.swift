@@ -22,19 +22,19 @@ public struct IdentifierCreator {
     }
     
     public func create() throws -> Identifier {
-        let signingKeyMapping = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "sign")
-        let updateKeyMapping = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "update")
-        let recoveryKeyMapping = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "recover")
+        let signingKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "sign")
+        let updateKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "update")
+        let recoveryKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "recover")
         
-        let longformDid = try self.createLongformDid(signingKeyMapping: signingKeyMapping, updateKeyMapping: updateKeyMapping, recoveryKeyMapping: recoveryKeyMapping)
-        return Identifier(longformId: longformDid, didDocumentKeys: [signingKeyMapping], updateKey: updateKeyMapping, recoveryKey: recoveryKeyMapping)
+        let longformDid = try self.createLongformDid(signingKeyContainer: signingKeyContainer, updateKeyContainer: updateKeyContainer, recoveryKeyContainer: recoveryKeyContainer)
+        return Identifier(longformId: longformDid, didDocumentKeys: [signingKeyContainer], updateKey: updateKeyContainer, recoveryKey: recoveryKeyContainer)
         
     }
     
-    private func createLongformDid(signingKeyMapping: KeyContainer, updateKeyMapping: KeyContainer, recoveryKeyMapping: KeyContainer) throws -> String {
-        let signingJwk = try self.generatePublicJwk(for: signingKeyMapping)
-        let updateJwk = try self.generatePublicJwk(for: updateKeyMapping)
-        let recoveryJwk = try self.generatePublicJwk(for: recoveryKeyMapping)
+    private func createLongformDid(signingKeyContainer: KeyContainer, updateKeyContainer: KeyContainer, recoveryKeyContainer: KeyContainer) throws -> String {
+        let signingJwk = try self.generatePublicJwk(for: signingKeyContainer)
+        let updateJwk = try self.generatePublicJwk(for: updateKeyContainer)
+        let recoveryJwk = try self.generatePublicJwk(for: recoveryKeyContainer)
         return try self.identifierFormatter.createIonLongForm(recoveryKey: recoveryJwk, updateKey: updateJwk, didDocumentKeys: [signingJwk], serviceEndpoints: [])
     }
     

@@ -6,7 +6,6 @@
 import XCTest
 import VCRepository
 import VCEntities
-import VCCrypto
 
 @testable import VCUseCase
 

@@ -28,7 +28,6 @@ public struct Secp256k1: Signing {
     public func sign(messageHash: Data, withSecret secret: VCCryptoSecret) throws -> Data {
         
         // Validate params
-        print(secret.id.uuidString)
         guard secret is Secret else { throw Secp256k1Error.invalidSecret }
         guard messageHash.count == 32 else { throw Secp256k1Error.invalidMessageHash }
 
