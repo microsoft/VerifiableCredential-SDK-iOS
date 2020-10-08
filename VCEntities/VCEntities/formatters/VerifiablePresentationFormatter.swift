@@ -20,22 +20,23 @@ class VerifiablePresentationFormatter {
     func format(toWrap vc: VerifiableCredential,
                        withAudience audience: String,
                        withExpiryInSeconds exp: Int,
-                       usingIdentifier identifier: MockIdentifier) throws -> VerifiablePresentation {
+                       usingIdentifier identifier: Identifier,
+                       andSignWith key: KeyContainer) throws -> VerifiablePresentation {
         
-        let headers = formatHeaders(usingIdentifier: identifier)
+        let headers = formatHeaders(usingIdentifier: identifier, andSigningKey: identifier.didDocumentKeys.first!)
         let timeConstraints = createTokenTimeConstraints(expiryInSeconds: exp)
         let verifiablePresentationDescriptor = try self.createVerifiablePresentationDescriptor(toWrap: vc)
         
         let vpClaims = VerifiablePresentationClaims(vpId: UUID().uuidString,
                                                     purpose: PURPOSE,
                                                     verifiablePresentation: verifiablePresentationDescriptor,
-                                                    issuerOfVp: identifier.id,
+                                                    issuerOfVp: identifier.longformId,
                                                     audience: audience,
                                                     iat: timeConstraints.issuedAt,
                                                     exp: timeConstraints.expiration)
         
         var token = JwsToken<VerifiablePresentationClaims>(headers: headers, content: vpClaims)
-        try token.sign(using: self.signer, withSecret: identifier.keyId)
+        try token.sign(using: self.signer, withSecret: key.keyReference)
         return token
     }
     

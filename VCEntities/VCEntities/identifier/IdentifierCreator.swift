@@ -22,24 +22,24 @@ public struct IdentifierCreator {
     }
     
     public func create() throws -> Identifier {
-        let signingKey = try self.cryptoOperations.generateKey()
-        let updateKey = try self.cryptoOperations.generateKey()
-        let recoveryKey = try self.cryptoOperations.generateKey()
+        let signingKeyMapping = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "sign")
+        let updateKeyMapping = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "update")
+        let recoveryKeyMapping = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "recover")
         
-        let longformDid = try self.createLongformDid(signingKey: signingKey, updateKey: updateKey, recoveryKey: recoveryKey)
-        return Identifier(longformId: longformDid, didDocumentKeys: [signingKey], updateKey: updateKey, recoveryKey: recoveryKey)
+        let longformDid = try self.createLongformDid(signingKeyMapping: signingKeyMapping, updateKeyMapping: updateKeyMapping, recoveryKeyMapping: recoveryKeyMapping)
+        return Identifier(longformId: longformDid, didDocumentKeys: [signingKeyMapping], updateKey: updateKeyMapping, recoveryKey: recoveryKeyMapping)
         
     }
     
-    private func createLongformDid(signingKey: VCCryptoSecret, updateKey: VCCryptoSecret, recoveryKey: VCCryptoSecret) throws -> String {
-        let signingJwk = try self.generatePublicJwk(keyRef: signingKey, keyId: "sign")
-        let updateJwk = try self.generatePublicJwk(keyRef: updateKey, keyId: "update")
-        let recoveryJwk = try self.generatePublicJwk(keyRef: recoveryKey, keyId: "recover")
+    private func createLongformDid(signingKeyMapping: KeyContainer, updateKeyMapping: KeyContainer, recoveryKeyMapping: KeyContainer) throws -> String {
+        let signingJwk = try self.generatePublicJwk(for: signingKeyMapping)
+        let updateJwk = try self.generatePublicJwk(for: updateKeyMapping)
+        let recoveryJwk = try self.generatePublicJwk(for: recoveryKeyMapping)
         return try self.identifierFormatter.createIonLongForm(recoveryKey: recoveryJwk, updateKey: updateJwk, didDocumentKeys: [signingJwk], serviceEndpoints: [])
     }
     
-    private func generatePublicJwk(keyRef: VCCryptoSecret, keyId: String) throws -> ECPublicJwk {
-        let publicKey = try alg.createPublicKey(forSecret: keyRef)
-        return ECPublicJwk(withPublicKey: publicKey, withKeyId: keyId)
+    private func generatePublicJwk(for keyMapping: KeyContainer) throws -> ECPublicJwk {
+        let publicKey = try alg.createPublicKey(forSecret: keyMapping.keyReference)
+        return ECPublicJwk(withPublicKey: publicKey, withKeyId: keyMapping.keyId)
     }
 }

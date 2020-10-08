@@ -9,7 +9,7 @@ let CREDENTIAL_PATH = "$.attestations.presentations."
 let CREDENTIAL_ENCODING = "base64Url"
 
 public protocol PresentationResponseFormatting {
-    func format(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> PresentationResponse
+    func format(response: PresentationResponseContainer, usingIdentifier identifier: Identifier) throws -> PresentationResponse
 }
 
 public class PresentationResponseFormatter: PresentationResponseFormatting {
@@ -22,33 +22,34 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         self.vpFormatter = VerifiablePresentationFormatter(signer: signer)
     }
     
-    public func format(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> PresentationResponse {
-        return try self.createToken(response: response, usingIdentifier: identifier)
+    public func format(response: PresentationResponseContainer, usingIdentifier identifier: Identifier) throws -> PresentationResponse {
+        let signingKey = identifier.didDocumentKeys.first!
+        return try self.createToken(from: response, usingIdentifier: identifier, andSignWith: signingKey)
     }
     
-    private func createToken(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> PresentationResponse {
-        let headers = formatHeaders(usingIdentifier: identifier)
-        let content = try self.formatClaims(response: response, usingIdentifier: identifier)
+    private func createToken(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> PresentationResponse {
+        let headers = formatHeaders(usingIdentifier: identifier, andSigningKey: key)
+        let content = try self.formatClaims(from: response, usingIdentifier: identifier, andSignWith: key)
         var token = JwsToken(headers: headers, content: content)
-        try token.sign(using: self.signer, withSecret: identifier.keyId)
+        try token.sign(using: self.signer, withSecret: key.keyReference)
         return token
     }
     
-    private func formatClaims(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> PresentationResponseClaims {
+    private func formatClaims(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> PresentationResponseClaims {
         
-        let publicKey = try signer.getPublicJwk(from: identifier.keyId, withKeyId: identifier.keyReference)
+        let publicKey = try signer.getPublicJwk(from: key.keyReference, withKeyId: key.keyId)
         let timeConstraints = createTokenTimeConstraints(expiryInSeconds: response.expiryInSeconds)
         
         var presentationSubmission: PresentationSubmission? = nil
         var attestations: AttestationResponseDescriptor? = nil
         if (!response.requestVCMap.isEmpty) {
-            presentationSubmission = self.formatPresentationSubmission(response: response, keyType: identifier.keyType)
-            attestations = try self.formatAttestations(response: response, usingIdentifier: identifier)
+            presentationSubmission = self.formatPresentationSubmission(from: response, keyType: publicKey.keyType)
+            attestations = try self.formatAttestations(from: response, usingIdentifier: identifier, andSigningKey: key)
         }
         
         return PresentationResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                           audience: response.request.content.redirectURI,
-                                          did: identifier.id,
+                                          did: identifier.longformId,
                                           publicJwk: publicKey,
                                           jti: UUID().uuidString,
                                           presentationSubmission: presentationSubmission,
@@ -59,20 +60,20 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
                                           exp: timeConstraints.expiration)
     }
     
-    private func formatPresentationSubmission(response: PresentationResponseContainer, keyType: String) -> PresentationSubmission {
+    private func formatPresentationSubmission(from response: PresentationResponseContainer, keyType: String) -> PresentationSubmission {
         let submissionDescriptor = response.requestVCMap.map { type, _ in
             SubmissionDescriptor(id: type, path: CREDENTIAL_PATH + type, format: keyType, encoding: CREDENTIAL_ENCODING)
         }
         return PresentationSubmission(submissionDescriptors: submissionDescriptor)
     }
     
-    private func formatAttestations(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> AttestationResponseDescriptor {
-        return AttestationResponseDescriptor(presentations: try self.createPresentations(response: response, usingIdentifier: identifier))
+    private func formatAttestations(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSigningKey key: KeyContainer) throws -> AttestationResponseDescriptor {
+        return AttestationResponseDescriptor(presentations: try self.createPresentations(from: response, usingIdentifier: identifier, andSignWith: key))
     }
     
-    private func createPresentations(response: PresentationResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> [String: String] {
+    private func createPresentations(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> [String: String] {
         return try response.requestVCMap.mapValues { verifiableCredential in
-            let vp = try self.vpFormatter.format(toWrap: verifiableCredential, withAudience: response.request.content.issuer, withExpiryInSeconds: response.expiryInSeconds, usingIdentifier: identifier)
+            let vp = try self.vpFormatter.format(toWrap: verifiableCredential, withAudience: response.request.content.issuer, withExpiryInSeconds: response.expiryInSeconds, usingIdentifier: identifier, andSignWith: key)
             return try vp.serialize()
         }
     }

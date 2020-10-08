@@ -5,13 +5,15 @@
 
 import VCJwt
 
+let jwtType = "JWT"
+
 func createTokenTimeConstraints(expiryInSeconds: Int) -> TokenTimeConstraints {
     let iat = (Date().timeIntervalSince1970).rounded(.down)
     let exp = iat + Double(expiryInSeconds)
     return TokenTimeConstraints(issuedAt: iat, expiration: exp)
 }
 
-func formatHeaders(usingIdentifier identifier: MockIdentifier) -> Header {
-    let keyId = identifier.id + identifier.keyReference
-    return Header(type: "JWT", algorithm: identifier.algorithm, keyId: keyId)
+func formatHeaders(usingIdentifier identifier: Identifier, andSigningKey key: KeyContainer) -> Header {
+    let keyId = identifier.longformId + "#" + key.keyId
+    return Header(type: jwtType, algorithm: key.algorithm, keyId: keyId)
 }
