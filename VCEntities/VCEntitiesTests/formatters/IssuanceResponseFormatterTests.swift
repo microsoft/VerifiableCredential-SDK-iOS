@@ -4,6 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import XCTest
+import VCCrypto
 
 @testable import VCEntities
 
@@ -12,7 +13,7 @@ class IssuanceResponseFormatterTests: XCTestCase {
     var formatter: IssuanceResponseFormatter!
     var contract: Contract!
     var mockResponse: IssuanceResponseContainer!
-    var mockIdentifier: MockIdentifier!
+    var mockIdentifier: Identifier!
     let expectedContractUrl = "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert"
     
     override func setUpWithError() throws {
@@ -24,12 +25,16 @@ class IssuanceResponseFormatterTests: XCTestCase {
         
         try self.mockResponse = IssuanceResponseContainer(from: self.contract, contractUri: self.expectedContractUrl)
         
-        self.mockIdentifier = MockIdentifier()
+        let cryptoOperation = CryptoOperations(secretStore: SecretStoreMock())
+        let key = try cryptoOperation.generateKey()
+        
+        let keyContainer = KeyContainer(keyReference: key, keyId: "keyId")
+        self.mockIdentifier = Identifier(longformId: "longFormDid", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
     }
     
     func testFormatToken() throws {
         let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
-        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.id)
+        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longformId)
         XCTAssertEqual(formattedToken.content.contract, self.mockResponse.contractUri)
         XCTAssertEqual(formattedToken.content.audience, self.mockResponse.audience)
         XCTAssert(MockTokenSigner.wasSignCalled)

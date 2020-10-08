@@ -43,7 +43,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         var presentationSubmission: PresentationSubmission? = nil
         var attestations: AttestationResponseDescriptor? = nil
         if (!response.requestVCMap.isEmpty) {
-            presentationSubmission = self.formatPresentationSubmission(from: response, keyType: publicKey.keyType)
+            presentationSubmission = self.formatPresentationSubmission(from: response, keyType: "JWT")
             attestations = try self.formatAttestations(from: response, usingIdentifier: identifier, andSigningKey: key)
         }
         
