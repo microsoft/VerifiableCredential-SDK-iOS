@@ -18,6 +18,4 @@ struct MockIdentifierFormatter: IdentifierFormatting {
     func createIonLongForm(recoveryKey: ECPublicJwk, updateKey: ECPublicJwk, didDocumentKeys: [ECPublicJwk], serviceEndpoints: [IdentifierDocumentServiceEndpoint]) throws -> String {
         return self.returningString
     }
-    
-
 }
