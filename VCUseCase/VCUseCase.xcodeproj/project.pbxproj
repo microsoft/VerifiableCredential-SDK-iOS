@@ -18,12 +18,10 @@
 		551F304F2527EAF40081D5E7 /* PresentationUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F304E2527EAF40081D5E7 /* PresentationUseCaseTests.swift */; };
 		551F30512527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F30502527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift */; };
 		5530328C2527C78E0054CD63 /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5530328B2527C78E0054CD63 /* VCEntities.framework */; };
-		5530328D2527C78E0054CD63 /* VCEntities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5530328B2527C78E0054CD63 /* VCEntities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		555CE0932526AD0400C1C938 /* PresentationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE0922526AD0400C1C938 /* PresentationUseCase.swift */; };
 		55AF7490252FBF5B006A8B25 /* MockVCCryptoSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */; };
 		922D7E7A2525248900E4C8B5 /* VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922D7E792525248900E4C8B5 /* VCRepository.framework */; };
 		922D7E7F2525264400E4C8B5 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B9682425240AE600F64AB0 /* PromiseKit.framework */; };
-		922D7E802525264400E4C8B5 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92B9682425240AE600F64AB0 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,21 +33,6 @@
 			remoteInfo = VCUseCase;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		922D7E812525264400E4C8B5 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5530328D2527C78E0054CD63 /* VCEntities.framework in Embed Frameworks */,
-				922D7E802525264400E4C8B5 /* PromiseKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		550F1E3525101758009AF467 /* VCUseCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCUseCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,7 +167,6 @@
 				550F1E3125101758009AF467 /* Sources */,
 				550F1E3225101758009AF467 /* Frameworks */,
 				550F1E3325101758009AF467 /* Resources */,
-				922D7E812525264400E4C8B5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
