@@ -5,6 +5,7 @@
 
 import XCTest
 import VCCrypto
+import VCJwt
 
 @testable import VCEntities
 
@@ -13,6 +14,9 @@ class IdentifierCreatorTests: XCTestCase {
     func testLongform() throws {
         let cryptoOp = CryptoOperations(secretStore: SecretStoreMock())
         let creator = IdentifierCreator(cryptoOperations: cryptoOp)
-        print(try creator.create())
+        let keyRef = try cryptoOp.generateKey()
+        let key = try Secp256k1().createPublicKey(forSecret: keyRef)
+        let jwk = ECPublicJwk(withPublicKey: key, withKeyId: "sydney")
+        print(try creator.createIonLongForm(recoveryKey: jwk, updateKey: jwk, didDocumentKeys: [jwk], serviceEndpoints: []))
     }
 }

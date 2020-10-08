@@ -13,6 +13,15 @@ struct IdentifierDocument: Codable {
         case publicKeys = "public_keys"
         case serviceEndpoints = "service_endpoints"
     }
+    
+    init(fromJwks jwks: [ECPublicJwk], andServiceEndpoints endpoints: [IdentifierDocumentServiceEndpoint]) {
+        var keys: [IdentifierDocumentPublicKey] = []
+        for jwk in jwks {
+            keys.append(IdentifierDocumentPublicKey(fromJwk: jwk))
+        }
+        self.publicKeys = keys
+        self.serviceEndpoints = endpoints
+    }
 }
 
 struct IdentifierDocumentPublicKey: Codable {
@@ -21,6 +30,22 @@ struct IdentifierDocumentPublicKey: Codable {
     let controller: String?
     let jwk: ECPublicJwk
     let purpose: [String]
+    
+    init(id: String,
+         type: String,
+         controller: String?,
+         jwk: ECPublicJwk,
+         purpose: [String]) {
+        self.id = id
+        self.type = type
+        self.controller = controller
+        self.jwk = jwk
+        self.purpose = purpose
+    }
+    
+    init(fromJwk key: ECPublicJwk) {
+        self.init(id: key.keyId, type: "EcdsaSecp256k1VerificationKey2019", controller: nil, jwk: key, purpose: ["auth", "general"])
+    }
 }
 
 struct IdentifierDocumentServiceEndpoint: Codable {
@@ -34,12 +59,12 @@ struct IdentifierDocumentPatch: Codable {
     let document: IdentifierDocument
 }
 
-struct IdentifierDocumentPatchDescriptor: Codable {
-    let nextUpdateCommitmentHash: String
+struct IdentifierDocumentDeltaDescriptor: Codable {
+    let updateCommitment: String
     let patches: [IdentifierDocumentPatch]
     
     enum CodingKeys: String, CodingKey {
-        case nextUpdateCommitmentHash = "update_commitment"
+        case updateCommitment = "update_commitment"
         case patches
     }
 }
@@ -62,4 +87,8 @@ struct SuffixDescriptor: Codable {
         case patchDescriptorHash = "delta_hash"
         case recoveryCommitmentHash = "recovery_commitment"
     }
+}
+
+struct Identifier: Codable {
+    let longformId: String
 }
