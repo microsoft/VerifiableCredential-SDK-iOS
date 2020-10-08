@@ -33,18 +33,4 @@ class KeychainSecretStoreTests: XCTestCase {
             // We expect an exception for this case.
         }
     }
-    
-    // Here until Identifier is implemented.
-    func testHardCodedD() throws {
-        let store = KeychainSecretStore()
-        let key = Random32BytesSecret(withStore: store)!
-        let retreivedSecret = try store.getSecret(id: key.id, itemTypeCode: Random32BytesSecret.itemTypeCode)
-        print(retreivedSecret.base64URLEncodedString())
-        let sec = Secp256k1()
-        let publicKey = try sec.createPublicKey(forSecret: key)
-        print(publicKey.x.base64URLEncodedString())
-        print(publicKey.y.base64URLEncodedString())
-        XCTAssertEqual(publicKey.x.base64URLEncodedString(), "Ir5lqT2yDCXdWI8HgMj2erz9HVChFFv4Bd70oDqclvs")
-        XCTAssertEqual(publicKey.y.base64URLEncodedString(), "_uSQb2NNO3MMnsS83ByMxayGbk3ODYxAlMx-_YOw5oc")
-    }
 }

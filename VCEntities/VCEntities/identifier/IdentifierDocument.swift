@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import VCJwt
+import VCCrypto
 
 struct IdentifierDocument: Codable {
     let publicKeys: [IdentifierDocumentPublicKey]
@@ -89,6 +90,9 @@ struct SuffixDescriptor: Codable {
     }
 }
 
-struct Identifier: Codable {
-    let longformId: String
+public struct Identifier {
+    public let longformId: String
+    let didDocumentKeys: [VCCryptoSecret]
+    let updateKey: VCCryptoSecret
+    let recoveryKey: VCCryptoSecret
 }

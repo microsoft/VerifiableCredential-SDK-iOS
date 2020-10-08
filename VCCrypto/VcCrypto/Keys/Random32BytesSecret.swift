@@ -5,12 +5,12 @@
 
 import Foundation
 
-public class Random32BytesSecret: Secret {
+final class Random32BytesSecret: Secret {
     static var itemTypeCode: String = "r32B"
     public var id: UUID
     private let store: SecretStoring
     
-    public init?(withStore store: SecretStoring) {
+    init?(withStore store: SecretStoring) {
         self.store = store
         
         var value = Data(count: 32)
@@ -29,13 +29,8 @@ public class Random32BytesSecret: Secret {
         guard result == errSecSuccess else { return nil }
         id = UUID()
         
-        // Hard coded until Identifier creation is implemented (security bug 1152963)
-        let secretStr = "rbe1f0bbMoDXB6YXwxxAA_nSPpv6LbBJIuKtr4Bjq_c"
-        var secret = Data(base64URLEncoded: secretStr)!
-        
         do {
-            try self.store.saveSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, value: &secret)
-            // try self.store.saveSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, value: &secret)
+            try self.store.saveSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, value: &value)
         } catch {
             return nil
         }
