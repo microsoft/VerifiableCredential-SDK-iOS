@@ -7,12 +7,16 @@ enum CryptoOperationsError: Error {
     case unableToCreateKey
 }
 
-public struct CryptoOperations {
+public protocol CryptoOperating {
+    func generateKey() throws -> VCCryptoSecret
+}
+
+public struct CryptoOperations: CryptoOperating {
     
     private let secretStore: SecretStoring
     
     public init() {
-        self.secretStore = KeychainSecretStore()
+        self.init(secretStore: KeychainSecretStore())
     }
     
     public init(secretStore: SecretStoring) {

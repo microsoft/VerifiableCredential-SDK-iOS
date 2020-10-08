@@ -8,12 +8,17 @@ import VCJwt
 
 public struct IdentifierCreator {
     
-    let cryptoOperations: CryptoOperations
-    let identifierFormatter: IdentifierFormatter = IdentifierFormatter()
+    let cryptoOperations: CryptoOperating
+    let identifierFormatter: IdentifierFormatting
     let alg = Secp256k1()
     
-    public init(cryptoOperations: CryptoOperations) {
+    public init(cryptoOperations: CryptoOperating) {
+        self.init(cryptoOperations: cryptoOperations, identifierFormatter: IdentifierFormatter())
+    }
+    
+    init(cryptoOperations: CryptoOperating, identifierFormatter: IdentifierFormatting) {
         self.cryptoOperations = cryptoOperations
+        self.identifierFormatter = identifierFormatter
     }
     
     public func create() throws -> Identifier {

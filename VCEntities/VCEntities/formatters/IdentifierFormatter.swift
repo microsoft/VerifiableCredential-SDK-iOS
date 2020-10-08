@@ -5,11 +5,14 @@
 
 import VCJwt
 
-enum IdentifierCreatorError: Error {
-    case unableToParseString
+protocol IdentifierFormatting {
+    func createIonLongForm(recoveryKey: ECPublicJwk,
+                           updateKey: ECPublicJwk,
+                           didDocumentKeys: [ECPublicJwk],
+                           serviceEndpoints: [IdentifierDocumentServiceEndpoint]) throws -> String
 }
 
-public struct IdentifierFormatter {
+struct IdentifierFormatter: IdentifierFormatting {
     
     private let multihash: Multihash = Multihash()
     private let encoder: JSONEncoder = JSONEncoder()

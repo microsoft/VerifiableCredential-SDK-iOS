@@ -5,16 +5,18 @@
 
 import XCTest
 
-@testable import VCEntities
+import VCCrypto
 
-let SHA2_256 = 0x12
+@testable import VCEntities
 
 class MultihashTests: XCTestCase {
 
     func testCompute() {
         let multihash = Multihash()
         let testInput = "431fb5d4c9b735ba1a34d0df045118806ae2336f2c"
-        let testData = Data(hexString: testInput)
+        let testData = Data(hexString: testInput)!
+        let hashed = Sha256()
+        print(hashed.hash(data: testData).toHexString())
         print(multihash.compute(from: testData).toHexString())
     }
 }
