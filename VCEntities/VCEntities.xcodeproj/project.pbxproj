@@ -26,7 +26,6 @@
 		55253977252FCA6D003202D5 /* VCCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55253975252FCA6D003202D5 /* VCCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55253982252FDF89003202D5 /* KeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253981252FDF89003202D5 /* KeyContainer.swift */; };
 		55575738251BC575009979AB /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5557572E251BC575009979AB /* VCEntities.framework */; };
-		5557573D251BC575009979AB /* VCEntitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557573C251BC575009979AB /* VCEntitiesTests.swift */; };
 		5557573F251BC575009979AB /* VCEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 55575731251BC575009979AB /* VCEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557574B251BC6CE009979AB /* AttestationsDescriptor.swift */; };
 		55575764251BC6CF009979AB /* PresentationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557574C251BC6CE009979AB /* PresentationDescriptor.swift */; };
@@ -129,7 +128,6 @@
 		55575731251BC575009979AB /* VCEntities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCEntities.h; sourceTree = "<group>"; };
 		55575732251BC575009979AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55575737251BC575009979AB /* VCEntitiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCEntitiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5557573C251BC575009979AB /* VCEntitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCEntitiesTests.swift; sourceTree = "<group>"; };
 		5557573E251BC575009979AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5557574B251BC6CE009979AB /* AttestationsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttestationsDescriptor.swift; sourceTree = "<group>"; };
 		5557574C251BC6CE009979AB /* PresentationDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationDescriptor.swift; sourceTree = "<group>"; };
@@ -283,7 +281,6 @@
 				5577E86D251E8E84005250BC /* issuance */,
 				557BFC57251E68EA005B5B24 /* formatters */,
 				551F3064252E71540081D5E7 /* util */,
-				5557573C251BC575009979AB /* VCEntitiesTests.swift */,
 				5557573E251BC575009979AB /* Info.plist */,
 				5577E870251E8FE3005250BC /* OIDCClaimsTests.swift */,
 			);
@@ -649,7 +646,6 @@
 				55AF747B252F5B4B006A8B25 /* IdentifierFormatterTests.swift in Sources */,
 				557BFC59251E68EA005B5B24 /* IssuanceResponseFormatterTests.swift in Sources */,
 				5577E871251E8FE3005250BC /* OIDCClaimsTests.swift in Sources */,
-				5557573D251BC575009979AB /* VCEntitiesTests.swift in Sources */,
 				557BFC5E251E697F005B5B24 /* TestData.swift in Sources */,
 				5577E86F251E8EB3005250BC /* IssuanceServiceResponseTests.swift in Sources */,
 				557BFC5D251E697F005B5B24 /* MockTokenSigner.swift in Sources */,

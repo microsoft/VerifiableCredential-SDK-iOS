@@ -19,12 +19,15 @@ class FlowTests: XCTestCase {
     override func setUpWithError() throws {
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
+        try VerifiableCredentialSDK.initialize()
+    }
+    
+    override func tearDownWithError() throws {
+        let identifierDB = IdentifierDatabase()
+        try identifierDB.coreDataManager.deleteAllIdentifiers()
     }
     
     func testIssuance() throws {
-        
-        let cryptoOp = CryptoOperations(secretStore: SecretStoreMock())
-        let identifier = try IdentifierCreator(cryptoOperations: cryptoOp).create()
 
         let usecase = IssuanceUseCase()
         let expec = self.expectation(description: "Fire")
@@ -32,7 +35,7 @@ class FlowTests: XCTestCase {
         let contractUri = "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert"
         let response = try IssuanceResponseContainer(from: contract, contractUri: contractUri)
         
-        usecase.send(response: response, identifier: identifier).done {
+        usecase.send(response: response).done {
             response in
             print(response)
             expec.fulfill()
@@ -46,9 +49,6 @@ class FlowTests: XCTestCase {
     
     func testPresentation() throws {
         
-        let cryptoOp = CryptoOperations(secretStore: SecretStoreMock())
-        let identifier = try IdentifierCreator(cryptoOperations: cryptoOp).create()
-        
         let issuanceUseCase = IssuanceUseCase()
         let presentationUseCase = PresentationUseCase()
         
@@ -61,12 +61,13 @@ class FlowTests: XCTestCase {
         }.then { request in
             issuanceUseCase.getRequest(usingUrl: request.content.presentationDefinition.inputDescriptors.first!.issuanceMetadata.first!.contract!)
         }.then { contract in
-            try self.getIssuanceResponse(useCase: issuanceUseCase, contract: contract, identifier: identifier)
+            try self.getIssuanceResponse(useCase: issuanceUseCase, contract: contract)
         }.done { vc in
             print(vc)
             expec.fulfill()
         }.catch { error in
             print(error)
+            print(type(of: error))
             XCTFail()
             expec.fulfill()
         }
@@ -74,8 +75,8 @@ class FlowTests: XCTestCase {
         wait(for: [expec], timeout: 20)
     }
     
-    private func getIssuanceResponse(useCase: IssuanceUseCase, contract: Contract, identifier: Identifier) throws -> Promise<VerifiableCredential> {
+    private func getIssuanceResponse(useCase: IssuanceUseCase, contract: Contract) throws -> Promise<VerifiableCredential> {
         let response = try IssuanceResponseContainer(from: contract, contractUri: "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert")
-        return useCase.send(response: response, identifier: identifier)
+        return useCase.send(response: response)
     }
 }

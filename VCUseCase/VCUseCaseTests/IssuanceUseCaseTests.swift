@@ -15,6 +15,7 @@ class IssuanceUseCaseTests: XCTestCase {
     var contract: Contract!
     let expectedUrl = "https://test3523.com"
     var mockIdentifier: Identifier!
+    let identifierDB = IdentifierDatabase()
 
     override func setUpWithError() throws {
         let repo = IssuanceRepository(apiCalls: MockApiCalls())
@@ -27,8 +28,14 @@ class IssuanceUseCaseTests: XCTestCase {
         let keyContainer = KeyContainer(keyReference: MockVCCryptoSecret(), keyId: "keyId234")
         self.mockIdentifier = Identifier(longFormDid: "longform", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
         
+        try identifierDB.saveIdentifier(identifier: mockIdentifier)
+        
         MockIssuanceResponseFormatter.wasFormatCalled = false
         MockApiCalls.wasPostCalled = false
+    }
+    
+    override func tearDownWithError() throws {
+        try identifierDB.coreDataManager.deleteAllIdentifiers()
     }
     
     func testPublicInit() {
@@ -56,7 +63,7 @@ class IssuanceUseCaseTests: XCTestCase {
     func testSendResponse() throws {
         let expec = self.expectation(description: "Fire")
         let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)
-        usecase.send(response: response, identifier: self.mockIdentifier).done {
+        usecase.send(response: response).done {
             response in
             print(response)
             XCTFail()
@@ -80,7 +87,7 @@ class IssuanceUseCaseTests: XCTestCase {
         let usecase = IssuanceUseCase(formatter: formatter, repo: repo)
         
         let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)
-        usecase.send(response: response, identifier: self.mockIdentifier).done {
+        usecase.send(response: response).done {
             response in
             print(response)
             XCTFail()

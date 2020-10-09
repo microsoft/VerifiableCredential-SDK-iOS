@@ -21,6 +21,18 @@
 		5525397E252FCC7D003202D5 /* SecretStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525397D252FCC7D003202D5 /* SecretStoreMock.swift */; };
 		55253980252FCDEF003202D5 /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525397F252FCDEF003202D5 /* FlowTests.swift */; };
 		5530328C2527C78E0054CD63 /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5530328B2527C78E0054CD63 /* VCEntities.framework */; };
+		555BDAEC2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAEA2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld */; };
+		555BDAEE2530CF27001E7A18 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAED2530CF27001E7A18 /* CoreDataManager.swift */; };
+		555BDAF02530E4B9001E7A18 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */; };
+		555BDAF82530E5E2001E7A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAF72530E5E2001E7A18 /* AppDelegate.swift */; };
+		555BDAFA2530E5E2001E7A18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAF92530E5E2001E7A18 /* SceneDelegate.swift */; };
+		555BDAFC2530E5E2001E7A18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAFB2530E5E2001E7A18 /* ViewController.swift */; };
+		555BDAFF2530E5E2001E7A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555BDAFD2530E5E2001E7A18 /* Main.storyboard */; };
+		555BDB012530E5E7001E7A18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555BDB002530E5E7001E7A18 /* Assets.xcassets */; };
+		555BDB042530E5E7001E7A18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555BDB022530E5E7001E7A18 /* LaunchScreen.storyboard */; };
+		555BDB112530E6C9001E7A18 /* IdentifierDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */; };
+		555BDB132530EA79001E7A18 /* IdentifierDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */; };
+		555BDB152530F024001E7A18 /* VerifiableCredentialSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB142530F024001E7A18 /* VerifiableCredentialSDK.swift */; };
 		555CE0932526AD0400C1C938 /* PresentationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE0922526AD0400C1C938 /* PresentationUseCase.swift */; };
 		55AF7490252FBF5B006A8B25 /* MockVCCryptoSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */; };
 		922D7E7A2525248900E4C8B5 /* VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922D7E792525248900E4C8B5 /* VCRepository.framework */; };
@@ -34,6 +46,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 550F1E3425101758009AF467;
 			remoteInfo = VCUseCase;
+		};
+		555BDB092530E5F3001E7A18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 550F1E2C25101758009AF467 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 555BDAF42530E5E2001E7A18;
+			remoteInfo = VCUseCaseTestApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -55,6 +74,20 @@
 		5525397D252FCC7D003202D5 /* SecretStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretStoreMock.swift; sourceTree = "<group>"; };
 		5525397F252FCDEF003202D5 /* FlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTests.swift; sourceTree = "<group>"; };
 		5530328B2527C78E0054CD63 /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		555BDAEB2530AEC7001E7A18 /* Identifier.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Identifier.xcdatamodel; sourceTree = "<group>"; };
+		555BDAED2530CF27001E7A18 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
+		555BDAF52530E5E2001E7A18 /* VCUseCaseTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VCUseCaseTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		555BDAF72530E5E2001E7A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		555BDAF92530E5E2001E7A18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		555BDAFB2530E5E2001E7A18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		555BDAFE2530E5E2001E7A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		555BDB002530E5E7001E7A18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		555BDB032530E5E7001E7A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		555BDB052530E5E7001E7A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDatabase.swift; sourceTree = "<group>"; };
+		555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDatabaseTests.swift; sourceTree = "<group>"; };
+		555BDB142530F024001E7A18 /* VerifiableCredentialSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialSDK.swift; sourceTree = "<group>"; };
 		555CE0922526AD0400C1C938 /* PresentationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUseCase.swift; sourceTree = "<group>"; };
 		55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVCCryptoSecret.swift; sourceTree = "<group>"; };
 		922D7E792525248900E4C8B5 /* VCRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +115,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		555BDAF22530E5E2001E7A18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -90,6 +130,7 @@
 			children = (
 				550F1E3725101758009AF467 /* VCUseCase */,
 				550F1E4225101759009AF467 /* VCUseCaseTests */,
+				555BDAF62530E5E2001E7A18 /* VCUseCaseTestApp */,
 				550F1E3625101758009AF467 /* Products */,
 				8A1DACB8079028BD52F83396 /* Frameworks */,
 			);
@@ -100,6 +141,7 @@
 			children = (
 				550F1E3525101758009AF467 /* VCUseCase.framework */,
 				550F1E3E25101759009AF467 /* VCUseCaseTests.xctest */,
+				555BDAF52530E5E2001E7A18 /* VCUseCaseTestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +149,8 @@
 		550F1E3725101758009AF467 /* VCUseCase */ = {
 			isa = PBXGroup;
 			children = (
+				552539832530AE5F003202D5 /* coreData */,
+				555BDB142530F024001E7A18 /* VerifiableCredentialSDK.swift */,
 				550F1E532510195A009AF467 /* IssuanceUseCase.swift */,
 				555CE0922526AD0400C1C938 /* PresentationUseCase.swift */,
 				550F1E3825101758009AF467 /* VCUseCase.h */,
@@ -121,6 +165,8 @@
 				550F1E64251165DB009AF467 /* mocks */,
 				550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */,
 				551F304E2527EAF40081D5E7 /* PresentationUseCaseTests.swift */,
+				555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */,
+				555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */,
 				550F1E4525101759009AF467 /* Info.plist */,
 				5525397F252FCDEF003202D5 /* FlowTests.swift */,
 			);
@@ -139,6 +185,30 @@
 				5525397D252FCC7D003202D5 /* SecretStoreMock.swift */,
 			);
 			path = mocks;
+			sourceTree = "<group>";
+		};
+		552539832530AE5F003202D5 /* coreData */ = {
+			isa = PBXGroup;
+			children = (
+				555BDAEA2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld */,
+				555BDAED2530CF27001E7A18 /* CoreDataManager.swift */,
+				555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */,
+			);
+			path = coreData;
+			sourceTree = "<group>";
+		};
+		555BDAF62530E5E2001E7A18 /* VCUseCaseTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				555BDAF72530E5E2001E7A18 /* AppDelegate.swift */,
+				555BDAF92530E5E2001E7A18 /* SceneDelegate.swift */,
+				555BDAFB2530E5E2001E7A18 /* ViewController.swift */,
+				555BDAFD2530E5E2001E7A18 /* Main.storyboard */,
+				555BDB002530E5E7001E7A18 /* Assets.xcassets */,
+				555BDB022530E5E7001E7A18 /* LaunchScreen.storyboard */,
+				555BDB052530E5E7001E7A18 /* Info.plist */,
+			);
+			path = VCUseCaseTestApp;
 			sourceTree = "<group>";
 		};
 		8A1DACB8079028BD52F83396 /* Frameworks */ = {
@@ -197,11 +267,29 @@
 			);
 			dependencies = (
 				550F1E4125101759009AF467 /* PBXTargetDependency */,
+				555BDB0A2530E5F3001E7A18 /* PBXTargetDependency */,
 			);
 			name = VCUseCaseTests;
 			productName = VCUseCaseTests;
 			productReference = 550F1E3E25101759009AF467 /* VCUseCaseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		555BDAF42530E5E2001E7A18 /* VCUseCaseTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 555BDB062530E5E7001E7A18 /* Build configuration list for PBXNativeTarget "VCUseCaseTestApp" */;
+			buildPhases = (
+				555BDAF12530E5E2001E7A18 /* Sources */,
+				555BDAF22530E5E2001E7A18 /* Frameworks */,
+				555BDAF32530E5E2001E7A18 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VCUseCaseTestApp;
+			productName = VCUseCaseTestApp;
+			productReference = 555BDAF52530E5E2001E7A18 /* VCUseCaseTestApp.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -218,6 +306,10 @@
 						LastSwiftMigration = 1150;
 					};
 					550F1E3D25101759009AF467 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 555BDAF42530E5E2001E7A18;
+					};
+					555BDAF42530E5E2001E7A18 = {
 						CreatedOnToolsVersion = 11.5;
 					};
 				};
@@ -237,6 +329,7 @@
 			targets = (
 				550F1E3425101758009AF467 /* VCUseCase */,
 				550F1E3D25101759009AF467 /* VCUseCaseTests */,
+				555BDAF42530E5E2001E7A18 /* VCUseCaseTestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -256,6 +349,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		555BDAF32530E5E2001E7A18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				555BDB042530E5E7001E7A18 /* LaunchScreen.storyboard in Resources */,
+				555BDB012530E5E7001E7A18 /* Assets.xcassets in Resources */,
+				555BDAFF2530E5E2001E7A18 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -263,7 +366,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555BDB112530E6C9001E7A18 /* IdentifierDatabase.swift in Sources */,
+				555BDAEC2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld in Sources */,
+				555BDB152530F024001E7A18 /* VerifiableCredentialSDK.swift in Sources */,
 				550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */,
+				555BDAEE2530CF27001E7A18 /* CoreDataManager.swift in Sources */,
 				555CE0932526AD0400C1C938 /* PresentationUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,13 +382,25 @@
 				550F1E6625116CD6009AF467 /* TestData.swift in Sources */,
 				551F304F2527EAF40081D5E7 /* PresentationUseCaseTests.swift in Sources */,
 				550F1E63251165D6009AF467 /* MockApiCalls.swift in Sources */,
+				555BDB132530EA79001E7A18 /* IdentifierDatabaseTests.swift in Sources */,
 				550F1E6A25125BC6009AF467 /* MockIssuanceResponseFormatter.swift in Sources */,
+				555BDAF02530E4B9001E7A18 /* CoreDataManagerTests.swift in Sources */,
 				551F30512527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift in Sources */,
 				55253980252FCDEF003202D5 /* FlowTests.swift in Sources */,
 				55AF7490252FBF5B006A8B25 /* MockVCCryptoSecret.swift in Sources */,
 				550F1E4425101759009AF467 /* IssuanceUseCaseTests.swift in Sources */,
 				5525397E252FCC7D003202D5 /* SecretStoreMock.swift in Sources */,
 				550F1E6825116E86009AF467 /* MockTokenSigner.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		555BDAF12530E5E2001E7A18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				555BDAFC2530E5E2001E7A18 /* ViewController.swift in Sources */,
+				555BDAF82530E5E2001E7A18 /* AppDelegate.swift in Sources */,
+				555BDAFA2530E5E2001E7A18 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +412,31 @@
 			target = 550F1E3425101758009AF467 /* VCUseCase */;
 			targetProxy = 550F1E4025101759009AF467 /* PBXContainerItemProxy */;
 		};
+		555BDB0A2530E5F3001E7A18 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 555BDAF42530E5E2001E7A18 /* VCUseCaseTestApp */;
+			targetProxy = 555BDB092530E5F3001E7A18 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		555BDAFD2530E5E2001E7A18 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				555BDAFE2530E5E2001E7A18 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		555BDB022530E5E7001E7A18 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				555BDB032530E5E7001E7A18 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		550F1E4725101759009AF467 /* Debug */ = {
@@ -488,6 +631,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VCUseCaseTestApp.app/VCUseCaseTestApp";
 			};
 			name = Debug;
 		};
@@ -505,6 +649,43 @@
 				);
 				MACH_O_TYPE = mh_bundle;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCUseCaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VCUseCaseTestApp.app/VCUseCaseTestApp";
+			};
+			name = Release;
+		};
+		555BDB072530E5E7001E7A18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UBF8T346G9;
+				INFOPLIST_FILE = VCUseCaseTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCUseCaseTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		555BDB082530E5E7001E7A18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UBF8T346G9;
+				INFOPLIST_FILE = VCUseCaseTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCUseCaseTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -541,7 +722,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		555BDB062530E5E7001E7A18 /* Build configuration list for PBXNativeTarget "VCUseCaseTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				555BDB072530E5E7001E7A18 /* Debug */,
+				555BDB082530E5E7001E7A18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		555BDAEA2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				555BDAEB2530AEC7001E7A18 /* Identifier.xcdatamodel */,
+			);
+			currentVersion = 555BDAEB2530AEC7001E7A18 /* Identifier.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 550F1E2C25101758009AF467 /* Project object */;
 }

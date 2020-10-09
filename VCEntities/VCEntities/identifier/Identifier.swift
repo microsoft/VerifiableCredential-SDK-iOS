@@ -7,9 +7,9 @@ import VCCrypto
 
 public struct Identifier {
     public let longFormDid: String
-    let didDocumentKeys: [KeyContainer]
-    let updateKey: KeyContainer
-    let recoveryKey: KeyContainer
+    public let didDocumentKeys: [KeyContainer]
+    public let updateKey: KeyContainer
+    public let recoveryKey: KeyContainer
     
     public init(longFormDid: String,
                 didDocumentKeys: [KeyContainer],

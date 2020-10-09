@@ -18,16 +18,18 @@ public class PresentationUseCase {
     
     let formatter: PresentationResponseFormatting
     let repo: PresentationRepository
+    let identifierDatabase: IdentifierDatabase
     
-    public init() {
-        self.formatter = PresentationResponseFormatter()
-        self.repo = PresentationRepository()
+    public convenience init() {
+        self.init(formatter: PresentationResponseFormatter(),
+                  repo: PresentationRepository())
     }
     
     init(formatter: PresentationResponseFormatting,
          repo: PresentationRepository) {
         self.formatter = formatter
         self.repo = repo
+        self.identifierDatabase = IdentifierDatabase()
     }
     
     public func getRequest(usingUrl urlStr: String) -> Promise<PresentationRequest> {
@@ -38,9 +40,9 @@ public class PresentationUseCase {
         }
     }
     
-    public func send(response: PresentationResponseContainer, identifier: Identifier) -> Promise<String?> {
+    public func send(response: PresentationResponseContainer) -> Promise<String?> {
         return firstly {
-            self.formatPresentationResponse(response: response, identifier: identifier)
+            self.formatPresentationResponse(response: response)
         }.then { signedToken in
             self.repo.sendResponse(usingUrl:  response.audience, withBody: signedToken)
         }
@@ -71,9 +73,14 @@ public class PresentationUseCase {
         throw PresentationUseCaseError.noRequestUriQueryParameter
     }
     
-    private func formatPresentationResponse(response: PresentationResponseContainer, identifier: Identifier) -> Promise<PresentationResponse> {
+    private func formatPresentationResponse(response: PresentationResponseContainer) -> Promise<PresentationResponse> {
         return Promise { seal in
             do {
+                
+                guard let identifier = try identifierDatabase.fetchMasterIdentifier() else {
+                    throw IdentifierDatabaseError.noIdentifiersSaved
+                }
+                
                 seal.fulfill(try self.formatter.format(response: response, usingIdentifier: identifier))
             } catch {
                 seal.reject(error)

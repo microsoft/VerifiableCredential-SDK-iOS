@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import VCCrypto
+import VCJwt
 
 @testable import VCEntities
 
@@ -19,5 +20,9 @@ struct MockCryptoOperations: CryptoOperating {
     func generateKey() throws -> VCCryptoSecret {
         MockCryptoOperations.generateKeyCallCount += 1
         return try self.cryptoOperations.generateKey()
+    }
+    
+    func retrieveKeyFromStorage(withId id: UUID) throws -> VCCryptoSecret {
+        return KeyId(id: id)
     }
 }
