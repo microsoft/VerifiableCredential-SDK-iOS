@@ -32,6 +32,7 @@
 		555BDB042530E5E7001E7A18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555BDB022530E5E7001E7A18 /* LaunchScreen.storyboard */; };
 		555BDB112530E6C9001E7A18 /* IdentifierDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */; };
 		555BDB132530EA79001E7A18 /* IdentifierDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */; };
+		555BDB152530F024001E7A18 /* VerifiableCredentialSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB142530F024001E7A18 /* VerifiableCredentialSDK.swift */; };
 		555CE0932526AD0400C1C938 /* PresentationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE0922526AD0400C1C938 /* PresentationUseCase.swift */; };
 		55AF7490252FBF5B006A8B25 /* MockVCCryptoSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */; };
 		922D7E7A2525248900E4C8B5 /* VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922D7E792525248900E4C8B5 /* VCRepository.framework */; };
@@ -86,6 +87,7 @@
 		555BDB052530E5E7001E7A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDatabase.swift; sourceTree = "<group>"; };
 		555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDatabaseTests.swift; sourceTree = "<group>"; };
+		555BDB142530F024001E7A18 /* VerifiableCredentialSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialSDK.swift; sourceTree = "<group>"; };
 		555CE0922526AD0400C1C938 /* PresentationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUseCase.swift; sourceTree = "<group>"; };
 		55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVCCryptoSecret.swift; sourceTree = "<group>"; };
 		922D7E792525248900E4C8B5 /* VCRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +149,8 @@
 		550F1E3725101758009AF467 /* VCUseCase */ = {
 			isa = PBXGroup;
 			children = (
-				552539832530AE5F003202D5 /* models */,
+				552539832530AE5F003202D5 /* coreData */,
+				555BDB142530F024001E7A18 /* VerifiableCredentialSDK.swift */,
 				550F1E532510195A009AF467 /* IssuanceUseCase.swift */,
 				555CE0922526AD0400C1C938 /* PresentationUseCase.swift */,
 				550F1E3825101758009AF467 /* VCUseCase.h */,
@@ -184,14 +187,14 @@
 			path = mocks;
 			sourceTree = "<group>";
 		};
-		552539832530AE5F003202D5 /* models */ = {
+		552539832530AE5F003202D5 /* coreData */ = {
 			isa = PBXGroup;
 			children = (
 				555BDAEA2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld */,
 				555BDAED2530CF27001E7A18 /* CoreDataManager.swift */,
 				555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */,
 			);
-			path = models;
+			path = coreData;
 			sourceTree = "<group>";
 		};
 		555BDAF62530E5E2001E7A18 /* VCUseCaseTestApp */ = {
@@ -365,6 +368,7 @@
 			files = (
 				555BDB112530E6C9001E7A18 /* IdentifierDatabase.swift in Sources */,
 				555BDAEC2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld in Sources */,
+				555BDB152530F024001E7A18 /* VerifiableCredentialSDK.swift in Sources */,
 				550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */,
 				555BDAEE2530CF27001E7A18 /* CoreDataManager.swift in Sources */,
 				555CE0932526AD0400C1C938 /* PresentationUseCase.swift in Sources */,

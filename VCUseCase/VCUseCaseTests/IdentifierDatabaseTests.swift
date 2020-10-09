@@ -29,7 +29,7 @@ class IdentifierDatabaseTests: XCTestCase {
         let testIdentifier = try identifierCreator.create()
         print(testIdentifier.longFormDid)
         try identifierDB.saveIdentifier(identifier: testIdentifier)
-        let fetchedIdentifier = try identifierDB.fetchMasterIdentifier()
+        let fetchedIdentifier = try identifierDB.fetchMasterIdentifier()!
         XCTAssertEqual(testIdentifier.longFormDid, fetchedIdentifier.longFormDid)
     }
 }

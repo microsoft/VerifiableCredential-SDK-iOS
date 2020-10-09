@@ -18,6 +18,10 @@ struct IdentifierDatabase {
     let coreDataManager = CoreDataManager()
     let cryptoOperations: CryptoOperating
     
+    init() {
+        self.cryptoOperations = CryptoOperations()
+    }
+    
     init(cryptoOperations: CryptoOperating) {
         self.cryptoOperations = cryptoOperations
     }
@@ -35,11 +39,11 @@ struct IdentifierDatabase {
                                            updateKeyId: identifier.updateKey.getId())
     }
     
-    func fetchMasterIdentifier() throws -> Identifier {
+    func fetchMasterIdentifier() throws -> Identifier? {
         let identifierModels = try coreDataManager.fetchIdentifiers()
         
         guard let masterIdentifierModel = identifierModels.first else {
-            throw IdentifierDatabaseError.noIdentifiersSaved
+            return nil
         }
         
         guard let longFormDid = masterIdentifierModel.longFormDid else {

@@ -14,6 +14,7 @@ class PresentationUseCaseTests: XCTestCase {
     var usecase: PresentationUseCase!
     var presentationRequest: PresentationRequest!
     var mockIdentifier: Identifier!
+    let identifierDB = IdentifierDatabase()
     let expectedUrl = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/UZWlr4uOY13QiA"
     
     override func setUpWithError() throws {
@@ -26,9 +27,15 @@ class PresentationUseCaseTests: XCTestCase {
         let keyContainer = KeyContainer(keyReference: MockVCCryptoSecret(), keyId: "keyId234")
          self.mockIdentifier = Identifier(longFormDid: "longform", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
         
+        try identifierDB.saveIdentifier(identifier: mockIdentifier)
+        
         MockPresentationResponseFormatter.wasFormatCalled = false
         MockApiCalls.wasPostCalled = false
         MockApiCalls.wasGetCalled = false
+    }
+    
+    override func tearDownWithError() throws {
+        try identifierDB.coreDataManager.deleteAllIdentifiers()
     }
     
     func testPublicInit() {
@@ -131,7 +138,7 @@ class PresentationUseCaseTests: XCTestCase {
         let usecase = PresentationUseCase(formatter: formatter, repo: repo)
         
         let response = try PresentationResponseContainer(from: self.presentationRequest)
-        usecase.send(response: response, identifier: self.mockIdentifier).done {
+        usecase.send(response: response).done {
             response in
             XCTFail()
             expec.fulfill()
@@ -154,7 +161,7 @@ class PresentationUseCaseTests: XCTestCase {
         let usecase = PresentationUseCase(formatter: formatter, repo: repo)
         
         let response = try PresentationResponseContainer(from: self.presentationRequest)
-        usecase.send(response: response, identifier: self.mockIdentifier).done {
+        usecase.send(response: response).done {
             response in
             XCTFail()
             expec.fulfill()
