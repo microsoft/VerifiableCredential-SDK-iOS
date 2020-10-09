@@ -15,22 +15,19 @@ import PromiseKit
 class FlowTests: XCTestCase {
     
     var contract: Contract!
-    let identifierDB = IdentifierDatabase()
     
     override func setUpWithError() throws {
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
+        try VerifiableCredentialSDK.initialize()
     }
     
     override func tearDownWithError() throws {
+        let identifierDB = IdentifierDatabase()
         try identifierDB.coreDataManager.deleteAllIdentifiers()
     }
     
     func testIssuance() throws {
-        
-        let cryptoOp = CryptoOperations()
-        let identifier = try IdentifierCreator(cryptoOperations: cryptoOp).create()
-        try identifierDB.saveIdentifier(identifier: identifier)
 
         let usecase = IssuanceUseCase()
         let expec = self.expectation(description: "Fire")
@@ -51,10 +48,6 @@ class FlowTests: XCTestCase {
     }
     
     func testPresentation() throws {
-        
-        let cryptoOp = CryptoOperations()
-        let identifier = try IdentifierCreator(cryptoOperations: cryptoOp).create()
-        try identifierDB.saveIdentifier(identifier: identifier)
         
         let issuanceUseCase = IssuanceUseCase()
         let presentationUseCase = PresentationUseCase()
