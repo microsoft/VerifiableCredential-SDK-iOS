@@ -15,8 +15,8 @@ public class CoreDataManager {
     
     lazy var persistentContainer: NSPersistentContainer = {
         
-            let messageKitBundle = Bundle(identifier: CoreDataManager.bundleId)
-            let modelURL = messageKitBundle!.url(forResource: CoreDataManager.model, withExtension: "momd")!
+        let messageKitBundle = Bundle(for: Self.self)
+            let modelURL = messageKitBundle.url(forResource: CoreDataManager.model, withExtension: "momd")!
             let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL)
         
             let container = NSPersistentContainer(name: CoreDataManager.model, managedObjectModel: managedObjectModel!)
