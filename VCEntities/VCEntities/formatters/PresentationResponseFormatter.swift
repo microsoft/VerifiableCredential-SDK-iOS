@@ -16,6 +16,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
     
     let signer: TokenSigning
     let vpFormatter: VerifiablePresentationFormatter
+    let headerFormatter = JwsHeaderFormatter()
     
     public init(signer: TokenSigning = Secp256k1Signer()) {
         self.signer = signer
@@ -28,7 +29,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
     }
     
     private func createToken(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> PresentationResponse {
-        let headers = formatHeaders(usingIdentifier: identifier, andSigningKey: key)
+        let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: key)
         let content = try self.formatClaims(from: response, usingIdentifier: identifier, andSignWith: key)
         var token = JwsToken(headers: headers, content: content)
         try token.sign(using: self.signer, withSecret: key.keyReference)
@@ -38,7 +39,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
     private func formatClaims(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> PresentationResponseClaims {
         
         let publicKey = try signer.getPublicJwk(from: key.keyReference, withKeyId: key.keyId)
-        let timeConstraints = createTokenTimeConstraints(expiryInSeconds: response.expiryInSeconds)
+        let timeConstraints = TokenTimeConstraints(expiryInSeconds: response.expiryInSeconds)
         
         var presentationSubmission: PresentationSubmission? = nil
         var attestations: AttestationResponseDescriptor? = nil

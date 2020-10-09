@@ -12,6 +12,7 @@ let TYPE = "VerifiablePresentation"
 class VerifiablePresentationFormatter {
     
     let signer: TokenSigning
+    let headerFormatter = JwsHeaderFormatter()
     
     public init(signer: TokenSigning = Secp256k1Signer()) {
         self.signer = signer
@@ -23,8 +24,8 @@ class VerifiablePresentationFormatter {
                        usingIdentifier identifier: Identifier,
                        andSignWith key: KeyContainer) throws -> VerifiablePresentation {
         
-        let headers = formatHeaders(usingIdentifier: identifier, andSigningKey: identifier.didDocumentKeys.first!)
-        let timeConstraints = createTokenTimeConstraints(expiryInSeconds: exp)
+        let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: identifier.didDocumentKeys.first!)
+        let timeConstraints = TokenTimeConstraints(expiryInSeconds: exp)
         let verifiablePresentationDescriptor = try self.createVerifiablePresentationDescriptor(toWrap: vc)
         
         let vpClaims = VerifiablePresentationClaims(vpId: UUID().uuidString,
