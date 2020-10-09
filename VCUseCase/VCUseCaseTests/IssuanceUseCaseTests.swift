@@ -14,6 +14,7 @@ class IssuanceUseCaseTests: XCTestCase {
     var usecase: IssuanceUseCase!
     var contract: Contract!
     let expectedUrl = "https://test3523.com"
+    var mockIdentifier: Identifier!
 
     override func setUpWithError() throws {
         let repo = IssuanceRepository(apiCalls: MockApiCalls())
@@ -22,6 +23,9 @@ class IssuanceUseCaseTests: XCTestCase {
         
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
+        
+        let keyContainer = KeyContainer(keyReference: MockVCCryptoSecret(), keyId: "keyId234")
+        self.mockIdentifier = Identifier(longFormDid: "longform", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
         
         MockIssuanceResponseFormatter.wasFormatCalled = false
         MockApiCalls.wasPostCalled = false
@@ -52,7 +56,7 @@ class IssuanceUseCaseTests: XCTestCase {
     func testSendResponse() throws {
         let expec = self.expectation(description: "Fire")
         let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)
-        usecase.send(response: response, identifier: MockIdentifier()).done {
+        usecase.send(response: response, identifier: self.mockIdentifier).done {
             response in
             print(response)
             XCTFail()
@@ -76,7 +80,7 @@ class IssuanceUseCaseTests: XCTestCase {
         let usecase = IssuanceUseCase(formatter: formatter, repo: repo)
         
         let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)
-        usecase.send(response: response, identifier: MockIdentifier()).done {
+        usecase.send(response: response, identifier: self.mockIdentifier).done {
             response in
             print(response)
             XCTFail()

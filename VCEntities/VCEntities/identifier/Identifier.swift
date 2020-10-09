@@ -6,8 +6,18 @@
 import VCCrypto
 
 public struct Identifier {
-    public let longformId: String
-    let didDocumentKeys: [VCCryptoSecret]
-    let updateKey: VCCryptoSecret
-    let recoveryKey: VCCryptoSecret
+    public let longFormDid: String
+    let didDocumentKeys: [KeyContainer]
+    let updateKey: KeyContainer
+    let recoveryKey: KeyContainer
+    
+    public init(longFormDid: String,
+                didDocumentKeys: [KeyContainer],
+                updateKey: KeyContainer,
+                recoveryKey: KeyContainer) {
+        self.longFormDid = longFormDid
+        self.didDocumentKeys = didDocumentKeys
+        self.updateKey = updateKey
+        self.recoveryKey = recoveryKey
+    }
 }

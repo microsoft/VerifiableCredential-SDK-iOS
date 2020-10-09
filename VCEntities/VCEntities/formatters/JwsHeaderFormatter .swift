@@ -3,13 +3,14 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
+import VCJwt
 
-struct TokenTimeConstraints {
-    let issuedAt: Double
-    let expiration: Double
+struct JwsHeaderFormatter {
     
-    init(expiryInSeconds: Int) {
-        self.issuedAt = (Date().timeIntervalSince1970).rounded(.down)
-        self.expiration = self.issuedAt + Double(expiryInSeconds)
+    static let jwtType = "JWT"
+    
+    func formatHeaders(usingIdentifier identifier: Identifier, andSigningKey key: KeyContainer) -> Header {
+        let keyId = identifier.longFormDid + "#" + key.keyId
+        return Header(type: JwsHeaderFormatter.jwtType, algorithm: key.algorithm, keyId: keyId)
     }
 }

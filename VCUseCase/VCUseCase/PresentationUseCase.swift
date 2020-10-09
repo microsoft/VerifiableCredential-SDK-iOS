@@ -16,7 +16,6 @@ enum PresentationUseCaseError: Error {
 
 public class PresentationUseCase {
     
-    let masterIdentifier: MockIdentifier = MockIdentifier()
     let formatter: PresentationResponseFormatting
     let repo: PresentationRepository
     
@@ -39,7 +38,7 @@ public class PresentationUseCase {
         }
     }
     
-    public func send(response: PresentationResponseContainer, identifier: MockIdentifier) -> Promise<String?> {
+    public func send(response: PresentationResponseContainer, identifier: Identifier) -> Promise<String?> {
         return firstly {
             self.formatPresentationResponse(response: response, identifier: identifier)
         }.then { signedToken in
@@ -72,7 +71,7 @@ public class PresentationUseCase {
         throw PresentationUseCaseError.noRequestUriQueryParameter
     }
     
-    private func formatPresentationResponse(response: PresentationResponseContainer, identifier: MockIdentifier) -> Promise<PresentationResponse> {
+    private func formatPresentationResponse(response: PresentationResponseContainer, identifier: Identifier) -> Promise<PresentationResponse> {
         return Promise { seal in
             do {
                 seal.fulfill(try self.formatter.format(response: response, usingIdentifier: identifier))

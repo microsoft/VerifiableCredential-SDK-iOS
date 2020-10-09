@@ -12,6 +12,7 @@ let TYPE = "VerifiablePresentation"
 class VerifiablePresentationFormatter {
     
     let signer: TokenSigning
+    let headerFormatter = JwsHeaderFormatter()
     
     public init(signer: TokenSigning = Secp256k1Signer()) {
         self.signer = signer
@@ -20,22 +21,23 @@ class VerifiablePresentationFormatter {
     func format(toWrap vc: VerifiableCredential,
                        withAudience audience: String,
                        withExpiryInSeconds exp: Int,
-                       usingIdentifier identifier: MockIdentifier) throws -> VerifiablePresentation {
+                       usingIdentifier identifier: Identifier,
+                       andSignWith key: KeyContainer) throws -> VerifiablePresentation {
         
-        let headers = formatHeaders(usingIdentifier: identifier)
-        let timeConstraints = createTokenTimeConstraints(expiryInSeconds: exp)
+        let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: identifier.didDocumentKeys.first!)
+        let timeConstraints = TokenTimeConstraints(expiryInSeconds: exp)
         let verifiablePresentationDescriptor = try self.createVerifiablePresentationDescriptor(toWrap: vc)
         
         let vpClaims = VerifiablePresentationClaims(vpId: UUID().uuidString,
                                                     purpose: PURPOSE,
                                                     verifiablePresentation: verifiablePresentationDescriptor,
-                                                    issuerOfVp: identifier.id,
+                                                    issuerOfVp: identifier.longFormDid,
                                                     audience: audience,
                                                     iat: timeConstraints.issuedAt,
                                                     exp: timeConstraints.expiration)
         
         var token = JwsToken<VerifiablePresentationClaims>(headers: headers, content: vpClaims)
-        try token.sign(using: self.signer, withSecret: identifier.keyId)
+        try token.sign(using: self.signer, withSecret: key.keyReference)
         return token
     }
     

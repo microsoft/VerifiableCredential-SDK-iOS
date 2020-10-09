@@ -56,7 +56,6 @@
 		55ADE26024F5406000D9990E /* VCJwtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCJwtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ADE26724F5406000D9990E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55ADE27124F5407D00D9990E /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		55ADE27424F540E000D9990E /* VcCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VcCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ADE27824F540F700D9990E /* JwsToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JwsToken.swift; sourceTree = "<group>"; };
 		55ADE27A24F5410300D9990E /* Secp256k1Signer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1Signer.swift; sourceTree = "<group>"; };
 		55ADE27C24F5410E00D9990E /* Claims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Claims.swift; sourceTree = "<group>"; };
@@ -163,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				92E2998E252522D000B25BB6 /* VCCrypto.framework */,
-				55ADE27424F540E000D9990E /* VcCrypto.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -21,7 +21,7 @@ class MockIssuanceResponseFormatter: IssuanceResponseFormatting {
         self.shouldSucceed = shouldSucceed
     }
     
-    func format(response: IssuanceResponseContainer, usingIdentifier identifier: MockIdentifier) throws -> IssuanceResponse {
+    func format(response: IssuanceResponseContainer, usingIdentifier identifier: Identifier) throws -> IssuanceResponse {
         Self.wasFormatCalled = true
         if (shouldSucceed) {
             return IssuanceResponse(from: TestData.issuanceResponse.rawValue)!

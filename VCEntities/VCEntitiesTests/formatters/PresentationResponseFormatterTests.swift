@@ -5,6 +5,7 @@
 
 import XCTest
 import VCJwt
+import VCCrypto
 
 @testable import VCEntities
 
@@ -13,7 +14,7 @@ class PresentationResponseFormatterTests: XCTestCase {
     var formatter: PresentationResponseFormatter!
     var request: PresentationRequest!
     var mockResponse: PresentationResponseContainer!
-    var mockIdentifier: MockIdentifier!
+    var mockIdentifier: Identifier!
     let expectedContractUrl = "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert"
     let expectedCredentialType = "test435"
     
@@ -26,7 +27,11 @@ class PresentationResponseFormatterTests: XCTestCase {
         
         self.mockResponse = try PresentationResponseContainer(from: self.request)
         
-        self.mockIdentifier = MockIdentifier()
+        let cryptoOperation = CryptoOperations(secretStore: SecretStoreMock())
+        let key = try cryptoOperation.generateKey()
+        
+        let keyContainer = KeyContainer(keyReference: key, keyId: "keyId")
+        self.mockIdentifier = Identifier(longFormDid: "longFormDid", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
     }
     
     func testFormatToken() throws {
@@ -35,7 +40,7 @@ class PresentationResponseFormatterTests: XCTestCase {
         
         let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
         
-        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.id)
+        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longFormDid)
         XCTAssertNotNil(formattedToken.content.exp)
         XCTAssertNotNil(formattedToken.content.iat)
         XCTAssertNotNil(formattedToken.content.jti)
@@ -54,7 +59,7 @@ class PresentationResponseFormatterTests: XCTestCase {
     func testFormatTokenNoVcs() throws {
 
         let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
-        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.id)
+        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longFormDid)
         XCTAssertNotNil(formattedToken.content.exp)
         XCTAssertNotNil(formattedToken.content.iat)
         XCTAssertNotNil(formattedToken.content.jti)

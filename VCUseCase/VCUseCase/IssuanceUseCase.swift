@@ -10,7 +10,6 @@ import VCEntities
 
 public class IssuanceUseCase {
     
-    let masterIdentifier: MockIdentifier = MockIdentifier()
     let formatter: IssuanceResponseFormatting
     let repo: IssuanceRepository
     
@@ -29,7 +28,7 @@ public class IssuanceUseCase {
         return self.repo.getRequest(withUrl: url)
     }
     
-    public func send(response: IssuanceResponseContainer, identifier: MockIdentifier) -> Promise<VerifiableCredential> {
+    public func send(response: IssuanceResponseContainer, identifier: Identifier) -> Promise<VerifiableCredential> {
         return firstly {
             self.formatIssuanceResponse(response: response, identifier: identifier)
         }.then { signedToken in
@@ -37,7 +36,7 @@ public class IssuanceUseCase {
         }
     }
     
-    private func formatIssuanceResponse(response: IssuanceResponseContainer, identifier: MockIdentifier) -> Promise<IssuanceResponse> {
+    private func formatIssuanceResponse(response: IssuanceResponseContainer, identifier: Identifier) -> Promise<IssuanceResponse> {
         return Promise { seal in
             do {
                 seal.fulfill(try self.formatter.format(response: response, usingIdentifier: identifier))
