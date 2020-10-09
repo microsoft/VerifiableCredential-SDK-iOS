@@ -14,11 +14,10 @@ public class VerifiableCredentialSDK {
         let identifierDatabase = IdentifierDatabase(cryptoOperations: cryptoOperations)
         let identifierCreator = IdentifierCreator(cryptoOperations: cryptoOperations)
         
-        if let masterIdentifier = try identifierDatabase.fetchMasterIdentifier() {
-            print(masterIdentifier)
-        } else {
+        guard try identifierDatabase.fetchMasterIdentifier() != nil else {
             let identifier = try identifierCreator.create()
             try identifierDatabase.saveIdentifier(identifier: identifier)
+            return
         }
     }
     

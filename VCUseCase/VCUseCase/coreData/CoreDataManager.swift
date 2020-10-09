@@ -7,6 +7,7 @@ import Foundation
 import CoreData
 import VCEntities
 
+/// Temporary Until Deterministic Keys are implemented.
 public class CoreDataManager {
     
     static let bundleId = "com.microsoft.VCUseCase"
