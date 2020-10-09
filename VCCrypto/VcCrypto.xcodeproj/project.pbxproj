@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551F3059252E378E0081D5E7 /* CryptoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F3058252E378E0081D5E7 /* CryptoOperations.swift */; };
 		5540903D25000F6A001246DB /* Signing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903C25000F6A001246DB /* Signing.swift */; };
 		5577E874251E9F99005250BC /* VCCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE29924F5752500D9990E /* Sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29824F5752500D9990E /* Sha256.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		551F3058252E378E0081D5E7 /* CryptoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoOperations.swift; sourceTree = "<group>"; };
 		5540903C25000F6A001246DB /* Signing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signing.swift; sourceTree = "<group>"; };
 		55ADE29824F5752500D9990E /* Sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256.swift; path = ../../../VCCrypto/VCCrypto/Algo/Sha256.swift; sourceTree = "<group>"; };
 		55ADE29A24F5757100D9990E /* Sha256Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256Tests.swift; path = ../../VCCrypto/VCCryptoTests/Sha256Tests.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				928AAF6F24EEDC670029A8F9 /* Keys */,
 				92CDE7D024DCA69C00F95B5D /* Algo */,
 				92CDE7CD24DCA67A00F95B5D /* Storage */,
+				551F3058252E378E0081D5E7 /* CryptoOperations.swift */,
 				92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */,
 				92CDE7AE24DC78DD00F95B5D /* Info.plist */,
 			);
@@ -402,6 +405,7 @@
 			files = (
 				92CDE7DB24DDC65100F95B5D /* Sha512.swift in Sources */,
 				92CDE7C924DCA48A00F95B5D /* SecretStoring.swift in Sources */,
+				551F3059252E378E0081D5E7 /* CryptoOperations.swift in Sources */,
 				92CDE7E624DE109200F95B5D /* Data+Base64.swift in Sources */,
 				92CDE7CB24DCA61800F95B5D /* KeychainSecretStore.swift in Sources */,
 				92CDE7DE24DDCB9500F95B5D /* Data+Hex.swift in Sources */,

@@ -6,14 +6,14 @@
 import VCCrypto
 
 public struct ECPublicJwk: Codable {
-    var keyType: String = ""
-    var keyId: String
-    var use: String = ""
-    var keyOperations: [String] = []
-    var algorithm: String = ""
-    var curve: String = ""
-    var x: String
-    var y: String
+    public let keyType: String
+    public let keyId: String
+    public let use: String
+    public let keyOperations: [String]
+    public let algorithm: String
+    public let curve: String
+    public let x: String
+    public let y: String
     
     enum CodingKeys: String, CodingKey {
         case keyType = "kty"
