@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="IdentifierModel" representedClassName="IdentifierModel" syncable="YES" codeGenerationType="class">
+        <attribute name="longFormDid" optional="YES" attributeType="String"/>
+        <attribute name="recoveryKeyId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="signingKeyId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="updateKeyId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="IdentifierModel" positionX="-63" positionY="-18" width="128" height="103"/>
+    </elements>
+</model>

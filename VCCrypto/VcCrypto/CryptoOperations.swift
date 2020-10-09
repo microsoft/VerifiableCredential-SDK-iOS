@@ -5,14 +5,16 @@
 
 enum CryptoOperationsError: Error {
     case unableToCreateKey
+    case unableToRetrieveKey
 }
 
 public protocol CryptoOperating {
     func generateKey() throws -> VCCryptoSecret
+    func retrieveKeyFromStorage(withId id: UUID) throws -> VCCryptoSecret
 }
 
 public struct CryptoOperations: CryptoOperating {
-    
+
     private let secretStore: SecretStoring
     
     public init() {
@@ -30,5 +32,9 @@ public struct CryptoOperations: CryptoOperating {
         }
         
         return key
+    }
+    
+    public func retrieveKeyFromStorage(withId id: UUID) throws -> VCCryptoSecret {
+        return Random32BytesSecret(withStore: secretStore, andId: id)
     }
 }

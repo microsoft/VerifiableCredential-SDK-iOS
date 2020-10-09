@@ -10,6 +10,11 @@ final class Random32BytesSecret: Secret {
     public var id: UUID
     private let store: SecretStoring
     
+    init(withStore store: SecretStoring, andId id: UUID) {
+        self.id = id
+        self.store = store
+    }
+    
     init?(withStore store: SecretStoring) {
         self.store = store
         
