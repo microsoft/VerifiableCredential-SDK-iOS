@@ -24,7 +24,7 @@ class IdentifierCreatorTests: XCTestCase {
         let creator = IdentifierCreator(cryptoOperations: self.cryptoOperations, identifierFormatter: MockIdentifierFormatter(returningString: self.expectedResult))
         let actualResult = try creator.create()
         XCTAssertEqual(MockCryptoOperations.generateKeyCallCount, 3)
-        XCTAssertEqual(actualResult.longformId, expectedResult)
+        XCTAssertEqual(actualResult.longFormDid, expectedResult)
     }
     
     func testCreateIdentifierWithCryptoOperations() throws {

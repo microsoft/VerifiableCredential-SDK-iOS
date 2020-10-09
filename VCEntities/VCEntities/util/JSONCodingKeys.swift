@@ -42,8 +42,6 @@ public extension KeyedDecodingContainer {
     }
 }
 
-
-
 public extension KeyedEncodingContainerProtocol where Key == JSONCodingKeys {
     mutating func encode(_ value: Dictionary<String, Any>) throws {
         try value.forEach({ (key, value) in
@@ -76,4 +74,3 @@ public extension KeyedEncodingContainerProtocol {
         }
     }
 }
-

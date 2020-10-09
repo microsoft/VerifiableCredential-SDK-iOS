@@ -15,10 +15,8 @@ class IdentifierFormatterTests: XCTestCase {
     
     func testFormatting() throws {
         let key = ECPublicJwk(x: "Ir5lqT2yDCXdWI8HgMj2erz9HVChFFv4Bd70oDqclvs", y: "_uSQb2NNO3MMnsS83ByMxayGbk3ODYxAlMx-_YOw5oc", keyId: "testKey")
-        let actualDid = try formatter.createIonLongForm(recoveryKey: key, updateKey: key, didDocumentKeys: [key], serviceEndpoints: [])
+        let actualDid = try formatter.createIonLongFormDid(recoveryKey: key, updateKey: key, didDocumentKeys: [key], serviceEndpoints: [])
         XCTAssertEqual(actualDid, expectedDid)
         
     }
-
-
 }

@@ -30,7 +30,7 @@ class VerifiablePresentationFormatter {
         let vpClaims = VerifiablePresentationClaims(vpId: UUID().uuidString,
                                                     purpose: PURPOSE,
                                                     verifiablePresentation: verifiablePresentationDescriptor,
-                                                    issuerOfVp: identifier.longformId,
+                                                    issuerOfVp: identifier.longFormDid,
                                                     audience: audience,
                                                     iat: timeConstraints.issuedAt,
                                                     exp: timeConstraints.expiration)

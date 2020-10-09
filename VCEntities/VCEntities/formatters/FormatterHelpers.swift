@@ -14,6 +14,6 @@ func createTokenTimeConstraints(expiryInSeconds: Int) -> TokenTimeConstraints {
 }
 
 func formatHeaders(usingIdentifier identifier: Identifier, andSigningKey key: KeyContainer) -> Header {
-    let keyId = identifier.longformId + "#" + key.keyId
+    let keyId = identifier.longFormDid + "#" + key.keyId
     return Header(type: jwtType, algorithm: key.algorithm, keyId: keyId)
 }

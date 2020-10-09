@@ -31,7 +31,7 @@ class PresentationResponseFormatterTests: XCTestCase {
         let key = try cryptoOperation.generateKey()
         
         let keyContainer = KeyContainer(keyReference: key, keyId: "keyId")
-        self.mockIdentifier = Identifier(longformId: "longFormDid", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
+        self.mockIdentifier = Identifier(longFormDid: "longFormDid", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
     }
     
     func testFormatToken() throws {
@@ -40,7 +40,7 @@ class PresentationResponseFormatterTests: XCTestCase {
         
         let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
         
-        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longformId)
+        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longFormDid)
         XCTAssertNotNil(formattedToken.content.exp)
         XCTAssertNotNil(formattedToken.content.iat)
         XCTAssertNotNil(formattedToken.content.jti)
@@ -59,7 +59,7 @@ class PresentationResponseFormatterTests: XCTestCase {
     func testFormatTokenNoVcs() throws {
 
         let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
-        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longformId)
+        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longFormDid)
         XCTAssertNotNil(formattedToken.content.exp)
         XCTAssertNotNil(formattedToken.content.iat)
         XCTAssertNotNil(formattedToken.content.jti)

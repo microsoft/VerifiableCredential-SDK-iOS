@@ -37,7 +37,7 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         
         return IssuanceResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                       audience: response.audience,
-                                      did: identifier.longformId,
+                                      did: identifier.longFormDid,
                                       publicJwk: publicKey,
                                       contract: response.contractUri,
                                       jti: UUID().uuidString,

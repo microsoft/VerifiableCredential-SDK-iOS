@@ -29,12 +29,12 @@ class IssuanceResponseFormatterTests: XCTestCase {
         let key = try cryptoOperation.generateKey()
         
         let keyContainer = KeyContainer(keyReference: key, keyId: "keyId")
-        self.mockIdentifier = Identifier(longformId: "longFormDid", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
+        self.mockIdentifier = Identifier(longFormDid: "longFormDid", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
     }
     
     func testFormatToken() throws {
         let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
-        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longformId)
+        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longFormDid)
         XCTAssertEqual(formattedToken.content.contract, self.mockResponse.contractUri)
         XCTAssertEqual(formattedToken.content.audience, self.mockResponse.audience)
         XCTAssert(MockTokenSigner.wasSignCalled)

@@ -25,7 +25,7 @@ class IssuanceUseCaseTests: XCTestCase {
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
         
         let keyContainer = KeyContainer(keyReference: MockVCCryptoSecret(), keyId: "keyId234")
-        self.mockIdentifier = Identifier(longformId: "longform", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
+        self.mockIdentifier = Identifier(longFormDid: "longform", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
         
         MockIssuanceResponseFormatter.wasFormatCalled = false
         MockApiCalls.wasPostCalled = false

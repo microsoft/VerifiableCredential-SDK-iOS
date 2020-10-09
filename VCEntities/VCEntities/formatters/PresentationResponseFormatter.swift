@@ -49,7 +49,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         
         return PresentationResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                           audience: response.request.content.redirectURI,
-                                          did: identifier.longformId,
+                                          did: identifier.longFormDid,
                                           publicJwk: publicKey,
                                           jti: UUID().uuidString,
                                           presentationSubmission: presentationSubmission,

@@ -27,7 +27,7 @@ public struct IdentifierCreator {
         let recoveryKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "recover")
         
         let longformDid = try self.createLongformDid(signingKeyContainer: signingKeyContainer, updateKeyContainer: updateKeyContainer, recoveryKeyContainer: recoveryKeyContainer)
-        return Identifier(longformId: longformDid, didDocumentKeys: [signingKeyContainer], updateKey: updateKeyContainer, recoveryKey: recoveryKeyContainer)
+        return Identifier(longFormDid: longformDid, didDocumentKeys: [signingKeyContainer], updateKey: updateKeyContainer, recoveryKey: recoveryKeyContainer)
         
     }
     
@@ -35,7 +35,7 @@ public struct IdentifierCreator {
         let signingJwk = try self.generatePublicJwk(for: signingKeyContainer)
         let updateJwk = try self.generatePublicJwk(for: updateKeyContainer)
         let recoveryJwk = try self.generatePublicJwk(for: recoveryKeyContainer)
-        return try self.identifierFormatter.createIonLongForm(recoveryKey: recoveryJwk, updateKey: updateJwk, didDocumentKeys: [signingJwk], serviceEndpoints: [])
+        return try self.identifierFormatter.createIonLongFormDid(recoveryKey: recoveryJwk, updateKey: updateJwk, didDocumentKeys: [signingJwk], serviceEndpoints: [])
     }
     
     private func generatePublicJwk(for keyMapping: KeyContainer) throws -> ECPublicJwk {

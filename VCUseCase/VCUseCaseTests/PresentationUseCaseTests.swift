@@ -24,7 +24,7 @@ class PresentationUseCaseTests: XCTestCase {
         self.presentationRequest = PresentationRequest(from: TestData.presentationRequest.rawValue)!
         
         let keyContainer = KeyContainer(keyReference: MockVCCryptoSecret(), keyId: "keyId234")
-         self.mockIdentifier = Identifier(longformId: "longform", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
+         self.mockIdentifier = Identifier(longFormDid: "longform", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
         
         MockPresentationResponseFormatter.wasFormatCalled = false
         MockApiCalls.wasPostCalled = false
