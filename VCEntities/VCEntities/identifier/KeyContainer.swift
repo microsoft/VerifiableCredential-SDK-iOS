@@ -21,4 +21,8 @@ public struct KeyContainer {
         self.keyReference = keyReference
         self.keyId = keyId
     }
+    
+    public func getId() -> UUID {
+        return keyReference.id
+    }
 }

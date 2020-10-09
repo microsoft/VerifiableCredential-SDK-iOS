@@ -44,10 +44,22 @@ public class CoreDataManager {
         try context.save()
     }
     
-    public func fetchIdentifier() throws -> [IdentifierModel] {
+    public func fetchIdentifiers() throws -> [IdentifierModel] {
         let context = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<IdentifierModel>(entityName: "IdentifierModel")
+        let fetchRequest: NSFetchRequest<IdentifierModel> = IdentifierModel.fetchRequest()
         return try context.fetch(fetchRequest)
+    }
+    
+    public func deleteAllIdentifiers() throws {
+        let context = persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<IdentifierModel> = IdentifierModel.fetchRequest()
+        let models = try context.fetch(fetchRequest)
+        
+        for model in models {
+            context.delete(model)
+        }
+    
+        try context.save()
     }
     
 }

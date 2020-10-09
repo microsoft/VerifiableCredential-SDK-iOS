@@ -30,6 +30,8 @@
 		555BDAFF2530E5E2001E7A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555BDAFD2530E5E2001E7A18 /* Main.storyboard */; };
 		555BDB012530E5E7001E7A18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555BDB002530E5E7001E7A18 /* Assets.xcassets */; };
 		555BDB042530E5E7001E7A18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555BDB022530E5E7001E7A18 /* LaunchScreen.storyboard */; };
+		555BDB112530E6C9001E7A18 /* IdentifierDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */; };
+		555BDB132530EA79001E7A18 /* IdentifierDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */; };
 		555CE0932526AD0400C1C938 /* PresentationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE0922526AD0400C1C938 /* PresentationUseCase.swift */; };
 		55AF7490252FBF5B006A8B25 /* MockVCCryptoSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */; };
 		922D7E7A2525248900E4C8B5 /* VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922D7E792525248900E4C8B5 /* VCRepository.framework */; };
@@ -82,6 +84,8 @@
 		555BDB002530E5E7001E7A18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		555BDB032530E5E7001E7A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		555BDB052530E5E7001E7A18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDatabase.swift; sourceTree = "<group>"; };
+		555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDatabaseTests.swift; sourceTree = "<group>"; };
 		555CE0922526AD0400C1C938 /* PresentationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUseCase.swift; sourceTree = "<group>"; };
 		55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVCCryptoSecret.swift; sourceTree = "<group>"; };
 		922D7E792525248900E4C8B5 /* VCRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +163,7 @@
 				550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */,
 				551F304E2527EAF40081D5E7 /* PresentationUseCaseTests.swift */,
 				555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */,
+				555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */,
 				550F1E4525101759009AF467 /* Info.plist */,
 				5525397F252FCDEF003202D5 /* FlowTests.swift */,
 			);
@@ -184,6 +189,7 @@
 			children = (
 				555BDAEA2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld */,
 				555BDAED2530CF27001E7A18 /* CoreDataManager.swift */,
+				555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -357,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555BDB112530E6C9001E7A18 /* IdentifierDatabase.swift in Sources */,
 				555BDAEC2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld in Sources */,
 				550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */,
 				555BDAEE2530CF27001E7A18 /* CoreDataManager.swift in Sources */,
@@ -371,6 +378,7 @@
 				550F1E6625116CD6009AF467 /* TestData.swift in Sources */,
 				551F304F2527EAF40081D5E7 /* PresentationUseCaseTests.swift in Sources */,
 				550F1E63251165D6009AF467 /* MockApiCalls.swift in Sources */,
+				555BDB132530EA79001E7A18 /* IdentifierDatabaseTests.swift in Sources */,
 				550F1E6A25125BC6009AF467 /* MockIssuanceResponseFormatter.swift in Sources */,
 				555BDAF02530E4B9001E7A18 /* CoreDataManagerTests.swift in Sources */,
 				551F30512527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift in Sources */,

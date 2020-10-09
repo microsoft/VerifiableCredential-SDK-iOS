@@ -11,8 +11,12 @@ class CoreDataManagerTests: XCTestCase {
     
     let dataManager = CoreDataManager()
     
+    override func tearDownWithError() throws {
+        try dataManager.deleteAllIdentifiers()
+    }
+    
     func testSavingIdentifier() throws {
         try dataManager.saveIdentifier(longformDid: "test", signingKeyId: UUID(), recoveryKeyId: UUID(), updateKeyId: UUID())
-        print(try dataManager.fetchIdentifier())
+        print(try dataManager.fetchIdentifiers())
     }
 }
