@@ -49,6 +49,7 @@
 		55575776251BC6CF009979AB /* RegistrationClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55575760251BC6CF009979AB /* RegistrationClaims.swift */; };
 		55575777251BC6CF009979AB /* IssuanceServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55575761251BC6CF009979AB /* IssuanceServiceResponse.swift */; };
 		55575778251BC6CF009979AB /* JSONCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55575762251BC6CF009979AB /* JSONCodingKeys.swift */; };
+		555BDB1C2533AA85001E7A18 /* FormatterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB1B2533AA85001E7A18 /* FormatterError.swift */; };
 		555CE08A25267FE500C1C938 /* VerifiablePresentationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE08925267FE500C1C938 /* VerifiablePresentationFormatter.swift */; };
 		555CE08D2526810100C1C938 /* VerifiablePresentationClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE08C2526810100C1C938 /* VerifiablePresentationClaims.swift */; };
 		555CE08F2526822300C1C938 /* VerifiablePresentationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE08E2526822300C1C938 /* VerifiablePresentationDescriptor.swift */; };
@@ -151,6 +152,7 @@
 		55575760251BC6CF009979AB /* RegistrationClaims.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationClaims.swift; sourceTree = "<group>"; };
 		55575761251BC6CF009979AB /* IssuanceServiceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponse.swift; sourceTree = "<group>"; };
 		55575762251BC6CF009979AB /* JSONCodingKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCodingKeys.swift; sourceTree = "<group>"; };
+		555BDB1B2533AA85001E7A18 /* FormatterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterError.swift; sourceTree = "<group>"; };
 		555CE08925267FE500C1C938 /* VerifiablePresentationFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiablePresentationFormatter.swift; sourceTree = "<group>"; };
 		555CE08C2526810100C1C938 /* VerifiablePresentationClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiablePresentationClaims.swift; sourceTree = "<group>"; };
 		555CE08E2526822300C1C938 /* VerifiablePresentationDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiablePresentationDescriptor.swift; sourceTree = "<group>"; };
@@ -257,11 +259,11 @@
 		55575730251BC575009979AB /* VCEntities */ = {
 			isa = PBXGroup;
 			children = (
-				5584E49725255A8F00A9DE58 /* presentation */,
-				5577E865251E830B005250BC /* identifier */,
-				5577E864251E82B2005250BC /* verifiableCredential */,
-				5577E862251E8284005250BC /* issuance */,
 				557BFC50251E665D005B5B24 /* formatters */,
+				5577E865251E830B005250BC /* identifier */,
+				5577E862251E8284005250BC /* issuance */,
+				5584E49725255A8F00A9DE58 /* presentation */,
+				5577E864251E82B2005250BC /* verifiableCredential */,
 				55AF7481252F6803006A8B25 /* util */,
 				5557575A251BC6CF009979AB /* AttestationResponseDescriptor.swift */,
 				5518CC7525264D5700C7A21B /* ResponseMappings.swift */,
@@ -383,6 +385,7 @@
 				555CE08925267FE500C1C938 /* VerifiablePresentationFormatter.swift */,
 				551F30422527DC050081D5E7 /* JwsHeaderFormatter .swift */,
 				551F3056252D02AB0081D5E7 /* TokenTimeConstraints.swift */,
+				555BDB1B2533AA85001E7A18 /* FormatterError.swift */,
 			);
 			path = formatters;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				5518CC7225264C6F00C7A21B /* PresentationResponseFormatter.swift in Sources */,
 				55AF7488252F6B53006A8B25 /* SuffixDescriptor.swift in Sources */,
 				55575774251BC6CF009979AB /* VCClaims.swift in Sources */,
+				555BDB1C2533AA85001E7A18 /* FormatterError.swift in Sources */,
 				5584E49925255ACA00A9DE58 /* PresentationRequestClaims.swift in Sources */,
 				55575771251BC6CF009979AB /* AttestationResponseDescriptor.swift in Sources */,
 				55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */,
