@@ -8,10 +8,6 @@ import VCJwt
 let CREDENTIAL_PATH = "$.attestations.presentations."
 let CREDENTIAL_ENCODING = "base64Url"
 
-enum FormatterError: Error {
-    case noSigningKeyFound
-}
-
 public protocol PresentationResponseFormatting {
     func format(response: PresentationResponseContainer, usingIdentifier identifier: Identifier) throws -> PresentationResponse
 }
@@ -73,9 +69,11 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
     }
     
     private func formatPresentationSubmission(from response: PresentationResponseContainer, keyType: String) -> PresentationSubmission {
+        
         let submissionDescriptor = response.requestVCMap.map { type, _ in
             SubmissionDescriptor(id: type, path: CREDENTIAL_PATH + type, format: keyType, encoding: CREDENTIAL_ENCODING)
         }
+        
         return PresentationSubmission(submissionDescriptors: submissionDescriptor)
     }
     
