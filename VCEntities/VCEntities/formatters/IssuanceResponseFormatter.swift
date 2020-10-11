@@ -19,15 +19,22 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
     }
     
     public func format(response: IssuanceResponseContainer, usingIdentifier identifier: Identifier) throws -> IssuanceResponse {
-        let signingKey = identifier.didDocumentKeys.first!
+        
+        guard let signingKey = identifier.didDocumentKeys.first else {
+            throw FormatterError.noSigningKeyFound
+        }
+        
         return try createToken(response: response, usingIdentifier: identifier, andSignWith: signingKey)
     }
     
     private func createToken(response: IssuanceResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> IssuanceResponse {
+        
         let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: identifier.didDocumentKeys.first!)
         let content = try self.formatClaims(response: response, usingIdentifier: identifier)
+        
         var token = JwsToken(headers: headers, content: content)
         try token.sign(using: self.signer, withSecret: key.keyReference)
+        
         return token
     }
     

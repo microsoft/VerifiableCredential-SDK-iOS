@@ -8,6 +8,10 @@ import VCJwt
 let CREDENTIAL_PATH = "$.attestations.presentations."
 let CREDENTIAL_ENCODING = "base64Url"
 
+enum FormatterError: Error {
+    case noSigningKeyFound
+}
+
 public protocol PresentationResponseFormatting {
     func format(response: PresentationResponseContainer, usingIdentifier identifier: Identifier) throws -> PresentationResponse
 }
@@ -24,15 +28,22 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
     }
     
     public func format(response: PresentationResponseContainer, usingIdentifier identifier: Identifier) throws -> PresentationResponse {
-        let signingKey = identifier.didDocumentKeys.first!
+        
+        guard let signingKey = identifier.didDocumentKeys.first else {
+            throw FormatterError.noSigningKeyFound
+        }
+
         return try self.createToken(from: response, usingIdentifier: identifier, andSignWith: signingKey)
     }
     
     private func createToken(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> PresentationResponse {
+        
         let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: key)
         let content = try self.formatClaims(from: response, usingIdentifier: identifier, andSignWith: key)
+        
         var token = JwsToken(headers: headers, content: content)
         try token.sign(using: self.signer, withSecret: key.keyReference)
+        
         return token
     }
     
