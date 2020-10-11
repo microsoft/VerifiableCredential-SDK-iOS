@@ -6,7 +6,7 @@
 public struct VerifiableCredentialDescriptor: Codable {
     let context: [String]
     let type: [String]
-    let credentialSubject: Dictionary<String, Any>
+    public let credentialSubject: Dictionary<String, Any>
     let credentialStatus: ServiceDescriptor?
     let exchangeService: ServiceDescriptor?
     let revokeService: ServiceDescriptor?
