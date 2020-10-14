@@ -4,16 +4,14 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct RegistrationClaims: Codable, Equatable {
-    let clientName: String = ""
-    let clientPurpose: String = ""
-    let clientUri: String = ""
-    let tosURI: String = ""
-    let logoURI: String = ""
+    public let clientName: String?
+    public let clientPurpose: String?
+    public let tosURI: String?
+    public let logoURI: String?
 
     enum CodingKeys: String, CodingKey {
         case clientName = "client_name"
         case clientPurpose = "client_purpose"
-        case clientUri = "client_uri"
         case tosURI = "tos_uri"
         case logoURI = "logo_uri"
     }
