@@ -33,7 +33,8 @@ class FlowTests: XCTestCase {
         let expec = self.expectation(description: "Fire")
         
         let contractUri = "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert"
-        let response = try IssuanceResponseContainer(from: contract, contractUri: contractUri)
+        var response = try IssuanceResponseContainer(from: contract, contractUri: contractUri)
+        response.requestedSelfAttestedClaimMap["name"] = "sydney"
         
         usecase.send(response: response).done {
             response in
@@ -76,7 +77,8 @@ class FlowTests: XCTestCase {
     }
     
     private func getIssuanceResponse(useCase: IssuanceUseCase, contract: Contract) throws -> Promise<VerifiableCredential> {
-        let response = try IssuanceResponseContainer(from: contract, contractUri: "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert")
+        var response = try IssuanceResponseContainer(from: contract, contractUri: "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert")
+        response.requestedSelfAttestedClaimMap["Name"] = "sydney"
         return useCase.send(response: response)
     }
 }

@@ -19,6 +19,9 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
     public let presentationDefinition: PresentationDefinition
     
+    /// flag to determine if presentation request can go into issuance flow
+    public let prompt: String?
+    
     enum CodingKeys: String, CodingKey {
         case clientID = "client_id"
         case issuer = "iss"
@@ -26,6 +29,7 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
         case redirectURI = "redirect_uri"
         case responseType = "response_type"
         case responseMode = "response_mode"
+        case prompt
     }
 }
 
