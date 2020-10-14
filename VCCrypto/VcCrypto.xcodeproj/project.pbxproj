@@ -12,7 +12,6 @@
 		5577E874251E9F99005250BC /* VCCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE29924F5752500D9990E /* Sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29824F5752500D9990E /* Sha256.swift */; };
 		55ADE29B24F5757100D9990E /* Sha256Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29A24F5757100D9990E /* Sha256Tests.swift */; };
-		55EB0D7F253766D300057520 /* Secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EB0D7E253766D300057520 /* Secp256k1.framework */; };
 		928AAF7124EEDC9D0029A8F9 /* Secp256k1PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAF7024EEDC9D0029A8F9 /* Secp256k1PublicKey.swift */; };
 		928AAF7324EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAF7224EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift */; };
 		92CDE7B424DC78DD00F95B5D /* VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CDE7AA24DC78DD00F95B5D /* VCCrypto.framework */; };
@@ -39,6 +38,7 @@
 		92CDE80824E1F7AF00F95B5D /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80724E1F7AF00F95B5D /* Secret.swift */; };
 		92CDE80A24E2047900F95B5D /* SecretMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80924E2047900F95B5D /* SecretMock.swift */; };
 		92CDE80C24E213AE00F95B5D /* Random32BytesSecretTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CDE80B24E213AE00F95B5D /* Random32BytesSecretTests.swift */; };
+		92D8B34E2537A7F400C42E34 /* Secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D8B34D2537A7F400C42E34 /* Secp256k1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,10 +63,8 @@
 		5540903C25000F6A001246DB /* Signing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signing.swift; sourceTree = "<group>"; };
 		55ADE29824F5752500D9990E /* Sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256.swift; path = ../../../VCCrypto/VCCrypto/Algo/Sha256.swift; sourceTree = "<group>"; };
 		55ADE29A24F5757100D9990E /* Sha256Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256Tests.swift; path = ../../VCCrypto/VCCryptoTests/Sha256Tests.swift; sourceTree = "<group>"; };
-		55EB0D7E253766D300057520 /* Secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		928AAF7024EEDC9D0029A8F9 /* Secp256k1PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1PublicKey.swift; sourceTree = "<group>"; };
 		928AAF7224EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1PublicKeyTests.swift; sourceTree = "<group>"; };
-		92B969052524230B00F64AB0 /* Secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CDE7AA24DC78DD00F95B5D /* VCCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCCrypto.h; sourceTree = "<group>"; };
 		92CDE7AE24DC78DD00F95B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,6 +95,7 @@
 		92CDE80724E1F7AF00F95B5D /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		92CDE80924E2047900F95B5D /* SecretMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretMock.swift; sourceTree = "<group>"; };
 		92CDE80B24E213AE00F95B5D /* Random32BytesSecretTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random32BytesSecretTests.swift; sourceTree = "<group>"; };
+		92D8B34D2537A7F400C42E34 /* Secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D8B34E2537A7F400C42E34 /* Secp256k1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,14 +112,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				92CDE7B424DC78DD00F95B5D /* VCCrypto.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92CDE7EA24DE1C6100F95B5D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				55EB0D7F253766D300057520 /* Secp256k1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,8 +244,7 @@
 		C817E43043516B933BA2E4E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				55EB0D7E253766D300057520 /* Secp256k1.framework */,
-				92B969052524230B00F64AB0 /* Secp256k1.framework */,
+				92D8B34D2537A7F400C42E34 /* Secp256k1.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
