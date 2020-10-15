@@ -19,6 +19,10 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
     public let presentationDefinition: PresentationDefinition
     
+    public let state: String?
+    
+    public let nonce: String?
+    
     /// flag to determine if presentation request can go into issuance flow
     public let prompt: String?
     
@@ -31,7 +35,7 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
         case redirectURI = "redirect_uri"
         case responseType = "response_type"
         case responseMode = "response_mode"
-        case prompt, registration
+        case state, nonce, prompt, registration
     }
 }
 

@@ -6,11 +6,20 @@
 import Foundation
 import VCEntities
 
+enum PresentationResponseEncoderError: Error {
+    case noStatePresentInRequest
+}
+
 struct PresentationResponseEncoder: Encoding {
     
     func encode(value: PresentationResponse) throws -> Data {
         
-        guard let encodedToken = try value.serialize().data(using: .ascii) else {
+        guard let state = value.content.state else {
+            throw PresentationResponseEncoderError.noStatePresentInRequest
+        }
+        
+        let encodedBody = try "id_token=" + value.serialize() + "&state=" + state
+        guard let encodedToken = encodedBody.data(using: .ascii) else {
             throw NetworkingError.unableToParseString
         }
         

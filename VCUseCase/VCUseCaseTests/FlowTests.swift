@@ -15,6 +15,7 @@ import PromiseKit
 class FlowTests: XCTestCase {
     
     var contract: Contract!
+    var presentationRequest: PresentationRequest? = nil
     
     override func setUpWithError() throws {
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
@@ -55,16 +56,18 @@ class FlowTests: XCTestCase {
         
         let expec = self.expectation(description: "Fire")
         
-        let requestUri = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/hd6M8DH6ON3Jlw"
+        let requestUri = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/scXecwHnsjHsQw"
         
         firstly {
             presentationUseCase.getRequest(usingUrl: requestUri)
         }.then { request in
-            issuanceUseCase.getRequest(usingUrl: request.content.presentationDefinition.inputDescriptors.first!.issuanceMetadata.first!.contract!)
+            self.getIssuanceRequest(issuanceUseCase: issuanceUseCase, request: request)
         }.then { contract in
             try self.getIssuanceResponse(useCase: issuanceUseCase, contract: contract)
-        }.done { vc in
-            print(vc)
+        }.then { vc in
+            try self.sendPresentationResponse(useCase: presentationUseCase, request: self.presentationRequest!, vc: vc)
+        }.done { response in
+            print(response ?? "presentation successful!")
             expec.fulfill()
         }.catch { error in
             print(error)
@@ -76,9 +79,22 @@ class FlowTests: XCTestCase {
         wait(for: [expec], timeout: 20)
     }
     
+    private func getIssuanceRequest(issuanceUseCase: IssuanceUseCase, request: PresentationRequest) -> Promise<Contract> {
+        self.presentationRequest = request
+        return issuanceUseCase.getRequest(usingUrl: request.content.presentationDefinition.inputDescriptors.first!.issuanceMetadata.first!.contract!)
+    }
+    
     private func getIssuanceResponse(useCase: IssuanceUseCase, contract: Contract) throws -> Promise<VerifiableCredential> {
         var response = try IssuanceResponseContainer(from: contract, contractUri: "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert")
         response.requestedSelfAttestedClaimMap["Name"] = "sydney"
         return useCase.send(response: response)
+    }
+    
+    private func sendPresentationResponse(useCase: PresentationUseCase,
+                                          request: PresentationRequest,
+                                          vc: VerifiableCredential) throws -> Promise<String?> {
+        var responseContainer = try PresentationResponseContainer(from: request)
+        responseContainer.requestVCMap["VerifiedAIEngineerCertificate"] = vc
+        return useCase.send(response: responseContainer)
     }
 }

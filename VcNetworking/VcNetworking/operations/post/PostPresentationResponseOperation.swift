@@ -26,7 +26,7 @@ public class PostPresentationResponseOperation: InternalPostNetworkOperation {
         var request = URLRequest(url: url)
         request.httpMethod = Constants.POST
         request.httpBody = try self.encoder.encode(value: body)
-        request.setValue(Constants.PLAIN_TEXT, forHTTPHeaderField: Constants.CONTENT_TYPE)
+        request.setValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
         
         self.urlRequest = request
         self.urlSession = urlSession
