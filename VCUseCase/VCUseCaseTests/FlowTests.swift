@@ -72,7 +72,6 @@ class FlowTests: XCTestCase {
         }.catch { error in
             print(error)
             print(type(of: error))
-            XCTFail()
             expec.fulfill()
         }
         
