@@ -16,9 +16,9 @@ struct VerifiablePresentationClaims: OIDCClaims {
     
     let audience: String
     
-    let iat: Double?
+    let iat: Double
     
-    let exp: Double?
+    let exp: Double
     
     enum CodingKeys: String, CodingKey {
         case issuerOfVp = "iss"

@@ -35,7 +35,7 @@ class PresentationResponseFormatterTests: XCTestCase {
     }
     
     func testFormatToken() throws {
-        let vc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)
+        let vc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)!
         self.mockResponse.requestVCMap[expectedCredentialType] = vc
         
         let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)

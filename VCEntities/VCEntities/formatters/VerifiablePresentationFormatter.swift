@@ -44,6 +44,6 @@ class VerifiablePresentationFormatter {
     private func createVerifiablePresentationDescriptor(toWrap vc: VerifiableCredential) throws -> VerifiablePresentationDescriptor {
         return VerifiablePresentationDescriptor(context: [CONTEXT],
                                                 type: [TYPE],
-                                                verifiableCredential: [try vc.serialize()])
+                                                verifiableCredential: [vc.raw])
     }
 }
