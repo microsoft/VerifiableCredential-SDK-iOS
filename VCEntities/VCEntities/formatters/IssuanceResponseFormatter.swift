@@ -79,7 +79,13 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
     
     private func createPresentations(from response: IssuanceResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> [String: String] {
         return try response.requestVCMap.mapValues { verifiableCredential in
-            let vp = try self.vpFormatter.format(toWrap: verifiableCredential, withAudience: response.contract.input!.credentialIssuer!, withExpiryInSeconds: response.expiryInSeconds, usingIdentifier: identifier, andSignWith: key)
+            
+            guard let audience = response.contract.input?.issuer else {
+                throw FormatterError.noAudienceFoundInRequest
+            }
+            
+            let vp = try self.vpFormatter.format(toWrap: verifiableCredential, withAudience: audience, withExpiryInSeconds: response.expiryInSeconds, usingIdentifier: identifier, andSignWith: key)
+            
             return try vp.serialize()
         }
     }
