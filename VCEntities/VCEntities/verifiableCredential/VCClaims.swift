@@ -11,6 +11,3 @@ public struct VCClaims: Claims {
     public let sub: String
     public let vc: VerifiableCredentialDescriptor
 }
-
-public typealias IssuanceResponse = JwsToken<IssuanceResponseClaims>
-public typealias VerifiableCredential = JwsToken<VCClaims>

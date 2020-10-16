@@ -49,7 +49,7 @@ class ECPublicJwkTests: XCTestCase {
         XCTAssertEqual(key.x, expectedX)
         XCTAssertEqual(key.y, expectedY)
         XCTAssertEqual(key.keyId, expectedKid)
-        XCTAssertEqual(key.algorithm, "ES256k")
+        XCTAssertEqual(key.algorithm, "ES256K")
         XCTAssertEqual(key.curve, "secp256k1")
         XCTAssertEqual(key.keyOperations, ["verify"])
         XCTAssertEqual(key.keyType, "EC")

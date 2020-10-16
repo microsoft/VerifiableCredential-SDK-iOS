@@ -3,6 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
+import VCJwt
+
 enum IssuanceResponseError: Error {
     case noAudienceSpecifiedInContract
 }
@@ -28,3 +30,5 @@ public struct IssuanceResponseContainer {
         self.audience = aud
     }
 }
+
+public typealias IssuanceResponse = JwsToken<IssuanceResponseClaims>

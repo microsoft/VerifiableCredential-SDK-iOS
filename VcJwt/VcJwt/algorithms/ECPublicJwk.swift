@@ -29,7 +29,7 @@ public struct ECPublicJwk: Codable {
         self.keyId = keyId
         self.use = "sig"
         self.keyOperations = ["verify"]
-        self.algorithm = "ES256k"
+        self.algorithm = "ES256K"
         self.curve = "secp256k1"
         self.x = x
         self.y = y

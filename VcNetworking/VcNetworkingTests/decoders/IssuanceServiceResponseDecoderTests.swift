@@ -21,9 +21,9 @@ class IssuanceServiceResponseDecoderTests: XCTestCase {
     
     func testDecode() throws {
         let actualResponse = try decoder.decode(data: encodedResponse)
-        XCTAssertEqual(actualResponse.content.iss, expectedToken.content.iss)
-        XCTAssertEqual(actualResponse.content.sub, expectedToken.content.sub)
-        XCTAssertEqual(actualResponse.content.jti, expectedToken.content.jti)
+        XCTAssertEqual(actualResponse.token.content.iss, expectedToken.token.content.iss)
+        XCTAssertEqual(actualResponse.token.content.sub, expectedToken.token.content.sub)
+        XCTAssertEqual(actualResponse.token.content.jti, expectedToken.token.content.jti)
     }
     
     func testThrowError() throws {
