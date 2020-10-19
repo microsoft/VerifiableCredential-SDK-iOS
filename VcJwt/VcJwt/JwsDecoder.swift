@@ -7,6 +7,7 @@ import Foundation
 
 enum JwsDecoderError: Error {
     case unsupportedEncodingFormat
+    case unableToInitializeJwsToken
 }
 
 public class JwsDecoder {
@@ -40,6 +41,10 @@ public class JwsDecoder {
             signature = Data(base64URLEncoded: splitStringifiedData[2])
         }
         
-        return JwsToken(headers: headers, content: contents, signature: signature)
+        guard let jwsToken = JwsToken(headers: headers, content: contents, signature: signature) else {
+            throw JwsDecoderError.unableToInitializeJwsToken
+        }
+        
+        return jwsToken
     }
 }

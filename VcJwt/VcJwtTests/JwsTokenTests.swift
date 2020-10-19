@@ -65,7 +65,7 @@ class JwsTokenTests: XCTestCase {
     }
 
     func testSigning() throws {
-        var testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: nil)
+        var testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: nil)!
         let signer = MockSigner()
         let secret = MockVCCryptoSecret(id: UUID())
         try testToken.sign(using: signer, withSecret: secret)
@@ -76,18 +76,18 @@ class JwsTokenTests: XCTestCase {
         let expectedHeader = Header(algorithm: "RSA")
         let testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: expectedSignature)
         let key = Secp256k1PublicKey(x: Data(count: 32), y: Data(count: 32))!
-        XCTAssertThrowsError(try testToken.verify(using: MockVerifier(), withPublicKey: key))
+        XCTAssertThrowsError(try testToken!.verify(using: MockVerifier(), withPublicKey: key))
     }
     
     func testVerifying() throws {
         let expectedHeader = Header(algorithm: "ES256K")
         let testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: Data.init(count: 64))
         let key = Secp256k1PublicKey(x: Data(count: 32), y: Data(count: 32))!
-        XCTAssertTrue(try testToken.verify(using: MockVerifier(), withPublicKey: key))
+        XCTAssertTrue(try testToken!.verify(using: MockVerifier(), withPublicKey: key))
     }
     
     func testGetProtectedMessage() throws {
-        let actualValue = try testToken.getProtectedMessage()
+        let actualValue = testToken.protectedMessage
         let expectedValue = encodedHeader + "." + encodedContent
         XCTAssertEqual(actualValue, expectedValue)
     }

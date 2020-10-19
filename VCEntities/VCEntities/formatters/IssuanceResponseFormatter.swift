@@ -34,9 +34,11 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: key)
         let content = try self.formatClaims(response: response, usingIdentifier: identifier, andSigningKey: key)
         
-        var token = JwsToken(headers: headers, content: content)
-        try token.sign(using: self.signer, withSecret: key.keyReference)
+        guard var token = JwsToken(headers: headers, content: content) else {
+            throw FormatterError.unableToFormToken
+        }
         
+        try token.sign(using: self.signer, withSecret: key.keyReference)
         return token
     }
     
