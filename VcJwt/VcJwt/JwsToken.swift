@@ -13,12 +13,20 @@ public struct JwsToken<T: Claims> {
     
     let headers: Header
     public let content: T
+    public let protectedMessage: String
     var signature: Signature?
     
-    public init(headers: Header, content: T, signature: Data? = nil) {
+    public init?(headers: Header, content: T, signature: Data? = nil) {
+        
         self.headers = headers
         self.content = content
         self.signature = signature
+        
+        do {
+            self.protectedMessage = try Self.createProtectedMessage(headers: headers, content: content)
+        } catch {
+            return nil
+        }
     }
     
     public init?(from encodedToken: String) {
@@ -26,7 +34,6 @@ public struct JwsToken<T: Claims> {
         do {
             self = try decoder.decode(T.self, token: encodedToken)
         } catch {
-            print(error)
             return nil
         }
     }
@@ -56,10 +63,10 @@ public struct JwsToken<T: Claims> {
         return try verifier.verify(token: self, usingPublicKey: key)
     }
     
-    func getProtectedMessage() throws -> String {
+    private static func createProtectedMessage(headers: Header, content: T) throws -> String {
         let encoder = JSONEncoder()
-        let encodedHeader = try encoder.encode(self.headers).base64URLEncodedString()
-        let encodedContent = try encoder.encode(self.content).base64URLEncodedString()
+        let encodedHeader = try encoder.encode(headers).base64URLEncodedString()
+        let encodedContent = try encoder.encode(content).base64URLEncodedString()
         return encodedHeader  + "." + encodedContent
     }
 }

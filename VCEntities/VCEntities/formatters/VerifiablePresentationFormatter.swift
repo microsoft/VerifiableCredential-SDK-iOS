@@ -36,7 +36,10 @@ class VerifiablePresentationFormatter {
                                                     iat: timeConstraints.issuedAt,
                                                     exp: timeConstraints.expiration)
         
-        var token = JwsToken<VerifiablePresentationClaims>(headers: headers, content: vpClaims)
+        guard var token = JwsToken<VerifiablePresentationClaims>(headers: headers, content: vpClaims) else {
+            throw FormatterError.unableToFormToken
+        }
+        
         try token.sign(using: self.signer, withSecret: key.keyReference)
         return token
     }
