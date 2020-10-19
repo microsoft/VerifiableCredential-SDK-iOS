@@ -21,7 +21,7 @@ public struct Secp256k1Verifier: TokenVerifying {
             return false
         }
         
-        guard let encodedMessage = try token.protectedMessage.data(using: .utf8) else {
+        guard let encodedMessage = token.protectedMessage.data(using: .utf8) else {
             throw VCJwtError.unableToParseString
         }
         
