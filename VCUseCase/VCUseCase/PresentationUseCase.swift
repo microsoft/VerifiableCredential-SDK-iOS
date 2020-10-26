@@ -60,8 +60,11 @@ public class PresentationUseCase {
     
     private func getRequestUri(from urlStr: String) throws -> String {
         
-        guard let urlComponents = URLComponents(string: urlStr) else { throw PresentationUseCaseError.inputStringNotUri }
+        guard let urlStrWithoutPercentEncoding = urlStr.removingPercentEncoding,
+            let urlComponents = URLComponents(string: urlStrWithoutPercentEncoding) else { throw PresentationUseCaseError.inputStringNotUri }
         guard let queryItems = urlComponents.percentEncodedQueryItems else { throw PresentationUseCaseError.noQueryParametersOnUri }
+        
+        print(urlComponents)
         
         for queryItem in queryItems {
             if queryItem.name == "request_uri" {

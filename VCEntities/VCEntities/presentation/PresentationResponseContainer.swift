@@ -17,7 +17,7 @@ public struct PresentationResponseContainer {
     
     public init(from presentationRequest: PresentationRequest, expiryInSeconds exp: Int = 3000) throws {
         
-        self.audience = presentationRequest.content.redirectURI
+        self.audience = presentationRequest.content.redirectURI ?? ""
         self.request = presentationRequest
         self.expiryInSeconds = exp
     }

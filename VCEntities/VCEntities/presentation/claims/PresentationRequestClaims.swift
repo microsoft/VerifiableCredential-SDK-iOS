@@ -7,17 +7,17 @@ import VCJwt
 
 public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
-    public let clientID: String
+    public let clientID: String?
     
-    public let issuer: String
+    public let issuer: String?
     
-    public let redirectURI: String
+    public let redirectURI: String?
     
-    public let responseType: String
+    public let responseType: String?
     
-    public let responseMode: String
+    public let responseMode: String?
     
-    public let presentationDefinition: PresentationDefinition
+    public let presentationDefinition: PresentationDefinition?
     
     public let state: String?
     
