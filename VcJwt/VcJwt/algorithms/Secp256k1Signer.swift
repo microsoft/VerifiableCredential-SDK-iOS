@@ -18,6 +18,7 @@ public struct Secp256k1Signer: TokenSigning {
     public func sign<T>(token: JwsToken<T>, withSecret secret: VCCryptoSecret) throws -> Signature {
         
         let encodedMessage = try token.getProtectedMessage()
+        print(encodedMessage)
 
         guard let messageData = encodedMessage.data(using: .ascii) else {
             throw VCJwtError.unableToParseData

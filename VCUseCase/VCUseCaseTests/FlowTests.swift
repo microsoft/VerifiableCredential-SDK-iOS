@@ -56,7 +56,7 @@ class FlowTests: XCTestCase {
         
         let expec = self.expectation(description: "Fire")
         
-        let requestUri = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/scXecwHnsjHsQw"
+        let requestUri = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/NF8N4I2k1GhRbg"
         
         firstly {
             presentationUseCase.getRequest(usingUrl: requestUri)
@@ -80,7 +80,7 @@ class FlowTests: XCTestCase {
     
     private func getIssuanceRequest(issuanceUseCase: IssuanceUseCase, request: PresentationRequest) -> Promise<Contract> {
         self.presentationRequest = request
-        return issuanceUseCase.getRequest(usingUrl: request.content.presentationDefinition.inputDescriptors.first!.issuanceMetadata.first!.contract!)
+        return issuanceUseCase.getRequest(usingUrl: request.content.presentationDefinition!.inputDescriptors.first!.issuanceMetadata.first!.contract!)
     }
     
     private func getIssuanceResponse(useCase: IssuanceUseCase, contract: Contract) throws -> Promise<VerifiableCredential> {
