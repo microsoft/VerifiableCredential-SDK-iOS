@@ -7,7 +7,7 @@ import PromiseKit
 import VCJwt
 import VCCrypto
 
-@testable import VCUseCase
+@testable import VCServices
 
 struct MockTokenSigner: TokenSigning {
     

@@ -7,7 +7,7 @@ import VCNetworking
 import PromiseKit
 import VCRepository
 
-@testable import VCUseCase
+@testable import VCServices
 
 enum MockError: Error {
     case doNotWantToResolveRealObject

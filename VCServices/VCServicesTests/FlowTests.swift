@@ -9,7 +9,7 @@ import VCEntities
 import VCCrypto
 import PromiseKit
 
-@testable import VCUseCase
+@testable import VCServices
 
 /// testing flows until we get into App
 class FlowTests: XCTestCase {
@@ -30,7 +30,7 @@ class FlowTests: XCTestCase {
     
     func testIssuance() throws {
 
-        let usecase = IssuanceUseCase()
+        let usecase = IssuanceService()
         let expec = self.expectation(description: "Fire")
         
         let contractUri = "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert"
@@ -51,8 +51,8 @@ class FlowTests: XCTestCase {
     
     func testPresentation() throws {
         
-        let issuanceUseCase = IssuanceUseCase()
-        let presentationUseCase = PresentationUseCase()
+        let issuanceUseCase = IssuanceService()
+        let presentationUseCase = PresentationService()
         
         let expec = self.expectation(description: "Fire")
         
@@ -78,18 +78,18 @@ class FlowTests: XCTestCase {
         wait(for: [expec], timeout: 20)
     }
     
-    private func getIssuanceRequest(issuanceUseCase: IssuanceUseCase, request: PresentationRequest) -> Promise<Contract> {
+    private func getIssuanceRequest(issuanceUseCase: IssuanceService, request: PresentationRequest) -> Promise<Contract> {
         self.presentationRequest = request
         return issuanceUseCase.getRequest(usingUrl: request.content.presentationDefinition!.inputDescriptors.first!.issuanceMetadata.first!.contract!)
     }
     
-    private func getIssuanceResponse(useCase: IssuanceUseCase, contract: Contract) throws -> Promise<VerifiableCredential> {
+    private func getIssuanceResponse(useCase: IssuanceService, contract: Contract) throws -> Promise<VerifiableCredential> {
         var response = try IssuanceResponseContainer(from: contract, contractUri: "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert")
         response.requestedSelfAttestedClaimMap["Name"] = "sydney"
         return useCase.send(response: response)
     }
     
-    private func sendPresentationResponse(useCase: PresentationUseCase,
+    private func sendPresentationResponse(useCase: PresentationService,
                                           request: PresentationRequest,
                                           vc: VerifiableCredential) throws -> Promise<String?> {
         var responseContainer = try PresentationResponseContainer(from: request)

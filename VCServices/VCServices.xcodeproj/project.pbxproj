@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		550F1E3F25101759009AF467 /* VCUseCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550F1E3525101758009AF467 /* VCUseCase.framework */; };
-		550F1E4425101759009AF467 /* IssuanceUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */; };
+		550F1E3F25101759009AF467 /* VCServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550F1E3525101758009AF467 /* VCServices.framework */; };
+		550F1E4425101759009AF467 /* IssuanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E4325101759009AF467 /* IssuanceServiceTests.swift */; };
 		550F1E4625101759009AF467 /* VCUseCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 550F1E3825101758009AF467 /* VCUseCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E532510195A009AF467 /* IssuanceUseCase.swift */; };
+		550F1E542510195A009AF467 /* IssuanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E532510195A009AF467 /* IssuanceService.swift */; };
 		550F1E63251165D6009AF467 /* MockApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E62251165D6009AF467 /* MockApiCalls.swift */; };
 		550F1E6625116CD6009AF467 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6525116CD6009AF467 /* TestData.swift */; };
 		550F1E6825116E86009AF467 /* MockTokenSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6725116E86009AF467 /* MockTokenSigner.swift */; };
 		550F1E6A25125BC6009AF467 /* MockIssuanceResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6925125BC6009AF467 /* MockIssuanceResponseFormatter.swift */; };
-		551F304F2527EAF40081D5E7 /* PresentationUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F304E2527EAF40081D5E7 /* PresentationUseCaseTests.swift */; };
+		551F304F2527EAF40081D5E7 /* PresentationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F304E2527EAF40081D5E7 /* PresentationServiceTests.swift */; };
 		551F30512527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F30502527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift */; };
 		5525397A252FCB26003202D5 /* VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55253979252FCB26003202D5 /* VCCrypto.framework */; };
 		5525397E252FCC7D003202D5 /* SecretStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525397D252FCC7D003202D5 /* SecretStoreMock.swift */; };
@@ -33,7 +33,7 @@
 		555BDB112530E6C9001E7A18 /* IdentifierDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */; };
 		555BDB132530EA79001E7A18 /* IdentifierDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */; };
 		555BDB152530F024001E7A18 /* VerifiableCredentialSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDB142530F024001E7A18 /* VerifiableCredentialSDK.swift */; };
-		555CE0932526AD0400C1C938 /* PresentationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE0922526AD0400C1C938 /* PresentationUseCase.swift */; };
+		555CE0932526AD0400C1C938 /* PresentationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE0922526AD0400C1C938 /* PresentationService.swift */; };
 		55AF7490252FBF5B006A8B25 /* MockVCCryptoSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */; };
 		922D7E7A2525248900E4C8B5 /* VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922D7E792525248900E4C8B5 /* VCRepository.framework */; };
 		922D7E7F2525264400E4C8B5 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B9682425240AE600F64AB0 /* PromiseKit.framework */; };
@@ -57,18 +57,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		550F1E3525101758009AF467 /* VCUseCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCUseCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		550F1E3525101758009AF467 /* VCServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		550F1E3825101758009AF467 /* VCUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCUseCase.h; sourceTree = "<group>"; };
 		550F1E3925101758009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		550F1E3E25101759009AF467 /* VCUseCaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCUseCaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceUseCaseTests.swift; sourceTree = "<group>"; };
+		550F1E3E25101759009AF467 /* VCServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		550F1E4325101759009AF467 /* IssuanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceTests.swift; sourceTree = "<group>"; };
 		550F1E4525101759009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		550F1E532510195A009AF467 /* IssuanceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceUseCase.swift; sourceTree = "<group>"; };
+		550F1E532510195A009AF467 /* IssuanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceService.swift; sourceTree = "<group>"; };
 		550F1E62251165D6009AF467 /* MockApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiCalls.swift; sourceTree = "<group>"; };
 		550F1E6525116CD6009AF467 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		550F1E6725116E86009AF467 /* MockTokenSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTokenSigner.swift; sourceTree = "<group>"; };
 		550F1E6925125BC6009AF467 /* MockIssuanceResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceResponseFormatter.swift; sourceTree = "<group>"; };
-		551F304E2527EAF40081D5E7 /* PresentationUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUseCaseTests.swift; sourceTree = "<group>"; };
+		551F304E2527EAF40081D5E7 /* PresentationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationServiceTests.swift; sourceTree = "<group>"; };
 		551F30502527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPresentationResponseFormatter.swift; sourceTree = "<group>"; };
 		55253979252FCB26003202D5 /* VCCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5525397D252FCC7D003202D5 /* SecretStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretStoreMock.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		555BDAEB2530AEC7001E7A18 /* Identifier.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Identifier.xcdatamodel; sourceTree = "<group>"; };
 		555BDAED2530CF27001E7A18 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
-		555BDAF52530E5E2001E7A18 /* VCUseCaseTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VCUseCaseTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		555BDAF52530E5E2001E7A18 /* VCServicesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VCServicesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555BDAF72530E5E2001E7A18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		555BDAF92530E5E2001E7A18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		555BDAFB2530E5E2001E7A18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDatabase.swift; sourceTree = "<group>"; };
 		555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDatabaseTests.swift; sourceTree = "<group>"; };
 		555BDB142530F024001E7A18 /* VerifiableCredentialSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialSDK.swift; sourceTree = "<group>"; };
-		555CE0922526AD0400C1C938 /* PresentationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUseCase.swift; sourceTree = "<group>"; };
+		555CE0922526AD0400C1C938 /* PresentationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationService.swift; sourceTree = "<group>"; };
 		55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVCCryptoSecret.swift; sourceTree = "<group>"; };
 		922D7E792525248900E4C8B5 /* VCRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B9682025240ADD00F64AB0 /* PMKFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PMKFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				550F1E3F25101759009AF467 /* VCUseCase.framework in Frameworks */,
+				550F1E3F25101759009AF467 /* VCServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,9 +128,9 @@
 		550F1E2B25101758009AF467 = {
 			isa = PBXGroup;
 			children = (
-				550F1E3725101758009AF467 /* VCUseCase */,
-				550F1E4225101759009AF467 /* VCUseCaseTests */,
-				555BDAF62530E5E2001E7A18 /* VCUseCaseTestApp */,
+				550F1E3725101758009AF467 /* VCServices */,
+				550F1E4225101759009AF467 /* VCServicesTests */,
+				555BDAF62530E5E2001E7A18 /* VCServicesTestApp */,
 				550F1E3625101758009AF467 /* Products */,
 				8A1DACB8079028BD52F83396 /* Frameworks */,
 			);
@@ -139,38 +139,38 @@
 		550F1E3625101758009AF467 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				550F1E3525101758009AF467 /* VCUseCase.framework */,
-				550F1E3E25101759009AF467 /* VCUseCaseTests.xctest */,
-				555BDAF52530E5E2001E7A18 /* VCUseCaseTestApp.app */,
+				550F1E3525101758009AF467 /* VCServices.framework */,
+				550F1E3E25101759009AF467 /* VCServicesTests.xctest */,
+				555BDAF52530E5E2001E7A18 /* VCServicesApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		550F1E3725101758009AF467 /* VCUseCase */ = {
+		550F1E3725101758009AF467 /* VCServices */ = {
 			isa = PBXGroup;
 			children = (
 				552539832530AE5F003202D5 /* coreData */,
 				555BDB142530F024001E7A18 /* VerifiableCredentialSDK.swift */,
-				550F1E532510195A009AF467 /* IssuanceUseCase.swift */,
-				555CE0922526AD0400C1C938 /* PresentationUseCase.swift */,
+				550F1E532510195A009AF467 /* IssuanceService.swift */,
+				555CE0922526AD0400C1C938 /* PresentationService.swift */,
 				550F1E3825101758009AF467 /* VCUseCase.h */,
 				550F1E3925101758009AF467 /* Info.plist */,
 			);
-			path = VCUseCase;
+			path = VCServices;
 			sourceTree = "<group>";
 		};
-		550F1E4225101759009AF467 /* VCUseCaseTests */ = {
+		550F1E4225101759009AF467 /* VCServicesTests */ = {
 			isa = PBXGroup;
 			children = (
 				550F1E64251165DB009AF467 /* mocks */,
-				550F1E4325101759009AF467 /* IssuanceUseCaseTests.swift */,
-				551F304E2527EAF40081D5E7 /* PresentationUseCaseTests.swift */,
+				550F1E4325101759009AF467 /* IssuanceServiceTests.swift */,
+				551F304E2527EAF40081D5E7 /* PresentationServiceTests.swift */,
 				555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */,
 				555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */,
 				550F1E4525101759009AF467 /* Info.plist */,
 				5525397F252FCDEF003202D5 /* FlowTests.swift */,
 			);
-			path = VCUseCaseTests;
+			path = VCServicesTests;
 			sourceTree = "<group>";
 		};
 		550F1E64251165DB009AF467 /* mocks */ = {
@@ -197,7 +197,7 @@
 			path = coreData;
 			sourceTree = "<group>";
 		};
-		555BDAF62530E5E2001E7A18 /* VCUseCaseTestApp */ = {
+		555BDAF62530E5E2001E7A18 /* VCServicesTestApp */ = {
 			isa = PBXGroup;
 			children = (
 				555BDAF72530E5E2001E7A18 /* AppDelegate.swift */,
@@ -208,7 +208,7 @@
 				555BDB022530E5E7001E7A18 /* LaunchScreen.storyboard */,
 				555BDB052530E5E7001E7A18 /* Info.plist */,
 			);
-			path = VCUseCaseTestApp;
+			path = VCServicesTestApp;
 			sourceTree = "<group>";
 		};
 		8A1DACB8079028BD52F83396 /* Frameworks */ = {
@@ -237,9 +237,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		550F1E3425101758009AF467 /* VCUseCase */ = {
+		550F1E3425101758009AF467 /* VCServices */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 550F1E4925101759009AF467 /* Build configuration list for PBXNativeTarget "VCUseCase" */;
+			buildConfigurationList = 550F1E4925101759009AF467 /* Build configuration list for PBXNativeTarget "VCServices" */;
 			buildPhases = (
 				550F1E3025101758009AF467 /* Headers */,
 				550F1E3125101758009AF467 /* Sources */,
@@ -250,14 +250,14 @@
 			);
 			dependencies = (
 			);
-			name = VCUseCase;
+			name = VCServices;
 			productName = VCUseCase;
-			productReference = 550F1E3525101758009AF467 /* VCUseCase.framework */;
+			productReference = 550F1E3525101758009AF467 /* VCServices.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		550F1E3D25101759009AF467 /* VCUseCaseTests */ = {
+		550F1E3D25101759009AF467 /* VCServicesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 550F1E4C25101759009AF467 /* Build configuration list for PBXNativeTarget "VCUseCaseTests" */;
+			buildConfigurationList = 550F1E4C25101759009AF467 /* Build configuration list for PBXNativeTarget "VCServicesTests" */;
 			buildPhases = (
 				550F1E3A25101759009AF467 /* Sources */,
 				550F1E3B25101759009AF467 /* Frameworks */,
@@ -269,14 +269,14 @@
 				550F1E4125101759009AF467 /* PBXTargetDependency */,
 				555BDB0A2530E5F3001E7A18 /* PBXTargetDependency */,
 			);
-			name = VCUseCaseTests;
+			name = VCServicesTests;
 			productName = VCUseCaseTests;
-			productReference = 550F1E3E25101759009AF467 /* VCUseCaseTests.xctest */;
+			productReference = 550F1E3E25101759009AF467 /* VCServicesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		555BDAF42530E5E2001E7A18 /* VCUseCaseTestApp */ = {
+		555BDAF42530E5E2001E7A18 /* VCServicesTestApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 555BDB062530E5E7001E7A18 /* Build configuration list for PBXNativeTarget "VCUseCaseTestApp" */;
+			buildConfigurationList = 555BDB062530E5E7001E7A18 /* Build configuration list for PBXNativeTarget "VCServicesTestApp" */;
 			buildPhases = (
 				555BDAF12530E5E2001E7A18 /* Sources */,
 				555BDAF22530E5E2001E7A18 /* Frameworks */,
@@ -286,9 +286,9 @@
 			);
 			dependencies = (
 			);
-			name = VCUseCaseTestApp;
+			name = VCServicesTestApp;
 			productName = VCUseCaseTestApp;
-			productReference = 555BDAF52530E5E2001E7A18 /* VCUseCaseTestApp.app */;
+			productReference = 555BDAF52530E5E2001E7A18 /* VCServicesApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -314,7 +314,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 550F1E2F25101758009AF467 /* Build configuration list for PBXProject "VCUseCase" */;
+			buildConfigurationList = 550F1E2F25101758009AF467 /* Build configuration list for PBXProject "VCServices" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -327,9 +327,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				550F1E3425101758009AF467 /* VCUseCase */,
-				550F1E3D25101759009AF467 /* VCUseCaseTests */,
-				555BDAF42530E5E2001E7A18 /* VCUseCaseTestApp */,
+				550F1E3425101758009AF467 /* VCServices */,
+				550F1E3D25101759009AF467 /* VCServicesTests */,
+				555BDAF42530E5E2001E7A18 /* VCServicesTestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -369,9 +369,9 @@
 				555BDB112530E6C9001E7A18 /* IdentifierDatabase.swift in Sources */,
 				555BDAEC2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld in Sources */,
 				555BDB152530F024001E7A18 /* VerifiableCredentialSDK.swift in Sources */,
-				550F1E542510195A009AF467 /* IssuanceUseCase.swift in Sources */,
+				550F1E542510195A009AF467 /* IssuanceService.swift in Sources */,
 				555BDAEE2530CF27001E7A18 /* CoreDataManager.swift in Sources */,
-				555CE0932526AD0400C1C938 /* PresentationUseCase.swift in Sources */,
+				555CE0932526AD0400C1C938 /* PresentationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				550F1E6625116CD6009AF467 /* TestData.swift in Sources */,
-				551F304F2527EAF40081D5E7 /* PresentationUseCaseTests.swift in Sources */,
+				551F304F2527EAF40081D5E7 /* PresentationServiceTests.swift in Sources */,
 				550F1E63251165D6009AF467 /* MockApiCalls.swift in Sources */,
 				555BDB132530EA79001E7A18 /* IdentifierDatabaseTests.swift in Sources */,
 				550F1E6A25125BC6009AF467 /* MockIssuanceResponseFormatter.swift in Sources */,
@@ -388,7 +388,7 @@
 				551F30512527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift in Sources */,
 				55253980252FCDEF003202D5 /* FlowTests.swift in Sources */,
 				55AF7490252FBF5B006A8B25 /* MockVCCryptoSecret.swift in Sources */,
-				550F1E4425101759009AF467 /* IssuanceUseCaseTests.swift in Sources */,
+				550F1E4425101759009AF467 /* IssuanceServiceTests.swift in Sources */,
 				5525397E252FCC7D003202D5 /* SecretStoreMock.swift in Sources */,
 				550F1E6825116E86009AF467 /* MockTokenSigner.swift in Sources */,
 			);
@@ -409,12 +409,12 @@
 /* Begin PBXTargetDependency section */
 		550F1E4125101759009AF467 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 550F1E3425101758009AF467 /* VCUseCase */;
+			target = 550F1E3425101758009AF467 /* VCServices */;
 			targetProxy = 550F1E4025101759009AF467 /* PBXContainerItemProxy */;
 		};
 		555BDB0A2530E5F3001E7A18 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 555BDAF42530E5E2001E7A18 /* VCUseCaseTestApp */;
+			target = 555BDAF42530E5E2001E7A18 /* VCServicesTestApp */;
 			targetProxy = 555BDB092530E5F3001E7A18 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -570,7 +570,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = VCUseCase/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/VCServices/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -578,8 +578,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCUseCase;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCServices;
+				PRODUCT_NAME = VCServices;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -598,7 +598,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = VCUseCase/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/VCServices/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -606,8 +606,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCUseCase;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCServices;
+				PRODUCT_NAME = VCServices;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -620,7 +620,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = VCUseCaseTests/Info.plist;
+				INFOPLIST_FILE = VCServicesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -631,7 +631,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VCUseCaseTestApp.app/VCUseCaseTestApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VCServicesApp.app/VCServicesApp";
 			};
 			name = Debug;
 		};
@@ -641,7 +641,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = VCUseCaseTests/Info.plist;
+				INFOPLIST_FILE = VCServicesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -652,7 +652,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VCUseCaseTestApp.app/VCUseCaseTestApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VCServicesApp.app/VCServicesApp";
 			};
 			name = Release;
 		};
@@ -662,13 +662,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = VCUseCaseTestApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/VCServices/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCUseCaseTestApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCServicesTestApp;
+				PRODUCT_NAME = VCServicesApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -680,13 +680,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = VCUseCaseTestApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/VCServices/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCUseCaseTestApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCServicesTestApp;
+				PRODUCT_NAME = VCServicesApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -695,7 +695,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		550F1E2F25101758009AF467 /* Build configuration list for PBXProject "VCUseCase" */ = {
+		550F1E2F25101758009AF467 /* Build configuration list for PBXProject "VCServices" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				550F1E4725101759009AF467 /* Debug */,
@@ -704,7 +704,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		550F1E4925101759009AF467 /* Build configuration list for PBXNativeTarget "VCUseCase" */ = {
+		550F1E4925101759009AF467 /* Build configuration list for PBXNativeTarget "VCServices" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				550F1E4A25101759009AF467 /* Debug */,
@@ -713,7 +713,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		550F1E4C25101759009AF467 /* Build configuration list for PBXNativeTarget "VCUseCaseTests" */ = {
+		550F1E4C25101759009AF467 /* Build configuration list for PBXNativeTarget "VCServicesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				550F1E4D25101759009AF467 /* Debug */,
@@ -722,7 +722,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		555BDB062530E5E7001E7A18 /* Build configuration list for PBXNativeTarget "VCUseCaseTestApp" */ = {
+		555BDB062530E5E7001E7A18 /* Build configuration list for PBXNativeTarget "VCServicesTestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				555BDB072530E5E7001E7A18 /* Debug */,

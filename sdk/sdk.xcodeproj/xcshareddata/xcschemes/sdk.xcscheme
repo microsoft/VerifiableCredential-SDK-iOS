@@ -113,9 +113,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "550F1E3425101758009AF467"
-               BuildableName = "VCUseCase.framework"
-               BlueprintName = "VCUseCase"
-               ReferencedContainer = "container:../VCUseCase/VCUseCase.xcodeproj">
+               BuildableName = "VCServices.framework"
+               BlueprintName = "VCServices"
+               ReferencedContainer = "container:../VCServices/VCServices.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -205,9 +205,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "550F1E3D25101759009AF467"
-               BuildableName = "VCUseCaseTests.xctest"
-               BlueprintName = "VCUseCaseTests"
-               ReferencedContainer = "container:../VCUseCase/VCUseCase.xcodeproj">
+               BuildableName = "VCServicesTests.xctest"
+               BlueprintName = "VCServicesTests"
+               ReferencedContainer = "container:../VCServices/VCServices.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

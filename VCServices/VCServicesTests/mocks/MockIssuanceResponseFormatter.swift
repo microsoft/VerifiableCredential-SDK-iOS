@@ -6,13 +6,13 @@
 import PromiseKit
 import VCEntities
 
-@testable import VCUseCase
+@testable import VCServices
 
-enum MockPresentationResponseFormatterError: Error {
+enum MockIssuanceResponseFormatterError: Error {
     case doNotWantToResolveRealObject
 }
 
-class MockPresentationResponseFormatter: PresentationResponseFormatting {
+class MockIssuanceResponseFormatter: IssuanceResponseFormatting {
     
     static var wasFormatCalled = false
     let shouldSucceed: Bool
@@ -21,10 +21,10 @@ class MockPresentationResponseFormatter: PresentationResponseFormatting {
         self.shouldSucceed = shouldSucceed
     }
     
-    func format(response: PresentationResponseContainer, usingIdentifier identifier: Identifier) throws -> PresentationResponse {
+    func format(response: IssuanceResponseContainer, usingIdentifier identifier: Identifier) throws -> IssuanceResponse {
         Self.wasFormatCalled = true
         if (shouldSucceed) {
-            return PresentationResponse(from: TestData.presentationResponse.rawValue)!
+            return IssuanceResponse(from: TestData.issuanceResponse.rawValue)!
         } else {
             throw MockIssuanceResponseFormatterError.doNotWantToResolveRealObject
         }
