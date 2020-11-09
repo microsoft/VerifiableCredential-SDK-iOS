@@ -8,7 +8,7 @@ import PromiseKit
 import VCRepository
 import VCEntities
 
-public class IssuanceUseCase {
+public class IssuanceService {
     
     let formatter: IssuanceResponseFormatting
     let repo: IssuanceRepository

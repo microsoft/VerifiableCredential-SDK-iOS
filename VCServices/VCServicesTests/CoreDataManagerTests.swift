@@ -5,7 +5,7 @@
 
 import XCTest
 
-@testable import VCUseCase
+@testable import VCServices
 
 class CoreDataManagerTests: XCTestCase {
     

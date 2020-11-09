@@ -7,11 +7,11 @@ import XCTest
 import VCRepository
 import VCEntities
 
-@testable import VCUseCase
+@testable import VCServices
 
-class PresentationUseCaseTests: XCTestCase {
+class PresentationServiceTests: XCTestCase {
     
-    var usecase: PresentationUseCase!
+    var service: PresentationService!
     var presentationRequest: PresentationRequest!
     var mockIdentifier: Identifier!
     let identifierDB = IdentifierDatabase()
@@ -20,7 +20,7 @@ class PresentationUseCaseTests: XCTestCase {
     override func setUpWithError() throws {
         let repo = PresentationRepository(apiCalls: MockApiCalls())
         let formatter = PresentationResponseFormatter()
-        self.usecase = PresentationUseCase(formatter: formatter, repo: repo)
+        service = PresentationService(formatter: formatter, repo: repo)
         
         self.presentationRequest = PresentationRequest(from: TestData.presentationRequest.rawValue)!
         
@@ -39,14 +39,14 @@ class PresentationUseCaseTests: XCTestCase {
     }
     
     func testPublicInit() {
-        let usecase = IssuanceUseCase()
-        XCTAssertNotNil(usecase.formatter)
-        XCTAssertNotNil(usecase.repo)
+        let service = IssuanceService()
+        XCTAssertNotNil(service.formatter)
+        XCTAssertNotNil(service.repo)
     }
     
     func testGetRequest() throws {
         let expec = self.expectation(description: "Fire")
-        usecase.getRequest(usingUrl: expectedUrl).done {
+        service.getRequest(usingUrl: expectedUrl).done {
             request in
             print(request)
             XCTFail()
@@ -64,14 +64,14 @@ class PresentationUseCaseTests: XCTestCase {
     func testGetRequestMalformedUri() throws {
         let expec = self.expectation(description: "Fire")
         let malformedUrl = " "
-        usecase.getRequest(usingUrl: malformedUrl).done {
+        service.getRequest(usingUrl: malformedUrl).done {
             request in
             print(request)
             XCTFail()
             expec.fulfill()
         }.catch { error in
-            XCTAssert(error is PresentationUseCaseError)
-            XCTAssertEqual(error as? PresentationUseCaseError, .inputStringNotUri)
+            XCTAssert(error is PresentationServiceError)
+            XCTAssertEqual(error as? PresentationServiceError, .inputStringNotUri)
             expec.fulfill()
         }
         
@@ -81,14 +81,14 @@ class PresentationUseCaseTests: XCTestCase {
     func testGetRequestNoQueryParameters() throws {
         let expec = self.expectation(description: "Fire")
         let malformedUrl = "https://test.com"
-        usecase.getRequest(usingUrl: malformedUrl).done {
+        service.getRequest(usingUrl: malformedUrl).done {
             request in
             print(request)
             XCTFail()
             expec.fulfill()
         }.catch { error in
-            XCTAssert(error is PresentationUseCaseError)
-            XCTAssertEqual(error as? PresentationUseCaseError, .noQueryParametersOnUri)
+            XCTAssert(error is PresentationServiceError)
+            XCTAssertEqual(error as? PresentationServiceError, .noQueryParametersOnUri)
             expec.fulfill()
         }
         
@@ -98,15 +98,15 @@ class PresentationUseCaseTests: XCTestCase {
     func testGetRequestNoValueOnRequestUri() throws {
         let expec = self.expectation(description: "Fire")
         let malformedUrl = "https://test.com?request_uri"
-        usecase.getRequest(usingUrl: malformedUrl).done {
+        service.getRequest(usingUrl: malformedUrl).done {
             request in
             print(request)
             XCTFail()
             expec.fulfill()
         }.catch { error in
             print(error)
-            XCTAssert(error is PresentationUseCaseError)
-            XCTAssertEqual(error as? PresentationUseCaseError, .noValueForRequestUriQueryParameter)
+            XCTAssert(error is PresentationServiceError)
+            XCTAssertEqual(error as? PresentationServiceError, .noValueForRequestUriQueryParameter)
             expec.fulfill()
         }
         
@@ -116,14 +116,14 @@ class PresentationUseCaseTests: XCTestCase {
     func testGetRequestNoRequestUri() throws {
         let expec = self.expectation(description: "Fire")
         let malformedUrl = "https://test.com?testparam=33423"
-        usecase.getRequest(usingUrl: malformedUrl).done {
+        service.getRequest(usingUrl: malformedUrl).done {
             request in
             print(request)
             XCTFail()
             expec.fulfill()
         }.catch { error in
-            XCTAssert(error is PresentationUseCaseError)
-            XCTAssertEqual(error as? PresentationUseCaseError, .noRequestUriQueryParameter)
+            XCTAssert(error is PresentationServiceError)
+            XCTAssertEqual(error as? PresentationServiceError, .noRequestUriQueryParameter)
             expec.fulfill()
         }
         
@@ -135,10 +135,10 @@ class PresentationUseCaseTests: XCTestCase {
         
         let repo = PresentationRepository(apiCalls: MockApiCalls())
         let formatter = MockPresentationResponseFormatter(shouldSucceed: true)
-        let usecase = PresentationUseCase(formatter: formatter, repo: repo)
+        let service = PresentationService(formatter: formatter, repo: repo)
         
         let response = try PresentationResponseContainer(from: self.presentationRequest)
-        usecase.send(response: response).done {
+        service.send(response: response).done {
             response in
             XCTFail()
             expec.fulfill()
@@ -158,10 +158,10 @@ class PresentationUseCaseTests: XCTestCase {
         
         let repo = PresentationRepository(apiCalls: MockApiCalls())
         let formatter = MockPresentationResponseFormatter(shouldSucceed: false)
-        let usecase = PresentationUseCase(formatter: formatter, repo: repo)
+        let service = PresentationService(formatter: formatter, repo: repo)
         
         let response = try PresentationResponseContainer(from: self.presentationRequest)
-        usecase.send(response: response).done {
+        service.send(response: response).done {
             response in
             XCTFail()
             expec.fulfill()

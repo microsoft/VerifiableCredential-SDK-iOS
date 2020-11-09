@@ -17,7 +17,7 @@ class Secp256k1Tests: XCTestCase {
     override func setUpWithError() throws {
         testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: nil)
         let hashAlgorithm = Sha256()
-        let protectedMessage = try testToken.protectedMessage.data(using: .utf8)!
+        let protectedMessage = testToken.protectedMessage.data(using: .utf8)!
         expectedResult = hashAlgorithm.hash(data: protectedMessage)
     }
 

@@ -7,7 +7,7 @@ import XCTest
 import VCCrypto
 import VCEntities
 
-@testable import VCUseCase
+@testable import VCServices
 
 class IdentifierDatabaseTests: XCTestCase {
     

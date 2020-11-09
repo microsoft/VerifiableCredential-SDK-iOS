@@ -15,7 +15,7 @@
       location = "group:sdk/sdk.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:VCUseCase/VCUseCase.xcodeproj">
+      location = "group:VCServices/VCServices.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:VCRepository/VCRepository.xcodeproj">

@@ -7,11 +7,11 @@ import XCTest
 import VCRepository
 import VCEntities
 
-@testable import VCUseCase
+@testable import VCServices
 
-class IssuanceUseCaseTests: XCTestCase {
+class IssuanceServiceTests: XCTestCase {
     
-    var usecase: IssuanceUseCase!
+    var service: IssuanceService!
     var contract: Contract!
     let expectedUrl = "https://test3523.com"
     var mockIdentifier: Identifier!
@@ -20,7 +20,7 @@ class IssuanceUseCaseTests: XCTestCase {
     override func setUpWithError() throws {
         let repo = IssuanceRepository(apiCalls: MockApiCalls())
         let formatter = MockIssuanceResponseFormatter(shouldSucceed: true)
-        self.usecase = IssuanceUseCase(formatter: formatter, repo: repo)
+        service = IssuanceService(formatter: formatter, repo: repo)
         
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
@@ -39,14 +39,14 @@ class IssuanceUseCaseTests: XCTestCase {
     }
     
     func testPublicInit() {
-        let usecase = IssuanceUseCase()
-        XCTAssertNotNil(usecase.formatter)
-        XCTAssertNotNil(usecase.repo)
+        let service = IssuanceService()
+        XCTAssertNotNil(service.formatter)
+        XCTAssertNotNil(service.repo)
     }
 
     func testGetRequest() throws {
         let expec = self.expectation(description: "Fire")
-        usecase.getRequest(usingUrl: expectedUrl).done {
+        service.getRequest(usingUrl: expectedUrl).done {
             request in
             print(request)
             XCTFail()
@@ -63,7 +63,7 @@ class IssuanceUseCaseTests: XCTestCase {
     func testSendResponse() throws {
         let expec = self.expectation(description: "Fire")
         let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)
-        usecase.send(response: response).done {
+        service.send(response: response).done {
             response in
             print(response)
             XCTFail()
@@ -84,10 +84,10 @@ class IssuanceUseCaseTests: XCTestCase {
         
         let repo = IssuanceRepository(apiCalls: MockApiCalls())
         let formatter = MockIssuanceResponseFormatter(shouldSucceed: false)
-        let usecase = IssuanceUseCase(formatter: formatter, repo: repo)
+        let service = IssuanceService(formatter: formatter, repo: repo)
         
         let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)
-        usecase.send(response: response).done {
+        service.send(response: response).done {
             response in
             print(response)
             XCTFail()
