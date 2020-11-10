@@ -7,7 +7,7 @@ import VCJwt
 
 public struct PresentationResponseClaims: OIDCClaims {
     
-    public let issuer: String = "https://self-issued.me"
+    public let issuer: String = Constants.SELF_ISSUED
         
     public let publicKeyThumbprint: String
     

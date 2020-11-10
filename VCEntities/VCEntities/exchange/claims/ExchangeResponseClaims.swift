@@ -5,7 +5,7 @@
 
 import VCJwt
 
-public struct IssuanceResponseClaims: OIDCClaims {
+public struct ExchangeResponseClaims: OIDCClaims {
     
     public let issuer: String = Constants.SELF_ISSUED
         
@@ -21,11 +21,13 @@ public struct IssuanceResponseClaims: OIDCClaims {
     
     public let jti: String
     
-    public let attestations: AttestationResponseDescriptor?
-    
     public let iat: Double?
     
     public let exp: Double?
+    
+    public let exchangeableVc: String
+    
+    public let recipientDid: String
     
     public init(publicKeyThumbprint: String = "",
                 audience: String = "",
@@ -33,18 +35,20 @@ public struct IssuanceResponseClaims: OIDCClaims {
                 publicJwk: ECPublicJwk? = nil,
                 contract: String = "",
                 jti: String = "",
-                attestations: AttestationResponseDescriptor? = nil,
                 iat: Double? = nil,
-                exp: Double? = nil) {
+                exp: Double? = nil,
+                exchangeableVc: String = "",
+                recipientDid: String = "") {
         self.publicKeyThumbprint = publicKeyThumbprint
         self.audience = audience
         self.did = did
         self.publicJwk = publicJwk
         self.contract = contract
         self.jti = jti
-        self.attestations = attestations
         self.iat = iat
         self.exp = exp
+        self.exchangeableVc = exchangeableVc
+        self.recipientDid = recipientDid
     }
     
     enum CodingKeys: String, CodingKey {
@@ -52,6 +56,10 @@ public struct IssuanceResponseClaims: OIDCClaims {
         case publicKeyThumbprint = "sub"
         case audience = "aud"
         case publicJwk = "sub_jwk"
-        case contract, attestations, jti, did, iat, exp
+        case exchangeableVc = "vc"
+        case recipientDid = "recipient"
+        case contract, jti, did, iat, exp
     }
 }
+
+public typealias ExchangeResponse = JwsToken<ExchangeResponseClaims>
