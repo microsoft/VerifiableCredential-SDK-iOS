@@ -66,6 +66,7 @@
 		55793BD9255C5BF0007F7599 /* ExchangeRequestContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BD8255C5BF0007F7599 /* ExchangeRequestContainer.swift */; };
 		55793BE0255C9AF8007F7599 /* ExchangeRequestContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BDF255C9AF7007F7599 /* ExchangeRequestContainerTests.swift */; };
 		55793BE2255C9D37007F7599 /* MockCryptoSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BE1255C9D37007F7599 /* MockCryptoSecret.swift */; };
+		55793BE4255CA1CD007F7599 /* ExchangeRequestFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BE3255CA1CD007F7599 /* ExchangeRequestFormatterTests.swift */; };
 		557BFC46251E6058005B5B24 /* IssuanceResponseClaimsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BFC45251E6058005B5B24 /* IssuanceResponseClaimsTests.swift */; };
 		557BFC53251E665D005B5B24 /* IssuanceResponseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BFC51251E665D005B5B24 /* IssuanceResponseFormatter.swift */; };
 		557BFC56251E6701005B5B24 /* IssuanceResponseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557BFC55251E6701005B5B24 /* IssuanceResponseContainer.swift */; };
@@ -162,6 +163,7 @@
 		55793BD8255C5BF0007F7599 /* ExchangeRequestContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRequestContainer.swift; sourceTree = "<group>"; };
 		55793BDF255C9AF7007F7599 /* ExchangeRequestContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRequestContainerTests.swift; sourceTree = "<group>"; };
 		55793BE1255C9D37007F7599 /* MockCryptoSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCryptoSecret.swift; sourceTree = "<group>"; };
+		55793BE3255CA1CD007F7599 /* ExchangeRequestFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRequestFormatterTests.swift; sourceTree = "<group>"; };
 		557BFC45251E6058005B5B24 /* IssuanceResponseClaimsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceResponseClaimsTests.swift; sourceTree = "<group>"; };
 		557BFC51251E665D005B5B24 /* IssuanceResponseFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuanceResponseFormatter.swift; sourceTree = "<group>"; };
 		557BFC55251E6701005B5B24 /* IssuanceResponseContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuanceResponseContainer.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				557BFC58251E68EA005B5B24 /* IssuanceResponseFormatterTests.swift */,
+				55793BE3255CA1CD007F7599 /* ExchangeRequestFormatterTests.swift */,
 				555CE0902526A21B00C1C938 /* PresentationResponseFormatterTests.swift */,
 				55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */,
 			);
@@ -694,6 +697,7 @@
 				551F305F252E61F00081D5E7 /* IdentifierCreatorTests.swift in Sources */,
 				55793BE0255C9AF8007F7599 /* ExchangeRequestContainerTests.swift in Sources */,
 				551F3061252E62D70081D5E7 /* SecretStoreMock.swift in Sources */,
+				55793BE4255CA1CD007F7599 /* ExchangeRequestFormatterTests.swift in Sources */,
 				5577E873251E9007005250BC /* MockOIDCClaims.swift in Sources */,
 				5577E869251E8395005250BC /* JSONCodingKeysTests.swift in Sources */,
 			);

@@ -24,13 +24,13 @@ public class ExchangeRequestFormatter: ExchangeRequestFormatting {
             throw FormatterError.noSigningKeyFound
         }
         
-        return try createToken(usingIdentifier: request.currentOwnerIdentifier, andExchangeableVc: request.exchangeableVerifiableCredential, andSignWith: signingKey)
+        return try createToken(request: request, andSignWith: signingKey)
     }
     
-    private func createToken(usingIdentifier identifier: Identifier, andExchangeableVc vc: VerifiableCredential, andSignWith signingKey: KeyContainer) throws -> ExchangeRequest {
+    private func createToken(request: ExchangeRequestContainer, andSignWith signingKey: KeyContainer) throws -> ExchangeRequest {
         
-        let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: signingKey)
-        let tokenContents = try formatClaims(usingIdentifier: identifier, andExchangeableVc: vc, andSigningKey: signingKey)
+        let headers = headerFormatter.formatHeaders(usingIdentifier: request.currentOwnerIdentifier, andSigningKey: signingKey)
+        let tokenContents = try formatClaims(request: request, andSigningKey: signingKey)
         
         guard var token = JwsToken(headers: headers, content: tokenContents) else {
             throw FormatterError.unableToFormToken
@@ -40,9 +40,9 @@ public class ExchangeRequestFormatter: ExchangeRequestFormatting {
         return token
     }
     
-    private func formatClaims(usingIdentifier identifier: Identifier, andExchangeableVc vc: VerifiableCredential, andSigningKey key: KeyContainer) throws -> ExchangeRequestClaims {
+    private func formatClaims(request: ExchangeRequestContainer, andSigningKey key: KeyContainer) throws -> ExchangeRequestClaims {
         
-        guard let audience = vc.token.content.vc.exchangeService?.id else {
+        guard let audience = request.exchangeableVerifiableCredential.token.content.vc.exchangeService?.id else {
             throw FormatterError.noAudienceFoundInRequest
         }
         
@@ -51,12 +51,12 @@ public class ExchangeRequestFormatter: ExchangeRequestFormatting {
         
         return ExchangeRequestClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                       audience: audience,
-                                      did: vc.token.content.sub,
+                                      did: request.exchangeableVerifiableCredential.token.content.sub,
                                       publicJwk: publicKey,
                                       jti: UUID().uuidString,
                                       iat: timeConstraints.issuedAt,
                                       exp: timeConstraints.expiration,
-                                      exchangeableVc: vc.raw,
-                                      recipientDid: identifier.longFormDid)
+                                      exchangeableVc: request.exchangeableVerifiableCredential.raw,
+                                      recipientDid: request.newOwnerDid)
     }
 }
