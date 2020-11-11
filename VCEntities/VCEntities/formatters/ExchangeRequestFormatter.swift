@@ -5,11 +5,11 @@
 
 import VCJwt
 
-public protocol ExchangeResponseFormatting {
-    func format(usingIdentifier identifier: Identifier, andExchangeableVc vc: VerifiableCredential) throws -> ExchangeResponse
+public protocol ExchangeRequestFormatting {
+    func format(request: ExchangeRequestContainer) throws -> ExchangeRequest
 }
 
-public class ExchangeResponseFormatter: ExchangeResponseFormatting {
+public class ExchangeRequestFormatter: ExchangeRequestFormatting {
     
     let signer: TokenSigning
     let headerFormatter = JwsHeaderFormatter()
@@ -18,16 +18,16 @@ public class ExchangeResponseFormatter: ExchangeResponseFormatting {
         self.signer = signer
     }
     
-    public func format(usingIdentifier identifier: Identifier, andExchangeableVc vc: VerifiableCredential) throws -> ExchangeResponse {
+    public func format(request: ExchangeRequestContainer) throws -> ExchangeRequest {
         
-        guard let signingKey = identifier.didDocumentKeys.first else {
+        guard let signingKey = request.currentOwnerIdentifier.didDocumentKeys.first else {
             throw FormatterError.noSigningKeyFound
         }
         
-        return try createToken(usingIdentifier: identifier, andExchangeableVc: vc, andSignWith: signingKey)
+        return try createToken(usingIdentifier: request.currentOwnerIdentifier, andExchangeableVc: request.exchangeableVerifiableCredential, andSignWith: signingKey)
     }
     
-    private func createToken(usingIdentifier identifier: Identifier, andExchangeableVc vc: VerifiableCredential, andSignWith signingKey: KeyContainer) throws -> ExchangeResponse {
+    private func createToken(usingIdentifier identifier: Identifier, andExchangeableVc vc: VerifiableCredential, andSignWith signingKey: KeyContainer) throws -> ExchangeRequest {
         
         let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: signingKey)
         let tokenContents = try formatClaims(usingIdentifier: identifier, andExchangeableVc: vc, andSigningKey: signingKey)
@@ -40,7 +40,7 @@ public class ExchangeResponseFormatter: ExchangeResponseFormatting {
         return token
     }
     
-    private func formatClaims(usingIdentifier identifier: Identifier, andExchangeableVc vc: VerifiableCredential, andSigningKey key: KeyContainer) throws -> ExchangeResponseClaims {
+    private func formatClaims(usingIdentifier identifier: Identifier, andExchangeableVc vc: VerifiableCredential, andSigningKey key: KeyContainer) throws -> ExchangeRequestClaims {
         
         guard let audience = vc.token.content.vc.exchangeService?.id else {
             throw FormatterError.noAudienceFoundInRequest
@@ -49,7 +49,7 @@ public class ExchangeResponseFormatter: ExchangeResponseFormatting {
         let publicKey = try signer.getPublicJwk(from: key.keyReference, withKeyId: key.keyId)
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: 5)
         
-        return ExchangeResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
+        return ExchangeRequestClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                       audience: audience,
                                       did: vc.token.content.sub,
                                       publicJwk: publicKey,

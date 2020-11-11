@@ -19,8 +19,7 @@ public class IssuanceService {
                   repo: IssuanceRepository())
     }
     
-    init(formatter: IssuanceResponseFormatting,
-         repo: IssuanceRepository) {
+    init(formatter: IssuanceResponseFormatting, repo: IssuanceRepository) {
         self.formatter = formatter
         self.repo = repo
         self.identifierDatabase = IdentifierDatabase()

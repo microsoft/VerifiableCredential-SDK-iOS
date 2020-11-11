@@ -5,7 +5,7 @@
 
 import VCJwt
 
-public struct ExchangeResponseClaims: OIDCClaims {
+public struct ExchangeRequestClaims: OIDCClaims {
     
     public let issuer: String = Constants.SELF_ISSUED
         
@@ -16,8 +16,6 @@ public struct ExchangeResponseClaims: OIDCClaims {
     public let did: String
     
     public let publicJwk: ECPublicJwk?
-    
-    public let contract: String
     
     public let jti: String
     
@@ -33,7 +31,6 @@ public struct ExchangeResponseClaims: OIDCClaims {
                 audience: String = "",
                 did: String = "",
                 publicJwk: ECPublicJwk? = nil,
-                contract: String = "",
                 jti: String = "",
                 iat: Double? = nil,
                 exp: Double? = nil,
@@ -43,7 +40,6 @@ public struct ExchangeResponseClaims: OIDCClaims {
         self.audience = audience
         self.did = did
         self.publicJwk = publicJwk
-        self.contract = contract
         self.jti = jti
         self.iat = iat
         self.exp = exp
@@ -58,8 +54,8 @@ public struct ExchangeResponseClaims: OIDCClaims {
         case publicJwk = "sub_jwk"
         case exchangeableVc = "vc"
         case recipientDid = "recipient"
-        case contract, jti, did, iat, exp
+        case jti, did, iat, exp
     }
 }
 
-public typealias ExchangeResponse = JwsToken<ExchangeResponseClaims>
+public typealias ExchangeRequest = JwsToken<ExchangeRequestClaims>

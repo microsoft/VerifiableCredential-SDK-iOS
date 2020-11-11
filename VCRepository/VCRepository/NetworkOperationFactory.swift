@@ -35,6 +35,8 @@ public class NetworkOperationFactory: NetworkOperationCreating {
                 seal.fulfill(try PostIssuanceResponseOperation(usingUrl: url, withBody: body as! IssuanceResponse) as! T)
             case is PostPresentationResponseOperation.Type:
                 seal.fulfill(try PostPresentationResponseOperation(usingUrl: url, withBody: body as! PresentationResponse) as! T)
+            case is PostExchangeResponseOperation.Type:
+                seal.fulfill(try PostExchangeResponseOperation(usingUrl: url, withBody: body as! ExchangeRequest) as! T)
             default:
                 seal.reject(RepositoryError.unsupportedNetworkOperation)
             }
