@@ -9,11 +9,11 @@ enum ExchangeRequestError: Error {
 
 public struct ExchangeRequestContainer {
     
-    public let exchangeableVerifiableCredential: VerifiableCredential
+    let exchangeableVerifiableCredential: VerifiableCredential
     
-    public let newOwnerDid: String
+    let newOwnerDid: String
     
-    public let currentOwnerIdentifier: Identifier
+    let currentOwnerIdentifier: Identifier
     
     public let audience: String
     
