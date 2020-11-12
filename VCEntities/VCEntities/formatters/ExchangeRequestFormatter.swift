@@ -42,15 +42,11 @@ public class ExchangeRequestFormatter: ExchangeRequestFormatting {
     
     private func formatClaims(request: ExchangeRequestContainer, andSigningKey key: KeyContainer) throws -> ExchangeRequestClaims {
         
-        guard let audience = request.exchangeableVerifiableCredential.token.content.vc.exchangeService?.id else {
-            throw FormatterError.noAudienceFoundInRequest
-        }
-        
         let publicKey = try signer.getPublicJwk(from: key.keyReference, withKeyId: key.keyId)
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: 5)
         
         return ExchangeRequestClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
-                                      audience: audience,
+                                     audience: request.audience,
                                       did: request.exchangeableVerifiableCredential.token.content.sub,
                                       publicJwk: publicKey,
                                       jti: UUID().uuidString,
