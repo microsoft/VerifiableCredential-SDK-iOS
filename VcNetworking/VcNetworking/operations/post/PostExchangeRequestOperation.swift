@@ -6,13 +6,13 @@
 import Foundation
 import VCEntities
 
-public class PostExchangeResponseOperation: InternalPostNetworkOperation {
-    typealias Encoder = ExchangeResponseEncoder
+public class PostExchangeRequestOperation: InternalPostNetworkOperation {
+    typealias Encoder = ExchangeRequestEncoder
     public typealias RequestBody = ExchangeRequest
     public typealias ResponseBody = VerifiableCredential
     
     let decoder = IssuanceServiceResponseDecoder()
-    let encoder = ExchangeResponseEncoder()
+    let encoder = ExchangeRequestEncoder()
     let urlSession: URLSession
     let urlRequest: URLRequest
     

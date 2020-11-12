@@ -16,6 +16,6 @@ public class ExchangeRepository {
     }
     
     public func sendResponse(usingUrl url: String, withBody body: ExchangeRequest) -> Promise<VerifiableCredential> {
-        return self.apiCalls.post(PostExchangeResponseOperation.self, usingUrl: url, withBody: body)
+        return self.apiCalls.post(PostExchangeRequestOperation.self, usingUrl: url, withBody: body)
     }
 }

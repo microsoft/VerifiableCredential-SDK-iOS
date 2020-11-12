@@ -6,7 +6,7 @@
 import Foundation
 import VCEntities
 
-struct ExchangeResponseEncoder: Encoding {
+struct ExchangeRequestEncoder: Encoding {
     
     func encode(value: ExchangeRequest) throws -> Data {
         
