@@ -91,14 +91,4 @@ public class PresentationService {
             }
         }
     }
-    
-    private func exchangeVerifiableCredentials(response: PresentationResponseContainer) throws {
-        let exchangeService = ExchangeService(formatter: ExchangeRequestFormatter(), repo: ExchangeRepository())
-        let verifiableCredentials = response.requestVCMap
-        
-        let exchangeRequestContainer = try ExchangeRequestContainer(exchangeableVerifiableCredential: verifiableCredentials.first!.value, newOwnerDid: "newDID", currentOwnerIdentifier: identifierDatabase.fetchMasterIdentifier()!)
-        
-        let exchangedVC = exchangeService.send(request: exchangeRequestContainer)
-        
-    }
 }

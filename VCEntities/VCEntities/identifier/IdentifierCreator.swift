@@ -6,7 +6,7 @@
 import VCCrypto
 import VCJwt
 
-public class IdentifierCreator {
+public struct IdentifierCreator {
     
     let cryptoOperations: CryptoOperating
     let identifierFormatter: IdentifierFormatting

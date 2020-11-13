@@ -19,5 +19,4 @@ public struct AliasComputer {
         let base64EncodedAlias = hashedMessage.base64EncodedString().prefix(10)
         return String(base64EncodedAlias)
     }
-
 }
