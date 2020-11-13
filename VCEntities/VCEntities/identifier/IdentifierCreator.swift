@@ -13,11 +13,11 @@ public struct IdentifierCreator {
     let alg = Secp256k1()
     let aliasComputer = AliasComputer()
     
-    public convenience init() {
+    public init() {
         self.init(cryptoOperations: CryptoOperations(), identifierFormatter: IdentifierFormatter())
     }
     
-    public convenience init(cryptoOperations: CryptoOperating) {
+    public init(cryptoOperations: CryptoOperating) {
         self.init(cryptoOperations: cryptoOperations, identifierFormatter: IdentifierFormatter())
     }
     
