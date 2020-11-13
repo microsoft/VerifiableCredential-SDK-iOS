@@ -15,6 +15,7 @@ class PresentationServiceTests: XCTestCase {
     var presentationRequest: PresentationRequest!
     var mockIdentifier: Identifier!
     let identifierDB = IdentifierDatabase()
+    let identifierCreator = IdentifierCreator()
     let expectedUrl = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/UZWlr4uOY13QiA"
     
     override func setUpWithError() throws {
@@ -24,8 +25,7 @@ class PresentationServiceTests: XCTestCase {
         
         self.presentationRequest = PresentationRequest(from: TestData.presentationRequest.rawValue)!
         
-        let keyContainer = KeyContainer(keyReference: MockVCCryptoSecret(), keyId: "keyId234")
-         self.mockIdentifier = Identifier(longFormDid: "longform", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
+        self.mockIdentifier = try identifierCreator.create(forId: "master", andRelyingParty: "master")
         
         try identifierDB.saveIdentifier(identifier: mockIdentifier)
         

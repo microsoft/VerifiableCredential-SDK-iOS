@@ -18,6 +18,7 @@ class IdentifierDatabaseTests: XCTestCase {
     override func setUpWithError() throws {
         let cryptoOperations = CryptoOperations()
         identifierDB = IdentifierDatabase(cryptoOperations: cryptoOperations)
+        try identifierDB.coreDataManager.deleteAllIdentifiers()
         identifierCreator = IdentifierCreator(cryptoOperations: cryptoOperations)
     }
     
@@ -26,7 +27,7 @@ class IdentifierDatabaseTests: XCTestCase {
     }
     
     func testSavingIdentifier() throws {
-        let testIdentifier = try identifierCreator.create()
+        let testIdentifier = try identifierCreator.create(forId: "master", andRelyingParty: "master")
         print(testIdentifier.longFormDid)
         try identifierDB.saveIdentifier(identifier: testIdentifier)
         let fetchedIdentifier = try identifierDB.fetchMasterIdentifier()!

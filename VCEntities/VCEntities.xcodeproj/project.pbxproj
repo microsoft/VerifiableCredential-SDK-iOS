@@ -25,6 +25,7 @@
 		55253976252FCA6D003202D5 /* VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55253975252FCA6D003202D5 /* VCCrypto.framework */; };
 		55253982252FDF89003202D5 /* KeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253981252FDF89003202D5 /* KeyContainer.swift */; };
 		55309B762539DDC300AF15AA /* VerifiableCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55309B752539DDC300AF15AA /* VerifiableCredential.swift */; };
+		5531D3AC255F03EF0002CC0E /* AliasComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3AB255F03EF0002CC0E /* AliasComputer.swift */; };
 		55575738251BC575009979AB /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5557572E251BC575009979AB /* VCEntities.framework */; };
 		5557573F251BC575009979AB /* VCEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 55575731251BC575009979AB /* VCEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557574B251BC6CE009979AB /* AttestationsDescriptor.swift */; };
@@ -61,7 +62,7 @@
 		5577E871251E8FE3005250BC /* OIDCClaimsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E870251E8FE3005250BC /* OIDCClaimsTests.swift */; };
 		5577E873251E9007005250BC /* MockOIDCClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E872251E9007005250BC /* MockOIDCClaims.swift */; };
 		55793BCB255A0497007F7599 /* ExchangeRequestClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BCA255A0497007F7599 /* ExchangeRequestClaims.swift */; };
-		55793BCD255A070E007F7599 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BCC255A070E007F7599 /* Constants.swift */; };
+		55793BCD255A070E007F7599 /* VCEntitiesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BCC255A070E007F7599 /* VCEntitiesConstants.swift */; };
 		55793BCF255A08FE007F7599 /* ExchangeRequestFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BCE255A08FE007F7599 /* ExchangeRequestFormatter.swift */; };
 		55793BD9255C5BF0007F7599 /* ExchangeRequestContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BD8255C5BF0007F7599 /* ExchangeRequestContainer.swift */; };
 		55793BE0255C9AF8007F7599 /* ExchangeRequestContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BDF255C9AF7007F7599 /* ExchangeRequestContainerTests.swift */; };
@@ -119,6 +120,7 @@
 		55253975252FCA6D003202D5 /* VCCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55253981252FDF89003202D5 /* KeyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyContainer.swift; sourceTree = "<group>"; };
 		55309B752539DDC300AF15AA /* VerifiableCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredential.swift; sourceTree = "<group>"; };
+		5531D3AB255F03EF0002CC0E /* AliasComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasComputer.swift; sourceTree = "<group>"; };
 		5557572E251BC575009979AB /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55575731251BC575009979AB /* VCEntities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCEntities.h; sourceTree = "<group>"; };
 		55575732251BC575009979AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -158,7 +160,7 @@
 		5577E870251E8FE3005250BC /* OIDCClaimsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OIDCClaimsTests.swift; sourceTree = "<group>"; };
 		5577E872251E9007005250BC /* MockOIDCClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOIDCClaims.swift; sourceTree = "<group>"; };
 		55793BCA255A0497007F7599 /* ExchangeRequestClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRequestClaims.swift; sourceTree = "<group>"; };
-		55793BCC255A070E007F7599 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		55793BCC255A070E007F7599 /* VCEntitiesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCEntitiesConstants.swift; sourceTree = "<group>"; };
 		55793BCE255A08FE007F7599 /* ExchangeRequestFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRequestFormatter.swift; sourceTree = "<group>"; };
 		55793BD8255C5BF0007F7599 /* ExchangeRequestContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRequestContainer.swift; sourceTree = "<group>"; };
 		55793BDF255C9AF7007F7599 /* ExchangeRequestContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRequestContainerTests.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				55AF7482252F6A7E006A8B25 /* document */,
+				5531D3AB255F03EF0002CC0E /* AliasComputer.swift */,
 				55AF748D252F6BE0006A8B25 /* Identifier.swift */,
 				551F3067252E97000081D5E7 /* IdentifierCreator.swift */,
 				55253981252FDF89003202D5 /* KeyContainer.swift */,
@@ -477,7 +480,7 @@
 		55AF7481252F6803006A8B25 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				55793BCC255A070E007F7599 /* Constants.swift */,
+				55793BCC255A070E007F7599 /* VCEntitiesConstants.swift */,
 				55575762251BC6CF009979AB /* JSONCodingKeys.swift */,
 				551F3062252E6E230081D5E7 /* Multihash.swift */,
 			);
@@ -662,7 +665,7 @@
 				55575765251BC6CF009979AB /* ConsentDisplayDescriptor.swift in Sources */,
 				5584E49C2525641600A9DE58 /* PresentationDefinition.swift in Sources */,
 				555CE08D2526810100C1C938 /* VerifiablePresentationClaims.swift in Sources */,
-				55793BCD255A070E007F7599 /* Constants.swift in Sources */,
+				55793BCD255A070E007F7599 /* VCEntitiesConstants.swift in Sources */,
 				5584E4A2252565D900A9DE58 /* IssuanceMetadata.swift in Sources */,
 				5518CC68252645D000C7A21B /* PresentationSubmission.swift in Sources */,
 				5557576A251BC6CF009979AB /* Contract.swift in Sources */,
@@ -671,6 +674,7 @@
 				5518CC6A2526469100C7A21B /* SubmissionDescriptor.swift in Sources */,
 				5584E49E252564A600A9DE58 /* PresentationInputDescriptor.swift in Sources */,
 				55AF748A252F6B7F006A8B25 /* IdentifierDocumentPatch.swift in Sources */,
+				5531D3AC255F03EF0002CC0E /* AliasComputer.swift in Sources */,
 				5518CC642526427D00C7A21B /* PresentationResponseClaims.swift in Sources */,
 				55575775251BC6CF009979AB /* IssuanceResponseClaims.swift in Sources */,
 			);

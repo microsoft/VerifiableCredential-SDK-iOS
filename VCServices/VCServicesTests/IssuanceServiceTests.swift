@@ -16,6 +16,7 @@ class IssuanceServiceTests: XCTestCase {
     let expectedUrl = "https://test3523.com"
     var mockIdentifier: Identifier!
     let identifierDB = IdentifierDatabase()
+    let identifierCreator = IdentifierCreator()
 
     override func setUpWithError() throws {
         let repo = IssuanceRepository(apiCalls: MockApiCalls())
@@ -25,8 +26,7 @@ class IssuanceServiceTests: XCTestCase {
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
         
-        let keyContainer = KeyContainer(keyReference: MockVCCryptoSecret(), keyId: "keyId234")
-        self.mockIdentifier = Identifier(longFormDid: "longform", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
+        self.mockIdentifier = try identifierCreator.create(forId: "master", andRelyingParty: "master")
         
         try identifierDB.saveIdentifier(identifier: mockIdentifier)
         

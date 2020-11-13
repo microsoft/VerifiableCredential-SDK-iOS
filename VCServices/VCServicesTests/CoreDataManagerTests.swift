@@ -16,7 +16,7 @@ class CoreDataManagerTests: XCTestCase {
     }
     
     func testSavingIdentifier() throws {
-        try dataManager.saveIdentifier(longformDid: "test", signingKeyId: UUID(), recoveryKeyId: UUID(), updateKeyId: UUID())
+        try dataManager.saveIdentifier(longformDid: "test", signingKeyId: UUID(), recoveryKeyId: UUID(), updateKeyId: UUID(), alias: "testAlias")
         print(try dataManager.fetchIdentifiers())
     }
 }

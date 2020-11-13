@@ -33,7 +33,8 @@ public class CoreDataManager {
     public func saveIdentifier(longformDid: String,
                                       signingKeyId: UUID,
                                       recoveryKeyId: UUID,
-                                      updateKeyId: UUID) throws {
+                                      updateKeyId: UUID,
+                                      alias: String) throws {
         let context = persistentContainer.viewContext
         let model = NSEntityDescription.insertNewObject(forEntityName: "IdentifierModel", into: context) as! IdentifierModel
         
@@ -41,6 +42,7 @@ public class CoreDataManager {
         model.recoveryKeyId = recoveryKeyId
         model.signingKeyId = signingKeyId
         model.updateKeyId = updateKeyId
+        model.alias = alias
     
         try context.save()
     }

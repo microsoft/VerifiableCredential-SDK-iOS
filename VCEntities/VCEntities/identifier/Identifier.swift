@@ -10,14 +10,17 @@ public struct Identifier {
     public let didDocumentKeys: [KeyContainer]
     public let updateKey: KeyContainer
     public let recoveryKey: KeyContainer
+    public let alias: String
     
     public init(longFormDid: String,
                 didDocumentKeys: [KeyContainer],
                 updateKey: KeyContainer,
-                recoveryKey: KeyContainer) {
+                recoveryKey: KeyContainer,
+                alias: String) {
         self.longFormDid = longFormDid
         self.didDocumentKeys = didDocumentKeys
         self.updateKey = updateKey
         self.recoveryKey = recoveryKey
+        self.alias = alias
     }
 }

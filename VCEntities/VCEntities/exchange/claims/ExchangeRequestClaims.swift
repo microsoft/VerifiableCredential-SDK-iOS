@@ -7,7 +7,7 @@ import VCJwt
 
 public struct ExchangeRequestClaims: OIDCClaims {
     
-    public let issuer: String = Constants.SELF_ISSUED
+    public let issuer: String = VCEntitiesConstants.SELF_ISSUED
         
     public let publicKeyThumbprint: String
     
