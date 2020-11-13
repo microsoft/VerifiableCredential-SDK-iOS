@@ -15,7 +15,7 @@ enum IdentifierDatabaseError: Error {
 ///Temporary until Deterministic Keys are implemented
 struct IdentifierDatabase {
     
-    let coreDataManager = CoreDataManager()
+    let coreDataManager = CoreDataManager.sharedInstance
     let aliasComputer = AliasComputer()
     let cryptoOperations: CryptoOperating
     

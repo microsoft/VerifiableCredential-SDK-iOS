@@ -9,7 +9,7 @@ import XCTest
 
 class CoreDataManagerTests: XCTestCase {
     
-    let dataManager = CoreDataManager()
+    let dataManager = CoreDataManager.sharedInstance
     
     override func tearDownWithError() throws {
         try dataManager.deleteAllIdentifiers()

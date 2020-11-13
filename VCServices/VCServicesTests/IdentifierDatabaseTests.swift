@@ -11,7 +11,7 @@ import VCEntities
 
 class IdentifierDatabaseTests: XCTestCase {
     
-    let dataManager = CoreDataManager()
+    let dataManager = CoreDataManager.sharedInstance
     var identifierCreator: IdentifierCreator!
     var identifierDB: IdentifierDatabase!
     
