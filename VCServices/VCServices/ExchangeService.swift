@@ -13,6 +13,10 @@ class ExchangeService {
     let formatter: ExchangeRequestFormatting
     let repo: ExchangeRepository
     
+    convenience init() {
+        self.init(formatter: ExchangeRequestFormatter(), repo: ExchangeRepository())
+    }
+    
     init(formatter: ExchangeRequestFormatting, repo: ExchangeRepository) {
         self.formatter = formatter
         self.repo = repo

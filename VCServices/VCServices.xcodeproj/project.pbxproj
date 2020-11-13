@@ -21,6 +21,7 @@
 		5525397E252FCC7D003202D5 /* SecretStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525397D252FCC7D003202D5 /* SecretStoreMock.swift */; };
 		55253980252FCDEF003202D5 /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525397F252FCDEF003202D5 /* FlowTests.swift */; };
 		5530328C2527C78E0054CD63 /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5530328B2527C78E0054CD63 /* VCEntities.framework */; };
+		5531D3AE255F1F360002CC0E /* IdentifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3AD255F1F360002CC0E /* IdentifierService.swift */; };
 		555BDAEC2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAEA2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld */; };
 		555BDAEE2530CF27001E7A18 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAED2530CF27001E7A18 /* CoreDataManager.swift */; };
 		555BDAF02530E4B9001E7A18 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */; };
@@ -77,6 +78,7 @@
 		5525397D252FCC7D003202D5 /* SecretStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretStoreMock.swift; sourceTree = "<group>"; };
 		5525397F252FCDEF003202D5 /* FlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTests.swift; sourceTree = "<group>"; };
 		5530328B2527C78E0054CD63 /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5531D3AD255F1F360002CC0E /* IdentifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierService.swift; sourceTree = "<group>"; };
 		555BDAEB2530AEC7001E7A18 /* Identifier.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Identifier.xcdatamodel; sourceTree = "<group>"; };
 		555BDAED2530CF27001E7A18 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				552539832530AE5F003202D5 /* coreData */,
 				555BDB142530F024001E7A18 /* VerifiableCredentialSDK.swift */,
+				5531D3AD255F1F360002CC0E /* IdentifierService.swift */,
 				550F1E532510195A009AF467 /* IssuanceService.swift */,
 				55793BD6255C5A25007F7599 /* ExchangeService.swift */,
 				555CE0922526AD0400C1C938 /* PresentationService.swift */,
@@ -381,6 +384,7 @@
 				550F1E542510195A009AF467 /* IssuanceService.swift in Sources */,
 				55793BD7255C5A26007F7599 /* ExchangeService.swift in Sources */,
 				555BDAEE2530CF27001E7A18 /* CoreDataManager.swift in Sources */,
+				5531D3AE255F1F360002CC0E /* IdentifierService.swift in Sources */,
 				555CE0932526AD0400C1C938 /* PresentationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

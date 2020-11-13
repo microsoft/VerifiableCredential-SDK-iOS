@@ -10,13 +10,10 @@ public class VerifiableCredentialSDK {
     
     public static func initialize() throws {
         
-        let cryptoOperations = CryptoOperations()
-        let identifierDatabase = IdentifierDatabase(cryptoOperations: cryptoOperations)
-        let identifierCreator = IdentifierCreator(cryptoOperations: cryptoOperations)
+        let identifierService = IdentifierService()
         
-        guard try identifierDatabase.fetchMasterIdentifier() != nil else {
-            let identifier = try identifierCreator.create(forId: "master", andRelyingParty: "master")
-            try identifierDatabase.saveIdentifier(identifier: identifier)
+        guard try identifierService.fetchMasterIdentifier() != nil else {
+            _ = try identifierService.createAndSaveIdentifier(forId: "master", andRelyingParty: "master")
             return
         }
     }
