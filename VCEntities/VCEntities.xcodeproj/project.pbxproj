@@ -26,6 +26,7 @@
 		55253982252FDF89003202D5 /* KeyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253981252FDF89003202D5 /* KeyContainer.swift */; };
 		55309B762539DDC300AF15AA /* VerifiableCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55309B752539DDC300AF15AA /* VerifiableCredential.swift */; };
 		5531D3AC255F03EF0002CC0E /* AliasComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3AB255F03EF0002CC0E /* AliasComputer.swift */; };
+		5531D3B2255F6B6E0002CC0E /* ResponseContaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3B1255F6B6E0002CC0E /* ResponseContaining.swift */; };
 		55575738251BC575009979AB /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5557572E251BC575009979AB /* VCEntities.framework */; };
 		5557573F251BC575009979AB /* VCEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 55575731251BC575009979AB /* VCEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557574B251BC6CE009979AB /* AttestationsDescriptor.swift */; };
@@ -121,6 +122,7 @@
 		55253981252FDF89003202D5 /* KeyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyContainer.swift; sourceTree = "<group>"; };
 		55309B752539DDC300AF15AA /* VerifiableCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredential.swift; sourceTree = "<group>"; };
 		5531D3AB255F03EF0002CC0E /* AliasComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasComputer.swift; sourceTree = "<group>"; };
+		5531D3B1255F6B6E0002CC0E /* ResponseContaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseContaining.swift; sourceTree = "<group>"; };
 		5557572E251BC575009979AB /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55575731251BC575009979AB /* VCEntities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCEntities.h; sourceTree = "<group>"; };
 		55575732251BC575009979AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				5577E864251E82B2005250BC /* verifiableCredential */,
 				55AF7481252F6803006A8B25 /* util */,
 				5557575A251BC6CF009979AB /* AttestationResponseDescriptor.swift */,
+				5531D3B1255F6B6E0002CC0E /* ResponseContaining.swift */,
 				5518CC7525264D5700C7A21B /* ResponseMappings.swift */,
 				55575759251BC6CF009979AB /* OIDCClaims.swift */,
 				55575731251BC575009979AB /* VCEntities.h */,
@@ -668,6 +671,7 @@
 				55793BCD255A070E007F7599 /* VCEntitiesConstants.swift in Sources */,
 				5584E4A2252565D900A9DE58 /* IssuanceMetadata.swift in Sources */,
 				5518CC68252645D000C7A21B /* PresentationSubmission.swift in Sources */,
+				5531D3B2255F6B6E0002CC0E /* ResponseContaining.swift in Sources */,
 				5557576A251BC6CF009979AB /* Contract.swift in Sources */,
 				55793BD9255C5BF0007F7599 /* ExchangeRequestContainer.swift in Sources */,
 				5557576D251BC6CF009979AB /* SelfIssuedClaimsDescriptor.swift in Sources */,
