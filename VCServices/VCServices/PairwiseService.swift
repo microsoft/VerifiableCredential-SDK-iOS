@@ -27,7 +27,7 @@ class PairwiseService {
     func createPairwiseResponse(response: ResponseContaining) -> Promise<ResponseContaining> {
         var res = response
         return firstly {
-            self.createPairwiseIdentifier(forId: "master", andRelyingParty: response.audienceUrl)
+            self.createPairwiseIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: response.audienceDid)
         }.then { pairwiseIdentifier in
             self.exchangeRequestedVcs(vcs: response.requestVCMap, newOwnerDid: pairwiseIdentifier.longFormDid)
         }.then { vcMap in
@@ -52,7 +52,7 @@ class PairwiseService {
     private func exchangeVerifiableCredential(type: String, exchangeableVerifiableCredential vc: VerifiableCredential, newOwnerDid: String) -> Promise<TypeToVcTuple> {
         
         do {
-            let ownerIdentifier = try getOwnerIdentifier(fromVc: vc)
+            let ownerIdentifier = try getOwnerIdentifier(forVc: vc)
             let exchangeRequest = try ExchangeRequestContainer(
                 exchangeableVerifiableCredential: vc,
                 newOwnerDid: newOwnerDid,
@@ -84,7 +84,7 @@ class PairwiseService {
         }
     }
     
-    private func getOwnerIdentifier(fromVc vc: VerifiableCredential) throws -> Identifier {
+    private func getOwnerIdentifier(forVc vc: VerifiableCredential) throws -> Identifier {
         let ownerLongformDid = vc.token.content.sub
         let nullableOwnerIdentifier = try identifierService.fetchIdentifer(withLongformDid: ownerLongformDid)
         

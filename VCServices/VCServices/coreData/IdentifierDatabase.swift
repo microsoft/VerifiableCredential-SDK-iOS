@@ -42,7 +42,7 @@ struct IdentifierDatabase {
     }
     
     func fetchMasterIdentifier() throws -> Identifier? {
-        let alias = aliasComputer.compute(forId: "master", andRelyingParty: "master")
+        let alias = aliasComputer.compute(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: VCEntitiesConstants.MASTER_ID)
         return try fetchIdentifier(withAlias: alias)
     }
     

@@ -13,7 +13,7 @@ public class VerifiableCredentialSDK {
         let identifierService = IdentifierService()
         
         guard try identifierService.fetchMasterIdentifier() != nil else {
-            _ = try identifierService.createAndSaveIdentifier(forId: "master", andRelyingParty: "master")
+            _ = try identifierService.createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: VCEntitiesConstants.MASTER_ID)
             return
         }
     }

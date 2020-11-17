@@ -36,7 +36,7 @@ class ExchangeServiceTests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        try identifierDB.coreDataManager.deleteAllIdentifiers()
+        try CoreDataManager.sharedInstance.deleteAllIdentifiers()
     }
     
     func testSendResponse() throws {

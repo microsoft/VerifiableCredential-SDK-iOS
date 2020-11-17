@@ -21,7 +21,12 @@ class PresentationServiceTests: XCTestCase {
     override func setUpWithError() throws {
         let repo = PresentationRepository(apiCalls: MockApiCalls())
         let formatter = PresentationResponseFormatter()
-        service = PresentationService(formatter: formatter, repo: repo)
+        let identifierService = IdentifierService()
+        let pairwiseService = PairwiseService()
+        service = PresentationService(formatter: formatter,
+                                      repo: repo,
+                                      identifierService: identifierService,
+                                      pairwiseService: pairwiseService)
         
         self.presentationRequest = PresentationRequest(from: TestData.presentationRequest.rawValue)!
         
@@ -35,7 +40,7 @@ class PresentationServiceTests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        try identifierDB.coreDataManager.deleteAllIdentifiers()
+        try CoreDataManager.sharedInstance.deleteAllIdentifiers()
     }
     
     func testPublicInit() {
@@ -135,7 +140,12 @@ class PresentationServiceTests: XCTestCase {
         
         let repo = PresentationRepository(apiCalls: MockApiCalls())
         let formatter = MockPresentationResponseFormatter(shouldSucceed: true)
-        let service = PresentationService(formatter: formatter, repo: repo)
+        let pairwiseService = PairwiseService()
+        let identifierService = IdentifierService()
+        let service = PresentationService(formatter: formatter,
+                                          repo: repo,
+                                          identifierService: identifierService,
+                                          pairwiseService: pairwiseService)
         
         let response = try PresentationResponseContainer(from: self.presentationRequest)
         service.send(response: response).done {
@@ -158,7 +168,12 @@ class PresentationServiceTests: XCTestCase {
         
         let repo = PresentationRepository(apiCalls: MockApiCalls())
         let formatter = MockPresentationResponseFormatter(shouldSucceed: false)
-        let service = PresentationService(formatter: formatter, repo: repo)
+        let identifierService = IdentifierService()
+        let pairwiseService = PairwiseService()
+        let service = PresentationService(formatter: formatter,
+                                      repo: repo,
+                                      identifierService: identifierService,
+                                      pairwiseService: pairwiseService)
         
         let response = try PresentationResponseContainer(from: self.presentationRequest)
         service.send(response: response).done {

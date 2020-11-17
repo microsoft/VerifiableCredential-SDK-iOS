@@ -35,7 +35,7 @@ class IssuanceServiceTests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        try identifierDB.coreDataManager.deleteAllIdentifiers()
+        try CoreDataManager.sharedInstance.deleteAllIdentifiers()
     }
     
     func testPublicInit() {

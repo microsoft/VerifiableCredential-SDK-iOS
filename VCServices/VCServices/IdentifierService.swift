@@ -9,6 +9,7 @@ class IdentifierService {
     
     private let identifierDB: IdentifierDatabase
     private let identifierCreator: IdentifierCreator
+    private let aliasComputer = AliasComputer()
     
     convenience init() {
         self.init(database: IdentifierDatabase(), creator: IdentifierCreator())
@@ -24,6 +25,11 @@ class IdentifierService {
     }
     
     func fetchIdentifier(withAlias alias: String) throws -> Identifier? {
+        return try identifierDB.fetchIdentifier(withAlias: alias)
+    }
+    
+    func fetchIdentifier(forId id: String, andRelyingParty rp: String) throws -> Identifier? {
+        let alias = aliasComputer.compute(forId: id, andRelyingParty: rp)
         return try identifierDB.fetchIdentifier(withAlias: alias)
     }
     

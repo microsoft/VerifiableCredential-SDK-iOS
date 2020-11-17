@@ -50,7 +50,7 @@ public class PresentationService {
         return firstly {
             self.exchangeVCsIfPairwise(response: response, isPairwise: isPairwise)
         }.then { response in
-            self.formatPresentationResponse(response: response)
+            self.formatPresentationResponse(response: response, isPairwise: isPairwise)
         }.then { signedToken in
             self.repo.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
         }
@@ -58,11 +58,27 @@ public class PresentationService {
     
     private func exchangeVCsIfPairwise(response: PresentationResponseContainer, isPairwise: Bool) -> Promise<PresentationResponseContainer> {
         if isPairwise {
-            return pairwiseService.createPairwiseResponse(response: response)
+            return firstly {
+                pairwiseService.createPairwiseResponse(response: response)
+            }.then { response in
+                self.castToPresentationResponse(from: response)
+            }
         } else {
             return Promise { seal in
                 seal.fulfill(response)
             }
+        }
+    }
+    
+    private func castToPresentationResponse(from response: ResponseContaining) -> Promise<PresentationResponseContainer> {
+        return Promise<PresentationResponseContainer> { seal in
+            
+            guard let presentationResponse = response as? PresentationResponseContainer else {
+                seal.reject(PresentationServiceError.inputStringNotUri)
+                return
+            }
+            
+            seal.fulfill(presentationResponse)
         }
     }
     
@@ -92,15 +108,23 @@ public class PresentationService {
         throw PresentationServiceError.noRequestUriQueryParameter
     }
     
-    private func formatPresentationResponse(response: PresentationResponseContainer) -> Promise<PresentationResponse> {
+    private func formatPresentationResponse(response: PresentationResponseContainer, isPairwise: Bool) -> Promise<PresentationResponse> {
         return Promise { seal in
             do {
                 
-                guard let identifier = try identifierService.fetchMasterIdentifier() else {
-                    throw IdentifierDatabaseError.noIdentifiersSaved
+                var identifier: Identifier?
+                
+                if isPairwise {
+                    identifier = try identifierService.fetchIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: response.audienceDid)
+                } else {
+                    identifier = try identifierService.fetchMasterIdentifier()
                 }
                 
-                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: identifier))
+                guard let id = identifier else {
+                    throw PresentationServiceError.inputStringNotUri
+                }
+                
+                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: id))
             } catch {
                 seal.reject(error)
             }
