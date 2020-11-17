@@ -3,7 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-
 public protocol ResponseContaining {
     var audienceUrl: String { get }
     var audienceDid: String { get }

@@ -18,8 +18,13 @@ public struct PresentationResponseContainer: ResponseContaining {
     
     public init(from presentationRequest: PresentationRequest, expiryInSeconds exp: Int = 3000) throws {
         
-        self.audienceUrl = presentationRequest.content.redirectURI ?? ""
-        self.audienceDid = presentationRequest.content.issuer ?? ""
+        guard let aud = presentationRequest.content.redirectURI,
+            let did = presentationRequest.content.issuer else {
+                throw PresentationResponseError.noAudienceSpecifiedInRequest
+        }
+        
+        self.audienceDid = did
+        self.audienceUrl = aud
         self.request = presentationRequest
         self.expiryInSeconds = exp
     }
