@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550D4184256474D70078CD97 /* PairwiseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550D4183256474D70078CD97 /* PairwiseServiceTests.swift */; };
 		550F1E3F25101759009AF467 /* VCServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550F1E3525101758009AF467 /* VCServices.framework */; };
 		550F1E4425101759009AF467 /* IssuanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E4325101759009AF467 /* IssuanceServiceTests.swift */; };
 		550F1E4625101759009AF467 /* VCUseCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 550F1E3825101758009AF467 /* VCUseCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		550D4183256474D70078CD97 /* PairwiseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairwiseServiceTests.swift; sourceTree = "<group>"; };
 		550F1E3525101758009AF467 /* VCServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		550F1E3825101758009AF467 /* VCUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCUseCase.h; sourceTree = "<group>"; };
 		550F1E3925101758009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				550F1E64251165DB009AF467 /* mocks */,
 				550F1E4325101759009AF467 /* IssuanceServiceTests.swift */,
 				55793BDC255C65DA007F7599 /* ExchangeServiceTests.swift */,
+				550D4183256474D70078CD97 /* PairwiseServiceTests.swift */,
 				551F304E2527EAF40081D5E7 /* PresentationServiceTests.swift */,
 				555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */,
 				555BDB122530EA79001E7A18 /* IdentifierDatabaseTests.swift */,
@@ -404,6 +407,7 @@
 				550F1E6A25125BC6009AF467 /* MockIssuanceResponseFormatter.swift in Sources */,
 				55793BDB255C654E007F7599 /* MockExchangeRequestFormatter.swift in Sources */,
 				555BDAF02530E4B9001E7A18 /* CoreDataManagerTests.swift in Sources */,
+				550D4184256474D70078CD97 /* PairwiseServiceTests.swift in Sources */,
 				551F30512527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift in Sources */,
 				55793BDD255C65DA007F7599 /* ExchangeServiceTests.swift in Sources */,
 				55253980252FCDEF003202D5 /* FlowTests.swift in Sources */,

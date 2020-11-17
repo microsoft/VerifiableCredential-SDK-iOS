@@ -96,4 +96,4 @@ class PairwiseService {
     }
 }
 
-public typealias TypeToVcTuple = (String, VerifiableCredential)
+typealias TypeToVcTuple = (String, VerifiableCredential)
