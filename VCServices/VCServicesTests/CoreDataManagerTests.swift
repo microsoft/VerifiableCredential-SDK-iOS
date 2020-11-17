@@ -9,14 +9,14 @@ import XCTest
 
 class CoreDataManagerTests: XCTestCase {
     
-    let dataManager = CoreDataManager()
+    let dataManager = CoreDataManager.sharedInstance
     
     override func tearDownWithError() throws {
         try dataManager.deleteAllIdentifiers()
     }
     
     func testSavingIdentifier() throws {
-        try dataManager.saveIdentifier(longformDid: "test", signingKeyId: UUID(), recoveryKeyId: UUID(), updateKeyId: UUID())
+        try dataManager.saveIdentifier(longformDid: "test", signingKeyId: UUID(), recoveryKeyId: UUID(), updateKeyId: UUID(), alias: "testAlias")
         print(try dataManager.fetchIdentifiers())
     }
 }

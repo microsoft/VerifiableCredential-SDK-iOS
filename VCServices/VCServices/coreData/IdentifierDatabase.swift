@@ -15,7 +15,8 @@ enum IdentifierDatabaseError: Error {
 ///Temporary until Deterministic Keys are implemented
 struct IdentifierDatabase {
     
-    let coreDataManager = CoreDataManager()
+    let coreDataManager = CoreDataManager.sharedInstance
+    let aliasComputer = AliasComputer()
     let cryptoOperations: CryptoOperating
     
     init() {
@@ -36,28 +37,54 @@ struct IdentifierDatabase {
         try coreDataManager.saveIdentifier(longformDid: identifier.longFormDid,
                                            signingKeyId: signingKey.getId(),
                                            recoveryKeyId: identifier.recoveryKey.getId(),
-                                           updateKeyId: identifier.updateKey.getId())
+                                           updateKeyId: identifier.updateKey.getId(),
+                                           alias: identifier.alias)
     }
     
     func fetchMasterIdentifier() throws -> Identifier? {
+        let alias = aliasComputer.compute(forId: "master", andRelyingParty: "master")
+        return try fetchIdentifier(withAlias: alias)
+    }
+    
+    func fetchIdentifier(withAlias alias: String) throws -> Identifier? {
         let identifierModels = try coreDataManager.fetchIdentifiers()
         
-        guard let masterIdentifierModel = identifierModels.first else {
+        var identifierModel: IdentifierModel? = nil
+        
+        for identifier in identifierModels {
+            if identifier.alias == alias {
+                identifierModel = identifier
+            }
+        }
+        
+        if let model = identifierModel {
+            return createIdentifier(fromIdentifierModel: model)
+        }
+        
+        return nil
+    }
+    
+    private func createIdentifier(fromIdentifierModel model: IdentifierModel) -> Identifier? {
+        
+        guard let longFormDid = model.longFormDid,
+            let alias = model.alias else {
             return nil
         }
         
-        guard let longFormDid = masterIdentifierModel.longFormDid else {
-            throw IdentifierDatabaseError.unableToFetchMasterIdentifier
+        do {
+            let signingKeyContainer = try createKeyContainer(keyRefId: model.signingKeyId, keyId: VCEntitiesConstants.SIGNING_KEYID_PREFIX + alias)
+            let updateKeyContainer = try createKeyContainer(keyRefId: model.updateKeyId, keyId: VCEntitiesConstants.UPDATE_KEYID_PREFIX + alias)
+            let recoveryKeyContainer = try createKeyContainer(keyRefId: model.recoveryKeyId, keyId: VCEntitiesConstants.RECOVER_KEYID_PREFIX + alias)
+            
+            return Identifier(longFormDid: longFormDid,
+                              didDocumentKeys: [signingKeyContainer],
+                              updateKey: updateKeyContainer,
+                              recoveryKey: recoveryKeyContainer,
+                              alias: alias)
+        } catch {
+            // TODO: log error
+            return nil
         }
-        
-        let signingKeyContainer = try createKeyContainer(keyRefId: masterIdentifierModel.signingKeyId, keyId: "sign")
-        let updateKeyContainer = try createKeyContainer(keyRefId: masterIdentifierModel.updateKeyId, keyId: "update")
-        let recoveryKeyContainer = try createKeyContainer(keyRefId: masterIdentifierModel.recoveryKeyId, keyId: "recover")
-        
-        return Identifier(longFormDid: longFormDid,
-                          didDocumentKeys: [signingKeyContainer],
-                          updateKey: updateKeyContainer,
-                          recoveryKey: recoveryKeyContainer)
     }
     
     private func createKeyContainer(keyRefId: UUID?, keyId: String) throws -> KeyContainer {

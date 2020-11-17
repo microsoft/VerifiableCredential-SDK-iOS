@@ -29,7 +29,7 @@ class IssuanceResponseFormatterTests: XCTestCase {
         let key = try cryptoOperation.generateKey()
         
         let keyContainer = KeyContainer(keyReference: key, keyId: "keyId")
-        self.mockIdentifier = Identifier(longFormDid: "longFormDid", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer)
+        self.mockIdentifier = Identifier(longFormDid: "longFormDid", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer, alias: "testAlias")
     }
     
     func testFormatToken() throws {

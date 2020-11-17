@@ -14,7 +14,7 @@ class ExchangeRequestContainerTests: XCTestCase {
     override func setUpWithError() throws {
         let mockCryptoSecret = MockCryptoSecret(id: UUID())
         let mockKeyContainer = KeyContainer(keyReference: mockCryptoSecret, keyId: "testKeyId")
-        mockIdentifier =  Identifier(longFormDid: "testDid", didDocumentKeys: [mockKeyContainer], updateKey: mockKeyContainer, recoveryKey: mockKeyContainer)
+        mockIdentifier =  Identifier(longFormDid: "testDid", didDocumentKeys: [mockKeyContainer], updateKey: mockKeyContainer, recoveryKey: mockKeyContainer, alias: "testAlias")
     }
 
     func testSuccessfulInit() throws {

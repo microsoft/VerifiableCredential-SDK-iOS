@@ -22,14 +22,14 @@ class IdentifierCreatorTests: XCTestCase {
 
     func testCreateIdentifier() throws {
         let creator = IdentifierCreator(cryptoOperations: self.cryptoOperations, identifierFormatter: MockIdentifierFormatter(returningString: self.expectedResult))
-        let actualResult = try creator.create()
+        let actualResult = try creator.create(forId: "test3", andRelyingParty: "test43")
         XCTAssertEqual(MockCryptoOperations.generateKeyCallCount, 3)
         XCTAssertEqual(actualResult.longFormDid, expectedResult)
     }
     
     func testCreateIdentifierWithCryptoOperations() throws {
         let creator = IdentifierCreator(cryptoOperations: self.cryptoOperations)
-        let _ = try creator.create()
+        let _ = try creator.create(forId: "test233", andRelyingParty: "test2343")
         XCTAssertEqual(MockCryptoOperations.generateKeyCallCount, 3)
     }
 }

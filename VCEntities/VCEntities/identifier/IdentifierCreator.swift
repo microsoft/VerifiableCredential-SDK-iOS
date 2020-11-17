@@ -11,6 +11,11 @@ public struct IdentifierCreator {
     let cryptoOperations: CryptoOperating
     let identifierFormatter: IdentifierFormatting
     let alg = Secp256k1()
+    let aliasComputer = AliasComputer()
+    
+    public init() {
+        self.init(cryptoOperations: CryptoOperations(), identifierFormatter: IdentifierFormatter())
+    }
     
     public init(cryptoOperations: CryptoOperating) {
         self.init(cryptoOperations: cryptoOperations, identifierFormatter: IdentifierFormatter())
@@ -21,13 +26,20 @@ public struct IdentifierCreator {
         self.identifierFormatter = identifierFormatter
     }
     
-    public func create() throws -> Identifier {
-        let signingKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "sign")
-        let updateKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "update")
-        let recoveryKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: "recover")
+    public func create(forId id: String, andRelyingParty rp: String) throws -> Identifier {
+        
+        let alias = aliasComputer.compute(forId: id, andRelyingParty: rp)
+        
+        let signingKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: VCEntitiesConstants.SIGNING_KEYID_PREFIX + alias)
+        let updateKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: VCEntitiesConstants.UPDATE_KEYID_PREFIX + alias)
+        let recoveryKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: VCEntitiesConstants.RECOVER_KEYID_PREFIX + alias)
         
         let longformDid = try self.createLongformDid(signingKeyContainer: signingKeyContainer, updateKeyContainer: updateKeyContainer, recoveryKeyContainer: recoveryKeyContainer)
-        return Identifier(longFormDid: longformDid, didDocumentKeys: [signingKeyContainer], updateKey: updateKeyContainer, recoveryKey: recoveryKeyContainer)
+        return Identifier(longFormDid: longformDid,
+                          didDocumentKeys: [signingKeyContainer],
+                          updateKey: updateKeyContainer,
+                          recoveryKey: recoveryKeyContainer,
+                          alias: alias)
         
     }
     

@@ -3,6 +3,11 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct Constants {
+public struct VCEntitiesConstants {
     static let SELF_ISSUED = "https://self-issued.me"
+    
+    // key actions in a DID Document
+    public static let SIGNING_KEYID_PREFIX = "sign_"
+    public static let UPDATE_KEYID_PREFIX = "update_"
+    public static let RECOVER_KEYID_PREFIX = "recover_"
 }

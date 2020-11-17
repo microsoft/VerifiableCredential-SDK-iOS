@@ -15,7 +15,7 @@ public class VerifiableCredentialSDK {
         let identifierCreator = IdentifierCreator(cryptoOperations: cryptoOperations)
         
         guard try identifierDatabase.fetchMasterIdentifier() != nil else {
-            let identifier = try identifierCreator.create()
+            let identifier = try identifierCreator.create(forId: "master", andRelyingParty: "master")
             try identifierDatabase.saveIdentifier(identifier: identifier)
             return
         }

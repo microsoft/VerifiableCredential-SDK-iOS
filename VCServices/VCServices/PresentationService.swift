@@ -40,7 +40,10 @@ public class PresentationService {
         }
     }
     
-    public func send(response: PresentationResponseContainer) -> Promise<String?> {
+    public func send(response: PresentationResponseContainer, withPairwiseDid: Bool = false) -> Promise<String?> {
+        // TODO: create pairwise DID
+        // TODO: exchange all vc in response
+        // TODO: replace vc list with new pairwise vc list
         return firstly {
             self.formatPresentationResponse(response: response)
         }.then { signedToken in
