@@ -25,7 +25,7 @@ public struct IssuanceResponseContainer: ResponseContaining {
         self.expiryInSeconds = exp
         
         guard let aud = contract.input?.credentialIssuer,
-              let did = contract.input?.credentialIssuer else {
+              let did = contract.input?.issuer else {
             throw IssuanceResponseError.noAudienceSpecifiedInContract
         }
         
