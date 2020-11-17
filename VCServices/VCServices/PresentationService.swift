@@ -12,24 +12,31 @@ enum PresentationServiceError: Error {
     case noQueryParametersOnUri
     case noValueForRequestUriQueryParameter
     case noRequestUriQueryParameter
+    case unableToCastToPresentationResponseContainer
 }
 
 public class PresentationService {
     
     let formatter: PresentationResponseFormatting
     let repo: PresentationRepository
-    let identifierDatabase: IdentifierDatabase
+    let identifierService: IdentifierService
+    let pairwiseService: PairwiseService
     
     public convenience init() {
         self.init(formatter: PresentationResponseFormatter(),
-                  repo: PresentationRepository())
+                  repo: PresentationRepository(),
+                  identifierService: IdentifierService(),
+                  pairwiseService: PairwiseService())
     }
     
     init(formatter: PresentationResponseFormatting,
-         repo: PresentationRepository) {
+         repo: PresentationRepository,
+         identifierService: IdentifierService,
+         pairwiseService: PairwiseService) {
         self.formatter = formatter
         self.repo = repo
-        self.identifierDatabase = IdentifierDatabase()
+        self.identifierService = identifierService
+        self.pairwiseService = pairwiseService
     }
     
     public func getRequest(usingUrl urlStr: String) -> Promise<PresentationRequest> {
@@ -40,14 +47,13 @@ public class PresentationService {
         }
     }
     
-    public func send(response: PresentationResponseContainer, withPairwiseDid: Bool = false) -> Promise<String?> {
-        // TODO: create pairwise DID
-        // TODO: exchange all vc in response
-        // TODO: replace vc list with new pairwise vc list
+    public func send(response: PresentationResponseContainer, isPairwise: Bool = false) -> Promise<String?> {
         return firstly {
-            self.formatPresentationResponse(response: response)
+            self.exchangeVCsIfPairwise(response: response, isPairwise: isPairwise)
+        }.then { response in
+            self.formatPresentationResponse(response: response, isPairwise: isPairwise)
         }.then { signedToken in
-            self.repo.sendResponse(usingUrl:  response.audience, withBody: signedToken)
+            self.repo.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
         }
     }
     
@@ -77,18 +83,53 @@ public class PresentationService {
         throw PresentationServiceError.noRequestUriQueryParameter
     }
     
-    private func formatPresentationResponse(response: PresentationResponseContainer) -> Promise<PresentationResponse> {
+    private func exchangeVCsIfPairwise(response: PresentationResponseContainer, isPairwise: Bool) -> Promise<PresentationResponseContainer> {
+        if isPairwise {
+            return firstly {
+                pairwiseService.createPairwiseResponse(response: response)
+            }.then { response in
+                self.castToPresentationResponse(from: response)
+            }
+        } else {
+            return Promise { seal in
+                seal.fulfill(response)
+            }
+        }
+    }
+    
+    private func formatPresentationResponse(response: PresentationResponseContainer, isPairwise: Bool) -> Promise<PresentationResponse> {
         return Promise { seal in
             do {
                 
-                guard let identifier = try identifierDatabase.fetchMasterIdentifier() else {
-                    throw IdentifierDatabaseError.noIdentifiersSaved
+                var identifier: Identifier?
+                
+                if isPairwise {
+                    // TODO: will change when deterministic key generation is implemented.
+                    identifier = try identifierService.fetchIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: response.audienceDid)
+                } else {
+                    identifier = try identifierService.fetchMasterIdentifier()
                 }
                 
-                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: identifier))
+                guard let id = identifier else {
+                    throw PresentationServiceError.inputStringNotUri
+                }
+                
+                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: id))
             } catch {
                 seal.reject(error)
             }
+        }
+    }
+    
+    private func castToPresentationResponse(from response: ResponseContaining) -> Promise<PresentationResponseContainer> {
+        return Promise<PresentationResponseContainer> { seal in
+            
+            guard let presentationResponse = response as? PresentationResponseContainer else {
+                seal.reject(PresentationServiceError.unableToCastToPresentationResponseContainer)
+                return
+            }
+            
+            seal.fulfill(presentationResponse)
         }
     }
 }

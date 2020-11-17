@@ -18,12 +18,12 @@ class IdentifierDatabaseTests: XCTestCase {
     override func setUpWithError() throws {
         let cryptoOperations = CryptoOperations()
         identifierDB = IdentifierDatabase(cryptoOperations: cryptoOperations)
-        try identifierDB.coreDataManager.deleteAllIdentifiers()
+        try CoreDataManager.sharedInstance.deleteAllIdentifiers()
         identifierCreator = IdentifierCreator(cryptoOperations: cryptoOperations)
     }
     
     override func tearDownWithError() throws {
-        try identifierDB.coreDataManager.deleteAllIdentifiers()
+        try CoreDataManager.sharedInstance.deleteAllIdentifiers()
     }
     
     func testSavingIdentifier() throws {

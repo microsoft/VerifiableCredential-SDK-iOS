@@ -49,7 +49,7 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         let attestations = try self.formatAttestations(response: response, usingIdentifier: identifier, andSignWith: key)
         
         return IssuanceResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
-                                      audience: response.audience,
+                                      audience: response.audienceUrl,
                                       did: identifier.longFormDid,
                                       publicJwk: publicKey,
                                       contract: response.contractUri,

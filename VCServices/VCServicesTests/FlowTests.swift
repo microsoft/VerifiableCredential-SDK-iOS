@@ -25,7 +25,7 @@ class FlowTests: XCTestCase {
     
     override func tearDownWithError() throws {
         let identifierDB = IdentifierDatabase()
-        try identifierDB.coreDataManager.deleteAllIdentifiers()
+        try CoreDataManager.sharedInstance.deleteAllIdentifiers()
     }
     
     func testIssuance() throws {
@@ -56,7 +56,7 @@ class FlowTests: XCTestCase {
         
         let expec = self.expectation(description: "Fire")
         
-        let requestUri = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/NF8N4I2k1GhRbg"
+        let requestUri = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/6_QgVJ10JSX4Qg"
         
         firstly {
             presentationUseCase.getRequest(usingUrl: requestUri)
@@ -75,7 +75,7 @@ class FlowTests: XCTestCase {
             expec.fulfill()
         }
         
-        wait(for: [expec], timeout: 20)
+        wait(for: [expec], timeout: 600)
     }
     
     private func getIssuanceRequest(issuanceUseCase: IssuanceService, request: PresentationRequest) -> Promise<Contract> {

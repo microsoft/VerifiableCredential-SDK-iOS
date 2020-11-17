@@ -15,9 +15,9 @@ enum IdentifierDatabaseError: Error {
 ///Temporary until Deterministic Keys are implemented
 struct IdentifierDatabase {
     
-    let coreDataManager = CoreDataManager.sharedInstance
-    let aliasComputer = AliasComputer()
-    let cryptoOperations: CryptoOperating
+    private let coreDataManager = CoreDataManager.sharedInstance
+    private let aliasComputer = AliasComputer()
+    private let cryptoOperations: CryptoOperating
     
     init() {
         self.cryptoOperations = CryptoOperations()
@@ -42,7 +42,7 @@ struct IdentifierDatabase {
     }
     
     func fetchMasterIdentifier() throws -> Identifier? {
-        let alias = aliasComputer.compute(forId: "master", andRelyingParty: "master")
+        let alias = aliasComputer.compute(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: VCEntitiesConstants.MASTER_ID)
         return try fetchIdentifier(withAlias: alias)
     }
     
@@ -53,6 +53,24 @@ struct IdentifierDatabase {
         
         for identifier in identifierModels {
             if identifier.alias == alias {
+                identifierModel = identifier
+            }
+        }
+        
+        if let model = identifierModel {
+            return createIdentifier(fromIdentifierModel: model)
+        }
+        
+        return nil
+    }
+    
+    func fetchIdentifier(withLongformDid did: String) throws -> Identifier? {
+        let identifierModels = try coreDataManager.fetchIdentifiers()
+        
+        var identifierModel: IdentifierModel? = nil
+        
+        for identifier in identifierModels {
+            if identifier.longFormDid == did {
                 identifierModel = identifier
             }
         }
