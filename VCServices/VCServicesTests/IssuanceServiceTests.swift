@@ -21,7 +21,10 @@ class IssuanceServiceTests: XCTestCase {
     override func setUpWithError() throws {
         let repo = IssuanceRepository(apiCalls: MockApiCalls())
         let formatter = MockIssuanceResponseFormatter(shouldSucceed: true)
-        service = IssuanceService(formatter: formatter, repo: repo)
+        service = IssuanceService(formatter: formatter,
+                                  repo: repo,
+                                  identifierService: IdentifierService(),
+                                  pairwiseService: PairwiseService())
         
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
@@ -84,7 +87,10 @@ class IssuanceServiceTests: XCTestCase {
         
         let repo = IssuanceRepository(apiCalls: MockApiCalls())
         let formatter = MockIssuanceResponseFormatter(shouldSucceed: false)
-        let service = IssuanceService(formatter: formatter, repo: repo)
+        let service = IssuanceService(formatter: formatter,
+                                      repo: repo,
+                                      identifierService: IdentifierService(),
+                                      pairwiseService: PairwiseService())
         
         let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)
         service.send(response: response).done {

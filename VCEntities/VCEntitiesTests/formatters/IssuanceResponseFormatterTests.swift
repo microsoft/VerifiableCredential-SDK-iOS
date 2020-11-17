@@ -36,7 +36,7 @@ class IssuanceResponseFormatterTests: XCTestCase {
         let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
         XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longFormDid)
         XCTAssertEqual(formattedToken.content.contract, self.mockResponse.contractUri)
-        XCTAssertEqual(formattedToken.content.audience, self.mockResponse.audience)
+        XCTAssertEqual(formattedToken.content.audience, self.mockResponse.audienceUrl)
         XCTAssert(MockTokenSigner.wasSignCalled)
         XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
     }

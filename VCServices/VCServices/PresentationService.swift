@@ -12,6 +12,7 @@ enum PresentationServiceError: Error {
     case noQueryParametersOnUri
     case noValueForRequestUriQueryParameter
     case noRequestUriQueryParameter
+    case unableToCastToPresentationResponseContainer
 }
 
 public class PresentationService {
@@ -56,32 +57,6 @@ public class PresentationService {
         }
     }
     
-    private func exchangeVCsIfPairwise(response: PresentationResponseContainer, isPairwise: Bool) -> Promise<PresentationResponseContainer> {
-        if isPairwise {
-            return firstly {
-                pairwiseService.createPairwiseResponse(response: response)
-            }.then { response in
-                self.castToPresentationResponse(from: response)
-            }
-        } else {
-            return Promise { seal in
-                seal.fulfill(response)
-            }
-        }
-    }
-    
-    private func castToPresentationResponse(from response: ResponseContaining) -> Promise<PresentationResponseContainer> {
-        return Promise<PresentationResponseContainer> { seal in
-            
-            guard let presentationResponse = response as? PresentationResponseContainer else {
-                seal.reject(PresentationServiceError.inputStringNotUri)
-                return
-            }
-            
-            seal.fulfill(presentationResponse)
-        }
-    }
-    
     private func getRequestUriPromise(from urlStr: String) -> Promise<String> {
         return Promise { seal in
             do {
@@ -108,6 +83,20 @@ public class PresentationService {
         throw PresentationServiceError.noRequestUriQueryParameter
     }
     
+    private func exchangeVCsIfPairwise(response: PresentationResponseContainer, isPairwise: Bool) -> Promise<PresentationResponseContainer> {
+        if isPairwise {
+            return firstly {
+                pairwiseService.createPairwiseResponse(response: response)
+            }.then { response in
+                self.castToPresentationResponse(from: response)
+            }
+        } else {
+            return Promise { seal in
+                seal.fulfill(response)
+            }
+        }
+    }
+    
     private func formatPresentationResponse(response: PresentationResponseContainer, isPairwise: Bool) -> Promise<PresentationResponse> {
         return Promise { seal in
             do {
@@ -115,6 +104,7 @@ public class PresentationService {
                 var identifier: Identifier?
                 
                 if isPairwise {
+                    // TODO: will change when deterministic key generation is implemented.
                     identifier = try identifierService.fetchIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: response.audienceDid)
                 } else {
                     identifier = try identifierService.fetchMasterIdentifier()
@@ -128,6 +118,18 @@ public class PresentationService {
             } catch {
                 seal.reject(error)
             }
+        }
+    }
+    
+    private func castToPresentationResponse(from response: ResponseContaining) -> Promise<PresentationResponseContainer> {
+        return Promise<PresentationResponseContainer> { seal in
+            
+            guard let presentationResponse = response as? PresentationResponseContainer else {
+                seal.reject(PresentationServiceError.unableToCastToPresentationResponseContainer)
+                return
+            }
+            
+            seal.fulfill(presentationResponse)
         }
     }
 }
