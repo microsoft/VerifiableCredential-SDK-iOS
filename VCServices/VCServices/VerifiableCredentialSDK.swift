@@ -12,11 +12,11 @@ public class VerifiableCredentialSDK {
         
         let identifierService = IdentifierService()
         
-        guard try identifierService.fetchMasterIdentifier() != nil else {
+        do {
+            _ = try identifierService.fetchMasterIdentifier()
+        } catch {
+            // TODO: log
             _ = try identifierService.createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: VCEntitiesConstants.MASTER_ID)
-            return
         }
     }
-    
-
 }
