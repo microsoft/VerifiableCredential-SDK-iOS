@@ -69,13 +69,14 @@ public class PresentationService {
     
     private func getRequestUri(from urlStr: String) throws -> String {
         
-        guard let urlStrWithoutPercentEncoding = urlStr.removingPercentEncoding,
-            let urlComponents = URLComponents(string: urlStrWithoutPercentEncoding) else { throw PresentationServiceError.inputStringNotUri }
+        guard let urlComponents = URLComponents(string: urlStr) else { throw PresentationServiceError.inputStringNotUri }
         guard let queryItems = urlComponents.percentEncodedQueryItems else { throw PresentationServiceError.noQueryParametersOnUri }
         
         for queryItem in queryItems {
             if queryItem.name == "request_uri" {
-                guard let value = queryItem.value else { throw PresentationServiceError.noValueForRequestUriQueryParameter }
+                guard let value = queryItem.value?.removingPercentEncoding
+                else { throw PresentationServiceError.noValueForRequestUriQueryParameter }
+                print(value)
                 return value
             }
         }
