@@ -37,14 +37,4 @@ public struct CryptoOperations: CryptoOperating {
     public func retrieveKeyFromStorage(withId id: UUID) throws -> VCCryptoSecret {
         return Random32BytesSecret(withStore: secretStore, andId: id)
     }
-    
-    public func isKeyPresentInStorage(withId id: UUID) -> Bool {
-        do {
-            let _ = try retrieveKeyFromStorage(withId: id)
-            return true
-        } catch {
-            // TODO: log results
-            return false
-        }
-    }
 }
