@@ -8,7 +8,7 @@ import VCCrypto
 
 public class VerifiableCredentialSDK {
     
-    public static func initialize() throws {
+    public static func initialize(logConsumer: LogConsumer = DefaultLogConsumer()) throws {
         
         let identifierService = IdentifierService()
         
@@ -16,6 +16,8 @@ public class VerifiableCredentialSDK {
             _ = try identifierService.createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: VCEntitiesConstants.MASTER_ID)
             return
         }
+        
+        VCSDKLog.add(consumer: logConsumer)
     }
     
 

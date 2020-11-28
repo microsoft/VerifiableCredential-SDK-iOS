@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55011E8C2572DF50002D2690 /* VCSDKLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55011E8B2572DF50002D2690 /* VCSDKLog.swift */; };
+		55011E8E2572DFBD002D2690 /* DefaultLogConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55011E8D2572DFBD002D2690 /* DefaultLogConsumer.swift */; };
 		5518CC642526427D00C7A21B /* PresentationResponseClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC632526427D00C7A21B /* PresentationResponseClaims.swift */; };
 		5518CC68252645D000C7A21B /* PresentationSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC67252645D000C7A21B /* PresentationSubmission.swift */; };
 		5518CC6A2526469100C7A21B /* SubmissionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC692526469100C7A21B /* SubmissionDescriptor.swift */; };
@@ -103,6 +105,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55011E8B2572DF50002D2690 /* VCSDKLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSDKLog.swift; sourceTree = "<group>"; };
+		55011E8D2572DFBD002D2690 /* DefaultLogConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLogConsumer.swift; sourceTree = "<group>"; };
 		5518CC632526427D00C7A21B /* PresentationResponseClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationResponseClaims.swift; sourceTree = "<group>"; };
 		5518CC67252645D000C7A21B /* PresentationSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationSubmission.swift; sourceTree = "<group>"; };
 		5518CC692526469100C7A21B /* SubmissionDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionDescriptor.swift; sourceTree = "<group>"; };
@@ -212,6 +216,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55011E8A2572DF1C002D2690 /* logging */ = {
+			isa = PBXGroup;
+			children = (
+				55011E8B2572DF50002D2690 /* VCSDKLog.swift */,
+				55011E8D2572DFBD002D2690 /* DefaultLogConsumer.swift */,
+			);
+			path = logging;
+			sourceTree = "<group>";
+		};
 		5518CC652526457500C7A21B /* claims */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +277,7 @@
 		55575730251BC575009979AB /* VCEntities */ = {
 			isa = PBXGroup;
 			children = (
+				55011E8A2572DF1C002D2690 /* logging */,
 				557BFC50251E665D005B5B24 /* formatters */,
 				5577E865251E830B005250BC /* identifier */,
 				55793BC8255A0468007F7599 /* exchange */,
@@ -674,8 +688,10 @@
 				5531D3B2255F6B6E0002CC0E /* ResponseContaining.swift in Sources */,
 				5557576A251BC6CF009979AB /* Contract.swift in Sources */,
 				55793BD9255C5BF0007F7599 /* ExchangeRequestContainer.swift in Sources */,
+				55011E8E2572DFBD002D2690 /* DefaultLogConsumer.swift in Sources */,
 				5557576D251BC6CF009979AB /* SelfIssuedClaimsDescriptor.swift in Sources */,
 				5518CC6A2526469100C7A21B /* SubmissionDescriptor.swift in Sources */,
+				55011E8C2572DF50002D2690 /* VCSDKLog.swift in Sources */,
 				5584E49E252564A600A9DE58 /* PresentationInputDescriptor.swift in Sources */,
 				55AF748A252F6B7F006A8B25 /* IdentifierDocumentPatch.swift in Sources */,
 				5531D3AC255F03EF0002CC0E /* AliasComputer.swift in Sources */,

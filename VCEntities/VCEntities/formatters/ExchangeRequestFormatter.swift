@@ -24,6 +24,8 @@ public class ExchangeRequestFormatter: ExchangeRequestFormatting {
             throw FormatterError.noSigningKeyFound
         }
         
+        VCSDKLog.d(message: "Creating Exchange Request with old owner: \(request.currentOwnerIdentifier.longFormDid) \n And replacing with new owner: \(request.newOwnerDid)")
+        
         return try createToken(request: request, andSignWith: signingKey)
     }
     

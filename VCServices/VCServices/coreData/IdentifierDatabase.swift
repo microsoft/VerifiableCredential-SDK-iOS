@@ -100,7 +100,7 @@ struct IdentifierDatabase {
                               recoveryKey: recoveryKeyContainer,
                               alias: alias)
         } catch {
-            // TODO: log error
+            VCSDKLog.e(message: "Unable to create Identifier", throwable: error)
             return nil
         }
     }
