@@ -8,6 +8,7 @@ import VCCrypto
 public struct AliasComputer {
     
     let hashingAlg = Sha256()
+    let pattern = "[^A-Za-z0-9]+"
     
     public init() {}
     
