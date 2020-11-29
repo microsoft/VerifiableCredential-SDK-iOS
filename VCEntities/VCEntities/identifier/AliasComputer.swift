@@ -17,6 +17,6 @@ public struct AliasComputer {
         let message = (id + rp).data(using: .ascii)
         let hashedMessage = hashingAlg.hash(data: message!)
         let base64EncodedAlias = hashedMessage.base64EncodedString().prefix(10)
-        return String(base64EncodedAlias)
+        return base64EncodedAlias.replacingOccurrences(of: pattern, with: "", options: [.regularExpression])
     }
 }
