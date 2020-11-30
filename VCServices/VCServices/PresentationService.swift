@@ -76,7 +76,6 @@ public class PresentationService {
             if queryItem.name == "request_uri" {
                 guard let value = queryItem.value?.removingPercentEncoding
                 else { throw PresentationServiceError.noValueForRequestUriQueryParameter }
-                print(value)
                 return value
             }
         }
