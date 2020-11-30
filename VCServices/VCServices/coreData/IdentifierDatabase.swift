@@ -10,6 +10,8 @@ enum IdentifierDatabaseError: Error {
     case noIdentifiersSaved
     case unableToFetchMasterIdentifier
     case unableToSaveIdentifier
+    case noAliasSavedInIdentifierModel
+    case noIdentifierModelSaved
 }
 
 ///Temporary until Deterministic Keys are implemented
@@ -41,12 +43,12 @@ struct IdentifierDatabase {
                                            alias: identifier.alias)
     }
     
-    func fetchMasterIdentifier() throws -> Identifier? {
+    func fetchMasterIdentifier() throws -> Identifier {
         let alias = aliasComputer.compute(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: VCEntitiesConstants.MASTER_ID)
         return try fetchIdentifier(withAlias: alias)
     }
     
-    func fetchIdentifier(withAlias alias: String) throws -> Identifier? {
+    func fetchIdentifier(withAlias alias: String) throws -> Identifier {
         let identifierModels = try coreDataManager.fetchIdentifiers()
         
         var identifierModel: IdentifierModel? = nil
@@ -57,14 +59,14 @@ struct IdentifierDatabase {
             }
         }
         
-        if let model = identifierModel {
-            return createIdentifier(fromIdentifierModel: model)
+        guard let model = identifierModel else {
+            throw IdentifierDatabaseError.noIdentifierModelSaved
         }
         
-        return nil
+        return try createIdentifier(fromIdentifierModel: model)
     }
     
-    func fetchIdentifier(withLongformDid did: String) throws -> Identifier? {
+    func fetchIdentifier(withLongformDid did: String) throws -> Identifier {
         let identifierModels = try coreDataManager.fetchIdentifiers()
         
         var identifierModel: IdentifierModel? = nil
@@ -75,34 +77,29 @@ struct IdentifierDatabase {
             }
         }
         
-        if let model = identifierModel {
-            return createIdentifier(fromIdentifierModel: model)
+        guard let model = identifierModel else {
+            throw IdentifierDatabaseError.noIdentifierModelSaved
         }
         
-        return nil
+        return try createIdentifier(fromIdentifierModel: model)
     }
     
-    private func createIdentifier(fromIdentifierModel model: IdentifierModel) -> Identifier? {
+    private func createIdentifier(fromIdentifierModel model: IdentifierModel) throws -> Identifier {
         
         guard let longFormDid = model.longFormDid,
             let alias = model.alias else {
-            return nil
+                throw IdentifierDatabaseError.noAliasSavedInIdentifierModel
         }
         
-        do {
-            let signingKeyContainer = try createKeyContainer(keyRefId: model.signingKeyId, keyId: VCEntitiesConstants.SIGNING_KEYID_PREFIX + alias)
-            let updateKeyContainer = try createKeyContainer(keyRefId: model.updateKeyId, keyId: VCEntitiesConstants.UPDATE_KEYID_PREFIX + alias)
-            let recoveryKeyContainer = try createKeyContainer(keyRefId: model.recoveryKeyId, keyId: VCEntitiesConstants.RECOVER_KEYID_PREFIX + alias)
-            
-            return Identifier(longFormDid: longFormDid,
-                              didDocumentKeys: [signingKeyContainer],
-                              updateKey: updateKeyContainer,
-                              recoveryKey: recoveryKeyContainer,
-                              alias: alias)
-        } catch {
-            VCSDKLog.e(formatMessage: "Unable to create Identifier")
-            return nil
-        }
+        let signingKeyContainer = try createKeyContainer(keyRefId: model.signingKeyId, keyId: VCEntitiesConstants.SIGNING_KEYID_PREFIX + alias)
+        let updateKeyContainer = try createKeyContainer(keyRefId: model.updateKeyId, keyId: VCEntitiesConstants.UPDATE_KEYID_PREFIX + alias)
+        let recoveryKeyContainer = try createKeyContainer(keyRefId: model.recoveryKeyId, keyId: VCEntitiesConstants.RECOVER_KEYID_PREFIX + alias)
+        
+        return Identifier(longFormDid: longFormDid,
+                          didDocumentKeys: [signingKeyContainer],
+                          updateKey: updateKeyContainer,
+                          recoveryKey: recoveryKeyContainer,
+                          alias: alias)
     }
     
     private func createKeyContainer(keyRefId: UUID?, keyId: String) throws -> KeyContainer {

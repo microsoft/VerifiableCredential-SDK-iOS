@@ -20,15 +20,15 @@ class IdentifierService {
         self.identifierCreator = creator
     }
     
-    func fetchMasterIdentifier() throws -> Identifier? {
+    func fetchMasterIdentifier() throws -> Identifier {
         return try identifierDB.fetchMasterIdentifier()
     }
     
-    func fetchIdentifier(withAlias alias: String) throws -> Identifier? {
+    func fetchIdentifier(withAlias alias: String) throws -> Identifier {
         return try identifierDB.fetchIdentifier(withAlias: alias)
     }
     
-    func fetchIdentifier(forId id: String, andRelyingParty rp: String) throws -> Identifier? {
+    func fetchIdentifier(forId id: String, andRelyingParty rp: String) throws -> Identifier {
         let alias = aliasComputer.compute(forId: id, andRelyingParty: rp)
         let identifier = try identifierDB.fetchIdentifier(withAlias: alias)
         VCSDKLog.i(formatMessage: "Created Identifier: \(String(describing: identifier?.longFormDid))")

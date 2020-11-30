@@ -24,7 +24,6 @@ class FlowTests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        let identifierDB = IdentifierDatabase()
         try CoreDataManager.sharedInstance.deleteAllIdentifiers()
     }
     
