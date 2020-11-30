@@ -114,7 +114,7 @@ public class PresentationService {
                     throw PresentationServiceError.inputStringNotUri
                 }
                 
-                VCSDKLog.i(formatMessage: "Signing Presentation Response with Identifier: \(id.longFormDid)")
+                VCSDKLog.sharedInstance.logInfo(message: "Signing Presentation Response with Identifier")
                 
                 seal.fulfill(try self.formatter.format(response: response, usingIdentifier: id))
             } catch {

@@ -3,105 +3,90 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-// TODO: tag equivalent in iOS?
 public struct VCSDKLog {
     
-    public static let sharedInstance = VCSDKLog()
+    public static var sharedInstance = VCSDKLog()
     
-    private static var consumers: [VCLogConsumer] = []
+    private var consumers: [VCLogConsumer] = []
     
-    public static func add(consumer: VCLogConsumer) {
+    public mutating func add(consumer: VCLogConsumer) {
         consumers.append(consumer)
     }
     
-    public static func v(formatMessage: String,
-                         _ args: CVarArg...,
-        functionName: String = #function,
-        file: String = #file,
-        line: Int = #line) {
+    public func logVerbose(message: String,
+                           functionName: String = #function,
+                           file: String = #file,
+                           line: Int = #line) {
         log(VCTraceLevel.VERBOSE,
-            formatMessage: formatMessage,
-            args,
+            message: message,
             functionName: functionName,
             file: file,
             line: line)
     }
     
-    public static func d(formatMessage: String,
-                         _ args: CVarArg...,
-        functionName: String = #function,
-        file: String = #file,
-        line: Int = #line) {
+    public func logDebug(message: String,
+                         functionName: String = #function,
+                         file: String = #file,
+                         line: Int = #line) {
         log(VCTraceLevel.DEBUG,
-            formatMessage: formatMessage,
-            args,
+            message: message,
             functionName: functionName,
             file: file,
             line: line)
     }
     
-    public static func i(formatMessage: String,
-                         _ args: CVarArg...,
-        functionName: String = #function,
-        file: String = #file,
-        line: Int = #line) {
+    public func logInfo(message: String,
+                        functionName: String = #function,
+                        file: String = #file,
+                        line: Int = #line) {
         log(VCTraceLevel.INFO,
-            formatMessage: formatMessage,
-            args,
+            message: message,
             functionName: functionName,
             file: file,
             line: line)
     }
     
-    public static func w(formatMessage: String,
-                         _ args: CVarArg...,
-        functionName: String = #function,
-        file: String = #file,
-        line: Int = #line) {
+    public func logWarning(message: String,
+                           functionName: String = #function,
+                           file: String = #file,
+                           line: Int = #line) {
         log(VCTraceLevel.WARN,
-            formatMessage: formatMessage,
-            args,
+            message: message,
             functionName: functionName,
             file: file,
             line: line)
     }
     
-    public static func e(formatMessage: String,
-                         _ args: CVarArg...,
-        functionName: String = #function,
-        file: String = #file,
-        line: Int = #line) {
+    public func logError(message: String,
+                         functionName: String = #function,
+                         file: String = #file,
+                         line: Int = #line) {
         log(VCTraceLevel.ERROR,
-            formatMessage: formatMessage,
-            args,
+            message: message,
             functionName: functionName,
             file: file,
             line: line)
     }
     
-    public static func f(formatMessage: String,
-                         _ args: CVarArg...,
-        functionName: String = #function,
-        file: String = #file,
-        line: Int = #line) {
+    public func logFailure(message: String,
+                           functionName: String = #function,
+                           file: String = #file,
+                           line: Int = #line) {
         log(VCTraceLevel.FAILURE,
-            formatMessage: formatMessage,
-            args,
+            message: message,
             functionName: functionName,
             file: file,
             line: line)
     }
     
-    private static func log(_ traceLevel: VCTraceLevel,
-                            formatMessage: String,
-                            _ args: CVarArg...,
-        functionName: String,
-        file: String,
-        line: Int) {
+    private func log(_ traceLevel: VCTraceLevel,
+                            message: String,
+                            functionName: String,
+                            file: String,
+                            line: Int) {
         consumers.forEach { logger in
             logger.log(traceLevel,
-                       formatMessage: formatMessage,
-                       args,
+                       message: message,
                        functionName: functionName,
                        file: file,
                        line: line)
