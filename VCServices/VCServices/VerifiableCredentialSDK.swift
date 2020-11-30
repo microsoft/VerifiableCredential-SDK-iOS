@@ -8,15 +8,20 @@ import VCCrypto
 
 public class VerifiableCredentialSDK {
     
-    public static func initialize() throws {
+    /// Initialized the SDK.
+    /// Returns: TRUE, if needed to create Master Identifier
+    ///        FALSE, if Master Identifier is able to be fetched (included private keys from KeyStore)
+    public static func initialize() throws -> Bool {
         
         let identifierService = IdentifierService()
         
-        guard try identifierService.fetchMasterIdentifier() != nil else {
+        do {
+            _ = try identifierService.fetchMasterIdentifier()
+            return false
+        } catch {
+            // TODO: log
             _ = try identifierService.createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: VCEntitiesConstants.MASTER_ID)
-            return
+            return true
         }
     }
-    
-
 }
