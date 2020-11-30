@@ -31,7 +31,7 @@ class IdentifierService {
     func fetchIdentifier(forId id: String, andRelyingParty rp: String) throws -> Identifier? {
         let alias = aliasComputer.compute(forId: id, andRelyingParty: rp)
         let identifier = try identifierDB.fetchIdentifier(withAlias: alias)
-        VCSDKLog.i(message: "Created Identifier: \(String(describing: identifier?.longFormDid))")
+        VCSDKLog.i(formatMessage: "Created Identifier: \(String(describing: identifier?.longFormDid))")
         return identifier
     }
     
@@ -42,7 +42,7 @@ class IdentifierService {
     func createAndSaveIdentifier(forId id: String, andRelyingParty rp: String) throws -> Identifier {
         let identifier = try identifierCreator.create(forId: id, andRelyingParty: rp)
         try identifierDB.saveIdentifier(identifier: identifier)
-        VCSDKLog.i(message: "Created Identifier with alias:\(identifier.alias)")
+        VCSDKLog.i(formatMessage: "Created Identifier with alias:\(identifier.alias)")
         return identifier
     }
 }

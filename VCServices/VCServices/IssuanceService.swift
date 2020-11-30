@@ -82,7 +82,7 @@ public class IssuanceService {
                     throw IssuanceServiceError.unableToFetchIdentifier
                 }
                 
-                VCSDKLog.i(message: "Signing Presentation Response with Identifier: \(id.longFormDid)")
+                VCSDKLog.i(formatMessage: "Signing Presentation Response with Identifier: \(id.longFormDid)")
                 
                 seal.fulfill(try self.formatter.format(response: response, usingIdentifier: id))
             } catch {

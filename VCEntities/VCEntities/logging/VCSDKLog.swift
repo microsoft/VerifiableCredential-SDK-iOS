@@ -3,75 +3,108 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public enum LogLevel {
-    case VERBOSE
-    case DEBUG
-    case INFO
-    case WARN
-    case ERROR
-    case FAILURE
-}
-
-public protocol LogConsumer {
-    func log(logLevel: LogLevel, message: String, throwable: Error?, tag: String)
-}
-
 // TODO: tag equivalent in iOS?
 public struct VCSDKLog {
     
     public static let sharedInstance = VCSDKLog()
     
-    private static var consumers: [LogConsumer] = []
+    private static var consumers: [VCLogConsumer] = []
     
-    public static func add(consumer: LogConsumer) {
+    public static func add(consumer: VCLogConsumer) {
         consumers.append(consumer)
     }
     
-    public static func v(message: String, throwable: Error? = nil, tag: String = "") {
-        log(logLevel: LogLevel.VERBOSE,
-            message: message,
-            throwable: throwable,
-            tag: tag)
+    public static func v(formatMessage: String,
+                         _ args: CVarArg...,
+        functionName: String = #function,
+        file: String = #file,
+        line: Int = #line) {
+        log(VCTraceLevel.VERBOSE,
+            formatMessage: formatMessage,
+            args,
+            functionName: functionName,
+            file: file,
+            line: line)
     }
     
-    public static func d(message: String, throwable: Error? = nil, tag: String = "") {
-        log(logLevel: LogLevel.DEBUG,
-            message: message,
-            throwable: throwable,
-            tag: tag)
+    public static func d(formatMessage: String,
+                         _ args: CVarArg...,
+        functionName: String = #function,
+        file: String = #file,
+        line: Int = #line) {
+        log(VCTraceLevel.DEBUG,
+            formatMessage: formatMessage,
+            args,
+            functionName: functionName,
+            file: file,
+            line: line)
     }
     
-    public static func i(message: String, throwable: Error? = nil, tag: String = "") {
-        log(logLevel: LogLevel.INFO,
-            message: message,
-            throwable: throwable,
-            tag: tag)
+    public static func i(formatMessage: String,
+                         _ args: CVarArg...,
+        functionName: String = #function,
+        file: String = #file,
+        line: Int = #line) {
+        log(VCTraceLevel.INFO,
+            formatMessage: formatMessage,
+            args,
+            functionName: functionName,
+            file: file,
+            line: line)
     }
     
-    public static func w(message: String, throwable: Error? = nil, tag: String = "") {
-        log(logLevel: LogLevel.WARN,
-            message: message,
-            throwable: throwable,
-            tag: tag)
+    public static func w(formatMessage: String,
+                         _ args: CVarArg...,
+        functionName: String = #function,
+        file: String = #file,
+        line: Int = #line) {
+        log(VCTraceLevel.WARN,
+            formatMessage: formatMessage,
+            args,
+            functionName: functionName,
+            file: file,
+            line: line)
     }
     
-    public static func e(message: String, throwable: Error? = nil, tag: String = "") {
-        log(logLevel: LogLevel.ERROR,
-            message: message,
-            throwable: throwable,
-            tag: tag)
+    public static func e(formatMessage: String,
+                         _ args: CVarArg...,
+        functionName: String = #function,
+        file: String = #file,
+        line: Int = #line) {
+        log(VCTraceLevel.ERROR,
+            formatMessage: formatMessage,
+            args,
+            functionName: functionName,
+            file: file,
+            line: line)
     }
     
-    public static func f(message: String, throwable: Error? = nil, tag: String = "") {
-        log(logLevel: LogLevel.FAILURE,
-            message: message,
-            throwable: throwable,
-            tag: tag)
+    public static func f(formatMessage: String,
+                         _ args: CVarArg...,
+        functionName: String = #function,
+        file: String = #file,
+        line: Int = #line) {
+        log(VCTraceLevel.FAILURE,
+            formatMessage: formatMessage,
+            args,
+            functionName: functionName,
+            file: file,
+            line: line)
     }
     
-    private static func log(logLevel: LogLevel, message: String, throwable: Error?, tag: String) {
+    private static func log(_ traceLevel: VCTraceLevel,
+                            formatMessage: String,
+                            _ args: CVarArg...,
+        functionName: String,
+        file: String,
+        line: Int) {
         consumers.forEach { logger in
-            logger.log(logLevel: logLevel, message: message, throwable: throwable, tag: tag)
+            logger.log(traceLevel,
+                       formatMessage: formatMessage,
+                       args,
+                       functionName: functionName,
+                       file: file,
+                       line: line)
         }
     }
     
