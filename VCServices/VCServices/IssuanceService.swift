@@ -82,6 +82,8 @@ public class IssuanceService {
                     throw IssuanceServiceError.unableToFetchIdentifier
                 }
                 
+                VCSDKLog.sharedInstance.logInfo(message: "Signing Issuance Response with Identifier")
+                
                 seal.fulfill(try self.formatter.format(response: response, usingIdentifier: id))
             } catch {
                 seal.reject(error)

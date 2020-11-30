@@ -24,6 +24,8 @@ public class ExchangeRequestFormatter: ExchangeRequestFormatting {
             throw FormatterError.noSigningKeyFound
         }
         
+        VCSDKLog.sharedInstance.logDebug(message: "Creating Exchange Request")
+        
         return try createToken(request: request, andSignWith: signingKey)
     }
     
