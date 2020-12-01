@@ -48,7 +48,7 @@ class IdentifierService {
     func createAndSaveIdentifier(forId id: String, andRelyingParty rp: String) throws -> Identifier {
         let identifier = try identifierCreator.create(forId: id, andRelyingParty: rp)
         try identifierDB.saveIdentifier(identifier: identifier)
-        sdkLog.logInfo(message: "Created Identifier with alias:\(identifier.alias)")
+        sdkLog.logVerbose(message: "Created Identifier with alias:\(identifier.alias)")
         return identifier
     }
 }

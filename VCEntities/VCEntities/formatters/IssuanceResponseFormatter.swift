@@ -81,9 +81,9 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         
         sdkLog.logVerbose(message: """
             Creating Issuance Response with:
-            id_tokens: \(idTokenMap?.capacity ?? 0)
-            self_issued claims: \(selfIssuedMap?.capacity ?? 0)
-            verifiable credentials: \(presentationsMap?.capacity ?? 0)
+            id_tokens: \(idTokenMap?.count ?? 0)
+            self_issued claims: \(selfIssuedMap?.count ?? 0)
+            verifiable credentials: \(presentationsMap?.count ?? 0)
             """)
         
         return AttestationResponseDescriptor(idTokens: idTokenMap, presentations: presentationsMap, selfIssued: selfIssuedMap)

@@ -19,7 +19,7 @@ public struct VerifiableCredential {
         self.token = token
         self.raw = serializedToken
         
-        sdkLog.logVerbose(message: "Deserialized Verifiable Credential containing \(token.content.vc.credentialSubject.capacity) claims")
+        sdkLog.logVerbose(message: "Deserialized Verifiable Credential containing \(token.content.vc.credentialSubject.count) claims")
     }
     
 }
