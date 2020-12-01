@@ -4,8 +4,15 @@
  *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+import VCEntities
 
 class SimpleFailureHandler: FailureHandler {
+    
+    private let sdkLog: VCSDKLog
+    
+    init(sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
+        self.sdkLog = sdkLog
+    }
     
     func onFailure(data: Data, response: HTTPURLResponse) throws -> NetworkingError {
         
@@ -13,19 +20,29 @@ class SimpleFailureHandler: FailureHandler {
             throw NetworkingError.unableToParseData
         }
         
+        var error: NetworkingError
         switch response.statusCode {
         case 400:
-            return NetworkingError.badRequest(withBody: responseBody)
+            error = NetworkingError.badRequest(withBody: responseBody)
         case 401:
-            return NetworkingError.unauthorized(withBody: responseBody)
+            error = NetworkingError.unauthorized(withBody: responseBody)
         case 403:
-            return NetworkingError.forbidden(withBody: responseBody)
+            error = NetworkingError.forbidden(withBody: responseBody)
         case 404:
-            return NetworkingError.notFound(withBody: responseBody)
+            error = NetworkingError.notFound(withBody: responseBody)
         case 500...599:
-            return NetworkingError.serverError(withBody: responseBody)
+            error = NetworkingError.serverError(withBody: responseBody)
         default:
-           return NetworkingError.unknownNetworkingError(withBody: responseBody)
+            error = NetworkingError.unknownNetworkingError(withBody: responseBody)
         }
+        
+        self.logNetworkingError(error: error)
+        return error
+    }
+    
+    private func logNetworkingError(error: NetworkingError) {
+        sdkLog.logError(message: """
+            Networking Error: \(error.self)
+            """)
     }
 }

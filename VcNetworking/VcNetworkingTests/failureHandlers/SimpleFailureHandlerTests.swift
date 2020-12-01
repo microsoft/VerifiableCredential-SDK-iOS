@@ -4,12 +4,13 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
+import VCEntities
 
 @testable import VCNetworking
 
 class SimpleFailureHandlerTests: XCTestCase {
     
-    private let handler = SimpleFailureHandler()
+    private var handler: SimpleFailureHandler!
     private let expectedResponseBody = MockObject(id: "test")
     private var encodedResponse: Data!
     private var serializedExpectedResponse: String!
@@ -18,6 +19,8 @@ class SimpleFailureHandlerTests: XCTestCase {
         let encoder = JSONEncoder()
         self.encodedResponse = try encoder.encode(expectedResponseBody)
         self.serializedExpectedResponse = String(data: self.encodedResponse, encoding: .utf8)!
+        VCSDKLog.sharedInstance.add(consumer: DefaultVCLogConsumer())
+        self.handler = SimpleFailureHandler(sdkLog: VCSDKLog.sharedInstance)
     }
 
     func testHandleResponseFailureBadRequest() throws {

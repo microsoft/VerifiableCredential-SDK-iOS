@@ -12,10 +12,13 @@ public protocol ExchangeRequestFormatting {
 public class ExchangeRequestFormatter: ExchangeRequestFormatting {
     
     let signer: TokenSigning
+    let sdkLog: VCSDKLog
     let headerFormatter = JwsHeaderFormatter()
     
-    public init(signer: TokenSigning = Secp256k1Signer()) {
+    public init(signer: TokenSigning = Secp256k1Signer(),
+                sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.signer = signer
+        self.sdkLog = sdkLog
     }
     
     public func format(request: ExchangeRequestContainer) throws -> ExchangeRequest {
@@ -24,7 +27,7 @@ public class ExchangeRequestFormatter: ExchangeRequestFormatting {
             throw FormatterError.noSigningKeyFound
         }
         
-        VCSDKLog.sharedInstance.logDebug(message: "Creating Exchange Request")
+        sdkLog.logDebug(message: "Creating Exchange Request")
         
         return try createToken(request: request, andSignWith: signingKey)
     }
