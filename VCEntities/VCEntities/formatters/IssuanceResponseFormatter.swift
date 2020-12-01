@@ -12,12 +12,15 @@ public protocol IssuanceResponseFormatting {
 public class IssuanceResponseFormatter: IssuanceResponseFormatting {
     
     private let signer: TokenSigning
+    private let sdkLog: VCSDKLog
     private let headerFormatter = JwsHeaderFormatter()
     private let vpFormatter: VerifiablePresentationFormatter
     
-    public init(signer: TokenSigning = Secp256k1Signer()) {
+    public init(signer: TokenSigning = Secp256k1Signer(),
+                sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.signer = signer
         self.vpFormatter = VerifiablePresentationFormatter(signer: signer)
+        self.sdkLog = sdkLog
     }
     
     public func format(response: IssuanceResponseContainer, usingIdentifier identifier: Identifier) throws -> IssuanceResponse {
@@ -75,6 +78,13 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         if !response.requestVCMap.isEmpty {
             presentationsMap = try self.createPresentations(from: response, usingIdentifier: identifier, andSignWith: key)
         }
+        
+        sdkLog.logVerbose(message: """
+            Creating Issuance Response with:
+            id_tokens: \(idTokenMap?.count ?? 0)
+            self_issued claims: \(selfIssuedMap?.count ?? 0)
+            verifiable credentials: \(presentationsMap?.count ?? 0)
+            """)
         
         return AttestationResponseDescriptor(idTokens: idTokenMap, presentations: presentationsMap, selfIssued: selfIssuedMap)
     }

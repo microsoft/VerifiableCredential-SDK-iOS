@@ -19,22 +19,26 @@ public class IssuanceService {
     let repo: IssuanceRepository
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
+    let sdkLog: VCSDKLog
     
     public convenience init() {
         self.init(formatter: IssuanceResponseFormatter(),
                   repo: IssuanceRepository(),
                   identifierService: IdentifierService(),
-                  pairwiseService: PairwiseService())
+                  pairwiseService: PairwiseService(),
+                  sdkLog: VCSDKLog.sharedInstance)
     }
     
     init(formatter: IssuanceResponseFormatting,
          repo: IssuanceRepository,
          identifierService: IdentifierService,
-         pairwiseService: PairwiseService) {
+         pairwiseService: PairwiseService,
+         sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
         self.repo = repo
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
+        self.sdkLog = sdkLog
     }
     
     public func getRequest(usingUrl url: String) -> Promise<Contract> {
@@ -82,7 +86,7 @@ public class IssuanceService {
                     throw IssuanceServiceError.unableToFetchIdentifier
                 }
                 
-                VCSDKLog.sharedInstance.logInfo(message: "Signing Issuance Response with Identifier")
+                sdkLog.logInfo(message: "Signing Issuance Response with Identifier")
                 
                 seal.fulfill(try self.formatter.format(response: response, usingIdentifier: id))
             } catch {

@@ -9,15 +9,21 @@ class IdentifierService {
     
     private let identifierDB: IdentifierDatabase
     private let identifierCreator: IdentifierCreator
+    private let sdkLog: VCSDKLog
     private let aliasComputer = AliasComputer()
     
     convenience init() {
-        self.init(database: IdentifierDatabase(), creator: IdentifierCreator())
+        self.init(database: IdentifierDatabase(),
+                  creator: IdentifierCreator(),
+                  sdkLog: VCSDKLog.sharedInstance)
     }
     
-    init(database: IdentifierDatabase, creator: IdentifierCreator) {
+    init(database: IdentifierDatabase,
+         creator: IdentifierCreator,
+         sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.identifierDB = database
         self.identifierCreator = creator
+        self.sdkLog = sdkLog
     }
     
     func fetchMasterIdentifier() throws -> Identifier {
@@ -31,7 +37,7 @@ class IdentifierService {
     func fetchIdentifier(forId id: String, andRelyingParty rp: String) throws -> Identifier {
         let alias = aliasComputer.compute(forId: id, andRelyingParty: rp)
         let identifier = try identifierDB.fetchIdentifier(withAlias: alias)
-        VCSDKLog.sharedInstance.logInfo(message: "Fetched Identifier")
+        sdkLog.logInfo(message: "Fetched Identifier")
         return identifier
     }
     
@@ -42,7 +48,7 @@ class IdentifierService {
     func createAndSaveIdentifier(forId id: String, andRelyingParty rp: String) throws -> Identifier {
         let identifier = try identifierCreator.create(forId: id, andRelyingParty: rp)
         try identifierDB.saveIdentifier(identifier: identifier)
-        VCSDKLog.sharedInstance.logInfo(message: "Created Identifier with alias:\(identifier.alias)")
+        sdkLog.logVerbose(message: "Created Identifier with alias:\(identifier.alias)")
         return identifier
     }
 }

@@ -21,22 +21,26 @@ public class PresentationService {
     let repo: PresentationRepository
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
+    let sdkLog: VCSDKLog
     
     public convenience init() {
         self.init(formatter: PresentationResponseFormatter(),
                   repo: PresentationRepository(),
                   identifierService: IdentifierService(),
-                  pairwiseService: PairwiseService())
+                  pairwiseService: PairwiseService(),
+                  sdkLog: VCSDKLog.sharedInstance)
     }
     
     init(formatter: PresentationResponseFormatting,
          repo: PresentationRepository,
          identifierService: IdentifierService,
-         pairwiseService: PairwiseService) {
+         pairwiseService: PairwiseService,
+         sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
         self.repo = repo
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
+        self.sdkLog = sdkLog
     }
     
     public func getRequest(usingUrl urlStr: String) -> Promise<PresentationRequest> {
@@ -114,7 +118,7 @@ public class PresentationService {
                     throw PresentationServiceError.inputStringNotUri
                 }
                 
-                VCSDKLog.sharedInstance.logInfo(message: "Signing Presentation Response with Identifier")
+                sdkLog.logInfo(message: "Signing Presentation Response with Identifier")
                 
                 seal.fulfill(try self.formatter.format(response: response, usingIdentifier: id))
             } catch {

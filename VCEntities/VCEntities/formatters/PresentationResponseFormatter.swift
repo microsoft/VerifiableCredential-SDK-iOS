@@ -16,11 +16,14 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
     
     let signer: TokenSigning
     let vpFormatter: VerifiablePresentationFormatter
+    let sdkLog: VCSDKLog
     let headerFormatter = JwsHeaderFormatter()
     
-    public init(signer: TokenSigning = Secp256k1Signer()) {
+    public init(signer: TokenSigning = Secp256k1Signer(),
+                sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.signer = signer
         self.vpFormatter = VerifiablePresentationFormatter(signer: signer)
+        self.sdkLog = sdkLog
     }
     
     public func format(response: PresentationResponseContainer, usingIdentifier identifier: Identifier) throws -> PresentationResponse {
@@ -76,6 +79,11 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         let submissionDescriptor = response.requestVCMap.map { type, _ in
             SubmissionDescriptor(id: type, path: CREDENTIAL_PATH + type, format: keyType, encoding: CREDENTIAL_ENCODING)
         }
+        
+        sdkLog.logVerbose(message: """
+            Creating Presentation Response with:
+            verifiable credentials: \(response.requestVCMap.count)
+            """)
         
         return PresentationSubmission(submissionDescriptors: submissionDescriptor)
     }
