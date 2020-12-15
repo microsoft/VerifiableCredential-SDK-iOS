@@ -15,11 +15,17 @@ public struct IssuanceResponseContainer: ResponseContaining {
     let expiryInSeconds: Int
     public let audienceUrl: String
     public let audienceDid: String
+    public var issuancePin: String? = nil
+    public var issuanceIdToken: String? = nil
     public var requestedIdTokenMap: RequestedIdTokenMap = [:]
     public var requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
     public var requestVCMap: RequestedVerifiableCredentialMap = [:]
     
-    public init(from contract: Contract, contractUri: String, expiryInSeconds exp: Int = 3000) throws {
+    public init(from contract: Contract,
+                contractUri: String,
+                expiryInSeconds exp: Int = 3000,
+                rawIssuerIdToken: String? = nil,
+                issuancePin: String? = nil) throws {
         self.contract = contract
         self.contractUri = contractUri
         self.expiryInSeconds = exp
@@ -31,6 +37,14 @@ public struct IssuanceResponseContainer: ResponseContaining {
         
         self.audienceUrl = aud
         self.audienceDid = did
+        
+        if let issuerIdToken = rawIssuerIdToken {
+            self.requestedIdTokenMap[VCEntitiesConstants.SELF_ISSUED] = issuerIdToken
+            self.issuancePin = issuancePin
+        }
+        
+        self.issuancePin = issuancePin
+        self.issuanceIdToken = "issuerIdToken"
     }
 }
 

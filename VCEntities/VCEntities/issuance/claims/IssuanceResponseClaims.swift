@@ -23,6 +23,8 @@ public struct IssuanceResponseClaims: OIDCClaims {
     
     public let attestations: AttestationResponseDescriptor?
     
+    public let pin: PinClaims?
+    
     public let iat: Double?
     
     public let exp: Double?
@@ -34,6 +36,7 @@ public struct IssuanceResponseClaims: OIDCClaims {
                 contract: String = "",
                 jti: String = "",
                 attestations: AttestationResponseDescriptor? = nil,
+                pin: PinClaims? = nil,
                 iat: Double? = nil,
                 exp: Double? = nil) {
         self.publicKeyThumbprint = publicKeyThumbprint
@@ -43,6 +46,7 @@ public struct IssuanceResponseClaims: OIDCClaims {
         self.contract = contract
         self.jti = jti
         self.attestations = attestations
+        self.pin = pin
         self.iat = iat
         self.exp = exp
     }
@@ -52,6 +56,6 @@ public struct IssuanceResponseClaims: OIDCClaims {
         case publicKeyThumbprint = "sub"
         case audience = "aud"
         case publicJwk = "sub_jwk"
-        case contract, attestations, jti, did, iat, exp
+        case contract, attestations, jti, did, iat, exp, pin
     }
 }

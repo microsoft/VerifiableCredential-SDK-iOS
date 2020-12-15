@@ -29,6 +29,8 @@ public class JwsEncoder {
         if let signature = token.signature?.base64URLEncodedString() {
             compactToken = compactToken + "." + signature
         }
+        print("request:")
+        print(compactToken)
         return compactToken
     }
 }

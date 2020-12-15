@@ -28,6 +28,8 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
     public let registration: RegistrationClaims?
     
+    public let idTokenHint: String?
+    
     enum CodingKeys: String, CodingKey {
         case clientID = "client_id"
         case issuer = "iss"
@@ -35,6 +37,7 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
         case redirectURI = "redirect_uri"
         case responseType = "response_type"
         case responseMode = "response_mode"
+        case idTokenHint = "id_token_hint"
         case state, nonce, prompt, registration
     }
 }
