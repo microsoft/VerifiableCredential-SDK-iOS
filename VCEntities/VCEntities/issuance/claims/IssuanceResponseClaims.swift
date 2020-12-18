@@ -23,7 +23,7 @@ public struct IssuanceResponseClaims: OIDCClaims {
     
     public let attestations: AttestationResponseDescriptor?
     
-    public let pin: PinClaims?
+    public let pin: String?
     
     public let iat: Double?
     
@@ -36,7 +36,7 @@ public struct IssuanceResponseClaims: OIDCClaims {
                 contract: String = "",
                 jti: String = "",
                 attestations: AttestationResponseDescriptor? = nil,
-                pin: PinClaims? = nil,
+                pin: String? = nil,
                 iat: Double? = nil,
                 exp: Double? = nil) {
         self.publicKeyThumbprint = publicKeyThumbprint

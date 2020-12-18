@@ -95,6 +95,7 @@
 		55AF748E252F6BE0006A8B25 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF748D252F6BE0006A8B25 /* Identifier.swift */; };
 		55BEF4252587D28000C720BD /* IssuerIdTokenClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF4242587D28000C720BD /* IssuerIdTokenClaims.swift */; };
 		55BEF45D2589544500C720BD /* PinClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF45C2589544500C720BD /* PinClaims.swift */; };
+		55BEF461258A5E0400C720BD /* IssuerIdToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF460258A5E0400C720BD /* IssuerIdToken.swift */; };
 		92E2998B252522C300B25BB6 /* VCJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E2998A252522C300B25BB6 /* VCJwt.framework */; };
 /* End PBXBuildFile section */
 
@@ -200,6 +201,7 @@
 		55AF748D252F6BE0006A8B25 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		55BEF4242587D28000C720BD /* IssuerIdTokenClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuerIdTokenClaims.swift; sourceTree = "<group>"; };
 		55BEF45C2589544500C720BD /* PinClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinClaims.swift; sourceTree = "<group>"; };
+		55BEF460258A5E0400C720BD /* IssuerIdToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuerIdToken.swift; sourceTree = "<group>"; };
 		92E2998A252522C300B25BB6 /* VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -483,6 +485,7 @@
 			children = (
 				5518CC652526457500C7A21B /* claims */,
 				5518CC7325264CAD00C7A21B /* PresentationResponseContainer.swift */,
+				55BEF460258A5E0400C720BD /* IssuerIdToken.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				55793BD9255C5BF0007F7599 /* ExchangeRequestContainer.swift in Sources */,
 				55011E8E2572DFBD002D2690 /* DefaultLogConsumer.swift in Sources */,
 				5557576D251BC6CF009979AB /* SelfIssuedClaimsDescriptor.swift in Sources */,
+				55BEF461258A5E0400C720BD /* IssuerIdToken.swift in Sources */,
 				55BEF4252587D28000C720BD /* IssuerIdTokenClaims.swift in Sources */,
 				5518CC6A2526469100C7A21B /* SubmissionDescriptor.swift in Sources */,
 				55011E8C2572DF50002D2690 /* VCSDKLog.swift in Sources */,

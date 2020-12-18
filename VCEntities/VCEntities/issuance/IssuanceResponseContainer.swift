@@ -38,13 +38,8 @@ public struct IssuanceResponseContainer: ResponseContaining {
         self.audienceUrl = aud
         self.audienceDid = did
         
-        if let issuerIdToken = rawIssuerIdToken {
-            self.requestedIdTokenMap[VCEntitiesConstants.SELF_ISSUED] = issuerIdToken
-            self.issuancePin = issuancePin
-        }
-        
         self.issuancePin = issuancePin
-        self.issuanceIdToken = "issuerIdToken"
+        self.issuanceIdToken = rawIssuerIdToken
     }
 }
 
