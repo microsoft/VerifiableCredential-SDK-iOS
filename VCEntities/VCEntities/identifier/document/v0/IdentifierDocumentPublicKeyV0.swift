@@ -5,7 +5,7 @@
 
 import VCJwt
 
-struct IdentifierDocumentPublicKey: Codable {
+struct IdentifierDocumentPublicKeyV0: Codable {
     let id: String
     let type: String
     let controller: String?

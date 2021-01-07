@@ -3,9 +3,9 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct IdentifierDocumentDeltaDescriptor: Codable {
+struct IdentifierDocumentDeltaDescriptorV0: Codable {
     let updateCommitment: String
-    let patches: [IdentifierDocumentPatch]
+    let patches: [IdentifierDocumentPatchV0]
     
     enum CodingKeys: String, CodingKey {
         case updateCommitment = "update_commitment"

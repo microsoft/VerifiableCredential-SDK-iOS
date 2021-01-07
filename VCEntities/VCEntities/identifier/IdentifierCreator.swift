@@ -14,11 +14,19 @@ public struct IdentifierCreator {
     let aliasComputer = AliasComputer()
     
     public init() {
-        self.init(cryptoOperations: CryptoOperations(), identifierFormatter: IdentifierFormatter())
+        self.init(cryptoOperations: CryptoOperations(), version: .v0)
     }
     
-    public init(cryptoOperations: CryptoOperating) {
-        self.init(cryptoOperations: cryptoOperations, identifierFormatter: IdentifierFormatter())
+    public init(cryptoOperations: CryptoOperating, version: IdentifierVersion = .v0) {
+        var formatter: IdentifierFormatting
+        switch version {
+        case .v0:
+            formatter = IdentifierV0Formatter()
+        case .v1:
+            formatter = IdentifierV1Formatter()
+        }
+        
+        self.init(cryptoOperations: cryptoOperations, identifierFormatter: formatter)
     }
     
     init(cryptoOperations: CryptoOperating, identifierFormatter: IdentifierFormatting) {
