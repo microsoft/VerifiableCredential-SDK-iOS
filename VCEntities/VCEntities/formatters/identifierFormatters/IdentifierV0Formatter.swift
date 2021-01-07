@@ -24,7 +24,6 @@ struct IdentifierV0Formatter: IdentifierFormatting {
                            serviceEndpoints: [IdentifierDocumentServiceEndpoint]) throws -> String {
         
         let document = IdentifierDocumentV0(fromJwks: didDocumentKeys, andServiceEndpoints: serviceEndpoints)
-        
         let patches = [IdentifierDocumentPatchV0(action: IdentifierV0Formatter.replaceAction, document: document)]
         
         let commitmentHash = try self.createCommitmentHash(usingJwk: updateKey)
@@ -40,7 +39,6 @@ struct IdentifierV0Formatter: IdentifierFormatting {
         let encodedDelta = try encoder.encode(delta).base64URLEncodedString()
         let encodedSuffixData = try encoder.encode(suffixData).base64URLEncodedString()
         let encodedPayload = encodedSuffixData + "." + encodedDelta
-        
         let shortForm = try self.createShortFormIdentifier(usingSuffixData: suffixData)
         
         return shortForm + IdentifierV0Formatter.ionQueryValue + encodedPayload
@@ -55,14 +53,18 @@ struct IdentifierV0Formatter: IdentifierFormatting {
     }
     
     private func createSuffixData(usingDelta delta: IdentifierDocumentDeltaDescriptorV0, recoveryKey: ECPublicJwk) throws -> SuffixDescriptor {
+        
         let encodedDelta = try encoder.encode(delta)
         let patchDescriptorHash = multihash.compute(from: encodedDelta).base64URLEncodedString()
         let recoveryCommitmentHash = try self.createCommitmentHash(usingJwk: recoveryKey)
+        
         return SuffixDescriptor(deltaHash: patchDescriptorHash, recoveryCommitment: recoveryCommitmentHash)
     }
     
     private func createCommitmentHash(usingJwk jwk: ECPublicJwk) throws  -> String {
+        
         let canonicalizedPublicKey = try encoder.encode(jwk)
+        
         return multihash.compute(from: canonicalizedPublicKey).base64URLEncodedString()
     }
 }
