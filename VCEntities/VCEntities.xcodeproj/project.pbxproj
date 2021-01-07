@@ -11,11 +11,11 @@
 		55011E8E2572DFBD002D2690 /* DefaultLogConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55011E8D2572DFBD002D2690 /* DefaultLogConsumer.swift */; };
 		55077AB625A62DC10052C58D /* IdentifierFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55077AB525A62DC10052C58D /* IdentifierFormatting.swift */; };
 		55077ABA25A62DE10052C58D /* IdentifierV1Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55077AB925A62DE10052C58D /* IdentifierV1Formatter.swift */; };
-		55077AC025A76BCC0052C58D /* IdentifierDocumentInitialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55077ABF25A76BCC0052C58D /* IdentifierDocumentInitialState.swift */; };
 		55077AC625A76DB20052C58D /* IdentifierDocumentV0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55077AC525A76DB20052C58D /* IdentifierDocumentV0.swift */; };
 		55077ACA25A7763B0052C58D /* IdentifierDocumentPublicKeyV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55077AC925A7763B0052C58D /* IdentifierDocumentPublicKeyV1.swift */; };
 		55077AEE25A7791E0052C58D /* IdentifierDocumentDeltaDescriptorV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55077AED25A7791D0052C58D /* IdentifierDocumentDeltaDescriptorV1.swift */; };
 		55077AF225A7793F0052C58D /* IdentifierDocumentPatchV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55077AF125A7793F0052C58D /* IdentifierDocumentPatchV1.swift */; };
+		55077B0C25A7AA8F0052C58D /* DocumentInitialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55077B0B25A7AA8F0052C58D /* DocumentInitialState.swift */; };
 		5518CC642526427D00C7A21B /* PresentationResponseClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC632526427D00C7A21B /* PresentationResponseClaims.swift */; };
 		5518CC68252645D000C7A21B /* PresentationSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC67252645D000C7A21B /* PresentationSubmission.swift */; };
 		5518CC6A2526469100C7A21B /* SubmissionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC692526469100C7A21B /* SubmissionDescriptor.swift */; };
@@ -118,11 +118,11 @@
 		55011E8D2572DFBD002D2690 /* DefaultLogConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLogConsumer.swift; sourceTree = "<group>"; };
 		55077AB525A62DC10052C58D /* IdentifierFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierFormatting.swift; sourceTree = "<group>"; };
 		55077AB925A62DE10052C58D /* IdentifierV1Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierV1Formatter.swift; sourceTree = "<group>"; };
-		55077ABF25A76BCC0052C58D /* IdentifierDocumentInitialState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IdentifierDocumentInitialState.swift; path = ../../../../../../../IdentifierDocumentInitialState.swift; sourceTree = "<group>"; };
 		55077AC525A76DB20052C58D /* IdentifierDocumentV0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDocumentV0.swift; sourceTree = "<group>"; };
 		55077AC925A7763B0052C58D /* IdentifierDocumentPublicKeyV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDocumentPublicKeyV1.swift; sourceTree = "<group>"; };
 		55077AED25A7791D0052C58D /* IdentifierDocumentDeltaDescriptorV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDocumentDeltaDescriptorV1.swift; sourceTree = "<group>"; };
 		55077AF125A7793F0052C58D /* IdentifierDocumentPatchV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDocumentPatchV1.swift; sourceTree = "<group>"; };
+		55077B0B25A7AA8F0052C58D /* DocumentInitialState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentInitialState.swift; sourceTree = "<group>"; };
 		5518CC632526427D00C7A21B /* PresentationResponseClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationResponseClaims.swift; sourceTree = "<group>"; };
 		5518CC67252645D000C7A21B /* PresentationSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationSubmission.swift; sourceTree = "<group>"; };
 		5518CC692526469100C7A21B /* SubmissionDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionDescriptor.swift; sourceTree = "<group>"; };
@@ -563,7 +563,7 @@
 				55077AC325A76D840052C58D /* v0 */,
 				55AF7485252F6B1F006A8B25 /* IdentifierDocumentServiceEndpoint.swift */,
 				55AF7487252F6B53006A8B25 /* SuffixDescriptor.swift */,
-				55077ABF25A76BCC0052C58D /* IdentifierDocumentInitialState.swift */,
+				55077B0B25A7AA8F0052C58D /* DocumentInitialState.swift */,
 			);
 			path = document;
 			sourceTree = "<group>";
@@ -729,7 +729,6 @@
 				5557576C251BC6CF009979AB /* CardDisplayDescriptor.swift in Sources */,
 				55AF748E252F6BE0006A8B25 /* Identifier.swift in Sources */,
 				55AF7486252F6B1F006A8B25 /* IdentifierDocumentServiceEndpoint.swift in Sources */,
-				55077AC025A76BCC0052C58D /* IdentifierDocumentInitialState.swift in Sources */,
 				557BFC56251E6701005B5B24 /* IssuanceResponseContainer.swift in Sources */,
 				55575776251BC6CF009979AB /* RegistrationClaims.swift in Sources */,
 				551F305D252E4C1B0081D5E7 /* IdentifierDocumentV1.swift in Sources */,
@@ -737,6 +736,7 @@
 				55309B762539DDC300AF15AA /* VerifiableCredential.swift in Sources */,
 				55793BCB255A0497007F7599 /* ExchangeRequestClaims.swift in Sources */,
 				551F30432527DC050081D5E7 /* JwsHeaderFormatter .swift in Sources */,
+				55077B0C25A7AA8F0052C58D /* DocumentInitialState.swift in Sources */,
 				55575765251BC6CF009979AB /* ConsentDisplayDescriptor.swift in Sources */,
 				5584E49C2525641600A9DE58 /* PresentationDefinition.swift in Sources */,
 				555CE08D2526810100C1C938 /* VerifiablePresentationClaims.swift in Sources */,

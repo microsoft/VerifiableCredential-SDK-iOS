@@ -31,12 +31,12 @@ struct IdentifierV1Formatter: IdentifierFormatting {
         
         let suffixData = try self.createSuffixData(usingDelta: delta, recoveryKey: recoveryKey)
         
-        let initialState = IdentifierDocumentInitialState(suffixData: suffixData, delta:  delta)
+        let initialState = DocumentInitialState(suffixData: suffixData, delta:  delta)
 
         return try self.createLongFormIdentifier(usingInitialState: initialState)
     }
     
-    private func createLongFormIdentifier(usingInitialState state: IdentifierDocumentInitialState) throws -> String {
+    private func createLongFormIdentifier(usingInitialState state: DocumentInitialState) throws -> String {
         
         let encodedPayload = try encoder.encode(state).base64URLEncodedString()
         let shortForm = try self.createShortFormIdentifier(usingSuffixData: state.suffixData)
