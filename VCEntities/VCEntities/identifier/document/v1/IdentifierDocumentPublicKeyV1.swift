@@ -25,6 +25,6 @@ struct IdentifierDocumentPublicKeyV1: Codable {
     }
     
     init(fromJwk key: ECPublicJwk) {
-        self.init(id: key.keyId, type: "EcdsaSecp256k1VerificationKey2019", controller: nil, publicKeyJwk: key, purposes: ["authentication"])
+        self.init(id: key.keyId, type: VCEntitiesConstants.SUPPORTED_PUBLICKEY_TYPE, controller: nil, publicKeyJwk: key, purposes: [VCEntitiesConstants.PUBLICKEY_AUTHENTICATION_PURPOSE_V1])
     }
 }
