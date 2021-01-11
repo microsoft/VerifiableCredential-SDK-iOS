@@ -5,8 +5,8 @@
 
 import VCJwt
 
-struct IdentifierDocument: Codable {
-    let publicKeys: [IdentifierDocumentPublicKey]
+struct IdentifierDocumentV0: Codable {
+    let publicKeys: [IdentifierDocumentPublicKeyV0]
     let serviceEndpoints: [IdentifierDocumentServiceEndpoint]?
     
     enum CodingKeys: String, CodingKey {
@@ -15,9 +15,9 @@ struct IdentifierDocument: Codable {
     }
     
     init(fromJwks jwks: [ECPublicJwk], andServiceEndpoints endpoints: [IdentifierDocumentServiceEndpoint]) {
-        var keys: [IdentifierDocumentPublicKey] = []
+        var keys: [IdentifierDocumentPublicKeyV0] = []
         for jwk in jwks {
-            keys.append(IdentifierDocumentPublicKey(fromJwk: jwk))
+            keys.append(IdentifierDocumentPublicKeyV0(fromJwk: jwk))
         }
         self.publicKeys = keys
         self.serviceEndpoints = endpoints

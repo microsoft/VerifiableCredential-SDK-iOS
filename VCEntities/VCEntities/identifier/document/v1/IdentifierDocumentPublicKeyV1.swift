@@ -5,26 +5,26 @@
 
 import VCJwt
 
-struct IdentifierDocumentPublicKey: Codable {
+struct IdentifierDocumentPublicKeyV1: Codable {
     let id: String
     let type: String
     let controller: String?
-    let jwk: ECPublicJwk
-    let purpose: [String]
+    let publicKeyJwk: ECPublicJwk
+    let purposes: [String]
     
     init(id: String,
          type: String,
          controller: String?,
-         jwk: ECPublicJwk,
-         purpose: [String]) {
+         publicKeyJwk: ECPublicJwk,
+         purposes: [String]) {
         self.id = id
         self.type = type
         self.controller = controller
-        self.jwk = jwk
-        self.purpose = purpose
+        self.publicKeyJwk = publicKeyJwk
+        self.purposes = purposes
     }
     
     init(fromJwk key: ECPublicJwk) {
-        self.init(id: key.keyId, type: "EcdsaSecp256k1VerificationKey2019", controller: nil, jwk: key, purpose: ["auth", "general"])
+        self.init(id: key.keyId, type: VCEntitiesConstants.SUPPORTED_PUBLICKEY_TYPE, controller: nil, publicKeyJwk: key, purposes: [VCEntitiesConstants.PUBLICKEY_AUTHENTICATION_PURPOSE_V1])
     }
 }
