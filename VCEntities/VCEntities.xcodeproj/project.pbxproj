@@ -36,6 +36,7 @@
 		55309B762539DDC300AF15AA /* VerifiableCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55309B752539DDC300AF15AA /* VerifiableCredential.swift */; };
 		5531D3AC255F03EF0002CC0E /* AliasComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3AB255F03EF0002CC0E /* AliasComputer.swift */; };
 		5531D3B2255F6B6E0002CC0E /* ResponseContaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3B1255F6B6E0002CC0E /* ResponseContaining.swift */; };
+		55379AD725A8DF7A0048600A /* PresentationRequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */; };
 		55575738251BC575009979AB /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5557572E251BC575009979AB /* VCEntities.framework */; };
 		5557573F251BC575009979AB /* VCEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 55575731251BC575009979AB /* VCEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557574B251BC6CE009979AB /* AttestationsDescriptor.swift */; };
@@ -67,6 +68,7 @@
 		555CE0912526A21B00C1C938 /* PresentationResponseFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE0902526A21B00C1C938 /* PresentationResponseFormatterTests.swift */; };
 		5570597925754CA7000DD244 /* VCLogConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5570597825754CA7000DD244 /* VCLogConsumer.swift */; };
 		5570597B25754D02000DD244 /* VCTraceLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5570597A25754D02000DD244 /* VCTraceLevel.swift */; };
+		5573FE2A25AF70DB00282BC7 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FE2925AF70DB00282BC7 /* Validator.swift */; };
 		5577E867251E8368005250BC /* MockCodableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E866251E8368005250BC /* MockCodableObject.swift */; };
 		5577E869251E8395005250BC /* JSONCodingKeysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E868251E8395005250BC /* JSONCodingKeysTests.swift */; };
 		5577E86C251E86C2005250BC /* VerifiableCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E86B251E86C2005250BC /* VerifiableCredentialTests.swift */; };
@@ -143,6 +145,7 @@
 		55309B752539DDC300AF15AA /* VerifiableCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredential.swift; sourceTree = "<group>"; };
 		5531D3AB255F03EF0002CC0E /* AliasComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasComputer.swift; sourceTree = "<group>"; };
 		5531D3B1255F6B6E0002CC0E /* ResponseContaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseContaining.swift; sourceTree = "<group>"; };
+		55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestValidator.swift; sourceTree = "<group>"; };
 		5557572E251BC575009979AB /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55575731251BC575009979AB /* VCEntities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCEntities.h; sourceTree = "<group>"; };
 		55575732251BC575009979AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -177,6 +180,7 @@
 		555CE0902526A21B00C1C938 /* PresentationResponseFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationResponseFormatterTests.swift; sourceTree = "<group>"; };
 		5570597825754CA7000DD244 /* VCLogConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLogConsumer.swift; sourceTree = "<group>"; };
 		5570597A25754D02000DD244 /* VCTraceLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTraceLevel.swift; sourceTree = "<group>"; };
+		5573FE2925AF70DB00282BC7 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		5577E866251E8368005250BC /* MockCodableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCodableObject.swift; sourceTree = "<group>"; };
 		5577E868251E8395005250BC /* JSONCodingKeysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodingKeysTests.swift; sourceTree = "<group>"; };
 		5577E86B251E86C2005250BC /* VerifiableCredentialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialTests.swift; sourceTree = "<group>"; };
@@ -307,6 +311,15 @@
 			path = util;
 			sourceTree = "<group>";
 		};
+		55379AD325A8DF450048600A /* validators */ = {
+			isa = PBXGroup;
+			children = (
+				55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */,
+				5573FE2925AF70DB00282BC7 /* Validator.swift */,
+			);
+			path = validators;
+			sourceTree = "<group>";
+		};
 		55575724251BC575009979AB = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +342,7 @@
 		55575730251BC575009979AB /* VCEntities */ = {
 			isa = PBXGroup;
 			children = (
+				55379AD325A8DF450048600A /* validators */,
 				55011E8A2572DF1C002D2690 /* logging */,
 				557BFC50251E665D005B5B24 /* formatters */,
 				5577E865251E830B005250BC /* identifier */,
@@ -746,10 +760,12 @@
 				5531D3B2255F6B6E0002CC0E /* ResponseContaining.swift in Sources */,
 				5557576A251BC6CF009979AB /* Contract.swift in Sources */,
 				55793BD9255C5BF0007F7599 /* ExchangeRequestContainer.swift in Sources */,
+				55379AD725A8DF7A0048600A /* PresentationRequestValidator.swift in Sources */,
 				55011E8E2572DFBD002D2690 /* DefaultLogConsumer.swift in Sources */,
 				5557576D251BC6CF009979AB /* SelfIssuedClaimsDescriptor.swift in Sources */,
 				5518CC6A2526469100C7A21B /* SubmissionDescriptor.swift in Sources */,
 				55011E8C2572DF50002D2690 /* VCSDKLog.swift in Sources */,
+				5573FE2A25AF70DB00282BC7 /* Validator.swift in Sources */,
 				5584E49E252564A600A9DE58 /* PresentationInputDescriptor.swift in Sources */,
 				5570597925754CA7000DD244 /* VCLogConsumer.swift in Sources */,
 				55AF748A252F6B7F006A8B25 /* IdentifierDocumentPatchV0.swift in Sources */,

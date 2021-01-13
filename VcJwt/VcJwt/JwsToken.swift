@@ -54,7 +54,7 @@ public struct JwsToken<T: Claims> {
         self.signature = try signer.sign(token: self, withSecret: secret)
     }
     
-    public func verify(using verifier: TokenVerifying, withPublicKey key: Secp256k1PublicKey) throws -> Bool {
+    public func verify(using verifier: TokenVerifying, withPublicKey key: ECPublicJwk) throws -> Bool {
         
         guard self.headers.algorithm == "ES256K" else {
             throw JwsTokenError.unsupportedAlgorithm(name: self.headers.algorithm)
