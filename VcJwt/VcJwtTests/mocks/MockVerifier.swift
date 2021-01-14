@@ -6,9 +6,8 @@
 @testable import VCJwt
 import VCCrypto
 
-class MockVerifier: TokenVerifying {
-    
-    func verify<T>(token: JwsToken<T>, usingPublicKey key: Secp256k1PublicKey) throws -> Bool {
+class MockVerifier: TokenVerifying {   
+    func verify<T>(token: JwsToken<T>, usingPublicKey key: ECPublicJwk) throws -> Bool {
         return true
     }
 }

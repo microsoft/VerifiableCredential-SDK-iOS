@@ -72,18 +72,11 @@ class JwsTokenTests: XCTestCase {
         XCTAssertEqual(testToken.signature, "fakeSignature".data(using: .utf8)!)
     }
     
-    func testVerifyingAlgorithmNotSupported() throws {
-        let expectedHeader = Header(algorithm: "RSA")
-        let testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: expectedSignature)
-        let key = Secp256k1PublicKey(x: Data(count: 32), y: Data(count: 32))!
-        XCTAssertThrowsError(try testToken!.verify(using: MockVerifier(), withPublicKey: key))
-    }
-    
     func testVerifying() throws {
         let expectedHeader = Header(algorithm: "ES256K")
         let testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: Data.init(count: 64))
-        let key = Secp256k1PublicKey(x: Data(count: 32), y: Data(count: 32))!
-        XCTAssertTrue(try testToken!.verify(using: MockVerifier(), withPublicKey: key))
+        let publicKey = ECPublicJwk(x: Data(count: 32).base64URLEncodedString(), y: Data(count: 32).base64URLEncodedString(), keyId: "test")
+        XCTAssertTrue(try testToken!.verify(using: MockVerifier(), withPublicKey: publicKey))
     }
     
     func testGetProtectedMessage() throws {
