@@ -34,7 +34,7 @@ public struct JwsToken<T: Claims> {
         do {
             self = try decoder.decode(T.self, token: encodedToken)
         } catch {
-            print(error)
+            // TODO log error
             return nil
         }
     }

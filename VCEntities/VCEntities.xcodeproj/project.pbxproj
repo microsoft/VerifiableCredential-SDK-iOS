@@ -68,7 +68,6 @@
 		555CE0912526A21B00C1C938 /* PresentationResponseFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555CE0902526A21B00C1C938 /* PresentationResponseFormatterTests.swift */; };
 		5570597925754CA7000DD244 /* VCLogConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5570597825754CA7000DD244 /* VCLogConsumer.swift */; };
 		5570597B25754D02000DD244 /* VCTraceLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5570597A25754D02000DD244 /* VCTraceLevel.swift */; };
-		5573FE2A25AF70DB00282BC7 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FE2925AF70DB00282BC7 /* Validator.swift */; };
 		5573FE2F25B0BA3C00282BC7 /* PresentationRequestValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FE2E25B0BA3C00282BC7 /* PresentationRequestValidatorTests.swift */; };
 		5573FE3525B0BAF200282BC7 /* MockTokenVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FE3425B0BAF200282BC7 /* MockTokenVerifier.swift */; };
 		5577E867251E8368005250BC /* MockCodableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E866251E8368005250BC /* MockCodableObject.swift */; };
@@ -182,7 +181,6 @@
 		555CE0902526A21B00C1C938 /* PresentationResponseFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationResponseFormatterTests.swift; sourceTree = "<group>"; };
 		5570597825754CA7000DD244 /* VCLogConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLogConsumer.swift; sourceTree = "<group>"; };
 		5570597A25754D02000DD244 /* VCTraceLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTraceLevel.swift; sourceTree = "<group>"; };
-		5573FE2925AF70DB00282BC7 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		5573FE2E25B0BA3C00282BC7 /* PresentationRequestValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestValidatorTests.swift; sourceTree = "<group>"; };
 		5573FE3425B0BAF200282BC7 /* MockTokenVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTokenVerifier.swift; sourceTree = "<group>"; };
 		5577E866251E8368005250BC /* MockCodableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCodableObject.swift; sourceTree = "<group>"; };
@@ -319,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */,
-				5573FE2925AF70DB00282BC7 /* Validator.swift */,
 			);
 			path = validators;
 			sourceTree = "<group>";
@@ -779,7 +776,6 @@
 				5557576D251BC6CF009979AB /* SelfIssuedClaimsDescriptor.swift in Sources */,
 				5518CC6A2526469100C7A21B /* SubmissionDescriptor.swift in Sources */,
 				55011E8C2572DF50002D2690 /* VCSDKLog.swift in Sources */,
-				5573FE2A25AF70DB00282BC7 /* Validator.swift in Sources */,
 				5584E49E252564A600A9DE58 /* PresentationInputDescriptor.swift in Sources */,
 				5570597925754CA7000DD244 /* VCLogConsumer.swift in Sources */,
 				55AF748A252F6B7F006A8B25 /* IdentifierDocumentPatchV0.swift in Sources */,
