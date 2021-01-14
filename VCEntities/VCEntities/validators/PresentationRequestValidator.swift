@@ -14,10 +14,6 @@ enum PresentationRequestValidatorError: Error {
     case invalidResponseModeValue
 }
 
-let RESPONSE_TYPE = "id_token"
-let RESPONSE_MODE = "form_post"
-let SCOPE = "openid did_authn"
-
 public struct PresentationRequestValidator {
     
     let verifier: TokenVerifying
@@ -29,9 +25,9 @@ public struct PresentationRequestValidator {
     func validate(request: PresentationRequest, usingKeys publicKeys: [ECPublicJwk]) throws {
         try verify(token: request, using: publicKeys)
         try check(expiration: request.content.exp)
-        try check(value: request.content.scope, usingCorrectValue: SCOPE, error: PresentationRequestValidatorError.invalidScopeValue)
-        try check(value: request.content.responseMode, usingCorrectValue: RESPONSE_MODE, error: PresentationRequestValidatorError.invalidResponseModeValue)
-        try check(value: request.content.responseType, usingCorrectValue: RESPONSE_TYPE, error: PresentationRequestValidatorError.invalidResponseTypeValue)
+        try check(value: request.content.scope, usingCorrectValue: VCEntitiesConstants.SCOPE, error: PresentationRequestValidatorError.invalidScopeValue)
+        try check(value: request.content.responseMode, usingCorrectValue: VCEntitiesConstants.RESPONSE_MODE, error: PresentationRequestValidatorError.invalidResponseModeValue)
+        try check(value: request.content.responseType, usingCorrectValue: VCEntitiesConstants.RESPONSE_TYPE, error: PresentationRequestValidatorError.invalidResponseTypeValue)
     }
     
     private func verify(token: PresentationRequest, using keys: [ECPublicJwk]) throws {
@@ -42,6 +38,7 @@ public struct PresentationRequestValidator {
                     return
                 }
             } catch {
+                print(error)
                 // TODO: log error
             }
         }
@@ -62,6 +59,4 @@ public struct PresentationRequestValidator {
         let currentTimeInSeconds = (Date().timeIntervalSince1970).rounded(.down)
         return currentTimeInSeconds - Double(expirationCheckTimeOffsetInSeconds)
     }
-    
-    
 }

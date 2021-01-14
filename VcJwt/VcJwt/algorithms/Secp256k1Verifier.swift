@@ -17,6 +17,10 @@ public struct Secp256k1Verifier: TokenVerifying {
     
     public func verify<T>(token: JwsToken<T>, usingPublicKey key: ECPublicJwk) throws -> Bool {
         
+        guard token.headers.algorithm == "ES256K" else {
+            throw JwsTokenError.unsupportedAlgorithm(name: token.headers.algorithm)
+        }
+        
         guard let signature = token.signature else {
             return false
         }
