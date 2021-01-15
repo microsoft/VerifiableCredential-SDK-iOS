@@ -3,7 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct IdentifierDocumentPatchV1: Codable {
-    let action: String
-    let document: IdentifierDocumentV1
+struct IdentifierDocument {
+    
 }
