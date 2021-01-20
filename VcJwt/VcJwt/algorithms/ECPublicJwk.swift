@@ -5,7 +5,7 @@
 
 import VCCrypto
 
-public struct ECPublicJwk: Codable {
+public struct ECPublicJwk: Codable, Equatable {
     public let keyType: String
     public let keyId: String
     public let use: String

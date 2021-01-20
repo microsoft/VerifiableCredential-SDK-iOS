@@ -14,9 +14,15 @@ public class FetchDIDDocumentOperation: InternalNetworkOperation {
     public let urlSession: URLSession
     public let urlRequest: URLRequest
     
-    public init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
-        guard let url = URL(string: urlStr) else {
-            throw NetworkingError.invalidUrl(withUrl: urlStr)
+    public init(withIdentifier identifier: String, session: URLSession = URLSession.shared) throws {
+        guard var urlComponents = URLComponents(string: Constants.DISCOVERY_URL) else {
+            throw NetworkingError.invalidUrl(withUrl: Constants.DISCOVERY_URL)
+        }
+        
+        urlComponents.path = Constants.DISCOVERY_URL_PATH + identifier
+        
+        guard let url = urlComponents.url else {
+            throw NetworkingError.invalidUrl(withUrl: urlComponents.string ?? Constants.DISCOVERY_URL)
         }
         
         self.urlRequest = URLRequest(url: url)

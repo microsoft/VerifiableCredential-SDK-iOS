@@ -5,4 +5,8 @@
 
 public struct DiscoveryServiceResponse: Codable {
     public let didDocument: IdentifierDocument
+    
+    public init(didDocument: IdentifierDocument) {
+        self.didDocument = didDocument
+    }
 }
