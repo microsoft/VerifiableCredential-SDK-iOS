@@ -16,21 +16,21 @@ enum PresentationRequestValidatorError: Error {
 
 public struct PresentationRequestValidator {
     
-    let verifier: TokenVerifying
+    private let verifier: TokenVerifying
     
     init(verifier: TokenVerifying = Secp256k1Verifier()) {
         self.verifier = verifier
     }
     
     func validate(request: PresentationRequest, usingKeys publicKeys: [ECPublicJwk]) throws {
-        try verify(token: request, using: publicKeys)
-        try check(expiration: request.content.exp)
-        try check(value: request.content.scope, usingCorrectValue: VCEntitiesConstants.SCOPE, error: PresentationRequestValidatorError.invalidScopeValue)
-        try check(value: request.content.responseMode, usingCorrectValue: VCEntitiesConstants.RESPONSE_MODE, error: PresentationRequestValidatorError.invalidResponseModeValue)
-        try check(value: request.content.responseType, usingCorrectValue: VCEntitiesConstants.RESPONSE_TYPE, error: PresentationRequestValidatorError.invalidResponseTypeValue)
+        try validate(token: request, using: publicKeys)
+        try validate(expiration: request.content.exp)
+        try validate(request.content.scope, equals: VCEntitiesConstants.SCOPE, throws: PresentationRequestValidatorError.invalidScopeValue)
+        try validate(request.content.responseMode, equals: VCEntitiesConstants.RESPONSE_MODE, throws: PresentationRequestValidatorError.invalidResponseModeValue)
+        try validate(request.content.responseType, equals: VCEntitiesConstants.RESPONSE_TYPE, throws: PresentationRequestValidatorError.invalidResponseTypeValue)
     }
     
-    private func verify(token: PresentationRequest, using keys: [ECPublicJwk]) throws {
+    private func validate(token: PresentationRequest, using keys: [ECPublicJwk]) throws {
         
         for key in keys {
             do {
@@ -38,7 +38,6 @@ public struct PresentationRequestValidator {
                     return
                 }
             } catch {
-                print(error)
                 // TODO: log error
             }
         }
@@ -46,12 +45,12 @@ public struct PresentationRequestValidator {
         throw PresentationRequestValidatorError.invalidSignature
     }
     
-    private func check(expiration: Double?) throws {
+    private func validate(expiration: Double?) throws {
         guard let exp = expiration else { throw PresentationRequestValidatorError.noExpirationPresent }
         if getExpirationDeadlineInSeconds() > exp { throw PresentationRequestValidatorError.tokenExpired }
     }
     
-    private func check(value: String?, usingCorrectValue correctValue: String, error: Error) throws {
+    private func validate(_ value: String?, equals correctValue: String, throws error: Error) throws {
         guard value == correctValue else { throw error }
     }
     
