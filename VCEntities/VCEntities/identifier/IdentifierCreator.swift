@@ -14,10 +14,10 @@ public struct IdentifierCreator {
     let aliasComputer = AliasComputer()
     
     public init() {
-        self.init(cryptoOperations: CryptoOperations(), version: .v0)
+        self.init(cryptoOperations: CryptoOperations(), version: .v1)
     }
     
-    public init(cryptoOperations: CryptoOperating, version: IdentifierVersion = .v0) {
+    public init(cryptoOperations: CryptoOperating, version: IdentifierVersion = .v1) {
         var formatter: IdentifierFormatting
         switch version {
         case .v0:
