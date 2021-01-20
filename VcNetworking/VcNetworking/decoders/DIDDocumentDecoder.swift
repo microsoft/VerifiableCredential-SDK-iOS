@@ -3,8 +3,14 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct IdentifierDocument: Codable {
-    let service: [String]
-    public let verificationMethod: IdentifierDocumentPublicKeyV1
-    let authentication: [String]
+import Foundation
+import VCEntities
+
+public struct DIDDocumentDecoder: Decoding {
+    
+    let decoder = JSONDecoder()
+    
+    public func decode(data: Data) throws -> IdentifierDocument {
+        return try decoder.decode(DiscoveryServiceResponse.self, from: data).didDocument
+    }
 }

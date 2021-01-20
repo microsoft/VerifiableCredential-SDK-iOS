@@ -3,6 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct DiscoveryServiceResponse {
-    let didDocument: String?
+public struct DiscoveryServiceResponse: Codable {
+    public let didDocument: IdentifierDocument
 }
