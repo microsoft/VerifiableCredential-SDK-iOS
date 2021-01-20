@@ -34,6 +34,7 @@ public struct JwsToken<T: Claims> {
         do {
             self = try decoder.decode(T.self, token: encodedToken)
         } catch {
+            // TODO log error
             return nil
         }
     }
@@ -54,12 +55,7 @@ public struct JwsToken<T: Claims> {
         self.signature = try signer.sign(token: self, withSecret: secret)
     }
     
-    public func verify(using verifier: TokenVerifying, withPublicKey key: Secp256k1PublicKey) throws -> Bool {
-        
-        guard self.headers.algorithm == "ES256K" else {
-            throw JwsTokenError.unsupportedAlgorithm(name: self.headers.algorithm)
-        }
-        
+    public func verify(using verifier: TokenVerifying, withPublicKey key: ECPublicJwk) throws -> Bool {
         return try verifier.verify(token: self, usingPublicKey: key)
     }
     

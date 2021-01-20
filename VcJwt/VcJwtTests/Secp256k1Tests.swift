@@ -11,7 +11,7 @@ class Secp256k1Tests: XCTestCase {
     
     private var testToken: JwsToken<MockClaims>!
     private var expectedResult: Data!
-    private let expectedHeader = Header(keyId: "test")
+    private let expectedHeader = Header(algorithm: "ES256K", keyId: "test")
     private let expectedContent = MockClaims(key: "value67")
 
     override func setUpWithError() throws {
@@ -44,7 +44,7 @@ class Secp256k1Tests: XCTestCase {
     func testVerifierWithNoSignature() throws {
         let verifier = Secp256k1Verifier()
         testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: nil)
-        let publicKey = Secp256k1PublicKey(x: Data(count: 32), y: Data(count: 32))!
+        let publicKey = ECPublicJwk(x: Data(count: 32).base64URLEncodedString(), y: Data(count: 32).base64URLEncodedString(), keyId: "test")
         let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
         XCTAssertEqual(result, false)
     }
@@ -52,7 +52,7 @@ class Secp256k1Tests: XCTestCase {
     func testVerifierWithSignatureWithPublicKey() throws {
         let verifier = Secp256k1Verifier(using: MockAlgorithm())
         testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: "testSignature".data(using: .utf8))
-        let publicKey = Secp256k1PublicKey(x: Data(count: 32), y: Data(count: 32))!
+        let publicKey = ECPublicJwk(x: Data(count: 32).base64URLEncodedString(), y: Data(count: 32).base64URLEncodedString(), keyId: "test")
         let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
         XCTAssertEqual(result, true)
     }

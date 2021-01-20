@@ -3,11 +3,24 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-@testable import VCJwt
+import VCJwt
 import VCCrypto
 
-class MockVerifier: TokenVerifying {   
-    func verify<T>(token: JwsToken<T>, usingPublicKey key: ECPublicJwk) throws -> Bool {
-        return true
+@testable import VCEntities
+
+struct MockTokenVerifier: TokenVerifying {
+    
+    let isTokenValid: Bool
+    
+    static var wasVerifyCalled = false
+    
+    init(isTokenValid: Bool) {
+        self.isTokenValid = isTokenValid
     }
+    
+    func verify<T>(token: JwsToken<T>, usingPublicKey key: ECPublicJwk) throws -> Bool {
+        MockTokenVerifier.wasVerifyCalled = true
+        return isTokenValid
+    }
+
 }
