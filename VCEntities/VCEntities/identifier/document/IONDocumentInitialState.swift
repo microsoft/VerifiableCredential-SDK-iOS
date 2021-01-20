@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct IdentifierDocumentDeltaDescriptorV1: Codable {
-    let updateCommitment: String
-    let patches: [IdentifierDocumentPatchV1]
+struct IONDocumentInitialState: Codable {
+    let suffixData: SuffixDescriptor
+    let delta: IONDocumentDeltaDescriptorV1
 }
