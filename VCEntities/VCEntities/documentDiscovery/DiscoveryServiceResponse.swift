@@ -3,7 +3,10 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct DocumentInitialState: Codable {
-    let suffixData: SuffixDescriptor
-    let delta: IdentifierDocumentDeltaDescriptorV1
+public struct DiscoveryServiceResponse: Codable {
+    public let didDocument: IdentifierDocument
+    
+    public init(didDocument: IdentifierDocument) {
+        self.didDocument = didDocument
+    }
 }

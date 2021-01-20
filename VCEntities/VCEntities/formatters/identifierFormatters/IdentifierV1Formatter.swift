@@ -23,20 +23,20 @@ struct IdentifierV1Formatter: IdentifierFormatting {
                            didDocumentKeys: [ECPublicJwk],
                            serviceEndpoints: [IdentifierDocumentServiceEndpoint]) throws -> String {
         
-        let document = IdentifierDocumentV1(fromJwks: didDocumentKeys, andServiceEndpoints: serviceEndpoints)
-        let patches = [IdentifierDocumentPatchV1(action: IdentifierV1Formatter.replaceAction, document: document)]
+        let document = IONDocumentModel(fromJwks: didDocumentKeys, andServiceEndpoints: serviceEndpoints)
+        let patches = [IONDocumentPatchV1(action: IdentifierV1Formatter.replaceAction, document: document)]
         
         let commitmentHash = try self.createCommitmentHash(usingJwk: updateKey)
-        let delta = IdentifierDocumentDeltaDescriptorV1(updateCommitment: commitmentHash, patches: patches)
+        let delta = IONDocumentDeltaDescriptorV1(updateCommitment: commitmentHash, patches: patches)
         
         let suffixData = try self.createSuffixData(usingDelta: delta, recoveryKey: recoveryKey)
         
-        let initialState = DocumentInitialState(suffixData: suffixData, delta:  delta)
+        let initialState = IONDocumentInitialState(suffixData: suffixData, delta:  delta)
 
         return try self.createLongFormIdentifier(usingInitialState: initialState)
     }
     
-    private func createLongFormIdentifier(usingInitialState state: DocumentInitialState) throws -> String {
+    private func createLongFormIdentifier(usingInitialState state: IONDocumentInitialState) throws -> String {
         
         let encodedPayload = try encoder.encode(state).base64URLEncodedString()
         let shortForm = try self.createShortFormIdentifier(usingSuffixData: state.suffixData)
@@ -52,7 +52,7 @@ struct IdentifierV1Formatter: IdentifierFormatting {
         return IdentifierV1Formatter.ionPrefix + hashedSuffixData
     }
     
-    private func createSuffixData(usingDelta delta: IdentifierDocumentDeltaDescriptorV1, recoveryKey: ECPublicJwk) throws -> SuffixDescriptor {
+    private func createSuffixData(usingDelta delta: IONDocumentDeltaDescriptorV1, recoveryKey: ECPublicJwk) throws -> SuffixDescriptor {
         
         let encodedDelta = try encoder.encode(delta)
         let patchDescriptorHash = multihash.compute(from: encodedDelta).base64URLEncodedString()

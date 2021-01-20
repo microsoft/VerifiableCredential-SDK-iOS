@@ -5,7 +5,7 @@
 
 import VCJwt
 
-struct IdentifierDocumentV1: Codable {
+struct IONDocumentModel: Codable {
     let publicKeys: [IdentifierDocumentPublicKeyV1]
     let services: [IdentifierDocumentServiceEndpoint]?
     
