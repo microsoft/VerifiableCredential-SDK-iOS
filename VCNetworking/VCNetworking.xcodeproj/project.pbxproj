@@ -72,6 +72,7 @@
 		922D7E71252523FD00E4C8B5 /* Process+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7E4C252523FD00E4C8B5 /* Process+Promise.swift */; };
 		922D7E72252523FD00E4C8B5 /* NSTask+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 922D7E4D252523FD00E4C8B5 /* NSTask+AnyPromise.m */; };
 		92E29993252522ED00B25BB6 /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E29992252522ED00B25BB6 /* VCEntities.framework */; };
+		92F2ECB925B9159600A6911C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F2ECB825B9159600A6911C /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,7 @@
 		92B9682B25240B6B00F64AB0 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E29992252522ED00B25BB6 /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E7AA3D25251B95000E8246 /* PMKFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PMKFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92F2ECB825B9159600A6911C /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E29993252522ED00B25BB6 /* VCEntities.framework in Frameworks */,
+				92F2ECB925B9159600A6911C /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +450,7 @@
 		F96820A943825B01B3485FDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92F2ECB825B9159600A6911C /* PromiseKit.framework */,
 				92E29992252522ED00B25BB6 /* VCEntities.framework */,
 				92E7AA3D25251B95000E8246 /* PMKFoundation.framework */,
 				92B9682B25240B6B00F64AB0 /* PromiseKit.framework */,

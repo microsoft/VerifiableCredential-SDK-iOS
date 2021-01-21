@@ -4,7 +4,6 @@
  *--------------------------------------------------------------------------------------------*/
 
 import VCEntities
-import VCCrypto
 
 public class VerifiableCredentialSDK {
     
