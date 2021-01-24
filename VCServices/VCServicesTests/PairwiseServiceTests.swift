@@ -4,7 +4,6 @@
  *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VCRepository
 import VCEntities
 import VCCrypto
 
@@ -16,9 +15,8 @@ class PairwiseServiceTests: XCTestCase {
     var mockPresentationResponse: ResponseContaining!
     
     override func setUpWithError() throws {
-        let repo = ExchangeRepository(apiCalls: MockApiCalls())
         let formatter = MockExchangeRequestFormatter(shouldSucceed: true)
-        let exchangeService = ExchangeService(formatter: formatter, repo: repo)
+        let exchangeService = ExchangeService(formatter: formatter, apiCalls: MockExchangeApiCalls())
         
         service = PairwiseService(exchangeService: exchangeService,
                                   identifierService: IdentifierService())
@@ -30,7 +28,6 @@ class PairwiseServiceTests: XCTestCase {
         self.mockPresentationResponse.requestVCMap["test"] = mockVc
         
         MockIssuanceResponseFormatter.wasFormatCalled = false
-        MockApiCalls.wasPostCalled = false
         
         try self.storeMockOwnerIdentifier()
     }
@@ -49,8 +46,8 @@ class PairwiseServiceTests: XCTestCase {
         }.catch { error in
             print(error)
             XCTAssert(MockExchangeRequestFormatter.wasFormatCalled)
-            XCTAssert(MockApiCalls.wasPostCalled)
-            XCTAssert(error is MockError)
+            XCTAssert(MockExchangeApiCalls.wasPostCalled)
+            XCTAssert(error is MockExchangeNetworkingError)
             expec.fulfill()
         }
         

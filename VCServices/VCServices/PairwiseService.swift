@@ -5,7 +5,6 @@
 
 
 import PromiseKit
-import VCRepository
 import VCEntities
 
 class PairwiseService {

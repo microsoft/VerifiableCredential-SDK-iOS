@@ -4,7 +4,6 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VCRepository
 import VCEntities
 
 @testable import VCServices
@@ -20,9 +19,8 @@ class ExchangeServiceTests: XCTestCase {
     let identifierDB = IdentifierDatabase()
 
     override func setUpWithError() throws {
-        let repo = ExchangeRepository(apiCalls: MockApiCalls())
         let formatter = MockExchangeRequestFormatter(shouldSucceed: true)
-        service = ExchangeService(formatter: formatter, repo: repo)
+        service = ExchangeService(formatter: formatter, apiCalls: MockExchangeApiCalls())
         
         let keyContainer = KeyContainer(keyReference: MockVCCryptoSecret(), keyId: "keyId234")
         self.mockIdentifier = Identifier(longFormDid: "longform", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer, alias: "testAlias")
@@ -32,7 +30,7 @@ class ExchangeServiceTests: XCTestCase {
        mockVerifiableCredential = VerifiableCredential(from: TestData.verifiableCredential.rawValue)!
         
         MockIssuanceResponseFormatter.wasFormatCalled = false
-        MockApiCalls.wasPostCalled = false
+        MockExchangeApiCalls.wasPostCalled = false
     }
     
     override func tearDownWithError() throws {
@@ -50,8 +48,8 @@ class ExchangeServiceTests: XCTestCase {
         }.catch { error in
             print(error)
             XCTAssert(MockExchangeRequestFormatter.wasFormatCalled)
-            XCTAssert(MockApiCalls.wasPostCalled)
-            XCTAssert(error is MockError)
+            XCTAssert(MockExchangeApiCalls.wasPostCalled)
+            XCTAssert(error is MockExchangeNetworkingError)
             expec.fulfill()
         }
         

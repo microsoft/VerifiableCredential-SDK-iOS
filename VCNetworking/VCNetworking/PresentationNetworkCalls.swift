@@ -6,8 +6,13 @@
 import PromiseKit
 import VCEntities
 
-public class PresentationNetworkCalls {
-    
+public protocol PresentationNetworking {
+    func getRequest(withUrl url: String) -> Promise<PresentationRequest>
+    func sendResponse(usingUrl url: String, withBody body: PresentationResponse) -> Promise<String?>
+}
+
+public class PresentationNetworkCalls: PresentationNetworking {
+
     private let urlSession: URLSession
     
     public init(urlSession: URLSession = URLSession.shared) {
