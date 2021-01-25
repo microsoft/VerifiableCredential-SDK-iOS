@@ -22,7 +22,9 @@ class PresentationServiceTests: XCTestCase {
         let identifierService = IdentifierService()
         let pairwiseService = PairwiseService()
         service = PresentationService(formatter: formatter,
-                                      apiCalls: MockPresentationApiCalls(),
+                                      presentationApiCalls: MockPresentationApiCalls(),
+                                      didDocumentDiscoveryApiCalls: MockDiscoveryApiCalls(),
+                                      requestValidator: MockPresentationRequestValidator(),
                                       identifierService: identifierService,
                                       pairwiseService: pairwiseService)
         
@@ -35,6 +37,8 @@ class PresentationServiceTests: XCTestCase {
         MockPresentationResponseFormatter.wasFormatCalled = false
         MockPresentationApiCalls.wasPostCalled = false
         MockPresentationApiCalls.wasGetCalled = false
+        MockDiscoveryApiCalls.wasGetCalled = false
+        MockPresentationRequestValidator.wasValidateCalled = false
     }
     
     override func tearDownWithError() throws {
@@ -140,7 +144,9 @@ class PresentationServiceTests: XCTestCase {
         let pairwiseService = PairwiseService()
         let identifierService = IdentifierService()
         let service = PresentationService(formatter: formatter,
-                                          apiCalls: MockPresentationApiCalls(),
+                                          presentationApiCalls: MockPresentationApiCalls(),
+                                          didDocumentDiscoveryApiCalls: MockDiscoveryApiCalls(),
+                                          requestValidator: MockPresentationRequestValidator(),
                                           identifierService: identifierService,
                                           pairwiseService: pairwiseService)
         
@@ -167,9 +173,11 @@ class PresentationServiceTests: XCTestCase {
         let identifierService = IdentifierService()
         let pairwiseService = PairwiseService()
         let service = PresentationService(formatter: formatter,
-                                      apiCalls: MockPresentationApiCalls(),
-                                      identifierService: identifierService,
-                                      pairwiseService: pairwiseService)
+                                          presentationApiCalls: MockPresentationApiCalls(),
+                                          didDocumentDiscoveryApiCalls: MockDiscoveryApiCalls(),
+                                          requestValidator: MockPresentationRequestValidator(),
+                                          identifierService: identifierService,
+                                          pairwiseService: pairwiseService)
         
         let response = try PresentationResponseContainer(from: self.presentationRequest)
         service.send(response: response).done {

@@ -11,7 +11,7 @@ enum JwsTokenError: Error {
 
 public struct JwsToken<T: Claims> {
     
-    let headers: Header
+    public let headers: Header
     public let content: T
     public let protectedMessage: String
     var signature: Signature?
