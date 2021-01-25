@@ -4,7 +4,6 @@
 *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VCRepository
 import VCEntities
 
 @testable import VCServices
@@ -19,10 +18,9 @@ class IssuanceServiceTests: XCTestCase {
     let identifierCreator = IdentifierCreator()
 
     override func setUpWithError() throws {
-        let repo = IssuanceRepository(apiCalls: MockApiCalls())
         let formatter = MockIssuanceResponseFormatter(shouldSucceed: true)
         service = IssuanceService(formatter: formatter,
-                                  repo: repo,
+                                  apiCalls: MockIssuanceApiCalls(),
                                   identifierService: IdentifierService(),
                                   pairwiseService: PairwiseService())
         
@@ -34,7 +32,7 @@ class IssuanceServiceTests: XCTestCase {
         try identifierDB.saveIdentifier(identifier: mockIdentifier)
         
         MockIssuanceResponseFormatter.wasFormatCalled = false
-        MockApiCalls.wasPostCalled = false
+        MockIssuanceApiCalls.wasPostCalled = false
     }
     
     override func tearDownWithError() throws {
@@ -44,7 +42,7 @@ class IssuanceServiceTests: XCTestCase {
     func testPublicInit() {
         let service = IssuanceService()
         XCTAssertNotNil(service.formatter)
-        XCTAssertNotNil(service.repo)
+        XCTAssertNotNil(service.apiCalls)
     }
 
     func testGetRequest() throws {
@@ -55,8 +53,8 @@ class IssuanceServiceTests: XCTestCase {
             XCTFail()
             expec.fulfill()
         }.catch { error in
-            XCTAssert(MockApiCalls.wasGetCalled)
-            XCTAssert(error is MockError)
+            XCTAssert(MockIssuanceApiCalls.wasGetCalled)
+            XCTAssert(error is MockIssuanceNetworkingError)
             expec.fulfill()
         }
         
@@ -74,8 +72,8 @@ class IssuanceServiceTests: XCTestCase {
         }.catch { error in
             print(error)
             XCTAssert(MockIssuanceResponseFormatter.wasFormatCalled)
-            XCTAssert(MockApiCalls.wasPostCalled)
-            XCTAssert(error is MockError)
+            XCTAssert(MockIssuanceApiCalls.wasPostCalled)
+            XCTAssert(error is MockIssuanceNetworkingError)
             expec.fulfill()
         }
         
@@ -85,10 +83,9 @@ class IssuanceServiceTests: XCTestCase {
     func testSendResponseFailedToFormat() throws {
         let expec = self.expectation(description: "Fire")
         
-        let repo = IssuanceRepository(apiCalls: MockApiCalls())
         let formatter = MockIssuanceResponseFormatter(shouldSucceed: false)
         let service = IssuanceService(formatter: formatter,
-                                      repo: repo,
+                                      apiCalls: MockIssuanceApiCalls(),
                                       identifierService: IdentifierService(),
                                       pairwiseService: PairwiseService())
         
@@ -100,7 +97,7 @@ class IssuanceServiceTests: XCTestCase {
             expec.fulfill()
         }.catch { error in
             XCTAssert(MockIssuanceResponseFormatter.wasFormatCalled)
-            XCTAssertFalse(MockApiCalls.wasPostCalled)
+            XCTAssertFalse(MockIssuanceApiCalls.wasPostCalled)
             XCTAssert(error is MockIssuanceResponseFormatterError)
             expec.fulfill()
         }

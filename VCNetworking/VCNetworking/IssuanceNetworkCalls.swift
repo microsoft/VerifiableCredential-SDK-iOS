@@ -6,7 +6,12 @@
 import PromiseKit
 import VCEntities
 
-public class IssuanceNetworkCalls {
+public protocol IssuanceNetworking {
+    func getRequest(withUrl url: String) -> Promise<Contract>
+    func sendResponse(usingUrl url: String, withBody body: IssuanceResponse) -> Promise<VerifiableCredential>
+}
+
+public class IssuanceNetworkCalls: IssuanceNetworking {
     
     private let urlSession: URLSession
     

@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VCRepository
+import VCNetworking
 import VCEntities
 
 enum PresentationServiceError: Error {
@@ -18,26 +18,26 @@ enum PresentationServiceError: Error {
 public class PresentationService {
     
     let formatter: PresentationResponseFormatting
-    let repo: PresentationRepository
+    let apiCalls: PresentationNetworking
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
     let sdkLog: VCSDKLog
     
     public convenience init() {
         self.init(formatter: PresentationResponseFormatter(),
-                  repo: PresentationRepository(),
+                  apiCalls: PresentationNetworkCalls(),
                   identifierService: IdentifierService(),
                   pairwiseService: PairwiseService(),
                   sdkLog: VCSDKLog.sharedInstance)
     }
     
     init(formatter: PresentationResponseFormatting,
-         repo: PresentationRepository,
+         apiCalls: PresentationNetworking,
          identifierService: IdentifierService,
          pairwiseService: PairwiseService,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
-        self.repo = repo
+        self.apiCalls = apiCalls
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
         self.sdkLog = sdkLog
@@ -47,7 +47,7 @@ public class PresentationService {
         return firstly {
             self.getRequestUriPromise(from: urlStr)
         }.then { requestUri in
-            self.repo.getRequest(withUrl: requestUri)
+            self.apiCalls.getRequest(withUrl: requestUri)
         }
     }
     
@@ -57,7 +57,7 @@ public class PresentationService {
         }.then { response in
             self.formatPresentationResponse(response: response, isPairwise: isPairwise)
         }.then { signedToken in
-            self.repo.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
+            self.apiCalls.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
         }
     }
     

@@ -6,7 +6,11 @@
 import PromiseKit
 import VCEntities
 
-public class DIDDocumentNetworkCalls {
+public protocol DiscoveryNetworking {
+    func getDocument(from identifier: String) -> Promise<IdentifierDocument>
+}
+
+public class DIDDocumentNetworkCalls: DiscoveryNetworking {
     
     private let urlSession: URLSession
     

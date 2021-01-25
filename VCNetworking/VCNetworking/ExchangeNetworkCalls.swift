@@ -6,7 +6,11 @@
 import PromiseKit
 import VCEntities
 
-public class ExchangeNetworkCalls {
+public protocol ExchangeNetworking {
+    func sendRequest(usingUrl url: String, withBody body: ExchangeRequest) -> Promise<VerifiableCredential>
+}
+
+public class ExchangeNetworkCalls: ExchangeNetworking {
     
     private let urlSession: URLSession
     
