@@ -41,6 +41,7 @@
 		55DA76ED25BE36FF009C32E0 /* MockIssuanceApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76EC25BE36FF009C32E0 /* MockIssuanceApiCalls.swift */; };
 		55DA76F525BE3858009C32E0 /* MockExchangeApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76F425BE3858009C32E0 /* MockExchangeApiCalls.swift */; };
 		55DA76FA25BE390E009C32E0 /* MockPresentationApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76F925BE390E009C32E0 /* MockPresentationApiCalls.swift */; };
+		55DA774825BF59C6009C32E0 /* CoreDataModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 555BDAEA2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld */; };
 		92F2ED0B25B9EB1900A6911C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F2ED0A25B9EB1900A6911C /* PromiseKit.framework */; };
 		92F2ED2425B9EB2100A6911C /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F2ED2325B9EB2100A6911C /* VCEntities.framework */; };
 		92F2ED2925B9EB2F00A6911C /* VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F2ED2825B9EB2F00A6911C /* VCRepository.framework */; };
@@ -364,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55DA774825BF59C6009C32E0 /* CoreDataModel.xcdatamodeld in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
