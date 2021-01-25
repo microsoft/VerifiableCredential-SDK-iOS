@@ -98,20 +98,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "550F1DB3250BD898009AF467"
-               BuildableName = "VCRepository.framework"
-               BlueprintName = "VCRepository"
-               ReferencedContainer = "container:../VCRepository/VCRepository.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "550F1E3425101758009AF467"
                BuildableName = "VCServices.framework"
                BlueprintName = "VCServices"
@@ -188,16 +174,6 @@
                BuildableName = "VCNetworkingTests.xctest"
                BlueprintName = "VCNetworkingTests"
                ReferencedContainer = "container:../VCNetworking/VCNetworking.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "550F1DBC250BD898009AF467"
-               BuildableName = "VCRepositoryTests.xctest"
-               BlueprintName = "VCRepositoryTests"
-               ReferencedContainer = "container:../VCRepository/VCRepository.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
