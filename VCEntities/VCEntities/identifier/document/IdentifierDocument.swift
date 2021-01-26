@@ -3,23 +3,14 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCJwt
-
-struct IdentifierDocument: Codable {
-    let publicKeys: [IdentifierDocumentPublicKey]
-    let serviceEndpoints: [IdentifierDocumentServiceEndpoint]?
+public struct IdentifierDocument: Codable, Equatable {
+    public let service: [String]
+    public let verificationMethod: [IdentifierDocumentPublicKey]
+    public let authentication: [String]
     
-    enum CodingKeys: String, CodingKey {
-        case publicKeys = "public_keys"
-        case serviceEndpoints = "service_endpoints"
-    }
-    
-    init(fromJwks jwks: [ECPublicJwk], andServiceEndpoints endpoints: [IdentifierDocumentServiceEndpoint]) {
-        var keys: [IdentifierDocumentPublicKey] = []
-        for jwk in jwks {
-            keys.append(IdentifierDocumentPublicKey(fromJwk: jwk))
-        }
-        self.publicKeys = keys
-        self.serviceEndpoints = endpoints
+    public init(service: [String], verificationMethod: [IdentifierDocumentPublicKey], authentication: [String]) {
+        self.service = service
+        self.verificationMethod = verificationMethod
+        self.authentication = authentication
     }
 }

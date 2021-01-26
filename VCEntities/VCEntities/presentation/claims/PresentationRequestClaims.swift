@@ -23,12 +23,17 @@ public struct PresentationRequestClaims: OIDCClaims {
     
     public let nonce: String?
     
+    public let scope: String?
+    
     /// flag to determine if presentation request can go into issuance flow
     public let prompt: String?
     
     public let registration: RegistrationClaims?
     
     public let idTokenHint: IssuerIdToken?
+    public let iat: Double?
+    
+    public let exp: Double?
     
     enum CodingKeys: String, CodingKey {
         case clientID = "client_id"
@@ -38,7 +43,7 @@ public struct PresentationRequestClaims: OIDCClaims {
         case responseType = "response_type"
         case responseMode = "response_mode"
         case idTokenHint = "id_token_hint"
-        case state, nonce, prompt, registration
+        case state, nonce, prompt, registration, iat, exp, scope
     }
     
     public init(from decoder: Decoder) throws {

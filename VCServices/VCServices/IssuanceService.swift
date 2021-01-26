@@ -5,7 +5,7 @@
 
 
 import PromiseKit
-import VCRepository
+import VCNetworking
 import VCEntities
 
 enum IssuanceServiceError: Error {
@@ -16,33 +16,33 @@ enum IssuanceServiceError: Error {
 public class IssuanceService {
     
     let formatter: IssuanceResponseFormatting
-    let repo: IssuanceRepository
+    let apiCalls: IssuanceNetworking
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
     let sdkLog: VCSDKLog
     
     public convenience init() {
         self.init(formatter: IssuanceResponseFormatter(),
-                  repo: IssuanceRepository(),
+                  apiCalls: IssuanceNetworkCalls(),
                   identifierService: IdentifierService(),
                   pairwiseService: PairwiseService(),
                   sdkLog: VCSDKLog.sharedInstance)
     }
     
     init(formatter: IssuanceResponseFormatting,
-         repo: IssuanceRepository,
+         apiCalls: IssuanceNetworking,
          identifierService: IdentifierService,
          pairwiseService: PairwiseService,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
-        self.repo = repo
+        self.apiCalls = apiCalls
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
         self.sdkLog = sdkLog
     }
     
     public func getRequest(usingUrl url: String) -> Promise<Contract> {
-        return self.repo.getRequest(withUrl: url)
+        return self.apiCalls.getRequest(withUrl: url)
     }
     
     public func send(response: IssuanceResponseContainer, isPairwise: Bool = false) -> Promise<VerifiableCredential> {
@@ -51,7 +51,7 @@ public class IssuanceService {
         }.then { response in
             self.formatIssuanceResponse(response: response, isPairwise: isPairwise)
         }.then { signedToken in
-            self.repo.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
+            self.apiCalls.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
         }
     }
     

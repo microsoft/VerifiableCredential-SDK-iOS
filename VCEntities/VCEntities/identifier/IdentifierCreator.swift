@@ -14,7 +14,7 @@ public struct IdentifierCreator {
     let aliasComputer = AliasComputer()
     
     public init() {
-        self.init(cryptoOperations: CryptoOperations(), identifierFormatter: IdentifierFormatter())
+        self.init(cryptoOperations: CryptoOperations())
     }
     
     public init(cryptoOperations: CryptoOperating) {

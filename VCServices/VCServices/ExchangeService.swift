@@ -5,28 +5,28 @@
 
 
 import PromiseKit
-import VCRepository
+import VCNetworking
 import VCEntities
 
 class ExchangeService {
     
     let formatter: ExchangeRequestFormatting
-    let repo: ExchangeRepository
+    let apiCalls: ExchangeNetworking
     
     convenience init() {
-        self.init(formatter: ExchangeRequestFormatter(), repo: ExchangeRepository())
+        self.init(formatter: ExchangeRequestFormatter(), apiCalls: ExchangeNetworkCalls())
     }
     
-    init(formatter: ExchangeRequestFormatting, repo: ExchangeRepository) {
+    init(formatter: ExchangeRequestFormatting, apiCalls: ExchangeNetworking) {
         self.formatter = formatter
-        self.repo = repo
+        self.apiCalls = apiCalls
     }
     
     func send(request: ExchangeRequestContainer) -> Promise<VerifiableCredential> {
         return firstly {
             self.formatExchangeResponse(request: request)
         }.then { signedToken in
-            self.repo.sendResponse(usingUrl:  request.audience, withBody: signedToken)
+            self.apiCalls.sendRequest(usingUrl:  request.audience, withBody: signedToken)
         }
     }
     

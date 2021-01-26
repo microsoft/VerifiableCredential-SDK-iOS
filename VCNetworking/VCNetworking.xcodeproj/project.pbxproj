@@ -26,6 +26,10 @@
 		551F304B2527E0F30081D5E7 /* PresentationRequestDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F304A2527E0F30081D5E7 /* PresentationRequestDecoderTests.swift */; };
 		5531D3A4255DB8E70002CC0E /* PostExchangeRequestOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3A3255DB8E70002CC0E /* PostExchangeRequestOperationTests.swift */; };
 		5531D3A6255DCEBE0002CC0E /* ExchangeRequestEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3A5255DCEBE0002CC0E /* ExchangeRequestEncoderTests.swift */; };
+		5573FE5425B2090E00282BC7 /* FetchDIDDocumentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FE5325B2090D00282BC7 /* FetchDIDDocumentOperation.swift */; };
+		5573FE5A25B20A0C00282BC7 /* DIDDocumentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FE5925B20A0C00282BC7 /* DIDDocumentDecoder.swift */; };
+		5573FEC225B8C3C900282BC7 /* DIDDocumentDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FEC125B8C3C900282BC7 /* DIDDocumentDecoderTests.swift */; };
+		5573FEC825B8CAF300282BC7 /* FetchDIDDocumentOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FEC725B8CAF300282BC7 /* FetchDIDDocumentOperationTests.swift */; };
 		55793BD1255C5796007F7599 /* PostExchangeRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BD0255C5796007F7599 /* PostExchangeRequestOperation.swift */; };
 		55793BD3255C582D007F7599 /* ExchangeRequestEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BD2255C582D007F7599 /* ExchangeRequestEncoder.swift */; };
 		5584E4A42526234C00A9DE58 /* FetchPresentationRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */; };
@@ -55,6 +59,10 @@
 		55D1684124EB0E3600AD2F98 /* NetworkOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1683624EB0E3600AD2F98 /* NetworkOperationTests.swift */; };
 		55D1684224EB0E3600AD2F98 /* SimpleFailureHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1683824EB0E3600AD2F98 /* SimpleFailureHandlerTests.swift */; };
 		55D7BFF424C4CBBD0090F495 /* VCNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D7BFEA24C4CBBD0090F495 /* VCNetworking.framework */; };
+		55DA76C325BE1D28009C32E0 /* IssuanceNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76C225BE1D28009C32E0 /* IssuanceNetworkCalls.swift */; };
+		55DA76DD25BE1ECF009C32E0 /* PresentationNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76DC25BE1ECF009C32E0 /* PresentationNetworkCalls.swift */; };
+		55DA76E325BE1FBD009C32E0 /* ExchangeNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76E225BE1FBD009C32E0 /* ExchangeNetworkCalls.swift */; };
+		55DA76E725BE203F009C32E0 /* DIDDocumentNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76E625BE203F009C32E0 /* DIDDocumentNetworkCalls.swift */; };
 		922D7E67252523FD00E4C8B5 /* NSURLSession+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 922D7E42252523FD00E4C8B5 /* NSURLSession+AnyPromise.h */; };
 		922D7E68252523FD00E4C8B5 /* NSNotificationCenter+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7E43252523FD00E4C8B5 /* NSNotificationCenter+Promise.swift */; };
 		922D7E69252523FD00E4C8B5 /* NSNotificationCenter+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 922D7E44252523FD00E4C8B5 /* NSNotificationCenter+AnyPromise.m */; };
@@ -68,6 +76,7 @@
 		922D7E71252523FD00E4C8B5 /* Process+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7E4C252523FD00E4C8B5 /* Process+Promise.swift */; };
 		922D7E72252523FD00E4C8B5 /* NSTask+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 922D7E4D252523FD00E4C8B5 /* NSTask+AnyPromise.m */; };
 		92E29993252522ED00B25BB6 /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E29992252522ED00B25BB6 /* VCEntities.framework */; };
+		92F2ECB925B9159600A6911C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F2ECB825B9159600A6911C /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +109,10 @@
 		551F304A2527E0F30081D5E7 /* PresentationRequestDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestDecoderTests.swift; sourceTree = "<group>"; };
 		5531D3A3255DB8E70002CC0E /* PostExchangeRequestOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostExchangeRequestOperationTests.swift; sourceTree = "<group>"; };
 		5531D3A5255DCEBE0002CC0E /* ExchangeRequestEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRequestEncoderTests.swift; sourceTree = "<group>"; };
+		5573FE5325B2090D00282BC7 /* FetchDIDDocumentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDIDDocumentOperation.swift; sourceTree = "<group>"; };
+		5573FE5925B20A0C00282BC7 /* DIDDocumentDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDDocumentDecoder.swift; sourceTree = "<group>"; };
+		5573FEC125B8C3C900282BC7 /* DIDDocumentDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDDocumentDecoderTests.swift; sourceTree = "<group>"; };
+		5573FEC725B8CAF300282BC7 /* FetchDIDDocumentOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDIDDocumentOperationTests.swift; sourceTree = "<group>"; };
 		55793BD0255C5796007F7599 /* PostExchangeRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostExchangeRequestOperation.swift; sourceTree = "<group>"; };
 		55793BD2255C582D007F7599 /* ExchangeRequestEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRequestEncoder.swift; sourceTree = "<group>"; };
 		5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPresentationRequestOperation.swift; sourceTree = "<group>"; };
@@ -132,6 +145,10 @@
 		55D1683924EB0E3600AD2F98 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D7BFEA24C4CBBD0090F495 /* VCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D7BFF324C4CBBD0090F495 /* VCNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55DA76C225BE1D28009C32E0 /* IssuanceNetworkCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceNetworkCalls.swift; sourceTree = "<group>"; };
+		55DA76DC25BE1ECF009C32E0 /* PresentationNetworkCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationNetworkCalls.swift; sourceTree = "<group>"; };
+		55DA76E225BE1FBD009C32E0 /* ExchangeNetworkCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeNetworkCalls.swift; sourceTree = "<group>"; };
+		55DA76E625BE203F009C32E0 /* DIDDocumentNetworkCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDDocumentNetworkCalls.swift; sourceTree = "<group>"; };
 		922D7E42252523FD00E4C8B5 /* NSURLSession+AnyPromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+AnyPromise.h"; sourceTree = "<group>"; };
 		922D7E43252523FD00E4C8B5 /* NSNotificationCenter+Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Promise.swift"; sourceTree = "<group>"; };
 		922D7E44252523FD00E4C8B5 /* NSNotificationCenter+AnyPromise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+AnyPromise.m"; sourceTree = "<group>"; };
@@ -147,6 +164,7 @@
 		92B9682B25240B6B00F64AB0 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E29992252522ED00B25BB6 /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E7AA3D25251B95000E8246 /* PMKFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PMKFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92F2ECB825B9159600A6911C /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E29993252522ED00B25BB6 /* VCEntities.framework in Frameworks */,
+				92F2ECB925B9159600A6911C /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +204,7 @@
 			children = (
 				550F1D702509749D009AF467 /* IssuanceServiceResponseDecoderTests.swift */,
 				550F1D93250AEDBE009AF467 /* ContractDecoderTests.swift */,
+				5573FEC125B8C3C900282BC7 /* DIDDocumentDecoderTests.swift */,
 				551F30482527E0200081D5E7 /* PresentationServiceResponseDecoderTests.swift */,
 				551F304A2527E0F30081D5E7 /* PresentationRequestDecoderTests.swift */,
 			);
@@ -205,6 +225,7 @@
 			children = (
 				55C6C4A825083D370082BE73 /* Decoding.swift */,
 				55C6C4AC250843920082BE73 /* ContractDecoder.swift */,
+				5573FE5925B20A0C00282BC7 /* DIDDocumentDecoder.swift */,
 				55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */,
 				5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */,
 				5518CC6F2526483C00C7A21B /* PresentationServiceResponseDecoder.swift */,
@@ -222,6 +243,10 @@
 				55D1680524EB0E1C00AD2F98 /* successHandlers */,
 				55D1680824EB0E1C00AD2F98 /* retryHandlers */,
 				55D1681124EB0E1C00AD2F98 /* failureHandlers */,
+				55DA76C225BE1D28009C32E0 /* IssuanceNetworkCalls.swift */,
+				55DA76E225BE1FBD009C32E0 /* ExchangeNetworkCalls.swift */,
+				55DA76E625BE203F009C32E0 /* DIDDocumentNetworkCalls.swift */,
+				55DA76DC25BE1ECF009C32E0 /* PresentationNetworkCalls.swift */,
 				55D1681424EB0E1C00AD2F98 /* NetworkingConstants.swift */,
 				55D1680224EB0E1C00AD2F98 /* NetworkingError.swift */,
 				55D1681524EB0E1D00AD2F98 /* networking.h */,
@@ -281,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				55D1681024EB0E1C00AD2F98 /* FetchContractOperation.swift */,
+				5573FE5325B2090D00282BC7 /* FetchDIDDocumentOperation.swift */,
 				5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */,
 			);
 			path = fetch;
@@ -371,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				55D1683524EB0E3600AD2F98 /* FetchContractOperationTests.swift */,
+				5573FEC725B8CAF300282BC7 /* FetchDIDDocumentOperationTests.swift */,
 				551F30442527DDBA0081D5E7 /* FetchPresentationRequestOperationTests.swift */,
 			);
 			path = fetch;
@@ -435,6 +462,7 @@
 		F96820A943825B01B3485FDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92F2ECB825B9159600A6911C /* PromiseKit.framework */,
 				92E29992252522ED00B25BB6 /* VCEntities.framework */,
 				92E7AA3D25251B95000E8246 /* PMKFoundation.framework */,
 				92B9682B25240B6B00F64AB0 /* PromiseKit.framework */,
@@ -557,13 +585,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				550F1D6325094691009AF467 /* Encoding.swift in Sources */,
+				55DA76E325BE1FBD009C32E0 /* ExchangeNetworkCalls.swift in Sources */,
+				5573FE5425B2090E00282BC7 /* FetchDIDDocumentOperation.swift in Sources */,
 				55D1681F24EB0E1D00AD2F98 /* PostIssuanceResponseOperation.swift in Sources */,
 				55D1681C24EB0E1D00AD2F98 /* NoRetry.swift in Sources */,
 				55D1682224EB0E1D00AD2F98 /* SimpleFailureHandler.swift in Sources */,
 				55D1682024EB0E1D00AD2F98 /* FetchContractOperation.swift in Sources */,
 				55D1681D24EB0E1D00AD2F98 /* RetryHandler.swift in Sources */,
 				55793BD3255C582D007F7599 /* ExchangeRequestEncoder.swift in Sources */,
+				55DA76DD25BE1ECF009C32E0 /* PresentationNetworkCalls.swift in Sources */,
 				55D1681B24EB0E1D00AD2F98 /* SuccessHandler.swift in Sources */,
+				55DA76C325BE1D28009C32E0 /* IssuanceNetworkCalls.swift in Sources */,
 				550F1D65250946CF009AF467 /* IssuanceResponseEncoder.swift in Sources */,
 				55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */,
 				922D7E72252523FD00E4C8B5 /* NSTask+AnyPromise.m in Sources */,
@@ -571,6 +603,7 @@
 				922D7E69252523FD00E4C8B5 /* NSNotificationCenter+AnyPromise.m in Sources */,
 				55D1681A24EB0E1D00AD2F98 /* SimpleSuccessHandler.swift in Sources */,
 				5584E4A42526234C00A9DE58 /* FetchPresentationRequestOperation.swift in Sources */,
+				55DA76E725BE203F009C32E0 /* DIDDocumentNetworkCalls.swift in Sources */,
 				55D1681E24EB0E1D00AD2F98 /* NetworkOperation.swift in Sources */,
 				55D1681824EB0E1D00AD2F98 /* NetworkingError.swift in Sources */,
 				5518CC6E2526479900C7A21B /* PostPresentationResponseOperation.swift in Sources */,
@@ -581,6 +614,7 @@
 				5584E4A6252623EA00A9DE58 /* PresentationRequestDecoder.swift in Sources */,
 				5518CC6C2526472000C7A21B /* PresentationResponseEncoder.swift in Sources */,
 				55D1682124EB0E1D00AD2F98 /* FailureHandler.swift in Sources */,
+				5573FE5A25B20A0C00282BC7 /* DIDDocumentDecoder.swift in Sources */,
 				922D7E6A252523FD00E4C8B5 /* afterlife.swift in Sources */,
 				922D7E71252523FD00E4C8B5 /* Process+Promise.swift in Sources */,
 				922D7E6D252523FD00E4C8B5 /* NSURLSession+AnyPromise.m in Sources */,
@@ -600,7 +634,9 @@
 				5531D3A6255DCEBE0002CC0E /* ExchangeRequestEncoderTests.swift in Sources */,
 				550F1D9D250AFDF1009AF467 /* IssuanceResponseEncoderTests.swift in Sources */,
 				55D1684024EB0E3600AD2F98 /* FetchContractOperationTests.swift in Sources */,
+				5573FEC825B8CAF300282BC7 /* FetchDIDDocumentOperationTests.swift in Sources */,
 				55D1683F24EB0E3600AD2F98 /* PostIssuanceResponseOperationTests.swift in Sources */,
+				5573FEC225B8C3C900282BC7 /* DIDDocumentDecoderTests.swift in Sources */,
 				5531D3A4255DB8E70002CC0E /* PostExchangeRequestOperationTests.swift in Sources */,
 				55D1684224EB0E3600AD2F98 /* SimpleFailureHandlerTests.swift in Sources */,
 				550F1D67250952BD009AF467 /* MockObject.swift in Sources */,

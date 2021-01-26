@@ -4,7 +4,6 @@
  *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VCRepository
 import VCEntities
 
 @testable import VCServices
@@ -19,12 +18,13 @@ class PresentationServiceTests: XCTestCase {
     let expectedUrl = "openid://vc/?request_uri=https://test-relyingparty.azurewebsites.net/request/UZWlr4uOY13QiA"
     
     override func setUpWithError() throws {
-        let repo = PresentationRepository(apiCalls: MockApiCalls())
         let formatter = PresentationResponseFormatter()
         let identifierService = IdentifierService()
         let pairwiseService = PairwiseService()
         service = PresentationService(formatter: formatter,
-                                      repo: repo,
+                                      presentationApiCalls: MockPresentationApiCalls(),
+                                      didDocumentDiscoveryApiCalls: MockDiscoveryApiCalls(),
+                                      requestValidator: MockPresentationRequestValidator(),
                                       identifierService: identifierService,
                                       pairwiseService: pairwiseService)
         
@@ -35,8 +35,10 @@ class PresentationServiceTests: XCTestCase {
         try identifierDB.saveIdentifier(identifier: mockIdentifier)
         
         MockPresentationResponseFormatter.wasFormatCalled = false
-        MockApiCalls.wasPostCalled = false
-        MockApiCalls.wasGetCalled = false
+        MockPresentationApiCalls.wasPostCalled = false
+        MockPresentationApiCalls.wasGetCalled = false
+        MockDiscoveryApiCalls.wasGetCalled = false
+        MockPresentationRequestValidator.wasValidateCalled = false
     }
     
     override func tearDownWithError() throws {
@@ -46,7 +48,7 @@ class PresentationServiceTests: XCTestCase {
     func testPublicInit() {
         let service = IssuanceService()
         XCTAssertNotNil(service.formatter)
-        XCTAssertNotNil(service.repo)
+        XCTAssertNotNil(service.apiCalls)
     }
     
     func testGetRequest() throws {
@@ -58,8 +60,8 @@ class PresentationServiceTests: XCTestCase {
             expec.fulfill()
         }.catch { error in
             print(error)
-            XCTAssert(MockApiCalls.wasGetCalled)
-            XCTAssert(error is MockError)
+            XCTAssert(MockPresentationApiCalls.wasGetCalled)
+            XCTAssert(error is MockPresentationNetworkingError)
             expec.fulfill()
         }
         
@@ -138,12 +140,13 @@ class PresentationServiceTests: XCTestCase {
     func testSendResponse() throws {
         let expec = self.expectation(description: "Fire")
         
-        let repo = PresentationRepository(apiCalls: MockApiCalls())
         let formatter = MockPresentationResponseFormatter(shouldSucceed: true)
         let pairwiseService = PairwiseService()
         let identifierService = IdentifierService()
         let service = PresentationService(formatter: formatter,
-                                          repo: repo,
+                                          presentationApiCalls: MockPresentationApiCalls(),
+                                          didDocumentDiscoveryApiCalls: MockDiscoveryApiCalls(),
+                                          requestValidator: MockPresentationRequestValidator(),
                                           identifierService: identifierService,
                                           pairwiseService: pairwiseService)
         
@@ -155,8 +158,8 @@ class PresentationServiceTests: XCTestCase {
         }.catch { error in
             print(error)
             XCTAssert(MockPresentationResponseFormatter.wasFormatCalled)
-            XCTAssert(MockApiCalls.wasPostCalled)
-            XCTAssert(error is MockError)
+            XCTAssert(MockPresentationApiCalls.wasPostCalled)
+            XCTAssert(error is MockPresentationNetworkingError)
             expec.fulfill()
         }
         
@@ -166,14 +169,15 @@ class PresentationServiceTests: XCTestCase {
     func testSendResponseFailedToFormat() throws {
         let expec = self.expectation(description: "Fire")
         
-        let repo = PresentationRepository(apiCalls: MockApiCalls())
         let formatter = MockPresentationResponseFormatter(shouldSucceed: false)
         let identifierService = IdentifierService()
         let pairwiseService = PairwiseService()
         let service = PresentationService(formatter: formatter,
-                                      repo: repo,
-                                      identifierService: identifierService,
-                                      pairwiseService: pairwiseService)
+                                          presentationApiCalls: MockPresentationApiCalls(),
+                                          didDocumentDiscoveryApiCalls: MockDiscoveryApiCalls(),
+                                          requestValidator: MockPresentationRequestValidator(),
+                                          identifierService: identifierService,
+                                          pairwiseService: pairwiseService)
         
         let response = try PresentationResponseContainer(from: self.presentationRequest)
         service.send(response: response).done {
@@ -183,7 +187,7 @@ class PresentationServiceTests: XCTestCase {
         }.catch { error in
             print(error)
             XCTAssert(MockPresentationResponseFormatter.wasFormatCalled)
-            XCTAssertFalse(MockApiCalls.wasPostCalled)
+            XCTAssertFalse(MockPresentationApiCalls.wasPostCalled)
             XCTAssert(error is MockIssuanceResponseFormatterError)
             expec.fulfill()
         }

@@ -15,7 +15,11 @@ public struct Secp256k1Verifier: TokenVerifying {
         self.hashAlgorithm = hashAlg
     }
     
-    public func verify<T>(token: JwsToken<T>, usingPublicKey key: Secp256k1PublicKey) throws -> Bool {
+    public func verify<T>(token: JwsToken<T>, usingPublicKey key: ECPublicJwk) throws -> Bool {
+        
+        guard token.headers.algorithm == "ES256K" else {
+            throw JwsTokenError.unsupportedAlgorithm(name: token.headers.algorithm)
+        }
         
         guard let signature = token.signature else {
             return false
@@ -25,8 +29,15 @@ public struct Secp256k1Verifier: TokenVerifying {
             throw VCJwtError.unableToParseString
         }
         
+        guard let x = Data(base64URLEncoded: key.x),
+              let y = Data(base64URLEncoded: key.y),
+              let secpKey = Secp256k1PublicKey(x: x, y: y) else {
+            throw VCJwtError.unableToParseString
+        }
+        
         let hashedMessage = self.hashAlgorithm.hash(data: encodedMessage)
-        return try algorithm.isValidSignature(signature: signature, forMessageHash: hashedMessage, usingPublicKey: key)
+        
+        return try algorithm.isValidSignature(signature: signature, forMessageHash: hashedMessage, usingPublicKey: secpKey)
     }
 }
 
