@@ -14,15 +14,19 @@ enum PresentationRequestValidatorError: Error {
     case invalidResponseModeValue
 }
 
-public struct PresentationRequestValidator {
+public protocol RequestValidating {
+    func validate(request: PresentationRequest, usingKeys publicKeys: [IdentifierDocumentPublicKeyV1]) throws
+}
+
+public struct PresentationRequestValidator: RequestValidating {
     
     private let verifier: TokenVerifying
     
-    init(verifier: TokenVerifying = Secp256k1Verifier()) {
+    public init(verifier: TokenVerifying = Secp256k1Verifier()) {
         self.verifier = verifier
     }
     
-    func validate(request: PresentationRequest, usingKeys publicKeys: [ECPublicJwk]) throws {
+    public func validate(request: PresentationRequest, usingKeys publicKeys: [IdentifierDocumentPublicKeyV1]) throws {
         try validate(token: request, using: publicKeys)
         try validate(expiration: request.content.exp)
         try validate(request.content.scope, equals: VCEntitiesConstants.SCOPE, throws: PresentationRequestValidatorError.invalidScopeValue)
@@ -30,11 +34,11 @@ public struct PresentationRequestValidator {
         try validate(request.content.responseType, equals: VCEntitiesConstants.RESPONSE_TYPE, throws: PresentationRequestValidatorError.invalidResponseTypeValue)
     }
     
-    private func validate(token: PresentationRequest, using keys: [ECPublicJwk]) throws {
+    private func validate(token: PresentationRequest, using keys: [IdentifierDocumentPublicKeyV1]) throws {
         
         for key in keys {
             do {
-                if try token.verify(using: verifier, withPublicKey: key) {
+                if try token.verify(using: verifier, withPublicKey: key.publicKeyJwk) {
                     return
                 }
             } catch {
