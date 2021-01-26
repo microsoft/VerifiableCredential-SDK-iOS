@@ -30,7 +30,6 @@ public class JwsEncoder {
             compactToken = compactToken + "." + signature
         }
         
-        print(compactToken)
         return compactToken
     }
 }

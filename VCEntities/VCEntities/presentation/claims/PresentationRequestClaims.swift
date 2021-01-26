@@ -31,6 +31,7 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     public let registration: RegistrationClaims?
     
     public let idTokenHint: IssuerIdToken?
+    
     public let iat: Double?
     
     public let exp: Double?
