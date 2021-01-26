@@ -16,7 +16,11 @@ class PresentationRequestValidatorTests: XCTestCase {
     var mockDidPublicKey: IdentifierDocumentPublicKeyV1!
     
     override func setUpWithError() throws {
-        mockDidPublicKey = IdentifierDocumentPublicKeyV1(id: "test", type: "Typetest", controller: "controllerTest", publicKeyJwk: mockPublicKey, purposes: ["purpose"])
+        mockDidPublicKey = IdentifierDocumentPublicKeyV1(id: "test",
+                                                         type: "Typetest",
+                                                         controller: "controllerTest",
+                                                         publicKeyJwk: mockPublicKey,
+                                                         purposes: ["purpose"])
     }
     
     override func tearDownWithError() throws {

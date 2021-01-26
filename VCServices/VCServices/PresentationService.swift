@@ -86,7 +86,7 @@ public class PresentationService {
         guard let queryItems = urlComponents.percentEncodedQueryItems else { throw PresentationServiceError.noQueryParametersOnUri }
         
         for queryItem in queryItems {
-            if queryItem.name == "request_uri" {
+            if queryItem.name == Constants.REQUEST_URI {
                 guard let value = queryItem.value?.removingPercentEncoding
                 else { throw PresentationServiceError.noValueForRequestUriQueryParameter }
                 return value
@@ -109,7 +109,7 @@ public class PresentationService {
     private func getDIDFromHeader(request: PresentationRequest) -> Promise<String> {
         return Promise { seal in
             
-            guard let kid = request.headers.keyId?.split(separator: "#"),
+            guard let kid = request.headers.keyId?.split(separator: Constants.FRAGMENT_SEPARATOR),
                   let did = kid.first else {
                 
                 seal.reject(PresentationServiceError.noKeyIdInRequestHeader)
