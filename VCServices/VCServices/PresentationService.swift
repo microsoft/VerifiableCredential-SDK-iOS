@@ -120,7 +120,7 @@ public class PresentationService {
         }
     }
     
-    private func wrapValidationInPromise(request: PresentationRequest, usingKeys keys: [IdentifierDocumentPublicKeyV1]) -> Promise<PresentationRequest> {
+    private func wrapValidationInPromise(request: PresentationRequest, usingKeys keys: [IdentifierDocumentPublicKey]) -> Promise<PresentationRequest> {
         return Promise { seal in
             do {
                 try self.requestValidator.validate(request: request, usingKeys: keys)
