@@ -5,7 +5,7 @@
 
 import VCJwt
 
-public struct IssuerIdToken {
+public struct IssuerIdToken: Equatable {
     
     public let raw: String
     
@@ -19,5 +19,9 @@ public struct IssuerIdToken {
         }
         
         self.token = jws
+    }
+    
+    public static func == (lhs: IssuerIdToken, rhs: IssuerIdToken) -> Bool {
+        return lhs.raw == rhs.raw
     }
 }

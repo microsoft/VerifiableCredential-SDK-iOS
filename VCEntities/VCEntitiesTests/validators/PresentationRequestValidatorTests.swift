@@ -17,10 +17,10 @@ class PresentationRequestValidatorTests: XCTestCase {
     
     override func setUpWithError() throws {
         mockDidPublicKey = IdentifierDocumentPublicKey(id: "test",
-                                                         type: "Typetest",
-                                                         controller: "controllerTest",
-                                                         publicKeyJwk: mockPublicKey,
-                                                         purposes: ["purpose"])
+                                                       type: "Typetest",
+                                                       controller: "controllerTest",
+                                                       publicKeyJwk: mockPublicKey,
+                                                       purposes: ["purpose"])
     }
     
     override func tearDownWithError() throws {
@@ -94,18 +94,19 @@ class PresentationRequestValidatorTests: XCTestCase {
                                                      scope: String = VCEntitiesConstants.SCOPE,
                                                      timeConstraints: TokenTimeConstraints = TokenTimeConstraints(expiryInSeconds: 300)) -> PresentationRequestClaims {
         return PresentationRequestClaims(clientID: "clientID",
-                                                    issuer: "issuer",
-                                                    redirectURI: "redirectURI",
-                                                    responseType: responseType,
-                                                    responseMode: responseMode,
-                                                    presentationDefinition: nil,
-                                                    state: "state",
-                                                    nonce: "nonce",
-                                                    scope: scope,
-                                                    prompt: "create",
-                                                    registration: nil,
-                                                    iat: timeConstraints.issuedAt,
-                                                    exp: timeConstraints.expiration)
+                                         issuer: "issuer",
+                                         redirectURI: "redirectURI",
+                                         responseMode: responseMode,
+                                         responseType: responseType,
+                                         presentationDefinition: nil,
+                                         state: "state",
+                                         nonce: "nonce",
+                                         scope: scope,
+                                         prompt: "create",
+                                         registration: nil,
+                                         idTokenHint: nil,
+                                         iat: timeConstraints.issuedAt,
+                                         exp: timeConstraints.expiration)
     }
     
 }

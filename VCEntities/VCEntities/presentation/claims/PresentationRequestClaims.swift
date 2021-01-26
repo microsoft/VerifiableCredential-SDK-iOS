@@ -5,7 +5,7 @@
 
 import VCJwt
 
-public struct PresentationRequestClaims: OIDCClaims {
+public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
     public let clientID: String?
     
@@ -46,6 +46,36 @@ public struct PresentationRequestClaims: OIDCClaims {
         case state, nonce, prompt, registration, iat, exp, scope
     }
     
+    init(clientID: String?,
+         issuer: String?,
+         redirectURI: String?,
+         responseMode: String?,
+         responseType: String?,
+         presentationDefinition: PresentationDefinition?,
+         state: String?,
+         nonce: String?,
+         scope: String?,
+         prompt: String?,
+         registration: RegistrationClaims?,
+         idTokenHint: IssuerIdToken? = nil,
+         iat: Double?,
+         exp: Double?) {
+        self.clientID = clientID
+        self.issuer = issuer
+        self.redirectURI = redirectURI
+        self.responseMode = responseMode
+        self.responseType = responseType
+        self.presentationDefinition = presentationDefinition
+        self.state = state
+        self.nonce = nonce
+        self.scope = scope
+        self.prompt = prompt
+        self.registration = registration
+        self.idTokenHint = idTokenHint
+        self.iat = iat
+        self.exp = exp
+    }
+    
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         clientID = try values.decodeIfPresent(String.self, forKey: .clientID)
@@ -57,6 +87,9 @@ public struct PresentationRequestClaims: OIDCClaims {
         state = try values.decodeIfPresent(String.self, forKey: .state)
         nonce = try values.decodeIfPresent(String.self, forKey: .nonce)
         prompt = try values.decodeIfPresent(String.self, forKey: .prompt)
+        scope = try values.decodeIfPresent(String.self, forKey: .scope)
+        iat = try values.decodeIfPresent(Double.self, forKey: .iat)
+        exp = try values.decodeIfPresent(Double.self, forKey: .exp)
         registration = try values.decodeIfPresent(RegistrationClaims.self, forKey: .registration)
         let idTokenHintSerialized = try values.decodeIfPresent(String.self, forKey: .idTokenHint)
         if let idToken = idTokenHintSerialized {
@@ -77,6 +110,9 @@ public struct PresentationRequestClaims: OIDCClaims {
         try container.encodeIfPresent(state, forKey: .state)
         try container.encodeIfPresent(nonce, forKey: .nonce)
         try container.encodeIfPresent(prompt, forKey: .prompt)
+        try container.encodeIfPresent(iat, forKey: .iat)
+        try container.encodeIfPresent(exp, forKey: .exp)
+        try container.encodeIfPresent(scope, forKey: .scope)
         try container.encodeIfPresent(registration, forKey: .registration)
         try container.encodeIfPresent(idTokenHint?.raw, forKey: .idTokenHint)
     }
