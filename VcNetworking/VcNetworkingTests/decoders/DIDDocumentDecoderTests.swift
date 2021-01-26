@@ -5,6 +5,7 @@
 
 import XCTest
 import VCEntities
+import VCJwt
 
 @testable import VCNetworking
 
@@ -13,12 +14,13 @@ class DIDDocumentDecoderTests: XCTestCase {
     var expectedDocument: IdentifierDocument!
     var encodedDiscoveryServiceResponse: Data!
     let decoder = DIDDocumentDecoder()
+    let mockPublicKey = ECPublicJwk(x: "x", y: "y", keyId: "keyId")
     
     override func setUpWithError() throws {
         let publicKey = IdentifierDocumentPublicKeyV1(id: "idTest",
                                                       type: "typeTest",
                                                       controller: "controllerTest",
-                                                      publicKeyJwk: nil,
+                                                      publicKeyJwk: mockPublicKey,
                                                       purposes: [])
         expectedDocument = IdentifierDocument(service: ["serviceTest"],
                                               verificationMethod: [publicKey],
