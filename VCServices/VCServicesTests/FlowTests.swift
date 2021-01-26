@@ -94,10 +94,4 @@ class FlowTests: XCTestCase {
         responseContainer.requestVCMap["VerifiedAIEngineerCertificate"] = vc
         return useCase.send(response: responseContainer)
     }
-    
-    func testIdentifierFormatter() throws {
-        let creator = IdentifierCreator(cryptoOperations: CryptoOperations(), version: .v0)
-        let did = try creator.create(forId: "test", andRelyingParty: "testRP")
-        print(did)
-    }
 }

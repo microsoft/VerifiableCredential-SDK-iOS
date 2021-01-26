@@ -6,13 +6,13 @@
 import VCJwt
 
 struct IONDocumentModel: Codable {
-    let publicKeys: [IdentifierDocumentPublicKeyV1]
+    let publicKeys: [IdentifierDocumentPublicKey]
     let services: [IdentifierDocumentServiceEndpoint]?
     
     init(fromJwks jwks: [ECPublicJwk], andServiceEndpoints services: [IdentifierDocumentServiceEndpoint]) {
-        var keys: [IdentifierDocumentPublicKeyV1] = []
+        var keys: [IdentifierDocumentPublicKey] = []
         for jwk in jwks {
-            keys.append(IdentifierDocumentPublicKeyV1(fromJwk: jwk))
+            keys.append(IdentifierDocumentPublicKey(fromJwk: jwk))
         }
         self.publicKeys = keys
         self.services = services

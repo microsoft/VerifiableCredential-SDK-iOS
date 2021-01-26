@@ -5,11 +5,6 @@
 
 import VCCrypto
 
-public enum IdentifierVersion: String {
-    case v0 = "v0.8"
-    case v1 = "v1"
-}
-
 public struct Identifier {
     public let longFormDid: String
     public let didDocumentKeys: [KeyContainer]

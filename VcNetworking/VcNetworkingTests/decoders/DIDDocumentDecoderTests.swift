@@ -17,7 +17,7 @@ class DIDDocumentDecoderTests: XCTestCase {
     let mockPublicKey = ECPublicJwk(x: "x", y: "y", keyId: "keyId")
     
     override func setUpWithError() throws {
-        let publicKey = IdentifierDocumentPublicKeyV1(id: "idTest",
+        let publicKey = IdentifierDocumentPublicKey(id: "idTest",
                                                       type: "typeTest",
                                                       controller: "controllerTest",
                                                       publicKeyJwk: mockPublicKey,
