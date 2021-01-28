@@ -45,9 +45,10 @@
 		55DA76FA25BE390E009C32E0 /* MockPresentationApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76F925BE390E009C32E0 /* MockPresentationApiCalls.swift */; };
 		55DA770525BE45C7009C32E0 /* MockDiscoveryApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA770425BE45C7009C32E0 /* MockDiscoveryApiCalls.swift */; };
 		55DA770A25BE469F009C32E0 /* MockPresentationRequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA770925BE469F009C32E0 /* MockPresentationRequestValidator.swift */; };
+		92D596F425C2341600C42370 /* VCNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D596F325C2341600C42370 /* VCNetworking.framework */; };
+		92D5983025C2378700C42370 /* Secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D5982F25C2378700C42370 /* Secp256k1.framework */; };
 		92F2ED0B25B9EB1900A6911C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F2ED0A25B9EB1900A6911C /* PromiseKit.framework */; };
 		92F2ED2425B9EB2100A6911C /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F2ED2325B9EB2100A6911C /* VCEntities.framework */; };
-		92F2ED2925B9EB2F00A6911C /* VCRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F2ED2825B9EB2F00A6911C /* VCRepository.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,8 @@
 		55DA76F925BE390E009C32E0 /* MockPresentationApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPresentationApiCalls.swift; sourceTree = "<group>"; };
 		55DA770425BE45C7009C32E0 /* MockDiscoveryApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiscoveryApiCalls.swift; sourceTree = "<group>"; };
 		55DA770925BE469F009C32E0 /* MockPresentationRequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPresentationRequestValidator.swift; sourceTree = "<group>"; };
+		92D596F325C2341600C42370 /* VCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92D5982F25C2378700C42370 /* Secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F2ED0A25B9EB1900A6911C /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F2ED2325B9EB2100A6911C /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F2ED2825B9EB2F00A6911C /* VCRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,9 +123,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92F2ED2925B9EB2F00A6911C /* VCRepository.framework in Frameworks */,
 				92F2ED2425B9EB2100A6911C /* VCEntities.framework in Frameworks */,
 				92F2ED0B25B9EB1900A6911C /* PromiseKit.framework in Frameworks */,
+				92D596F425C2341600C42370 /* VCNetworking.framework in Frameworks */,
+				92D5983025C2378700C42370 /* Secp256k1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +248,8 @@
 		8A1DACB8079028BD52F83396 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92D5982F25C2378700C42370 /* Secp256k1.framework */,
+				92D596F325C2341600C42370 /* VCNetworking.framework */,
 				92F2ED2825B9EB2F00A6911C /* VCRepository.framework */,
 				92F2ED2325B9EB2100A6911C /* VCEntities.framework */,
 				92F2ED0A25B9EB1900A6911C /* PromiseKit.framework */,
@@ -618,7 +624,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCServices;
 				PRODUCT_NAME = VCServices;
 				SKIP_INSTALL = YES;
@@ -647,7 +653,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCServices;
 				PRODUCT_NAME = VCServices;
 				SKIP_INSTALL = YES;
