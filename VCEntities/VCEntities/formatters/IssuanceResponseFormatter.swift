@@ -58,6 +58,7 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
                                       contract: response.contractUri,
                                       jti: UUID().uuidString,
                                       attestations: attestations,
+                                      pin: nil,
                                       iat: timeConstraints.issuedAt,
                                       exp: timeConstraints.expiration)
     }
@@ -72,6 +73,14 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         var selfIssuedMap: RequestedSelfAttestedClaimMap? = nil
         if !response.requestedSelfAttestedClaimMap.isEmpty {
             selfIssuedMap = response.requestedSelfAttestedClaimMap
+        }
+        
+        if response.issuancePin != nil {
+            if selfIssuedMap == nil {
+                selfIssuedMap = [:]
+            }
+            selfIssuedMap?["pin"] = response.issuancePin
+            selfIssuedMap?[VCEntitiesConstants.SELF_ISSUED] = response.issuanceIdToken
         }
         
         var presentationsMap: [String: String]? = nil
