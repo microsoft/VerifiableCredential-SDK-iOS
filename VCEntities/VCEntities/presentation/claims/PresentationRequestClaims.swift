@@ -117,6 +117,10 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
         try container.encodeIfPresent(registration, forKey: .registration)
         try container.encodeIfPresent(idTokenHint?.raw, forKey: .idTokenHint)
     }
+    
+    public func getPinRequiredLength() -> Int? {
+        return idTokenHint?.token.content.attestations.selfIssued.pin.length
+    }
 }
 
 public typealias PresentationRequest = JwsToken<PresentationRequestClaims>
