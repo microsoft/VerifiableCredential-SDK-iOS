@@ -24,5 +24,6 @@ public struct VCEntitiesConstants {
     public static let RESPONSE_TYPE = "id_token"
     public static let RESPONSE_MODE = "form_post"
     public static let SCOPE = "openid did_authn"
+    public static let PIN = "pin"
     
 }
