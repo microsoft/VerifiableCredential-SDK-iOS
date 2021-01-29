@@ -79,8 +79,12 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
             if selfIssuedMap == nil {
                 selfIssuedMap = [:]
             }
-            selfIssuedMap?["pin"] = response.issuancePin
-            selfIssuedMap?[VCEntitiesConstants.SELF_ISSUED] = response.issuanceIdToken
+            selfIssuedMap?[VCEntitiesConstants.PIN] = response.issuancePin
+            
+            if idTokenMap == nil {
+                idTokenMap = [:]
+            }
+            idTokenMap?[VCEntitiesConstants.SELF_ISSUED] = response.issuanceIdToken
         }
         
         var presentationsMap: [String: String]? = nil

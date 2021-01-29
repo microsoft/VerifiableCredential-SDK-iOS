@@ -6,5 +6,5 @@
 import VCJwt
 
 public struct IssuerIdTokenClaims: Claims {
-    public let attestations: IssuerIdTokenAttestations
+    public let pin: PinDescriptor
 }
