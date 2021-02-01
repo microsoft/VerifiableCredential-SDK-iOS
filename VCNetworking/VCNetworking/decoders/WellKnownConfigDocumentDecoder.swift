@@ -7,11 +7,11 @@ import Foundation
 import VCEntities
 
 public struct WellKnownConfigDocumentDecoder: Decoding {
-    typealias Decodable = DomainLinkageCredential
+    typealias Decodable = WellKnownConfigDocument
     
     let decoder = JSONDecoder()
     
-    public func decode(data: Data) throws -> DomainLinkageCredential {
-        return try decoder.decode(DomainLinkageCredential.self, from: data)
+    public func decode(data: Data) throws -> WellKnownConfigDocument {
+        return try decoder.decode(WellKnownConfigDocument.self, from: data)
     }
 }

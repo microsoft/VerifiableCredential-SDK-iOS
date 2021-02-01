@@ -3,6 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
+import VCJwt
+
 public struct DomainLinkageCredentialSubject: Codable {
     let did: String
     let domainUrl: String
@@ -27,7 +29,7 @@ public struct DomainLinkageCredentialContent: Codable {
     }
 }
 
-public struct DomainLinkageCredential: Codable {
+public struct DomainLinkageCredentialClaims: Claims {
     let subject: String
     let issuer: String
     let notValidBefore: Double
@@ -40,3 +42,11 @@ public struct DomainLinkageCredential: Codable {
         case verifiableCredential = "vc"
     }
 }
+
+public struct DomainLinkageVerificationInput {
+    public let credential: DomainLinkageCredential
+    public let document: IdentifierDocument
+    public let domainUrl: String
+}
+
+public typealias DomainLinkageCredential = JwsToken<DomainLinkageCredentialClaims>

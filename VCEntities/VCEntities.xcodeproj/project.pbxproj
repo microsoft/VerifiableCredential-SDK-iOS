@@ -95,6 +95,8 @@
 		5584E4A02525656500A9DE58 /* SchemaDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E49F2525656500A9DE58 /* SchemaDescriptor.swift */; };
 		5584E4A2252565D900A9DE58 /* IssuanceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A1252565D900A9DE58 /* IssuanceMetadata.swift */; };
 		559FC96025C8940100737F14 /* DomainLinkageCredentialSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC95F25C8940100737F14 /* DomainLinkageCredentialSubject.swift */; };
+		559FC97E25C8A88400737F14 /* DomainLinkageCredentialValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC97D25C8A88400737F14 /* DomainLinkageCredentialValidator.swift */; };
+		559FC98225C8ABFB00737F14 /* WellKnownConfigDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC98125C8ABFB00737F14 /* WellKnownConfigDocument.swift */; };
 		55AF747B252F5B4B006A8B25 /* IdentifierFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */; };
 		55AF747D252F64F7006A8B25 /* MockCryptoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747C252F64F7006A8B25 /* MockCryptoOperations.swift */; };
 		55AF747F252F669F006A8B25 /* MockIdentifierFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747E252F669F006A8B25 /* MockIdentifierFormatter.swift */; };
@@ -211,6 +213,8 @@
 		5584E49F2525656500A9DE58 /* SchemaDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaDescriptor.swift; sourceTree = "<group>"; };
 		5584E4A1252565D900A9DE58 /* IssuanceMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceMetadata.swift; sourceTree = "<group>"; };
 		559FC95F25C8940100737F14 /* DomainLinkageCredentialSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLinkageCredentialSubject.swift; sourceTree = "<group>"; };
+		559FC97D25C8A88400737F14 /* DomainLinkageCredentialValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLinkageCredentialValidator.swift; sourceTree = "<group>"; };
+		559FC98125C8ABFB00737F14 /* WellKnownConfigDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellKnownConfigDocument.swift; sourceTree = "<group>"; };
 		55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierFormatterTests.swift; sourceTree = "<group>"; };
 		55AF747C252F64F7006A8B25 /* MockCryptoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCryptoOperations.swift; sourceTree = "<group>"; };
 		55AF747E252F669F006A8B25 /* MockIdentifierFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIdentifierFormatter.swift; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */,
+				559FC97D25C8A88400737F14 /* DomainLinkageCredentialValidator.swift */,
 			);
 			path = validators;
 			sourceTree = "<group>";
@@ -582,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				559FC95F25C8940100737F14 /* DomainLinkageCredentialSubject.swift */,
+				559FC98125C8ABFB00737F14 /* WellKnownConfigDocument.swift */,
 			);
 			path = linkedDomains;
 			sourceTree = "<group>";
@@ -744,10 +750,12 @@
 				5584E4A02525656500A9DE58 /* SchemaDescriptor.swift in Sources */,
 				5517D28F25B90D0A00FBD239 /* ExchangeRequestContainer.swift in Sources */,
 				55575766251BC6CF009979AB /* LogoDisplayDescriptor.swift in Sources */,
+				559FC97E25C8A88400737F14 /* DomainLinkageCredentialValidator.swift in Sources */,
 				5557576F251BC6CF009979AB /* IdTokenDescriptor.swift in Sources */,
 				551F3057252D02AB0081D5E7 /* TokenTimeConstraints.swift in Sources */,
 				555CE08A25267FE500C1C938 /* VerifiablePresentationFormatter.swift in Sources */,
 				55575772251BC6CF009979AB /* ServiceDescriptor.swift in Sources */,
+				559FC98225C8ABFB00737F14 /* WellKnownConfigDocument.swift in Sources */,
 				5573FF0025B8DE6900282BC7 /* IdentifierDocument.swift in Sources */,
 				5580588725BFB6C00048E6FA /* PinDescriptor.swift in Sources */,
 				5557576E251BC6CF009979AB /* ClaimDescriptor.swift in Sources */,
