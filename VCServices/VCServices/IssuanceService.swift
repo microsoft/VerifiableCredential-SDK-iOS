@@ -41,7 +41,9 @@ public class IssuanceService {
         self.sdkLog = sdkLog
     }
     
-    public func getRequest(usingUrl url: String) -> Promise<Contract> {
+    
+    /// TODO: add DNS Binding for contracts
+    public func getRequest(usingUrl url: String) -> Promise<SignedContract> {
         return self.apiCalls.getRequest(withUrl: url)
     }
     

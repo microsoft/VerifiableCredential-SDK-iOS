@@ -7,7 +7,7 @@ import PromiseKit
 import VCEntities
 
 public protocol IssuanceNetworking {
-    func getRequest(withUrl url: String) -> Promise<Contract>
+    func getRequest(withUrl url: String) -> Promise<SignedContract>
     func sendResponse(usingUrl url: String, withBody body: IssuanceResponse) -> Promise<VerifiableCredential>
 }
 
@@ -19,7 +19,7 @@ public class IssuanceNetworkCalls: IssuanceNetworking {
         self.urlSession = urlSession
     }
     
-    public func getRequest(withUrl url: String) -> Promise<Contract> {
+    public func getRequest(withUrl url: String) -> Promise<SignedContract> {
         do {
             let operation = try FetchContractOperation(withUrl: url, session: self.urlSession)
             return operation.fire()

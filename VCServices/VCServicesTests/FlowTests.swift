@@ -19,7 +19,7 @@ class FlowTests: XCTestCase {
     override func setUpWithError() throws {
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
-        try VerifiableCredentialSDK.initialize()
+        let _ = try VerifiableCredentialSDK.initialize()
     }
     
     override func tearDownWithError() throws {
@@ -78,7 +78,17 @@ class FlowTests: XCTestCase {
     
     private func getIssuanceRequest(issuanceUseCase: IssuanceService, request: PresentationRequest) -> Promise<Contract> {
         self.presentationRequest = request
-        return issuanceUseCase.getRequest(usingUrl: request.content.presentationDefinition!.inputDescriptors.first!.issuanceMetadata.first!.contract!)
+        return firstly {
+            issuanceUseCase.getRequest(usingUrl: request.content.presentationDefinition!.inputDescriptors.first!.issuanceMetadata.first!.contract!)
+        }.then { signedContract in
+            self.getContract(signedContract: signedContract)
+        }
+    }
+    
+    private func getContract(signedContract: SignedContract) -> Promise<Contract> {
+        return Promise { seal in
+            seal.fulfill(signedContract.content)
+        }
     }
     
     private func getIssuanceResponse(useCase: IssuanceService, contract: Contract) throws -> Promise<VerifiableCredential> {
