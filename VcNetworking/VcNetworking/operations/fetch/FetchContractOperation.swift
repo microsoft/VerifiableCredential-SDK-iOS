@@ -23,6 +23,7 @@ public class FetchContractOperation: InternalNetworkOperation {
         self.urlRequest = URLRequest(url: url)
         
         /// sets value in order to get a signed version of the contract
-        self.urlRequest.addValue("x-ms-sign-contract", forHTTPHeaderField: "true")
+        self.urlRequest.addValue(Constants.SIGNED_CONTRACT_HEADER_VALUE,
+                                 forHTTPHeaderField: Constants.SIGNED_CONTRACT_HEADER_FIELD)
     }
 }
