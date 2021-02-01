@@ -34,6 +34,8 @@
 		55793BD3255C582D007F7599 /* ExchangeRequestEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BD2255C582D007F7599 /* ExchangeRequestEncoder.swift */; };
 		5584E4A42526234C00A9DE58 /* FetchPresentationRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */; };
 		5584E4A6252623EA00A9DE58 /* PresentationRequestDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */; };
+		559FC95B25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC95A25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift */; };
+		559FC97A25C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC97925C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift */; };
 		55C6C4A925083D370082BE73 /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A825083D370082BE73 /* Decoding.swift */; };
 		55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */; };
 		55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AC250843920082BE73 /* ContractDecoder.swift */; };
@@ -117,6 +119,8 @@
 		55793BD2255C582D007F7599 /* ExchangeRequestEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRequestEncoder.swift; sourceTree = "<group>"; };
 		5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPresentationRequestOperation.swift; sourceTree = "<group>"; };
 		5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestDecoder.swift; sourceTree = "<group>"; };
+		559FC95A25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWellKnownConfigDocumentOperation.swift; sourceTree = "<group>"; };
+		559FC97925C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellKnownConfigDocumentDecoder.swift; sourceTree = "<group>"; };
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
 		55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseDecoder.swift; sourceTree = "<group>"; };
 		55C6C4AC250843920082BE73 /* ContractDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDecoder.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */,
 				5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */,
 				5518CC6F2526483C00C7A21B /* PresentationServiceResponseDecoder.swift */,
+				559FC97925C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift */,
 			);
 			path = decoders;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				55D1681024EB0E1C00AD2F98 /* FetchContractOperation.swift */,
 				5573FE5325B2090D00282BC7 /* FetchDIDDocumentOperation.swift */,
 				5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */,
+				559FC95A25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift */,
 			);
 			path = fetch;
 			sourceTree = "<group>";
@@ -589,6 +595,7 @@
 				5573FE5425B2090E00282BC7 /* FetchDIDDocumentOperation.swift in Sources */,
 				55D1681F24EB0E1D00AD2F98 /* PostIssuanceResponseOperation.swift in Sources */,
 				55D1681C24EB0E1D00AD2F98 /* NoRetry.swift in Sources */,
+				559FC97A25C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift in Sources */,
 				55D1682224EB0E1D00AD2F98 /* SimpleFailureHandler.swift in Sources */,
 				55D1682024EB0E1D00AD2F98 /* FetchContractOperation.swift in Sources */,
 				55D1681D24EB0E1D00AD2F98 /* RetryHandler.swift in Sources */,
@@ -623,6 +630,7 @@
 				922D7E68252523FD00E4C8B5 /* NSNotificationCenter+Promise.swift in Sources */,
 				55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */,
 				55793BD1255C5796007F7599 /* PostExchangeRequestOperation.swift in Sources */,
+				559FC95B25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
