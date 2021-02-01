@@ -24,7 +24,8 @@ class DIDDocumentDecoderTests: XCTestCase {
                                                       purposes: [])
         expectedDocument = IdentifierDocument(service: ["serviceTest"],
                                               verificationMethod: [publicKey],
-                                              authentication: ["authTest"])
+                                              authentication: ["authTest"],
+                                              id: "did:test:2343")
         encodedDiscoveryServiceResponse = try JSONEncoder().encode(DiscoveryServiceResponse(didDocument: expectedDocument))
     }
     
