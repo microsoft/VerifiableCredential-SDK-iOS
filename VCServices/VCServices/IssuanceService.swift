@@ -41,8 +41,20 @@ public class IssuanceService {
         self.sdkLog = sdkLog
     }
     
+    
+    /// TODO: add DNS Binding for contracts
     public func getRequest(usingUrl url: String) -> Promise<Contract> {
-        return self.apiCalls.getRequest(withUrl: url)
+        return firstly {
+            self.apiCalls.getRequest(withUrl: url)
+        }.then { signedContract in
+            self.getContract(from: signedContract)
+        }
+    }
+    
+    private func getContract(from contract: SignedContract) -> Promise<Contract> {
+        return Promise { seal in
+            seal.fulfill(contract.content)
+        }
     }
     
     public func send(response: IssuanceResponseContainer, isPairwise: Bool = false) -> Promise<VerifiableCredential> {

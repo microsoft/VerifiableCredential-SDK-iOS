@@ -7,11 +7,14 @@ import Foundation
 import VCEntities
 
 public struct ContractDecoder: Decoding {
-    typealias Decodable = Contract
+    typealias Decodable = SignedContract
     
-    let decoder = JSONDecoder()
-    
-    public func decode(data: Data) throws -> Contract {
-        return try decoder.decode(Contract.self, from: data)
+    public func decode(data: Data) throws -> SignedContract {
+        
+        guard let token = SignedContract(from: data) else {
+            throw DecodingError.unableToDecodeToken
+        }
+        
+        return token
     }
 }

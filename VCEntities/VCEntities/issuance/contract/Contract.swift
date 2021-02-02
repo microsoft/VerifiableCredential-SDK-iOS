@@ -3,10 +3,14 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-public struct Contract: Codable, Equatable {
+import VCJwt
+
+public struct Contract: Claims, Equatable {
     
     public let id: String?
     public let display: DisplayDescriptor?
     public let input: ContractInputDescriptor?
     
 }
+
+public typealias SignedContract = JwsToken<Contract>

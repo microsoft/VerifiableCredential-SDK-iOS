@@ -19,7 +19,7 @@ class FlowTests: XCTestCase {
     override func setUpWithError() throws {
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
         self.contract = try JSONDecoder().decode(Contract.self, from: encodedContract)
-        try VerifiableCredentialSDK.initialize()
+        let _ = try VerifiableCredentialSDK.initialize()
     }
     
     override func tearDownWithError() throws {
