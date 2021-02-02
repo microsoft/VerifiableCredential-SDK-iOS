@@ -12,18 +12,19 @@ import VCJwt
 class ContractDecoderTests: XCTestCase {
     
     var expectedContract: SignedContract!
-    var encodedContract: Data!
+    var encodedContractResponse: Data!
     let decoder = ContractDecoder()
     
     override func setUpWithError() throws {
         let encodedContractData = TestData.contract.rawValue.data(using: .utf8)!
         let contract = try JSONDecoder().decode(Contract.self, from: encodedContractData)
         expectedContract = SignedContract(headers: Header(), content: contract)
-        encodedContract = try JwsEncoder().encode(expectedContract).data(using: .ascii)
+        let expectedContractResponse = ContractServiceResponse(token: try expectedContract.serialize())
+        encodedContractResponse = try JSONEncoder().encode(expectedContractResponse)
     }
     
     func testDecode() throws {
-        let actualContract = try decoder.decode(data: encodedContract)
+        let actualContract = try decoder.decode(data: encodedContractResponse)
         XCTAssertEqual(actualContract.content, expectedContract.content)
     }
 }
