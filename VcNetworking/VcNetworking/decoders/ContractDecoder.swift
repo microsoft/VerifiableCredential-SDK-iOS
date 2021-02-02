@@ -9,9 +9,13 @@ import VCEntities
 public struct ContractDecoder: Decoding {
     typealias Decodable = SignedContract
     
+    let decoder = JSONDecoder()
+    
     public func decode(data: Data) throws -> SignedContract {
         
-        guard let token = SignedContract(from: data) else {
+        let response = try decoder.decode(ContractServiceResponse.self, from: data)
+        
+        guard let token = SignedContract(from: response.token) else {
             throw DecodingError.unableToDecodeToken
         }
         
