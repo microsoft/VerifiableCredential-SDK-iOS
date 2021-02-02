@@ -5,11 +5,11 @@
 
 public struct IdentifierDocument: Codable, Equatable {
     public let id: String
-    public let service: [String]
+    public let service: [IdentifierDocumentServiceEndpoint]
     public let verificationMethod: [IdentifierDocumentPublicKey]
     public let authentication: [String]
     
-    public init(service: [String],
+    public init(service: [IdentifierDocumentServiceEndpoint],
                 verificationMethod: [IdentifierDocumentPublicKey],
                 authentication: [String],
                 id: String) {

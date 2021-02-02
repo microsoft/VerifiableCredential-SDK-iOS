@@ -17,16 +17,22 @@ class MockDiscoveryApiCalls: DiscoveryNetworking {
     
     static var wasGetCalled = false
     let resolveSuccessfully: Bool
+    let identifierDocument: IdentifierDocument
     
-    init(resolveSuccessfully: Bool = true) {
+    init(resolveSuccessfully: Bool = true,
+         withIdentifierDocument document: IdentifierDocument = IdentifierDocument(service: [],
+                                                                         verificationMethod: [],
+                                                                         authentication: ["authentication"],
+                                                                         id: "did:test:67453")) {
         self.resolveSuccessfully = resolveSuccessfully
+        self.identifierDocument = document
     }
     
     func getDocument(from identifier: String) -> Promise<IdentifierDocument> {
         Self.wasGetCalled = true
         return Promise { seal in
             if self.resolveSuccessfully {
-                seal.fulfill(IdentifierDocument(service: ["service"], verificationMethod: [], authentication: ["authentication"], id: "did:test:67453"))
+                seal.fulfill(identifierDocument)
             } else {
                 seal.reject(MockDiscoveryNetworkingError.doNotWantToResolveRealObject)
             }

@@ -11,7 +11,7 @@ enum WellKnownConfigDocumentError: Error {
 
 public struct WellKnownConfigDocument: Codable {
     let context: String?
-    let linkedDids: [DomainLinkageCredential]
+    public let linkedDids: [DomainLinkageCredential]
     
     enum CodingKeys: String, CodingKey {
         case context = "@context"
