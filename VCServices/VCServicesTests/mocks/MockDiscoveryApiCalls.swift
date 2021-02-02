@@ -26,7 +26,7 @@ class MockDiscoveryApiCalls: DiscoveryNetworking {
         Self.wasGetCalled = true
         return Promise { seal in
             if self.resolveSuccessfully {
-                seal.fulfill(IdentifierDocument(service: ["service"], verificationMethod: [], authentication: ["authentication"]))
+                seal.fulfill(IdentifierDocument(service: ["service"], verificationMethod: [], authentication: ["authentication"], id: "did:test:67453"))
             } else {
                 seal.reject(MockDiscoveryNetworkingError.doNotWantToResolveRealObject)
             }

@@ -12,7 +12,7 @@ public class FetchContractOperation: InternalNetworkOperation {
     
     public let decoder: ContractDecoder = ContractDecoder()
     public let urlSession: URLSession
-    public var urlRequest: URLRequest
+    public let urlRequest: URLRequest
     
     public init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
         guard let url = URL(string: urlStr) else {
@@ -20,10 +20,12 @@ public class FetchContractOperation: InternalNetworkOperation {
         }
         
         self.urlSession = session
-        self.urlRequest = URLRequest(url: url)
+        var request = URLRequest(url: url)
         
         /// sets value in order to get a signed version of the contract
-        self.urlRequest.addValue(Constants.SIGNED_CONTRACT_HEADER_VALUE,
+        request.addValue(Constants.SIGNED_CONTRACT_HEADER_VALUE,
                                  forHTTPHeaderField: Constants.SIGNED_CONTRACT_HEADER_FIELD)
+        
+        self.urlRequest = request
     }
 }

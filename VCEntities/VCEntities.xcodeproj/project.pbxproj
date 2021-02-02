@@ -97,6 +97,9 @@
 		559FC96025C8940100737F14 /* DomainLinkageCredentialSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC95F25C8940100737F14 /* DomainLinkageCredentialSubject.swift */; };
 		559FC98C25C8BEC900737F14 /* DomainLinkageCredentialContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC98B25C8BEC900737F14 /* DomainLinkageCredentialContent.swift */; };
 		559FC99025C8BEEB00737F14 /* DomainLinkageCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC98F25C8BEEB00737F14 /* DomainLinkageCredential.swift */; };
+		559FC9A625C8E42B00737F14 /* WellKnownConfigDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9A525C8E42B00737F14 /* WellKnownConfigDocument.swift */; };
+		559FC9AA25C9ABB500737F14 /* DomainLinkageCredentialValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9A925C9ABB500737F14 /* DomainLinkageCredentialValidator.swift */; };
+		559FC9AE25C9ABD900737F14 /* DomainLinkageCredentialValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9AD25C9ABD900737F14 /* DomainLinkageCredentialValidatorTests.swift */; };
 		55AF747B252F5B4B006A8B25 /* IdentifierFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */; };
 		55AF747D252F64F7006A8B25 /* MockCryptoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747C252F64F7006A8B25 /* MockCryptoOperations.swift */; };
 		55AF747F252F669F006A8B25 /* MockIdentifierFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747E252F669F006A8B25 /* MockIdentifierFormatter.swift */; };
@@ -215,6 +218,9 @@
 		559FC95F25C8940100737F14 /* DomainLinkageCredentialSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLinkageCredentialSubject.swift; sourceTree = "<group>"; };
 		559FC98B25C8BEC900737F14 /* DomainLinkageCredentialContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLinkageCredentialContent.swift; sourceTree = "<group>"; };
 		559FC98F25C8BEEB00737F14 /* DomainLinkageCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLinkageCredential.swift; sourceTree = "<group>"; };
+		559FC9A525C8E42B00737F14 /* WellKnownConfigDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellKnownConfigDocument.swift; sourceTree = "<group>"; };
+		559FC9A925C9ABB500737F14 /* DomainLinkageCredentialValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomainLinkageCredentialValidator.swift; sourceTree = "<group>"; };
+		559FC9AD25C9ABD900737F14 /* DomainLinkageCredentialValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomainLinkageCredentialValidatorTests.swift; sourceTree = "<group>"; };
 		55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierFormatterTests.swift; sourceTree = "<group>"; };
 		55AF747C252F64F7006A8B25 /* MockCryptoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCryptoOperations.swift; sourceTree = "<group>"; };
 		55AF747E252F669F006A8B25 /* MockIdentifierFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIdentifierFormatter.swift; sourceTree = "<group>"; };
@@ -330,6 +336,7 @@
 		55379AD325A8DF450048600A /* validators */ = {
 			isa = PBXGroup;
 			children = (
+				559FC9A925C9ABB500737F14 /* DomainLinkageCredentialValidator.swift */,
 				55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */,
 			);
 			path = validators;
@@ -428,6 +435,7 @@
 		5573FE2D25B0BA1200282BC7 /* validators */ = {
 			isa = PBXGroup;
 			children = (
+				559FC9AD25C9ABD900737F14 /* DomainLinkageCredentialValidatorTests.swift */,
 				5573FE2E25B0BA3C00282BC7 /* PresentationRequestValidatorTests.swift */,
 			);
 			path = validators;
@@ -585,6 +593,7 @@
 		559FC95E25C8939100737F14 /* linkedDomains */ = {
 			isa = PBXGroup;
 			children = (
+				559FC9A525C8E42B00737F14 /* WellKnownConfigDocument.swift */,
 				559FC95F25C8940100737F14 /* DomainLinkageCredentialSubject.swift */,
 				559FC98B25C8BEC900737F14 /* DomainLinkageCredentialContent.swift */,
 				559FC98F25C8BEEB00737F14 /* DomainLinkageCredential.swift */,
@@ -746,8 +755,10 @@
 				5573FEF525B8DE4A00282BC7 /* IONDocumentModel.swift in Sources */,
 				551F3068252E97000081D5E7 /* IdentifierCreator.swift in Sources */,
 				55253982252FDF89003202D5 /* KeyContainer.swift in Sources */,
+				559FC9AA25C9ABB500737F14 /* DomainLinkageCredentialValidator.swift in Sources */,
 				557BFC53251E665D005B5B24 /* IssuanceResponseFormatter.swift in Sources */,
 				5584E4A02525656500A9DE58 /* SchemaDescriptor.swift in Sources */,
+				559FC9A625C8E42B00737F14 /* WellKnownConfigDocument.swift in Sources */,
 				5517D28F25B90D0A00FBD239 /* ExchangeRequestContainer.swift in Sources */,
 				55575766251BC6CF009979AB /* LogoDisplayDescriptor.swift in Sources */,
 				5557576F251BC6CF009979AB /* IdTokenDescriptor.swift in Sources */,
@@ -839,6 +850,7 @@
 				55AF747F252F669F006A8B25 /* MockIdentifierFormatter.swift in Sources */,
 				551F305F252E61F00081D5E7 /* IdentifierCreatorTests.swift in Sources */,
 				55793BE0255C9AF8007F7599 /* ExchangeRequestContainerTests.swift in Sources */,
+				559FC9AE25C9ABD900737F14 /* DomainLinkageCredentialValidatorTests.swift in Sources */,
 				551F3061252E62D70081D5E7 /* SecretStoreMock.swift in Sources */,
 				55793BE4255CA1CD007F7599 /* ExchangeRequestFormatterTests.swift in Sources */,
 				5577E873251E9007005250BC /* MockOIDCClaims.swift in Sources */,

@@ -8,7 +8,7 @@ import PromiseKit
 import VCEntities
 
 public class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
-    public typealias ResponseBody = DomainLinkageCredential
+    public typealias ResponseBody = WellKnownConfigDocument
     
     public let decoder = WellKnownConfigDocumentDecoder()
     public let urlSession: URLSession
