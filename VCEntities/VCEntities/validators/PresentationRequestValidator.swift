@@ -34,7 +34,7 @@ public struct PresentationRequestValidator: RequestValidating {
         try validate(request.content.responseType, equals: VCEntitiesConstants.RESPONSE_TYPE, throws: PresentationRequestValidatorError.invalidResponseTypeValue)
     }
     
-    private func validate(token: JwsToken<PresentationRequestClaims>,
+    private func validate(token: PresentationRequestToken,
                           using keys: [IdentifierDocumentPublicKey]) throws {
         
         for key in keys {
