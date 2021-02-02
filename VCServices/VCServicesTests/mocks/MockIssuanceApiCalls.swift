@@ -18,7 +18,7 @@ class MockIssuanceApiCalls: IssuanceNetworking {
     static var wasGetCalled = false
     static var wasPostCalled = false
     
-    func getRequest(withUrl url: String) -> Promise<Contract> {
+    func getRequest(withUrl url: String) -> Promise<SignedContract> {
         Self.wasGetCalled = true
         return Promise { seal in
             seal.reject(MockIssuanceNetworkingError.doNotWantToResolveRealObject)
