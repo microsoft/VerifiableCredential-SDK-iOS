@@ -11,6 +11,7 @@ import PromiseKit
 
 enum MockWellKnownConfigDocumentNetworkingError: Error {
     case doNotWantToResolveRealObject
+    case unableToParseTestData
 }
 
 class MockWellKnownConfigDocumentApiCalls: WellKnownConfigDocumentNetworking {
@@ -26,11 +27,18 @@ class MockWellKnownConfigDocumentApiCalls: WellKnownConfigDocumentNetworking {
         Self.wasGetCalled = true
         return Promise { seal in
             if self.resolveSuccessfully {
-                seal.fulfill(IdentifierDocument(service: ["service"], verificationMethod: [], authentication: ["authentication"], id: "did:test:67453"))
+                let encodedTestWellKnownConfig = TestData.wellKnownConfig.rawValue.data(using: .ascii)!
+                do {
+                    let testWellKnownConfig = try JSONDecoder().decode(WellKnownConfigDocument.self,
+                                                                   from: encodedTestWellKnownConfig)
+                    seal.fulfill(testWellKnownConfig)
+                }
+                seal.reject(MockWellKnownConfigDocumentNetworkingError.unableToParseTestData)
             } else {
-                seal.reject(MockDiscoveryNetworkingError.doNotWantToResolveRealObject)
+                seal.reject(MockWellKnownConfigDocumentNetworkingError.doNotWantToResolveRealObject)
             }
         }
     }
+    
 }
 

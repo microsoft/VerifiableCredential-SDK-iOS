@@ -22,7 +22,7 @@ class DIDDocumentDecoderTests: XCTestCase {
                                                       controller: "controllerTest",
                                                       publicKeyJwk: mockPublicKey,
                                                       purposes: [])
-        expectedDocument = IdentifierDocument(service: ["serviceTest"],
+        expectedDocument = IdentifierDocument(service: [],
                                               verificationMethod: [publicKey],
                                               authentication: ["authTest"],
                                               id: "did:test:2343")

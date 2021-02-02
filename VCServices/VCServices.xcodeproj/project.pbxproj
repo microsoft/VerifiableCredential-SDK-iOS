@@ -42,6 +42,7 @@
 		559FC9D225C9D90B00737F14 /* LinkedDomainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9D125C9D90B00737F14 /* LinkedDomainService.swift */; };
 		559FC9F125C9F2B700737F14 /* LinkedDomainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9F025C9F2B700737F14 /* LinkedDomainServiceTests.swift */; };
 		559FC9F925C9F35A00737F14 /* MockWellKnownConfigDocumentApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9F825C9F35A00737F14 /* MockWellKnownConfigDocumentApiCalls.swift */; };
+		559FCA3425C9FB7D00737F14 /* MockDomainLinkageCredentialValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FCA3325C9FB7D00737F14 /* MockDomainLinkageCredentialValidator.swift */; };
 		55AF7490252FBF5B006A8B25 /* MockVCCryptoSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */; };
 		55DA76ED25BE36FF009C32E0 /* MockIssuanceApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76EC25BE36FF009C32E0 /* MockIssuanceApiCalls.swift */; };
 		55DA76F525BE3858009C32E0 /* MockExchangeApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76F425BE3858009C32E0 /* MockExchangeApiCalls.swift */; };
@@ -111,6 +112,7 @@
 		559FC9D125C9D90B00737F14 /* LinkedDomainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedDomainService.swift; sourceTree = "<group>"; };
 		559FC9F025C9F2B700737F14 /* LinkedDomainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedDomainServiceTests.swift; sourceTree = "<group>"; };
 		559FC9F825C9F35A00737F14 /* MockWellKnownConfigDocumentApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWellKnownConfigDocumentApiCalls.swift; sourceTree = "<group>"; };
+		559FCA3325C9FB7D00737F14 /* MockDomainLinkageCredentialValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDomainLinkageCredentialValidator.swift; sourceTree = "<group>"; };
 		55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVCCryptoSecret.swift; sourceTree = "<group>"; };
 		55DA76EC25BE36FF009C32E0 /* MockIssuanceApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceApiCalls.swift; sourceTree = "<group>"; };
 		55DA76F425BE3858009C32E0 /* MockExchangeApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExchangeApiCalls.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				55793BDA255C654E007F7599 /* MockExchangeRequestFormatter.swift */,
 				550F1E6725116E86009AF467 /* MockTokenSigner.swift */,
 				551F30502527EDBC0081D5E7 /* MockPresentationResponseFormatter.swift */,
+				559FCA3325C9FB7D00737F14 /* MockDomainLinkageCredentialValidator.swift */,
 				559FC9F825C9F35A00737F14 /* MockWellKnownConfigDocumentApiCalls.swift */,
 				550F1E6525116CD6009AF467 /* TestData.swift */,
 				55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */,
@@ -429,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				559FC9F125C9F2B700737F14 /* LinkedDomainServiceTests.swift in Sources */,
+				559FCA3425C9FB7D00737F14 /* MockDomainLinkageCredentialValidator.swift in Sources */,
 				550F1E6625116CD6009AF467 /* TestData.swift in Sources */,
 				551F304F2527EAF40081D5E7 /* PresentationServiceTests.swift in Sources */,
 				55DA76ED25BE36FF009C32E0 /* MockIssuanceApiCalls.swift in Sources */,

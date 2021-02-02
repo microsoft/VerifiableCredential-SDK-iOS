@@ -156,7 +156,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         let subject = DomainLinkageCredentialSubject(did: Mocks.credentialSubjectDid,
                                                      domainUrl: mockDomain)
         let content = DomainLinkageCredentialContent(context: ["context"],
-                                                     issuer: mockDomain,
+                                                     issuer: issuerDid,
                                                      issuanceDate: "mock date",
                                                      expirationDate: "mock exp",
                                                      type: ["mock type"],

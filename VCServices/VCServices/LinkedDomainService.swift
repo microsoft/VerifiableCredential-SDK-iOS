@@ -8,7 +8,7 @@ import PromiseKit
 import VCNetworking
 import VCEntities
 
-enum LinkedDomainResult: Error {
+enum LinkedDomainResult: Error, Equatable {
     case linkedDomainMissing
     case linkedDomainUnverified(domainUrl: String)
     case linkedDomainVerified(domainUrl: String)
