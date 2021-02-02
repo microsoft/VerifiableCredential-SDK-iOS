@@ -8,7 +8,7 @@ import PromiseKit
 import VCEntities
 
 public class FetchPresentationRequestOperation: InternalNetworkOperation {
-    public typealias ResponseBody = PresentationRequest
+    public typealias ResponseBody = PresentationRequestToken
     
     public let decoder: PresentationRequestDecoder = PresentationRequestDecoder()
     public let urlSession: URLSession

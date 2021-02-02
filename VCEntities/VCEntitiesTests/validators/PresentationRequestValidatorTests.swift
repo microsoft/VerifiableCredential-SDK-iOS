@@ -30,7 +30,7 @@ class PresentationRequestValidatorTests: XCTestCase {
     func testShouldBeValid() throws {
         let validator = PresentationRequestValidator(verifier: verifier)
         let mockRequestClaims = createMockPresentationRequestClaims()
-        if let mockRequest = PresentationRequest(headers: Header(),content: mockRequestClaims) {
+        if let mockRequest = PresentationRequestToken(headers: Header(),content: mockRequestClaims) {
             try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])
             XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
         }
@@ -39,7 +39,7 @@ class PresentationRequestValidatorTests: XCTestCase {
     func testInvalidScopeValue() throws {
         let validator = PresentationRequestValidator(verifier: verifier)
         let mockRequestClaims = createMockPresentationRequestClaims(scope: "wrongValue")
-        if let mockRequest = PresentationRequest(headers: Header(),content: mockRequestClaims) {
+        if let mockRequest = PresentationRequestToken(headers: Header(),content: mockRequestClaims) {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
                 XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.invalidScopeValue)
             }
@@ -50,7 +50,7 @@ class PresentationRequestValidatorTests: XCTestCase {
     func testInvalidResponseTypeValue() throws {
         let validator = PresentationRequestValidator(verifier: verifier)
         let mockRequestClaims = createMockPresentationRequestClaims(responseType: "wrongValue")
-        if let mockRequest = PresentationRequest(headers: Header(),content: mockRequestClaims) {
+        if let mockRequest = PresentationRequestToken(headers: Header(),content: mockRequestClaims) {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
                 XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.invalidResponseTypeValue)
             }
@@ -61,7 +61,7 @@ class PresentationRequestValidatorTests: XCTestCase {
     func testInvalidResponseModeValue() throws {
         let validator = PresentationRequestValidator(verifier: verifier)
         let mockRequestClaims = createMockPresentationRequestClaims(responseMode: "wrongValue")
-        if let mockRequest = PresentationRequest(headers: Header(),content: mockRequestClaims) {
+        if let mockRequest = PresentationRequestToken(headers: Header(),content: mockRequestClaims) {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
                 XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.invalidResponseModeValue)
             }
@@ -72,7 +72,7 @@ class PresentationRequestValidatorTests: XCTestCase {
     func testExpiredTokenError() throws {
         let validator = PresentationRequestValidator(verifier: verifier)
         let mockRequestClaims = createMockPresentationRequestClaims(timeConstraints: TokenTimeConstraints(expiryInSeconds: -500))
-        if let mockRequest = PresentationRequest(headers: Header(),content: mockRequestClaims) {
+        if let mockRequest = PresentationRequestToken(headers: Header(),content: mockRequestClaims) {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
                 XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.tokenExpired)
             }
@@ -83,7 +83,7 @@ class PresentationRequestValidatorTests: XCTestCase {
     func testClockSkewLeewayForExpirationCheck() throws {
         let validator = PresentationRequestValidator(verifier: verifier)
         let mockRequestClaims = createMockPresentationRequestClaims(timeConstraints: TokenTimeConstraints(expiryInSeconds: -200))
-        if let mockRequest = PresentationRequest(headers: Header(),content: mockRequestClaims) {
+        if let mockRequest = PresentationRequestToken(headers: Header(),content: mockRequestClaims) {
             try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])
             XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
         }

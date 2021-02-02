@@ -14,6 +14,7 @@ enum PresentationServiceError: Error {
     case noRequestUriQueryParameter
     case unableToCastToPresentationResponseContainer
     case noKeyIdInRequestHeader
+    case requestDoesNotContainIssuerIdentifier
 }
 
 public class PresentationService {
@@ -22,6 +23,7 @@ public class PresentationService {
     let presentationApiCalls: PresentationNetworking
     let didDocumentDiscoveryApiCalls: DiscoveryNetworking
     let requestValidator: RequestValidating
+    let linkedDomainService: LinkedDomainService
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
     let sdkLog: VCSDKLog
@@ -31,6 +33,7 @@ public class PresentationService {
                   presentationApiCalls: PresentationNetworkCalls(),
                   didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(),
                   requestValidator: PresentationRequestValidator(),
+                  linkedDomainService: LinkedDomainService(),
                   identifierService: IdentifierService(),
                   pairwiseService: PairwiseService(),
                   sdkLog: VCSDKLog.sharedInstance)
@@ -40,6 +43,7 @@ public class PresentationService {
          presentationApiCalls: PresentationNetworking,
          didDocumentDiscoveryApiCalls: DiscoveryNetworking,
          requestValidator: RequestValidating,
+         linkedDomainService: LinkedDomainService,
          identifierService: IdentifierService,
          pairwiseService: PairwiseService,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
@@ -47,6 +51,7 @@ public class PresentationService {
         self.presentationApiCalls = presentationApiCalls
         self.didDocumentDiscoveryApiCalls = didDocumentDiscoveryApiCalls
         self.requestValidator = requestValidator
+        self.linkedDomainService = linkedDomainService
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
         self.sdkLog = sdkLog
@@ -56,7 +61,9 @@ public class PresentationService {
         return firstly {
             self.getRequestUriPromise(from: urlStr)
         }.then { requestUri in
-            self.presentationApiCalls.getRequest(withUrl: requestUri)
+            self.fetchValidatedRequest(usingUrl: requestUri)
+        }.then { presentationRequestToken in
+            self.formPresentationRequest(from: presentationRequestToken)
         }
     }
     
@@ -96,7 +103,32 @@ public class PresentationService {
         throw PresentationServiceError.noRequestUriQueryParameter
     }
     
-    private func validateRequest(_ request: PresentationRequest) -> Promise<PresentationRequest> {
+    private func formPresentationRequest(from token: PresentationRequestToken) -> Promise<PresentationRequest> {
+        
+        guard let issuer = token.content.issuer else {
+            return Promise { seal in
+                seal.reject(PresentationServiceError.requestDoesNotContainIssuerIdentifier)
+            }
+        }
+        
+        return firstly {
+            self.linkedDomainService.validateLinkedDomain(from: issuer)
+        }.then { result in
+            Promise { seal in
+                seal.fulfill(PresentationRequest(from: token, linkedDomainResult: result))
+            }
+        }
+    }
+    
+    private func fetchValidatedRequest(usingUrl url: String) -> Promise<PresentationRequestToken> {
+        return firstly {
+            self.presentationApiCalls.getRequest(withUrl: url)
+        }.then { requestToken in
+            self.validateRequest(requestToken)
+        }
+    }
+    
+    private func validateRequest(_ request: PresentationRequestToken) -> Promise<PresentationRequestToken> {
         return firstly {
             self.getDIDFromHeader(request: request)
         }.then { did in
@@ -106,7 +138,7 @@ public class PresentationService {
         }
     }
     
-    private func getDIDFromHeader(request: PresentationRequest) -> Promise<String> {
+    private func getDIDFromHeader(request: PresentationRequestToken) -> Promise<String> {
         return Promise { seal in
             
             guard let kid = request.headers.keyId?.split(separator: Constants.FRAGMENT_SEPARATOR),
@@ -120,7 +152,7 @@ public class PresentationService {
         }
     }
     
-    private func wrapValidationInPromise(request: PresentationRequest, usingKeys keys: [IdentifierDocumentPublicKey]) -> Promise<PresentationRequest> {
+    private func wrapValidationInPromise(request: PresentationRequestToken, usingKeys keys: [IdentifierDocumentPublicKey]) -> Promise<PresentationRequestToken> {
         return Promise { seal in
             do {
                 try self.requestValidator.validate(request: request, usingKeys: keys)

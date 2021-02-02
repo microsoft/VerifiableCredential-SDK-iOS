@@ -21,7 +21,7 @@ class MockPresentationRequestValidator: RequestValidating {
         self.isValid = isValid
     }
     
-    func validate(request: PresentationRequest, usingKeys publicKeys: [IdentifierDocumentPublicKey]) throws {
+    func validate(request: PresentationRequestToken, usingKeys publicKeys: [IdentifierDocumentPublicKey]) throws {
         Self.wasValidateCalled = true
         if isValid {
             return

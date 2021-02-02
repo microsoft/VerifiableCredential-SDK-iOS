@@ -7,7 +7,7 @@ import PromiseKit
 import VCEntities
 
 public protocol PresentationNetworking {
-    func getRequest(withUrl url: String) -> Promise<PresentationRequest>
+    func getRequest(withUrl url: String) -> Promise<PresentationRequestToken>
     func sendResponse(usingUrl url: String, withBody body: PresentationResponse) -> Promise<String?>
 }
 
@@ -19,7 +19,7 @@ public class PresentationNetworkCalls: PresentationNetworking {
         self.urlSession = urlSession
     }
     
-    public func getRequest(withUrl url: String) -> Promise<PresentationRequest> {
+    public func getRequest(withUrl url: String) -> Promise<PresentationRequestToken> {
         do {
             let operation = try FetchPresentationRequestOperation(withUrl: url, session: self.urlSession)
             return operation.fire()

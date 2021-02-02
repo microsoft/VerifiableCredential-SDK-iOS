@@ -23,7 +23,7 @@ class PresentationResponseFormatterTests: XCTestCase {
         self.formatter = PresentationResponseFormatter(signer: signer)
         
         let encodedRequest = TestData.presentationRequest.rawValue.data(using: .utf8)!
-        self.request = JwsToken(from: encodedRequest)
+        self.request = PresentationRequest(from: JwsToken(from: encodedRequest)!, linkedDomainResult: .linkedDomainVerified(domainUrl: "test.com"))
         
         self.mockResponse = try PresentationResponseContainer(from: self.request)
         

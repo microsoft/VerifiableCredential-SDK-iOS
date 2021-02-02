@@ -78,7 +78,7 @@ class FlowTests: XCTestCase {
     
     private func getIssuanceRequest(issuanceUseCase: IssuanceService, request: PresentationRequest) -> Promise<IssuanceRequest> {
         self.presentationRequest = request
-        return issuanceUseCase.getRequest(usingUrl: request.content.presentationDefinition!.inputDescriptors.first!.issuanceMetadata.first!.contract!)
+        return issuanceUseCase.getRequest(usingUrl: request.token.content.presentationDefinition!.inputDescriptors.first!.issuanceMetadata.first!.contract!)
     }
     
     private func getIssuanceResponse(useCase: IssuanceService, contract: Contract) throws -> Promise<VerifiableCredential> {

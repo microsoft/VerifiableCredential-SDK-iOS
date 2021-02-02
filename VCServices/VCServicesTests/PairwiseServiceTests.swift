@@ -21,7 +21,8 @@ class PairwiseServiceTests: XCTestCase {
         service = PairwiseService(exchangeService: exchangeService,
                                   identifierService: IdentifierService())
         
-        let request = PresentationRequest(from: TestData.presentationRequest.rawValue)!
+        let requestToken = PresentationRequestToken(from: TestData.presentationRequest.rawValue)!
+        let request = PresentationRequest(from: requestToken, linkedDomainResult: .linkedDomainVerified(domainUrl: "test.com"))
         self.mockPresentationResponse = try PresentationResponseContainer(from: request, expiryInSeconds: 5)
         
         let mockVc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)!

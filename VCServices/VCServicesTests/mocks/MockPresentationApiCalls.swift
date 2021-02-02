@@ -18,7 +18,7 @@ class MockPresentationApiCalls: PresentationNetworking {
     static var wasGetCalled = false
     static var wasPostCalled = false
     
-    func getRequest(withUrl url: String) -> Promise<PresentationRequest> {
+    func getRequest(withUrl url: String) -> Promise<PresentationRequestToken> {
         Self.wasGetCalled = true
         return Promise { seal in
             seal.reject(MockPresentationNetworkingError.doNotWantToResolveRealObject)
