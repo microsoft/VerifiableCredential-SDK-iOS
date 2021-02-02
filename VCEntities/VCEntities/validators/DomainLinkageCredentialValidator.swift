@@ -15,7 +15,9 @@ enum DomainLinkageCredentialValidatorError: Error, Equatable {
 }
 
 public protocol DomainLinkageCredentialValidating {
-    func validate(from input: DomainLinkageVerificationInput) throws
+    func validate(credential: DomainLinkageCredential,
+                         usingDocument document: IdentifierDocument,
+                         andSourceDomainUrl url: String) throws
 }
 
 public struct DomainLinkageCredentialValidator: DomainLinkageCredentialValidating {
@@ -26,28 +28,30 @@ public struct DomainLinkageCredentialValidator: DomainLinkageCredentialValidatin
         self.verifier = verifier
     }
     
-    public func validate(from input: DomainLinkageVerificationInput) throws {
+    public func validate(credential: DomainLinkageCredential,
+                         usingDocument document: IdentifierDocument,
+                         andSourceDomainUrl url: String) throws {
         
-        let credentialSubjectDid = input.credential.content.verifiableCredential.credentialSubject.did
-        let wellknownDocumentDomainUrl = input.credential.content.verifiableCredential.credentialSubject.domainUrl
+        let credentialSubjectDid = credential.content.verifiableCredential.credentialSubject.did
+        let wellknownDocumentDomainUrl = credential.content.verifiableCredential.credentialSubject.domainUrl
         
-        try validate(token: input.credential, using: input.document.verificationMethod)
+        try validate(token: credential, using: document.verificationMethod)
         
-        try validate(input.credential.content.issuer,
+        try validate(credential.content.issuer,
                      equals: credentialSubjectDid,
                      throws: DomainLinkageCredentialValidatorError.doNotMatch(credentialSubject: credentialSubjectDid,
-                                                                              tokenIssuer: input.credential.content.issuer))
-        try validate(input.credential.content.subject,
+                                                                              tokenIssuer: credential.content.issuer))
+        try validate(credential.content.subject,
                      equals: credentialSubjectDid,
                      throws: DomainLinkageCredentialValidatorError.doNotMatch(credentialSubject: credentialSubjectDid,
-                                                                              tokenSubject: input.credential.content.subject))
-        try validate(input.document.id,
-                     equals: input.credential.content.verifiableCredential.credentialSubject.did,
+                                                                              tokenSubject: credential.content.subject))
+        try validate(document.id,
+                     equals: credentialSubjectDid,
                      throws: DomainLinkageCredentialValidatorError.doNotMatch(credentialSubject: credentialSubjectDid,
-                                                                              identifierDocumentDid: input.document.id))
-        try validate(input.domainUrl,
+                                                                              identifierDocumentDid: document.id))
+        try validate(url,
                      equals: wellknownDocumentDomainUrl,
-                     throws: DomainLinkageCredentialValidatorError.doNotMatch(sourceDomainUrl: input.domainUrl,
+                     throws: DomainLinkageCredentialValidatorError.doNotMatch(sourceDomainUrl: url,
                                                                               wellknownDocumentDomainUrl: wellknownDocumentDomainUrl))
         
     }

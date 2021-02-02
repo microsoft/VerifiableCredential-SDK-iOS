@@ -41,11 +41,10 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         let claims = createMockDomainLinkageCredentialClaims()
         if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
             
-            let input = DomainLinkageVerificationInput(credential: credential,
-                                                       document: mockIdentifierDocument,
-                                                       domainUrl: mockDomain)
+            try validator.validate(credential: credential,
+                                   usingDocument: mockIdentifierDocument,
+                                   andSourceDomainUrl: mockDomain)
             
-            try validator.validate(from: input)
             XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
         }
     }
@@ -56,13 +55,13 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         let claims = createMockDomainLinkageCredentialClaims()
         if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
             
-            let input = DomainLinkageVerificationInput(credential: credential,
-                                                       document: mockIdentifierDocument,
-                                                       domainUrl: mockDomain)
-            
-            XCTAssertThrowsError(try validator.validate(from: input)) { error in
+            XCTAssertThrowsError(try validator.validate(credential: credential,
+                                                        usingDocument: mockIdentifierDocument,
+                                                         andSourceDomainUrl: mockDomain)) { error in
+                
                 XCTAssertEqual(error as? DomainLinkageCredentialValidatorError,
                                DomainLinkageCredentialValidatorError.invalidSignature)
+                
             }
             XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
         }
@@ -74,11 +73,10 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         let claims = createMockDomainLinkageCredentialClaims(issuerDid: wrongIssuer)
         if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
             
-            let input = DomainLinkageVerificationInput(credential: credential,
-                                                       document: mockIdentifierDocument,
-                                                       domainUrl: mockDomain)
-            
-            XCTAssertThrowsError(try validator.validate(from: input)) { error in
+            XCTAssertThrowsError(try validator.validate(credential: credential,
+                                                        usingDocument: mockIdentifierDocument,
+                                                         andSourceDomainUrl: mockDomain)) { error in
+                
                 XCTAssertEqual(error as? DomainLinkageCredentialValidatorError,
                                DomainLinkageCredentialValidatorError.doNotMatch(credentialSubject: Mocks.credentialSubjectDid,
                                                                                 tokenIssuer: wrongIssuer))
@@ -93,11 +91,11 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         let claims = createMockDomainLinkageCredentialClaims(subjectDid: wrongSubject)
         if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
             
-            let input = DomainLinkageVerificationInput(credential: credential,
-                                                       document: mockIdentifierDocument,
-                                                       domainUrl: mockDomain)
             
-            XCTAssertThrowsError(try validator.validate(from: input)) { error in
+            XCTAssertThrowsError(try validator.validate(credential: credential,
+                                                        usingDocument: mockIdentifierDocument,
+                                                         andSourceDomainUrl: mockDomain)) { error in
+                
                 XCTAssertEqual(error as? DomainLinkageCredentialValidatorError,
                                DomainLinkageCredentialValidatorError.doNotMatch(credentialSubject: Mocks.credentialSubjectDid,
                                                                                 tokenSubject: wrongSubject))
@@ -123,11 +121,10 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         let claims = createMockDomainLinkageCredentialClaims()
         if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
             
-            let input = DomainLinkageVerificationInput(credential: credential,
-                                                       document: identifierDocument,
-                                                       domainUrl: mockDomain)
-            
-            XCTAssertThrowsError(try validator.validate(from: input)) { error in
+            XCTAssertThrowsError(try validator.validate(credential: credential,
+                                                        usingDocument: identifierDocument,
+                                                         andSourceDomainUrl: mockDomain)) { error in
+                
                 XCTAssertEqual(error as? DomainLinkageCredentialValidatorError,
                                DomainLinkageCredentialValidatorError.doNotMatch(credentialSubject: Mocks.credentialSubjectDid,
                                                                                 identifierDocumentDid: wrongIdentifierDocumentDid))
@@ -142,11 +139,10 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         let claims = createMockDomainLinkageCredentialClaims()
         if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
             
-            let input = DomainLinkageVerificationInput(credential: credential,
-                                                       document: mockIdentifierDocument,
-                                                       domainUrl: wrongDomainUrl)
-            
-            XCTAssertThrowsError(try validator.validate(from: input)) { error in
+            XCTAssertThrowsError(try validator.validate(credential: credential,
+                                                        usingDocument: mockIdentifierDocument,
+                                                         andSourceDomainUrl: wrongDomainUrl)) { error in
+                
                 XCTAssertEqual(error as? DomainLinkageCredentialValidatorError,
                                DomainLinkageCredentialValidatorError.doNotMatch(sourceDomainUrl: wrongDomainUrl,
                                                                                 wellknownDocumentDomainUrl: mockDomain))
