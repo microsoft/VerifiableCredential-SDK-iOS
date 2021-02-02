@@ -7,17 +7,17 @@ import PromiseKit
 import VCNetworking
 import VCEntities
 
-enum LinkedDomainResult: Error, Equatable {
-    case linkedDomainMissing
-    case linkedDomainUnverified(domainUrl: String)
-    case linkedDomainVerified(domainUrl: String)
-}
-
 class LinkedDomainService {
     
     private let didDocumentDiscoveryApiCalls: DiscoveryNetworking
     private let wellKnownDocumentApiCalls: WellKnownConfigDocumentNetworking
     private let validator: DomainLinkageCredentialValidating
+    
+    public convenience init() {
+        self.init(didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(),
+                  wellKnownDocumentApiCalls: WellKnownConfigDocumentNetworkCalls(),
+                  domainLinkageValidator: DomainLinkageCredentialValidator())
+    }
     
     init(didDocumentDiscoveryApiCalls: DiscoveryNetworking,
          wellKnownDocumentApiCalls: WellKnownConfigDocumentNetworking,

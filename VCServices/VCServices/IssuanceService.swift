@@ -11,6 +11,7 @@ import VCEntities
 enum IssuanceServiceError: Error {
     case unableToCastToPresentationResponseContainer
     case unableToFetchIdentifier
+    case contractDoesNotContainIssuerIdentifier
 }
 
 public class IssuanceService {
@@ -19,6 +20,7 @@ public class IssuanceService {
     let apiCalls: IssuanceNetworking
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
+    let linkedDomainService: LinkedDomainService = LinkedDomainService()
     let sdkLog: VCSDKLog
     
     public convenience init() {
@@ -43,17 +45,29 @@ public class IssuanceService {
     
     
     /// TODO: add DNS Binding for contracts
-    public func getRequest(usingUrl url: String) -> Promise<Contract> {
+    public func getRequest(usingUrl url: String) -> Promise<IssuanceRequest> {
         return firstly {
             self.apiCalls.getRequest(withUrl: url)
         }.then { signedContract in
-            self.getContract(from: signedContract)
+            self.formIssuanceRequest(from: signedContract)
         }
     }
     
-    private func getContract(from contract: SignedContract) -> Promise<Contract> {
-        return Promise { seal in
-            seal.fulfill(contract.content)
+    private func formIssuanceRequest(from signedContract: SignedContract) -> Promise<IssuanceRequest> {
+        let contract = signedContract.content
+        
+        guard let issuerDid = contract.input?.issuer else {
+            return Promise { seal in
+                seal.reject(IssuanceServiceError.contractDoesNotContainIssuerIdentifier)
+            }
+        }
+        
+        return firstly {
+            linkedDomainService.validateLinkedDomain(from: issuerDid)
+        }.then { linkedDomainResult in
+            Promise { seal in
+                seal.fulfill(IssuanceRequest(contract: contract, linkedDomainResult: linkedDomainResult))
+            }
         }
     }
     
