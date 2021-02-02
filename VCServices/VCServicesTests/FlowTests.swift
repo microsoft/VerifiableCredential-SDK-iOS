@@ -60,8 +60,8 @@ class FlowTests: XCTestCase {
             presentationUseCase.getRequest(usingUrl: requestUri)
         }.then { request in
             self.getIssuanceRequest(issuanceUseCase: issuanceUseCase, request: request)
-        }.then { contract in
-            try self.getIssuanceResponse(useCase: issuanceUseCase, contract: contract)
+        }.then { request in
+            try self.getIssuanceResponse(useCase: issuanceUseCase, contract: request.contract)
         }.then { vc in
             try self.sendPresentationResponse(useCase: presentationUseCase, request: self.presentationRequest!, vc: vc)
         }.done { response in
@@ -76,7 +76,7 @@ class FlowTests: XCTestCase {
         wait(for: [expec], timeout: 600)
     }
     
-    private func getIssuanceRequest(issuanceUseCase: IssuanceService, request: PresentationRequest) -> Promise<Contract> {
+    private func getIssuanceRequest(issuanceUseCase: IssuanceService, request: PresentationRequest) -> Promise<IssuanceRequest> {
         self.presentationRequest = request
         return issuanceUseCase.getRequest(usingUrl: request.content.presentationDefinition!.inputDescriptors.first!.issuanceMetadata.first!.contract!)
     }
