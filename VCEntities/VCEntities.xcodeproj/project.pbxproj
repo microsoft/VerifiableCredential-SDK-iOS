@@ -97,6 +97,7 @@
 		559FC96025C8940100737F14 /* DomainLinkageCredentialSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC95F25C8940100737F14 /* DomainLinkageCredentialSubject.swift */; };
 		559FC98C25C8BEC900737F14 /* DomainLinkageCredentialContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC98B25C8BEC900737F14 /* DomainLinkageCredentialContent.swift */; };
 		559FC99025C8BEEB00737F14 /* DomainLinkageCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC98F25C8BEEB00737F14 /* DomainLinkageCredential.swift */; };
+		559FC9A625C8E42B00737F14 /* WellKnownConfigDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9A525C8E42B00737F14 /* WellKnownConfigDocument.swift */; };
 		55AF747B252F5B4B006A8B25 /* IdentifierFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */; };
 		55AF747D252F64F7006A8B25 /* MockCryptoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747C252F64F7006A8B25 /* MockCryptoOperations.swift */; };
 		55AF747F252F669F006A8B25 /* MockIdentifierFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747E252F669F006A8B25 /* MockIdentifierFormatter.swift */; };
@@ -215,6 +216,7 @@
 		559FC95F25C8940100737F14 /* DomainLinkageCredentialSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLinkageCredentialSubject.swift; sourceTree = "<group>"; };
 		559FC98B25C8BEC900737F14 /* DomainLinkageCredentialContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLinkageCredentialContent.swift; sourceTree = "<group>"; };
 		559FC98F25C8BEEB00737F14 /* DomainLinkageCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLinkageCredential.swift; sourceTree = "<group>"; };
+		559FC9A525C8E42B00737F14 /* WellKnownConfigDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellKnownConfigDocument.swift; sourceTree = "<group>"; };
 		55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierFormatterTests.swift; sourceTree = "<group>"; };
 		55AF747C252F64F7006A8B25 /* MockCryptoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCryptoOperations.swift; sourceTree = "<group>"; };
 		55AF747E252F669F006A8B25 /* MockIdentifierFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIdentifierFormatter.swift; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 		559FC95E25C8939100737F14 /* linkedDomains */ = {
 			isa = PBXGroup;
 			children = (
+				559FC9A525C8E42B00737F14 /* WellKnownConfigDocument.swift */,
 				559FC95F25C8940100737F14 /* DomainLinkageCredentialSubject.swift */,
 				559FC98B25C8BEC900737F14 /* DomainLinkageCredentialContent.swift */,
 				559FC98F25C8BEEB00737F14 /* DomainLinkageCredential.swift */,
@@ -748,6 +751,7 @@
 				55253982252FDF89003202D5 /* KeyContainer.swift in Sources */,
 				557BFC53251E665D005B5B24 /* IssuanceResponseFormatter.swift in Sources */,
 				5584E4A02525656500A9DE58 /* SchemaDescriptor.swift in Sources */,
+				559FC9A625C8E42B00737F14 /* WellKnownConfigDocument.swift in Sources */,
 				5517D28F25B90D0A00FBD239 /* ExchangeRequestContainer.swift in Sources */,
 				55575766251BC6CF009979AB /* LogoDisplayDescriptor.swift in Sources */,
 				5557576F251BC6CF009979AB /* IdTokenDescriptor.swift in Sources */,
