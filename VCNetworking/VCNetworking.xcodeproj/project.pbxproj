@@ -36,6 +36,7 @@
 		5584E4A6252623EA00A9DE58 /* PresentationRequestDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */; };
 		559FC95B25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC95A25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift */; };
 		559FC97A25C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC97925C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift */; };
+		559FC9DA25C9E16000737F14 /* WellKnownConfigDocumentNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9D925C9E15F00737F14 /* WellKnownConfigDocumentNetworkCalls.swift */; };
 		55C6C4A925083D370082BE73 /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A825083D370082BE73 /* Decoding.swift */; };
 		55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */; };
 		55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AC250843920082BE73 /* ContractDecoder.swift */; };
@@ -121,6 +122,7 @@
 		5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestDecoder.swift; sourceTree = "<group>"; };
 		559FC95A25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWellKnownConfigDocumentOperation.swift; sourceTree = "<group>"; };
 		559FC97925C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellKnownConfigDocumentDecoder.swift; sourceTree = "<group>"; };
+		559FC9D925C9E15F00737F14 /* WellKnownConfigDocumentNetworkCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WellKnownConfigDocumentNetworkCalls.swift; path = VcNetworking/WellKnownConfigDocumentNetworkCalls.swift; sourceTree = SOURCE_ROOT; };
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
 		55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseDecoder.swift; sourceTree = "<group>"; };
 		55C6C4AC250843920082BE73 /* ContractDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDecoder.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				55D1680224EB0E1C00AD2F98 /* NetworkingError.swift */,
 				55D1681524EB0E1D00AD2F98 /* networking.h */,
 				55D1681724EB0E1D00AD2F98 /* Info.plist */,
+				559FC9D925C9E15F00737F14 /* WellKnownConfigDocumentNetworkCalls.swift */,
 			);
 			path = VCNetworking;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				55DA76C325BE1D28009C32E0 /* IssuanceNetworkCalls.swift in Sources */,
 				550F1D65250946CF009AF467 /* IssuanceResponseEncoder.swift in Sources */,
 				55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */,
+				559FC9DA25C9E16000737F14 /* WellKnownConfigDocumentNetworkCalls.swift in Sources */,
 				922D7E72252523FD00E4C8B5 /* NSTask+AnyPromise.m in Sources */,
 				922D7E6C252523FD00E4C8B5 /* NSURLSession+Promise.swift in Sources */,
 				922D7E69252523FD00E4C8B5 /* NSNotificationCenter+AnyPromise.m in Sources */,
