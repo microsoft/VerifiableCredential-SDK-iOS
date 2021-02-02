@@ -29,7 +29,7 @@ class LinkedDomainService {
     
     func validateLinkedDomain(from relyingPartyDid: String) -> Promise<LinkedDomainResult> {
         return firstly {
-            self.getDidDocument(from: relyingPartyDid)
+            getDidDocument(from: relyingPartyDid)
         }.then { identifierDocument in
             self.validateDomain(from: identifierDocument)
         }
@@ -42,7 +42,7 @@ class LinkedDomainService {
         }
         
         return firstly {
-            self.wellKnownDocumentApiCalls.getDocument(fromUrl: domainUrl)
+            wellKnownDocumentApiCalls.getDocument(fromUrl: domainUrl)
         }.then { wellKnownConfigDocument in
             self.validateDomainLinkageCredentials(from: wellKnownConfigDocument,
                                              using: identifierDocument,
@@ -51,7 +51,7 @@ class LinkedDomainService {
     }
     
     private func getDidDocument(from relyingPartyDid: String) -> Promise<IdentifierDocument> {
-        return self.didDocumentDiscoveryApiCalls.getDocument(from: relyingPartyDid)
+        return didDocumentDiscoveryApiCalls.getDocument(from: relyingPartyDid)
     }
     
     // only looking for the well-known document in the first entry for now.
