@@ -119,15 +119,4 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     }
 }
 
-public typealias PresentationRequest = JwsToken<PresentationRequestClaims>
-
-extension PresentationRequest {
-    
-    public func getPinRequiredLength() -> Int? {
-        return content.idTokenHint?.token.content.pin.length
-    }
-    
-    public func containsRequiredClaims() -> Bool {
-        return content.idTokenHint != nil
-    }
-}
+public typealias PresentationRequestToken = JwsToken<PresentationRequestClaims>

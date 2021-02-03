@@ -15,7 +15,7 @@ enum PresentationRequestValidatorError: Error {
 }
 
 public protocol RequestValidating {
-    func validate(request: PresentationRequest, usingKeys publicKeys: [IdentifierDocumentPublicKey]) throws
+    func validate(request: PresentationRequestToken, usingKeys publicKeys: [IdentifierDocumentPublicKey]) throws
 }
 
 public struct PresentationRequestValidator: RequestValidating {
@@ -26,7 +26,7 @@ public struct PresentationRequestValidator: RequestValidating {
         self.verifier = verifier
     }
     
-    public func validate(request: PresentationRequest, usingKeys publicKeys: [IdentifierDocumentPublicKey]) throws {
+    public func validate(request: PresentationRequestToken, usingKeys publicKeys: [IdentifierDocumentPublicKey]) throws {
         try validate(token: request, using: publicKeys)
         try validate(expiration: request.content.exp)
         try validate(request.content.scope, equals: VCEntitiesConstants.SCOPE, throws: PresentationRequestValidatorError.invalidScopeValue)
@@ -34,7 +34,8 @@ public struct PresentationRequestValidator: RequestValidating {
         try validate(request.content.responseType, equals: VCEntitiesConstants.RESPONSE_TYPE, throws: PresentationRequestValidatorError.invalidResponseTypeValue)
     }
     
-    private func validate(token: PresentationRequest, using keys: [IdentifierDocumentPublicKey]) throws {
+    private func validate(token: PresentationRequestToken,
+                          using keys: [IdentifierDocumentPublicKey]) throws {
         
         for key in keys {
             do {

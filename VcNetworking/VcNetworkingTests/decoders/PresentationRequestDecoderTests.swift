@@ -15,7 +15,7 @@ class PresentationRequestDecoderTests: XCTestCase {
     let decoder = PresentationRequestDecoder()
     
     func testDecode() throws {
-        let expectedRequest = PresentationRequest(from: TestData.presentationRequest.rawValue)
+        let expectedRequest = PresentationRequestToken(from: TestData.presentationRequest.rawValue)
         let actualRequest = try decoder.decode(data: TestData.presentationRequest.rawValue.data(using: .utf8)!)
         XCTAssertEqual(actualRequest.content, expectedRequest?.content)
     }

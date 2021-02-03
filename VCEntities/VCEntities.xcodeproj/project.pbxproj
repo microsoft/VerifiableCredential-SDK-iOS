@@ -103,6 +103,7 @@
 		559FC9B825C9C7DD00737F14 /* ContractServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9B725C9C7DD00737F14 /* ContractServiceResponse.swift */; };
 		559FCA3C25CA03D200737F14 /* IssuanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FCA3B25CA03D200737F14 /* IssuanceRequest.swift */; };
 		559FCA5225CA042400737F14 /* LinkedDomainResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FCA5125CA042400737F14 /* LinkedDomainResult.swift */; };
+		559FCA5625CA0E6A00737F14 /* PresentationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FCA5525CA0E6A00737F14 /* PresentationRequest.swift */; };
 		55AF747B252F5B4B006A8B25 /* IdentifierFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */; };
 		55AF747D252F64F7006A8B25 /* MockCryptoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747C252F64F7006A8B25 /* MockCryptoOperations.swift */; };
 		55AF747F252F669F006A8B25 /* MockIdentifierFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747E252F669F006A8B25 /* MockIdentifierFormatter.swift */; };
@@ -227,6 +228,7 @@
 		559FC9B725C9C7DD00737F14 /* ContractServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractServiceResponse.swift; sourceTree = "<group>"; };
 		559FCA3B25CA03D200737F14 /* IssuanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRequest.swift; sourceTree = "<group>"; };
 		559FCA5125CA042400737F14 /* LinkedDomainResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedDomainResult.swift; sourceTree = "<group>"; };
+		559FCA5525CA0E6A00737F14 /* PresentationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequest.swift; sourceTree = "<group>"; };
 		55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierFormatterTests.swift; sourceTree = "<group>"; };
 		55AF747C252F64F7006A8B25 /* MockCryptoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCryptoOperations.swift; sourceTree = "<group>"; };
 		55AF747E252F669F006A8B25 /* MockIdentifierFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIdentifierFormatter.swift; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 			children = (
 				5518CC652526457500C7A21B /* claims */,
 				5518CC7325264CAD00C7A21B /* PresentationResponseContainer.swift */,
+				559FCA5525CA0E6A00737F14 /* PresentationRequest.swift */,
 				55BEF460258A5E0400C720BD /* IssuerIdToken.swift */,
 			);
 			path = presentation;
@@ -768,6 +771,7 @@
 				557BFC53251E665D005B5B24 /* IssuanceResponseFormatter.swift in Sources */,
 				5584E4A02525656500A9DE58 /* SchemaDescriptor.swift in Sources */,
 				559FC9A625C8E42B00737F14 /* WellKnownConfigDocument.swift in Sources */,
+				559FCA5625CA0E6A00737F14 /* PresentationRequest.swift in Sources */,
 				5517D28F25B90D0A00FBD239 /* ExchangeRequestContainer.swift in Sources */,
 				55575766251BC6CF009979AB /* LogoDisplayDescriptor.swift in Sources */,
 				5557576F251BC6CF009979AB /* IdTokenDescriptor.swift in Sources */,

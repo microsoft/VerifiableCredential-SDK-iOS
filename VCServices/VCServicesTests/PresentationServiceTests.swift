@@ -25,10 +25,12 @@ class PresentationServiceTests: XCTestCase {
                                       presentationApiCalls: MockPresentationApiCalls(),
                                       didDocumentDiscoveryApiCalls: MockDiscoveryApiCalls(),
                                       requestValidator: MockPresentationRequestValidator(),
+                                      linkedDomainService: LinkedDomainService(),
                                       identifierService: identifierService,
                                       pairwiseService: pairwiseService)
         
-        self.presentationRequest = PresentationRequest(from: TestData.presentationRequest.rawValue)!
+        let token = PresentationRequestToken(from: TestData.presentationRequest.rawValue)!
+        self.presentationRequest = PresentationRequest(from: token, linkedDomainResult: .linkedDomainVerified(domainUrl: "test.com"))
         
         self.mockIdentifier = try identifierCreator.create(forId: "master", andRelyingParty: "master")
         
@@ -147,6 +149,7 @@ class PresentationServiceTests: XCTestCase {
                                           presentationApiCalls: MockPresentationApiCalls(),
                                           didDocumentDiscoveryApiCalls: MockDiscoveryApiCalls(),
                                           requestValidator: MockPresentationRequestValidator(),
+                                          linkedDomainService: LinkedDomainService(),
                                           identifierService: identifierService,
                                           pairwiseService: pairwiseService)
         
@@ -176,6 +179,7 @@ class PresentationServiceTests: XCTestCase {
                                           presentationApiCalls: MockPresentationApiCalls(),
                                           didDocumentDiscoveryApiCalls: MockDiscoveryApiCalls(),
                                           requestValidator: MockPresentationRequestValidator(),
+                                          linkedDomainService: LinkedDomainService(),
                                           identifierService: identifierService,
                                           pairwiseService: pairwiseService)
         
