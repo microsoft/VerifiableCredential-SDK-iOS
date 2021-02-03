@@ -305,7 +305,6 @@
 			buildConfigurationList = 92CDE7FE24DE1C6800F95B5D /* Build configuration list for PBXNativeTarget "VCCryptoTestApp" */;
 			buildPhases = (
 				92CDE7E924DE1C6100F95B5D /* Sources */,
-				92CDE7EA24DE1C6100F95B5D /* Frameworks */,
 				92CDE7EB24DE1C6100F95B5D /* Resources */,
 			);
 			buildRules = (
@@ -588,6 +587,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_MODULES_AUTOLINK = NO;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -618,6 +618,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_MODULES_AUTOLINK = NO;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
