@@ -8,13 +8,6 @@ public struct Header: Codable {
     public let algorithm: String?
     public let jsonWebKey: String?
     public let keyId: String?
-
-    enum CodingKeys: String, CodingKey {
-        case type = "typ"
-        case algorithm = "alg"
-        case jsonWebKey = "jwk"
-        case keyId = "kid"
-    }
     
     public init(type: String? = nil,
                 algorithm: String? = nil,
@@ -24,6 +17,13 @@ public struct Header: Codable {
         self.algorithm = algorithm
         self.jsonWebKey = jsonWebKey
         self.keyId = keyId
+    }
+
+    public enum CodingKeys: String, CodingKey {
+        case type = "typ"
+        case algorithm = "alg"
+        case jsonWebKey = "jwk"
+        case keyId = "kid"
     }
 
     // Note: implementing decode and encode to work around a compiler issue causing a EXC_BAD_ACCESS.
