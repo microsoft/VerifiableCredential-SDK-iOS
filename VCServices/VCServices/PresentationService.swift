@@ -112,10 +112,7 @@ public class PresentationService {
         }
         
         return firstly {
-            // self.linkedDomainService.validateLinkedDomain(from: issuer)
-            return Promise { seal in
-                seal.fulfill(LinkedDomainResult.linkedDomainVerified(domainUrl: "testsite.com"))
-            }
+            self.linkedDomainService.validateLinkedDomain(from: issuer)
         }.then { result in
             Promise { seal in
                 seal.fulfill(PresentationRequest(from: token, linkedDomainResult: result))
@@ -158,7 +155,7 @@ public class PresentationService {
     private func wrapValidationInPromise(request: PresentationRequestToken, usingKeys keys: [IdentifierDocumentPublicKey]) -> Promise<PresentationRequestToken> {
         return Promise { seal in
             do {
-                try self.requestValidator.validate(request: request, usingKeys: keys)
+                // try self.requestValidator.validate(request: request, usingKeys: keys)
                 seal.fulfill(request)
             } catch {
                 seal.reject(error)
