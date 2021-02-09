@@ -25,7 +25,7 @@ public struct Secp256k1Verifier: TokenVerifying {
             return false
         }
         
-        guard let encodedMessage = token.protectedMessage.data(using: .utf8) else {
+        guard let encodedMessage = token.protectedMessage.data(using: .ascii) else {
             throw VCJwtError.unableToParseString
         }
         
@@ -35,9 +35,9 @@ public struct Secp256k1Verifier: TokenVerifying {
             throw VCJwtError.unableToParseString
         }
         
-        let hashedMessage = self.hashAlgorithm.hash(data: encodedMessage)
+        // let hashedMessage = self.hashAlgorithm.hash(data: encodedMessage)
         
-        return try algorithm.isValidSignature(signature: signature, forMessageHash: hashedMessage, usingPublicKey: secpKey)
+        return try algorithm.isValidSignature(signature: signature, forMessageHash: encodedMessage, usingPublicKey: secpKey)
     }
 }
 

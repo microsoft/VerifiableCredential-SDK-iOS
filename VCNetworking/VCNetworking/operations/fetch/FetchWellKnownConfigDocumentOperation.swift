@@ -15,7 +15,15 @@ public class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
     public let urlRequest: URLRequest
     
     public init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
-        guard let url = URL(string: urlStr) else {
+        
+        var fullUrlString: String
+        if urlStr.hasSuffix("/") {
+            fullUrlString = urlStr + Constants.WELL_KNOWN_SUBDOMAIN
+        } else {
+            fullUrlString = urlStr + "/" + Constants.WELL_KNOWN_SUBDOMAIN
+        }
+        
+        guard let url = URL(string: fullUrlString) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         

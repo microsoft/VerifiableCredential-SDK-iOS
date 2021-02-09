@@ -4,13 +4,17 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct IdentifierDocumentServiceEndpoint: Codable, Equatable {
-    let id: String
-    public let type: String
-    public let endpoint: String
+    let id: String?
+    public let type: String?
+    public let serviceEndpoint: ServiceEndpoint
     
-    public init(id: String, type: String, endpoint: String) {
+    public init(id: String?, type: String?, serviceEndpoint: ServiceEndpoint) {
         self.id = id
         self.type = type
-        self.endpoint = endpoint
+        self.serviceEndpoint = serviceEndpoint
     }
+}
+
+public struct ServiceEndpoint: Codable, Equatable {
+    public let origins: [String]
 }
