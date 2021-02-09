@@ -7,10 +7,10 @@ import VCCrypto
 
 public struct ECPublicJwk: Codable, Equatable {
     public let keyType: String
-    public let keyId: String
-    public let use: String
-    public let keyOperations: [String]
-    public let algorithm: String
+    public let keyId: String?
+    public let use: String?
+    public let keyOperations: [String]?
+    public let algorithm: String?
     public let curve: String
     public let x: String
     public let y: String

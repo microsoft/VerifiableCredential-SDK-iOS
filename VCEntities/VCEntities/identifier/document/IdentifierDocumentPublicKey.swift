@@ -6,17 +6,17 @@
 import VCJwt
 
 public struct IdentifierDocumentPublicKey: Codable, Equatable {
-    let id: String
+    let id: String?
     let type: String
     let controller: String?
     let publicKeyJwk: ECPublicJwk
-    let purposes: [String]
+    let purposes: [String]?
     
-    public init(id: String,
+    public init(id: String?,
          type: String,
          controller: String?,
          publicKeyJwk: ECPublicJwk,
-         purposes: [String]) {
+         purposes: [String]?) {
         self.id = id
         self.type = type
         self.controller = controller

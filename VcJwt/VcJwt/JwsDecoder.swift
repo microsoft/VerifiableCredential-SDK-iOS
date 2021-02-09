@@ -35,13 +35,17 @@ public class JwsDecoder {
         }
         
         let contents = try decoder.decode(T.self, from: dataContents)
+        let protectedMessage = splitStringifiedData[0] + "." + splitStringifiedData[1]
         
         var signature: Data?
         if splitStringifiedData.count == 3 {
             signature = Data(base64URLEncoded: splitStringifiedData[2])
         }
         
-        guard let jwsToken = JwsToken(headers: headers, content: contents, signature: signature) else {
+        guard let jwsToken = JwsToken(headers: headers,
+                                      content: contents,
+                                      protectedMessage: protectedMessage,
+                                      signature: signature) else {
             throw JwsDecoderError.unableToInitializeJwsToken
         }
         

@@ -15,7 +15,9 @@ public class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
     public let urlRequest: URLRequest
     
     public init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
-        guard let url = URL(string: urlStr) else {
+        
+        guard let baseUrl = URL(string: urlStr),
+              let url = URL(string: Constants.WELL_KNOWN_SUBDOMAIN, relativeTo: baseUrl) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         

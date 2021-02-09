@@ -16,4 +16,6 @@ struct Constants {
     // Header values for signed contracts
     static let SIGNED_CONTRACT_HEADER_FIELD = "x-ms-sign-contract"
     static let SIGNED_CONTRACT_HEADER_VALUE = "true"
+    
+    static let WELL_KNOWN_SUBDOMAIN = ".well-known/did-configuration.json"
 }
