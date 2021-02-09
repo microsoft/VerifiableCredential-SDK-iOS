@@ -37,7 +37,8 @@ class LinkedDomainService {
     
     private func validateDomain(from identifierDocument: IdentifierDocument) -> Promise<LinkedDomainResult> {
         
-        guard let domainUrl = self.getLinkedDomainUrl(from: identifierDocument.service) else {
+        guard let service = identifierDocument.service,
+              let domainUrl = self.getLinkedDomainUrl(from: service) else {
             return wrapResultInPromise(.linkedDomainMissing)
         }
         
