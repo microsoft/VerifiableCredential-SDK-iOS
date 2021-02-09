@@ -69,9 +69,9 @@ class LinkedDomainService {
         var result = LinkedDomainResult.linkedDomainUnverified(domainUrl: url)
         wellKnownConfigDoc.linkedDids.forEach { credential in
             do {
-//                TODO: try validator.validate(credential: credential,
-//                                       usingDocument: identifierDocument,
-//                                       andSourceDomainUrl: url)
+                try validator.validate(credential: credential,
+                                       usingDocument: identifierDocument,
+                                       andSourceDomainUrl: url)
                 result = .linkedDomainVerified(domainUrl: url)
             } catch { }
         }

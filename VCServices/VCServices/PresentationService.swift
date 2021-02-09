@@ -155,7 +155,7 @@ public class PresentationService {
     private func wrapValidationInPromise(request: PresentationRequestToken, usingKeys keys: [IdentifierDocumentPublicKey]) -> Promise<PresentationRequestToken> {
         return Promise { seal in
             do {
-                // TODO: try self.requestValidator.validate(request: request, usingKeys: keys)
+                try self.requestValidator.validate(request: request, usingKeys: keys)
                 seal.fulfill(request)
             } catch {
                 seal.reject(error)
