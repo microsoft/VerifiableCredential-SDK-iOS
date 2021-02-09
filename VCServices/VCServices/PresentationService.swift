@@ -126,10 +126,9 @@ public class PresentationService {
     private func fetchValidatedRequest(usingUrl url: String) -> Promise<PresentationRequestToken> {
         return firstly {
             self.presentationApiCalls.getRequest(withUrl: url)
+        }.then { requestToken in
+            self.validateRequest(requestToken)
         }
-//        }.then { requestToken in
-//            self.validateRequest(requestToken)
-//        }
     }
     
     private func validateRequest(_ request: PresentationRequestToken) -> Promise<PresentationRequestToken> {

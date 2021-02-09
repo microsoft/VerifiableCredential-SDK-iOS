@@ -16,16 +16,23 @@ public struct JwsToken<T: Claims> {
     public let protectedMessage: String
     var signature: Signature?
     
-    public init?(headers: Header, content: T, signature: Data? = nil) {
+    public init?(headers: Header,
+                 content: T,
+                 protectedMessage: String? = nil,
+                 signature: Data? = nil) {
         
         self.headers = headers
         self.content = content
         self.signature = signature
         
-        do {
-            self.protectedMessage = try Self.createProtectedMessage(headers: headers, content: content)
-        } catch {
-            return nil
+        if let message = protectedMessage {
+            self.protectedMessage = message
+        } else {
+            do {
+                self.protectedMessage = try JwsToken.createProtectedMessage(headers: headers, content: content)
+            } catch {
+                return nil
+            }
         }
     }
     

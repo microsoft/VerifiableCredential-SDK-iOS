@@ -35,7 +35,7 @@ public struct DomainLinkageCredentialValidator: DomainLinkageCredentialValidatin
         let credentialSubjectDid = credential.content.verifiableCredential.credentialSubject.did
         let wellknownDocumentDomainUrl = credential.content.verifiableCredential.credentialSubject.domainUrl
         
-        // try validate(token: credential, using: document.verificationMethod)
+        try validate(token: credential, using: document.verificationMethod)
         
         try validate(credential.content.issuer,
                      equals: credentialSubjectDid,

@@ -35,9 +35,9 @@ public struct Secp256k1Verifier: TokenVerifying {
             throw VCJwtError.unableToParseString
         }
         
-        // let hashedMessage = self.hashAlgorithm.hash(data: encodedMessage)
+        let hashedMessage = self.hashAlgorithm.hash(data: encodedMessage)
         
-        return try algorithm.isValidSignature(signature: signature, forMessageHash: encodedMessage, usingPublicKey: secpKey)
+        return try algorithm.isValidSignature(signature: signature, forMessageHash: hashedMessage, usingPublicKey: secpKey)
     }
 }
 
