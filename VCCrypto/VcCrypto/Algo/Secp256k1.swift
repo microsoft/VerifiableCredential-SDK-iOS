@@ -82,6 +82,12 @@ public struct Secp256k1: Signing {
         // Create the context and convert the parsed signature and public key to the appropriate data structure
         let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_VERIFY))!
         defer { secp256k1_context_destroy(context) }
+
+        let normalizedSignature = UnsafeMutablePointer<secp256k1_ecdsa_signature>.allocate(capacity: 1)
+        defer {
+            normalizedSignature.deinitialize(count: 1)
+            normalizedSignature.deallocate()
+        }
         
         let parsedSignature = UnsafeMutablePointer<secp256k1_ecdsa_signature>.allocate(capacity: 1)
         defer {
@@ -102,11 +108,14 @@ public struct Secp256k1: Signing {
                 65)
             guard result > 0 else { throw Secp256k1Error.invalidPublicKey}
         }
+
+        // Normalize the signature
+        secp256k1_ecdsa_signature_normalize(context, normalizedSignature, parsedSignature)
         
         // Validate signature
         var isValid = false
         messageHash.withUnsafeBytes { (msgPtr) in
-            isValid = secp256k1_ecdsa_verify(context, parsedSignature, msgPtr.bindMemory(to: UInt8.self).baseAddress!, parsedPubKey) == 1
+            isValid = secp256k1_ecdsa_verify(context, normalizedSignature, msgPtr.bindMemory(to: UInt8.self).baseAddress!, parsedPubKey) == 1
         }
         
         return isValid
