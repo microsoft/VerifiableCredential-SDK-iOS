@@ -46,8 +46,10 @@ class LinkedDomainService {
             wellKnownDocumentApiCalls.getDocument(fromUrl: domainUrl)
         }.then { wellKnownConfigDocument in
             self.validateDomainLinkageCredentials(from: wellKnownConfigDocument,
-                                             using: identifierDocument,
-                                             andSourceUrl: domainUrl)
+                                                  using: identifierDocument,
+                                                  andSourceUrl: domainUrl)
+        }.recover { error in
+            self.wrapResultInPromise(.linkedDomainMissing)
         }
     }
     
