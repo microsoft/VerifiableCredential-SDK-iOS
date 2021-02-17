@@ -80,11 +80,12 @@ class LinkedDomainServiceTests: XCTestCase {
     private func setUpService(serviceEndpointType: String = Constants.LINKED_DOMAINS_SERVICE_ENDPOINT_TYPE,
                               isValid: Bool = true) -> LinkedDomainService {
         
-        let serviceEndpoint = IdentifierDocumentServiceEndpoint(id: "testServiceEndpoint",
+        let endpoint = IdentifierDocumentServiceEndpoint(origins: [mockDomainUrl])
+        let serviceEndpointDesc = IdentifierDocumentServiceEndpointDescriptor(id: "testServiceEndpoint",
                                                                 type: serviceEndpointType,
-                                                                endpoint: mockDomainUrl)
+                                                                serviceEndpoint: endpoint)
         
-        let document = IdentifierDocument(service: [serviceEndpoint],
+        let document = IdentifierDocument(service: [serviceEndpointDesc],
                                           verificationMethod: [],
                                           authentication: [],
                                           id: validDid)
