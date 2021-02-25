@@ -12,7 +12,7 @@ extension URLRequest {
         self.init(url: url)
         
         if TraceHelper.sharedInstance.userAgentInfo != "" {
-            self.setValue("User-Agent", forHTTPHeaderField: TraceHelper.sharedInstance.userAgentInfo)
+            self.setValue(Constants.USER_AGENT, forHTTPHeaderField: TraceHelper.sharedInstance.userAgentInfo)
         }
     }
 }
