@@ -25,7 +25,7 @@ public class FetchDIDDocumentOperation: InternalNetworkOperation {
             throw NetworkingError.invalidUrl(withUrl: urlComponents.string ?? Constants.DISCOVERY_URL)
         }
         
-        self.urlRequest = URLRequest(url: url)
+        self.urlRequest = URLRequest(url)
         self.urlSession = session
     }
 }

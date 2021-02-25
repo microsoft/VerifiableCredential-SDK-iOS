@@ -22,7 +22,7 @@ public class PostExchangeRequestOperation: InternalPostNetworkOperation {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         
-        var request = URLRequest(url: url)
+        var request = URLRequest(url)
         request.httpMethod = Constants.POST
         request.httpBody = try self.encoder.encode(value: body)
         request.setValue(Constants.PLAIN_TEXT, forHTTPHeaderField: Constants.CONTENT_TYPE)

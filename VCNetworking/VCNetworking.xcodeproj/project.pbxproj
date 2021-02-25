@@ -30,6 +30,7 @@
 		5573FE5A25B20A0C00282BC7 /* DIDDocumentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FE5925B20A0C00282BC7 /* DIDDocumentDecoder.swift */; };
 		5573FEC225B8C3C900282BC7 /* DIDDocumentDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FEC125B8C3C900282BC7 /* DIDDocumentDecoderTests.swift */; };
 		5573FEC825B8CAF300282BC7 /* FetchDIDDocumentOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FEC725B8CAF300282BC7 /* FetchDIDDocumentOperationTests.swift */; };
+		5574956825E85B26005A924B /* VerifiableCredentials+URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5574956725E85B26005A924B /* VerifiableCredentials+URLRequest.swift */; };
 		55793BD1255C5796007F7599 /* PostExchangeRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BD0255C5796007F7599 /* PostExchangeRequestOperation.swift */; };
 		55793BD3255C582D007F7599 /* ExchangeRequestEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BD2255C582D007F7599 /* ExchangeRequestEncoder.swift */; };
 		5584E4A42526234C00A9DE58 /* FetchPresentationRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */; };
@@ -116,6 +117,7 @@
 		5573FE5925B20A0C00282BC7 /* DIDDocumentDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDDocumentDecoder.swift; sourceTree = "<group>"; };
 		5573FEC125B8C3C900282BC7 /* DIDDocumentDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDDocumentDecoderTests.swift; sourceTree = "<group>"; };
 		5573FEC725B8CAF300282BC7 /* FetchDIDDocumentOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDIDDocumentOperationTests.swift; sourceTree = "<group>"; };
+		5574956725E85B26005A924B /* VerifiableCredentials+URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerifiableCredentials+URLRequest.swift"; sourceTree = "<group>"; };
 		55793BD0255C5796007F7599 /* PostExchangeRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostExchangeRequestOperation.swift; sourceTree = "<group>"; };
 		55793BD2255C582D007F7599 /* ExchangeRequestEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRequestEncoder.swift; sourceTree = "<group>"; };
 		5584E4A32526234C00A9DE58 /* FetchPresentationRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPresentationRequestOperation.swift; sourceTree = "<group>"; };
@@ -226,6 +228,14 @@
 			path = encoders;
 			sourceTree = "<group>";
 		};
+		5574956625E85B08005A924B /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5574956725E85B26005A924B /* VerifiableCredentials+URLRequest.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		55C6C4A725083D220082BE73 /* decoders */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +253,7 @@
 		55D1680124EB0E1C00AD2F98 /* VCNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				5574956625E85B08005A924B /* extensions */,
 				55C6C4A725083D220082BE73 /* decoders */,
 				550F1D6125094679009AF467 /* encoders */,
 				55D1680B24EB0E1C00AD2F98 /* operations */,
@@ -608,6 +619,7 @@
 				55DA76C325BE1D28009C32E0 /* IssuanceNetworkCalls.swift in Sources */,
 				550F1D65250946CF009AF467 /* IssuanceResponseEncoder.swift in Sources */,
 				55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */,
+				5574956825E85B26005A924B /* VerifiableCredentials+URLRequest.swift in Sources */,
 				559FC9DA25C9E16000737F14 /* WellKnownConfigDocumentNetworkCalls.swift in Sources */,
 				922D7E72252523FD00E4C8B5 /* NSTask+AnyPromise.m in Sources */,
 				922D7E6C252523FD00E4C8B5 /* NSURLSession+Promise.swift in Sources */,

@@ -21,7 +21,7 @@ public class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         
-        self.urlRequest = URLRequest(url: url)
+        self.urlRequest = URLRequest(url)
         self.urlSession = session
     }
 }

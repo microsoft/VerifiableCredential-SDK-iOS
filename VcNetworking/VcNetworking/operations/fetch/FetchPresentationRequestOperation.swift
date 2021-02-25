@@ -19,7 +19,7 @@ public class FetchPresentationRequestOperation: InternalNetworkOperation {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         
-        self.urlRequest = URLRequest(url: url)
+        self.urlRequest = URLRequest(url)
         self.urlSession = session
     }
 }
