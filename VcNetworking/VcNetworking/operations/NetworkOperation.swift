@@ -42,7 +42,11 @@ extension InternalNetworkOperation {
     
     var urlSession: URLSession {
         let session = URLSession.shared
-        session.configuration.httpAdditionalHeaders = [Constants.USER_AGENT: VCSDKConfiguration.sharedInstance.userAgentInfo]
+        
+        if VCSDKConfiguration.sharedInstance.userAgentInfo != "" {
+            session.configuration.httpAdditionalHeaders = [Constants.USER_AGENT: VCSDKConfiguration.sharedInstance.userAgentInfo]
+        }
+        
         return session
     }
     
