@@ -14,7 +14,7 @@ public class VerifiableCredentialSDK {
                                   userAgentInfo: String = "") throws -> Bool {
 
         VCSDKLog.sharedInstance.add(consumer: logConsumer)
-        TraceHelper.sharedInstance.setUserAgentInfo(with: userAgentInfo)
+        VCSDKConfiguration.sharedInstance.setUserAgentInfo(with: userAgentInfo)
         
         let identifierService = IdentifierService()
         

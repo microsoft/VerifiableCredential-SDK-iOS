@@ -71,7 +71,7 @@
 		5573FEFA25B8DE5900282BC7 /* IONDocumentInitialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FEF925B8DE5900282BC7 /* IONDocumentInitialState.swift */; };
 		5573FF0025B8DE6900282BC7 /* IdentifierDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FEFE25B8DE6900282BC7 /* IdentifierDocument.swift */; };
 		5573FF0125B8DE6900282BC7 /* DiscoveryServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FEFF25B8DE6900282BC7 /* DiscoveryServiceResponse.swift */; };
-		5574956325E85987005A924B /* TraceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5574956225E85987005A924B /* TraceHelper.swift */; };
+		5574956325E85987005A924B /* VCSDKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5574956225E85987005A924B /* VCSDKConfiguration.swift */; };
 		5577E867251E8368005250BC /* MockCodableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E866251E8368005250BC /* MockCodableObject.swift */; };
 		5577E869251E8395005250BC /* JSONCodingKeysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E868251E8395005250BC /* JSONCodingKeysTests.swift */; };
 		5577E86C251E86C2005250BC /* VerifiableCredentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577E86B251E86C2005250BC /* VerifiableCredentialTests.swift */; };
@@ -196,7 +196,7 @@
 		5573FEF925B8DE5900282BC7 /* IONDocumentInitialState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IONDocumentInitialState.swift; sourceTree = "<group>"; };
 		5573FEFE25B8DE6900282BC7 /* IdentifierDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifierDocument.swift; sourceTree = "<group>"; };
 		5573FEFF25B8DE6900282BC7 /* DiscoveryServiceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryServiceResponse.swift; sourceTree = "<group>"; };
-		5574956225E85987005A924B /* TraceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceHelper.swift; sourceTree = "<group>"; };
+		5574956225E85987005A924B /* VCSDKConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSDKConfiguration.swift; sourceTree = "<group>"; };
 		5577E866251E8368005250BC /* MockCodableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCodableObject.swift; sourceTree = "<group>"; };
 		5577E868251E8395005250BC /* JSONCodingKeysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodingKeysTests.swift; sourceTree = "<group>"; };
 		5577E86B251E86C2005250BC /* VerifiableCredentialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiableCredentialTests.swift; sourceTree = "<group>"; };
@@ -631,7 +631,7 @@
 				55793BCC255A070E007F7599 /* VCEntitiesConstants.swift */,
 				55575762251BC6CF009979AB /* JSONCodingKeys.swift */,
 				551F3062252E6E230081D5E7 /* Multihash.swift */,
-				5574956225E85987005A924B /* TraceHelper.swift */,
+				5574956225E85987005A924B /* VCSDKConfiguration.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -847,7 +847,7 @@
 				5531D3AC255F03EF0002CC0E /* AliasComputer.swift in Sources */,
 				5570597B25754D02000DD244 /* VCTraceLevel.swift in Sources */,
 				5518CC642526427D00C7A21B /* PresentationResponseClaims.swift in Sources */,
-				5574956325E85987005A924B /* TraceHelper.swift in Sources */,
+				5574956325E85987005A924B /* VCSDKConfiguration.swift in Sources */,
 				559FC98C25C8BEC900737F14 /* DomainLinkageCredentialContent.swift in Sources */,
 				55575775251BC6CF009979AB /* IssuanceResponseClaims.swift in Sources */,
 			);

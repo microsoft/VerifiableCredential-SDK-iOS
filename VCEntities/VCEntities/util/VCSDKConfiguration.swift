@@ -3,16 +3,15 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import Foundation
-import VCEntities
-
-extension URLRequest {
-
-    init(_ url: URL) {
-        self.init(url: url)
-        
-        if TraceHelper.sharedInstance.userAgentInfo != "" {
-            self.setValue(Constants.USER_AGENT, forHTTPHeaderField: TraceHelper.sharedInstance.userAgentInfo)
-        }
+public struct VCSDKConfiguration {
+    
+    public static var sharedInstance = VCSDKConfiguration()
+    
+    public var userAgentInfo: String = ""
+    
+    private init() {}
+    
+    public mutating func setUserAgentInfo(with info: String) {
+        self.userAgentInfo = info
     }
 }

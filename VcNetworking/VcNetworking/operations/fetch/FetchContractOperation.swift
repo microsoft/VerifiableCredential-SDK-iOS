@@ -20,7 +20,7 @@ public class FetchContractOperation: InternalNetworkOperation {
         }
         
         self.urlSession = session
-        var request = URLRequest(url)
+        var request = URLRequest(url: url)
         
         /// sets value in order to get a signed version of the contract
         request.addValue(Constants.SIGNED_CONTRACT_HEADER_VALUE,
