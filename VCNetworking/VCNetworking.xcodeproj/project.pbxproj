@@ -254,11 +254,11 @@
 				55DA76E225BE1FBD009C32E0 /* ExchangeNetworkCalls.swift */,
 				55DA76E625BE203F009C32E0 /* DIDDocumentNetworkCalls.swift */,
 				55DA76DC25BE1ECF009C32E0 /* PresentationNetworkCalls.swift */,
+				559FC9D925C9E15F00737F14 /* WellKnownConfigDocumentNetworkCalls.swift */,
 				55D1681424EB0E1C00AD2F98 /* NetworkingConstants.swift */,
 				55D1680224EB0E1C00AD2F98 /* NetworkingError.swift */,
 				55D1681524EB0E1D00AD2F98 /* networking.h */,
 				55D1681724EB0E1D00AD2F98 /* Info.plist */,
-				559FC9D925C9E15F00737F14 /* WellKnownConfigDocumentNetworkCalls.swift */,
 			);
 			path = VCNetworking;
 			sourceTree = "<group>";

@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
+import VCEntities
 
 internal protocol InternalNetworkOperation: NetworkOperation & InternalOperation {}
 
@@ -40,7 +41,13 @@ extension InternalNetworkOperation {
     }
     
     var urlSession: URLSession {
-        return URLSession.shared
+        let session = URLSession.shared
+        
+        if VCSDKConfiguration.sharedInstance.userAgentInfo != "" {
+            session.configuration.httpAdditionalHeaders = [Constants.USER_AGENT: VCSDKConfiguration.sharedInstance.userAgentInfo]
+        }
+        
+        return session
     }
     
     public func fire() -> Promise<ResponseBody> {
