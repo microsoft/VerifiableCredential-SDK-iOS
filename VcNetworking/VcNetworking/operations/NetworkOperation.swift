@@ -24,7 +24,7 @@ protocol InternalOperation {
     var retryHandler: RetryHandler { get }
     var urlSession: URLSession { get }
     var urlRequest: URLRequest { get set }
-    var correlationVector: VCNetworkCallCorrelatable? { get set }
+    var correlationVector: CorrelationHeader? { get set }
 }
 
 extension InternalNetworkOperation {
@@ -53,10 +53,9 @@ extension InternalNetworkOperation {
     
     public mutating func fire() -> Promise<ResponseBody> {
         
-        if let cv = correlationVector,
-           let cvName = cv.value.getName() {
-            let incrementedValue = cv.increment()
-            urlRequest.setValue(incrementedValue, forHTTPHeaderField: cvName)
+        if let cv = correlationVector {
+            let incrementedValue = cv.update()
+            urlRequest.setValue(incrementedValue, forHTTPHeaderField: cv.name)
             
         }
         

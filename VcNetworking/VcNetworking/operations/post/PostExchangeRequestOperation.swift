@@ -15,11 +15,11 @@ class PostExchangeRequestOperation: InternalPostNetworkOperation {
     let encoder = ExchangeRequestEncoder()
     let urlSession: URLSession
     var urlRequest: URLRequest
-    var correlationVector: VCNetworkCallCorrelatable?
+    var correlationVector: CorrelationHeader?
     
     init(usingUrl urlStr: String,
                 withBody body: ExchangeRequest,
-                andCorrelationVector cv: VCNetworkCallCorrelatable? = nil,
+                andCorrelationVector cv: CorrelationHeader? = nil,
                 urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {

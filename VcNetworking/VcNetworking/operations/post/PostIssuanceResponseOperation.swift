@@ -16,11 +16,11 @@ public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
     let encoder = IssuanceResponseEncoder()
     let urlSession: URLSession
     var urlRequest: URLRequest
-    var correlationVector: VCNetworkCallCorrelatable?
+    var correlationVector: CorrelationHeader?
     
     public init(usingUrl urlStr: String,
                 withBody body: IssuanceResponse,
-                andCorrelationVector cv: VCNetworkCallCorrelatable? = nil,
+                andCorrelationVector cv: CorrelationHeader? = nil,
                 urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {

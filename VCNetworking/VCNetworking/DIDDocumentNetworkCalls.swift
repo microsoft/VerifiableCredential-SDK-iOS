@@ -13,9 +13,9 @@ public protocol DiscoveryNetworking {
 public class DIDDocumentNetworkCalls: DiscoveryNetworking {
     
     private let urlSession: URLSession
-    private let correlationVector: VCNetworkCallCorrelatable?
+    private let correlationVector: CorrelationHeader?
     
-    public init(correlationVector: VCNetworkCallCorrelatable? = nil,
+    public init(correlationVector: CorrelationHeader? = nil,
                 urlSession: URLSession = URLSession.shared) {
         self.urlSession = urlSession
         self.correlationVector = correlationVector

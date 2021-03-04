@@ -12,11 +12,11 @@ class FetchContractOperation: InternalNetworkOperation {
     
     let decoder: ContractDecoder = ContractDecoder()
     let urlSession: URLSession
-    var correlationVector: VCNetworkCallCorrelatable?
+    var correlationVector: CorrelationHeader?
     var urlRequest: URLRequest
     
     init(withUrl urlStr: String,
-         andCorrelationVector correlationVector: VCNetworkCallCorrelatable? = nil,
+         andCorrelationVector correlationVector: CorrelationHeader? = nil,
          session: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {

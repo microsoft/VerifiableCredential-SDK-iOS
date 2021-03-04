@@ -21,10 +21,10 @@ public class IssuanceService {
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
     let linkedDomainService: LinkedDomainService = LinkedDomainService()
-    let correlationVector: VCNetworkCallCorrelatable?
+    let correlationVector: CorrelationHeader?
     let sdkLog: VCSDKLog
     
-    public convenience init(correlationVector: VCNetworkCallCorrelatable? = nil) {
+    public convenience init(correlationVector: CorrelationHeader? = nil) {
         self.init(formatter: IssuanceResponseFormatter(),
                   apiCalls: IssuanceNetworkCalls(correlationVector: correlationVector),
                   identifierService: IdentifierService(),
@@ -37,7 +37,7 @@ public class IssuanceService {
          apiCalls: IssuanceNetworking,
          identifierService: IdentifierService,
          pairwiseService: PairwiseService,
-         correlationVector: VCNetworkCallCorrelatable? = nil,
+         correlationVector: CorrelationHeader? = nil,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
         self.apiCalls = apiCalls

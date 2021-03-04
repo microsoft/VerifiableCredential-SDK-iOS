@@ -26,10 +26,10 @@ public class PresentationService {
     let linkedDomainService: LinkedDomainService
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
-    var correlationVector: VCNetworkCallCorrelatable?
+    var correlationVector: CorrelationHeader?
     let sdkLog: VCSDKLog
     
-    public convenience init(correlationVector: VCNetworkCallCorrelatable? = nil) {
+    public convenience init(correlationVector: CorrelationHeader? = nil) {
         self.init(formatter: PresentationResponseFormatter(),
                   presentationApiCalls: PresentationNetworkCalls(correlationVector: correlationVector),
                   didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(correlationVector: correlationVector),
@@ -48,7 +48,7 @@ public class PresentationService {
          linkedDomainService: LinkedDomainService,
          identifierService: IdentifierService,
          pairwiseService: PairwiseService,
-         correlationVector: VCNetworkCallCorrelatable? = nil,
+         correlationVector: CorrelationHeader? = nil,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
         self.presentationApiCalls = presentationApiCalls
@@ -62,7 +62,6 @@ public class PresentationService {
     }
     
     public func getRequest(usingUrl urlStr: String) -> Promise<PresentationRequest> {
-        correlationVector?.create()
         return firstly {
             self.getRequestUriPromise(from: urlStr)
         }.then { requestUri in
@@ -117,7 +116,7 @@ public class PresentationService {
         }
         
         return firstly {
-            self.linkedDomainService.validateLinkedDomain(from: issuer, with: nil)
+            self.linkedDomainService.validateLinkedDomain(from: issuer)
         }.then { result in
             Promise { seal in
                 seal.fulfill(PresentationRequest(from: token, linkedDomainResult: result))

@@ -14,9 +14,9 @@ public protocol PresentationNetworking {
 public class PresentationNetworkCalls: PresentationNetworking {
 
     private let urlSession: URLSession
-    private let correlationVector: VCNetworkCallCorrelatable?
+    private let correlationVector: CorrelationHeader?
     
-    public init(correlationVector: VCNetworkCallCorrelatable? = nil,
+    public init(correlationVector: CorrelationHeader? = nil,
                 urlSession: URLSession = URLSession.shared) {
         self.correlationVector = correlationVector
         self.urlSession = urlSession

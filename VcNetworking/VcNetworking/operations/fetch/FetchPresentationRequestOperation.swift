@@ -13,10 +13,10 @@ class FetchPresentationRequestOperation: InternalNetworkOperation {
     let decoder: PresentationRequestDecoder = PresentationRequestDecoder()
     let urlSession: URLSession
     var urlRequest: URLRequest
-    var correlationVector: VCNetworkCallCorrelatable?
+    var correlationVector: CorrelationHeader?
     
     public init(withUrl urlStr: String,
-                andCorrelationVector cv: VCNetworkCallCorrelatable? = nil,
+                andCorrelationVector cv: CorrelationHeader? = nil,
                 session: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {

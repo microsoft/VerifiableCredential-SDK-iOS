@@ -13,7 +13,7 @@ class ExchangeService {
     private let formatter: ExchangeRequestFormatting
     private let apiCalls: ExchangeNetworking
     
-    convenience init(correlationVector: VCNetworkCallCorrelatable? = nil) {
+    convenience init(correlationVector: CorrelationHeader? = nil) {
         self.init(formatter: ExchangeRequestFormatter(),
                   apiCalls: ExchangeNetworkCalls(correlationVector: correlationVector))
     }

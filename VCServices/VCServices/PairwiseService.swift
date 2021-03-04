@@ -12,7 +12,7 @@ class PairwiseService {
     private let exchangeService: ExchangeService
     private let identifierService: IdentifierService
     
-    convenience init(correlationVector: VCNetworkCallCorrelatable? = nil) {
+    convenience init(correlationVector: CorrelationHeader? = nil) {
         self.init(exchangeService: ExchangeService(correlationVector: correlationVector),
                   identifierService: IdentifierService())
     }

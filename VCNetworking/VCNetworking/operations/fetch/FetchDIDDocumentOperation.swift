@@ -13,10 +13,10 @@ class FetchDIDDocumentOperation: InternalNetworkOperation {
     let decoder = DIDDocumentDecoder()
     let urlSession: URLSession
     var urlRequest: URLRequest
-    var correlationVector: VCNetworkCallCorrelatable?
+    var correlationVector: CorrelationHeader?
     
     init(withIdentifier identifier: String,
-         andCorrelationVector correlationVector: VCNetworkCallCorrelatable? = nil,
+         andCorrelationVector correlationVector: CorrelationHeader? = nil,
          session: URLSession = URLSession()) throws {
         
         guard var urlComponents = URLComponents(string: Constants.DISCOVERY_URL) else {

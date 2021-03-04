@@ -13,10 +13,10 @@ class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
     let decoder = WellKnownConfigDocumentDecoder()
     let urlSession: URLSession
     var urlRequest: URLRequest
-    var correlationVector: VCNetworkCallCorrelatable?
+    var correlationVector: CorrelationHeader?
     
     public init(withUrl urlStr: String,
-                andCorrelationVector cv: VCNetworkCallCorrelatable? = nil,
+                andCorrelationVector cv: CorrelationHeader? = nil,
                 session: URLSession = URLSession.shared) throws {
         
         guard let baseUrl = URL(string: urlStr),
