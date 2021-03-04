@@ -53,12 +53,8 @@ extension InternalNetworkOperation {
     
     public mutating func fire() -> Promise<ResponseBody> {
         
-        if var cv = correlationVector,
+        if let cv = correlationVector,
            let cvName = cv.value.getName() {
-            
-            print(cv)
-            print(urlRequest.url?.absoluteString ?? "")
-            
             let incrementedValue = cv.increment()
             urlRequest.setValue(incrementedValue, forHTTPHeaderField: cvName)
             
