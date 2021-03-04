@@ -7,14 +7,18 @@ import Foundation
 import PromiseKit
 import VCEntities
 
-public class FetchDIDDocumentOperation: InternalNetworkOperation {
-    public typealias ResponseBody = IdentifierDocument
+class FetchDIDDocumentOperation: InternalNetworkOperation {
+    typealias ResponseBody = IdentifierDocument
     
-    public let decoder = DIDDocumentDecoder()
-    public let urlSession: URLSession
-    public let urlRequest: URLRequest
+    let decoder = DIDDocumentDecoder()
+    let urlSession: URLSession
+    var urlRequest: URLRequest
+    var correlationVector: CorrelationHeader?
     
-    public init(withIdentifier identifier: String, session: URLSession = URLSession.shared) throws {
+    init(withIdentifier identifier: String,
+         andCorrelationVector correlationVector: CorrelationHeader? = nil,
+         session: URLSession = URLSession()) throws {
+        
         guard var urlComponents = URLComponents(string: Constants.DISCOVERY_URL) else {
             throw NetworkingError.invalidUrl(withUrl: Constants.DISCOVERY_URL)
         }
@@ -27,5 +31,6 @@ public class FetchDIDDocumentOperation: InternalNetworkOperation {
         
         self.urlRequest = URLRequest(url: url)
         self.urlSession = session
+        self.correlationVector = correlationVector
     }
 }

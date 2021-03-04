@@ -26,16 +26,18 @@ public class PresentationService {
     let linkedDomainService: LinkedDomainService
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
+    var correlationVector: CorrelationHeader?
     let sdkLog: VCSDKLog
     
-    public convenience init() {
+    public convenience init(correlationVector: CorrelationHeader? = nil) {
         self.init(formatter: PresentationResponseFormatter(),
-                  presentationApiCalls: PresentationNetworkCalls(),
-                  didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(),
+                  presentationApiCalls: PresentationNetworkCalls(correlationVector: correlationVector),
+                  didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(correlationVector: correlationVector),
                   requestValidator: PresentationRequestValidator(),
-                  linkedDomainService: LinkedDomainService(),
+                  linkedDomainService: LinkedDomainService(correlationVector: correlationVector),
                   identifierService: IdentifierService(),
-                  pairwiseService: PairwiseService(),
+                  pairwiseService: PairwiseService(correlationVector: correlationVector),
+                  correlationVector: correlationVector,
                   sdkLog: VCSDKLog.sharedInstance)
     }
     
@@ -46,6 +48,7 @@ public class PresentationService {
          linkedDomainService: LinkedDomainService,
          identifierService: IdentifierService,
          pairwiseService: PairwiseService,
+         correlationVector: CorrelationHeader? = nil,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
         self.presentationApiCalls = presentationApiCalls
@@ -54,6 +57,7 @@ public class PresentationService {
         self.linkedDomainService = linkedDomainService
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
+        self.correlationVector = correlationVector
         self.sdkLog = sdkLog
     }
     

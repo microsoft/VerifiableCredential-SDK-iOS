@@ -11,7 +11,7 @@ internal protocol InternalNetworkOperation: NetworkOperation & InternalOperation
 public protocol NetworkOperation {
     associatedtype ResponseBody
     
-    func fire() -> Promise<ResponseBody>
+    mutating func fire() -> Promise<ResponseBody>
 }
 
 protocol InternalOperation {
@@ -23,7 +23,8 @@ protocol InternalOperation {
     var failureHandler: FailureHandler { get }
     var retryHandler: RetryHandler { get }
     var urlSession: URLSession { get }
-    var urlRequest: URLRequest { get }
+    var urlRequest: URLRequest { get set }
+    var correlationVector: CorrelationHeader? { get set }
 }
 
 extension InternalNetworkOperation {
@@ -50,9 +51,16 @@ extension InternalNetworkOperation {
         return session
     }
     
-    public func fire() -> Promise<ResponseBody> {
+    public mutating func fire() -> Promise<ResponseBody> {
+        
+        if let cv = correlationVector {
+            let incrementedValue = cv.update()
+            urlRequest.setValue(incrementedValue, forHTTPHeaderField: cv.name)
+            
+        }
+        
         return firstly {
-            retryHandler.onRetry {
+            retryHandler.onRetry { [self] in
                 return self.call(urlSession: self.urlSession, urlRequest: self.urlRequest)
             }
         }

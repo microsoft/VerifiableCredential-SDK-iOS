@@ -20,26 +20,29 @@ public class IssuanceService {
     let apiCalls: IssuanceNetworking
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
-    let linkedDomainService: LinkedDomainService = LinkedDomainService()
+    let linkedDomainService: LinkedDomainService
     let sdkLog: VCSDKLog
     
-    public convenience init() {
+    public convenience init(correlationVector: CorrelationHeader? = nil) {
         self.init(formatter: IssuanceResponseFormatter(),
-                  apiCalls: IssuanceNetworkCalls(),
+                  apiCalls: IssuanceNetworkCalls(correlationVector: correlationVector),
                   identifierService: IdentifierService(),
-                  pairwiseService: PairwiseService(),
+                  linkedDomainService: LinkedDomainService(correlationVector: correlationVector),
+                  pairwiseService: PairwiseService(correlationVector: correlationVector),
                   sdkLog: VCSDKLog.sharedInstance)
     }
     
     init(formatter: IssuanceResponseFormatting,
          apiCalls: IssuanceNetworking,
          identifierService: IdentifierService,
+         linkedDomainService: LinkedDomainService,
          pairwiseService: PairwiseService,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
         self.apiCalls = apiCalls
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
+        self.linkedDomainService = linkedDomainService
         self.sdkLog = sdkLog
     }
     

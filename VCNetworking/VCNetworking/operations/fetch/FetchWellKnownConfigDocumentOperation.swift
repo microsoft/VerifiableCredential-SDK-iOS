@@ -7,14 +7,17 @@ import Foundation
 import PromiseKit
 import VCEntities
 
-public class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
-    public typealias ResponseBody = WellKnownConfigDocument
+class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
+    typealias ResponseBody = WellKnownConfigDocument
     
-    public let decoder = WellKnownConfigDocumentDecoder()
-    public let urlSession: URLSession
-    public let urlRequest: URLRequest
+    let decoder = WellKnownConfigDocumentDecoder()
+    let urlSession: URLSession
+    var urlRequest: URLRequest
+    var correlationVector: CorrelationHeader?
     
-    public init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
+    public init(withUrl urlStr: String,
+                andCorrelationVector cv: CorrelationHeader? = nil,
+                session: URLSession = URLSession.shared) throws {
         
         guard let baseUrl = URL(string: urlStr),
               let url = URL(string: Constants.WELL_KNOWN_SUBDOMAIN, relativeTo: baseUrl) else {
@@ -23,6 +26,7 @@ public class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
         
         self.urlRequest = URLRequest(url: url)
         self.urlSession = session
+        self.correlationVector = cv
     }
 }
 

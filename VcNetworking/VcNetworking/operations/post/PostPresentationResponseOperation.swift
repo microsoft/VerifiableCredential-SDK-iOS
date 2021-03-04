@@ -6,29 +6,32 @@
 import Foundation
 import VCEntities
 
-public class PostPresentationResponseOperation: InternalPostNetworkOperation {
-
+class PostPresentationResponseOperation: InternalPostNetworkOperation {
     typealias Encoder = PresentationResponseEncoder
-    public typealias RequestBody = PresentationResponse
-    public typealias ResponseBody = String?
+    typealias RequestBody = PresentationResponse
+    typealias ResponseBody = String?
     
     let decoder = PresentationServiceResponseDecoder()
     let encoder = PresentationResponseEncoder()
     let urlSession: URLSession
-    let urlRequest: URLRequest
+    var urlRequest: URLRequest
+    var correlationVector: CorrelationHeader?
     
-    public init(usingUrl urlStr: String, withBody body: PresentationResponse, urlSession: URLSession = URLSession.shared) throws {
+    public init(usingUrl urlStr: String,
+                withBody body: PresentationResponse,
+                andCorrelationVector cv: CorrelationHeader? = nil,
+                urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = Constants.POST
-        request.httpBody = try self.encoder.encode(value: body)
-        request.setValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
+        self.urlRequest = URLRequest(url: url)
+        self.urlRequest.httpMethod = Constants.POST
+        self.urlRequest.httpBody = try self.encoder.encode(value: body)
+        self.urlRequest.setValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
         
-        self.urlRequest = request
         self.urlSession = urlSession
+        self.correlationVector = cv
     }
 }

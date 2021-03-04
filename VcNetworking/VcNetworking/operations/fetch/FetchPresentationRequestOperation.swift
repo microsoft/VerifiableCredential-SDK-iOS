@@ -7,19 +7,24 @@ import Foundation
 import PromiseKit
 import VCEntities
 
-public class FetchPresentationRequestOperation: InternalNetworkOperation {
-    public typealias ResponseBody = PresentationRequestToken
+class FetchPresentationRequestOperation: InternalNetworkOperation {
+    typealias ResponseBody = PresentationRequestToken
     
-    public let decoder: PresentationRequestDecoder = PresentationRequestDecoder()
-    public let urlSession: URLSession
-    public let urlRequest: URLRequest
+    let decoder: PresentationRequestDecoder = PresentationRequestDecoder()
+    let urlSession: URLSession
+    var urlRequest: URLRequest
+    var correlationVector: CorrelationHeader?
     
-    public init(withUrl urlStr: String, session: URLSession = URLSession.shared) throws {
+    public init(withUrl urlStr: String,
+                andCorrelationVector cv: CorrelationHeader? = nil,
+                session: URLSession = URLSession.shared) throws {
+        
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         
         self.urlRequest = URLRequest(url: url)
         self.urlSession = session
+        self.correlationVector = cv
     }
 }

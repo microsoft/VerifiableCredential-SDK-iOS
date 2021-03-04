@@ -14,14 +14,19 @@ public protocol PresentationNetworking {
 public class PresentationNetworkCalls: PresentationNetworking {
 
     private let urlSession: URLSession
+    private let correlationVector: CorrelationHeader?
     
-    public init(urlSession: URLSession = URLSession.shared) {
+    public init(correlationVector: CorrelationHeader? = nil,
+                urlSession: URLSession = URLSession.shared) {
+        self.correlationVector = correlationVector
         self.urlSession = urlSession
     }
     
     public func getRequest(withUrl url: String) -> Promise<PresentationRequestToken> {
         do {
-            let operation = try FetchPresentationRequestOperation(withUrl: url, session: self.urlSession)
+            var operation = try FetchPresentationRequestOperation(withUrl: url,
+                                                                  andCorrelationVector: correlationVector,
+                                                                  session: urlSession)
             return operation.fire()
         } catch {
             return Promise { seal in
@@ -32,7 +37,10 @@ public class PresentationNetworkCalls: PresentationNetworking {
     
     public func sendResponse(usingUrl url: String, withBody body: PresentationResponse) -> Promise<String?> {
         do {
-            let operation = try PostPresentationResponseOperation(usingUrl: url, withBody: body, urlSession: self.urlSession)
+            var operation = try PostPresentationResponseOperation(usingUrl: url,
+                                                                  withBody: body,
+                                                                  andCorrelationVector: correlationVector,
+                                                                  urlSession: urlSession)
             return operation.fire()
         } catch {
             return Promise { seal in
