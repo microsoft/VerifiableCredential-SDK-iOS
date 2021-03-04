@@ -10,14 +10,16 @@ import VCEntities
 
 class ExchangeService {
     
-    let formatter: ExchangeRequestFormatting
-    let apiCalls: ExchangeNetworking
+    private let formatter: ExchangeRequestFormatting
+    private let apiCalls: ExchangeNetworking
     
-    convenience init() {
-        self.init(formatter: ExchangeRequestFormatter(), apiCalls: ExchangeNetworkCalls())
+    convenience init(correlationVector: VCNetworkCallCorrelatable? = nil) {
+        self.init(formatter: ExchangeRequestFormatter(),
+                  apiCalls: ExchangeNetworkCalls(correlationVector: correlationVector))
     }
     
-    init(formatter: ExchangeRequestFormatting, apiCalls: ExchangeNetworking) {
+    init(formatter: ExchangeRequestFormatting,
+         apiCalls: ExchangeNetworking) {
         self.formatter = formatter
         self.apiCalls = apiCalls
     }

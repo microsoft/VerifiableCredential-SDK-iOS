@@ -26,16 +26,18 @@ public class PresentationService {
     let linkedDomainService: LinkedDomainService
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
+    var correlationVector: VCNetworkCallCorrelatable?
     let sdkLog: VCSDKLog
     
-    public convenience init() {
+    public convenience init(correlationVector: VCNetworkCallCorrelatable? = nil) {
         self.init(formatter: PresentationResponseFormatter(),
-                  presentationApiCalls: PresentationNetworkCalls(),
-                  didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(),
+                  presentationApiCalls: PresentationNetworkCalls(correlationVector: correlationVector),
+                  didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(correlationVector: correlationVector),
                   requestValidator: PresentationRequestValidator(),
-                  linkedDomainService: LinkedDomainService(),
+                  linkedDomainService: LinkedDomainService(correlationVector: correlationVector),
                   identifierService: IdentifierService(),
-                  pairwiseService: PairwiseService(),
+                  pairwiseService: PairwiseService(correlationVector: correlationVector),
+                  correlationVector: correlationVector,
                   sdkLog: VCSDKLog.sharedInstance)
     }
     
@@ -46,6 +48,7 @@ public class PresentationService {
          linkedDomainService: LinkedDomainService,
          identifierService: IdentifierService,
          pairwiseService: PairwiseService,
+         correlationVector: VCNetworkCallCorrelatable? = nil,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
         self.presentationApiCalls = presentationApiCalls
@@ -54,10 +57,12 @@ public class PresentationService {
         self.linkedDomainService = linkedDomainService
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
+        self.correlationVector = correlationVector
         self.sdkLog = sdkLog
     }
     
     public func getRequest(usingUrl urlStr: String) -> Promise<PresentationRequest> {
+        correlationVector?.create()
         return firstly {
             self.getRequestUriPromise(from: urlStr)
         }.then { requestUri in
@@ -112,7 +117,7 @@ public class PresentationService {
         }
         
         return firstly {
-            self.linkedDomainService.validateLinkedDomain(from: issuer)
+            self.linkedDomainService.validateLinkedDomain(from: issuer, with: nil)
         }.then { result in
             Promise { seal in
                 seal.fulfill(PresentationRequest(from: token, linkedDomainResult: result))

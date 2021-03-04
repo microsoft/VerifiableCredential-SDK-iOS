@@ -13,9 +13,9 @@ class LinkedDomainService {
     private let wellKnownDocumentApiCalls: WellKnownConfigDocumentNetworking
     private let validator: DomainLinkageCredentialValidating
     
-    public convenience init() {
-        self.init(didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(),
-                  wellKnownDocumentApiCalls: WellKnownConfigDocumentNetworkCalls(),
+    public convenience init(correlationVector: VCNetworkCallCorrelatable? = nil) {
+        self.init(didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(correlationVector: correlationVector),
+                  wellKnownDocumentApiCalls: WellKnownConfigDocumentNetworkCalls(correlationVector: correlationVector),
                   domainLinkageValidator: DomainLinkageCredentialValidator())
     }
     
@@ -27,7 +27,8 @@ class LinkedDomainService {
         self.validator = domainLinkageValidator
     }
     
-    func validateLinkedDomain(from relyingPartyDid: String) -> Promise<LinkedDomainResult> {
+    func validateLinkedDomain(from relyingPartyDid: String,
+                              with cv: VCNetworkCallCorrelatable?) -> Promise<LinkedDomainResult> {
         return firstly {
             getDidDocument(from: relyingPartyDid)
         }.then { identifierDocument in

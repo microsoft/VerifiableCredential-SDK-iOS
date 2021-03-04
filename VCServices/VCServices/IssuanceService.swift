@@ -21,13 +21,15 @@ public class IssuanceService {
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
     let linkedDomainService: LinkedDomainService = LinkedDomainService()
+    let correlationVector: VCNetworkCallCorrelatable?
     let sdkLog: VCSDKLog
     
-    public convenience init() {
+    public convenience init(correlationVector: VCNetworkCallCorrelatable? = nil) {
         self.init(formatter: IssuanceResponseFormatter(),
-                  apiCalls: IssuanceNetworkCalls(),
+                  apiCalls: IssuanceNetworkCalls(correlationVector: correlationVector),
                   identifierService: IdentifierService(),
-                  pairwiseService: PairwiseService(),
+                  pairwiseService: PairwiseService(correlationVector: correlationVector),
+                  correlationVector: correlationVector,
                   sdkLog: VCSDKLog.sharedInstance)
     }
     
@@ -35,11 +37,13 @@ public class IssuanceService {
          apiCalls: IssuanceNetworking,
          identifierService: IdentifierService,
          pairwiseService: PairwiseService,
+         correlationVector: VCNetworkCallCorrelatable? = nil,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
         self.apiCalls = apiCalls
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
+        self.correlationVector = correlationVector
         self.sdkLog = sdkLog
     }
     
@@ -63,7 +67,7 @@ public class IssuanceService {
         }
         
         return firstly {
-            linkedDomainService.validateLinkedDomain(from: issuerDid)
+            linkedDomainService.validateLinkedDomain(from: issuerDid, with: self.correlationVector)
         }.then { linkedDomainResult in
             Promise { seal in
                 seal.fulfill(IssuanceRequest(contract: contract, linkedDomainResult: linkedDomainResult))

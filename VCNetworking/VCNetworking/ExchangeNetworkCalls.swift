@@ -13,14 +13,20 @@ public protocol ExchangeNetworking {
 public class ExchangeNetworkCalls: ExchangeNetworking {
     
     private let urlSession: URLSession
+    private let correlationVector: VCNetworkCallCorrelatable?
     
-    public init(urlSession: URLSession = URLSession.shared) {
+    public init(correlationVector: VCNetworkCallCorrelatable? = nil,
+                urlSession: URLSession = URLSession.shared) {
+        self.correlationVector = correlationVector
         self.urlSession = urlSession
     }
     
     public func sendRequest(usingUrl url: String, withBody body: ExchangeRequest) -> Promise<VerifiableCredential> {
         do {
-            let operation = try PostExchangeRequestOperation(usingUrl: url, withBody: body, urlSession: self.urlSession)
+            var operation = try PostExchangeRequestOperation(usingUrl: url,
+                                                             withBody: body,
+                                                             andCorrelationVector: correlationVector,
+                                                             urlSession: self.urlSession)
             return operation.fire()
         } catch {
             return Promise { seal in

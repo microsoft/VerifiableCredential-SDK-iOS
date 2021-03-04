@@ -15,20 +15,24 @@ public class PostIssuanceResponseOperation: InternalPostNetworkOperation {
     let decoder = IssuanceServiceResponseDecoder()
     let encoder = IssuanceResponseEncoder()
     let urlSession: URLSession
-    let urlRequest: URLRequest
+    var urlRequest: URLRequest
+    var correlationVector: VCNetworkCallCorrelatable?
     
-    public init(usingUrl urlStr: String, withBody body: IssuanceResponse, urlSession: URLSession = URLSession.shared) throws {
+    public init(usingUrl urlStr: String,
+                withBody body: IssuanceResponse,
+                andCorrelationVector cv: VCNetworkCallCorrelatable? = nil,
+                urlSession: URLSession = URLSession.shared) throws {
         
         guard let url = URL(string: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = Constants.POST
-        request.httpBody = try self.encoder.encode(value: body)
-        request.setValue(Constants.PLAIN_TEXT, forHTTPHeaderField: Constants.CONTENT_TYPE)
+        self.urlRequest = URLRequest(url: url)
+        self.urlRequest.httpMethod = Constants.POST
+        self.urlRequest.httpBody = try self.encoder.encode(value: body)
+        self.urlRequest.setValue(Constants.PLAIN_TEXT, forHTTPHeaderField: Constants.CONTENT_TYPE)
         
-        self.urlRequest = request
         self.urlSession = urlSession
+        self.correlationVector = cv
     }
 }

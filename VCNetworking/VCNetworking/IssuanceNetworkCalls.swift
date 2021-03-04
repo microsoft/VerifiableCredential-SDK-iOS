@@ -14,14 +14,19 @@ public protocol IssuanceNetworking {
 public class IssuanceNetworkCalls: IssuanceNetworking {
     
     private let urlSession: URLSession
+    private let correlationVector: VCNetworkCallCorrelatable?
     
-    public init(urlSession: URLSession = URLSession.shared) {
+    public init(correlationVector: VCNetworkCallCorrelatable? = nil,
+                urlSession: URLSession = URLSession.shared) {
+        self.correlationVector = correlationVector
         self.urlSession = urlSession
     }
     
     public func getRequest(withUrl url: String) -> Promise<SignedContract> {
         do {
-            let operation = try FetchContractOperation(withUrl: url, session: self.urlSession)
+            var operation = try FetchContractOperation(withUrl: url,
+                                                       andCorrelationVector: correlationVector,
+                                                       session: self.urlSession)
             return operation.fire()
         } catch {
             return Promise { seal in
@@ -32,7 +37,10 @@ public class IssuanceNetworkCalls: IssuanceNetworking {
     
     public func sendResponse(usingUrl url: String, withBody body: IssuanceResponse) -> Promise<VerifiableCredential> {
         do {
-            let operation = try PostIssuanceResponseOperation(usingUrl: url, withBody: body, urlSession: self.urlSession)
+            var operation = try PostIssuanceResponseOperation(usingUrl: url,
+                                                              withBody: body,
+                                                              andCorrelationVector: correlationVector,
+                                                              urlSession: self.urlSession)
             return operation.fire()
         } catch {
             return Promise { seal in

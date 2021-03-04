@@ -13,14 +13,20 @@ public protocol DiscoveryNetworking {
 public class DIDDocumentNetworkCalls: DiscoveryNetworking {
     
     private let urlSession: URLSession
+    private let correlationVector: VCNetworkCallCorrelatable?
     
-    public init(urlSession: URLSession = URLSession.shared) {
+    public init(correlationVector: VCNetworkCallCorrelatable? = nil,
+                urlSession: URLSession = URLSession.shared) {
         self.urlSession = urlSession
+        self.correlationVector = correlationVector
     }
     
     public func getDocument(from identifier: String) -> Promise<IdentifierDocument> {
+        
         do {
-            let operation = try FetchDIDDocumentOperation(withIdentifier: identifier, session: self.urlSession)
+            var operation = try FetchDIDDocumentOperation(withIdentifier: identifier,
+                                                          andCorrelationVector: correlationVector,
+                                                          session: self.urlSession)
             return operation.fire()
         } catch {
             return Promise { seal in
