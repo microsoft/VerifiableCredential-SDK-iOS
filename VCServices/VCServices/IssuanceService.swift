@@ -20,30 +20,29 @@ public class IssuanceService {
     let apiCalls: IssuanceNetworking
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
-    let linkedDomainService: LinkedDomainService = LinkedDomainService()
-    let correlationVector: CorrelationHeader?
+    let linkedDomainService: LinkedDomainService
     let sdkLog: VCSDKLog
     
     public convenience init(correlationVector: CorrelationHeader? = nil) {
         self.init(formatter: IssuanceResponseFormatter(),
                   apiCalls: IssuanceNetworkCalls(correlationVector: correlationVector),
                   identifierService: IdentifierService(),
+                  linkedDomainService: LinkedDomainService(correlationVector: correlationVector),
                   pairwiseService: PairwiseService(correlationVector: correlationVector),
-                  correlationVector: correlationVector,
                   sdkLog: VCSDKLog.sharedInstance)
     }
     
     init(formatter: IssuanceResponseFormatting,
          apiCalls: IssuanceNetworking,
          identifierService: IdentifierService,
+         linkedDomainService: LinkedDomainService,
          pairwiseService: PairwiseService,
-         correlationVector: CorrelationHeader? = nil,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
         self.apiCalls = apiCalls
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
-        self.correlationVector = correlationVector
+        self.linkedDomainService = linkedDomainService
         self.sdkLog = sdkLog
     }
     
@@ -67,7 +66,7 @@ public class IssuanceService {
         }
         
         return firstly {
-            linkedDomainService.validateLinkedDomain(from: issuerDid, with: correlationVector)
+            linkedDomainService.validateLinkedDomain(from: issuerDid)
         }.then { linkedDomainResult in
             Promise { seal in
                 seal.fulfill(IssuanceRequest(contract: contract, linkedDomainResult: linkedDomainResult))
