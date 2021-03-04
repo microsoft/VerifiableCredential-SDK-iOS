@@ -67,7 +67,7 @@ public class IssuanceService {
         }
         
         return firstly {
-            linkedDomainService.validateLinkedDomain(from: issuerDid, with: self.correlationVector)
+            linkedDomainService.validateLinkedDomain(from: issuerDid, with: correlationVector)
         }.then { linkedDomainResult in
             Promise { seal in
                 seal.fulfill(IssuanceRequest(contract: contract, linkedDomainResult: linkedDomainResult))
