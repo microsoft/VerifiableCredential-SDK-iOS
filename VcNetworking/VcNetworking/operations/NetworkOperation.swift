@@ -1,7 +1,7 @@
 /*---------------------------------------------------------------------------------------------
-*  Copyright (c) Microsoft Corporation. All rights reserved.
-*  Licensed under the MIT License. See License.txt in the project root for license information.
-*--------------------------------------------------------------------------------------------*/
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
 import VCEntities
@@ -41,22 +41,11 @@ extension InternalNetworkOperation {
         return NoRetry()
     }
     
-    var urlSession: URLSession {
-        let session = URLSession.shared
-        
-        if VCSDKConfiguration.sharedInstance.userAgentInfo != "" {
-            session.configuration.httpAdditionalHeaders = [Constants.USER_AGENT: VCSDKConfiguration.sharedInstance.userAgentInfo]
-        }
-        
-        return session
-    }
-    
     public mutating func fire() -> Promise<ResponseBody> {
         
         if let cv = correlationVector {
             let incrementedValue = cv.update()
             urlRequest.setValue(incrementedValue, forHTTPHeaderField: cv.name)
-            
         }
         
         return firstly {
