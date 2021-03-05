@@ -16,7 +16,7 @@ public class WellKnownConfigDocumentNetworkCalls: WellKnownConfigDocumentNetwork
     private let correlationVector: CorrelationHeader?
     
     public init(correlationVector: CorrelationHeader? = nil,
-                urlSession: URLSession = URLSession.shared) {
+                urlSession: URLSession = URLSession.noRedirectsSharedSession) {
         self.urlSession = urlSession
         self.correlationVector = correlationVector
     }

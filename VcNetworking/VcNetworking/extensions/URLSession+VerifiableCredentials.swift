@@ -8,11 +8,10 @@ import VCEntities
 
 extension URLSession {
     
-    public static var shared = URLSession(delegate: VCURLSessionDelegate())
+    public static var noRedirectsSharedSession = URLSession(delegate: VCURLSessionDelegate())
     
     convenience init(delegate: URLSessionDelegate) {
         self.init(configuration: URLSessionConfiguration.default, delegate: delegate, delegateQueue: nil)
-        configuration.httpAdditionalHeaders = [Constants.USER_AGENT: VCSDKConfiguration.sharedInstance.userAgentInfo]
     }
 }
 

@@ -17,7 +17,7 @@ public class PresentationNetworkCalls: PresentationNetworking {
     private let correlationVector: CorrelationHeader?
     
     public init(correlationVector: CorrelationHeader? = nil,
-                urlSession: URLSession = URLSession.shared) {
+                urlSession: URLSession = URLSession.noRedirectsSharedSession) {
         self.correlationVector = correlationVector
         self.urlSession = urlSession
     }
