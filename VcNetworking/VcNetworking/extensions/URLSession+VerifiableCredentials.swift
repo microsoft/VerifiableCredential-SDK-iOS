@@ -12,7 +12,7 @@ extension URLSession {
     
     convenience init(delegate: URLSessionDelegate) {
         self.init(configuration: URLSessionConfiguration.default, delegate: delegate, delegateQueue: nil)
-        configuration.httpAdditionalHeaders = [Constants.USER_AGENT: "VCSDKConfiguration.sharedInstance.userAgentInfo"]
+        configuration.httpAdditionalHeaders = [Constants.USER_AGENT: VCSDKConfiguration.sharedInstance.userAgentInfo]
     }
 }
 
