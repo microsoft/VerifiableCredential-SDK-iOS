@@ -49,7 +49,7 @@ class LinkedDomainService {
                                                   using: identifierDocument,
                                                   andSourceUrl: domainUrl)
         }.recover { error in
-            self.wrapResultInPromise(.linkedDomainMissing)
+            self.wrapResultInPromise(.linkedDomainUnverified(domainUrl: domainUrl))
         }
     }
     
