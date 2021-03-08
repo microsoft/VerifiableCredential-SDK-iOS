@@ -11,6 +11,7 @@ public struct IdTokenDescriptor: Codable, Equatable {
     public let configuration: String?
     public let clientID: String?
     public let redirectURI: String?
+    public let scope: String?
 
     enum CodingKeys: String, CodingKey {
         case encrypted, claims
@@ -18,5 +19,6 @@ public struct IdTokenDescriptor: Codable, Equatable {
         case configuration
         case clientID = "client_id"
         case redirectURI = "redirect_uri"
+        case scope
     }
 }
