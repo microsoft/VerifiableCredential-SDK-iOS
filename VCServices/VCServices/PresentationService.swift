@@ -26,18 +26,21 @@ public class PresentationService {
     let linkedDomainService: LinkedDomainService
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
-    var correlationVector: CorrelationHeader?
     let sdkLog: VCSDKLog
     
-    public convenience init(correlationVector: CorrelationHeader? = nil) {
+    public convenience init(correlationVector: CorrelationHeader? = nil,
+                            urlSession: URLSession = URLSession.shared) {
         self.init(formatter: PresentationResponseFormatter(),
-                  presentationApiCalls: PresentationNetworkCalls(correlationVector: correlationVector),
-                  didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(correlationVector: correlationVector),
+                  presentationApiCalls: PresentationNetworkCalls(correlationVector: correlationVector,
+                                                                 urlSession: urlSession),
+                  didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(correlationVector: correlationVector,
+                                                                        urlSession: urlSession),
                   requestValidator: PresentationRequestValidator(),
-                  linkedDomainService: LinkedDomainService(correlationVector: correlationVector),
+                  linkedDomainService: LinkedDomainService(correlationVector: correlationVector,
+                                                           urlSession: urlSession),
                   identifierService: IdentifierService(),
-                  pairwiseService: PairwiseService(correlationVector: correlationVector),
-                  correlationVector: correlationVector,
+                  pairwiseService: PairwiseService(correlationVector: correlationVector,
+                                                   urlSession: urlSession),
                   sdkLog: VCSDKLog.sharedInstance)
     }
     
@@ -48,7 +51,6 @@ public class PresentationService {
          linkedDomainService: LinkedDomainService,
          identifierService: IdentifierService,
          pairwiseService: PairwiseService,
-         correlationVector: CorrelationHeader? = nil,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
         self.presentationApiCalls = presentationApiCalls
@@ -57,7 +59,6 @@ public class PresentationService {
         self.linkedDomainService = linkedDomainService
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
-        self.correlationVector = correlationVector
         self.sdkLog = sdkLog
     }
     
