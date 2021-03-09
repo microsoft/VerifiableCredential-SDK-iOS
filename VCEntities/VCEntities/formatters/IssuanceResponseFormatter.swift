@@ -66,25 +66,13 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
     private func formatAttestations(response: IssuanceResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> AttestationResponseDescriptor? {
         
         var idTokenMap: RequestedIdTokenMap? = nil
-        if !response.requestedIdTokenMap.isEmpty {
-            idTokenMap = response.requestedIdTokenMap
+        if !response.requestedIdTokenMap.isEmpty || response.issuanceIdToken != nil {
+            idTokenMap = createIdTokenMap(from: response)
         }
         
         var selfIssuedMap: RequestedSelfAttestedClaimMap? = nil
-        if !response.requestedSelfAttestedClaimMap.isEmpty {
-            selfIssuedMap = response.requestedSelfAttestedClaimMap
-        }
-        
-        if response.issuancePin != nil {
-            if selfIssuedMap == nil {
-                selfIssuedMap = [:]
-            }
-            selfIssuedMap?[VCEntitiesConstants.PIN] = response.issuancePin
-            
-            if idTokenMap == nil {
-                idTokenMap = [:]
-            }
-            idTokenMap?[VCEntitiesConstants.SELF_ISSUED] = response.issuanceIdToken
+        if !response.requestedSelfAttestedClaimMap.isEmpty || response.issuancePin != nil {
+            selfIssuedMap = createSelfIssuedMap(from: response)
         }
         
         var presentationsMap: [String: String]? = nil
@@ -100,6 +88,26 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
             """)
         
         return AttestationResponseDescriptor(idTokens: idTokenMap, presentations: presentationsMap, selfIssued: selfIssuedMap)
+    }
+    
+    private func createIdTokenMap(from response: IssuanceResponseContainer) -> RequestedIdTokenMap {
+        var idTokenMap = response.requestedIdTokenMap
+        
+        if response.issuanceIdToken != nil {
+            idTokenMap[VCEntitiesConstants.SELF_ISSUED] = response.issuanceIdToken
+        }
+
+        return idTokenMap
+    }
+    
+    private func createSelfIssuedMap(from response: IssuanceResponseContainer) -> RequestedSelfAttestedClaimMap {
+        var selfIssuedMap = response.requestedSelfAttestedClaimMap
+        
+        if response.issuancePin != nil {
+            selfIssuedMap[VCEntitiesConstants.PIN] = response.issuancePin
+        }
+        
+        return selfIssuedMap
     }
     
     private func createPresentations(from response: IssuanceResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> [String: String] {
