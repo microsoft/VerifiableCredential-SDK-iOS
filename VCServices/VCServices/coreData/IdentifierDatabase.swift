@@ -12,6 +12,7 @@ enum IdentifierDatabaseError: Error {
     case unableToSaveIdentifier
     case noAliasSavedInIdentifierModel
     case noIdentifierModelSaved
+    case coreDataManagerNil
 }
 
 ///Temporary until Deterministic Keys are implemented
@@ -31,12 +32,16 @@ struct IdentifierDatabase {
     
     func saveIdentifier(identifier: Identifier) throws {
         
+        guard let dataManager = coreDataManager else {
+            throw IdentifierDatabaseError.coreDataManagerNil
+        }
+        
         /// signing key is always first key in DID document keys until we implement more complex registration scenario.
         guard let signingKey = identifier.didDocumentKeys.first else {
             throw IdentifierDatabaseError.unableToSaveIdentifier
         }
         
-        try coreDataManager.saveIdentifier(longformDid: identifier.longFormDid,
+        try dataManager.saveIdentifier(longformDid: identifier.longFormDid,
                                            signingKeyId: signingKey.getId(),
                                            recoveryKeyId: identifier.recoveryKey.getId(),
                                            updateKeyId: identifier.updateKey.getId(),
@@ -49,7 +54,12 @@ struct IdentifierDatabase {
     }
     
     func fetchIdentifier(withAlias alias: String) throws -> Identifier {
-        let identifierModels = try coreDataManager.fetchIdentifiers()
+        
+        guard let dataManager = coreDataManager else {
+            throw IdentifierDatabaseError.coreDataManagerNil
+        }
+        
+        let identifierModels = try dataManager.fetchIdentifiers()
         
         var identifierModel: IdentifierModel? = nil
         
@@ -67,7 +77,12 @@ struct IdentifierDatabase {
     }
     
     func fetchIdentifier(withLongformDid did: String) throws -> Identifier {
-        let identifierModels = try coreDataManager.fetchIdentifiers()
+        
+        guard let dataManager = coreDataManager else {
+            throw IdentifierDatabaseError.coreDataManagerNil
+        }
+        
+        let identifierModels = try dataManager.fetchIdentifiers()
         
         var identifierModel: IdentifierModel? = nil
         

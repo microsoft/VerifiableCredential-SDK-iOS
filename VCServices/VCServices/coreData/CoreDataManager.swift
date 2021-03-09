@@ -7,33 +7,54 @@ import Foundation
 import CoreData
 import VCEntities
 
+enum CoreDataManagerError: Error {
+    case unableToCreatePersistentContainer
+}
+
 /// Temporary Until Deterministic Keys are implemented.
 public class CoreDataManager {
     
+    private struct Constants {
+        static let bundleId = "com.microsoft.VCUseCase"
+        static let model = "CoreDataModel"
+        static let identifierModel = "IdentifierModel"
+        static let extensionType = "momd"
+        static let sqliteDescription = "sqlite"
+    }
+    
     public static let sharedInstance = CoreDataManager()
     
-    static let bundleId = "com.microsoft.VCUseCase"
-    static let model = "CoreDataModel"
-    static let identifierModel = "IdentifierModel"
-    
-    lazy var persistentContainer: NSPersistentContainer = {
+    lazy var persistentContainer: NSPersistentContainer? = {
         
         let messageKitBundle = Bundle(for: Self.self)
-        let modelURL = messageKitBundle.url(forResource: CoreDataManager.model, withExtension: "momd")!
-        let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL)
-        let container = NSPersistentContainer(name: CoreDataManager.model, managedObjectModel: managedObjectModel!)
+        
+        guard let modelURL = messageKitBundle.url(forResource: Constants.model, withExtension: Constants.extensionType),
+              let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL) else {
+            return nil
+        }
+        
+        let container = NSPersistentContainer(name: Constants.model, managedObjectModel: managedObjectModel)
         container.loadPersistentStores { (storeDescription, error) in
             
-            if let err = error {
-                print(err)
+            if let err = error?.localizedDescription {
+                VCSDKLog.sharedInstance.logError(message: err)
             }
         }
         
         return container
     }()
     
-    private init() {
-        migrateStoreIfNeeded()
+    let sdkLog: VCSDKLog
+    
+    private init?(sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
+        
+        self.sdkLog = sdkLog
+        
+        do {
+            try migrateStoreIfNeeded()
+        } catch {
+            return nil
+        }
     }
     
     public func saveIdentifier(longformDid: String,
@@ -41,8 +62,12 @@ public class CoreDataManager {
                                       recoveryKeyId: UUID,
                                       updateKeyId: UUID,
                                       alias: String) throws {
-        let context = persistentContainer.viewContext
-        let model = NSEntityDescription.insertNewObject(forEntityName: CoreDataManager.identifierModel, into: context) as! IdentifierModel
+        
+        guard let context = persistentContainer?.viewContext else {
+            throw CoreDataManagerError.unableToCreatePersistentContainer
+        }
+        
+        let model = NSEntityDescription.insertNewObject(forEntityName: Constants.identifierModel, into: context) as! IdentifierModel
         
         model.longFormDid = longformDid
         model.recoveryKeyId = recoveryKeyId
@@ -54,13 +79,21 @@ public class CoreDataManager {
     }
     
     public func fetchIdentifiers() throws -> [IdentifierModel] {
-        let context = persistentContainer.viewContext
+        
+        guard let context = persistentContainer?.viewContext else {
+            throw CoreDataManagerError.unableToCreatePersistentContainer
+        }
+        
         let fetchRequest: NSFetchRequest<IdentifierModel> = IdentifierModel.fetchRequest()
         return try context.fetch(fetchRequest)
     }
     
     public func deleteAllIdentifiers() throws {
-        let context = persistentContainer.viewContext
+        
+        guard let context = persistentContainer?.viewContext else {
+            throw CoreDataManagerError.unableToCreatePersistentContainer
+        }
+        
         let fetchRequest: NSFetchRequest<IdentifierModel> = IdentifierModel.fetchRequest()
         let models = try context.fetch(fetchRequest)
         
@@ -72,16 +105,20 @@ public class CoreDataManager {
     }
     
     /// Migrate the store if needed
-    private func migrateStoreIfNeeded() {
+    private func migrateStoreIfNeeded() throws {
+        
+        guard let container = persistentContainer else {
+            throw CoreDataManagerError.unableToCreatePersistentContainer
+        }
         
         let messageKitBundle = Bundle(for: Self.self)
-        var url = messageKitBundle.url(forResource: CoreDataManager.model, withExtension: "momd")!
-        url = url.appendingPathComponent("\(CoreDataManager.identifierModel).sqlite")
+        var url = messageKitBundle.url(forResource: Constants.model, withExtension: Constants.extensionType)!
+        url = url.appendingPathComponent("\(Constants.identifierModel).\(Constants.sqliteDescription)")
 
         var isCompatible = true
         do {
-            let metadata = try NSPersistentStoreCoordinator.metadataForPersistentStore(ofType: "sqlite", at: url, options: nil)
-            isCompatible = persistentContainer.managedObjectModel.isConfiguration(withName: nil, compatibleWithStoreMetadata: metadata)
+            let metadata = try NSPersistentStoreCoordinator.metadataForPersistentStore(ofType: Constants.sqliteDescription, at: url, options: nil)
+            isCompatible = container.managedObjectModel.isConfiguration(withName: nil, compatibleWithStoreMetadata: metadata)
         } catch {
             // TODO log the error.
             // We mark the store as incompatible if we can't read its metadata
@@ -92,7 +129,7 @@ public class CoreDataManager {
             // At this point, we destroy the store when it's incompatible. we will handle migration when we get closer to public preview.
             // Bug 1176814: Handle store migration
             do {
-                try persistentContainer.persistentStoreCoordinator.destroyPersistentStore(at: url, ofType: "sqlite", options: nil)
+                try container.persistentStoreCoordinator.destroyPersistentStore(at: url, ofType: Constants.sqliteDescription, options: nil)
             } catch {
                 // TODO log the error.
             }
