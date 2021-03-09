@@ -37,7 +37,7 @@ public class CoreDataManager {
         container.loadPersistentStores { (storeDescription, error) in
             
             if let err = error?.localizedDescription {
-                VCSDKLog.sharedInstance.logError(message: err)
+                self.sdkLog.logError(message: err)
             }
         }
         
