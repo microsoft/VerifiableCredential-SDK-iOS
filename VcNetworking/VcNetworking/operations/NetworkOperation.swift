@@ -25,6 +25,7 @@ protocol InternalOperation {
     var urlSession: URLSession { get }
     var urlRequest: URLRequest { get set }
     var correlationVector: CorrelationHeader? { get set }
+    var sdkLog: VCSDKLog { get }
 }
 
 extension InternalNetworkOperation {
@@ -41,14 +42,8 @@ extension InternalNetworkOperation {
         return NoRetry()
     }
     
-    var urlSession: URLSession {
-        let session = URLSession.shared
-        
-        if VCSDKConfiguration.sharedInstance.userAgentInfo != "" {
-            session.configuration.httpAdditionalHeaders = [Constants.USER_AGENT: VCSDKConfiguration.sharedInstance.userAgentInfo]
-        }
-        
-        return session
+    var sdkLog: VCSDKLog {
+        return VCSDKLog.sharedInstance
     }
     
     public mutating func fire() -> Promise<ResponseBody> {
@@ -57,6 +52,7 @@ extension InternalNetworkOperation {
             let incrementedValue = cv.update()
             urlRequest.setValue(incrementedValue, forHTTPHeaderField: cv.name)
             
+            sdkLog.logInfo(message: "Correlation Vector for \(String(describing: self)): \(cv.value)")
         }
         
         return firstly {
