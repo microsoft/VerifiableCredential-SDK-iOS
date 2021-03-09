@@ -23,12 +23,16 @@ public class IssuanceService {
     let linkedDomainService: LinkedDomainService
     let sdkLog: VCSDKLog
     
-    public convenience init(correlationVector: CorrelationHeader? = nil) {
+    public convenience init(correlationVector: CorrelationHeader? = nil,
+                            urlSession: URLSession = URLSession.shared) {
         self.init(formatter: IssuanceResponseFormatter(),
-                  apiCalls: IssuanceNetworkCalls(correlationVector: correlationVector),
+                  apiCalls: IssuanceNetworkCalls(correlationVector: correlationVector,
+                                                 urlSession: urlSession),
                   identifierService: IdentifierService(),
-                  linkedDomainService: LinkedDomainService(correlationVector: correlationVector),
-                  pairwiseService: PairwiseService(correlationVector: correlationVector),
+                  linkedDomainService: LinkedDomainService(correlationVector: correlationVector,
+                                                           urlSession: urlSession),
+                  pairwiseService: PairwiseService(correlationVector: correlationVector,
+                                                   urlSession: urlSession),
                   sdkLog: VCSDKLog.sharedInstance)
     }
     

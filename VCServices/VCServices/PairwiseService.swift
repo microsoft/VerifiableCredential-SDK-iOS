@@ -12,8 +12,10 @@ class PairwiseService {
     private let exchangeService: ExchangeService
     private let identifierService: IdentifierService
     
-    convenience init(correlationVector: CorrelationHeader? = nil) {
-        self.init(exchangeService: ExchangeService(correlationVector: correlationVector),
+    convenience init(correlationVector: CorrelationHeader? = nil,
+                     urlSession: URLSession = URLSession.shared) {
+        self.init(exchangeService: ExchangeService(correlationVector: correlationVector,
+                                                   urlSession: urlSession),
                   identifierService: IdentifierService())
     }
     
