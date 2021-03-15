@@ -45,7 +45,8 @@ public class JwsDecoder {
         guard let jwsToken = JwsToken(headers: headers,
                                       content: contents,
                                       protectedMessage: protectedMessage,
-                                      signature: signature) else {
+                                      signature: signature,
+                                      rawValue: token) else {
             throw JwsDecoderError.unableToInitializeJwsToken
         }
         
