@@ -61,9 +61,8 @@ public class IssuanceService {
     }
     
     private func formIssuanceRequest(from signedContract: SignedContract) -> Promise<IssuanceRequest> {
-        let contract = signedContract.content
         
-        guard let issuerDid = contract.input?.issuer else {
+        guard let issuerDid = signedContract.content.input?.issuer else {
             return Promise { seal in
                 seal.reject(IssuanceServiceError.contractDoesNotContainIssuerIdentifier)
             }
@@ -73,7 +72,7 @@ public class IssuanceService {
             linkedDomainService.validateLinkedDomain(from: issuerDid)
         }.then { linkedDomainResult in
             Promise { seal in
-                seal.fulfill(IssuanceRequest(contract: contract, linkedDomainResult: linkedDomainResult))
+                seal.fulfill(IssuanceRequest(from: signedContract, linkedDomainResult: linkedDomainResult))
             }
         }
     }
