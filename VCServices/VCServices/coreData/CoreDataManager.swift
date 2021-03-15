@@ -44,7 +44,7 @@ public class CoreDataManager {
         let context = persistentContainer.viewContext
         let model = NSEntityDescription.insertNewObject(forEntityName: CoreDataManager.identifierModel, into: context) as! IdentifierModel
         
-        model.longFormDid = longformDid
+        model.did = longformDid
         model.recoveryKeyId = recoveryKeyId
         model.signingKeyId = signingKeyId
         model.updateKeyId = updateKeyId

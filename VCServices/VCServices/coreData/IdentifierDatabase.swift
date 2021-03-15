@@ -72,7 +72,7 @@ struct IdentifierDatabase {
         var identifierModel: IdentifierModel? = nil
         
         for identifier in identifierModels {
-            if identifier.longFormDid == did {
+            if identifier.did == did {
                 identifierModel = identifier
             }
         }
@@ -86,7 +86,7 @@ struct IdentifierDatabase {
     
     private func createIdentifier(fromIdentifierModel model: IdentifierModel) throws -> Identifier {
         
-        guard let longFormDid = model.longFormDid,
+        guard let longFormDid = model.did,
             let alias = model.alias else {
                 throw IdentifierDatabaseError.noAliasSavedInIdentifierModel
         }
