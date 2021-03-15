@@ -4,11 +4,17 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct IssuanceRequest {
-    public let contract: Contract
+    
+    public let token: SignedContract
+    
+    public let content: Contract
+    
     public let linkedDomainResult: LinkedDomainResult
     
-    public init(contract: Contract, linkedDomainResult: LinkedDomainResult) {
-        self.contract = contract
+    public init(from token: SignedContract, linkedDomainResult: LinkedDomainResult) {
+        
+        self.token = token
+        self.content = token.content
         self.linkedDomainResult = linkedDomainResult
     }
 }
