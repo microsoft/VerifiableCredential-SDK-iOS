@@ -21,7 +21,7 @@
 		55253980252FCDEF003202D5 /* FlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525397F252FCDEF003202D5 /* FlowTests.swift */; };
 		5531D3AE255F1F360002CC0E /* IdentifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3AD255F1F360002CC0E /* IdentifierService.swift */; };
 		5531D3B0255F68280002CC0E /* PairwiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3AF255F68280002CC0E /* PairwiseService.swift */; };
-		555BDAEC2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAEA2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld */; };
+		555BDAEC2530AEC7001E7A18 /* VerifiableCredentialDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAEA2530AEC7001E7A18 /* VerifiableCredentialDataModel.xcdatamodeld */; };
 		555BDAEE2530CF27001E7A18 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAED2530CF27001E7A18 /* CoreDataManager.swift */; };
 		555BDAF02530E4B9001E7A18 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */; };
 		555BDAF82530E5E2001E7A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAF72530E5E2001E7A18 /* AppDelegate.swift */; };
@@ -37,7 +37,7 @@
 		55793BD7255C5A26007F7599 /* ExchangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BD6255C5A25007F7599 /* ExchangeService.swift */; };
 		55793BDB255C654E007F7599 /* MockExchangeRequestFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BDA255C654E007F7599 /* MockExchangeRequestFormatter.swift */; };
 		55793BDD255C65DA007F7599 /* ExchangeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BDC255C65DA007F7599 /* ExchangeServiceTests.swift */; };
-		5580583325BF97DF0048E6FA /* CoreDataModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 555BDAEA2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld */; };
+		5580583325BF97DF0048E6FA /* VerifiableCredentialDataModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 555BDAEA2530AEC7001E7A18 /* VerifiableCredentialDataModel.xcdatamodeld */; };
 		5580583E25BFA2140048E6FA /* ServicesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580583D25BFA2140048E6FA /* ServicesConstants.swift */; };
 		559FC9D225C9D90B00737F14 /* LinkedDomainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9D125C9D90B00737F14 /* LinkedDomainService.swift */; };
 		559FC9F125C9F2B700737F14 /* LinkedDomainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9F025C9F2B700737F14 /* LinkedDomainServiceTests.swift */; };
@@ -236,7 +236,7 @@
 		552539832530AE5F003202D5 /* coreData */ = {
 			isa = PBXGroup;
 			children = (
-				555BDAEA2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld */,
+				555BDAEA2530AEC7001E7A18 /* VerifiableCredentialDataModel.xcdatamodeld */,
 				555BDAED2530CF27001E7A18 /* CoreDataManager.swift */,
 				555BDB102530E6C9001E7A18 /* IdentifierDatabase.swift */,
 			);
@@ -392,7 +392,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5580583325BF97DF0048E6FA /* CoreDataModel.xcdatamodeld in Resources */,
+				5580583325BF97DF0048E6FA /* VerifiableCredentialDataModel.xcdatamodeld in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				555BDB112530E6C9001E7A18 /* IdentifierDatabase.swift in Sources */,
-				555BDAEC2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld in Sources */,
+				555BDAEC2530AEC7001E7A18 /* VerifiableCredentialDataModel.xcdatamodeld in Sources */,
 				555BDB152530F024001E7A18 /* VerifiableCredentialSDK.swift in Sources */,
 				550F1E542510195A009AF467 /* IssuanceService.swift in Sources */,
 				55793BD7255C5A26007F7599 /* ExchangeService.swift in Sources */,
@@ -800,13 +800,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		555BDAEA2530AEC7001E7A18 /* CoreDataModel.xcdatamodeld */ = {
+		555BDAEA2530AEC7001E7A18 /* VerifiableCredentialDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				555BDAEB2530AEC7001E7A18 /* Identifier.xcdatamodel */,
 			);
 			currentVersion = 555BDAEB2530AEC7001E7A18 /* Identifier.xcdatamodel */;
-			path = CoreDataModel.xcdatamodeld;
+			path = VerifiableCredentialDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
