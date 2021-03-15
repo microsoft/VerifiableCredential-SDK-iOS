@@ -45,8 +45,13 @@ class VerifiablePresentationFormatter {
     }
     
     private func createVerifiablePresentationDescriptor(toWrap vc: VerifiableCredential) throws -> VerifiablePresentationDescriptor {
+        
+        guard let rawVC = vc.rawValue else {
+            throw FormatterError.unableToGetRawValueOfVerifiableCredential
+        }
+        
         return VerifiablePresentationDescriptor(context: [CONTEXT],
                                                 type: [TYPE],
-                                                verifiableCredential: [vc.raw])
+                                                verifiableCredential: [rawVC])
     }
 }

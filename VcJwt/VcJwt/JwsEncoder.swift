@@ -24,6 +24,10 @@ public class JwsEncoder {
     
     private func encodeUsingCompactFormat<T>(token: JwsToken<T>) throws -> String {
         
+        if let encodedToken = token.rawValue {
+            return encodedToken
+        }
+        
         var compactToken = token.protectedMessage
         
         if let signature = token.signature?.base64URLEncodedString() {

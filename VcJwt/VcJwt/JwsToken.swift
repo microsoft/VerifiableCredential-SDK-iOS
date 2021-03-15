@@ -14,16 +14,19 @@ public struct JwsToken<T: Claims> {
     public let headers: Header
     public let content: T
     public let protectedMessage: String
+    public var rawValue: String?
     var signature: Signature?
     
     public init?(headers: Header,
                  content: T,
                  protectedMessage: String? = nil,
-                 signature: Data? = nil) {
+                 signature: Data? = nil,
+                 rawValue: String? = nil) {
         
         self.headers = headers
         self.content = content
         self.signature = signature
+        self.rawValue = rawValue
         
         if let message = protectedMessage {
             self.protectedMessage = message

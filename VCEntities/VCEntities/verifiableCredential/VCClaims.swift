@@ -13,3 +13,5 @@ public struct VCClaims: Claims {
     public let exp: Double
     public let vc: VerifiableCredentialDescriptor
 }
+
+public typealias VerifiableCredential = JwsToken<VCClaims>
