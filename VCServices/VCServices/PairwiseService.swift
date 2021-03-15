@@ -86,7 +86,7 @@ class PairwiseService {
     }
     
     private func getOwnerIdentifier(forVc vc: VerifiableCredential) throws -> Identifier {
-        let ownerLongformDid = vc.token.content.sub
+        let ownerLongformDid = vc.content.sub
         let nullableOwnerIdentifier = try identifierService.fetchIdentifer(withLongformDid: ownerLongformDid)
         
         guard let ownerIdentifier = nullableOwnerIdentifier else {
