@@ -7,4 +7,5 @@ enum FormatterError: Error {
     case noSigningKeyFound
     case noAudienceFoundInRequest
     case unableToFormToken
+    case unableToGetRawValueOfVerifiableCredential
 }
