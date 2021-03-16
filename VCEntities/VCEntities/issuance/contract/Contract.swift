@@ -7,9 +7,9 @@ import VCJwt
 
 public struct Contract: Claims, Equatable {
     
-    public let id: String?
-    public let display: DisplayDescriptor?
-    public let input: ContractInputDescriptor?
+    public let id: String
+    public let display: DisplayDescriptor
+    public let input: ContractInputDescriptor
     
 }
 

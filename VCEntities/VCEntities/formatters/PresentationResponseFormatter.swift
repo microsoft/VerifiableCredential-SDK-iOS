@@ -62,7 +62,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         }
         
         return PresentationResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
-                                          audience: response.request.content.redirectURI ?? "",
+                                          audience: response.audienceUrl,
                                           did: identifier.longFormDid,
                                           publicJwk: publicKey,
                                           jti: UUID().uuidString,
@@ -94,7 +94,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
     
     private func createPresentations(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> [String: String] {
         return try response.requestVCMap.mapValues { verifiableCredential in
-            let vp = try self.vpFormatter.format(toWrap: verifiableCredential, withAudience: response.request.content.issuer ?? "", withExpiryInSeconds: response.expiryInSeconds, usingIdentifier: identifier, andSignWith: key)
+            let vp = try self.vpFormatter.format(toWrap: verifiableCredential, withAudience: response.request.content.issuer, withExpiryInSeconds: response.expiryInSeconds, usingIdentifier: identifier, andSignWith: key)
             return try vp.serialize()
         }
     }

@@ -10,7 +10,7 @@ enum WellKnownConfigDocumentError: Error {
 }
 
 public struct WellKnownConfigDocument: Codable {
-    let context: String?
+    let context: String
     public let linkedDids: [DomainLinkageCredential]
     
     enum CodingKeys: String, CodingKey {
@@ -20,7 +20,7 @@ public struct WellKnownConfigDocument: Codable {
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.context = try values.decodeIfPresent(String.self, forKey: .context)
+        self.context = try values.decode(String.self, forKey: .context)
         let encodedTokens: [String] = try values.decode([String].self, forKey: .linkedDids)
         self.linkedDids = try encodedTokens.map { try Self.getCredential(from: $0) }
     }

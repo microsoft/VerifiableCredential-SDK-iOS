@@ -7,23 +7,23 @@ import VCJwt
 
 public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
-    public let clientID: String?
+    public let clientID: String
     
-    public let issuer: String?
+    public let issuer: String
     
     public let redirectURI: String?
     
-    public let responseType: String?
+    public let responseType: String
     
-    public let responseMode: String?
+    public let responseMode: String
     
-    public let presentationDefinition: PresentationDefinition?
+    public let presentationDefinition: PresentationDefinition
     
     public let state: String?
     
     public let nonce: String?
     
-    public let scope: String?
+    public let scope: String
     
     /// flag to determine if presentation request can go into issuance flow
     public let prompt: String?
@@ -47,15 +47,15 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
         case state, nonce, prompt, registration, iat, exp, scope
     }
     
-    init(clientID: String?,
-         issuer: String?,
+    init(clientID: String,
+         issuer: String,
          redirectURI: String?,
-         responseMode: String?,
-         responseType: String?,
-         presentationDefinition: PresentationDefinition?,
+         responseMode: String,
+         responseType: String,
+         presentationDefinition: PresentationDefinition,
          state: String?,
          nonce: String?,
-         scope: String?,
+         scope: String,
          prompt: String?,
          registration: RegistrationClaims?,
          idTokenHint: IssuerIdToken? = nil,
@@ -79,16 +79,16 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        clientID = try values.decodeIfPresent(String.self, forKey: .clientID)
-        issuer = try values.decodeIfPresent(String.self, forKey: .issuer)
+        clientID = try values.decode(String.self, forKey: .clientID)
+        issuer = try values.decode(String.self, forKey: .issuer)
         redirectURI = try values.decodeIfPresent(String.self, forKey: .redirectURI)
-        responseMode = try values.decodeIfPresent(String.self, forKey: .responseMode)
-        responseType = try values.decodeIfPresent(String.self, forKey: .responseType)
-        presentationDefinition = try values.decodeIfPresent(PresentationDefinition.self, forKey: .presentationDefinition)
+        responseMode = try values.decode(String.self, forKey: .responseMode)
+        responseType = try values.decode(String.self, forKey: .responseType)
+        presentationDefinition = try values.decode(PresentationDefinition.self, forKey: .presentationDefinition)
         state = try values.decodeIfPresent(String.self, forKey: .state)
         nonce = try values.decodeIfPresent(String.self, forKey: .nonce)
         prompt = try values.decodeIfPresent(String.self, forKey: .prompt)
-        scope = try values.decodeIfPresent(String.self, forKey: .scope)
+        scope = try values.decode(String.self, forKey: .scope)
         iat = try values.decodeIfPresent(Double.self, forKey: .iat)
         exp = try values.decodeIfPresent(Double.self, forKey: .exp)
         registration = try values.decodeIfPresent(RegistrationClaims.self, forKey: .registration)
