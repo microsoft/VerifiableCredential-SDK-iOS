@@ -55,7 +55,7 @@ public struct PresentationRequestValidator: RequestValidating {
         if getExpirationDeadlineInSeconds() > exp { throw PresentationRequestValidatorError.tokenExpired }
     }
     
-    private func validate(_ value: String?, equals correctValue: String, throws error: Error) throws {
+    private func validate(_ value: String, equals correctValue: String, throws error: Error) throws {
         guard value == correctValue else { throw error }
     }
     

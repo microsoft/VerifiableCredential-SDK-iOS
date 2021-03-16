@@ -6,9 +6,9 @@
 public struct PresentationDescriptor: Codable, Equatable {
     
     public let encrypted: Bool?
-    public let claims: [ClaimDescriptor]?
+    public let claims: [ClaimDescriptor]
     public let presentationRequired: Bool?
-    public let credentialType: String?
+    public let credentialType: String
     public let issuers: [IssuerDescriptor]?
     public let contracts: [String]?
 

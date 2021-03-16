@@ -5,7 +5,7 @@
 
 public struct ClaimDisplayDescriptor: Codable, Equatable {
     
-    public let type: String?
-    public let label: String?
+    public let type: String
+    public let label: String
     
 }

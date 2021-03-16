@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct ClaimDescriptor: Codable, Equatable {
-    public let claim: String?
+    public let claim: String
     public let claimRequired: Bool?
     public let indexed: Bool?
 

@@ -5,12 +5,12 @@
 
 public struct CardDisplayDescriptor: Codable, Equatable {
     
-    public let title: String?
-    public let issuedBy: String?
-    public let backgroundColor: String?
-    public let textColor: String?
+    public let title: String
+    public let issuedBy: String
+    public let backgroundColor: String
+    public let textColor: String
     public let logo: LogoDisplayDescriptor?
-    public let cardDescription: String?
+    public let cardDescription: String
 
     enum CodingKeys: String, CodingKey {
         case title, issuedBy, backgroundColor, textColor, logo

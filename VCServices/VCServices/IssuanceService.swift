@@ -11,7 +11,6 @@ import VCEntities
 enum IssuanceServiceError: Error {
     case unableToCastToPresentationResponseContainer
     case unableToFetchIdentifier
-    case contractDoesNotContainIssuerIdentifier
 }
 
 public class IssuanceService {
@@ -62,14 +61,8 @@ public class IssuanceService {
     
     private func formIssuanceRequest(from signedContract: SignedContract) -> Promise<IssuanceRequest> {
         
-        guard let issuerDid = signedContract.content.input?.issuer else {
-            return Promise { seal in
-                seal.reject(IssuanceServiceError.contractDoesNotContainIssuerIdentifier)
-            }
-        }
-        
         return firstly {
-            linkedDomainService.validateLinkedDomain(from: issuerDid)
+            linkedDomainService.validateLinkedDomain(from: signedContract.content.input.issuer)
         }.then { linkedDomainResult in
             Promise { seal in
                 seal.fulfill(IssuanceRequest(from: signedContract, linkedDomainResult: linkedDomainResult))

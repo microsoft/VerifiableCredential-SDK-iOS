@@ -5,10 +5,6 @@
 
 import VCJwt
 
-enum IssuanceResponseError: Error {
-    case noAudienceSpecifiedInContract
-}
-
 public struct IssuanceResponseContainer: ResponseContaining {
     public let contract: Contract
     public let contractUri: String
@@ -30,13 +26,8 @@ public struct IssuanceResponseContainer: ResponseContaining {
         self.contractUri = contractUri
         self.expiryInSeconds = exp
         
-        guard let aud = contract.input?.credentialIssuer,
-              let did = contract.input?.issuer else {
-            throw IssuanceResponseError.noAudienceSpecifiedInContract
-        }
-        
-        self.audienceUrl = aud
-        self.audienceDid = did
+        self.audienceUrl = contract.input.credentialIssuer
+        self.audienceDid = contract.input.issuer
         
         self.issuancePin = issuancePin
         self.issuanceIdToken = rawIssuerIdToken

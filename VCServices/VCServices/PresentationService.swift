@@ -14,7 +14,6 @@ enum PresentationServiceError: Error {
     case noRequestUriQueryParameter
     case unableToCastToPresentationResponseContainer
     case noKeyIdInRequestHeader
-    case requestDoesNotContainIssuerIdentifier
 }
 
 public class PresentationService {
@@ -110,14 +109,8 @@ public class PresentationService {
     
     private func formPresentationRequest(from token: PresentationRequestToken) -> Promise<PresentationRequest> {
         
-        guard let issuer = token.content.issuer else {
-            return Promise { seal in
-                seal.reject(PresentationServiceError.requestDoesNotContainIssuerIdentifier)
-            }
-        }
-        
         return firstly {
-            self.linkedDomainService.validateLinkedDomain(from: issuer)
+            self.linkedDomainService.validateLinkedDomain(from: token.content.issuer)
         }.then { result in
             Promise { seal in
                 seal.fulfill(PresentationRequest(from: token, linkedDomainResult: result))
