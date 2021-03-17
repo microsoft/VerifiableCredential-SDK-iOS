@@ -31,17 +31,14 @@ struct IdentifierDatabase {
     }
     
     func saveIdentifier(identifier: Identifier) throws {
-        
-        guard let dataManager = coreDataManager else {
-            throw IdentifierDatabaseError.coreDataManagerNil
-        }
+
         
         /// signing key is always first key in DID document keys until we implement more complex registration scenario.
         guard let signingKey = identifier.didDocumentKeys.first else {
             throw IdentifierDatabaseError.unableToSaveIdentifier
         }
         
-        try dataManager.saveIdentifier(longformDid: identifier.longFormDid,
+        try coreDataManager.saveIdentifier(longformDid: identifier.longFormDid,
                                            signingKeyId: signingKey.getId(),
                                            recoveryKeyId: identifier.recoveryKey.getId(),
                                            updateKeyId: identifier.updateKey.getId(),
@@ -55,11 +52,7 @@ struct IdentifierDatabase {
     
     func fetchIdentifier(withAlias alias: String) throws -> Identifier {
         
-        guard let dataManager = coreDataManager else {
-            throw IdentifierDatabaseError.coreDataManagerNil
-        }
-        
-        let identifierModels = try dataManager.fetchIdentifiers()
+        let identifierModels = try coreDataManager.fetchIdentifiers()
         
         var identifierModel: IdentifierModel? = nil
         
@@ -78,11 +71,7 @@ struct IdentifierDatabase {
     
     func fetchIdentifier(withLongformDid did: String) throws -> Identifier {
         
-        guard let dataManager = coreDataManager else {
-            throw IdentifierDatabaseError.coreDataManagerNil
-        }
-        
-        let identifierModels = try dataManager.fetchIdentifiers()
+        let identifierModels = try coreDataManager.fetchIdentifiers()
         
         var identifierModel: IdentifierModel? = nil
         
