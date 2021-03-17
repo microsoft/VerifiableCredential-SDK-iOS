@@ -8,6 +8,7 @@ import VCJwt
 enum DomainLinkageCredentialValidatorError: Error, Equatable {
     case invalidSignature
     case tokenExpired
+    case noPublicKeysInIdentifierDocument
     case doNotMatch(credentialSubject: String, tokenIssuer: String)
     case doNotMatch(credentialSubject: String, tokenSubject: String)
     case doNotMatch(credentialSubject: String, identifierDocumentDid: String)
@@ -35,7 +36,11 @@ public struct DomainLinkageCredentialValidator: DomainLinkageCredentialValidatin
         let credentialSubjectDid = credential.content.verifiableCredential.credentialSubject.did
         let wellknownDocumentDomainUrl = credential.content.verifiableCredential.credentialSubject.domainUrl
         
-        try validate(token: credential, using: document.verificationMethod)
+        guard let publicKeys = document.verificationMethod else {
+            throw DomainLinkageCredentialValidatorError.noPublicKeysInIdentifierDocument
+        }
+        
+        try validate(token: credential, using: publicKeys)
         
         try validate(credential.content.issuer,
                      equals: credentialSubjectDid,
