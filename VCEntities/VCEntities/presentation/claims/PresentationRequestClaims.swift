@@ -7,7 +7,7 @@ import VCJwt
 
 public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
-    public let clientID: String
+    public let clientID: String?
     
     public let issuer: String
     
@@ -79,7 +79,7 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        clientID = try values.decode(String.self, forKey: .clientID)
+        clientID = try values.decodeIfPresent(String.self, forKey: .clientID)
         issuer = try values.decode(String.self, forKey: .issuer)
         redirectURI = try values.decodeIfPresent(String.self, forKey: .redirectURI)
         responseMode = try values.decode(String.self, forKey: .responseMode)
