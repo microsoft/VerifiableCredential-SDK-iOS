@@ -9,6 +9,7 @@ import VCEntities
 
 enum CoreDataManagerError: Error {
     case unableToCreatePersistentContainer
+    case persistentStoreNotLoaded
 }
 
 /// Temporary Until Deterministic Keys are implemented.
@@ -24,19 +25,15 @@ public class CoreDataManager {
     
     public static let sharedInstance = CoreDataManager()
     
-    private var persistentContainer: NSPersistentContainer
+    private var persistentContainer: NSPersistentContainer?
     
     let sdkLog: VCSDKLog
     
-    private init?(sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
+    private init(sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         
         self.sdkLog = sdkLog
         
-        guard let container = CoreDataManager.createPersistentContainer(sdkLog: sdkLog) else {
-            return nil
-        }
-        
-       self.persistentContainer = container
+        loadPersistentContainer(sdkLog: sdkLog)
     }
     
     public func saveIdentifier(longformDid: String,
@@ -44,6 +41,9 @@ public class CoreDataManager {
                                recoveryKeyId: UUID,
                                updateKeyId: UUID,
                                alias: String) throws {
+        guard let persistentContainer = persistentContainer else {
+            throw CoreDataManagerError.persistentStoreNotLoaded
+        }
         
         let model = NSEntityDescription.insertNewObject(forEntityName: Constants.identifierModel,
                                                         into: persistentContainer.viewContext) as! IdentifierModel
@@ -58,12 +58,18 @@ public class CoreDataManager {
     }
     
     public func fetchIdentifiers() throws -> [IdentifierModel] {
+        guard let persistentContainer = persistentContainer else {
+            throw CoreDataManagerError.persistentStoreNotLoaded
+        }
         
         let fetchRequest: NSFetchRequest<IdentifierModel> = IdentifierModel.fetchRequest()
         return try persistentContainer.viewContext.fetch(fetchRequest)
     }
     
     public func deleteAllIdentifiers() throws {
+        guard let persistentContainer = persistentContainer else {
+            throw CoreDataManagerError.persistentStoreNotLoaded
+        }
         
         let fetchRequest: NSFetchRequest<IdentifierModel> = IdentifierModel.fetchRequest()
         let models = try persistentContainer.viewContext.fetch(fetchRequest)
@@ -75,24 +81,26 @@ public class CoreDataManager {
         try persistentContainer.viewContext.save()
     }
     
-    private static func createPersistentContainer(sdkLog: VCSDKLog) -> NSPersistentContainer? {
+    private func loadPersistentContainer(sdkLog: VCSDKLog) {
         
         let messageKitBundle = Bundle(for: Self.self)
         
         guard let modelURL = messageKitBundle.url(forResource: Constants.model, withExtension: Constants.extensionType),
               let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL) else {
-            return nil
+            return
         }
         
         let container = NSPersistentContainer(name: Constants.model, managedObjectModel: managedObjectModel)
         
-        container.loadPersistentStores { (storeDescription, error) in
+        container.loadPersistentStores {
+            [weak self] (storeDescription, error) in
             
             if let err = error?.localizedDescription {
                 sdkLog.logError(message: err)
+                return
             }
+
+            self?.persistentContainer = container
         }
-        
-        return container
     }
 }
