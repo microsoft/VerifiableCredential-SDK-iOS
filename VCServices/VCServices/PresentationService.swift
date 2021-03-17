@@ -14,6 +14,7 @@ enum PresentationServiceError: Error {
     case noRequestUriQueryParameter
     case unableToCastToPresentationResponseContainer
     case noKeyIdInRequestHeader
+    case noPublicKeysInIdentifierDocument
 }
 
 public class PresentationService {
@@ -150,10 +151,17 @@ public class PresentationService {
         }
     }
     
-    private func wrapValidationInPromise(request: PresentationRequestToken, usingKeys keys: [IdentifierDocumentPublicKey]) -> Promise<PresentationRequestToken> {
+    private func wrapValidationInPromise(request: PresentationRequestToken, usingKeys keys: [IdentifierDocumentPublicKey]?) -> Promise<PresentationRequestToken> {
+        
+        guard let publicKeys = keys else {
+            return Promise { seal in
+                seal.reject(PresentationServiceError.noPublicKeysInIdentifierDocument)
+            }
+        }
+        
         return Promise { seal in
             do {
-                try self.requestValidator.validate(request: request, usingKeys: keys)
+                try self.requestValidator.validate(request: request, usingKeys: publicKeys)
                 seal.fulfill(request)
             } catch {
                 seal.reject(error)
