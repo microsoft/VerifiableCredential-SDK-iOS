@@ -50,7 +50,7 @@ public struct ECPublicJwk: Codable, Equatable {
         let hashAlgorithm = Sha256()
         
         guard let encodedJwk = self.getMinimumAlphabeticJwk().data(using: .utf8) else {
-            throw VCJwtError.unableToParseString
+            throw VCTokenError.unableToParseString
         }
         
         let hash = hashAlgorithm.hash(data: encodedJwk)

@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VCJwt
+import VCToken
 import VCCrypto
 
 @testable import VCServices

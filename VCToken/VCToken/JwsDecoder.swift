@@ -25,13 +25,13 @@ public class JwsDecoder {
         }
         
         guard let dataHeaders = Data(base64URLEncoded: splitStringifiedData[0]) else {
-            throw VCJwtError.unableToParseData
+            throw VCTokenError.unableToParseData
         }
         
         let headers = try decoder.decode(Header.self, from: dataHeaders)
         
         guard let dataContents = Data(base64URLEncoded: splitStringifiedData[1]) else {
-            throw VCJwtError.unableToParseData
+            throw VCTokenError.unableToParseData
         }
         
         let contents = try decoder.decode(T.self, from: dataContents)

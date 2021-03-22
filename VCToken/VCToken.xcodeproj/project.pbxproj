@@ -13,7 +13,7 @@
 		5540903F25002141001246DB /* MockVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903E25002141001246DB /* MockVerifier.swift */; };
 		5540904B2500311E001246DB /* ECPublicJwk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540904A2500311E001246DB /* ECPublicJwk.swift */; };
 		5577E875251EA08D005250BC /* VCJwt.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADE25A24F5406000D9990E /* VCJwt.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55ADE26124F5406000D9990E /* VCJwt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE25724F5406000D9990E /* VCJwt.framework */; };
+		55ADE26124F5406000D9990E /* VCToken.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE25724F5406000D9990E /* VCToken.framework */; };
 		55ADE27224F5407D00D9990E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27124F5407D00D9990E /* Header.swift */; };
 		55ADE27924F540F700D9990E /* JwsToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27824F540F700D9990E /* JwsToken.swift */; };
 		55ADE27B24F5410400D9990E /* Secp256k1Signer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27A24F5410300D9990E /* Secp256k1Signer.swift */; };
@@ -50,10 +50,10 @@
 		55269350250006020051A358 /* VCJwtError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCJwtError.swift; sourceTree = "<group>"; };
 		5540903E25002141001246DB /* MockVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVerifier.swift; sourceTree = "<group>"; };
 		5540904A2500311E001246DB /* ECPublicJwk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECPublicJwk.swift; sourceTree = "<group>"; };
-		55ADE25724F5406000D9990E /* VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55ADE25724F5406000D9990E /* VCToken.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCToken.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ADE25A24F5406000D9990E /* VCJwt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCJwt.h; sourceTree = "<group>"; };
 		55ADE25B24F5406000D9990E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55ADE26024F5406000D9990E /* VCJwtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCJwtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55ADE26024F5406000D9990E /* VCTokenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCTokenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ADE26724F5406000D9990E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55ADE27124F5407D00D9990E /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		55ADE27824F540F700D9990E /* JwsToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JwsToken.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55ADE26124F5406000D9990E /* VCJwt.framework in Frameworks */,
+				55ADE26124F5406000D9990E /* VCToken.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,8 +108,8 @@
 		55ADE24D24F5406000D9990E = {
 			isa = PBXGroup;
 			children = (
-				55ADE25924F5406000D9990E /* VCJwt */,
-				55ADE26424F5406000D9990E /* VCJwtTests */,
+				55ADE25924F5406000D9990E /* VCToken */,
+				55ADE26424F5406000D9990E /* VCTokenTests */,
 				55ADE25824F5406000D9990E /* Products */,
 				55ADE27324F540E000D9990E /* Frameworks */,
 			);
@@ -118,13 +118,13 @@
 		55ADE25824F5406000D9990E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				55ADE25724F5406000D9990E /* VCJwt.framework */,
-				55ADE26024F5406000D9990E /* VCJwtTests.xctest */,
+				55ADE25724F5406000D9990E /* VCToken.framework */,
+				55ADE26024F5406000D9990E /* VCTokenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		55ADE25924F5406000D9990E /* VCJwt */ = {
+		55ADE25924F5406000D9990E /* VCToken */ = {
 			isa = PBXGroup;
 			children = (
 				5526934F24FF32850051A358 /* algorithms */,
@@ -140,10 +140,10 @@
 				55ADE25A24F5406000D9990E /* VCJwt.h */,
 				55ADE25B24F5406000D9990E /* Info.plist */,
 			);
-			path = VCJwt;
+			path = VCToken;
 			sourceTree = "<group>";
 		};
-		55ADE26424F5406000D9990E /* VCJwtTests */ = {
+		55ADE26424F5406000D9990E /* VCTokenTests */ = {
 			isa = PBXGroup;
 			children = (
 				55ADE28D24F5432000D9990E /* mocks */,
@@ -155,7 +155,7 @@
 				55ADE29624F56A8100D9990E /* Secp256k1Tests.swift */,
 				55ADE2A024F585B100D9990E /* ClaimsTest.swift */,
 			);
-			path = VCJwtTests;
+			path = VCTokenTests;
 			sourceTree = "<group>";
 		};
 		55ADE27324F540E000D9990E /* Frameworks */ = {
@@ -191,9 +191,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		55ADE25624F5406000D9990E /* VCJwt */ = {
+		55ADE25624F5406000D9990E /* VCToken */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55ADE26B24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCJwt" */;
+			buildConfigurationList = 55ADE26B24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCToken" */;
 			buildPhases = (
 				55ADE25224F5406000D9990E /* Headers */,
 				55ADE25324F5406000D9990E /* Sources */,
@@ -204,14 +204,14 @@
 			);
 			dependencies = (
 			);
-			name = VCJwt;
+			name = VCToken;
 			productName = VCJwt;
-			productReference = 55ADE25724F5406000D9990E /* VCJwt.framework */;
+			productReference = 55ADE25724F5406000D9990E /* VCToken.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		55ADE25F24F5406000D9990E /* VCJwtTests */ = {
+		55ADE25F24F5406000D9990E /* VCTokenTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55ADE26E24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCJwtTests" */;
+			buildConfigurationList = 55ADE26E24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCTokenTests" */;
 			buildPhases = (
 				55ADE25C24F5406000D9990E /* Sources */,
 				55ADE25D24F5406000D9990E /* Frameworks */,
@@ -222,9 +222,9 @@
 			dependencies = (
 				55ADE26324F5406000D9990E /* PBXTargetDependency */,
 			);
-			name = VCJwtTests;
+			name = VCTokenTests;
 			productName = VCJwtTests;
-			productReference = 55ADE26024F5406000D9990E /* VCJwtTests.xctest */;
+			productReference = 55ADE26024F5406000D9990E /* VCTokenTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -245,7 +245,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VCJwt" */;
+			buildConfigurationList = 55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VCToken" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -258,8 +258,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				55ADE25624F5406000D9990E /* VCJwt */,
-				55ADE25F24F5406000D9990E /* VCJwtTests */,
+				55ADE25624F5406000D9990E /* VCToken */,
+				55ADE25F24F5406000D9990E /* VCTokenTests */,
 			);
 		};
 /* End PBXProject section */
@@ -323,7 +323,7 @@
 /* Begin PBXTargetDependency section */
 		55ADE26324F5406000D9990E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 55ADE25624F5406000D9990E /* VCJwt */;
+			target = 55ADE25624F5406000D9990E /* VCToken */;
 			targetProxy = 55ADE26224F5406000D9990E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -460,7 +460,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = VCJwt/Info.plist;
+				INFOPLIST_FILE = VCToken/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -469,8 +469,8 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCJwt;
-				PRODUCT_NAME = VCJwt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCToken;
+				PRODUCT_NAME = VCToken;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -488,7 +488,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = VCJwt/Info.plist;
+				INFOPLIST_FILE = VCToken/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -497,8 +497,8 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCJwt;
-				PRODUCT_NAME = VCJwt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCToken;
+				PRODUCT_NAME = VCToken;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -511,13 +511,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = VCJwtTests/Info.plist;
+				INFOPLIST_FILE = VCTokenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCJwtTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCTokenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -530,13 +530,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBF8T346G9;
-				INFOPLIST_FILE = VCJwtTests/Info.plist;
+				INFOPLIST_FILE = VCTokenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCJwtTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCTokenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -546,7 +546,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VCJwt" */ = {
+		55ADE25124F5406000D9990E /* Build configuration list for PBXProject "VCToken" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55ADE26924F5406000D9990E /* Debug */,
@@ -555,7 +555,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55ADE26B24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCJwt" */ = {
+		55ADE26B24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCToken" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55ADE26C24F5406000D9990E /* Debug */,
@@ -564,7 +564,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55ADE26E24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCJwtTests" */ = {
+		55ADE26E24F5406000D9990E /* Build configuration list for PBXNativeTarget "VCTokenTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55ADE26F24F5406000D9990E /* Debug */,

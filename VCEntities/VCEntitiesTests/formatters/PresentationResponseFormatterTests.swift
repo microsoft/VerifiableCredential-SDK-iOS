@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import XCTest
-import VCJwt
+import VCToken
 import VCCrypto
 
 @testable import VCEntities

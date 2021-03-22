@@ -26,13 +26,13 @@ public struct Secp256k1Verifier: TokenVerifying {
         }
         
         guard let encodedMessage = token.protectedMessage.data(using: .ascii) else {
-            throw VCJwtError.unableToParseString
+            throw VCTokenError.unableToParseString
         }
         
         guard let x = Data(base64URLEncoded: key.x),
               let y = Data(base64URLEncoded: key.y),
               let secpKey = Secp256k1PublicKey(x: x, y: y) else {
-            throw VCJwtError.unableToParseString
+            throw VCTokenError.unableToParseString
         }
         
         let hashedMessage = self.hashAlgorithm.hash(data: encodedMessage)
