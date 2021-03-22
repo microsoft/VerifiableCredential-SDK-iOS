@@ -4,9 +4,11 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
+import VCEntities
 @testable import VCNetworking
 
 final class MockNetworkOperation: InternalNetworkOperation {
+    
     typealias ResponseBody = MockDecoder.ResponseBody
     typealias Decoder = MockDecoder
     
@@ -15,7 +17,8 @@ final class MockNetworkOperation: InternalNetworkOperation {
     let failureHandler: FailureHandler = SimpleFailureHandler()
     let retryHandler: RetryHandler = NoRetry()
     let urlSession: URLSession
-    let urlRequest: URLRequest
+    var urlRequest: URLRequest
+    var correlationVector: CorrelationHeader? = nil
     
     let mockUrl = "mockurl.com"
     

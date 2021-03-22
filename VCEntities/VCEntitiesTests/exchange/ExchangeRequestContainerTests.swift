@@ -23,7 +23,7 @@ class ExchangeRequestContainerTests: XCTestCase {
             let actualRequest = try ExchangeRequestContainer(exchangeableVerifiableCredential: validVc,
                                                              newOwnerDid: "testNewDid",
                                                              currentOwnerIdentifier: mockIdentifier)
-            XCTAssertEqual(actualRequest.audience, validVc.token.content.vc.exchangeService?.id)
+            XCTAssertEqual(actualRequest.audience, validVc.content.vc.exchangeService?.id)
         } catch {
             print(error)
             XCTFail()

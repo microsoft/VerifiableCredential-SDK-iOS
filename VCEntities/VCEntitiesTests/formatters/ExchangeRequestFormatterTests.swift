@@ -27,7 +27,7 @@ class ExchangeRequestFormatterTests: XCTestCase {
         mockValidVc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)!
         
         let keyContainer = KeyContainer(keyReference: key, keyId: "keyId")
-        mockIdentifier = Identifier(longFormDid: mockValidVc.token.content.sub, didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer, alias: "testAlias")
+        mockIdentifier = Identifier(longFormDid: mockValidVc.content.sub, didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer, alias: "testAlias")
         
         mockRequest = try ExchangeRequestContainer(exchangeableVerifiableCredential: mockValidVc, newOwnerDid: expectedNewOwnerDid, currentOwnerIdentifier: mockIdentifier)
     }
@@ -36,7 +36,7 @@ class ExchangeRequestFormatterTests: XCTestCase {
         let actualExchangeRequest = try formatter.format(request: mockRequest)
         XCTAssertEqual(actualExchangeRequest.content.audience, mockRequest.audience)
         XCTAssertEqual(actualExchangeRequest.content.did, mockIdentifier.longFormDid)
-        XCTAssertEqual(actualExchangeRequest.content.exchangeableVc, mockValidVc.raw)
+        XCTAssertEqual(actualExchangeRequest.content.exchangeableVc, mockValidVc.rawValue)
         XCTAssertEqual(actualExchangeRequest.content.issuer, VCEntitiesConstants.SELF_ISSUED)
         XCTAssertEqual(actualExchangeRequest.content.recipientDid, expectedNewOwnerDid)
     }
