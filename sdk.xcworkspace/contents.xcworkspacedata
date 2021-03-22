@@ -15,7 +15,7 @@
       location = "group:VCServices/VCServices.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:VCNetworking/VCNetworking.xcodeproj">
+      location = "group:/Users/sydneymorton/Desktop/contract/VerifiableCredential-SDK-iOS/VCNetworking/VCNetworking.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:VCEntities/VCEntities.xcodeproj">
