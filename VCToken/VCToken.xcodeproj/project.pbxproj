@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		550F1E56251019BA009AF467 /* KeyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E55251019BA009AF467 /* KeyId.swift */; };
 		550F1E6125115866009AF467 /* ECPublicJwkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6025115866009AF467 /* ECPublicJwkTests.swift */; };
-		55269351250006020051A358 /* VCJwtError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55269350250006020051A358 /* VCJwtError.swift */; };
+		55269351250006020051A358 /* VCTokenError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55269350250006020051A358 /* VCTokenError.swift */; };
 		5540903F25002141001246DB /* MockVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903E25002141001246DB /* MockVerifier.swift */; };
 		5540904B2500311E001246DB /* ECPublicJwk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540904A2500311E001246DB /* ECPublicJwk.swift */; };
-		5577E875251EA08D005250BC /* VCJwt.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADE25A24F5406000D9990E /* VCJwt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5577E875251EA08D005250BC /* VCToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADE25A24F5406000D9990E /* VCToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE26124F5406000D9990E /* VCToken.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55ADE25724F5406000D9990E /* VCToken.framework */; };
 		55ADE27224F5407D00D9990E /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27124F5407D00D9990E /* Header.swift */; };
 		55ADE27924F540F700D9990E /* JwsToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE27824F540F700D9990E /* JwsToken.swift */; };
@@ -47,11 +47,11 @@
 /* Begin PBXFileReference section */
 		550F1E55251019BA009AF467 /* KeyId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyId.swift; sourceTree = "<group>"; };
 		550F1E6025115866009AF467 /* ECPublicJwkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECPublicJwkTests.swift; sourceTree = "<group>"; };
-		55269350250006020051A358 /* VCJwtError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCJwtError.swift; sourceTree = "<group>"; };
+		55269350250006020051A358 /* VCTokenError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTokenError.swift; sourceTree = "<group>"; };
 		5540903E25002141001246DB /* MockVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVerifier.swift; sourceTree = "<group>"; };
 		5540904A2500311E001246DB /* ECPublicJwk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECPublicJwk.swift; sourceTree = "<group>"; };
 		55ADE25724F5406000D9990E /* VCToken.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCToken.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55ADE25A24F5406000D9990E /* VCJwt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCJwt.h; sourceTree = "<group>"; };
+		55ADE25A24F5406000D9990E /* VCToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCToken.h; sourceTree = "<group>"; };
 		55ADE25B24F5406000D9990E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55ADE26024F5406000D9990E /* VCTokenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VCTokenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55ADE26724F5406000D9990E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 				55ADE28024F5412100D9990E /* JwsDecoder.swift */,
 				55ADE28224F5412600D9990E /* TokenSigning.swift */,
 				55ADE28424F5412900D9990E /* TokenVerifying.swift */,
-				55269350250006020051A358 /* VCJwtError.swift */,
-				55ADE25A24F5406000D9990E /* VCJwt.h */,
+				55269350250006020051A358 /* VCTokenError.swift */,
+				55ADE25A24F5406000D9990E /* VCToken.h */,
 				55ADE25B24F5406000D9990E /* Info.plist */,
 			);
 			path = VCToken;
@@ -184,7 +184,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5577E875251EA08D005250BC /* VCJwt.h in Headers */,
+				5577E875251EA08D005250BC /* VCToken.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +291,7 @@
 				55C6C4A6250816500082BE73 /* Secp256k1Verifier.swift in Sources */,
 				55ADE27924F540F700D9990E /* JwsToken.swift in Sources */,
 				55ADE27224F5407D00D9990E /* Header.swift in Sources */,
-				55269351250006020051A358 /* VCJwtError.swift in Sources */,
+				55269351250006020051A358 /* VCTokenError.swift in Sources */,
 				55ADE28524F5412900D9990E /* TokenVerifying.swift in Sources */,
 				55ADE28124F5412100D9990E /* JwsDecoder.swift in Sources */,
 				550F1E56251019BA009AF467 /* KeyId.swift in Sources */,
