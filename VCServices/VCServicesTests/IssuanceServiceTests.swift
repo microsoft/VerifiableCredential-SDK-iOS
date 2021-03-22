@@ -22,6 +22,7 @@ class IssuanceServiceTests: XCTestCase {
         service = IssuanceService(formatter: formatter,
                                   apiCalls: MockIssuanceApiCalls(),
                                   identifierService: IdentifierService(),
+                                  linkedDomainService: LinkedDomainService(),
                                   pairwiseService: PairwiseService())
         
         let encodedContract = TestData.aiContract.rawValue.data(using: .utf8)!
@@ -87,6 +88,7 @@ class IssuanceServiceTests: XCTestCase {
         let service = IssuanceService(formatter: formatter,
                                       apiCalls: MockIssuanceApiCalls(),
                                       identifierService: IdentifierService(),
+                                      linkedDomainService: LinkedDomainService(),
                                       pairwiseService: PairwiseService())
         
         let response = try IssuanceResponseContainer(from: contract, contractUri: expectedUrl)

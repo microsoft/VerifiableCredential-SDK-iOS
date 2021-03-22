@@ -12,9 +12,6 @@
       </FileRef>
    </Group>
    <FileRef
-      location = "group:sdk/sdk.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:VCServices/VCServices.xcodeproj">
    </FileRef>
    <FileRef
