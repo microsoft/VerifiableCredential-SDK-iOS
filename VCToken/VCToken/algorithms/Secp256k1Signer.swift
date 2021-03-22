@@ -20,7 +20,7 @@ public struct Secp256k1Signer: TokenSigning {
         let encodedMessage = token.protectedMessage
 
         guard let messageData = encodedMessage.data(using: .ascii) else {
-            throw VCJwtError.unableToParseData
+            throw VCTokenError.unableToParseData
         }
         
         let hashedMessage = hashAlgorithm.hash(data: messageData)

@@ -3,11 +3,18 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-@testable import VCJwt
-import VCCrypto
+@testable import VCToken
+import XCTest
 
-class MockVerifier: TokenVerifying {   
-    func verify<T>(token: JwsToken<T>, usingPublicKey key: ECPublicJwk) throws -> Bool {
-        return true
+class ClaimsTest: XCTestCase {
+    
+    let expectedValue = "test43"
+
+    func testMockClaims() throws {
+        let claims = MockClaims(key: expectedValue)
+        XCTAssertNil(claims.iat)
+        XCTAssertNil(claims.exp)
+        XCTAssertNil(claims.nbf)
+        XCTAssertEqual(claims.key, expectedValue)
     }
 }

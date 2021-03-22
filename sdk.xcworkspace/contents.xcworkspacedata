@@ -21,7 +21,7 @@
       location = "group:VCEntities/VCEntities.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:VCJwt/VCJwt.xcodeproj">
+      location = "group:VCToken/VCToken.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:VCCrypto/VCCrypto.xcodeproj">

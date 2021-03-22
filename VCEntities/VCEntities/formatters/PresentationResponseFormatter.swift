@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import VCJwt
+import VCToken
 
 let CREDENTIAL_PATH = "$.attestations.presentations."
 let CREDENTIAL_ENCODING = "base64Url"

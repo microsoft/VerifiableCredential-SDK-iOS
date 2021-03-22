@@ -6,7 +6,7 @@
 import XCTest
 import VCCrypto
 
-@testable import VCJwt
+@testable import VCToken
 
 class ECPublicJwkTests: XCTestCase {
     

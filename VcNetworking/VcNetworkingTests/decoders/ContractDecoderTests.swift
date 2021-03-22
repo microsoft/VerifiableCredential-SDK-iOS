@@ -5,7 +5,7 @@
 
 import XCTest
 import VCEntities
-import VCJwt
+import VCToken
 
 @testable import VCNetworking
 

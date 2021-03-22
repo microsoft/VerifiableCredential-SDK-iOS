@@ -5,7 +5,7 @@
 
 import XCTest
 
-@testable import VCJwt
+@testable import VCToken
 
 class JwsEncoderTests: XCTestCase {
     

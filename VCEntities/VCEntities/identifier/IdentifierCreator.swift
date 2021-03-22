@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import VCCrypto
-import VCJwt
+import VCToken
 
 public struct IdentifierCreator {
     
