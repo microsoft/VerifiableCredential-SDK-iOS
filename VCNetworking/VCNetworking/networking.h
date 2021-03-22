@@ -5,12 +5,12 @@
 
 #import <Foundation/Foundation.h>
 
-//! Project version number for networking.
+//! Project version number for VCNetworking.
 FOUNDATION_EXPORT double networkingVersionNumber;
 
-//! Project version string for networking.
+//! Project version string for VCNetworking.
 FOUNDATION_EXPORT const unsigned char networkingVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <networking/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <VCNetworking/PublicHeader.h>
 
 
