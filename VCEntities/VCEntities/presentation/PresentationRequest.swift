@@ -20,7 +20,7 @@ public struct PresentationRequest {
     }
     
     public func getPinRequiredLength() -> Int? {
-        return token.content.idTokenHint?.token.content.pin.length
+        return token.content.idTokenHint?.token.content.pin?.length
     }
     
     public func containsRequiredClaims() -> Bool {
