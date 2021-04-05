@@ -20,7 +20,6 @@ pool:
 steps:
 - script: |
    git submodule update --init
-   
   displayName: 'Git submodule update'
 
 - task: Xcode@5
