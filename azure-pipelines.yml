@@ -18,30 +18,10 @@ pool:
 #Your build pipeline references the ‘Configuration’ variable, which you’ve selected to be settable at queue time. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it settable at queue time. See https://go.microsoft.com/fwlink/?linkid=865971
 
 steps:
-- task: InstallAppleCertificate@2
-  displayName: 'Install an Apple certificate'
-  inputs:
-    certPwd: '$(P12password)'
-  enabled: false
-
-- task: InstallAppleProvisioningProfile@1
-  displayName: 'Install an Apple provisioning profile'
-  enabled: false
-
 - script: |
    git submodule update --init
    
   displayName: 'Git submodule update'
-
-- task: Xcode@5
-  displayName: 'Xcode build'
-  inputs:
-    xcWorkspacePath: VCServices/VCServices.xcodeproj
-    scheme: VCServices
-    destinationPlatformOption: iOS
-    destinationSimulators: 'iPhone 8'
-    publishJUnitResults: true
-  enabled: false
 
 - task: Xcode@5
   displayName: 'Xcode clean test'
@@ -57,45 +37,3 @@ steps:
     destinationPlatformOption: iOS
     destinationSimulators: 'iPhone 12'
     publishJUnitResults: true
-
-- task: Xcode@5
-  displayName: 'Xcode archive'
-  inputs:
-    actions: archive
-    xcWorkspacePath: sdk.xcworkspace
-    scheme: sdk
-    packageApp: true
-    archivePath: '$(Build.BinariesDirectory)/sdk.xcarchive'
-    exportPath: 'output/$(SDK)/$(Configuration)/export'
-  enabled: false
-
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '**/*.ipa'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-  enabled: false
-  condition: succeededOrFailed()
-
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
-  enabled: false
-  condition: succeededOrFailed()
-
-- task: AppCenterTest@1
-  displayName: 'Test with Visual Studio App Center'
-  inputs:
-    appFile: '**/*.ipa'
-  enabled: false
-  condition: succeededOrFailed()
-
-- task: AppCenterDistribute@2
-  displayName: 'Deploy **/*.ipa to Visual Studio App Center'
-  inputs:
-    appFile: '**/*.ipa'
-    symbolsIncludeParentDirectory: false
-  enabled: false
-  condition: succeededOrFailed()
