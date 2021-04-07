@@ -39,7 +39,7 @@ functionThatReturnPromise().done { objectReturned in
 
 ## Receive a Verifiable Credential (IssuanceService)
 
-To receive a verifiable credential you need a service endpoint providing an issuance contract. You can either get it from someone or create your own. See [How to customize your credentials](https://docs.microsoft.com/en-us/azure/active-directory/verifiable-credentials/credential-design) for more information or use an existing provider. In the future, we plan to support the DIF standard [Credential Manifest](https://identity.foundation/credential-manifest/) from the DIF.
+To receive a verifiable credential you need a service endpoint providing an issuance contract. You can either get it from someone or create your own. See [How to customize your credentials](https://docs.microsoft.com/en-us/azure/active-directory/verifiable-credentials/credential-design) for more information or use an existing provider. In the future, we plan to support the DIF standard [Credential Manifest](https://identity.foundation/credential-manifest/).
 
 ```swift
     func issuanceSample() {
@@ -72,11 +72,11 @@ To receive a verifiable credential you need a service endpoint providing an issu
     }
 ```
 
-Most issuance requests will ask you for attestations that the user might need to provide. Provide them by filling the three available maps for self attested claims, idtokens and vcs.
+Most issuance requests will ask you for attestations that the user might need to provide. Provide them by filling the values for the existing keys in the three available maps for self attested claims, idtokens and vcs.
 
 ```swift
 private func addRequestedData(response: IssuanceResponseContainer) {
-    response.requestedSelfAttestedClaimMap["key"] = "user specified values"
+    response.requestedSelfAttestedClaimMap["key string found in contract"] = "user specified values"
     response.requestedIdTokenMap["configuration uri"] = "your idToken"
     response.requestedVCMap["credential type"] = yourVc
 }
