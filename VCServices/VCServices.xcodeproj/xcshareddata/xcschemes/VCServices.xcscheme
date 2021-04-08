@@ -20,6 +20,20 @@
                ReferencedContainer = "container:VCServices.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "555BDAF42530E5E2001E7A18"
+               BuildableName = "VCServicesApp.app"
+               BlueprintName = "VCServicesTestApp"
+               ReferencedContainer = "container:VCServices.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -65,10 +79,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "92CDE7EC24DE1C6100F95B5D"
-            BuildableName = "VCCryptoTestApp.app"
-            BlueprintName = "VCCryptoTestApp"
-            ReferencedContainer = "container:../VCCrypto/VCCrypto.xcodeproj">
+            BlueprintIdentifier = "555BDAF42530E5E2001E7A18"
+            BuildableName = "VCServicesApp.app"
+            BlueprintName = "VCServicesTestApp"
+            ReferencedContainer = "container:VCServices.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
