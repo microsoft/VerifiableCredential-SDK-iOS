@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCJwt
+import VCToken
 
 protocol OIDCClaims: Claims {
     var audience: String? { get }

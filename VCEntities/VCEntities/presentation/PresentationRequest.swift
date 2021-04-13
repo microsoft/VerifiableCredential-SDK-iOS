@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCJwt
+import VCToken
 
 public struct PresentationRequest {
     
@@ -20,7 +20,7 @@ public struct PresentationRequest {
     }
     
     public func getPinRequiredLength() -> Int? {
-        return token.content.idTokenHint?.token.content.pin.length
+        return token.content.idTokenHint?.token.content.pin?.length
     }
     
     public func containsRequiredClaims() -> Bool {

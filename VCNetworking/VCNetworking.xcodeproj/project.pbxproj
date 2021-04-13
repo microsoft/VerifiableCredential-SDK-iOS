@@ -820,7 +820,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networking;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCNetworking;
 				PRODUCT_NAME = VCNetworking;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -850,7 +850,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networking;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCNetworking;
 				PRODUCT_NAME = VCNetworking;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -871,7 +871,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = mh_bundle;
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networkingTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCNetworkingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -891,7 +891,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = mh_bundle;
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.networkingTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.VCNetworkingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

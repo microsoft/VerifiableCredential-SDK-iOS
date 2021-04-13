@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import VCJwt
+import VCToken
 
 public protocol IssuanceResponseFormatting {
     func format(response: IssuanceResponseContainer, usingIdentifier identifier: Identifier) throws -> IssuanceResponse
@@ -80,13 +80,15 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
                 selfIssuedMap = [:]
             }
             selfIssuedMap?[VCEntitiesConstants.PIN] = response.issuancePin
-            
+        }
+
+        if response.issuanceIdToken != nil {
             if idTokenMap == nil {
                 idTokenMap = [:]
             }
             idTokenMap?[VCEntitiesConstants.SELF_ISSUED] = response.issuanceIdToken
         }
-        
+
         var presentationsMap: [String: String]? = nil
         if !response.requestVCMap.isEmpty {
             presentationsMap = try self.createPresentations(from: response, usingIdentifier: identifier, andSignWith: key)

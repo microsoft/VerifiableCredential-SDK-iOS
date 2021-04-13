@@ -61,7 +61,7 @@ class FlowTests: XCTestCase {
         }.then { request in
             self.getIssuanceRequest(issuanceUseCase: issuanceUseCase, request: request)
         }.then { request in
-            try self.getIssuanceResponse(useCase: issuanceUseCase, contract: request.contract)
+            try self.getIssuanceResponse(useCase: issuanceUseCase, issuanceRequest: request)
         }.then { vc in
             try self.sendPresentationResponse(useCase: presentationUseCase, request: self.presentationRequest!, vc: vc)
         }.done { response in
@@ -78,11 +78,11 @@ class FlowTests: XCTestCase {
     
     private func getIssuanceRequest(issuanceUseCase: IssuanceService, request: PresentationRequest) -> Promise<IssuanceRequest> {
         self.presentationRequest = request
-        return issuanceUseCase.getRequest(usingUrl: request.token.content.presentationDefinition!.inputDescriptors.first!.issuanceMetadata.first!.contract!)
+        return issuanceUseCase.getRequest(usingUrl: request.token.content.presentationDefinition.inputDescriptors.first!.issuanceMetadata.first!.contract!)
     }
     
-    private func getIssuanceResponse(useCase: IssuanceService, contract: Contract) throws -> Promise<VerifiableCredential> {
-        var response = try IssuanceResponseContainer(from: contract, contractUri: "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert")
+    private func getIssuanceResponse(useCase: IssuanceService, issuanceRequest: IssuanceRequest) throws -> Promise<VerifiableCredential> {
+        var response = try IssuanceResponseContainer(from: issuanceRequest.content, contractUri: "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert")
         response.requestedSelfAttestedClaimMap["Name"] = "sydney"
         return useCase.send(response: response)
     }

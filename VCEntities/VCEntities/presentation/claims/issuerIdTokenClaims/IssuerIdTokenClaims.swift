@@ -3,8 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCJwt
+import VCToken
 
 public struct IssuerIdTokenClaims: Claims {
-    public let pin: PinDescriptor
+    public let pin: PinDescriptor?
 }
