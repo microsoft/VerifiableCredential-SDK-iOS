@@ -4,7 +4,6 @@
 *--------------------------------------------------------------------------------------------*/
 
 enum CryptoOperationsError: Error {
-    case unableToCreateKey
     case unableToRetrieveKey
 }
 
@@ -27,9 +26,7 @@ public struct CryptoOperations: CryptoOperating {
     
     public func generateKey() throws -> VCCryptoSecret {
         
-        guard let key = Random32BytesSecret(withStore: secretStore) else {
-            throw CryptoOperationsError.unableToCreateKey
-        }
+        let key = try Random32BytesSecret(withStore: secretStore)
         
         return key
     }

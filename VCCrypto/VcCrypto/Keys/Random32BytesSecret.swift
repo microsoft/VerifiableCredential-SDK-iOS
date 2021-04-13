@@ -6,6 +6,11 @@
 import Foundation
 
 final class Random32BytesSecret: Secret {
+
+    private enum Random32BytesSecretError: Error {
+        case secRandomCopyBytesFailed(status: OSStatus)
+    }
+
     static var itemTypeCode: String = "r32B"
     public var id: UUID
     private let store: SecretStoring
@@ -15,7 +20,7 @@ final class Random32BytesSecret: Secret {
         self.store = store
     }
     
-    init?(withStore store: SecretStoring) {
+    init(withStore store: SecretStoring) throws {
         self.store = store
         
         var value = Data(count: 32)
@@ -31,14 +36,12 @@ final class Random32BytesSecret: Secret {
             SecRandomCopyBytes(kSecRandomDefault, secretPtr.count, secretPtr.baseAddress!)
         }
         
-        guard result == errSecSuccess else { return nil }
-        id = UUID()
-        
-        do {
-            try self.store.saveSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, value: &value)
-        } catch {
-            return nil
+        guard result == errSecSuccess else {
+            throw Random32BytesSecretError.secRandomCopyBytesFailed(status: result)
         }
+        id = UUID()
+
+        try self.store.saveSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, value: &value)
     }
     
     func withUnsafeBytes(_ body: (UnsafeRawBufferPointer) throws -> Void) throws {
