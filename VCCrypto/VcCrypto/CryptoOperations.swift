@@ -3,10 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-enum CryptoOperationsError: Error {
-    case unableToRetrieveKey
-}
-
 public protocol CryptoOperating {
     func generateKey() throws -> VCCryptoSecret
     func retrieveKeyFromStorage(withId id: UUID) throws -> VCCryptoSecret
