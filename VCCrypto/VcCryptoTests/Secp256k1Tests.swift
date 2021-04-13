@@ -41,7 +41,7 @@ class Secp256k1Tests: XCTestCase {
     }
     
     func testSign() throws {
-        let secret = Random32BytesSecret(withStore: secretStoreMock)!
+        let secret = try Random32BytesSecret(withStore: secretStoreMock)
         let hash = Data(repeating: 1, count: 32)
         let algo = Secp256k1()
         let pubKey = try algo.createPublicKey(forSecret: secret)
