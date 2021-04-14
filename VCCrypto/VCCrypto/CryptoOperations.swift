@@ -3,11 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-enum CryptoOperationsError: Error {
-    case unableToCreateKey
-    case unableToRetrieveKey
-}
-
 public protocol CryptoOperating {
     func generateKey() throws -> VCCryptoSecret
     func retrieveKeyFromStorage(withId id: UUID) throws -> VCCryptoSecret
@@ -27,9 +22,7 @@ public struct CryptoOperations: CryptoOperating {
     
     public func generateKey() throws -> VCCryptoSecret {
         
-        guard let key = Random32BytesSecret(withStore: secretStore) else {
-            throw CryptoOperationsError.unableToCreateKey
-        }
+        let key = try Random32BytesSecret(withStore: secretStore)
         
         return key
     }

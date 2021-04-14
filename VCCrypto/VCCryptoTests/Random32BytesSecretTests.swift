@@ -10,7 +10,7 @@ class Random32BytesSecretTests: XCTestCase {
     
     func testNewSecret() throws {
         let store = SecretStoreMock()
-        let secret = Random32BytesSecret(withStore: store)!
+        let secret = try Random32BytesSecret(withStore: store)
         
         let value = try store.getSecret(id: secret.id, itemTypeCode: Random32BytesSecret.itemTypeCode)
         XCTAssertTrue(value.count == 32)
@@ -29,7 +29,7 @@ class Random32BytesSecretTests: XCTestCase {
     
     func testWithUnsafeBytesValueMatchStoredOne() throws {
         let store = SecretStoreMock()
-        let secret = Random32BytesSecret(withStore: store)!
+        let secret = try Random32BytesSecret(withStore: store)
         try secret.withUnsafeBytes { (valuePtr) in
             let val = Data(valuePtr)
             XCTAssertEqual(val, try store.getSecret(id: secret.id, itemTypeCode: Random32BytesSecret.itemTypeCode))

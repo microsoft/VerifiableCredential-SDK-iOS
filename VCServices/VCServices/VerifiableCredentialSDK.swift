@@ -22,7 +22,7 @@ public class VerifiableCredentialSDK {
             _ = try identifierService.fetchMasterIdentifier()
             return false
         } catch {
-            // TODO: log
+            VCSDKLog.sharedInstance.logWarning(message: "Failed to fetch master identifier with: \(String(describing: error))")
             _ = try identifierService.createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: VCEntitiesConstants.MASTER_ID)
             return true
         }
