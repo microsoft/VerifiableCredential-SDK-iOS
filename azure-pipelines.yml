@@ -26,12 +26,12 @@ steps:
   inputs:
     actions: 'clean test'
     configuration: Debug
-    sdk: iphonesimulator
     xcWorkspacePath: sdk.xcworkspace
     scheme: VCServices
     xcodeVersion: specifyPath
     xcodeDeveloperDir: '/Applications/Xcode_12.2.app'
-    packageApp: true
+    signingOption: default
     destinationPlatformOption: iOS
-    destinationSimulators: 'iPhone 12'
+    destinationSimulators: 'iPhone 11'
+    args: '-derivedDataPath output/derivedData -enableCodeCoverage YES'
     publishJUnitResults: true
