@@ -26,6 +26,7 @@ steps:
   inputs:
     actions: 'clean test'
     configuration: Debug
+    sdk: iphonesimulator
     xcWorkspacePath: sdk.xcworkspace
     scheme: VCServices
     xcodeVersion: specifyPath
