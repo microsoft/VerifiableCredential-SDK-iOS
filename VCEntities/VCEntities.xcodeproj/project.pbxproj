@@ -105,6 +105,7 @@
 		559FCA3C25CA03D200737F14 /* IssuanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FCA3B25CA03D200737F14 /* IssuanceRequest.swift */; };
 		559FCA5225CA042400737F14 /* LinkedDomainResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FCA5125CA042400737F14 /* LinkedDomainResult.swift */; };
 		559FCA5625CA0E6A00737F14 /* PresentationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FCA5525CA0E6A00737F14 /* PresentationRequest.swift */; };
+		55A2CA6D266EA44B00AE1A20 /* MeasureTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A2CA6C266EA44A00AE1A20 /* MeasureTime.swift */; };
 		55AC02B525D3087D00AA15F4 /* IdentifierDocumentServiceEndpointDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AC02B425D3087D00AA15F4 /* IdentifierDocumentServiceEndpointDescriptor.swift */; };
 		55AF747B252F5B4B006A8B25 /* IdentifierFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */; };
 		55AF747D252F64F7006A8B25 /* MockCryptoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747C252F64F7006A8B25 /* MockCryptoOperations.swift */; };
@@ -232,6 +233,7 @@
 		559FCA3B25CA03D200737F14 /* IssuanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRequest.swift; sourceTree = "<group>"; };
 		559FCA5125CA042400737F14 /* LinkedDomainResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedDomainResult.swift; sourceTree = "<group>"; };
 		559FCA5525CA0E6A00737F14 /* PresentationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequest.swift; sourceTree = "<group>"; };
+		55A2CA6C266EA44A00AE1A20 /* MeasureTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureTime.swift; sourceTree = "<group>"; };
 		55AC02B425D3087D00AA15F4 /* IdentifierDocumentServiceEndpointDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDocumentServiceEndpointDescriptor.swift; sourceTree = "<group>"; };
 		55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierFormatterTests.swift; sourceTree = "<group>"; };
 		55AF747C252F64F7006A8B25 /* MockCryptoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCryptoOperations.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				55011E8D2572DFBD002D2690 /* DefaultLogConsumer.swift */,
+				55A2CA6C266EA44A00AE1A20 /* MeasureTime.swift */,
 				5570597825754CA7000DD244 /* VCLogConsumer.swift */,
 				55011E8B2572DF50002D2690 /* VCSDKLog.swift */,
 				5570597A25754D02000DD244 /* VCTraceLevel.swift */,
@@ -819,6 +822,7 @@
 				55AF748E252F6BE0006A8B25 /* Identifier.swift in Sources */,
 				55AF7486252F6B1F006A8B25 /* IdentifierDocumentServiceEndpoint.swift in Sources */,
 				55BEF45D2589544500C720BD /* PinClaims.swift in Sources */,
+				55A2CA6D266EA44B00AE1A20 /* MeasureTime.swift in Sources */,
 				557BFC56251E6701005B5B24 /* IssuanceResponseContainer.swift in Sources */,
 				55575776251BC6CF009979AB /* RegistrationClaims.swift in Sources */,
 				55575777251BC6CF009979AB /* IssuanceServiceResponse.swift in Sources */,
