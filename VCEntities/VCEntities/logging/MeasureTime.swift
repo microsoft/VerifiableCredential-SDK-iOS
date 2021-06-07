@@ -31,7 +31,7 @@ public func logNetworkTime(name: String,
         
         let measurements = [MetricConstants.Duration: NSNumber(value: elapsedTime)]
         
-        VCSDKLog.sharedInstance.event(name: name, properties: properties, measurements: measurements)
+        VCSDKLog.sharedInstance.event(name: "DIDNetworkMetrics", properties: properties, measurements: measurements)
     }
 
     return result
