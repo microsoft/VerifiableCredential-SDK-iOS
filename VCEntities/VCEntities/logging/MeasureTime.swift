@@ -10,6 +10,22 @@ struct MetricConstants {
     static let Duration = "duration_ms"
 }
 
+public func logTime<R>(name: String,
+                    _ block: @escaping () -> Promise<R>) -> Promise<R> {
+    
+    let startTime = Date().timeIntervalSince1970
+    let result = block().get { body in
+        
+        let elapsedTime = Date().timeIntervalSince1970 - startTime
+        
+        VCSDKLog.sharedInstance.event(name: "DIDPerformanceMetrics",
+                                      properties: [MetricConstants.Name: name],
+                                      measurements: [MetricConstants.Duration: NSNumber(value: elapsedTime)])
+    }
+    
+    return result
+}
+
 public func logNetworkTime(name: String,
                     correlationVector: CorrelationHeader? = nil,
                     _ block: @escaping () -> Promise<(data: Data, response: URLResponse)>) -> Promise<(data: Data, response: URLResponse)> {

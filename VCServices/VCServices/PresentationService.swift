@@ -63,22 +63,26 @@ public class PresentationService {
     }
     
     public func getRequest(usingUrl urlStr: String) -> Promise<PresentationRequest> {
-        return firstly {
-            self.getRequestUriPromise(from: urlStr)
-        }.then { requestUri in
-            self.fetchValidatedRequest(usingUrl: requestUri)
-        }.then { presentationRequestToken in
-            self.formPresentationRequest(from: presentationRequestToken)
+        return logTime(name: "Presentation getRequest") {
+            firstly {
+                self.getRequestUriPromise(from: urlStr)
+            }.then { requestUri in
+                self.fetchValidatedRequest(usingUrl: requestUri)
+            }.then { presentationRequestToken in
+                self.formPresentationRequest(from: presentationRequestToken)
+            }
         }
     }
     
     public func send(response: PresentationResponseContainer, isPairwise: Bool = false) -> Promise<String?> {
-        return firstly {
-            self.exchangeVCsIfPairwise(response: response, isPairwise: isPairwise)
-        }.then { response in
-            self.formatPresentationResponse(response: response, isPairwise: isPairwise)
-        }.then { signedToken in
-            self.presentationApiCalls.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
+        return logTime(name: "Presentation sendResponse") {
+            firstly {
+                self.exchangeVCsIfPairwise(response: response, isPairwise: isPairwise)
+            }.then { response in
+                self.formatPresentationResponse(response: response, isPairwise: isPairwise)
+            }.then { signedToken in
+                self.presentationApiCalls.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
+            }
         }
     }
     
