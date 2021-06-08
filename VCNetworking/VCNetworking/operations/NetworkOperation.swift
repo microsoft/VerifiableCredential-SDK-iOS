@@ -64,7 +64,9 @@ extension InternalNetworkOperation {
     
     private func call(urlSession: URLSession, urlRequest: URLRequest) -> Promise<ResponseBody> {
         return firstly {
-            urlSession.dataTask(.promise, with: urlRequest)
+            logNetworkTime(name: String(describing: Self.self), correlationVector: correlationVector) { [self] in
+                self.urlSession.dataTask(.promise, with: urlRequest)
+            }
         }.then { data, response in
             self.handleResponse(data: data, response: response)
         }

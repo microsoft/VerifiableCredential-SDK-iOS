@@ -93,4 +93,10 @@ public struct VCSDKLog {
         }
     }
     
+    func event(name: String, properties: [String: String]? = nil, measurements: [String: NSNumber]? = nil) {
+        consumers.forEach { logger in
+            logger.event(name: name, properties: properties, measurements: measurements)
+        }
+    }
+    
 }

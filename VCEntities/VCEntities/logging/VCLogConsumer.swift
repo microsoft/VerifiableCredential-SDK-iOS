@@ -15,4 +15,13 @@ public protocol VCLogConsumer
              functionName: String,
              file: String,
              line: Int)
+    
+    /**
+     Creates an event with with event name and properties.
+     - Parameters:
+     - name: Name of the class calling the function.
+     - properties: dictionary of properties for the specific event.
+     - measurements: dictionary of measurements taken.
+     */
+    func event(name: String, properties: [String: String]?, measurements: [String: NSNumber]?)
 }
