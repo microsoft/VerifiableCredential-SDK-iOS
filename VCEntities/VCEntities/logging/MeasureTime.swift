@@ -10,13 +10,30 @@ struct MetricConstants {
     static let Duration = "duration_ms"
 }
 
+public func logTime<R>(name: String,
+                    _ block: @escaping () -> Promise<R>) -> Promise<R> {
+    
+    let startTimeInSeconds = CFAbsoluteTimeGetCurrent()
+    let result = block().get { body in
+        
+        let elapsedTimeInMilliseconds = (CFAbsoluteTimeGetCurrent() - startTimeInSeconds) * 1000
+        
+        VCSDKLog.sharedInstance.event(name: "DIDPerformanceMetrics",
+                                      properties: [MetricConstants.Name: name],
+                                      measurements: [MetricConstants.Duration: NSNumber(value: elapsedTimeInMilliseconds)])
+    }
+    
+    return result
+}
+
 public func logNetworkTime(name: String,
                     correlationVector: CorrelationHeader? = nil,
                     _ block: @escaping () -> Promise<(data: Data, response: URLResponse)>) -> Promise<(data: Data, response: URLResponse)> {
-    let startTime = Date().timeIntervalSince1970
+    
+    let startTimeInSeconds = CFAbsoluteTimeGetCurrent()
     let result = block().get { body in
         
-        let elapsedTime = Date().timeIntervalSince1970 - startTime
+        let elapsedTimeInMilliseconds = (CFAbsoluteTimeGetCurrent() - startTimeInSeconds) * 1000
         
         var properties = [
             MetricConstants.Name: name,
@@ -29,7 +46,7 @@ public func logNetworkTime(name: String,
             properties["code"] = String(describing: httpResponse.statusCode)
         }
         
-        let measurements = [MetricConstants.Duration: NSNumber(value: elapsedTime)]
+        let measurements = [MetricConstants.Duration: NSNumber(value: elapsedTimeInMilliseconds)]
         
         VCSDKLog.sharedInstance.event(name: "DIDNetworkMetrics", properties: properties, measurements: measurements)
     }
