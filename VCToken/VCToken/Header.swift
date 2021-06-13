@@ -6,12 +6,12 @@
 public struct Header: Codable {
     public let type: String?
     public let algorithm: String?
-    public let jsonWebKey: String?
+    public let jsonWebKey: ECPublicJwk?
     public let keyId: String?
     
     public init(type: String? = nil,
                 algorithm: String? = nil,
-                jsonWebKey: String? = nil,
+                jsonWebKey: ECPublicJwk? = nil,
                 keyId: String? = nil) {
         self.type = type
         self.algorithm = algorithm
@@ -32,7 +32,7 @@ public struct Header: Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         type = try values.decodeIfPresent(String.self, forKey: .type)
         algorithm = try values.decodeIfPresent(String.self, forKey: .algorithm)
-        jsonWebKey = try values.decodeIfPresent(String.self, forKey: .jsonWebKey)
+        jsonWebKey = try values.decodeIfPresent(ECPublicJwk.self, forKey: .jsonWebKey)
         keyId = try values.decodeIfPresent(String.self, forKey: .keyId)
     }
 
