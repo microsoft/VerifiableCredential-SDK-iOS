@@ -7,6 +7,7 @@ struct Constants {
     static let POST = "POST"
     static let FORM_URLENCODED = "application/x-www-form-urlencoded"
     static let PLAIN_TEXT = "text/plain"
+    static let JSON = "application/json"
     static let CONTENT_TYPE = "Content-Type"
     
     // Beta Discovery Service URL

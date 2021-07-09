@@ -30,7 +30,7 @@ public class PostIssuanceCompletionResponseOperation: InternalPostNetworkOperati
         self.urlRequest = URLRequest(url: url)
         self.urlRequest.httpMethod = Constants.POST
         self.urlRequest.httpBody = try self.encoder.encode(value: body)
-        self.urlRequest.setValue(Constants.PLAIN_TEXT, forHTTPHeaderField: Constants.CONTENT_TYPE)
+        self.urlRequest.setValue(Constants.JSON, forHTTPHeaderField: Constants.CONTENT_TYPE)
         
         self.urlSession = urlSession
         self.correlationVector = cv
