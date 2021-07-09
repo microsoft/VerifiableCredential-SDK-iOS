@@ -9,11 +9,6 @@ import VCEntities
 struct IssuanceCompletionResponseEncoder: Encoding {
     
     func encode(value: IssuanceCompletionResponse) throws -> Data {
-        do {
-            let encodedResponse = try JSONEncoder().encode(value)
-            return encodedResponse
-        } catch {
-            throw NetworkingError.unableToParseString
-        }
+        return try JSONEncoder().encode(value)
     }
 }
