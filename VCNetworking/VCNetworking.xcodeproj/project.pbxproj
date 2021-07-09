@@ -66,6 +66,9 @@
 		55DA76DD25BE1ECF009C32E0 /* PresentationNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76DC25BE1ECF009C32E0 /* PresentationNetworkCalls.swift */; };
 		55DA76E325BE1FBD009C32E0 /* ExchangeNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76E225BE1FBD009C32E0 /* ExchangeNetworkCalls.swift */; };
 		55DA76E725BE203F009C32E0 /* DIDDocumentNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76E625BE203F009C32E0 /* DIDDocumentNetworkCalls.swift */; };
+		55FE6EDC2697A4A200201EDC /* PostIssuanceCompletionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE6EDB2697A4A200201EDC /* PostIssuanceCompletionResponse.swift */; };
+		55FE6EE02697AB6400201EDC /* BasicServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE6EDF2697AB6400201EDC /* BasicServiceResponseDecoder.swift */; };
+		55FE6EE42697AB9500201EDC /* IssuanceCompletionResponseEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE6EE32697AB9500201EDC /* IssuanceCompletionResponseEncoder.swift */; };
 		922D7E67252523FD00E4C8B5 /* NSURLSession+AnyPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 922D7E42252523FD00E4C8B5 /* NSURLSession+AnyPromise.h */; };
 		922D7E68252523FD00E4C8B5 /* NSNotificationCenter+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D7E43252523FD00E4C8B5 /* NSNotificationCenter+Promise.swift */; };
 		922D7E69252523FD00E4C8B5 /* NSNotificationCenter+AnyPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 922D7E44252523FD00E4C8B5 /* NSNotificationCenter+AnyPromise.m */; };
@@ -155,6 +158,9 @@
 		55DA76DC25BE1ECF009C32E0 /* PresentationNetworkCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationNetworkCalls.swift; sourceTree = "<group>"; };
 		55DA76E225BE1FBD009C32E0 /* ExchangeNetworkCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeNetworkCalls.swift; sourceTree = "<group>"; };
 		55DA76E625BE203F009C32E0 /* DIDDocumentNetworkCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDDocumentNetworkCalls.swift; sourceTree = "<group>"; };
+		55FE6EDB2697A4A200201EDC /* PostIssuanceCompletionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostIssuanceCompletionResponse.swift; sourceTree = "<group>"; };
+		55FE6EDF2697AB6400201EDC /* BasicServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicServiceResponseDecoder.swift; sourceTree = "<group>"; };
+		55FE6EE32697AB9500201EDC /* IssuanceCompletionResponseEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceCompletionResponseEncoder.swift; sourceTree = "<group>"; };
 		922D7E42252523FD00E4C8B5 /* NSURLSession+AnyPromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+AnyPromise.h"; sourceTree = "<group>"; };
 		922D7E43252523FD00E4C8B5 /* NSNotificationCenter+Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Promise.swift"; sourceTree = "<group>"; };
 		922D7E44252523FD00E4C8B5 /* NSNotificationCenter+AnyPromise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+AnyPromise.m"; sourceTree = "<group>"; };
@@ -198,9 +204,10 @@
 			isa = PBXGroup;
 			children = (
 				550F1D6225094691009AF467 /* Encoding.swift */,
+				55793BD2255C582D007F7599 /* ExchangeRequestEncoder.swift */,
+				55FE6EE32697AB9500201EDC /* IssuanceCompletionResponseEncoder.swift */,
 				550F1D64250946CF009AF467 /* IssuanceResponseEncoder.swift */,
 				5518CC6B2526472000C7A21B /* PresentationResponseEncoder.swift */,
-				55793BD2255C582D007F7599 /* ExchangeRequestEncoder.swift */,
 			);
 			path = encoders;
 			sourceTree = "<group>";
@@ -236,6 +243,7 @@
 				5584E4A5252623EA00A9DE58 /* PresentationRequestDecoder.swift */,
 				5518CC6F2526483C00C7A21B /* PresentationServiceResponseDecoder.swift */,
 				559FC97925C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift */,
+				55FE6EDF2697AB6400201EDC /* BasicServiceResponseDecoder.swift */,
 			);
 			path = decoders;
 			sourceTree = "<group>";
@@ -306,6 +314,7 @@
 				55793BD0255C5796007F7599 /* PostExchangeRequestOperation.swift */,
 				550F1DEB250D668D009AF467 /* PostNetworkOperation.swift */,
 				5518CC6D2526479900C7A21B /* PostPresentationResponseOperation.swift */,
+				55FE6EDB2697A4A200201EDC /* PostIssuanceCompletionResponse.swift */,
 			);
 			path = post;
 			sourceTree = "<group>";
@@ -598,6 +607,7 @@
 				5573FE5425B2090E00282BC7 /* FetchDIDDocumentOperation.swift in Sources */,
 				55D1681F24EB0E1D00AD2F98 /* PostIssuanceResponseOperation.swift in Sources */,
 				55D1681C24EB0E1D00AD2F98 /* NoRetry.swift in Sources */,
+				55FE6EE42697AB9500201EDC /* IssuanceCompletionResponseEncoder.swift in Sources */,
 				559FC97A25C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift in Sources */,
 				55D1682224EB0E1D00AD2F98 /* SimpleFailureHandler.swift in Sources */,
 				55D1682024EB0E1D00AD2F98 /* FetchContractOperation.swift in Sources */,
@@ -623,6 +633,7 @@
 				550F1DEC250D668D009AF467 /* PostNetworkOperation.swift in Sources */,
 				55D1682324EB0E1D00AD2F98 /* NetworkingConstants.swift in Sources */,
 				5584E4A6252623EA00A9DE58 /* PresentationRequestDecoder.swift in Sources */,
+				55FE6EDC2697A4A200201EDC /* PostIssuanceCompletionResponse.swift in Sources */,
 				5518CC6C2526472000C7A21B /* PresentationResponseEncoder.swift in Sources */,
 				55D1682124EB0E1D00AD2F98 /* FailureHandler.swift in Sources */,
 				5573FE5A25B20A0C00282BC7 /* DIDDocumentDecoder.swift in Sources */,
@@ -635,6 +646,7 @@
 				55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */,
 				55793BD1255C5796007F7599 /* PostExchangeRequestOperation.swift in Sources */,
 				559FC95B25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift in Sources */,
+				55FE6EE02697AB6400201EDC /* BasicServiceResponseDecoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
