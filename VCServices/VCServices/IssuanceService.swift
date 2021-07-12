@@ -82,13 +82,9 @@ public class IssuanceService {
         }
     }
     
-    public func complete(wasSuccessful: Bool, withState state: String, andDetails details: String? = nil) -> Promise<String?> {
-        
-        let response = IssuanceCompletionResponse(wasSuccessful: wasSuccessful,
-                                                  withState: state,
-                                                  andDetails: details)
+    public func send(completionResponse response: IssuanceCompletionResponse, to url: String) -> Promise<String?> {
         return logTime(name: "Issuance sendCompletionResponse") {
-            self.apiCalls.sendCompletionResponse(usingUrl: "", withBody: response)
+            self.apiCalls.sendCompletionResponse(usingUrl: url, withBody: response)
         }
     }
     
