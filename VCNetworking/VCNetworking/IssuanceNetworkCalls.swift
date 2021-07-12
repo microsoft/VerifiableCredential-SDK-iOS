@@ -54,9 +54,9 @@ public class IssuanceNetworkCalls: IssuanceNetworking {
                                        withBody body: IssuanceCompletionResponse) -> Promise<String?> {
         do {
             var operation = try PostIssuanceCompletionResponseOperation(usingUrl: url,
-                                                              withBody: body,
-                                                              andCorrelationVector: correlationVector,
-                                                              urlSession: self.urlSession)
+                                                                        withBody: body,
+                                                                        andCorrelationVector: correlationVector,
+                                                                        urlSession: self.urlSession)
             return operation.fire()
         } catch {
             return Promise { seal in
