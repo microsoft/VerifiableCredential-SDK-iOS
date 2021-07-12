@@ -6,19 +6,20 @@
 import Foundation
 import VCEntities
 
-class PostPresentationResponseOperation: InternalPostNetworkOperation {
-    typealias Encoder = PresentationResponseEncoder
-    typealias RequestBody = PresentationResponse
-    typealias ResponseBody = String?
+public class PostIssuanceCompletionResponseOperation: InternalPostNetworkOperation {
+    
+    typealias Encoder = IssuanceCompletionResponseEncoder
+    public typealias RequestBody = IssuanceCompletionResponse
+    public typealias ResponseBody = String?
     
     let decoder = BasicServiceResponseDecoder()
-    let encoder = PresentationResponseEncoder()
+    let encoder = IssuanceCompletionResponseEncoder()
     let urlSession: URLSession
     var urlRequest: URLRequest
     var correlationVector: CorrelationHeader?
     
     public init(usingUrl urlStr: String,
-                withBody body: PresentationResponse,
+                withBody body: IssuanceCompletionResponse,
                 andCorrelationVector cv: CorrelationHeader? = nil,
                 urlSession: URLSession = URLSession.shared) throws {
         
@@ -29,7 +30,7 @@ class PostPresentationResponseOperation: InternalPostNetworkOperation {
         self.urlRequest = URLRequest(url: url)
         self.urlRequest.httpMethod = Constants.POST
         self.urlRequest.httpBody = try self.encoder.encode(value: body)
-        self.urlRequest.setValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
+        self.urlRequest.setValue(Constants.JSON, forHTTPHeaderField: Constants.CONTENT_TYPE)
         
         self.urlSession = urlSession
         self.correlationVector = cv
