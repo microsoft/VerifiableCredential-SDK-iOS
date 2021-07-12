@@ -9,10 +9,11 @@ import VCEntities
 public protocol IssuanceNetworking {
     func getRequest(withUrl url: String) -> Promise<SignedContract>
     func sendResponse(usingUrl url: String, withBody body: IssuanceResponse) -> Promise<VerifiableCredential>
+    func sendCompletionResponse(usingUrl url: String, withBody nody: IssuanceCompletionResponse) -> Promise<String?>
 }
 
 public class IssuanceNetworkCalls: IssuanceNetworking {
-    
+
     private let urlSession: URLSession
     private let correlationVector: CorrelationHeader?
     
