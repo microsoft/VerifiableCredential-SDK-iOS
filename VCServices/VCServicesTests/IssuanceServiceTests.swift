@@ -113,7 +113,7 @@ class IssuanceServiceTests: XCTestCase {
         let response = IssuanceCompletionResponse(wasSuccessful: false,
                                                   withState: "testState",
                                                   andDetails: IssuanceCompletionErrorDetails.issuanceError)
-        service.send(completionResponse: response, to: "test.com").done {
+        service.sendCompletionResponse(for: response, to: "test.com").done {
             response in
             XCTFail()
             expec.fulfill()
