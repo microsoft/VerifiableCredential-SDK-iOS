@@ -15,13 +15,13 @@ public enum IssuanceCompletionErrorDetails: String {
 /// The data object that the Client will send back after a successful issuance.
 public struct IssuanceCompletionResponse: Codable, Equatable {
     
-    struct IssuanceCompletionMessage {
+    struct IssuanceCompletionCode {
         static let IssuanceSuccessful = "issuance_successful"
         static let IssuanceFailed = "issuance_failed"
     }
     
     /// If the issuance  succeeded or failed.
-    public let message: String
+    public let code: String
     
     /// The state from the original request
     public let state: String
@@ -34,9 +34,9 @@ public struct IssuanceCompletionResponse: Codable, Equatable {
                 andDetails details: IssuanceCompletionErrorDetails? = nil) {
         
         if wasSuccessful {
-            self.message = IssuanceCompletionMessage.IssuanceSuccessful
+            self.code = IssuanceCompletionCode.IssuanceSuccessful
         } else {
-            self.message = IssuanceCompletionMessage.IssuanceFailed
+            self.code = IssuanceCompletionCode.IssuanceFailed
         }
         
         self.state = state
