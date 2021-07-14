@@ -82,6 +82,12 @@ public class IssuanceService {
         }
     }
     
+    public func sendCompletionResponse(for response: IssuanceCompletionResponse, to url: String) -> Promise<String?> {
+        return logTime(name: "Issuance sendCompletionResponse") {
+            self.apiCalls.sendCompletionResponse(usingUrl: url, withBody: response)
+        }
+    }
+    
     private func exchangeVCsIfPairwise(response: IssuanceResponseContainer, isPairwise: Bool) -> Promise<IssuanceResponseContainer> {
         if isPairwise {
             return firstly {

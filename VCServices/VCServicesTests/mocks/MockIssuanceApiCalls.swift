@@ -16,7 +16,8 @@ enum MockIssuanceNetworkingError: Error {
 class MockIssuanceApiCalls: IssuanceNetworking {
     
     static var wasGetCalled = false
-    static var wasPostCalled = false
+    static var wasPostResponseCalled = false
+    static var wasPostCompletionResponseCalled = false
     
     func getRequest(withUrl url: String) -> Promise<SignedContract> {
         Self.wasGetCalled = true
@@ -26,7 +27,15 @@ class MockIssuanceApiCalls: IssuanceNetworking {
     }
     
     func sendResponse(usingUrl url: String, withBody body: IssuanceResponse) -> Promise<VerifiableCredential> {
-        Self.wasPostCalled = true
+        Self.wasPostResponseCalled = true
+        return Promise { seal in
+            seal.reject(MockIssuanceNetworkingError.doNotWantToResolveRealObject)
+        }
+    }
+    
+    public func sendCompletionResponse(usingUrl url: String,
+                                       withBody body: IssuanceCompletionResponse) -> Promise<String?> {
+        Self.wasPostCompletionResponseCalled = true
         return Promise { seal in
             seal.reject(MockIssuanceNetworkingError.doNotWantToResolveRealObject)
         }
