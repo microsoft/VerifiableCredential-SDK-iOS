@@ -33,7 +33,8 @@ class IssuanceServiceTests: XCTestCase {
         try identifierDB.saveIdentifier(identifier: mockIdentifier)
         
         MockIssuanceResponseFormatter.wasFormatCalled = false
-        MockIssuanceApiCalls.wasPostCalled = false
+        MockIssuanceApiCalls.wasPostResponseCalled = false
+        MockIssuanceApiCalls.wasPostCompletionResponseCalled = false
     }
     
     override func tearDownWithError() throws {
@@ -73,7 +74,7 @@ class IssuanceServiceTests: XCTestCase {
         }.catch { error in
             print(error)
             XCTAssert(MockIssuanceResponseFormatter.wasFormatCalled)
-            XCTAssert(MockIssuanceApiCalls.wasPostCalled)
+            XCTAssert(MockIssuanceApiCalls.wasPostResponseCalled)
             XCTAssert(error is MockIssuanceNetworkingError)
             expec.fulfill()
         }
@@ -99,8 +100,27 @@ class IssuanceServiceTests: XCTestCase {
             expec.fulfill()
         }.catch { error in
             XCTAssert(MockIssuanceResponseFormatter.wasFormatCalled)
-            XCTAssertFalse(MockIssuanceApiCalls.wasPostCalled)
+            XCTAssertFalse(MockIssuanceApiCalls.wasPostResponseCalled)
             XCTAssert(error is MockIssuanceResponseFormatterError)
+            expec.fulfill()
+        }
+        
+        wait(for: [expec], timeout: 20)
+    }
+    
+    func testSendCompletionResponse() throws {
+        let expec = self.expectation(description: "Fire")
+        let response = IssuanceCompletionResponse(wasSuccessful: false,
+                                                  withState: "testState",
+                                                  andDetails: IssuanceCompletionErrorDetails.issuanceError)
+        service.send(completionResponse: response, to: "test.com").done {
+            response in
+            XCTFail()
+            expec.fulfill()
+        }.catch { error in
+            print(error)
+            XCTAssert(MockIssuanceApiCalls.wasPostCompletionResponseCalled)
+            XCTAssert(error is MockIssuanceNetworkingError)
             expec.fulfill()
         }
         
