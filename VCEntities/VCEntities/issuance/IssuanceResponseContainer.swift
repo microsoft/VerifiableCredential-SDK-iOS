@@ -11,7 +11,7 @@ public struct IssuanceResponseContainer: ResponseContaining {
     let expiryInSeconds: Int
     public let audienceUrl: String
     public let audienceDid: String
-    public var issuancePin: String? = nil
+    public var issuancePin: IssuancePin? = nil
     public var issuanceIdToken: String? = nil
     public var requestedIdTokenMap: RequestedIdTokenMap = [:]
     public var requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
@@ -19,18 +19,13 @@ public struct IssuanceResponseContainer: ResponseContaining {
     
     public init(from contract: Contract,
                 contractUri: String,
-                expiryInSeconds exp: Int = 3000,
-                rawIssuerIdToken: String? = nil,
-                issuancePin: String? = nil) throws {
+                expiryInSeconds exp: Int = 3000) throws {
         self.contract = contract
         self.contractUri = contractUri
         self.expiryInSeconds = exp
         
         self.audienceUrl = contract.input.credentialIssuer
         self.audienceDid = contract.input.issuer
-        
-        self.issuancePin = issuancePin
-        self.issuanceIdToken = rawIssuerIdToken
     }
 }
 

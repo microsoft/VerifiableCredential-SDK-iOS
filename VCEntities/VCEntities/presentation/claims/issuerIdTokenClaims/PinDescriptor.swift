@@ -7,4 +7,7 @@ public struct PinDescriptor: Codable {
     public let type: String?
     public let length: Int
     public let hash: String
+    public let salt: String?
+    public let iterations: Int?
+    public let alg: String?
 }

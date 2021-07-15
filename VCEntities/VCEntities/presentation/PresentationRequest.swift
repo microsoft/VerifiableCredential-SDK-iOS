@@ -26,4 +26,8 @@ public struct PresentationRequest {
     public func containsRequiredClaims() -> Bool {
         return token.content.idTokenHint != nil
     }
+    
+    public func getPinSalt() -> String? {
+        return token.content.idTokenHint?.token.content.pin?.salt
+    }
 }
