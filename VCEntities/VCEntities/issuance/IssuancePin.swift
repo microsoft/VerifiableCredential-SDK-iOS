@@ -28,7 +28,7 @@ public struct IssuancePin {
             hashInput = pin
         }
         
-        guard let encodedHashInput = hashInput.data(using: .utf8) else {
+        guard let encodedHashInput = hashInput.data(using: .ascii) else {
             throw IssuancePinError.unableToEncodeHashInput
         }
         
