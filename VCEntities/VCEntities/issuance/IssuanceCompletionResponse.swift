@@ -8,8 +8,8 @@ public enum IssuanceCompletionErrorDetails: String {
     case userCanceled = "user_canceled"
     case fetchContractError = "fetch_contract_error"
     case linkedDomainError = "linked_domain_error"
-    case picsError = "pics_error"
-    case issuanceError = "issuance_error"
+    case issuanceServiceError = "issuance_service_error"
+    case unspecifiedError = "unspecified_error"
 }
 
 /// The data object that the Client will send back after a successful issuance.
