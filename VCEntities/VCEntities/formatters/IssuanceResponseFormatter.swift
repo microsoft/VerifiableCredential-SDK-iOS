@@ -51,6 +51,8 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: response.expiryInSeconds)
         let attestations = try self.formatAttestations(response: response, usingIdentifier: identifier, andSignWith: key)
         
+        let pin = try response.issuancePin?.hash()
+        
         return IssuanceResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                       audience: response.audienceUrl,
                                       did: identifier.longFormDid,
@@ -58,7 +60,7 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
                                       contract: response.contractUri,
                                       jti: UUID().uuidString,
                                       attestations: attestations,
-                                      pin: nil,
+                                      pin: pin,
                                       iat: timeConstraints.issuedAt,
                                       exp: timeConstraints.expiration)
     }
@@ -73,13 +75,6 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         var selfIssuedMap: RequestedSelfAttestedClaimMap? = nil
         if !response.requestedSelfAttestedClaimMap.isEmpty {
             selfIssuedMap = response.requestedSelfAttestedClaimMap
-        }
-        
-        if response.issuancePin != nil {
-            if selfIssuedMap == nil {
-                selfIssuedMap = [:]
-            }
-            selfIssuedMap?[VCEntitiesConstants.PIN] = response.issuancePin
         }
 
         if response.issuanceIdToken != nil {
