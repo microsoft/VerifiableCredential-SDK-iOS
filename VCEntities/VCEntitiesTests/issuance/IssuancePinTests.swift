@@ -12,7 +12,7 @@ class IssuancePinTests: XCTestCase {
     func testNumericPinAndSalt() throws {
         let pin = "123456"
         let salt = "abcdef"
-        let expectedHash = "j6Cs9iM7ktLUijCjFc0hN0jUjyjqpj11kFCTkjFrMBY="
+        let expectedHash = "2k7DNYoQybCHLrh3lTzHsHr19NdeTBywWXy79B5dvjU="
         let issuancePin = IssuancePin(from: pin, withSalt: salt)
         let actualHash = try issuancePin.hash()
         XCTAssertEqual(actualHash, expectedHash)
@@ -21,7 +21,7 @@ class IssuancePinTests: XCTestCase {
     func testAlphanumericPinAndSalt() throws {
         let pin = "9a8b7c6d5e"
         let salt = "N0jUjyjqpj11kFCTkjFrMBY="
-        let expectedHash = "8qsSY+StkIUtWYzGA5PVKMKL2LdOOVC+ItYHWTYwsq0="
+        let expectedHash = "cE3U/Xn4uyKbyEII+aEuTzGQIZ38JcUdFzA7sV7PtAo="
         let issuancePin = IssuancePin(from: pin, withSalt: salt)
         let actualHash = try issuancePin.hash()
         XCTAssertEqual(actualHash, expectedHash)

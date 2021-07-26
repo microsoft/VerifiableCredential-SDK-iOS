@@ -23,7 +23,7 @@ public struct IssuancePin {
         
         var hashInput: String
         if let nonnilSalt = salt {
-            hashInput = pin + nonnilSalt
+            hashInput = nonnilSalt + pin
         } else {
             hashInput = pin
         }
