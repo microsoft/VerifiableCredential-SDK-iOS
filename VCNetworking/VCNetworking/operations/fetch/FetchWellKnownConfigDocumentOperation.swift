@@ -19,7 +19,7 @@ class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
                 andCorrelationVector cv: CorrelationHeader? = nil,
                 session: URLSession = URLSession.shared) throws {
         
-        guard let baseUrl = URL(string: urlStr),
+        guard let baseUrl = URL(unsafeString: urlStr),
               let url = URL(string: Constants.WELL_KNOWN_SUBDOMAIN, relativeTo: baseUrl) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
