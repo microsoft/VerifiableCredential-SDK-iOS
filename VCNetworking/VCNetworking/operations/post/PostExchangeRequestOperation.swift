@@ -22,7 +22,7 @@ class PostExchangeRequestOperation: InternalPostNetworkOperation {
                 andCorrelationVector cv: CorrelationHeader? = nil,
                 urlSession: URLSession = URLSession.shared) throws {
         
-        guard let url = URL(string: urlStr) else {
+        guard let url = URL(unsafeString: urlStr) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         

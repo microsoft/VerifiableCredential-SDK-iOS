@@ -37,6 +37,9 @@
 		559FC95B25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC95A25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift */; };
 		559FC97A25C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC97925C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift */; };
 		559FC9DA25C9E16000737F14 /* WellKnownConfigDocumentNetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9D925C9E15F00737F14 /* WellKnownConfigDocumentNetworkCalls.swift */; };
+		55B6EF5126F137A10075918F /* String+PercentEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6EF5026F137A10075918F /* String+PercentEncoding.swift */; };
+		55B6EF5726F137DB0075918F /* URL+PercentEncodedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6EF5626F137DB0075918F /* URL+PercentEncodedString.swift */; };
+		55B6EF5C26F145320075918F /* String+PercentEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B6EF5B26F145320075918F /* String+PercentEncodingTests.swift */; };
 		55C6C4A925083D370082BE73 /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4A825083D370082BE73 /* Decoding.swift */; };
 		55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */; };
 		55C6C4AD250843920082BE73 /* ContractDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6C4AC250843920082BE73 /* ContractDecoder.swift */; };
@@ -126,6 +129,9 @@
 		559FC95A25C8932B00737F14 /* FetchWellKnownConfigDocumentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWellKnownConfigDocumentOperation.swift; sourceTree = "<group>"; };
 		559FC97925C8A65300737F14 /* WellKnownConfigDocumentDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellKnownConfigDocumentDecoder.swift; sourceTree = "<group>"; };
 		559FC9D925C9E15F00737F14 /* WellKnownConfigDocumentNetworkCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WellKnownConfigDocumentNetworkCalls.swift; path = VcNetworking/WellKnownConfigDocumentNetworkCalls.swift; sourceTree = SOURCE_ROOT; };
+		55B6EF5026F137A10075918F /* String+PercentEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PercentEncoding.swift"; sourceTree = "<group>"; };
+		55B6EF5626F137DB0075918F /* URL+PercentEncodedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+PercentEncodedString.swift"; sourceTree = "<group>"; };
+		55B6EF5B26F145320075918F /* String+PercentEncodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PercentEncodingTests.swift"; sourceTree = "<group>"; };
 		55C6C4A825083D370082BE73 /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
 		55C6C4AA250841000082BE73 /* IssuanceServiceResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceServiceResponseDecoder.swift; sourceTree = "<group>"; };
 		55C6C4AC250843920082BE73 /* ContractDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDecoder.swift; sourceTree = "<group>"; };
@@ -233,6 +239,23 @@
 			path = encoders;
 			sourceTree = "<group>";
 		};
+		55B6EF4F26F135AA0075918F /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				55B6EF5026F137A10075918F /* String+PercentEncoding.swift */,
+				55B6EF5626F137DB0075918F /* URL+PercentEncodedString.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		55B6EF5A26F145130075918F /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				55B6EF5B26F145320075918F /* String+PercentEncodingTests.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		55C6C4A725083D220082BE73 /* decoders */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +274,7 @@
 		55D1680124EB0E1C00AD2F98 /* VCNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				55B6EF4F26F135AA0075918F /* extensions */,
 				55C6C4A725083D220082BE73 /* decoders */,
 				550F1D6125094679009AF467 /* encoders */,
 				55D1680B24EB0E1C00AD2F98 /* operations */,
@@ -342,6 +366,7 @@
 		55D1682724EB0E3600AD2F98 /* VCNetworkingTests */ = {
 			isa = PBXGroup;
 			children = (
+				55B6EF5A26F145130075918F /* extensions */,
 				550F1D6F2509747D009AF467 /* decoders */,
 				550F1D97250AF109009AF467 /* encoders */,
 				55D1682824EB0E3600AD2F98 /* mocks */,
@@ -615,6 +640,7 @@
 				55793BD3255C582D007F7599 /* ExchangeRequestEncoder.swift in Sources */,
 				55DA76DD25BE1ECF009C32E0 /* PresentationNetworkCalls.swift in Sources */,
 				55D1681B24EB0E1D00AD2F98 /* SuccessHandler.swift in Sources */,
+				55B6EF5126F137A10075918F /* String+PercentEncoding.swift in Sources */,
 				55DA76C325BE1D28009C32E0 /* IssuanceNetworkCalls.swift in Sources */,
 				550F1D65250946CF009AF467 /* IssuanceResponseEncoder.swift in Sources */,
 				55C6C4AB250841000082BE73 /* IssuanceServiceResponseDecoder.swift in Sources */,
@@ -625,6 +651,7 @@
 				55D1681A24EB0E1D00AD2F98 /* SimpleSuccessHandler.swift in Sources */,
 				5584E4A42526234C00A9DE58 /* FetchPresentationRequestOperation.swift in Sources */,
 				55DA76E725BE203F009C32E0 /* DIDDocumentNetworkCalls.swift in Sources */,
+				55B6EF5726F137DB0075918F /* URL+PercentEncodedString.swift in Sources */,
 				55D1681E24EB0E1D00AD2F98 /* NetworkOperation.swift in Sources */,
 				55D1681824EB0E1D00AD2F98 /* NetworkingError.swift in Sources */,
 				5518CC6E2526479900C7A21B /* PostPresentationResponseOperation.swift in Sources */,
@@ -665,6 +692,7 @@
 				55D1684224EB0E3600AD2F98 /* SimpleFailureHandlerTests.swift in Sources */,
 				550F1D67250952BD009AF467 /* MockObject.swift in Sources */,
 				550F1D8E250AD81B009AF467 /* TestData.swift in Sources */,
+				55B6EF5C26F145320075918F /* String+PercentEncodingTests.swift in Sources */,
 				55D1683B24EB0E3600AD2F98 /* UrlProtocolMock.swift in Sources */,
 				550F1D5D25093C0C009AF467 /* MockNetworkOperation.swift in Sources */,
 				551F30492527E0200081D5E7 /* PresentationServiceResponseDecoderTests.swift in Sources */,
