@@ -1,3 +1,7 @@
+❗**From October 31, 2021, some Microsoft Azure AD Verifiable Credential SDK functionality will stop working in Microsoft Authenticator. Applications and services that currently use the Microsoft Azure AD Verifiable Credential SDK should migrate to the Microsoft [Request Service REST API](https://aka.ms/vcapi).**
+
+------
+
 This SDK is used in the [Microsoft Authenticator app](https://www.microsoft.com/en-us/account/authenticator) in order to interact with [verifiable credentials](https://www.w3.org/TR/vc-data-model/) and [Decentralized Identifiers (DIDs)](https://www.w3.org/TR/did-core/) on the [ION network](https://github.com/decentralized-identity/ion). It can be integrated with any app to provide interactions using verifiable credentials.
  
 # Verifiable Credentials 
