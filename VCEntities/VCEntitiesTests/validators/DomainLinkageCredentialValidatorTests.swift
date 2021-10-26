@@ -39,7 +39,8 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
     func testShouldBeValid() throws {
         let validator = DomainLinkageCredentialValidator(verifier: verifier)
         let claims = createMockDomainLinkageCredentialClaims()
-        if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
+        let keyId = Mocks.credentialSubjectDid + "#keyId"
+        if let credential = DomainLinkageCredential(headers: Header(keyId: keyId),content: claims) {
             
             try validator.validate(credential: credential,
                                    usingDocument: mockIdentifierDocument,
@@ -151,7 +152,26 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         }
     }
     
-    func createMockDomainLinkageCredentialClaims(issuerDid: String = Mocks.credentialSubjectDid,
+    func testDocumentIdAndCredentialKeyIdDoNotMatch() throws {
+        let validator = DomainLinkageCredentialValidator(verifier: verifier)
+        let claims = createMockDomainLinkageCredentialClaims()
+        let keyId = "KeyIdThatDoesntMatch"
+        if let credential = DomainLinkageCredential(headers: Header(keyId: keyId),content: claims) {
+            
+            XCTAssertThrowsError(try validator.validate(credential: credential,
+                                   usingDocument: mockIdentifierDocument,
+                                                        andSourceDomainUrl: mockDomain)) { error in
+                
+                XCTAssertEqual(error as? DomainLinkageCredentialValidatorError,
+                               DomainLinkageCredentialValidatorError.doNotMatch(linkedDomainCredentialKeyId: keyId,
+                                                                                identifierDocumentDid: Mocks.credentialSubjectDid))
+            }
+            
+            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+        }
+    }
+    
+    private func createMockDomainLinkageCredentialClaims(issuerDid: String = Mocks.credentialSubjectDid,
                                                  subjectDid: String = Mocks.credentialSubjectDid) -> DomainLinkageCredentialClaims {
         let subject = DomainLinkageCredentialSubject(did: Mocks.credentialSubjectDid,
                                                      domainUrl: mockDomain)
