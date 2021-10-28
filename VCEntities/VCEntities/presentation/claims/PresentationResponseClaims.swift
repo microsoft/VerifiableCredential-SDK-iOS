@@ -29,6 +29,8 @@ public struct PresentationResponseClaims: OIDCClaims {
     
     public let iat: Double?
     
+    public let nbf: Double?
+    
     public let exp: Double?
     
     public init(publicKeyThumbprint: String = "",
@@ -41,6 +43,7 @@ public struct PresentationResponseClaims: OIDCClaims {
                 state: String?,
                 nonce: String?,
                 iat: Double? = nil,
+                nbf: Double? = nil,
                 exp: Double? = nil) {
         self.publicKeyThumbprint = publicKeyThumbprint
         self.audience = audience
@@ -51,6 +54,7 @@ public struct PresentationResponseClaims: OIDCClaims {
         self.state = state
         self.nonce = nonce
         self.iat = iat
+        self.nbf = nbf
         self.exp = exp
         self.presentationSubmission = presentationSubmission
     }
@@ -61,7 +65,7 @@ public struct PresentationResponseClaims: OIDCClaims {
         case presentationSubmission = "presentation_submission"
         case audience = "aud"
         case publicJwk = "sub_jwk"
-        case attestations, jti, did, iat, exp, state, nonce
+        case attestations, jti, did, iat, exp, state, nonce, nbf
     }
 }
 

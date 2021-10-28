@@ -13,6 +13,7 @@ enum DomainLinkageCredentialValidatorError: Error, Equatable {
     case doNotMatch(credentialSubject: String, tokenSubject: String)
     case doNotMatch(credentialSubject: String, identifierDocumentDid: String)
     case doNotMatch(sourceDomainUrl: String, wellknownDocumentDomainUrl: String)
+    case doNotMatch(linkedDomainCredentialKeyId: String?, identifierDocumentDid: String)
 }
 
 public protocol DomainLinkageCredentialValidating {
@@ -59,6 +60,12 @@ public struct DomainLinkageCredentialValidator: DomainLinkageCredentialValidatin
                      throws: DomainLinkageCredentialValidatorError.doNotMatch(sourceDomainUrl: url,
                                                                               wellknownDocumentDomainUrl: wellknownDocumentDomainUrl))
         
+        /// Get DID from Key ID in Domain Linkage Credential Token Header
+        let domainLinkedCredentialTokenHeaderDid = credential.headers.keyId?.split(separator: "#")[0] ?? ""
+        try validate(String(domainLinkedCredentialTokenHeaderDid),
+                     equals: document.id,
+                     throws: DomainLinkageCredentialValidatorError.doNotMatch(linkedDomainCredentialKeyId: credential.headers.keyId,
+                                                                              identifierDocumentDid: document.id))
     }
     
     private func validate(token: DomainLinkageCredential, using keys: [IdentifierDocumentPublicKey]) throws {
@@ -76,7 +83,7 @@ public struct DomainLinkageCredentialValidator: DomainLinkageCredentialValidatin
         throw DomainLinkageCredentialValidatorError.invalidSignature
     }
     
-    private func validate(_ value: String?, equals correctValue: String, throws error: Error) throws {
+    private func validate(_ value: String?, equals correctValue: String?, throws error: Error) throws {
         guard value == correctValue else { throw error }
     }
 }

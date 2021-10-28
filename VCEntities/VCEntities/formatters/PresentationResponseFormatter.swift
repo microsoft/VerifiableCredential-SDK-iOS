@@ -71,6 +71,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
                                           state: response.request.content.state,
                                           nonce: response.request.content.nonce,
                                           iat: timeConstraints.issuedAt,
+                                          nbf: timeConstraints.issuedAt,
                                           exp: timeConstraints.expiration)
     }
     
