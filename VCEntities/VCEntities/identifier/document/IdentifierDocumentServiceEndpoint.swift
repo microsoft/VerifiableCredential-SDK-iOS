@@ -4,9 +4,9 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct IdentifierDocumentServiceEndpoint: Codable, Equatable {
-    public let origins: [String]
+    public let origins: [String]?
     
-    public init(origins: [String]) {
+    public init(origins: [String]?) {
         self.origins = origins
     }
 }
