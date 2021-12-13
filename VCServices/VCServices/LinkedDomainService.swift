@@ -64,7 +64,7 @@ class LinkedDomainService {
     private func getLinkedDomainUrl(from endpoints: [IdentifierDocumentServiceEndpointDescriptor]) -> String? {
         return endpoints.filter {
             $0.type == Constants.LINKED_DOMAINS_SERVICE_ENDPOINT_TYPE
-        }.first?.serviceEndpoint.origins.first
+        }.first?.serviceEndpoint.origins?.first
     }
     
     private func validateDomainLinkageCredentials(from wellKnownConfigDoc: WellKnownConfigDocument,
