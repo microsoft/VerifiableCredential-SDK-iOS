@@ -30,8 +30,12 @@ public struct PresentationRequestValidator: RequestValidating {
         try validate(token: request, using: publicKeys)
         try validate(expiration: request.content.exp)
         try validate(request.content.scope, equals: VCEntitiesConstants.SCOPE, throws: PresentationRequestValidatorError.invalidScopeValue)
-        try validate(request.content.responseMode, equals: VCEntitiesConstants.RESPONSE_MODE, throws: PresentationRequestValidatorError.invalidResponseModeValue)
-        try validate(request.content.responseType, equals: VCEntitiesConstants.RESPONSE_TYPE, throws: PresentationRequestValidatorError.invalidResponseTypeValue)
+        try validate(request.content.responseMode,
+                     equals: VCEntitiesConstants.RESPONSE_MODE,
+                     throws: PresentationRequestValidatorError.invalidResponseModeValue)
+        try validate(request.content.responseType,
+                     equals: VCEntitiesConstants.RESPONSE_TYPE,
+                     throws: PresentationRequestValidatorError.invalidResponseTypeValue)
     }
     
     private func validate(token: PresentationRequestToken,
@@ -55,7 +59,7 @@ public struct PresentationRequestValidator: RequestValidating {
         if getExpirationDeadlineInSeconds() > exp { throw PresentationRequestValidatorError.tokenExpired }
     }
     
-    private func validate(_ value: String, equals correctValue: String, throws error: Error) throws {
+    private func validate(_ value: String?, equals correctValue: String, throws error: Error) throws {
         guard value == correctValue else { throw error }
     }
     

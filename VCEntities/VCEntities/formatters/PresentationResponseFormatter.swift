@@ -95,7 +95,11 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
     
     private func createPresentations(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> [String: String] {
         return try response.requestVCMap.mapValues { verifiableCredential in
-            let vp = try self.vpFormatter.format(toWrap: verifiableCredential, withAudience: response.request.content.issuer, withExpiryInSeconds: response.expiryInSeconds, usingIdentifier: identifier, andSignWith: key)
+            let vp = try self.vpFormatter.format(toWrap: verifiableCredential,
+                                                 withAudience: response.audienceDid,
+                                                 withExpiryInSeconds: response.expiryInSeconds,
+                                                 usingIdentifier: identifier,
+                                                 andSignWith: key)
             return try vp.serialize()
         }
     }
