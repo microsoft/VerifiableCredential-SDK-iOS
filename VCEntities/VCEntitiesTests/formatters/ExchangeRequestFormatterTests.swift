@@ -5,6 +5,7 @@
 
 import XCTest
 import VCCrypto
+import VCToken
 
 @testable import VCEntities
 
@@ -16,6 +17,8 @@ class ExchangeRequestFormatterTests: XCTestCase {
     var mockValidVc: VerifiableCredential!
     
     let expectedNewOwnerDid: String = "newOwnerDid235"
+    let mockOwnerIdentifier = "mockIdentifier"
+    let testHeader = Header(type: "testType", algorithm: "testAlg", jsonWebKey: "testWebKey", keyId: "testKid")
     
     override func setUpWithError() throws {
         let signer = MockTokenSigner(x: "x", y: "y")
@@ -24,10 +27,21 @@ class ExchangeRequestFormatterTests: XCTestCase {
         let cryptoOperation = CryptoOperations(secretStore: SecretStoreMock())
         let key = try cryptoOperation.generateKey()
         
-        mockValidVc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)!
+        let vc = VerifiableCredentialDescriptor(context: nil,
+                                                type: nil,
+                                                credentialSubject: nil,
+                                                exchangeService: ServiceDescriptor(id: "testServiceId", type: "testType"))
+        let vcClaims = VCClaims(jti: "testJti",
+                                iss: "testIssuer",
+                                sub: mockOwnerIdentifier,
+                                iat: nil,
+                                exp: nil,
+                                vc: vc)
+        
+        mockValidVc = VerifiableCredential(headers: testHeader, content: vcClaims, rawValue: "testRawValue")
         
         let keyContainer = KeyContainer(keyReference: key, keyId: "keyId")
-        mockIdentifier = Identifier(longFormDid: mockValidVc.content.sub, didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer, alias: "testAlias")
+        mockIdentifier = Identifier(longFormDid: mockOwnerIdentifier, didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer, alias: "testAlias")
         
         mockRequest = try ExchangeRequestContainer(exchangeableVerifiableCredential: mockValidVc, newOwnerDid: expectedNewOwnerDid, currentOwnerIdentifier: mockIdentifier)
     }
@@ -35,7 +49,7 @@ class ExchangeRequestFormatterTests: XCTestCase {
     func testExchangeFormatter() throws {
         let actualExchangeRequest = try formatter.format(request: mockRequest)
         XCTAssertEqual(actualExchangeRequest.content.audience, mockRequest.audience)
-        XCTAssertEqual(actualExchangeRequest.content.did, mockIdentifier.longFormDid)
+        XCTAssertEqual(actualExchangeRequest.content.did, mockOwnerIdentifier)
         XCTAssertEqual(actualExchangeRequest.content.exchangeableVc, mockValidVc.rawValue)
         XCTAssertEqual(actualExchangeRequest.content.issuer, VCEntitiesConstants.SELF_ISSUED)
         XCTAssertEqual(actualExchangeRequest.content.recipientDid, expectedNewOwnerDid)

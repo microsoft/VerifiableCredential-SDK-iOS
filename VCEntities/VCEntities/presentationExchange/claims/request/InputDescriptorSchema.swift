@@ -3,16 +3,10 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct PresentationInputDescriptor: Codable, Equatable {
+public struct InputDescriptorSchema: Codable, Equatable {
+    public let uri: [String]?
     
-    public let id: String
+    public let name: String?
     
-    public let schema: SchemaDescriptor
-    
-    public let issuanceMetadata: [IssuanceMetadata]
-    
-    enum CodingKeys: String, CodingKey {
-        case issuanceMetadata = "issuance"
-        case id, schema
-    }
+    public let purpose: String?
 }

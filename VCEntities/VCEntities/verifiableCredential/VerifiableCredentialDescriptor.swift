@@ -4,9 +4,9 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct VerifiableCredentialDescriptor: Codable {
-    let context: [String]
-    public let type: [String]
-    public let credentialSubject: Dictionary<String, Any>
+    let context: [String]?
+    public let type: [String]?
+    public let credentialSubject: Dictionary<String, Any>?
     let credentialStatus: ServiceDescriptor?
     let exchangeService: ServiceDescriptor?
     let revokeService: ServiceDescriptor?
@@ -16,19 +16,22 @@ public struct VerifiableCredentialDescriptor: Codable {
         case type, credentialSubject, credentialStatus, exchangeService, revokeService
     }
     
-    init(context: [String], type: [String], credentialSubject: Dictionary<String, Any>) {
+    init(context: [String]?,
+         type: [String]?,
+         credentialSubject: Dictionary<String, Any>?,
+         exchangeService: ServiceDescriptor?) {
         self.context = context
         self.type = type
         self.credentialSubject = credentialSubject
         self.credentialStatus = nil
-        self.exchangeService = nil
+        self.exchangeService = exchangeService
         self.revokeService = nil
     }
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        context = try values.decode([String].self, forKey: .context)
-        type = try values.decode([String].self, forKey: .type)
+        context = try values.decodeIfPresent([String].self, forKey: .context)
+        type = try values.decodeIfPresent([String].self, forKey: .type)
         credentialStatus = try values.decodeIfPresent(ServiceDescriptor.self, forKey: .credentialStatus)
         exchangeService = try values.decodeIfPresent(ServiceDescriptor.self, forKey: .exchangeService)
         revokeService = try values.decodeIfPresent(ServiceDescriptor.self, forKey: .revokeService)

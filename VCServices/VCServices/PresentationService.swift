@@ -15,6 +15,7 @@ enum PresentationServiceError: Error {
     case unableToCastToPresentationResponseContainer
     case noKeyIdInRequestHeader
     case noPublicKeysInIdentifierDocument
+    case noIssuerIdentifierInRequest
 }
 
 public class PresentationService {
@@ -115,12 +116,20 @@ public class PresentationService {
     private func formPresentationRequest(from token: PresentationRequestToken) -> Promise<PresentationRequest> {
         
         return firstly {
-            self.linkedDomainService.validateLinkedDomain(from: token.content.issuer)
+            self.validateLinkedDomainOfRequest(token)
         }.then { result in
             Promise { seal in
                 seal.fulfill(PresentationRequest(from: token, linkedDomainResult: result))
             }
         }
+    }
+    
+    private func validateLinkedDomainOfRequest(_ token: PresentationRequestToken) -> Promise<LinkedDomainResult> {
+        
+        guard let issuer = token.content.issuer else {
+            return Promise(error: PresentationServiceError.noIssuerIdentifierInRequest)
+        }
+        return self.linkedDomainService.validateLinkedDomain(from: issuer)
     }
     
     private func fetchValidatedRequest(usingUrl url: String) -> Promise<PresentationRequestToken> {

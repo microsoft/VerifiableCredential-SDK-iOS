@@ -46,8 +46,8 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
         case state, nonce, prompt, registration, iat, exp, scope, claims
     }
     
-    init(clientID: String,
-         issuer: String,
+    init(clientID: String?,
+         issuer: String?,
          redirectURI: String?,
          responseMode: String?,
          responseType: String?,
@@ -79,15 +79,15 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         clientID = try values.decodeIfPresent(String.self, forKey: .clientID)
-        issuer = try values.decode(String.self, forKey: .issuer)
+        issuer = try values.decodeIfPresent(String.self, forKey: .issuer)
         redirectURI = try values.decodeIfPresent(String.self, forKey: .redirectURI)
-        responseMode = try values.decode(String.self, forKey: .responseMode)
-        responseType = try values.decode(String.self, forKey: .responseType)
-        claims = try values.decode(RequestedClaims.self, forKey: .claims)
+        responseMode = try values.decodeIfPresent(String.self, forKey: .responseMode)
+        responseType = try values.decodeIfPresent(String.self, forKey: .responseType)
+        claims = try values.decodeIfPresent(RequestedClaims.self, forKey: .claims)
         state = try values.decodeIfPresent(String.self, forKey: .state)
         nonce = try values.decodeIfPresent(String.self, forKey: .nonce)
         prompt = try values.decodeIfPresent(String.self, forKey: .prompt)
-        scope = try values.decode(String.self, forKey: .scope)
+        scope = try values.decodeIfPresent(String.self, forKey: .scope)
         iat = try values.decodeIfPresent(Double.self, forKey: .iat)
         exp = try values.decodeIfPresent(Double.self, forKey: .exp)
         registration = try values.decodeIfPresent(RegistrationClaims.self, forKey: .registration)

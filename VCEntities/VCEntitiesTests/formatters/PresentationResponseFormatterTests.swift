@@ -12,20 +12,19 @@ import VCCrypto
 class PresentationResponseFormatterTests: XCTestCase {
     
     var formatter: PresentationResponseFormatter!
-    var request: PresentationRequest!
+    var mockRequest: PresentationRequest!
     var mockResponse: PresentationResponseContainer!
     var mockIdentifier: Identifier!
     let expectedContractUrl = "https://portableidentitycards.azure-api.net/v1.0/9c59be8b-bd18-45d9-b9d9-082bc07c094f/portableIdentities/contracts/AIEngineerCert"
     let expectedCredentialType = "test435"
+    let testHeader = Header(type: "testType", algorithm: "testAlg", jsonWebKey: "testWebKey", keyId: "testKid")
     
     override func setUpWithError() throws {
         let signer = MockTokenSigner(x: "x", y: "y")
         self.formatter = PresentationResponseFormatter(signer: signer)
-        
-        let encodedRequest = TestData.presentationRequest.rawValue.data(using: .utf8)!
-        self.request = PresentationRequest(from: JwsToken(from: encodedRequest)!, linkedDomainResult: .linkedDomainVerified(domainUrl: "test.com"))
-        
-        self.mockResponse = try PresentationResponseContainer(from: self.request)
+
+        self.mockRequest = createExpectedPresentationRequest()
+        self.mockResponse = try PresentationResponseContainer(from: mockRequest)
         
         let cryptoOperation = CryptoOperations(secretStore: SecretStoreMock())
         let key = try cryptoOperation.generateKey()
@@ -35,8 +34,15 @@ class PresentationResponseFormatterTests: XCTestCase {
     }
     
     func testFormatToken() throws {
-        let vc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)!
-        self.mockResponse.requestVCMap[expectedCredentialType] = vc
+        let vcClaims = VCClaims(jti: "testJti",
+                                iss: "testIssuer",
+                                sub: "testSubject",
+                                iat: nil,
+                                exp: nil,
+                                vc: nil)
+        self.mockResponse.requestVCMap[expectedCredentialType] = VerifiableCredential(headers: testHeader,
+                                                                                      content: vcClaims,
+                                                                                      rawValue: "testRawValue")
         
         let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
         
@@ -68,5 +74,26 @@ class PresentationResponseFormatterTests: XCTestCase {
         XCTAssertNil(formattedToken.content.presentationSubmission)
         XCTAssert(MockTokenSigner.wasSignCalled)
         XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
+    }
+    
+    func createExpectedPresentationRequest() -> PresentationRequest? {
+        let claims = PresentationRequestClaims(clientID: "testClientID",
+                                               issuer: "testRequester",
+                                               redirectURI: "testRedirectURI",
+                                               responseMode: "testResponseMode",
+                                               responseType: "testResponseType",
+                                               claims: nil,
+                                               state: "testState",
+                                               nonce: "testNonce",
+                                               scope: nil,
+                                               prompt: nil,
+                                               registration: nil,
+                                               idTokenHint: nil,
+                                               iat: nil,
+                                               exp: nil)
+        let testHeader = Header(type: "testType", algorithm: "testAlg", jsonWebKey: "testWebKey", keyId: "testKid")
+        let token = PresentationRequestToken(headers: testHeader, content: claims)!
+        let request = PresentationRequest(from: token, linkedDomainResult: .linkedDomainMissing)
+        return request
     }
 }

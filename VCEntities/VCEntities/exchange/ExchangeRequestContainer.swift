@@ -21,7 +21,7 @@ public struct ExchangeRequestContainer {
                 newOwnerDid: String,
                 currentOwnerIdentifier: Identifier) throws {
         
-        guard let requestAudience = exchangeableVerifiableCredential.content.vc.exchangeService?.id else {
+        guard let requestAudience = exchangeableVerifiableCredential.content.vc?.exchangeService?.id else {
             throw ExchangeRequestError.noAudienceFound
         }
         

@@ -50,18 +50,19 @@ public class ExchangeRequestFormatter: ExchangeRequestFormatting {
         let publicKey = try signer.getPublicJwk(from: key.keyReference, withKeyId: key.keyId)
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: 5)
         
-        guard let exchangeableVC = request.exchangeableVerifiableCredential.rawValue else {
-            throw FormatterError.unableToGetRawValueOfVerifiableCredential
-        }
+        guard let exchangeableVC = request.exchangeableVerifiableCredential.rawValue,
+              let did = request.exchangeableVerifiableCredential.content.sub else {
+                  throw FormatterError.unableToGetRawValueOfVerifiableCredential
+              }
         
         return ExchangeRequestClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                      audience: request.audience,
-                                      did: request.exchangeableVerifiableCredential.content.sub,
-                                      publicJwk: publicKey,
-                                      jti: UUID().uuidString,
-                                      iat: timeConstraints.issuedAt,
-                                      exp: timeConstraints.expiration,
-                                      exchangeableVc: exchangeableVC,
-                                      recipientDid: request.newOwnerDid)
+                                     did: did,
+                                     publicJwk: publicKey,
+                                     jti: UUID().uuidString,
+                                     iat: timeConstraints.issuedAt,
+                                     exp: timeConstraints.expiration,
+                                     exchangeableVc: exchangeableVC,
+                                     recipientDid: request.newOwnerDid)
     }
 }
