@@ -4,9 +4,9 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct VerifiableCredentialDescriptor: Codable {
-    let context: [String]
-    public let type: [String]
-    public let credentialSubject: Dictionary<String, Any>
+    let context: [String]?
+    public let type: [String]?
+    public let credentialSubject: Dictionary<String, Any>?
     let credentialStatus: ServiceDescriptor?
     let exchangeService: ServiceDescriptor?
     let revokeService: ServiceDescriptor?
@@ -16,12 +16,15 @@ public struct VerifiableCredentialDescriptor: Codable {
         case type, credentialSubject, credentialStatus, exchangeService, revokeService
     }
     
-    init(context: [String], type: [String], credentialSubject: Dictionary<String, Any>) {
+    init(context: [String]?,
+         type: [String]?,
+         credentialSubject: Dictionary<String, Any>?,
+         exchangeService: ServiceDescriptor? = nil) {
         self.context = context
         self.type = type
         self.credentialSubject = credentialSubject
+        self.exchangeService = exchangeService
         self.credentialStatus = nil
-        self.exchangeService = nil
         self.revokeService = nil
     }
     
