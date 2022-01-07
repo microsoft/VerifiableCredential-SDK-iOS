@@ -3,10 +3,10 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
+/// Describes the credentail type of the vc requested.
 public struct InputDescriptorSchema: Codable, Equatable {
+    
+    /// List of uris that describe the credential requested.
     public let uri: [String]?
     
-    public let name: String?
-    
-    public let purpose: String?
 }

@@ -3,7 +3,10 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
+/// Supported Verifiable Presentation Formats for response.
 public struct SupportedVerifiablePresentationFormats: Codable, Equatable {
+    
+    /// Supported algorithms for response.
     public let jwtVP: AllowedAlgorithms?
 
     enum CodingKeys: String, CodingKey {

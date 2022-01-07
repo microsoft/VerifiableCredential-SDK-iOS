@@ -3,16 +3,30 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
+/**
+ * Input Descriptors are used by a Verifier to describe the information required of a Holder before an interaction can proceed
+ *
+ * @see [Presentation Exchange Spec](https://identity.foundation/presentation-exchange/#term:input-descriptor-object)
+ */
 public struct PresentationInputDescriptor: Codable, Equatable {
     
-    public let id: String
+    /// Unique id of the input descriptor in the presentation definition.
+    public let id: String?
     
-    public let schema: InputDescriptorSchema
+    /// Describes the credentail type of the vc requested.
+    public let schema: InputDescriptorSchema?
     
-    public let issuanceMetadata: [IssuanceMetadata]
+    /// If present, information describing how to get credential.
+    public let issuanceMetadata: [IssuanceMetadata]?
+    
+    /// If present, its value SHOULD be a human-friendly name that describes what the target schema represents.
+    public let name: String?
+    
+    /// If present, its value MUST be a string that describes the purpose for which the Claim's data is being requested.
+    public let purpose: String?
     
     enum CodingKeys: String, CodingKey {
         case issuanceMetadata = "issuance"
-        case id, schema
+        case id, schema, name, purpose
     }
 }

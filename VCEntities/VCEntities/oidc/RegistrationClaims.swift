@@ -28,6 +28,7 @@ public struct RegistrationClaims: Codable, Equatable {
     /// The decentralized identity methods supported to use to respond to request (ex. ion).
     public let didMethodsSupported: [String]?
     
+    /// The type of credential format supported for response to adhere to (ex. jwt).
     public let credentialFormatSupported: [String]?
     
     /// The supported Verfiable Presentation Formats and Algorithms to respond to request.
