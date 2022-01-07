@@ -7,6 +7,10 @@
 import PromiseKit
 import VCEntities
 
+enum PairwiseServiceError: Error {
+    case noSubjectInVerifiableCredentialToExchange
+}
+
 class PairwiseService {
     
     private let exchangeService: ExchangeService
@@ -86,7 +90,11 @@ class PairwiseService {
     }
     
     private func getOwnerIdentifier(forVc vc: VerifiableCredential) throws -> Identifier {
-        let ownerLongformDid = vc.content.sub
+        
+        guard let ownerLongformDid = vc.content.sub else {
+            throw PairwiseServiceError.noSubjectInVerifiableCredentialToExchange
+        }
+        
         let nullableOwnerIdentifier = try identifierService.fetchIdentifer(withLongformDid: ownerLongformDid)
         
         guard let ownerIdentifier = nullableOwnerIdentifier else {
