@@ -93,13 +93,12 @@ class PresentationRequestValidatorTests: XCTestCase {
                                                      responseMode: String = VCEntitiesConstants.RESPONSE_MODE,
                                                      scope: String = VCEntitiesConstants.SCOPE,
                                                      timeConstraints: TokenTimeConstraints = TokenTimeConstraints(expiryInSeconds: 300)) -> PresentationRequestClaims {
-        let presentationDefinition = PresentationDefinition(inputDescriptors: [])
         return PresentationRequestClaims(clientID: "clientID",
                                          issuer: "issuer",
                                          redirectURI: "redirectURI",
                                          responseMode: responseMode,
                                          responseType: responseType,
-                                         presentationDefinition: presentationDefinition,
+                                         claims: nil,
                                          state: "state",
                                          nonce: "nonce",
                                          scope: scope,

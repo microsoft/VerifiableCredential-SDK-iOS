@@ -3,16 +3,10 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct PresentationInputDescriptor: Codable, Equatable {
-    
-    public let id: String
-    
-    public let schema: SchemaDescriptor
-    
-    public let issuanceMetadata: [IssuanceMetadata]
-    
+public struct SupportedVerifiablePresentationFormats: Codable, Equatable {
+    public let jwtVP: AllowedAlgorithms?
+
     enum CodingKeys: String, CodingKey {
-        case issuanceMetadata = "issuance"
-        case id, schema
+        case jwtVP = "jwt_vp"
     }
 }

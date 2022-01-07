@@ -93,7 +93,7 @@
 		5584E49925255ACA00A9DE58 /* PresentationRequestClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E49825255ACA00A9DE58 /* PresentationRequestClaims.swift */; };
 		5584E49C2525641600A9DE58 /* PresentationDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E49B2525641600A9DE58 /* PresentationDefinition.swift */; };
 		5584E49E252564A600A9DE58 /* PresentationInputDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E49D252564A600A9DE58 /* PresentationInputDescriptor.swift */; };
-		5584E4A02525656500A9DE58 /* SchemaDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E49F2525656500A9DE58 /* SchemaDescriptor.swift */; };
+		5584E4A02525656500A9DE58 /* InputDescriptorSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E49F2525656500A9DE58 /* InputDescriptorSchema.swift */; };
 		5584E4A2252565D900A9DE58 /* IssuanceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584E4A1252565D900A9DE58 /* IssuanceMetadata.swift */; };
 		5599D0CC26A07EE10037C131 /* IssuancePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599D0CB26A07EE10037C131 /* IssuancePin.swift */; };
 		5599D0D226A0BAB10037C131 /* IssuancePinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5599D0D126A0BAB00037C131 /* IssuancePinTests.swift */; };
@@ -115,6 +115,12 @@
 		55AF7486252F6B1F006A8B25 /* IdentifierDocumentServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF7485252F6B1F006A8B25 /* IdentifierDocumentServiceEndpoint.swift */; };
 		55AF7488252F6B53006A8B25 /* IdentifierDocumentSuffixDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF7487252F6B53006A8B25 /* IdentifierDocumentSuffixDescriptor.swift */; };
 		55AF748E252F6BE0006A8B25 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF748D252F6BE0006A8B25 /* Identifier.swift */; };
+		55B4D2D62787BBED0086A9F1 /* AllowedAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D2D52787BBED0086A9F1 /* AllowedAlgorithms.swift */; };
+		55B4D2D82787BC220086A9F1 /* SupportedVerifiablePresentationFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D2D72787BC220086A9F1 /* SupportedVerifiablePresentationFormats.swift */; };
+		55B4D2DA2787BC7D0086A9F1 /* RequestedClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D2D92787BC7D0086A9F1 /* RequestedClaims.swift */; };
+		55B4D2DC2787BE040086A9F1 /* PresentationExchangeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D2DB2787BE040086A9F1 /* PresentationExchangeField.swift */; };
+		55B4D2DE2787BE330086A9F1 /* PresentationExchangeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D2DD2787BE330086A9F1 /* PresentationExchangeFilter.swift */; };
+		55B4D2E02787BE5F0086A9F1 /* PresentationExchangeConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D2DF2787BE5F0086A9F1 /* PresentationExchangeConstraints.swift */; };
 		55BEF4252587D28000C720BD /* IssuerIdTokenClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF4242587D28000C720BD /* IssuerIdTokenClaims.swift */; };
 		55BEF45D2589544500C720BD /* PinClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF45C2589544500C720BD /* PinClaims.swift */; };
 		55BEF461258A5E0400C720BD /* IssuerIdToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF460258A5E0400C720BD /* IssuerIdToken.swift */; };
@@ -224,7 +230,7 @@
 		5584E49825255ACA00A9DE58 /* PresentationRequestClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestClaims.swift; sourceTree = "<group>"; };
 		5584E49B2525641600A9DE58 /* PresentationDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDefinition.swift; sourceTree = "<group>"; };
 		5584E49D252564A600A9DE58 /* PresentationInputDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationInputDescriptor.swift; sourceTree = "<group>"; };
-		5584E49F2525656500A9DE58 /* SchemaDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaDescriptor.swift; sourceTree = "<group>"; };
+		5584E49F2525656500A9DE58 /* InputDescriptorSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDescriptorSchema.swift; sourceTree = "<group>"; };
 		5584E4A1252565D900A9DE58 /* IssuanceMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceMetadata.swift; sourceTree = "<group>"; };
 		5599D0CB26A07EE10037C131 /* IssuancePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuancePin.swift; sourceTree = "<group>"; };
 		5599D0D126A0BAB00037C131 /* IssuancePinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuancePinTests.swift; sourceTree = "<group>"; };
@@ -246,6 +252,12 @@
 		55AF7485252F6B1F006A8B25 /* IdentifierDocumentServiceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDocumentServiceEndpoint.swift; sourceTree = "<group>"; };
 		55AF7487252F6B53006A8B25 /* IdentifierDocumentSuffixDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDocumentSuffixDescriptor.swift; sourceTree = "<group>"; };
 		55AF748D252F6BE0006A8B25 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		55B4D2D52787BBED0086A9F1 /* AllowedAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedAlgorithms.swift; sourceTree = "<group>"; };
+		55B4D2D72787BC220086A9F1 /* SupportedVerifiablePresentationFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedVerifiablePresentationFormats.swift; sourceTree = "<group>"; };
+		55B4D2D92787BC7D0086A9F1 /* RequestedClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedClaims.swift; sourceTree = "<group>"; };
+		55B4D2DB2787BE040086A9F1 /* PresentationExchangeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationExchangeField.swift; sourceTree = "<group>"; };
+		55B4D2DD2787BE330086A9F1 /* PresentationExchangeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationExchangeFilter.swift; sourceTree = "<group>"; };
+		55B4D2DF2787BE5F0086A9F1 /* PresentationExchangeConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationExchangeConstraints.swift; sourceTree = "<group>"; };
 		55BEF4242587D28000C720BD /* IssuerIdTokenClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuerIdTokenClaims.swift; sourceTree = "<group>"; };
 		55BEF45C2589544500C720BD /* PinClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinClaims.swift; sourceTree = "<group>"; };
 		55BEF460258A5E0400C720BD /* IssuerIdToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuerIdToken.swift; sourceTree = "<group>"; };
@@ -329,9 +341,8 @@
 			children = (
 				5580587D25BFB6450048E6FA /* issuerIdTokenClaims */,
 				555CE08B252680B600C1C938 /* verifiablePresentation */,
-				5584E49A2525640000A9DE58 /* presentationExchangeRequest */,
+				5584E49A2525640000A9DE58 /* request */,
 				5518CC662526458600C7A21B /* presentationExchangeResponse */,
-				5584E49825255ACA00A9DE58 /* PresentationRequestClaims.swift */,
 				5518CC632526427D00C7A21B /* PresentationResponseClaims.swift */,
 			);
 			path = claims;
@@ -387,6 +398,7 @@
 		55575730251BC575009979AB /* VCEntities */ = {
 			isa = PBXGroup;
 			children = (
+				55B4D2D42787BB600086A9F1 /* oidc */,
 				5517D28A25B90D0A00FBD239 /* exchange */,
 				5573FEFD25B8DE6900282BC7 /* discovery */,
 				559FC95E25C8939100737F14 /* linkedDomains */,
@@ -395,13 +407,12 @@
 				5577E865251E830B005250BC /* identifier */,
 				5577E862251E8284005250BC /* issuance */,
 				55011E8A2572DF1C002D2690 /* logging */,
-				5584E49725255A8F00A9DE58 /* presentation */,
+				5584E49725255A8F00A9DE58 /* presentationExchange */,
 				5577E864251E82B2005250BC /* verifiableCredential */,
 				55AF7481252F6803006A8B25 /* util */,
 				5557575A251BC6CF009979AB /* AttestationResponseDescriptor.swift */,
 				5531D3B1255F6B6E0002CC0E /* ResponseContaining.swift */,
 				5518CC7525264D5700C7A21B /* ResponseMappings.swift */,
-				55575759251BC6CF009979AB /* OIDCClaims.swift */,
 				55575731251BC575009979AB /* VCEntities.h */,
 				55575732251BC575009979AB /* Info.plist */,
 			);
@@ -490,7 +501,6 @@
 			isa = PBXGroup;
 			children = (
 				5557575F251BC6CF009979AB /* IssuanceResponseClaims.swift */,
-				55575760251BC6CF009979AB /* RegistrationClaims.swift */,
 				55BEF45C2589544500C720BD /* PinClaims.swift */,
 			);
 			path = claims;
@@ -595,7 +605,7 @@
 			path = issuerIdTokenClaims;
 			sourceTree = "<group>";
 		};
-		5584E49725255A8F00A9DE58 /* presentation */ = {
+		5584E49725255A8F00A9DE58 /* presentationExchange */ = {
 			isa = PBXGroup;
 			children = (
 				5518CC652526457500C7A21B /* claims */,
@@ -603,18 +613,21 @@
 				559FCA5525CA0E6A00737F14 /* PresentationRequest.swift */,
 				55BEF460258A5E0400C720BD /* IssuerIdToken.swift */,
 			);
-			path = presentation;
+			path = presentationExchange;
 			sourceTree = "<group>";
 		};
-		5584E49A2525640000A9DE58 /* presentationExchangeRequest */ = {
+		5584E49A2525640000A9DE58 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				5584E4A1252565D900A9DE58 /* IssuanceMetadata.swift */,
 				5584E49B2525641600A9DE58 /* PresentationDefinition.swift */,
 				5584E49D252564A600A9DE58 /* PresentationInputDescriptor.swift */,
-				5584E49F2525656500A9DE58 /* SchemaDescriptor.swift */,
-				5584E4A1252565D900A9DE58 /* IssuanceMetadata.swift */,
+				55B4D2DF2787BE5F0086A9F1 /* PresentationExchangeConstraints.swift */,
+				55B4D2DB2787BE040086A9F1 /* PresentationExchangeField.swift */,
+				55B4D2DD2787BE330086A9F1 /* PresentationExchangeFilter.swift */,
+				5584E49F2525656500A9DE58 /* InputDescriptorSchema.swift */,
 			);
-			path = presentationExchangeRequest;
+			path = request;
 			sourceTree = "<group>";
 		};
 		559FC95E25C8939100737F14 /* linkedDomains */ = {
@@ -660,6 +673,19 @@
 				55AC02B425D3087D00AA15F4 /* IdentifierDocumentServiceEndpointDescriptor.swift */,
 			);
 			path = document;
+			sourceTree = "<group>";
+		};
+		55B4D2D42787BB600086A9F1 /* oidc */ = {
+			isa = PBXGroup;
+			children = (
+				55B4D2D52787BBED0086A9F1 /* AllowedAlgorithms.swift */,
+				55575759251BC6CF009979AB /* OIDCClaims.swift */,
+				5584E49825255ACA00A9DE58 /* PresentationRequestClaims.swift */,
+				55575760251BC6CF009979AB /* RegistrationClaims.swift */,
+				55B4D2D92787BC7D0086A9F1 /* RequestedClaims.swift */,
+				55B4D2D72787BC220086A9F1 /* SupportedVerifiablePresentationFormats.swift */,
+			);
+			path = oidc;
 			sourceTree = "<group>";
 		};
 		92E29989252522C300B25BB6 /* Frameworks */ = {
@@ -790,13 +816,14 @@
 				5599D0CC26A07EE10037C131 /* IssuancePin.swift in Sources */,
 				559FC9AA25C9ABB500737F14 /* DomainLinkageCredentialValidator.swift in Sources */,
 				557BFC53251E665D005B5B24 /* IssuanceResponseFormatter.swift in Sources */,
-				5584E4A02525656500A9DE58 /* SchemaDescriptor.swift in Sources */,
+				5584E4A02525656500A9DE58 /* InputDescriptorSchema.swift in Sources */,
 				559FC9A625C8E42B00737F14 /* WellKnownConfigDocument.swift in Sources */,
 				559FCA5625CA0E6A00737F14 /* PresentationRequest.swift in Sources */,
 				5517D28F25B90D0A00FBD239 /* ExchangeRequestContainer.swift in Sources */,
 				55575766251BC6CF009979AB /* LogoDisplayDescriptor.swift in Sources */,
 				5557576F251BC6CF009979AB /* IdTokenDescriptor.swift in Sources */,
 				551F3057252D02AB0081D5E7 /* TokenTimeConstraints.swift in Sources */,
+				55B4D2DC2787BE040086A9F1 /* PresentationExchangeField.swift in Sources */,
 				555CE08A25267FE500C1C938 /* VerifiablePresentationFormatter.swift in Sources */,
 				55575772251BC6CF009979AB /* ServiceDescriptor.swift in Sources */,
 				55CE4C6025EEE99B00595CC7 /* CorrelationHeader.swift in Sources */,
@@ -816,6 +843,7 @@
 				55AF7488252F6B53006A8B25 /* IdentifierDocumentSuffixDescriptor.swift in Sources */,
 				55575774251BC6CF009979AB /* VCClaims.swift in Sources */,
 				555BDB1C2533AA85001E7A18 /* FormatterError.swift in Sources */,
+				55B4D2D62787BBED0086A9F1 /* AllowedAlgorithms.swift in Sources */,
 				5584E49925255ACA00A9DE58 /* PresentationRequestClaims.swift in Sources */,
 				55575771251BC6CF009979AB /* AttestationResponseDescriptor.swift in Sources */,
 				55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */,
@@ -858,12 +886,16 @@
 				5518CC6A2526469100C7A21B /* SubmissionDescriptor.swift in Sources */,
 				55011E8C2572DF50002D2690 /* VCSDKLog.swift in Sources */,
 				55FE6ED82697A06D00201EDC /* IssuanceCompletionResponse.swift in Sources */,
+				55B4D2E02787BE5F0086A9F1 /* PresentationExchangeConstraints.swift in Sources */,
 				559FC9B825C9C7DD00737F14 /* ContractServiceResponse.swift in Sources */,
 				5584E49E252564A600A9DE58 /* PresentationInputDescriptor.swift in Sources */,
 				5570597925754CA7000DD244 /* VCLogConsumer.swift in Sources */,
 				5531D3AC255F03EF0002CC0E /* AliasComputer.swift in Sources */,
 				5570597B25754D02000DD244 /* VCTraceLevel.swift in Sources */,
 				5518CC642526427D00C7A21B /* PresentationResponseClaims.swift in Sources */,
+				55B4D2DE2787BE330086A9F1 /* PresentationExchangeFilter.swift in Sources */,
+				55B4D2DA2787BC7D0086A9F1 /* RequestedClaims.swift in Sources */,
+				55B4D2D82787BC220086A9F1 /* SupportedVerifiablePresentationFormats.swift in Sources */,
 				5574956325E85987005A924B /* VCSDKConfiguration.swift in Sources */,
 				559FC98C25C8BEC900737F14 /* DomainLinkageCredentialContent.swift in Sources */,
 				55575775251BC6CF009979AB /* IssuanceResponseClaims.swift in Sources */,
