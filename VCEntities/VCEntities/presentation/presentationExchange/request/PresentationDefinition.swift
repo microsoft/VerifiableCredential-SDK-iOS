@@ -10,14 +10,17 @@
  */
 public struct PresentationDefinition: Codable, Equatable {
     
+    /// Unique identifier of a presentation definition.
+    public let id: String?
+    
+    /// Describes the information a Verifier requires of a Holder
     public let inputDescriptors: [PresentationInputDescriptor]?
     
+    /// Describes how a Holder can obtain requested information if they do not have it already.
     public let issuance: [String]?
-    
-    public let constraints: [String]?
     
     enum CodingKeys: String, CodingKey {
         case inputDescriptors = "input_descriptors"
-        case issuance, constraints
+        case id, issuance
     }
 }

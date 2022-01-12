@@ -25,8 +25,11 @@ public struct PresentationInputDescriptor: Codable, Equatable {
     /// If present, its value MUST be a string that describes the purpose for which the Claim's data is being requested.
     public let purpose: String?
     
+    /// Describes constraints that the Holder must satisfy in response for presentation definition.
+    public let constraints: PresentationExchangeConstraints?
+    
     enum CodingKeys: String, CodingKey {
         case issuanceMetadata = "issuance"
-        case id, schema, name, purpose
+        case id, schema, name, purpose, constraints
     }
 }

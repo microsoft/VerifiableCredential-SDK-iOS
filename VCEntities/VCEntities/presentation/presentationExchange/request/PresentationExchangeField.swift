@@ -19,4 +19,8 @@ public struct PresentationExchangeField: Codable, Equatable {
     /// Optonal JSON Schema descriptor used to filter against the values
     /// returned from evaluation of the JSONPath string expressions in the path array
     public let filter: PresentationExchangeFilter?
+    
+    enum CodingKeys: String, CodingKey {
+        case path, purpose, filter
+    }
 }

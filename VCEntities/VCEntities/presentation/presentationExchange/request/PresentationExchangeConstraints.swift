@@ -12,4 +12,8 @@ public struct PresentationExchangeConstraints: Codable, Equatable {
     
     /// A list of fields that must be adhered to to fulfill presentation request.
     public let fields: [PresentationExchangeField]?
+    
+    enum CodingKeys: String, CodingKey {
+        case fields
+    }
 }

@@ -121,6 +121,7 @@
 		55B4D2DC2787BE040086A9F1 /* PresentationExchangeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D2DB2787BE040086A9F1 /* PresentationExchangeField.swift */; };
 		55B4D2DE2787BE330086A9F1 /* PresentationExchangeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D2DD2787BE330086A9F1 /* PresentationExchangeFilter.swift */; };
 		55B4D2E02787BE5F0086A9F1 /* PresentationExchangeConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D2DF2787BE5F0086A9F1 /* PresentationExchangeConstraints.swift */; };
+		55B4D2E4278F48370086A9F1 /* RequestedVPToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D2E3278F48370086A9F1 /* RequestedVPToken.swift */; };
 		55BEF4252587D28000C720BD /* IssuerIdTokenClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF4242587D28000C720BD /* IssuerIdTokenClaims.swift */; };
 		55BEF45D2589544500C720BD /* PinClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF45C2589544500C720BD /* PinClaims.swift */; };
 		55BEF461258A5E0400C720BD /* IssuerIdToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF460258A5E0400C720BD /* IssuerIdToken.swift */; };
@@ -258,6 +259,7 @@
 		55B4D2DB2787BE040086A9F1 /* PresentationExchangeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationExchangeField.swift; sourceTree = "<group>"; };
 		55B4D2DD2787BE330086A9F1 /* PresentationExchangeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationExchangeFilter.swift; sourceTree = "<group>"; };
 		55B4D2DF2787BE5F0086A9F1 /* PresentationExchangeConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationExchangeConstraints.swift; sourceTree = "<group>"; };
+		55B4D2E3278F48370086A9F1 /* RequestedVPToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedVPToken.swift; sourceTree = "<group>"; };
 		55BEF4242587D28000C720BD /* IssuerIdTokenClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuerIdTokenClaims.swift; sourceTree = "<group>"; };
 		55BEF45C2589544500C720BD /* PinClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinClaims.swift; sourceTree = "<group>"; };
 		55BEF460258A5E0400C720BD /* IssuerIdToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuerIdToken.swift; sourceTree = "<group>"; };
@@ -336,25 +338,22 @@
 			path = claims;
 			sourceTree = "<group>";
 		};
-		5518CC652526457500C7A21B /* claims */ = {
+		5518CC652526457500C7A21B /* presentationExchange */ = {
 			isa = PBXGroup;
 			children = (
-				5580587D25BFB6450048E6FA /* issuerIdTokenClaims */,
-				555CE08B252680B600C1C938 /* verifiablePresentation */,
 				5584E49A2525640000A9DE58 /* request */,
-				5518CC662526458600C7A21B /* presentationExchangeResponse */,
-				5518CC632526427D00C7A21B /* PresentationResponseClaims.swift */,
+				5518CC662526458600C7A21B /* response */,
 			);
-			path = claims;
+			path = presentationExchange;
 			sourceTree = "<group>";
 		};
-		5518CC662526458600C7A21B /* presentationExchangeResponse */ = {
+		5518CC662526458600C7A21B /* response */ = {
 			isa = PBXGroup;
 			children = (
 				5518CC67252645D000C7A21B /* PresentationSubmission.swift */,
 				5518CC692526469100C7A21B /* SubmissionDescriptor.swift */,
 			);
-			path = presentationExchangeResponse;
+			path = response;
 			sourceTree = "<group>";
 		};
 		551F3064252E71540081D5E7 /* util */ = {
@@ -407,8 +406,9 @@
 				5577E865251E830B005250BC /* identifier */,
 				5577E862251E8284005250BC /* issuance */,
 				55011E8A2572DF1C002D2690 /* logging */,
-				5584E49725255A8F00A9DE58 /* presentationExchange */,
+				5584E49725255A8F00A9DE58 /* presentation */,
 				5577E864251E82B2005250BC /* verifiableCredential */,
+				555CE08B252680B600C1C938 /* verifiablePresentation */,
 				55AF7481252F6803006A8B25 /* util */,
 				5557575A251BC6CF009979AB /* AttestationResponseDescriptor.swift */,
 				5531D3B1255F6B6E0002CC0E /* ResponseContaining.swift */,
@@ -596,24 +596,26 @@
 			path = mocks;
 			sourceTree = "<group>";
 		};
-		5580587D25BFB6450048E6FA /* issuerIdTokenClaims */ = {
+		5580587D25BFB6450048E6FA /* issuerIdToken */ = {
 			isa = PBXGroup;
 			children = (
+				55BEF460258A5E0400C720BD /* IssuerIdToken.swift */,
 				55BEF4242587D28000C720BD /* IssuerIdTokenClaims.swift */,
 				5580588625BFB6C00048E6FA /* PinDescriptor.swift */,
 			);
-			path = issuerIdTokenClaims;
+			path = issuerIdToken;
 			sourceTree = "<group>";
 		};
-		5584E49725255A8F00A9DE58 /* presentationExchange */ = {
+		5584E49725255A8F00A9DE58 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
-				5518CC652526457500C7A21B /* claims */,
+				5580587D25BFB6450048E6FA /* issuerIdToken */,
+				5518CC652526457500C7A21B /* presentationExchange */,
 				5518CC7325264CAD00C7A21B /* PresentationResponseContainer.swift */,
+				5518CC632526427D00C7A21B /* PresentationResponseClaims.swift */,
 				559FCA5525CA0E6A00737F14 /* PresentationRequest.swift */,
-				55BEF460258A5E0400C720BD /* IssuerIdToken.swift */,
 			);
-			path = presentationExchange;
+			path = presentation;
 			sourceTree = "<group>";
 		};
 		5584E49A2525640000A9DE58 /* request */ = {
@@ -684,6 +686,7 @@
 				55575760251BC6CF009979AB /* RegistrationClaims.swift */,
 				55B4D2D92787BC7D0086A9F1 /* RequestedClaims.swift */,
 				55B4D2D72787BC220086A9F1 /* SupportedVerifiablePresentationFormats.swift */,
+				55B4D2E3278F48370086A9F1 /* RequestedVPToken.swift */,
 			);
 			path = oidc;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				5517D28F25B90D0A00FBD239 /* ExchangeRequestContainer.swift in Sources */,
 				55575766251BC6CF009979AB /* LogoDisplayDescriptor.swift in Sources */,
 				5557576F251BC6CF009979AB /* IdTokenDescriptor.swift in Sources */,
+				55B4D2E4278F48370086A9F1 /* RequestedVPToken.swift in Sources */,
 				551F3057252D02AB0081D5E7 /* TokenTimeConstraints.swift in Sources */,
 				55B4D2DC2787BE040086A9F1 /* PresentationExchangeField.swift in Sources */,
 				555CE08A25267FE500C1C938 /* VerifiablePresentationFormatter.swift in Sources */,

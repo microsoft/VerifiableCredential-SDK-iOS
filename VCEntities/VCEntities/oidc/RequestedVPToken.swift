@@ -3,13 +3,13 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-/// Claims that are being requested in an OpenID Connect Request.
-public struct RequestedClaims: Codable, Equatable {
+/// Property of Requested Claims in an OIDC request that describes the verifiable presentation token requested.
+public struct RequestedVPToken: Codable, Equatable {
     
-    /// Request Verifiable Presentation Tokens.
-    public let vpToken: RequestedVPToken?
+    /// Description of the vp token requested.
+    public let presentationDefinition: PresentationDefinition?
 
     enum CodingKeys: String, CodingKey {
-        case vpToken = "vp_token"
+        case presentationDefinition = "presentation_definition"
     }
 }
