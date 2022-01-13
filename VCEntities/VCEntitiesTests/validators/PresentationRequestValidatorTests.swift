@@ -148,15 +148,13 @@ class PresentationRequestValidatorTests: XCTestCase {
     
     private static func createRegistration(expectedSubjectIdentifierType: String = "did",
                                            expectedDidMethodSupported: String = "ion",
-                                           expectedSupportedAlgorithm: String = "ES256K",
-                                           expectedCredentialFormat: String = "jwt") -> RegistrationClaims {
+                                           expectedSupportedAlgorithm: String = "ES256K") -> RegistrationClaims {
         return RegistrationClaims(clientName: "clientName",
                                   clientPurpose: "clientPurpose",
                                   tosURI: "tosURI",
                                   logoURI: "logoURI",
                                   subjectIdentifierTypesSupported: [expectedSubjectIdentifierType],
                                   didMethodsSupported: [expectedDidMethodSupported],
-                                  credentialFormatSupported: [expectedCredentialFormat],
                                   vpFormats: SupportedVerifiablePresentationFormats(jwtVP: AllowedAlgorithms(algorithms: [expectedSupportedAlgorithm])))
     }
     

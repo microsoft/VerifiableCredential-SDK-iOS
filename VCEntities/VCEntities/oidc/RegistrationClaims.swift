@@ -28,20 +28,16 @@ public struct RegistrationClaims: Codable, Equatable {
     /// The decentralized identity methods supported to use to respond to request (ex. ion).
     public let didMethodsSupported: [String]?
     
-    /// The type of credential format supported for response to adhere to (ex. jwt).
-    public let credentialFormatSupported: [String]?
-    
     /// The supported Verfiable Presentation Formats and Algorithms to respond to request.
     public let vpFormats: SupportedVerifiablePresentationFormats?
 
     enum CodingKeys: String, CodingKey {
         case clientName = "client_name"
         case clientPurpose = "client_purpose"
-        case credentialFormatSupported = "credential_format_supported"
-        case tosURI = "tos_uri"
+        case didMethodsSupported = "did_methods_supported"
         case logoURI = "logo_uri"
         case subjectIdentifierTypesSupported = "subject_identifier_types_supported"
-        case didMethodsSupported = "did_methods_supported"
+        case tosURI = "tos_uri"
         case vpFormats = "vp_formats"
     }
 }
