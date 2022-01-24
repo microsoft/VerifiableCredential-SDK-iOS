@@ -14,7 +14,7 @@ public struct PresentationResponseContainer: ResponseContaining {
     public let audienceDid: String
     public var requestedIdTokenMap: RequestedIdTokenMap = [:]
     public var requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
-    public var requestVCMap: RequestedVerifiableCredentialMap = [:]
+    public var requestVCMap: RequestedVerifiableCredentialMap = []
     
     public init(from presentationRequest: PresentationRequest, expiryInSeconds exp: Int = 3000) throws {
         

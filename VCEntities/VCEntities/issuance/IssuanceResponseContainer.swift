@@ -15,7 +15,7 @@ public struct IssuanceResponseContainer: ResponseContaining {
     public var issuanceIdToken: String? = nil
     public var requestedIdTokenMap: RequestedIdTokenMap = [:]
     public var requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
-    public var requestVCMap: RequestedVerifiableCredentialMap = [:]
+    public var requestVCMap: RequestedVerifiableCredentialMap = []
     
     public init(from contract: Contract,
                 contractUri: String,

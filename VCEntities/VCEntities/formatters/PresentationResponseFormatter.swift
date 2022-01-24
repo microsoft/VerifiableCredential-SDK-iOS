@@ -15,14 +15,12 @@ public protocol PresentationResponseFormatting {
 public class PresentationResponseFormatter: PresentationResponseFormatting {
     
     let signer: TokenSigning
-    let vpFormatter: VerifiablePresentationFormatter
     let sdkLog: VCSDKLog
     let headerFormatter = JwsHeaderFormatter()
     
     public init(signer: TokenSigning = Secp256k1Signer(),
                 sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.signer = signer
-        self.vpFormatter = VerifiablePresentationFormatter(signer: signer)
         self.sdkLog = sdkLog
     }
     
@@ -54,12 +52,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         let publicKey = try signer.getPublicJwk(from: key.keyReference, withKeyId: key.keyId)
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: response.expiryInSeconds)
         
-        var presentationSubmission: PresentationSubmission? = nil
-        var attestations: AttestationResponseDescriptor? = nil
-        if (!response.requestVCMap.isEmpty) {
-            presentationSubmission = self.formatPresentationSubmission(from: response, keyType: "JWT")
-            attestations = try self.formatAttestations(from: response, usingIdentifier: identifier, andSigningKey: key)
-        }
+        let presentationSubmission = self.formatPresentationSubmission(from: response, keyType: "JWT")
         
         return PresentationResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                           audience: response.audienceUrl,
@@ -67,7 +60,6 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
                                           publicJwk: publicKey,
                                           jti: UUID().uuidString,
                                           presentationSubmission: presentationSubmission,
-                                          attestations: attestations,
                                           state: response.request.content.state,
                                           nonce: response.request.content.nonce,
                                           iat: timeConstraints.issuedAt,
@@ -75,10 +67,14 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
                                           exp: timeConstraints.expiration)
     }
     
-    private func formatPresentationSubmission(from response: PresentationResponseContainer, keyType: String) -> PresentationSubmission {
+    private func formatPresentationSubmission(from response: PresentationResponseContainer, keyType: String) -> PresentationSubmission? {
         
-        let submissionDescriptor = response.requestVCMap.map { type, _ in
-            SubmissionDescriptor(id: type, path: CREDENTIAL_PATH + type, format: keyType, encoding: CREDENTIAL_ENCODING)
+        guard !response.requestVCMap.isEmpty else {
+            return nil
+        }
+        
+        let inputDescriptorMap: [InputDescriptorMapping] = response.requestVCMap.enumerated().map { (index, vcMapping) in
+            createInputDescriptorMapping(type: vcMapping.type, index: index)
         }
         
         sdkLog.logVerbose(message: """
@@ -86,17 +82,21 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
             verifiable credentials: \(response.requestVCMap.count)
             """)
         
-        return PresentationSubmission(submissionDescriptors: submissionDescriptor)
+        let submission = PresentationSubmission(id: "test",
+                                                definitionId: "test",
+                                                inputDescriptorMap: inputDescriptorMap)
+        
+        return submission
     }
     
-    private func formatAttestations(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSigningKey key: KeyContainer) throws -> AttestationResponseDescriptor {
-        return AttestationResponseDescriptor(presentations: try self.createPresentations(from: response, usingIdentifier: identifier, andSignWith: key))
-    }
-    
-    private func createPresentations(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> [String: String] {
-        return try response.requestVCMap.mapValues { verifiableCredential in
-            let vp = try self.vpFormatter.format(toWrap: verifiableCredential, withAudience: response.request.content.issuer, withExpiryInSeconds: response.expiryInSeconds, usingIdentifier: identifier, andSignWith: key)
-            return try vp.serialize()
-        }
+    private func createInputDescriptorMapping(type: String, index: Int) -> InputDescriptorMapping {
+        let nestedInputDescriptorMapping = NestedInputDescriptorMapping(id: type,
+                                                                        format: "jwt_vc",
+                                                                        path: "$.verifiableCredential[\(index)]")
+        
+        return InputDescriptorMapping(id: type,
+                                      format: "jwt_vp",
+                                      path: "$",
+                                      pathNested: nestedInputDescriptorMapping)
     }
 }

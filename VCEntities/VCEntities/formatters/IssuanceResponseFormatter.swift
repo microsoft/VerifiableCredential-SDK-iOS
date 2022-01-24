@@ -14,12 +14,12 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
     private let signer: TokenSigning
     private let sdkLog: VCSDKLog
     private let headerFormatter = JwsHeaderFormatter()
-    private let vpFormatter: VerifiablePresentationFormatter
+    private let vpFormatter: IssuanceVPFormatter
     
     public init(signer: TokenSigning = Secp256k1Signer(),
                 sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.signer = signer
-        self.vpFormatter = VerifiablePresentationFormatter(signer: signer)
+        self.vpFormatter = IssuanceVPFormatter(signer: signer)
         self.sdkLog = sdkLog
     }
     
@@ -84,10 +84,7 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
             idTokenMap?[VCEntitiesConstants.SELF_ISSUED] = response.issuanceIdToken
         }
 
-        var presentationsMap: [String: String]? = nil
-        if !response.requestVCMap.isEmpty {
-            presentationsMap = try self.createPresentations(from: response, usingIdentifier: identifier, andSignWith: key)
-        }
+        let presentationsMap = try createPresentations(from: response, usingIdentifier: identifier, andSignWith: key)
         
         sdkLog.logVerbose(message: """
             Creating Issuance Response with:
@@ -99,16 +96,35 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         return AttestationResponseDescriptor(idTokens: idTokenMap, presentations: presentationsMap, selfIssued: selfIssuedMap)
     }
     
-    private func createPresentations(from response: IssuanceResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> [String: String] {
-        return try response.requestVCMap.mapValues { verifiableCredential in
-            
-            let vp = try self.vpFormatter.format(toWrap: verifiableCredential,
-                                                 withAudience: response.contract.input.issuer,
-                                                 withExpiryInSeconds: response.expiryInSeconds,
-                                                 usingIdentifier: identifier,
-                                                 andSignWith: key)
-            
-            return try vp.serialize()
+    private func createPresentations(from response: IssuanceResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> [String: String]? {
+        
+        guard !response.requestVCMap.isEmpty else {
+            return nil
         }
+        
+        return Dictionary(try response.requestVCMap.map { requestedVCMapping in
+            try self.createVerifiablePresentation(requestedVCMapping: requestedVCMapping,
+                                                  issuer: response.contract.input.issuer,
+                                                  expiration: response.expiryInSeconds,
+                                                  identifier: identifier,
+                                                  key: key)
+            
+        }) { first, _ in first }
+    }
+    
+    private func createVerifiablePresentation(requestedVCMapping: RequestedVerifiableCredentialMapping,
+                                              issuer: String,
+                                              expiration: Int,
+                                              identifier: Identifier,
+                                              key: KeyContainer) throws -> (String, String) {
+        
+        let vp = try self.vpFormatter.format(toWrap: requestedVCMapping.vc,
+                                             withAudience: issuer,
+                                             withExpiryInSeconds: expiration,
+                                             usingIdentifier: identifier,
+                                             andSignWith: key)
+        
+        return (requestedVCMapping.type, try vp.serialize())
+        
     }
 }

@@ -21,8 +21,6 @@ public struct PresentationResponseClaims: OIDCClaims {
     
     public let presentationSubmission: PresentationSubmission?
     
-    public let attestations: AttestationResponseDescriptor?
-    
     public let state: String?
     
     public let nonce: String?
@@ -39,7 +37,6 @@ public struct PresentationResponseClaims: OIDCClaims {
                 publicJwk: ECPublicJwk? = nil,
                 jti: String = "",
                 presentationSubmission: PresentationSubmission? = nil,
-                attestations: AttestationResponseDescriptor? = nil,
                 state: String?,
                 nonce: String?,
                 iat: Double? = nil,
@@ -50,7 +47,6 @@ public struct PresentationResponseClaims: OIDCClaims {
         self.did = did
         self.publicJwk = publicJwk
         self.jti = jti
-        self.attestations = attestations
         self.state = state
         self.nonce = nonce
         self.iat = iat
@@ -65,7 +61,7 @@ public struct PresentationResponseClaims: OIDCClaims {
         case presentationSubmission = "presentation_submission"
         case audience = "aud"
         case publicJwk = "sub_jwk"
-        case attestations, jti, did, iat, exp, state, nonce, nbf
+        case jti, did, iat, exp, state, nonce, nbf
     }
 }
 

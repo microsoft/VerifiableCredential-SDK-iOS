@@ -5,11 +5,13 @@
 
 import VCToken
 
-let PURPOSE = "verify"
-let CONTEXT = "https://www.w3.org/2018/credentials/v1"
-let TYPE = "VerifiablePresentation"
-
-class VerifiablePresentationFormatter {
+class IssuanceVPFormatter {
+    
+    private struct Constants {
+        static let Purpose = "verify"
+        static let Context = "https://www.w3.org/2018/credentials/v1"
+        static let VPType = "VerifiablePresentation"
+    }
     
     let signer: TokenSigning
     let headerFormatter = JwsHeaderFormatter()
@@ -18,7 +20,7 @@ class VerifiablePresentationFormatter {
         self.signer = signer
     }
     
-    func format(toWrap vcs: RequestedVerifiableCredentialMap,
+    func format(toWrap vc: VerifiableCredential,
                        withAudience audience: String,
                        withExpiryInSeconds exp: Int,
                        usingIdentifier identifier: Identifier,
@@ -26,10 +28,10 @@ class VerifiablePresentationFormatter {
         
         let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: identifier.didDocumentKeys.first!)
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: exp)
-        let verifiablePresentationDescriptor = try self.createVerifiablePresentationDescriptor(toWrap: vcs)
+        let verifiablePresentationDescriptor = try self.createVerifiablePresentationDescriptor(toWrap: vc)
         
         let vpClaims = VerifiablePresentationClaims(vpId: UUID().uuidString,
-                                                    purpose: PURPOSE,
+                                                    purpose: Constants.Purpose,
                                                     verifiablePresentation: verifiablePresentationDescriptor,
                                                     issuerOfVp: identifier.longFormDid,
                                                     audience: audience,
@@ -44,10 +46,14 @@ class VerifiablePresentationFormatter {
         return token
     }
     
-    private func createVerifiablePresentationDescriptor(toWrap vcs: RequestedVerifiableCredentialMap) throws -> VerifiablePresentationDescriptor {
+    private func createVerifiablePresentationDescriptor(toWrap vc: VerifiableCredential) throws -> VerifiablePresentationDescriptor {
         
-        return VerifiablePresentationDescriptor(context: [CONTEXT],
-                                                type: [TYPE],
-                                                verifiableCredential: vcs.compactMap { vcMapping in vcMapping.vc.rawValue })
+        guard let rawVC = vc.rawValue else {
+            throw FormatterError.unableToGetRawValueOfVerifiableCredential
+        }
+        
+        return VerifiablePresentationDescriptor(context: [Constants.Context],
+                                                type: [Constants.VPType],
+                                                verifiableCredential: [rawVC])
     }
 }
