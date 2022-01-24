@@ -38,26 +38,26 @@ class PresentationResponseFormatterTests: XCTestCase {
         let vc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)!
         self.mockResponse.requestVCMap.append(RequestedVerifiableCredentialMapping(type: expectedCredentialType, vc: vc))
         
-        let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
+        let formattedResponse = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
         
-        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longFormDid)
-        XCTAssertNotNil(formattedToken.content.exp)
-        XCTAssertNotNil(formattedToken.content.iat)
-        XCTAssertNotNil(formattedToken.content.jti)
-        XCTAssertEqual(formattedToken.content.audience, self.mockResponse.audienceUrl)
+        XCTAssertEqual(formattedResponse.idToken.content.did, self.mockIdentifier.longFormDid)
+        XCTAssertNotNil(formattedResponse.idToken.content.exp)
+        XCTAssertNotNil(formattedResponse.idToken.content.iat)
+        XCTAssertNotNil(formattedResponse.idToken.content.jti)
+        XCTAssertEqual(formattedResponse.idToken.content.audience, self.mockResponse.audienceUrl)
         XCTAssert(MockTokenSigner.wasSignCalled)
         XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
     }
     
     func testFormatTokenNoVcs() throws {
 
-        let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
-        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longFormDid)
-        XCTAssertNotNil(formattedToken.content.exp)
-        XCTAssertNotNil(formattedToken.content.iat)
-        XCTAssertNotNil(formattedToken.content.jti)
-        XCTAssertEqual(formattedToken.content.audience, self.mockResponse.audienceUrl)
-        XCTAssertNil(formattedToken.content.presentationSubmission)
+        let formattedResponse = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
+        XCTAssertEqual(formattedResponse.idToken.content.did, self.mockIdentifier.longFormDid)
+        XCTAssertNotNil(formattedResponse.idToken.content.exp)
+        XCTAssertNotNil(formattedResponse.idToken.content.iat)
+        XCTAssertNotNil(formattedResponse.idToken.content.jti)
+        XCTAssertEqual(formattedResponse.idToken.content.audience, self.mockResponse.audienceUrl)
+        XCTAssertNil(formattedResponse.idToken.content.presentationSubmission)
         XCTAssert(MockTokenSigner.wasSignCalled)
         XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
     }

@@ -5,7 +5,7 @@
 
 import VCToken
 
-struct VerifiablePresentationClaims: OIDCClaims {
+public struct VerifiablePresentationClaims: OIDCClaims {
     let vpId: String
     
     let purpose: String
@@ -29,4 +29,4 @@ struct VerifiablePresentationClaims: OIDCClaims {
     }
 }
 
-typealias VerifiablePresentation = JwsToken<VerifiablePresentationClaims>
+public typealias VerifiablePresentation = JwsToken<VerifiablePresentationClaims>

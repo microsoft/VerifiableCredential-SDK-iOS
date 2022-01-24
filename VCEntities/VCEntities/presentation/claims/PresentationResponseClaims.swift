@@ -65,4 +65,4 @@ public struct PresentationResponseClaims: OIDCClaims {
     }
 }
 
-public typealias PresentationResponse = JwsToken<PresentationResponseClaims>
+public typealias PresentationResponseToken = JwsToken<PresentationResponseClaims>

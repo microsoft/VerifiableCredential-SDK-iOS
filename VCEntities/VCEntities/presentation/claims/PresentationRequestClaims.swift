@@ -47,20 +47,20 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
         case state, nonce, prompt, registration, iat, exp, scope
     }
     
-    init(clientID: String,
-         issuer: String,
-         redirectURI: String?,
-         responseMode: String,
-         responseType: String,
-         presentationDefinition: PresentationDefinition,
-         state: String?,
-         nonce: String?,
-         scope: String,
-         prompt: String?,
-         registration: RegistrationClaims?,
-         idTokenHint: IssuerIdToken? = nil,
-         iat: Double?,
-         exp: Double?) {
+    public init(clientID: String,
+                issuer: String,
+                redirectURI: String?,
+                responseMode: String,
+                responseType: String,
+                presentationDefinition: PresentationDefinition,
+                state: String?,
+                nonce: String?,
+                scope: String,
+                prompt: String?,
+                registration: RegistrationClaims?,
+                idTokenHint: IssuerIdToken? = nil,
+                iat: Double?,
+                exp: Double?) {
         self.clientID = clientID
         self.issuer = issuer
         self.redirectURI = redirectURI

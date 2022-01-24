@@ -12,17 +12,9 @@ enum PresentationResponseEncoderError: Error {
 
 struct PresentationResponseEncoder: Encoding {
     
+    let jsonEncoder = JSONEncoder()
+    
     func encode(value: PresentationResponse) throws -> Data {
-        
-        guard let state = value.content.state else {
-            throw PresentationResponseEncoderError.noStatePresentInRequest
-        }
-        
-        let encodedBody = try "id_token=" + value.serialize() + "&state=" + state
-        guard let encodedToken = encodedBody.data(using: .ascii) else {
-            throw NetworkingError.unableToParseString
-        }
-        
-        return encodedToken
+        return try jsonEncoder.encode(value)
     }
 }

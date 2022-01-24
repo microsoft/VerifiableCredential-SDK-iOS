@@ -15,12 +15,14 @@ public protocol PresentationResponseFormatting {
 public class PresentationResponseFormatter: PresentationResponseFormatting {
     
     let signer: TokenSigning
+    let vpFormatter: VerifiablePresentationFormatter
     let sdkLog: VCSDKLog
     let headerFormatter = JwsHeaderFormatter()
     
     public init(signer: TokenSigning = Secp256k1Signer(),
                 sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.signer = signer
+        self.vpFormatter = VerifiablePresentationFormatter(signer: signer)
         self.sdkLog = sdkLog
     }
     
@@ -29,11 +31,16 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         guard let signingKey = identifier.didDocumentKeys.first else {
             throw FormatterError.noSigningKeyFound
         }
+        
+        let idToken = try createIdToken(from: response, usingIdentifier: identifier, andSignWith: signingKey)
+        let vpToken = try createVpToken(from: response, usingIdentifier: identifier, andSignWith: signingKey)
 
-        return try self.createToken(from: response, usingIdentifier: identifier, andSignWith: signingKey)
+        return PresentationResponse(idToken: idToken, vpToken: vpToken)
     }
     
-    private func createToken(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> PresentationResponse {
+    private func createIdToken(from response: PresentationResponseContainer,
+                               usingIdentifier identifier: Identifier,
+                               andSignWith key: KeyContainer) throws -> JwsToken<PresentationResponseClaims> {
         
         let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: key)
         let content = try self.formatClaims(from: response, usingIdentifier: identifier, andSignWith: key)
@@ -45,6 +52,17 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         try token.sign(using: self.signer, withSecret: key.keyReference)
         
         return token
+    }
+    
+    private func createVpToken(from response: PresentationResponseContainer,
+                               usingIdentifier identifier: Identifier,
+                               andSignWith key: KeyContainer) throws -> VerifiablePresentation {
+        
+        return try vpFormatter.format(toWrap: response.requestVCMap,
+                                        withAudience: response.request.content.issuer,
+                                        withExpiryInSeconds: response.expiryInSeconds,
+                                        usingIdentifier: identifier,
+                                        andSignWith: key)
     }
     
     private func formatClaims(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> PresentationResponseClaims {
@@ -73,7 +91,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
             return nil
         }
         
-        let inputDescriptorMap: [InputDescriptorMapping] = response.requestVCMap.enumerated().map { (index, vcMapping) in
+        let inputDescriptorMap = response.requestVCMap.enumerated().map { (index, vcMapping) in
             createInputDescriptorMapping(type: vcMapping.type, index: index)
         }
         
