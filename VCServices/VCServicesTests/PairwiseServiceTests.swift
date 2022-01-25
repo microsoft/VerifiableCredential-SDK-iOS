@@ -26,7 +26,8 @@ class PairwiseServiceTests: XCTestCase {
         self.mockPresentationResponse = try PresentationResponseContainer(from: request, expiryInSeconds: 5)
         
         let mockVc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)!
-        self.mockPresentationResponse.requestVCMap["test"] = mockVc
+        self.mockPresentationResponse.requestVCMap.append(RequestedVerifiableCredentialMapping(type: "test",
+                                                                                               verifiableCredential: mockVc))
         
         MockIssuanceResponseFormatter.wasFormatCalled = false
         

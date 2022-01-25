@@ -46,15 +46,15 @@ class PairwiseService {
         }
     }
     
-    private func exchangeRequestedVcs(vcs: RequestedVerifiableCredentialMap, newOwnerDid: String) -> Promise<[TypeToVcTuple]> {
-        var promises: [Promise<TypeToVcTuple>] = []
+    private func exchangeRequestedVcs(vcs: RequestedVerifiableCredentialMap, newOwnerDid: String) -> Promise<[RequestedVerifiableCredentialMapping]> {
+        var promises: [Promise<RequestedVerifiableCredentialMapping>] = []
         for vc in vcs {
-            promises.append(exchangeVerifiableCredential(type: vc.key, exchangeableVerifiableCredential: vc.value, newOwnerDid: newOwnerDid))
+            promises.append(exchangeVerifiableCredential(type: vc.type, exchangeableVerifiableCredential: vc.vc, newOwnerDid: newOwnerDid))
         }
         return when(fulfilled: promises)
     }
     
-    private func exchangeVerifiableCredential(type: String, exchangeableVerifiableCredential vc: VerifiableCredential, newOwnerDid: String) -> Promise<TypeToVcTuple> {
+    private func exchangeVerifiableCredential(type: String, exchangeableVerifiableCredential vc: VerifiableCredential, newOwnerDid: String) -> Promise<RequestedVerifiableCredentialMapping> {
         
         do {
             let ownerIdentifier = try getOwnerIdentifier(forVc: vc)
@@ -75,15 +75,14 @@ class PairwiseService {
         }
     }
     
-    private func combineVCAndType(type: String, vc: VerifiableCredential) -> Promise<TypeToVcTuple> {
+    private func combineVCAndType(type: String, vc: VerifiableCredential) -> Promise<RequestedVerifiableCredentialMapping> {
         return Promise { seal in
-            seal.fulfill(TypeToVcTuple(type, vc))
+            seal.fulfill(RequestedVerifiableCredentialMapping(type: type, verifiableCredential: vc))
         }
     }
     
-    private func replaceResponseVcMap(response: inout ResponseContaining, vcMap: [TypeToVcTuple]) -> Promise<ResponseContaining> {
-        let dict = Dictionary(uniqueKeysWithValues: vcMap)
-        response.requestVCMap = dict
+    private func replaceResponseVcMap(response: inout ResponseContaining, vcMap: [RequestedVerifiableCredentialMapping]) -> Promise<ResponseContaining> {
+        response.requestVCMap = vcMap
         return Promise { seal in
             seal.fulfill(response)
         }
@@ -104,5 +103,3 @@ class PairwiseService {
         return ownerIdentifier
     }
 }
-
-typealias TypeToVcTuple = (String, VerifiableCredential)

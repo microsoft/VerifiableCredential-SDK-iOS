@@ -5,6 +5,7 @@
 
 import PromiseKit
 import VCEntities
+import VCToken
 
 @testable import VCServices
 
@@ -24,7 +25,11 @@ class MockPresentationResponseFormatter: PresentationResponseFormatting {
     func format(response: PresentationResponseContainer, usingIdentifier identifier: Identifier) throws -> PresentationResponse {
         Self.wasFormatCalled = true
         if (shouldSucceed) {
-            return PresentationResponse(from: TestData.presentationResponse.rawValue)!
+            let header = Header(type: "type", algorithm: "alg", jsonWebKey: "key", keyId: "kid")
+            let claims = PresentationResponseClaims(state: "state",
+                                                    nonce: "nonce")
+            let idToken = PresentationResponseToken(headers: header, content: claims)!
+            return PresentationResponse(idToken: idToken, vpToken: nil)
         } else {
             throw MockIssuanceResponseFormatterError.doNotWantToResolveRealObject
         }

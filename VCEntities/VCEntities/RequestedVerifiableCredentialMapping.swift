@@ -4,6 +4,11 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct RequestedVerifiableCredentialMapping {
-    let type: String
-    let vc: VerifiableCredential
+    public let type: String
+    public let vc: VerifiableCredential
+    
+    public init(type: String, verifiableCredential: VerifiableCredential) {
+        self.type = type
+        self.vc = verifiableCredential
+    }
 }
