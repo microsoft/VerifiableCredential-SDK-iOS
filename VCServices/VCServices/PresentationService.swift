@@ -78,9 +78,10 @@ public class PresentationService {
     public func send(response: PresentationResponseContainer, isPairwise: Bool = false) -> Promise<String?> {
         return logTime(name: "Presentation sendResponse") {
             firstly {
-                self.exchangeVCsIfPairwise(response: response, isPairwise: isPairwise)
+                /// turn off pairwise until we have a better solution.
+                self.exchangeVCsIfPairwise(response: response, isPairwise: false)
             }.then { response in
-                self.formatPresentationResponse(response: response, isPairwise: isPairwise)
+                self.formatPresentationResponse(response: response, isPairwise: false)
             }.then { signedToken in
                 self.presentationApiCalls.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
             }
