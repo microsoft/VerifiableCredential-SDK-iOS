@@ -73,9 +73,10 @@ public class IssuanceService {
     public func send(response: IssuanceResponseContainer, isPairwise: Bool = false) -> Promise<VerifiableCredential> {
         return logTime(name: "Issuance sendResponse") {
             firstly {
-                self.exchangeVCsIfPairwise(response: response, isPairwise: isPairwise)
+                /// turn off pairwise until we have a better solution.
+                self.exchangeVCsIfPairwise(response: response, isPairwise: false)
             }.then { response in
-                self.formatIssuanceResponse(response: response, isPairwise: isPairwise)
+                self.formatIssuanceResponse(response: response, isPairwise: false)
             }.then { signedToken in
                 self.apiCalls.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
             }
