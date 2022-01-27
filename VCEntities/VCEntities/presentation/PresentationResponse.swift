@@ -16,14 +16,18 @@ public struct PresentationResponse: Codable {
     
     public let vpToken: VerifiablePresentation?
     
+    public let state: String?
+    
     enum CodingKeys: String, CodingKey {
         case idToken = "id_token"
         case vpToken = "vp_token"
+        case state
     }
     
     public init(idToken: PresentationResponseToken, vpToken: VerifiablePresentation?) {
         self.idToken = idToken
         self.vpToken = vpToken
+        self.state = idToken.content.state
     }
     
     public init(from decoder: Decoder) throws {
@@ -40,11 +44,16 @@ public struct PresentationResponse: Codable {
         } else {
             throw PresentationResponseDecodingError.unableToDecodeVpToken
         }
+        state = try values.decodeIfPresent(String.self, forKey: .state)
     }
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(idToken.rawValue, forKey: .idToken)
-        try container.encodeIfPresent(vpToken?.rawValue, forKey: .vpToken)
+        let jwsEncoder = JwsEncoder()
+        try container.encodeIfPresent(jwsEncoder.encode(idToken), forKey: .idToken)
+        if let vpToken = vpToken {
+            try container.encodeIfPresent(jwsEncoder.encode(vpToken), forKey: .vpToken)
+        }
+        try container.encodeIfPresent(state, forKey: .state)
     }
 }
