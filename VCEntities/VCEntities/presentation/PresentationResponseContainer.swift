@@ -5,6 +5,7 @@
 
 enum PresentationResponseError: Error {
     case noAudienceInRequest
+    case noAudienceDidInRequest
 }
 
 public struct PresentationResponseContainer: ResponseContaining {
@@ -21,9 +22,13 @@ public struct PresentationResponseContainer: ResponseContaining {
         guard let audience = presentationRequest.content.clientID else {
             throw PresentationResponseError.noAudienceInRequest
         }
+        
+        guard let audienceDid = presentationRequest.content.issuer else {
+            throw PresentationResponseError.noAudienceDidInRequest
+        }
 
         self.audienceUrl = audience
-        self.audienceDid = presentationRequest.content.issuer
+        self.audienceDid = audienceDid
         self.request = presentationRequest
         self.expiryInSeconds = exp
     }

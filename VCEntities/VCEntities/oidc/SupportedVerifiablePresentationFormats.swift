@@ -3,10 +3,13 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct SchemaDescriptor: Codable, Equatable {
-    public let uri: [String]?
+/// Supported Verifiable Presentation Formats for response.
+public struct SupportedVerifiablePresentationFormats: Codable, Equatable {
     
-    public let name: String?
-    
-    public let purpose: String?
+    /// Supported algorithms for response.
+    public let jwtVP: AllowedAlgorithms?
+
+    enum CodingKeys: String, CodingKey {
+        case jwtVP = "jwt_vp"
+    }
 }

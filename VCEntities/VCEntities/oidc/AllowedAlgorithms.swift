@@ -3,16 +3,14 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct PresentationInputDescriptor: Codable, Equatable {
-    
-    public let id: String
-    
-    public let schema: SchemaDescriptor
-    
-    public let issuanceMetadata: [IssuanceMetadata]
-    
+public struct AllowedAlgorithms: Codable, Equatable {
+    public let algorithms: [String]?
+
     enum CodingKeys: String, CodingKey {
-        case issuanceMetadata = "issuance"
-        case id, schema
+        case algorithms = "alg"
     }
+}
+
+public enum SupportedAlgorithms: String {
+    case es256k = "ES256K"
 }

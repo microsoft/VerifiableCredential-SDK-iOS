@@ -5,25 +5,26 @@
 
 import VCToken
 
+/// OIDC Claims that represent a Verifiable Credential Presentation Request.
 public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
     public let clientID: String?
     
-    public let issuer: String
+    public let issuer: String?
     
     public let redirectURI: String?
     
-    public let responseType: String
+    public let responseType: String?
     
-    public let responseMode: String
+    public let responseMode: String?
     
-    public let presentationDefinition: PresentationDefinition
+    public let claims: RequestedClaims?
     
     public let state: String?
     
     public let nonce: String?
     
-    public let scope: String
+    public let scope: String?
     
     /// flag to determine if presentation request can go into issuance flow
     public let prompt: String?
@@ -39,23 +40,22 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     enum CodingKeys: String, CodingKey {
         case clientID = "client_id"
         case issuer = "iss"
-        case presentationDefinition = "presentation_definition"
         case redirectURI = "redirect_uri"
         case responseType = "response_type"
         case responseMode = "response_mode"
         case idTokenHint = "id_token_hint"
-        case state, nonce, prompt, registration, iat, exp, scope
+        case state, nonce, prompt, registration, iat, exp, scope, claims
     }
     
-    init(clientID: String,
-         issuer: String,
+    init(clientID: String?,
+         issuer: String?,
          redirectURI: String?,
-         responseMode: String,
-         responseType: String,
-         presentationDefinition: PresentationDefinition,
+         responseMode: String?,
+         responseType: String?,
+         claims: RequestedClaims?,
          state: String?,
          nonce: String?,
-         scope: String,
+         scope: String?,
          prompt: String?,
          registration: RegistrationClaims?,
          idTokenHint: IssuerIdToken? = nil,
@@ -66,7 +66,7 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
         self.redirectURI = redirectURI
         self.responseMode = responseMode
         self.responseType = responseType
-        self.presentationDefinition = presentationDefinition
+        self.claims = claims
         self.state = state
         self.nonce = nonce
         self.scope = scope
@@ -80,15 +80,15 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         clientID = try values.decodeIfPresent(String.self, forKey: .clientID)
-        issuer = try values.decode(String.self, forKey: .issuer)
+        issuer = try values.decodeIfPresent(String.self, forKey: .issuer)
         redirectURI = try values.decodeIfPresent(String.self, forKey: .redirectURI)
-        responseMode = try values.decode(String.self, forKey: .responseMode)
-        responseType = try values.decode(String.self, forKey: .responseType)
-        presentationDefinition = try values.decode(PresentationDefinition.self, forKey: .presentationDefinition)
+        responseMode = try values.decodeIfPresent(String.self, forKey: .responseMode)
+        responseType = try values.decodeIfPresent(String.self, forKey: .responseType)
+        claims = try values.decodeIfPresent(RequestedClaims.self, forKey: .claims)
         state = try values.decodeIfPresent(String.self, forKey: .state)
         nonce = try values.decodeIfPresent(String.self, forKey: .nonce)
         prompt = try values.decodeIfPresent(String.self, forKey: .prompt)
-        scope = try values.decode(String.self, forKey: .scope)
+        scope = try values.decodeIfPresent(String.self, forKey: .scope)
         iat = try values.decodeIfPresent(Double.self, forKey: .iat)
         exp = try values.decodeIfPresent(Double.self, forKey: .exp)
         registration = try values.decodeIfPresent(RegistrationClaims.self, forKey: .registration)
@@ -107,7 +107,7 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
         try container.encodeIfPresent(redirectURI, forKey: .redirectURI)
         try container.encodeIfPresent(responseMode, forKey: .responseMode)
         try container.encodeIfPresent(responseType, forKey: .responseType)
-        try container.encodeIfPresent(presentationDefinition, forKey: .presentationDefinition)
+        try container.encodeIfPresent(claims, forKey: .claims)
         try container.encodeIfPresent(state, forKey: .state)
         try container.encodeIfPresent(nonce, forKey: .nonce)
         try container.encodeIfPresent(prompt, forKey: .prompt)
@@ -119,4 +119,5 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     }
 }
 
+/// JWT representation of a Presentation Request.
 public typealias PresentationRequestToken = JwsToken<PresentationRequestClaims>
