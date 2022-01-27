@@ -8,7 +8,13 @@ import PromiseKit
 import VCEntities
 
 class FetchPresentationRequestOperation: InternalNetworkOperation {
+    
     typealias ResponseBody = PresentationRequestToken
+    
+    private struct Constants {
+        static let VersionNumberHeaderField = "prefer"
+        static let VersionNumberHeaderValue = "WACI4ION-0.0.1"
+    }
     
     let decoder: PresentationRequestDecoder = PresentationRequestDecoder()
     let urlSession: URLSession
@@ -26,5 +32,9 @@ class FetchPresentationRequestOperation: InternalNetworkOperation {
         self.urlRequest = URLRequest(url: url)
         self.urlSession = session
         self.correlationVector = cv
+        
+        /// sets value in order to get a signed version of the contract
+        self.urlRequest.addValue(Constants.VersionNumberHeaderValue,
+                                 forHTTPHeaderField: Constants.VersionNumberHeaderField)
     }
 }

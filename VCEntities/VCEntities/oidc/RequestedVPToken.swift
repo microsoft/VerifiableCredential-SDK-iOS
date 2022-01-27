@@ -3,11 +3,13 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct PresentationDefinition: Codable, Equatable {
+/// Property of Requested Claims in an OIDC request that describes the verifiable presentation token requested.
+public struct RequestedVPToken: Codable, Equatable {
     
-    public let inputDescriptors: [PresentationInputDescriptor]
-    
+    /// Description of the vp token requested.
+    public let presentationDefinition: PresentationDefinition?
+
     enum CodingKeys: String, CodingKey {
-        case inputDescriptors = "input_descriptors"
+        case presentationDefinition = "presentation_definition"
     }
 }

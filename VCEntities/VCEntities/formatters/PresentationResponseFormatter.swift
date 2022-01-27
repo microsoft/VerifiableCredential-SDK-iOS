@@ -59,7 +59,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
                                andSignWith key: KeyContainer) throws -> VerifiablePresentation {
         
         return try vpFormatter.format(toWrap: response.requestVCMap,
-                                        withAudience: response.request.content.issuer,
+                                        withAudience: response.audienceDid,
                                         withExpiryInSeconds: response.expiryInSeconds,
                                         usingIdentifier: identifier,
                                         andSignWith: key)

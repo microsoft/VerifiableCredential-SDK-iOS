@@ -5,6 +5,11 @@
 
 import VCToken
 
+/**
+ * Contents of an OpenID Self-Issued Token Request.
+ *
+ * @see [OpenID Spec](https://openid.net/specs/openid-connect-core-1_0.html#JWTRequests)
+ */
 protocol OIDCClaims: Claims {
     var audience: String? { get }
     var responseType: String? { get }
@@ -17,6 +22,7 @@ protocol OIDCClaims: Claims {
     var issuer: String? { get }
     var registration: RegistrationClaims? { get }
     var prompt: String? { get }
+    var claims: RequestedClaims? { get }
 }
 
 extension OIDCClaims {
@@ -61,6 +67,10 @@ extension OIDCClaims {
     }
     
     var prompt: String? {
+        return nil
+    }
+    
+    var claims: RequestedClaims? {
         return nil
     }
 }

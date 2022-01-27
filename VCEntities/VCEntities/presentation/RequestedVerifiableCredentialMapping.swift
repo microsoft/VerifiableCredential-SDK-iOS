@@ -3,16 +3,15 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct PresentationInputDescriptor: Codable, Equatable {
+/**
+ * Mapping between the request type and the chosen Verifiable Credential.
+ */
+public struct RequestedVerifiableCredentialMapping {
+    public let type: String
+    public let vc: VerifiableCredential
     
-    public let id: String
-    
-    public let schema: SchemaDescriptor
-    
-    public let issuanceMetadata: [IssuanceMetadata]
-    
-    enum CodingKeys: String, CodingKey {
-        case issuanceMetadata = "issuance"
-        case id, schema
+    public init(type: String, verifiableCredential: VerifiableCredential) {
+        self.type = type
+        self.vc = verifiableCredential
     }
 }
