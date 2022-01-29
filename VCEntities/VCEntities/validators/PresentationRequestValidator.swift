@@ -80,7 +80,7 @@ public struct PresentationRequestValidator: RequestValidating {
             throw PresentationRequestValidatorError.subjectIdentifierTypeNotSupported
         }
         
-        if let isAlgorithmSupportedInVp =         registration.vpFormats?.jwtVP?.algorithms?.contains(VCEntitiesConstants.ALGORITHM_SUPPORTED_IN_VP),
+        if let isAlgorithmSupportedInVp = registration.vpFormats?.jwtVP?.algorithms?.contains(VCEntitiesConstants.ALGORITHM_SUPPORTED_IN_VP),
            !isAlgorithmSupportedInVp {
             throw PresentationRequestValidatorError.signingAlgorithmNotSupported
         }

@@ -23,7 +23,7 @@ public struct VCEntitiesConstants {
     // OIDC Protocol
     public static let ALGORITHM_SUPPORTED_IN_VP = "ES256K"
     public static let CREDENTIAL_FORMAT_SUPPORTED = "jwt"
-    public static let DID_METHODS_SUPPORTED = "ion"
+    public static let DID_METHODS_SUPPORTED = "did:ion:"
     public static let RESPONSE_TYPE = "id_token"
     public static let RESPONSE_MODE = "post"
     public static let SCOPE = "openid"
