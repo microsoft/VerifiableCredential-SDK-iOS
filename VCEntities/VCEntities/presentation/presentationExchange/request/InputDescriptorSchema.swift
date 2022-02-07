@@ -7,7 +7,7 @@
 public struct InputDescriptorSchema: Codable, Equatable {
     
     /// List of uris that describe the credential requested.
-    public let uri: [String]?
+    public let uri: String?
     
     enum CodingKeys: String, CodingKey {
         case uri

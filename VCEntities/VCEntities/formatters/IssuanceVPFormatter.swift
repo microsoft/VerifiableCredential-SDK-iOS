@@ -8,9 +8,8 @@ import VCToken
 class IssuanceVPFormatter {
     
     private struct Constants {
-        static let Purpose = "verify"
         static let Context = "https://www.w3.org/2018/credentials/v1"
-        static let VPType = "VerifiablePresentation"
+        static let VerifiablePresentation = "VerifiablePresentation"
     }
     
     let signer: TokenSigning
@@ -31,12 +30,13 @@ class IssuanceVPFormatter {
         let verifiablePresentationDescriptor = try self.createVerifiablePresentationDescriptor(toWrap: vc)
         
         let vpClaims = VerifiablePresentationClaims(vpId: UUID().uuidString,
-                                                    purpose: Constants.Purpose,
                                                     verifiablePresentation: verifiablePresentationDescriptor,
                                                     issuerOfVp: identifier.longFormDid,
                                                     audience: audience,
                                                     iat: timeConstraints.issuedAt,
-                                                    exp: timeConstraints.expiration)
+                                                    nbf: timeConstraints.issuedAt,
+                                                    exp: timeConstraints.expiration,
+                                                    nonce: nil)
         
         guard var token = JwsToken<VerifiablePresentationClaims>(headers: headers, content: vpClaims) else {
             throw FormatterError.unableToFormToken
@@ -53,7 +53,7 @@ class IssuanceVPFormatter {
         }
         
         return VerifiablePresentationDescriptor(context: [Constants.Context],
-                                                type: [Constants.VPType],
+                                                type: [Constants.VerifiablePresentation],
                                                 verifiableCredential: [rawVC])
     }
 }

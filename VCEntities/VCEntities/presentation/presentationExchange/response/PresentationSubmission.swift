@@ -14,7 +14,7 @@ public struct PresentationSubmission: Codable {
     public let id: String
     
     /// The value of this property MUST be the id value of a valid Presentation Definition from request.
-    public let definitionId: String
+    public let definitionId: String?
     
     /// The value of this property MUST be an array of Input Descriptor Mapping Objects.
     public let inputDescriptorMap: [InputDescriptorMapping]

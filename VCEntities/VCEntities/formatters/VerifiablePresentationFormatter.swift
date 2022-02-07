@@ -5,11 +5,12 @@
 
 import VCToken
 
-let PURPOSE = "verify"
-let CONTEXT = "https://www.w3.org/2018/credentials/v1"
-let TYPE = "VerifiablePresentation"
-
 class VerifiablePresentationFormatter {
+    
+    private struct Constants {
+        static let Context = "https://www.w3.org/2018/credentials/v1"
+        static let VerifiablePresentation = "VerifiablePresentation"
+    }
     
     let signer: TokenSigning
     let headerFormatter = JwsHeaderFormatter()
@@ -19,22 +20,24 @@ class VerifiablePresentationFormatter {
     }
     
     func format(toWrap vcs: RequestedVerifiableCredentialMap,
-                       withAudience audience: String,
-                       withExpiryInSeconds exp: Int,
-                       usingIdentifier identifier: Identifier,
-                       andSignWith key: KeyContainer) throws -> VerifiablePresentation {
+                withAudience audience: String,
+                withNonce nonce: String,
+                withExpiryInSeconds exp: Int,
+                usingIdentifier identifier: Identifier,
+                andSignWith key: KeyContainer) throws -> VerifiablePresentation {
         
         let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: identifier.didDocumentKeys.first!)
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: exp)
         let verifiablePresentationDescriptor = try self.createVerifiablePresentationDescriptor(toWrap: vcs)
         
         let vpClaims = VerifiablePresentationClaims(vpId: UUID().uuidString,
-                                                    purpose: PURPOSE,
                                                     verifiablePresentation: verifiablePresentationDescriptor,
                                                     issuerOfVp: identifier.longFormDid,
                                                     audience: audience,
                                                     iat: timeConstraints.issuedAt,
-                                                    exp: timeConstraints.expiration)
+                                                    nbf: timeConstraints.issuedAt,
+                                                    exp: timeConstraints.expiration,
+                                                    nonce: nonce)
         
         guard var token = JwsToken<VerifiablePresentationClaims>(headers: headers, content: vpClaims) else {
             throw FormatterError.unableToFormToken
@@ -46,8 +49,8 @@ class VerifiablePresentationFormatter {
     
     private func createVerifiablePresentationDescriptor(toWrap vcs: RequestedVerifiableCredentialMap) throws -> VerifiablePresentationDescriptor {
         
-        return VerifiablePresentationDescriptor(context: [CONTEXT],
-                                                type: [TYPE],
+        return VerifiablePresentationDescriptor(context: [Constants.Context],
+                                                type: [Constants.VerifiablePresentation],
                                                 verifiableCredential: vcs.compactMap { vcMapping in vcMapping.vc.rawValue })
     }
 }

@@ -24,10 +24,12 @@ public struct PresentationResponse: Codable {
         case state
     }
     
-    public init(idToken: PresentationResponseToken, vpToken: VerifiablePresentation?) {
+    public init(idToken: PresentationResponseToken,
+                vpToken: VerifiablePresentation?,
+                state: String?) {
         self.idToken = idToken
         self.vpToken = vpToken
-        self.state = idToken.content.state
+        self.state = state
     }
     
     public init(from decoder: Decoder) throws {

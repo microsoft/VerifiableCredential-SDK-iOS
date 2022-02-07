@@ -7,61 +7,40 @@ import VCToken
 
 public struct PresentationResponseClaims: OIDCClaims {
     
-    public let issuer: String = VCEntitiesConstants.SELF_ISSUED
+    public let issuer: String = VCEntitiesConstants.SELF_ISSUED_V2
         
     public let publicKeyThumbprint: String
     
     public let audience: String
     
-    public let did: String
-    
-    public let publicJwk: ECPublicJwk?
-    
-    public let jti: String
-    
-    public let presentationSubmission: PresentationSubmission?
-    
-    public let state: String?
+    public let vpTokenDescription: VPTokenResponseDescription?
     
     public let nonce: String?
     
     public let iat: Double?
     
-    public let nbf: Double?
-    
     public let exp: Double?
     
     public init(publicKeyThumbprint: String = "",
                 audience: String = "",
-                did: String = "",
-                publicJwk: ECPublicJwk? = nil,
-                jti: String = "",
-                presentationSubmission: PresentationSubmission? = nil,
-                state: String?,
-                nonce: String?,
+                vpTokenDescription: VPTokenResponseDescription? = nil,
+                nonce: String? = "",
                 iat: Double? = nil,
-                nbf: Double? = nil,
                 exp: Double? = nil) {
         self.publicKeyThumbprint = publicKeyThumbprint
         self.audience = audience
-        self.did = did
-        self.publicJwk = publicJwk
-        self.jti = jti
-        self.state = state
         self.nonce = nonce
         self.iat = iat
-        self.nbf = nbf
         self.exp = exp
-        self.presentationSubmission = presentationSubmission
+        self.vpTokenDescription = vpTokenDescription
     }
     
     enum CodingKeys: String, CodingKey {
         case issuer = "iss"
         case publicKeyThumbprint = "sub"
-        case presentationSubmission = "presentation_submission"
+        case vpTokenDescription = "_vp_token"
         case audience = "aud"
-        case publicJwk = "sub_jwk"
-        case jti, did, iat, exp, state, nonce, nbf
+        case iat, exp, nonce
     }
 }
 

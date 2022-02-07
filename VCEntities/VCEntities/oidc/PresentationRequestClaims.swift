@@ -8,9 +8,9 @@ import VCToken
 /// OIDC Claims that represent a Verifiable Credential Presentation Request.
 public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
-    public let clientID: String?
+    public let jti: String?
     
-    public let issuer: String?
+    public let clientID: String?
     
     public let redirectURI: String?
     
@@ -39,16 +39,15 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
     enum CodingKeys: String, CodingKey {
         case clientID = "client_id"
-        case issuer = "iss"
         case redirectURI = "redirect_uri"
         case responseType = "response_type"
         case responseMode = "response_mode"
         case idTokenHint = "id_token_hint"
-        case state, nonce, prompt, registration, iat, exp, scope, claims
+        case state, nonce, prompt, registration, iat, exp, scope, claims, jti
     }
     
-    init(clientID: String?,
-         issuer: String?,
+    init(jti: String?,
+         clientID: String?,
          redirectURI: String?,
          responseMode: String?,
          responseType: String?,
@@ -61,8 +60,8 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
          idTokenHint: IssuerIdToken? = nil,
          iat: Double?,
          exp: Double?) {
+        self.jti = jti
         self.clientID = clientID
-        self.issuer = issuer
         self.redirectURI = redirectURI
         self.responseMode = responseMode
         self.responseType = responseType
@@ -79,8 +78,8 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        jti = try values.decodeIfPresent(String.self, forKey: .jti)
         clientID = try values.decodeIfPresent(String.self, forKey: .clientID)
-        issuer = try values.decodeIfPresent(String.self, forKey: .issuer)
         redirectURI = try values.decodeIfPresent(String.self, forKey: .redirectURI)
         responseMode = try values.decodeIfPresent(String.self, forKey: .responseMode)
         responseType = try values.decodeIfPresent(String.self, forKey: .responseType)
@@ -102,8 +101,8 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(jti, forKey: .jti)
         try container.encodeIfPresent(clientID, forKey: .clientID)
-        try container.encodeIfPresent(issuer, forKey: .issuer)
         try container.encodeIfPresent(redirectURI, forKey: .redirectURI)
         try container.encodeIfPresent(responseMode, forKey: .responseMode)
         try container.encodeIfPresent(responseType, forKey: .responseType)

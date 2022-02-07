@@ -106,6 +106,7 @@
 		559FCA3C25CA03D200737F14 /* IssuanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FCA3B25CA03D200737F14 /* IssuanceRequest.swift */; };
 		559FCA5225CA042400737F14 /* LinkedDomainResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FCA5125CA042400737F14 /* LinkedDomainResult.swift */; };
 		559FCA5625CA0E6A00737F14 /* PresentationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FCA5525CA0E6A00737F14 /* PresentationRequest.swift */; };
+		55A1EDFC27AC47FC00C63CA8 /* VPTokenResponseDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1EDFB27AC47FC00C63CA8 /* VPTokenResponseDescription.swift */; };
 		55A2CA6D266EA44B00AE1A20 /* MeasureTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A2CA6C266EA44A00AE1A20 /* MeasureTime.swift */; };
 		55AC02B525D3087D00AA15F4 /* IdentifierDocumentServiceEndpointDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AC02B425D3087D00AA15F4 /* IdentifierDocumentServiceEndpointDescriptor.swift */; };
 		55AF747B252F5B4B006A8B25 /* IdentifierFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */; };
@@ -248,6 +249,7 @@
 		559FCA3B25CA03D200737F14 /* IssuanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRequest.swift; sourceTree = "<group>"; };
 		559FCA5125CA042400737F14 /* LinkedDomainResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedDomainResult.swift; sourceTree = "<group>"; };
 		559FCA5525CA0E6A00737F14 /* PresentationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequest.swift; sourceTree = "<group>"; };
+		55A1EDFB27AC47FC00C63CA8 /* VPTokenResponseDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPTokenResponseDescription.swift; sourceTree = "<group>"; };
 		55A2CA6C266EA44A00AE1A20 /* MeasureTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureTime.swift; sourceTree = "<group>"; };
 		55AC02B425D3087D00AA15F4 /* IdentifierDocumentServiceEndpointDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierDocumentServiceEndpointDescriptor.swift; sourceTree = "<group>"; };
 		55AF747A252F5B4A006A8B25 /* IdentifierFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierFormatterTests.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				5518CC67252645D000C7A21B /* PresentationSubmission.swift */,
 				55B4D36627A337590086A9F1 /* NestedInputDescriptorMapping.swift */,
 				55B4D36827A337AD0086A9F1 /* InputDescriptorMapping.swift */,
+				55A1EDFB27AC47FC00C63CA8 /* VPTokenResponseDescription.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -874,6 +877,7 @@
 				55B4D36127A330680086A9F1 /* IssuanceVPFormatter.swift in Sources */,
 				555CE08F2526822300C1C938 /* VerifiablePresentationDescriptor.swift in Sources */,
 				55575770251BC6CF009979AB /* OIDCClaims.swift in Sources */,
+				55A1EDFC27AC47FC00C63CA8 /* VPTokenResponseDescription.swift in Sources */,
 				55793BCF255A08FE007F7599 /* ExchangeRequestFormatter.swift in Sources */,
 				5573FEF625B8DE4A00282BC7 /* IONDocumentDeltaDescriptor.swift in Sources */,
 				5557576C251BC6CF009979AB /* CardDisplayDescriptor.swift in Sources */,

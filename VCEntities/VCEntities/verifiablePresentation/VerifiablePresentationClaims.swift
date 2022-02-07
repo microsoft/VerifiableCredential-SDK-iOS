@@ -8,8 +8,6 @@ import VCToken
 public struct VerifiablePresentationClaims: OIDCClaims {
     let vpId: String
     
-    let purpose: String
-    
     let verifiablePresentation: VerifiablePresentationDescriptor
     
     let issuerOfVp: String
@@ -18,14 +16,18 @@ public struct VerifiablePresentationClaims: OIDCClaims {
     
     let iat: Double
     
+    let nbf: Double
+    
     let exp: Double
+    
+    let nonce: String?
     
     enum CodingKeys: String, CodingKey {
         case issuerOfVp = "iss"
         case audience = "aud"
         case vpId = "jti"
         case verifiablePresentation = "vp"
-        case iat, exp, purpose
+        case iat, exp, nonce, nbf
     }
 }
 

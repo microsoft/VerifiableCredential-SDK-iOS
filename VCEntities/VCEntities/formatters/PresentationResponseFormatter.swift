@@ -5,14 +5,19 @@
 
 import VCToken
 
-let CREDENTIAL_PATH = "$.attestations.presentations."
-let CREDENTIAL_ENCODING = "base64Url"
-
 public protocol PresentationResponseFormatting {
     func format(response: PresentationResponseContainer, usingIdentifier identifier: Identifier) throws -> PresentationResponse
 }
 
 public class PresentationResponseFormatter: PresentationResponseFormatting {
+    
+    private struct Constants {
+        static let CredentialEncoding = "base64Url"
+        static let CredentialPath = "$.attestations.presentations."
+        static let JwtVc = "jwt_vc"
+        static let JwtVp = "jwt_vp"
+        static let SimplePath = "$"
+    }
     
     let signer: TokenSigning
     let vpFormatter: VerifiablePresentationFormatter
@@ -35,7 +40,9 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         let idToken = try createIdToken(from: response, usingIdentifier: identifier, andSignWith: signingKey)
         let vpToken = try createVpToken(from: response, usingIdentifier: identifier, andSignWith: signingKey)
 
-        return PresentationResponse(idToken: idToken, vpToken: vpToken)
+        return PresentationResponse(idToken: idToken,
+                                    vpToken: vpToken,
+                                    state: response.request.content.state)
     }
     
     private func createIdToken(from response: PresentationResponseContainer,
@@ -59,10 +66,11 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
                                andSignWith key: KeyContainer) throws -> VerifiablePresentation {
         
         return try vpFormatter.format(toWrap: response.requestVCMap,
-                                        withAudience: response.audienceDid,
-                                        withExpiryInSeconds: response.expiryInSeconds,
-                                        usingIdentifier: identifier,
-                                        andSignWith: key)
+                                      withAudience: response.audienceDid,
+                                      withNonce: response.nonce,
+                                      withExpiryInSeconds: response.expiryInSeconds,
+                                      usingIdentifier: identifier,
+                                      andSignWith: key)
     }
     
     private func formatClaims(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> PresentationResponseClaims {
@@ -70,18 +78,14 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         let publicKey = try signer.getPublicJwk(from: key.keyReference, withKeyId: key.keyId)
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: response.expiryInSeconds)
         
-        let presentationSubmission = self.formatPresentationSubmission(from: response, keyType: "JWT")
+        let presentationSubmission = self.formatPresentationSubmission(from: response, keyType: VCEntitiesConstants.JWT)
+        let vpTokenDescription = VPTokenResponseDescription(presentationSubmission: presentationSubmission)
         
         return PresentationResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                           audience: response.audienceUrl,
-                                          did: identifier.longFormDid,
-                                          publicJwk: publicKey,
-                                          jti: UUID().uuidString,
-                                          presentationSubmission: presentationSubmission,
-                                          state: response.request.content.state,
-                                          nonce: response.request.content.nonce,
+                                          vpTokenDescription: vpTokenDescription,
+                                          nonce: response.nonce,
                                           iat: timeConstraints.issuedAt,
-                                          nbf: timeConstraints.issuedAt,
                                           exp: timeConstraints.expiration)
     }
     
@@ -100,8 +104,8 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
             verifiable credentials: \(response.requestVCMap.count)
             """)
         
-        let submission = PresentationSubmission(id: "test",
-                                                definitionId: "test",
+        let submission = PresentationSubmission(id: UUID().uuidString,
+                                                definitionId: response.presentationDefinitionId,
                                                 inputDescriptorMap: inputDescriptorMap)
         
         return submission
@@ -109,12 +113,12 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
     
     private func createInputDescriptorMapping(type: String, index: Int) -> InputDescriptorMapping {
         let nestedInputDescriptorMapping = NestedInputDescriptorMapping(id: type,
-                                                                        format: "jwt_vc",
+                                                                        format: Constants.JwtVc,
                                                                         path: "$.verifiableCredential[\(index)]")
         
         return InputDescriptorMapping(id: type,
-                                      format: "jwt_vp",
-                                      path: "$",
+                                      format: Constants.JwtVp,
+                                      path: Constants.SimplePath,
                                       pathNested: nestedInputDescriptorMapping)
     }
 }

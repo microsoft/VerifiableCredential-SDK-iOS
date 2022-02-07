@@ -14,7 +14,7 @@ public struct PresentationInputDescriptor: Codable, Equatable {
     public let id: String?
     
     /// Describes the credentail type of the vc requested.
-    public let schema: InputDescriptorSchema?
+    public let schema: [InputDescriptorSchema]?
     
     /// If present, information describing how to get credential.
     public let issuanceMetadata: [IssuanceMetadata]?

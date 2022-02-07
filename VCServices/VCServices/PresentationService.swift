@@ -127,7 +127,7 @@ public class PresentationService {
     
     private func validateLinkedDomainOfRequest(_ token: PresentationRequestToken) -> Promise<LinkedDomainResult> {
         
-        guard let issuer = token.content.issuer else {
+        guard let issuer = token.content.clientID else {
             return Promise(error: PresentationServiceError.noIssuerIdentifierInRequest)
         }
         return self.linkedDomainService.validateLinkedDomain(from: issuer)
