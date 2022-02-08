@@ -9,7 +9,7 @@ public struct PresentationResponseClaims: OIDCClaims {
     
     public let issuer: String = VCEntitiesConstants.SELF_ISSUED_V2
         
-    public let publicKeyThumbprint: String
+    public let subject: String
     
     public let audience: String
     
@@ -21,13 +21,13 @@ public struct PresentationResponseClaims: OIDCClaims {
     
     public let exp: Double?
     
-    public init(publicKeyThumbprint: String = "",
+    public init(subject: String = "",
                 audience: String = "",
                 vpTokenDescription: VPTokenResponseDescription? = nil,
                 nonce: String? = "",
                 iat: Double? = nil,
                 exp: Double? = nil) {
-        self.publicKeyThumbprint = publicKeyThumbprint
+        self.subject = subject
         self.audience = audience
         self.nonce = nonce
         self.iat = iat
@@ -37,7 +37,7 @@ public struct PresentationResponseClaims: OIDCClaims {
     
     enum CodingKeys: String, CodingKey {
         case issuer = "iss"
-        case publicKeyThumbprint = "sub"
+        case subject = "sub"
         case vpTokenDescription = "_vp_token"
         case audience = "aud"
         case iat, exp, nonce

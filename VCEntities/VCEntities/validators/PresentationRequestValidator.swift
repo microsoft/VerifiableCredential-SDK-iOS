@@ -13,7 +13,7 @@ enum PresentationRequestValidatorError: Error {
     case invalidSignature
     case noExpirationPresent
     case noRegistrationPresent
-    case signingAlgorithmNotSupported
+    case responseSigningAlgorithmNotSupported(for: String, supportedAlgorithms: [String]?)
     case subjectIdentifierTypeNotSupported
     case tokenExpired
 }
@@ -82,7 +82,14 @@ public struct PresentationRequestValidator: RequestValidating {
         
         if let isAlgorithmSupportedInVp = registration.vpFormats?.jwtVP?.algorithms?.contains(VCEntitiesConstants.ALGORITHM_SUPPORTED_IN_VP),
            !isAlgorithmSupportedInVp {
-            throw PresentationRequestValidatorError.signingAlgorithmNotSupported
+            throw PresentationRequestValidatorError.responseSigningAlgorithmNotSupported(for: "Verifiable Presentations",
+                                                                                            supportedAlgorithms: registration.vpFormats?.jwtVP?.algorithms)
+        }
+        
+        if let isAlgorithmSupportedInVp = registration.vpFormats?.jwtVC?.algorithms?.contains(VCEntitiesConstants.ALGORITHM_SUPPORTED_IN_VP),
+           !isAlgorithmSupportedInVp {
+            throw PresentationRequestValidatorError.responseSigningAlgorithmNotSupported(for: "Verifiable Credentials",
+                                                                                            supportedAlgorithms: registration.vpFormats?.jwtVC?.algorithms)
         }
     }
     

@@ -75,14 +75,13 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
     
     private func formatClaims(from response: PresentationResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> PresentationResponseClaims {
         
-        let publicKey = try signer.getPublicJwk(from: key.keyReference, withKeyId: key.keyId)
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: response.expiryInSeconds)
         
         let presentationSubmission = self.formatPresentationSubmission(from: response, keyType: VCEntitiesConstants.JWT)
         let vpTokenDescription = VPTokenResponseDescription(presentationSubmission: presentationSubmission)
         
-        return PresentationResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
-                                          audience: response.audienceUrl,
+        return PresentationResponseClaims(subject: identifier.longFormDid,
+                                          audience: response.audienceDid,
                                           vpTokenDescription: vpTokenDescription,
                                           nonce: response.nonce,
                                           iat: timeConstraints.issuedAt,

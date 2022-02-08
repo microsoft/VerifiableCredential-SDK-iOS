@@ -35,7 +35,7 @@ public struct PresentationResponseContainer: ResponseContaining {
             throw PresentationResponseError.noAudienceInRequest
         }
         
-        guard let audienceDid = presentationRequest.content.issuer else {
+        guard let audienceDid = presentationRequest.content.clientID else {
             throw PresentationResponseError.noAudienceDidInRequest
         }
         
