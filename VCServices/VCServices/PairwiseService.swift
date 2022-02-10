@@ -49,7 +49,7 @@ class PairwiseService {
     private func exchangeRequestedVcs(vcs: RequestedVerifiableCredentialMap, newOwnerDid: String) -> Promise<[RequestedVerifiableCredentialMapping]> {
         var promises: [Promise<RequestedVerifiableCredentialMapping>] = []
         for vc in vcs {
-            promises.append(exchangeVerifiableCredential(type: vc.type, exchangeableVerifiableCredential: vc.vc, newOwnerDid: newOwnerDid))
+            promises.append(exchangeVerifiableCredential(type: vc.inputDescriptorId, exchangeableVerifiableCredential: vc.vc, newOwnerDid: newOwnerDid))
         }
         return when(fulfilled: promises)
     }
@@ -77,7 +77,7 @@ class PairwiseService {
     
     private func combineVCAndType(type: String, vc: VerifiableCredential) -> Promise<RequestedVerifiableCredentialMapping> {
         return Promise { seal in
-            seal.fulfill(RequestedVerifiableCredentialMapping(type: type, verifiableCredential: vc))
+            seal.fulfill(RequestedVerifiableCredentialMapping(id: type, verifiableCredential: vc))
         }
     }
     

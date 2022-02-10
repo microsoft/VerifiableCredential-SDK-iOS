@@ -124,7 +124,7 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
                                              usingIdentifier: identifier,
                                              andSignWith: key)
         
-        return (requestedVCMapping.type, try vp.serialize())
+        return (requestedVCMapping.inputDescriptorId, try vp.serialize())
         
     }
 }

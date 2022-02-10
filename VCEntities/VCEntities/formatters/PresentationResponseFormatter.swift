@@ -99,7 +99,7 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         }
         
         let inputDescriptorMap = response.requestVCMap.enumerated().map { (index, vcMapping) in
-            createInputDescriptorMapping(type: vcMapping.type, index: index)
+            createInputDescriptorMapping(id: vcMapping.inputDescriptorId, index: index)
         }
         
         sdkLog.logVerbose(message: """
@@ -114,12 +114,12 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         return submission
     }
     
-    private func createInputDescriptorMapping(type: String, index: Int) -> InputDescriptorMapping {
-        let nestedInputDescriptorMapping = NestedInputDescriptorMapping(id: type,
+    private func createInputDescriptorMapping(id: String, index: Int) -> InputDescriptorMapping {
+        let nestedInputDescriptorMapping = NestedInputDescriptorMapping(id: id,
                                                                         format: Constants.JwtVc,
                                                                         path: "$.verifiableCredential[\(index)]")
         
-        return InputDescriptorMapping(id: type,
+        return InputDescriptorMapping(id: id,
                                       format: Constants.JwtVp,
                                       path: Constants.SimplePath,
                                       pathNested: nestedInputDescriptorMapping)
