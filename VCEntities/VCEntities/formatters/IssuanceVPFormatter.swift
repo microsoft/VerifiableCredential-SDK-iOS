@@ -20,10 +20,10 @@ class IssuanceVPFormatter {
     }
     
     func format(toWrap vc: VerifiableCredential,
-                       withAudience audience: String,
-                       withExpiryInSeconds exp: Int,
-                       usingIdentifier identifier: Identifier,
-                       andSignWith key: KeyContainer) throws -> VerifiablePresentation {
+                withAudience audience: String,
+                withExpiryInSeconds exp: Int,
+                usingIdentifier identifier: Identifier,
+                andSignWith key: KeyContainer) throws -> VerifiablePresentation {
         
         let headers = headerFormatter.formatHeaders(usingIdentifier: identifier, andSigningKey: identifier.didDocumentKeys.first!)
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: exp)

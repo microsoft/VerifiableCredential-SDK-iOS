@@ -26,10 +26,9 @@ class MockPresentationResponseFormatter: PresentationResponseFormatting {
         Self.wasFormatCalled = true
         if (shouldSucceed) {
             let header = Header(type: "type", algorithm: "alg", jsonWebKey: "key", keyId: "kid")
-            let claims = PresentationResponseClaims(state: "state",
-                                                    nonce: "nonce")
+            let claims = PresentationResponseClaims(nonce: "nonce")
             let idToken = PresentationResponseToken(headers: header, content: claims)!
-            return PresentationResponse(idToken: idToken, vpToken: nil)
+            return PresentationResponse(idToken: idToken, vpToken: nil, state: "state")
         } else {
             throw MockIssuanceResponseFormatterError.doNotWantToResolveRealObject
         }

@@ -13,21 +13,21 @@ public struct RegistrationClaims: Codable, Equatable {
     /// The name of the requester.
     public let clientName: String?
     
+    /// The purpose of the request.
+    public let clientPurpose: String?
+    
     /// Optional logo uri of the requester.
     public let logoURI: String?
     
     /// The identifier types supported to use to respond to request (ex. did).
     public let subjectIdentifierTypesSupported: [String]?
     
-    /// The decentralized identity methods supported to use to respond to request (ex. ion).
-    public let didMethodsSupported: [String]?
-    
     /// The supported Verfiable Presentation Formats and Algorithms to respond to request.
     public let vpFormats: SupportedVerifiablePresentationFormats?
 
     enum CodingKeys: String, CodingKey {
         case clientName = "client_name"
-        case didMethodsSupported = "did_methods_supported"
+        case clientPurpose = "client_purpose"
         case logoURI = "logo_uri"
         case subjectIdentifierTypesSupported = "subject_syntax_types_supported"
         case vpFormats = "vp_formats"

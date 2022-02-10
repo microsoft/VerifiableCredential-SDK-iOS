@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-struct VerifiablePresentationDescriptor: Codable {
+public struct VerifiablePresentationDescriptor: Codable {
     
     let context: [String]
     

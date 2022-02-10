@@ -41,11 +41,10 @@ class PresentationResponseFormatterTests: XCTestCase {
         
         let formattedResponse = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
         
-        XCTAssertEqual(formattedResponse.idToken.content.did, self.mockIdentifier.longFormDid)
         XCTAssertNotNil(formattedResponse.idToken.content.exp)
         XCTAssertNotNil(formattedResponse.idToken.content.iat)
-        XCTAssertNotNil(formattedResponse.idToken.content.jti)
-        XCTAssertEqual(formattedResponse.idToken.content.audience, self.mockResponse.audienceUrl)
+        XCTAssertEqual(formattedResponse.idToken.content.subject, self.mockIdentifier.longFormDid)
+        XCTAssertEqual(formattedResponse.idToken.content.audience, self.mockResponse.audienceDid)
         XCTAssert(MockTokenSigner.wasSignCalled)
         XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
     }
@@ -53,12 +52,10 @@ class PresentationResponseFormatterTests: XCTestCase {
     func testFormatTokenNoVcs() throws {
 
         let formattedResponse = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
-        XCTAssertEqual(formattedResponse.idToken.content.did, self.mockIdentifier.longFormDid)
+        XCTAssertEqual(formattedResponse.idToken.content.subject, self.mockIdentifier.longFormDid)
         XCTAssertNotNil(formattedResponse.idToken.content.exp)
         XCTAssertNotNil(formattedResponse.idToken.content.iat)
-        XCTAssertNotNil(formattedResponse.idToken.content.jti)
-        XCTAssertEqual(formattedResponse.idToken.content.audience, self.mockResponse.audienceUrl)
-        XCTAssertNil(formattedResponse.idToken.content.presentationSubmission)
+        XCTAssertEqual(formattedResponse.idToken.content.audience, self.mockResponse.audienceDid)
         XCTAssert(MockTokenSigner.wasSignCalled)
         XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
     }

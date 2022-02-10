@@ -19,10 +19,11 @@ class PostPresentionResponseOperationTests: XCTestCase {
 
     override func setUpWithError() throws {
         let header = Header(type: "type", algorithm: "alg", jsonWebKey: "key", keyId: "kid")
-        let claims = PresentationResponseClaims(state: "state",
-                                                nonce: "nonce")
+        let claims = PresentationResponseClaims(nonce: "nonce")
         let idToken = PresentationResponseToken(headers: header, content: claims)!
-        expectedPresentationResponse = PresentationResponse(idToken: idToken, vpToken: nil)
+        let vpClaims = VerifiablePresentationClaims(verifiablePresentation: nil)
+        let vpToken = VerifiablePresentation(headers: header, content: vpClaims)!
+        expectedPresentationResponse = PresentationResponse(idToken: idToken, vpToken: vpToken, state: "state")
 
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [UrlProtocolMock.self]
@@ -41,7 +42,7 @@ class PostPresentionResponseOperationTests: XCTestCase {
         let encodedBody = try encoder.encode(value: expectedPresentationResponse)
         XCTAssertEqual(postOperation.urlRequest.httpBody!, encodedBody)
         XCTAssertEqual(postOperation.urlRequest.httpMethod!, Constants.POST)
-        XCTAssertEqual(postOperation.urlRequest.value(forHTTPHeaderField: Constants.CONTENT_TYPE)!, Constants.JSON)
+        XCTAssertEqual(postOperation.urlRequest.value(forHTTPHeaderField: Constants.CONTENT_TYPE)!, Constants.FORM_URLENCODED)
     }
 
     func testInvalidUrlInit() {

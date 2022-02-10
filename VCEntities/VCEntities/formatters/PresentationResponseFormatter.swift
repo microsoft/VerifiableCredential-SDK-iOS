@@ -37,12 +37,16 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
             throw FormatterError.noSigningKeyFound
         }
         
+        guard let state = response.request?.content.state else {
+            throw FormatterError.noStateInRequest
+        }
+        
         let idToken = try createIdToken(from: response, usingIdentifier: identifier, andSignWith: signingKey)
         let vpToken = try createVpToken(from: response, usingIdentifier: identifier, andSignWith: signingKey)
 
         return PresentationResponse(idToken: idToken,
                                     vpToken: vpToken,
-                                    state: response.request.content.state)
+                                    state: state)
     }
     
     private func createIdToken(from response: PresentationResponseContainer,

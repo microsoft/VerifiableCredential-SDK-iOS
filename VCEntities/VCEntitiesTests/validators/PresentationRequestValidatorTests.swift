@@ -101,25 +101,25 @@ class PresentationRequestValidatorTests: XCTestCase {
         }
     }
     
-    func testDidMethodNotSupportedError() throws {
+    func testSigningAlgorithmNotSupportedForVCError() throws {
         let validator = PresentationRequestValidator(verifier: verifier)
-        let mockInvalidRegistration = PresentationRequestValidatorTests.createRegistration(expectedDidMethodSupported: "wrongValue")
+        let mockInvalidRegistration = PresentationRequestValidatorTests.createRegistration(expectedSupportedAlgorithmForVC: "wrongValue")
         let mockRequestClaims = createMockPresentationRequestClaims(registration: mockInvalidRegistration)
         if let mockRequest = PresentationRequestToken(headers: Header(),content: mockRequestClaims) {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
-                XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.didMethodNotSupported)
+                XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.responseSigningAlgorithmNotSupportedForVCs)
             }
             XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
         }
     }
     
-    func testSigningAlgorithmNotSupportedError() throws {
+    func testSigningAlgorithmNotSupportedForVPError() throws {
         let validator = PresentationRequestValidator(verifier: verifier)
-        let mockInvalidRegistration = PresentationRequestValidatorTests.createRegistration(expectedSupportedAlgorithm: "wrongValue")
+        let mockInvalidRegistration = PresentationRequestValidatorTests.createRegistration(expectedSupportedAlgorithmForVP: "wrongValue")
         let mockRequestClaims = createMockPresentationRequestClaims(registration: mockInvalidRegistration)
         if let mockRequest = PresentationRequestToken(headers: Header(),content: mockRequestClaims) {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
-                XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.signingAlgorithmNotSupported)
+                XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.responseSigningAlgorithmNotSupportedForVPs)
             }
             XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
         }
@@ -130,8 +130,8 @@ class PresentationRequestValidatorTests: XCTestCase {
                                                      registration: RegistrationClaims = PresentationRequestValidatorTests.createRegistration(),
                                                      scope: String = VCEntitiesConstants.SCOPE,
                                                      timeConstraints: TokenTimeConstraints = TokenTimeConstraints(expiryInSeconds: 300)) -> PresentationRequestClaims {
-        return PresentationRequestClaims(clientID: "clientID",
-                                         issuer: "issuer",
+        return PresentationRequestClaims(jti: "testId",
+                                         clientID: "clientID",
                                          redirectURI: "redirectURI",
                                          responseMode: responseMode,
                                          responseType: responseType,
@@ -146,16 +146,18 @@ class PresentationRequestValidatorTests: XCTestCase {
                                          exp: timeConstraints.expiration)
     }
     
-    private static func createRegistration(expectedSubjectIdentifierType: String = "did",
-                                           expectedDidMethodSupported: String = "ion",
-                                           expectedSupportedAlgorithm: String = "ES256K") -> RegistrationClaims {
+    private static func createRegistration(expectedSubjectIdentifierType: String = "did:ion",
+                                           expectedSupportedAlgorithmForVC: String = "ES256K",
+                                           expectedSupportedAlgorithmForVP: String = "ES256K") -> RegistrationClaims {
+        let supportedAlgorithmsForVP = AllowedAlgorithms(algorithms: [expectedSupportedAlgorithmForVP])
+        let supportedAlgorithmsForVC = AllowedAlgorithms(algorithms: [expectedSupportedAlgorithmForVC])
+
+        
         return RegistrationClaims(clientName: "clientName",
                                   clientPurpose: "clientPurpose",
-                                  tosURI: "tosURI",
                                   logoURI: "logoURI",
                                   subjectIdentifierTypesSupported: [expectedSubjectIdentifierType],
-                                  didMethodsSupported: [expectedDidMethodSupported],
-                                  vpFormats: SupportedVerifiablePresentationFormats(jwtVP: AllowedAlgorithms(algorithms: [expectedSupportedAlgorithm])))
+                                  vpFormats: SupportedVerifiablePresentationFormats(jwtVP: supportedAlgorithmsForVP, jwtVC: supportedAlgorithmsForVC))
     }
     
 }

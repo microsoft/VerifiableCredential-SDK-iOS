@@ -11,7 +11,7 @@ enum PresentationResponseError: Error {
 
 public struct PresentationResponseContainer: ResponseContaining {
     
-    let request: PresentationRequest
+    let request: PresentationRequest?
     
     let expiryInSeconds: Int
     
@@ -49,5 +49,19 @@ public struct PresentationResponseContainer: ResponseContaining {
         self.presentationDefinitionId = presentationRequest.content.claims?.vpToken?.presentationDefinition?.id
         self.request = presentationRequest
         self.expiryInSeconds = exp
+    }
+    
+    public init(audienceUrl: String,
+                audienceDid: String,
+                nonce: String,
+                expiryInSeconds: Int,
+                presentationDefinitionId: String)
+    {
+        self.audienceDid = audienceDid
+        self.audienceUrl = audienceUrl
+        self.expiryInSeconds = expiryInSeconds
+        self.nonce = nonce
+        self.presentationDefinitionId = presentationDefinitionId
+        self.request = nil
     }
 }

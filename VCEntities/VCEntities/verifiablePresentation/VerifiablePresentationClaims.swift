@@ -6,21 +6,21 @@
 import VCToken
 
 public struct VerifiablePresentationClaims: OIDCClaims {
-    let vpId: String
+    public let vpId: String
     
-    let verifiablePresentation: VerifiablePresentationDescriptor
+    public let verifiablePresentation: VerifiablePresentationDescriptor
     
-    let issuerOfVp: String
+    public let issuerOfVp: String
     
-    let audience: String
+    public let audience: String
     
-    let iat: Double
+    public let iat: Double
     
-    let nbf: Double
+    public let nbf: Double
     
-    let exp: Double
+    public let exp: Double
     
-    let nonce: String?
+    public let nonce: String?
     
     enum CodingKeys: String, CodingKey {
         case issuerOfVp = "iss"
@@ -28,6 +28,24 @@ public struct VerifiablePresentationClaims: OIDCClaims {
         case vpId = "jti"
         case verifiablePresentation = "vp"
         case iat, exp, nonce, nbf
+    }
+    
+    public init(vpId: String = "",
+                verifiablePresentation: VerifiablePresentationDescriptor?,
+                issuerOfVp: String = "",
+                audience: String = "",
+                iat: Double = 0,
+                nbf: Double = 0,
+                exp: Double = 0,
+                nonce: String? = "") {
+        self.vpId = vpId
+        self.verifiablePresentation = verifiablePresentation ?? VerifiablePresentationDescriptor(context: [], type: [], verifiableCredential: [])
+        self.issuerOfVp = issuerOfVp
+        self.audience = audience
+        self.iat = iat
+        self.nbf = nbf
+        self.exp = exp
+        self.nonce = nonce
     }
 }
 
