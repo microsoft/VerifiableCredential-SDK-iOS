@@ -24,26 +24,24 @@ struct PresentationResponseEncoder: Encoding {
     
     func encode(value: PresentationResponse) throws -> Data {
         
-        let idToken = "\(Constants.idToken)=\(try value.idToken.serialize())"
-        
-        guard let vp = try value.vpToken?.serialize() else {
-            throw PresentationResponseEncoderError.noVerifiablePresentationInResponse
-        }
-        
-        let vpToken = "\(Constants.vpToken)=\(vp)"
-        
-        guard let requestState = value.state else {
-            throw PresentationResponseEncoderError.noStatePresentInResponse
-        }
-        
-        let state = "\(Constants.state)=\(requestState)"
-        
-        let responseBody = "\(idToken)&\(vpToken)&\(state)"
-        
-        guard let formattedResponse = responseBody.data(using: .ascii) else {
-            throw PresentationResponseEncoderError.unableToSerializeResponse
-        }
-        
-        return formattedResponse
+//        let idToken = try value.idToken.serialize()
+//
+//        guard let vp = try value.vpToken?.serialize() else {
+//            throw PresentationResponseEncoderError.noVerifiablePresentationInResponse
+//        }
+//
+//        let idTokenQueryItem = URLQueryItem(name: Constants.idToken, value: idToken)
+//        let vpTokenQueryItem = URLQueryItem(name: Constants.vpToken, value: vp)
+//        let stateQueryItem = URLQueryItem(name: Constants.state, value: value.state)
+//
+//        var components = URLComponents()
+//        components.queryItems = [idTokenQueryItem, vpTokenQueryItem, stateQueryItem]
+//
+//        guard let formattedResponse = components.query?.data(using: .utf16) else {
+//            throw PresentationResponseEncoderError.unableToSerializeResponse
+//        }
+//
+//        return formattedResponse
+        return try JSONEncoder().encode(value)
     }
 }
