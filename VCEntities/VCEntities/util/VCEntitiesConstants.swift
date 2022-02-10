@@ -5,7 +5,7 @@
 
 public struct VCEntitiesConstants {
     static let SELF_ISSUED = "https://self-issued.me"
-    static let SELF_ISSUED_V2 = "https://self-issued.me/v2"
+    static let SELF_ISSUED_V2 = "https://self-issued.me/v2/openid-vc"
     
     // TODO: temporary until deterministic key generation is implemented.
     public static let MASTER_ID = "master"
