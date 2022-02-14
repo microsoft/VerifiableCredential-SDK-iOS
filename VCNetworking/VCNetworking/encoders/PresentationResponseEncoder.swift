@@ -23,25 +23,6 @@ struct PresentationResponseEncoder: Encoding {
     }
     
     func encode(value: PresentationResponse) throws -> Data {
-        
-//        let idToken = try value.idToken.serialize()
-//
-//        guard let vp = try value.vpToken?.serialize() else {
-//            throw PresentationResponseEncoderError.noVerifiablePresentationInResponse
-//        }
-//
-//        let idTokenQueryItem = URLQueryItem(name: Constants.idToken, value: idToken)
-//        let vpTokenQueryItem = URLQueryItem(name: Constants.vpToken, value: vp)
-//        let stateQueryItem = URLQueryItem(name: Constants.state, value: value.state)
-//
-//        var components = URLComponents()
-//        components.queryItems = [idTokenQueryItem, vpTokenQueryItem, stateQueryItem]
-//
-//        guard let formattedResponse = components.query?.data(using: .utf16) else {
-//            throw PresentationResponseEncoderError.unableToSerializeResponse
-//        }
-//
-//        return formattedResponse
         return try JSONEncoder().encode(value)
     }
 }
