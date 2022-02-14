@@ -19,7 +19,15 @@ class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
                 andCorrelationVector cv: CorrelationHeader? = nil,
                 session: URLSession = URLSession.shared) throws {
         
-        guard let baseUrl = URL(unsafeString: urlStr),
+        /// If endpoint doesn't end with / add one.
+        var endpoint: String
+        if urlStr.last != "/" {
+            endpoint = urlStr + "/"
+        } else {
+            endpoint = urlStr
+        }
+        
+        guard let baseUrl = URL(unsafeString: endpoint),
               let url = URL(string: Constants.WELL_KNOWN_SUBDOMAIN, relativeTo: baseUrl) else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
