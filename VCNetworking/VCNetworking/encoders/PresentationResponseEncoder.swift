@@ -5,24 +5,24 @@
 
 import Foundation
 import VCEntities
+import VCToken
 
 enum PresentationResponseEncoderError: Error {
-    case noStatePresentInRequest
+    case noStatePresentInResponse
+    case noVerifiablePresentationInResponse
+    case unableToSerializeResponse
 }
 
 struct PresentationResponseEncoder: Encoding {
     
+    private struct Constants
+    {
+        static let idToken = "id_token"
+        static let vpToken = "vp_token"
+        static let state = "state"
+    }
+    
     func encode(value: PresentationResponse) throws -> Data {
-        
-        guard let state = value.content.state else {
-            throw PresentationResponseEncoderError.noStatePresentInRequest
-        }
-        
-        let encodedBody = try "id_token=" + value.serialize() + "&state=" + state
-        guard let encodedToken = encodedBody.data(using: .ascii) else {
-            throw NetworkingError.unableToParseString
-        }
-        
-        return encodedToken
+        return try JSONEncoder().encode(value)
     }
 }

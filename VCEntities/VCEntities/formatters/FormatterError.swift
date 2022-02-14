@@ -5,6 +5,7 @@
 
 enum FormatterError: Error {
     case noSigningKeyFound
+    case noStateInRequest
     case unableToFormToken
     case unableToGetRawValueOfVerifiableCredential
 }

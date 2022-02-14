@@ -3,13 +3,12 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct SubmissionDescriptor: Codable {
+public struct RequestedVerifiableCredentialMapping {
+    public let type: String
+    public let vc: VerifiableCredential
     
-    public let id: String
-    
-    public let path: String
-    
-    public let format: String
-    
-    public let encoding: String
+    public init(type: String, verifiableCredential: VerifiableCredential) {
+        self.type = type
+        self.vc = verifiableCredential
+    }
 }

@@ -11,6 +11,11 @@ class PostPresentationResponseOperation: InternalPostNetworkOperation {
     typealias RequestBody = PresentationResponse
     typealias ResponseBody = String?
     
+    private struct InternalConstants {
+        static let VersionNumberHeaderField = "prefer"
+        static let VersionNumberHeaderValue = "WACI4ION-0.0.1"
+    }
+    
     let decoder = BasicServiceResponseDecoder()
     let encoder = PresentationResponseEncoder()
     let urlSession: URLSession
@@ -29,7 +34,11 @@ class PostPresentationResponseOperation: InternalPostNetworkOperation {
         self.urlRequest = URLRequest(url: url)
         self.urlRequest.httpMethod = Constants.POST
         self.urlRequest.httpBody = try self.encoder.encode(value: body)
-        self.urlRequest.setValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
+        self.urlRequest.setValue(Constants.JSON, forHTTPHeaderField: Constants.CONTENT_TYPE)
+        
+        /// sets value of Client API.
+        self.urlRequest.addValue(InternalConstants.VersionNumberHeaderValue,
+                                 forHTTPHeaderField: InternalConstants.VersionNumberHeaderField)
         
         self.urlSession = urlSession
         self.correlationVector = cv

@@ -13,7 +13,8 @@ enum PresentationRequestValidatorError: Error {
     case invalidSignature
     case noExpirationPresent
     case noRegistrationPresent
-    case signingAlgorithmNotSupported
+    case responseSigningAlgorithmNotSupportedForVCs
+    case responseSigningAlgorithmNotSupportedForVPs
     case subjectIdentifierTypeNotSupported
     case tokenExpired
 }
@@ -70,19 +71,19 @@ public struct PresentationRequestValidator: RequestValidating {
     }
     
     private func validate(registration: RegistrationClaims) throws {
-        if let isDidMethodSupported = registration.didMethodsSupported?.contains(VCEntitiesConstants.DID_METHODS_SUPPORTED),
-           !isDidMethodSupported {
-            throw PresentationRequestValidatorError.didMethodNotSupported
-        }
-        
         if let isSubjectIdentifierTypeSupported =         registration.subjectIdentifierTypesSupported?.contains(VCEntitiesConstants.SUBJECT_IDENTIFIER_TYPE_DID),
            !isSubjectIdentifierTypeSupported {
             throw PresentationRequestValidatorError.subjectIdentifierTypeNotSupported
         }
         
-        if let isAlgorithmSupportedInVp =         registration.vpFormats?.jwtVP?.algorithms?.contains(VCEntitiesConstants.ALGORITHM_SUPPORTED_IN_VP),
+        if let isAlgorithmSupportedInVp = registration.vpFormats?.jwtVP?.algorithms?.contains(VCEntitiesConstants.ALGORITHM_SUPPORTED_IN_VP),
            !isAlgorithmSupportedInVp {
-            throw PresentationRequestValidatorError.signingAlgorithmNotSupported
+            throw PresentationRequestValidatorError.responseSigningAlgorithmNotSupportedForVPs
+        }
+        
+        if let isAlgorithmSupportedInVp = registration.vpFormats?.jwtVC?.algorithms?.contains(VCEntitiesConstants.ALGORITHM_SUPPORTED_IN_VP),
+           !isAlgorithmSupportedInVp {
+            throw PresentationRequestValidatorError.responseSigningAlgorithmNotSupportedForVCs
         }
     }
     

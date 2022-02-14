@@ -13,7 +13,7 @@ class FetchPresentationRequestOperation: InternalNetworkOperation {
     
     private struct Constants {
         static let VersionNumberHeaderField = "prefer"
-        static let VersionNumberHeaderValue = "WACI4ION-0.0.1"
+        static let VersionNumberHeaderValue = "JWT-interop-profile-0.0.1"
     }
     
     let decoder: PresentationRequestDecoder = PresentationRequestDecoder()

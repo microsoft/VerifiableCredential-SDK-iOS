@@ -36,36 +36,26 @@ class PresentationResponseFormatterTests: XCTestCase {
     
     func testFormatToken() throws {
         let vc = VerifiableCredential(from: TestData.verifiableCredential.rawValue)!
-        self.mockResponse.requestVCMap[expectedCredentialType] = vc
+        self.mockResponse.requestVCMap.append(RequestedVerifiableCredentialMapping(id: expectedCredentialType,
+                                                                                   verifiableCredential: vc))
         
-        let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
+        let formattedResponse = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
         
-        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longFormDid)
-        XCTAssertNotNil(formattedToken.content.exp)
-        XCTAssertNotNil(formattedToken.content.iat)
-        XCTAssertNotNil(formattedToken.content.jti)
-        XCTAssertEqual(formattedToken.content.audience, self.mockResponse.audienceUrl)
-        XCTAssertNotNil(formattedToken.content.attestations!.presentations!.first!.value)
-        XCTAssertEqual(formattedToken.content.attestations!.presentations!.first!.key, expectedCredentialType)
-        XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.id, expectedCredentialType)
-        XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.id, expectedCredentialType)
-        XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.path, "$.attestations.presentations." + expectedCredentialType)
-        XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.encoding, "base64Url")
-        XCTAssertEqual(formattedToken.content.presentationSubmission!.submissionDescriptors.first!.format, "JWT")
+        XCTAssertNotNil(formattedResponse.idToken.content.exp)
+        XCTAssertNotNil(formattedResponse.idToken.content.iat)
+        XCTAssertEqual(formattedResponse.idToken.content.subject, self.mockIdentifier.longFormDid)
+        XCTAssertEqual(formattedResponse.idToken.content.audience, self.mockResponse.audienceDid)
         XCTAssert(MockTokenSigner.wasSignCalled)
         XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
     }
     
     func testFormatTokenNoVcs() throws {
 
-        let formattedToken = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
-        XCTAssertEqual(formattedToken.content.did, self.mockIdentifier.longFormDid)
-        XCTAssertNotNil(formattedToken.content.exp)
-        XCTAssertNotNil(formattedToken.content.iat)
-        XCTAssertNotNil(formattedToken.content.jti)
-        XCTAssertEqual(formattedToken.content.audience, self.mockResponse.audienceUrl)
-        XCTAssertNil(formattedToken.content.attestations)
-        XCTAssertNil(formattedToken.content.presentationSubmission)
+        let formattedResponse = try formatter.format(response: self.mockResponse, usingIdentifier: self.mockIdentifier)
+        XCTAssertEqual(formattedResponse.idToken.content.subject, self.mockIdentifier.longFormDid)
+        XCTAssertNotNil(formattedResponse.idToken.content.exp)
+        XCTAssertNotNil(formattedResponse.idToken.content.iat)
+        XCTAssertEqual(formattedResponse.idToken.content.audience, self.mockResponse.audienceDid)
         XCTAssert(MockTokenSigner.wasSignCalled)
         XCTAssert(MockTokenSigner.wasGetPublicJwkCalled)
     }
