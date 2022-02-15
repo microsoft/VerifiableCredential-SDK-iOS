@@ -20,15 +20,16 @@ class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
                 session: URLSession = URLSession.shared) throws {
         
         /// If endpoint doesn't end with / add one.
-        var endpoint: String
-        if urlStr.last != "/" {
-            endpoint = urlStr + "/"
-        } else {
-            endpoint = urlStr
+        guard let baseUrl = URL(unsafeString: urlStr),
+              var urlComponents = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true) else {
+            throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         
-        guard let baseUrl = URL(unsafeString: endpoint),
-              let url = URL(string: Constants.WELL_KNOWN_SUBDOMAIN, relativeTo: baseUrl) else {
+        /// replace path and remove query items.
+        urlComponents.path = Constants.WELL_KNOWN_SUBDOMAIN
+        urlComponents.queryItems = nil
+        
+        guard let url = urlComponents.url else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         
