@@ -19,8 +19,17 @@ class FetchWellKnownConfigDocumentOperation: InternalNetworkOperation {
                 andCorrelationVector cv: CorrelationHeader? = nil,
                 session: URLSession = URLSession.shared) throws {
         
+        /// If endpoint doesn't end with / add one.
         guard let baseUrl = URL(unsafeString: urlStr),
-              let url = URL(string: Constants.WELL_KNOWN_SUBDOMAIN, relativeTo: baseUrl) else {
+              var urlComponents = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true) else {
+            throw NetworkingError.invalidUrl(withUrl: urlStr)
+        }
+        
+        /// replace path and remove query items.
+        urlComponents.path = Constants.WELL_KNOWN_SUBDOMAIN
+        urlComponents.queryItems = nil
+        
+        guard let url = urlComponents.url else {
             throw NetworkingError.invalidUrl(withUrl: urlStr)
         }
         

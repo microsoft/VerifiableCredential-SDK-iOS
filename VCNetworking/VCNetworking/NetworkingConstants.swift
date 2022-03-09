@@ -18,7 +18,7 @@ struct Constants {
     static let SIGNED_CONTRACT_HEADER_FIELD = "x-ms-sign-contract"
     static let SIGNED_CONTRACT_HEADER_VALUE = "true"
     
-    static let WELL_KNOWN_SUBDOMAIN = ".well-known/did-configuration.json"
+    static let WELL_KNOWN_SUBDOMAIN = "/.well-known/did-configuration.json"
     
     // Header value for tracing user agent in network calls.
     static let USER_AGENT = "User-Agent"
