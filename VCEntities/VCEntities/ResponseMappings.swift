@@ -4,5 +4,6 @@
 *--------------------------------------------------------------------------------------------*/
 
 public typealias RequestedIdTokenMap = [String:String]
+public typealias RequestedAccessTokenMap = [String: String]
 public typealias RequestedSelfAttestedClaimMap = [String: String]
 public typealias RequestedVerifiableCredentialMap = [RequestedVerifiableCredentialMapping]

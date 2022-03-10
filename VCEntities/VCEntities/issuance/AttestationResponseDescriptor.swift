@@ -6,13 +6,16 @@
 import VCToken
 
 public struct AttestationResponseDescriptor: Codable {
-    public let idTokens: [String: String]?
+    public let accessTokens: RequestedAccessTokenMap?
+    public let idTokens: RequestedIdTokenMap?
     public let presentations: [String: String]?
-    public let selfIssued: [String: String]?
+    public let selfIssued: RequestedSelfAttestedClaimMap?
     
-    public init(idTokens: [String: String]? = nil,
+    public init(accessTokens: RequestedAccessTokenMap? = nil,
+                idTokens: RequestedIdTokenMap? = nil,
                 presentations: [String: String]? = nil,
-                selfIssued: [String: String]? = nil) {
+                selfIssued: RequestedSelfAttestedClaimMap? = nil) {
+        self.accessTokens = accessTokens
         self.idTokens = idTokens
         self.presentations = presentations
         self.selfIssued = selfIssued
