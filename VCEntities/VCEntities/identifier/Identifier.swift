@@ -11,7 +11,14 @@ public struct Identifier {
     public let updateKey: KeyContainer
     public let recoveryKey: KeyContainer
     public let alias: String
-    
+
+    public var did: String
+    {
+        get {
+            return longFormDid
+        }
+    }
+
     public init(longFormDid: String,
                 didDocumentKeys: [KeyContainer],
                 updateKey: KeyContainer,

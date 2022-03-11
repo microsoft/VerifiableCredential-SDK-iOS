@@ -5,14 +5,14 @@
 
 import VCEntities
 
-class IdentifierService {
+public class IdentifierService {
     
     private let identifierDB: IdentifierDatabase
     private let identifierCreator: IdentifierCreator
     private let sdkLog: VCSDKLog
     private let aliasComputer = AliasComputer()
     
-    convenience init() {
+    public convenience init() {
         self.init(database: IdentifierDatabase(),
                   creator: IdentifierCreator(),
                   sdkLog: VCSDKLog.sharedInstance)
@@ -26,7 +26,7 @@ class IdentifierService {
         self.sdkLog = sdkLog
     }
     
-    func fetchMasterIdentifier() throws -> Identifier {
+    public func fetchMasterIdentifier() throws -> Identifier {
         return try identifierDB.fetchMasterIdentifier()
     }
     
