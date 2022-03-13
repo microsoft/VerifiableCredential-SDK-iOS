@@ -51,7 +51,11 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: response.expiryInSeconds)
         let attestations = try self.formatAttestations(response: response, usingIdentifier: identifier, andSignWith: key)
         
-        let pin = try response.issuancePin?.hash()
+        var pin: String? = nil
+        if response.issuanceIdToken != nil
+        {
+            pin = try response.issuancePin?.hash()
+        }
         
         return IssuanceResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                       audience: response.audienceUrl,
