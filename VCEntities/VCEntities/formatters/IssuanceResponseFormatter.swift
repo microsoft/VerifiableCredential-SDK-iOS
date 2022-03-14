@@ -51,7 +51,11 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         let timeConstraints = TokenTimeConstraints(expiryInSeconds: response.expiryInSeconds)
         let attestations = try self.formatAttestations(response: response, usingIdentifier: identifier, andSignWith: key)
         
-        let pin = try response.issuancePin?.hash()
+        var pin: String? = nil
+        if response.issuanceIdToken != nil
+        {
+            pin = try response.issuancePin?.hash()
+        }
         
         return IssuanceResponseClaims(publicKeyThumbprint: try publicKey.getThumbprint(),
                                       audience: response.audienceUrl,
@@ -66,6 +70,11 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
     }
     
     private func formatAttestations(response: IssuanceResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> AttestationResponseDescriptor? {
+        
+        var accessTokenMap: RequestedAccessTokenMap? = nil
+        if !response.requestedAccessTokenMap.isEmpty {
+            accessTokenMap = response.requestedAccessTokenMap
+        }
         
         var idTokenMap: RequestedIdTokenMap? = nil
         if !response.requestedIdTokenMap.isEmpty {
@@ -93,7 +102,10 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
             verifiable credentials: \(presentationsMap?.count ?? 0)
             """)
         
-        return AttestationResponseDescriptor(idTokens: idTokenMap, presentations: presentationsMap, selfIssued: selfIssuedMap)
+        return AttestationResponseDescriptor(accessTokens: accessTokenMap,
+                                             idTokens: idTokenMap,
+                                             presentations: presentationsMap,
+                                             selfIssued: selfIssuedMap)
     }
     
     private func createPresentations(from response: IssuanceResponseContainer, usingIdentifier identifier: Identifier, andSignWith key: KeyContainer) throws -> [String: String]? {

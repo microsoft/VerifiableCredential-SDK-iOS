@@ -14,6 +14,7 @@ public struct IssuanceResponseContainer: ResponseContaining {
     public var issuancePin: IssuancePin? = nil
     public var issuanceIdToken: String? = nil
     public var requestedIdTokenMap: RequestedIdTokenMap = [:]
+    public var requestedAccessTokenMap: RequestedAccessTokenMap = [:]
     public var requestedSelfAttestedClaimMap: RequestedSelfAttestedClaimMap = [:]
     public var requestVCMap: RequestedVerifiableCredentialMap = []
     
