@@ -5,7 +5,8 @@
 
 import VCCrypto
 
-enum JwsTokenError: Error {
+public enum JwsTokenError: Error {
+    case signingKeyNotFoundInStorage
     case unsupportedAlgorithm(name: String?)
 }
 
@@ -62,7 +63,15 @@ public struct JwsToken<T: Claims> {
     }
     
     public mutating func sign(using signer: TokenSigning, withSecret secret: VCCryptoSecret) throws {
-        self.signature = try signer.sign(token: self, withSecret: secret)
+        do {
+            self.signature = try signer.sign(token: self, withSecret: secret)
+        } catch {
+            /// rewrap errror of KeyChainStoreError to deal with this error a layer up.
+            if case KeychainStoreError.itemNotFound = error
+            {
+                throw JwsTokenError.signingKeyNotFoundInStorage
+            }
+        }
     }
     
     public func verify(using verifier: TokenVerifying, withPublicKey key: ECPublicJwk) throws -> Bool {

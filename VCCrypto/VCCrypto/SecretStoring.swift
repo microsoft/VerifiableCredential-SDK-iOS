@@ -8,6 +8,6 @@ import Foundation
 // public until Identifier Creation is implemented.
 public protocol SecretStoring {
     
-    func getSecret(id: UUID, itemTypeCode: String) throws -> Data
-    func saveSecret(id: UUID, itemTypeCode: String, value: inout Data) throws
+    func getSecret(id: UUID, itemTypeCode: String, accessGroup: String?) throws -> Data
+    func saveSecret(id: UUID, itemTypeCode: String, accessGroup: String?, value: inout Data) throws
 }

@@ -14,14 +14,17 @@ final class Random32BytesSecret: Secret {
     static var itemTypeCode: String = "r32B"
     public var id: UUID
     private let store: SecretStoring
+    private let accessGroup: String?
     
-    init(withStore store: SecretStoring, andId id: UUID) {
+    init(withStore store: SecretStoring, andId id: UUID, inAccessGroup accessGroup: String? = nil) throws {
         self.id = id
         self.store = store
+        self.accessGroup = accessGroup
     }
     
-    init(withStore store: SecretStoring) throws {
+    init(withStore store: SecretStoring, inAccessGroup accessGroup: String? = nil) throws {
         self.store = store
+        self.accessGroup = accessGroup
         
         var value = Data(count: 32)
         defer {
@@ -41,11 +44,11 @@ final class Random32BytesSecret: Secret {
         }
         id = UUID()
 
-        try self.store.saveSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, value: &value)
+        try self.store.saveSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, accessGroup: accessGroup, value: &value)
     }
     
     func withUnsafeBytes(_ body: (UnsafeRawBufferPointer) throws -> Void) throws {
-        var value = try self.store.getSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode)
+        var value = try self.store.getSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, accessGroup: accessGroup)
         defer {
             let secretSize = value.count
             value.withUnsafeMutableBytes { (secretPtr) in
@@ -57,5 +60,23 @@ final class Random32BytesSecret: Secret {
         try value.withUnsafeBytes { (valuePtr) in
             try body(valuePtr)
         }
+    }
+    
+    func isValidKey() -> Bool {
+        do {
+            _ = try self.store.getSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, accessGroup: accessGroup)
+            return true
+        } catch {
+            return false
+        }
+    }
+    
+    func updateAccessGroup() throws {
+        var value = try self.store.getSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, accessGroup: nil)
+        
+        try self.store.saveSecret(id: id,
+                                  itemTypeCode: Random32BytesSecret.itemTypeCode,
+                                  accessGroup: accessGroup,
+                                  value: &value)
     }
 }

@@ -23,7 +23,7 @@ struct IdentifierDatabase {
     private let cryptoOperations: CryptoOperating
     
     init() {
-        self.cryptoOperations = CryptoOperations()
+        self.cryptoOperations = CryptoOperations(accessGroup: VCSDKConfiguration.sharedInstance.accessGroupIdentifier)
     }
     
     init(cryptoOperations: CryptoOperating) {

@@ -51,4 +51,22 @@ public class IdentifierService {
         sdkLog.logVerbose(message: "Created Identifier with alias:\(identifier.alias)")
         return identifier
     }
+    
+    /// updates access group for keys if it needs to be updated.
+    public func updateAccessGroupForKeysIfNeeded(for identifier: Identifier) throws -> Bool {
+        if (!identifier.recoveryKey.isValidKey() ||
+            !identifier.updateKey.isValidKey() ||
+            !(identifier.didDocumentKeys.first?.isValidKey() ?? false)) {
+
+                try identifier.recoveryKey.updateAccessGroup()
+                try identifier.updateKey.updateAccessGroup()
+                try identifier.didDocumentKeys.forEach { keyContainer in
+                    try keyContainer.updateAccessGroup()
+                }
+                
+                return true
+        }
+        
+        return false
+    }
 }

@@ -11,6 +11,10 @@ public protocol VCCryptoSecret{
     
     /// The secret id
     var id:UUID { get }
+    
+    func isValidKey() -> Bool
+    
+    func updateAccessGroup() throws
 }
 
 protocol InternalSecret  {

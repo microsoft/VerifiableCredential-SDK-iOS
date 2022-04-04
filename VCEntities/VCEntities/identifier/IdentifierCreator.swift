@@ -14,7 +14,7 @@ public struct IdentifierCreator {
     let aliasComputer = AliasComputer()
     
     public init() {
-        self.init(cryptoOperations: CryptoOperations())
+        self.init(cryptoOperations: CryptoOperations(accessGroup: VCSDKConfiguration.sharedInstance.accessGroupIdentifier))
     }
     
     public init(cryptoOperations: CryptoOperating) {

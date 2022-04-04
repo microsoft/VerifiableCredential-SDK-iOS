@@ -5,6 +5,10 @@
 
 import VCCrypto
 
+public enum KeyContainerError: Error {
+    case noSigningKeyFoundInStorage
+}
+
 public struct KeyContainer {
     
     /// key reference to key in Secret Store
@@ -24,5 +28,22 @@ public struct KeyContainer {
     
     public func getId() -> UUID {
         return keyReference.id
+    }
+    
+    public func isValidKey() -> Bool {
+        return keyReference.isValidKey()
+    }
+    
+    public func updateAccessGroup() throws {
+        do {
+            try keyReference.updateAccessGroup()
+        } catch
+        {
+            if case KeychainStoreError.itemNotFound = error {
+                throw KeyContainerError.noSigningKeyFoundInStorage
+            } else {
+                throw error
+            }
+        }
     }
 }
