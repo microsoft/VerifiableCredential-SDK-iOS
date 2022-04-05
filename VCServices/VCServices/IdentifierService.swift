@@ -53,20 +53,17 @@ public class IdentifierService {
     }
     
     /// updates access group for keys if it needs to be updated.
-    public func updateAccessGroupForKeysIfNeeded(for identifier: Identifier) throws -> Bool {
-        if (!identifier.recoveryKey.isValidKey() ||
-            !identifier.updateKey.isValidKey() ||
-            !(identifier.didDocumentKeys.first?.isValidKey() ?? false)) {
-
-                try identifier.recoveryKey.updateAccessGroup()
-                try identifier.updateKey.updateAccessGroup()
-                try identifier.didDocumentKeys.forEach { keyContainer in
-                    try keyContainer.updateAccessGroup()
-                }
-                
-                return true
+    public func updateAccessGroupForKeys(for identifier: Identifier) throws {
+        try identifier.recoveryKey.updateAccessGroup()
+        try identifier.updateKey.updateAccessGroup()
+        try identifier.didDocumentKeys.forEach { keyContainer in
+            try keyContainer.updateAccessGroup()
         }
-        
-        return false
+    }
+    
+    public func areKeysValid(for identifier: Identifier) -> Bool {
+        return identifier.recoveryKey.isValidKey() &&
+               identifier.updateKey.isValidKey() &&
+               (identifier.didDocumentKeys.first?.isValidKey() ?? false)
     }
 }

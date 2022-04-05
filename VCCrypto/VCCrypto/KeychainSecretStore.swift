@@ -38,8 +38,7 @@ struct KeychainSecretStore : SecretStoring {
         }
         
         var item: CFTypeRef?
-        var status = SecItemCopyMatching(query as CFDictionary, &item)
-        print(status)
+        let status = SecItemCopyMatching(query as CFDictionary, &item)
         guard status != errSecItemNotFound else { throw KeychainStoreError.itemNotFound }
         guard status == errSecSuccess else { throw KeychainStoreError.readFromStoreError(status: status as OSStatus) }
         guard var value = item as? Data else { throw KeychainStoreError.invalidItemInStore }
