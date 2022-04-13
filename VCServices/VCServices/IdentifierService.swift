@@ -53,15 +53,17 @@ public class IdentifierService {
     }
     
     /// updates access group for keys if it needs to be updated.
-    public func updateAccessGroupForKeys(for identifier: Identifier) throws {
-        try identifier.recoveryKey.updateAccessGroup()
-        try identifier.updateKey.updateAccessGroup()
+    public func migrateKeys(fromAccessGroup oldAccessGroup: String?) throws {
+        let identifier = try fetchMasterIdentifier()
+        try identifier.recoveryKey.migrateKey(fromAccessGroup: oldAccessGroup)
+        try identifier.updateKey.migrateKey(fromAccessGroup: oldAccessGroup)
         try identifier.didDocumentKeys.forEach { keyContainer in
-            try keyContainer.updateAccessGroup()
+            try keyContainer.migrateKey(fromAccessGroup: oldAccessGroup)
         }
     }
     
-    public func areKeysValid(for identifier: Identifier) -> Bool {
+    public func areKeysValid() throws -> Bool {
+        let identifier = try fetchMasterIdentifier()
         return identifier.recoveryKey.isValidKey() &&
                identifier.updateKey.isValidKey() &&
                (identifier.didDocumentKeys.first?.isValidKey() ?? false)

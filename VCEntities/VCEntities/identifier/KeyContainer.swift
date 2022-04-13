@@ -34,14 +34,18 @@ public struct KeyContainer {
         return keyReference.isValidKey()
     }
     
-    public func updateAccessGroup() throws {
+    public func migrateKey(fromAccessGroup oldAccessGroup: String?) throws {
         do {
-            try keyReference.updateAccessGroup()
-        } catch
+            try keyReference.migrateKey(fromAccessGroup: oldAccessGroup)
+        }
+        catch
         {
-            if case KeychainStoreError.itemNotFound = error {
+            if case KeychainStoreError.itemNotFound = error
+            {
                 throw KeyContainerError.noSigningKeyFoundInStorage
-            } else {
+            }
+            else
+            {
                 throw error
             }
         }

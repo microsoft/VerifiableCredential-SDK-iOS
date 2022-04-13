@@ -6,7 +6,7 @@
 import VCCrypto
 
 public struct KeyId: VCCryptoSecret {
-
+    
     public let id: UUID
     
     public init(id: UUID) {
@@ -17,5 +17,5 @@ public struct KeyId: VCCryptoSecret {
         return true
     }
     
-    public func updateAccessGroup() throws { }
+    public func migrateKey(fromAccessGroup oldAccessGroup: String?) throws { }
 }

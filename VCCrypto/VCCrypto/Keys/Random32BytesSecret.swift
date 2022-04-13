@@ -71,12 +71,37 @@ final class Random32BytesSecret: Secret {
         }
     }
     
-    func updateAccessGroup() throws {
-        var value = try self.store.getSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, accessGroup: nil)
+    func migrateKey(fromAccessGroup oldAccessGroup: String?) throws {
         
+        /// If old access group is equal to new access group, no action required.
+        if oldAccessGroup == accessGroup
+        {
+            return
+        }
+        
+        var value = try self.store.getSecret(id: id,
+                                             itemTypeCode: Random32BytesSecret.itemTypeCode,
+                                             accessGroup: oldAccessGroup)
+        defer {
+            let secretSize = value.count
+            value.withUnsafeMutableBytes { (secretPtr) in
+                memset_s(secretPtr.baseAddress, secretSize, 0, secretSize)
+                return
+            }
+        }
+        
+        /// Save to new access group
         try self.store.saveSecret(id: id,
                                   itemTypeCode: Random32BytesSecret.itemTypeCode,
                                   accessGroup: accessGroup,
                                   value: &value)
+        
+        /// Delete from old access group
+        try self.store.deleteSecret(id: id,
+                                    itemTypeCode: Random32BytesSecret.itemTypeCode,
+                                    accessGroup: oldAccessGroup,
+                                    value: &value)
+        
+        
     }
 }

@@ -6,6 +6,7 @@
 import Foundation
 
 public enum KeychainStoreError: Error {
+    case deleteFromStoreError(status: OSStatus)
     case saveToStoreError(status: Int32)
     case itemNotFound
     case readFromStoreError(status: OSStatus)
@@ -58,8 +59,9 @@ struct KeychainSecretStore : SecretStoring {
     /// - Parameters:
     ///   - id: The Id of the secret
     ///   - itemTypeCode: The secret type code (4 chars)
+    ///   - accessGroup: The access group to use to save secret.
     ///   - value: The value of the secret
-    func saveSecret(id: UUID, itemTypeCode: String, accessGroup: String? = nil, value: inout Data) throws  {
+    func saveSecret(id: UUID, itemTypeCode: String, accessGroup: String? = nil, value: inout Data) throws {
         defer {
             let secretSize = value.count
             value.withUnsafeMutableBytes { (secretPtr) in
@@ -88,5 +90,43 @@ struct KeychainSecretStore : SecretStoring {
         let status = SecItemAdd(query as CFDictionary, nil)
         guard status == errSecSuccess else {
             throw KeychainStoreError.saveToStoreError(status: status)}
+    }
+    
+    /// Delete the secret from keychain
+    /// Note: the value passed in will be zeroed out after the secret is deleted
+    /// - Parameters:
+    ///   - id: The Id of the secret
+    ///   - itemTypeCode: The secret type code (4 chars)
+    ///   - accessGroup: The access group of the secret.
+    ///   - value: The value of the secret
+    func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String? = nil, value: inout Data) throws {
+        defer {
+            let secretSize = value.count
+            value.withUnsafeMutableBytes { (secretPtr) in
+                memset_s(secretPtr.baseAddress, secretSize, 0, secretSize)
+                return
+            }
+        }
+        
+        guard itemTypeCode.count == 4 else { throw KeychainStoreError.invalidType }
+        
+        // kSecAttrAccount is used to store the secret Id so that we can look it up later
+        // kSecAttrService is always set to vcService to enable us to lookup all our secrets later if needed
+        // kSecAttrType is used to store the secret type to allow us to cast it to the right Type on search
+        var query = [kSecClass: kSecClassGenericPassword,
+                     kSecAttrAccount: id.uuidString,
+                     kSecAttrService: vcService,
+                     kSecAttrType: itemTypeCode,
+                     kSecAttrAccessible: kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
+                     kSecValueData: value] as [String: Any]
+        
+        if let accessGroup = accessGroup,
+               accessGroup != "" {
+            query[kSecAttrAccessGroup as String] = accessGroup
+        }
+        
+        let status = SecItemDelete(query as CFDictionary)
+        guard status == errSecSuccess else {
+            throw KeychainStoreError.deleteFromStoreError(status: status)}
     }
 }

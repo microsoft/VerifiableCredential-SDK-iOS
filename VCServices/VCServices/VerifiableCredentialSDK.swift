@@ -7,11 +7,8 @@ import VCEntities
 
 public enum VCSDKInitStatus
 {
-    case firstTimeMasterIdentifierCreated
     case newMasterIdentifierCreated
-    case accessGroupForKeysUpdated
     case success
-    case error(error: Error)
 }
 
 public class VerifiableCredentialSDK {
@@ -22,10 +19,9 @@ public class VerifiableCredentialSDK {
     /// Returns: TRUE, if needed to create Master Identifier
     ///          FALSE, if Master Identifier is able to be fetched (included private keys from KeyStore)
     public static func initialize(logConsumer: VCLogConsumer = DefaultVCLogConsumer(),
-                                  accessGroupIdentifier: String? = nil) -> VCSDKInitStatus {
+                                  accessGroupIdentifier: String? = nil) -> Result<VCSDKInitStatus, Error> {
 
         VCSDKLog.sharedInstance.add(consumer: logConsumer)
-        
         
         /// Get access group identifier for app.
         if let accessGroupIdentifier = accessGroupIdentifier {
@@ -42,38 +38,21 @@ public class VerifiableCredentialSDK {
             
             /// If unable to fetch master identifier, create a new one.
             VCSDKLog.sharedInstance.logWarning(message: "Failed to fetch master identifier with: \(String(describing: error))")
-            return createNewIdentifier(status: .firstTimeMasterIdentifierCreated)
+            return createNewIdentifier()
             
-        }
-        
-        /// Make sure keys are valid for master identifier, if they are not valid, update access group.
-        do {
-            if !identifierService.areKeysValid(for: identifier) {
-                try identifierService.updateAccessGroupForKeys(for: identifier)
-                return .accessGroupForKeysUpdated
-            }
-        } catch {
-            
-            /// if keys are not found in storage, create a new master identifier.
-            if case KeyContainerError.noSigningKeyFoundInStorage = error
-            {
-                VCSDKLog.sharedInstance.logWarning(message: "Failed find signing keys in storage with: \(String(describing: error))")
-                return createNewIdentifier(status: .newMasterIdentifierCreated)
-            }
-            
-            return .error(error: error)
         }
         
         /// VC sdk initialization successful.
-        return .success
+        return .success(.success)
     }
     
-    private static func createNewIdentifier(status: VCSDKInitStatus) -> VCSDKInitStatus {
+    private static func createNewIdentifier() -> Result<VCSDKInitStatus, Error> {
         do {
-            _ = try identifierService.createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: VCEntitiesConstants.MASTER_ID)
-            return status
+            _ = try identifierService.createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID,
+                                                              andRelyingParty: VCEntitiesConstants.MASTER_ID)
+            return .success(.newMasterIdentifierCreated)
         } catch {
-            return .error(error: error)
+            return .failure(error)
         }
     }
 }
