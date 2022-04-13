@@ -5,7 +5,7 @@
 
 public protocol CryptoOperating {
     func generateKey() throws -> VCCryptoSecret
-    func retrieveKeyFromStorage(withId id: UUID) throws -> VCCryptoSecret
+    func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret
 }
 
 public struct CryptoOperations: CryptoOperating {
@@ -30,7 +30,7 @@ public struct CryptoOperations: CryptoOperating {
         return key
     }
     
-    public func retrieveKeyFromStorage(withId id: UUID) throws -> VCCryptoSecret {
-        return try Random32BytesSecret(withStore: secretStore, andId: id, inAccessGroup: accessGroup)
+    public func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret {
+        return Random32BytesSecret(withStore: secretStore, andId: id, inAccessGroup: accessGroup)
     }
 }

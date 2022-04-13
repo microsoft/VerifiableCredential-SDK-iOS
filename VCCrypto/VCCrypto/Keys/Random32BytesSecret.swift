@@ -16,7 +16,7 @@ final class Random32BytesSecret: Secret {
     private let store: SecretStoring
     private let accessGroup: String?
     
-    init(withStore store: SecretStoring, andId id: UUID, inAccessGroup accessGroup: String? = nil) throws {
+    init(withStore store: SecretStoring, andId id: UUID, inAccessGroup accessGroup: String? = nil) {
         self.id = id
         self.store = store
         self.accessGroup = accessGroup

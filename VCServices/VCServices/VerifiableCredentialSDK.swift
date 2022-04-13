@@ -29,10 +29,9 @@ public class VerifiableCredentialSDK {
         }
         
         /// Try to fetch master identifier from storage.
-        var identifier: Identifier
         do {
             
-            identifier = try identifierService.fetchMasterIdentifier()
+            _ = try identifierService.fetchMasterIdentifier()
             
         } catch {
             

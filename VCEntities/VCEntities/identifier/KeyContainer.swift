@@ -5,10 +5,6 @@
 
 import VCCrypto
 
-public enum KeyContainerError: Error {
-    case noSigningKeyFoundInStorage
-}
-
 public struct KeyContainer {
     
     /// key reference to key in Secret Store
@@ -34,20 +30,8 @@ public struct KeyContainer {
         return keyReference.isValidKey()
     }
     
+    /// Migrate key from old access group to new one set in sdk config.
     public func migrateKey(fromAccessGroup oldAccessGroup: String?) throws {
-        do {
-            try keyReference.migrateKey(fromAccessGroup: oldAccessGroup)
-        }
-        catch
-        {
-            if case KeychainStoreError.itemNotFound = error
-            {
-                throw KeyContainerError.noSigningKeyFoundInStorage
-            }
-            else
-            {
-                throw error
-            }
-        }
+        try keyReference.migrateKey(fromAccessGroup: oldAccessGroup)
     }
 }
