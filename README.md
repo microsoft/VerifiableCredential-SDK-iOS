@@ -11,7 +11,18 @@ To learn more about verifiable credentials, please review our [documentation.](h
 ## Initializing SDK
 `VerifiableCredentialSDK` - this class is used to initialize the SDK. You may want to call during your dependency injection initialization:
 ```swift
-VerifiableCredentialSDK.initialize();
+/// Both parameters are optional:
+/// - logConsumer: conforms to the VCLogConsumer to inject logging into the SDK.
+/// - accessGroupIdentifier: String to tell the SDK where to save keys in KeyChain. If nil, will use the default access group.
+/// Returns: Result<VCSDKStatus, Error>
+let result = VerifiableCredentialSDK.initialize(logConsumer: sdkLogConsumer, accessGroupIdentifier: accessGroupIdentifier);
+
+switch result {
+    case .success(let status):
+        print("\(status) will equal success or new master identifier created")
+    case .failure(let error):
+        print("Initialization failed because of specific error")
+}
 ```
 
 We currently support the following services:
