@@ -9,12 +9,12 @@ import VCToken
 @testable import VCEntities
 
 struct MockCryptoOperations: CryptoOperating {
-    
+
     static var generateKeyCallCount = 0
     let cryptoOperations: CryptoOperating
     
     init(secretStore: SecretStoring) {
-        self.cryptoOperations = CryptoOperations(secretStore: secretStore)
+        self.cryptoOperations = CryptoOperations(secretStore: secretStore, accessGroup: nil)
     }
     
     func generateKey() throws -> VCCryptoSecret {
@@ -22,7 +22,7 @@ struct MockCryptoOperations: CryptoOperating {
         return try self.cryptoOperations.generateKey()
     }
     
-    func retrieveKeyFromStorage(withId id: UUID) throws -> VCCryptoSecret {
+    func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret {
         return KeyId(id: id)
     }
 }

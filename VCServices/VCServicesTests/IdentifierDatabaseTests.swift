@@ -16,7 +16,7 @@ class IdentifierDatabaseTests: XCTestCase {
     var identifierDB: IdentifierDatabase!
     
     override func setUpWithError() throws {
-        let cryptoOperations = CryptoOperations()
+        let cryptoOperations = CryptoOperations(accessGroup: nil)
         identifierDB = IdentifierDatabase(cryptoOperations: cryptoOperations)
         try CoreDataManager.sharedInstance.deleteAllIdentifiers()
         identifierCreator = IdentifierCreator(cryptoOperations: cryptoOperations)

@@ -11,6 +11,12 @@ enum MockError: Error {
 }
 
 struct MockVCCryptoSecret: VCCryptoSecret {
+    func isValidKey() -> Bool {
+        true
+    }
+    
+    func migrateKey(fromAccessGroup oldAccessGroup: String?) throws {}
+    
     let id: UUID
 }
 
