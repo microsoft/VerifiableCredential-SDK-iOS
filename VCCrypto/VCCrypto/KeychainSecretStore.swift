@@ -89,7 +89,8 @@ struct KeychainSecretStore : SecretStoring {
         
         let status = SecItemAdd(query as CFDictionary, nil)
         guard status == errSecSuccess else {
-            throw KeychainStoreError.saveToStoreError(status: status)}
+            throw KeychainStoreError.saveToStoreError(status: status)
+        }
     }
     
     /// Delete the secret from keychain
@@ -98,15 +99,7 @@ struct KeychainSecretStore : SecretStoring {
     ///   - id: The Id of the secret
     ///   - itemTypeCode: The secret type code (4 chars)
     ///   - accessGroup: The access group of the secret.
-    ///   - value: The value of the secret
-    func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String? = nil, value: inout Data) throws {
-        defer {
-            let secretSize = value.count
-            value.withUnsafeMutableBytes { (secretPtr) in
-                memset_s(secretPtr.baseAddress, secretSize, 0, secretSize)
-                return
-            }
-        }
+    func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String? = nil) throws {
         
         guard itemTypeCode.count == 4 else { throw KeychainStoreError.invalidType }
         
@@ -117,8 +110,7 @@ struct KeychainSecretStore : SecretStoring {
                      kSecAttrAccount: id.uuidString,
                      kSecAttrService: vcService,
                      kSecAttrType: itemTypeCode,
-                     kSecAttrAccessible: kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
-                     kSecValueData: value] as [String: Any]
+                     kSecAttrAccessible: kSecAttrAccessibleWhenUnlockedThisDeviceOnly] as [String: Any]
         
         if let accessGroup = accessGroup,
                accessGroup != "" {
@@ -127,6 +119,7 @@ struct KeychainSecretStore : SecretStoring {
         
         let status = SecItemDelete(query as CFDictionary)
         guard status == errSecSuccess else {
-            throw KeychainStoreError.deleteFromStoreError(status: status)}
+            throw KeychainStoreError.deleteFromStoreError(status: status)
+        }
     }
 }

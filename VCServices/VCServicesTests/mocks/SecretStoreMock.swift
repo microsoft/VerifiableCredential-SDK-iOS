@@ -19,7 +19,7 @@ internal class SecretStoreMock: SecretStoring {
         memoryStore[id] = value
     }
     
-    func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String?, value: inout Data) throws {
+    func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String?) throws {
         print("deletingSecret... " + id.uuidString)
         memoryStore.removeValue(forKey: id)
     }

@@ -71,17 +71,16 @@ final class Random32BytesSecret: Secret {
         }
     }
     
-    func migrateKey(fromAccessGroup oldAccessGroup: String?) throws {
+    func migrateKey(fromAccessGroup currentAccessGroup: String?) throws {
         
         /// If old access group is equal to new access group, no action required.
-        if oldAccessGroup == accessGroup
-        {
+        if currentAccessGroup == accessGroup {
             return
         }
         
         var value = try self.store.getSecret(id: id,
                                              itemTypeCode: Random32BytesSecret.itemTypeCode,
-                                             accessGroup: oldAccessGroup)
+                                             accessGroup: currentAccessGroup)
         defer {
             let secretSize = value.count
             value.withUnsafeMutableBytes { (secretPtr) in
@@ -99,8 +98,7 @@ final class Random32BytesSecret: Secret {
         /// Delete from old access group
         try self.store.deleteSecret(id: id,
                                     itemTypeCode: Random32BytesSecret.itemTypeCode,
-                                    accessGroup: oldAccessGroup,
-                                    value: &value)
+                                    accessGroup: currentAccessGroup)
         
         
     }

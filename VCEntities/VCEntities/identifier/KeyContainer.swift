@@ -31,7 +31,7 @@ public struct KeyContainer {
     }
     
     /// Migrate key from old access group to new one set in sdk config.
-    public func migrateKey(fromAccessGroup oldAccessGroup: String?) throws {
-        try keyReference.migrateKey(fromAccessGroup: oldAccessGroup)
+    public func migrateKey(fromAccessGroup currentAccessGroup: String?) throws {
+        try keyReference.migrateKey(fromAccessGroup: currentAccessGroup)
     }
 }

@@ -53,12 +53,12 @@ public class IdentifierService {
     }
     
     /// updates access group for keys if it needs to be updated.
-    public func migrateKeys(fromAccessGroup oldAccessGroup: String?) throws {
+    public func migrateKeys(fromAccessGroup currentAccessGroup: String?) throws {
         let identifier = try fetchMasterIdentifier()
-        try identifier.recoveryKey.migrateKey(fromAccessGroup: oldAccessGroup)
-        try identifier.updateKey.migrateKey(fromAccessGroup: oldAccessGroup)
+        try identifier.recoveryKey.migrateKey(fromAccessGroup: currentAccessGroup)
+        try identifier.updateKey.migrateKey(fromAccessGroup: currentAccessGroup)
         try identifier.didDocumentKeys.forEach { keyContainer in
-            try keyContainer.migrateKey(fromAccessGroup: oldAccessGroup)
+            try keyContainer.migrateKey(fromAccessGroup: currentAccessGroup)
         }
     }
     

@@ -10,5 +10,5 @@ public protocol SecretStoring {
     
     func getSecret(id: UUID, itemTypeCode: String, accessGroup: String?) throws -> Data
     func saveSecret(id: UUID, itemTypeCode: String, accessGroup: String?, value: inout Data) throws
-    func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String?, value: inout Data) throws
+    func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String?) throws
 }
