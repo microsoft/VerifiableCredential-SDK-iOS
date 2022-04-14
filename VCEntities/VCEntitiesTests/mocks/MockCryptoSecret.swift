@@ -7,9 +7,16 @@ import Foundation
 import VCCrypto
 
 struct MockCryptoSecret: VCCryptoSecret {
+    
     var id: UUID
     
     init(id: UUID) {
         self.id = id
     }
+    
+    func isValidKey() -> Bool {
+        return true
+    }
+    
+    func migrateKey(fromAccessGroup oldAccessGroup: String?) throws { }
 }

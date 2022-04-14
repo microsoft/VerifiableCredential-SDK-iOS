@@ -7,10 +7,14 @@ import Foundation
 
 internal protocol Secret: VCCryptoSecret & InternalSecret {}
 
-public protocol VCCryptoSecret{
+public protocol VCCryptoSecret {
     
     /// The secret id
     var id:UUID { get }
+    
+    func isValidKey() -> Bool
+    
+    func migrateKey(fromAccessGroup currentAccessGroup: String?) throws
 }
 
 protocol InternalSecret  {

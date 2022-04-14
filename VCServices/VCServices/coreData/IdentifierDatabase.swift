@@ -23,7 +23,7 @@ struct IdentifierDatabase {
     private let cryptoOperations: CryptoOperating
     
     init() {
-        self.cryptoOperations = CryptoOperations()
+        self.cryptoOperations = CryptoOperations(accessGroup: VCSDKConfiguration.sharedInstance.accessGroupIdentifier)
     }
     
     init(cryptoOperations: CryptoOperating) {
@@ -112,7 +112,7 @@ struct IdentifierDatabase {
             throw IdentifierDatabaseError.unableToFetchMasterIdentifier
         }
         
-        let keyRef = try cryptoOperations.retrieveKeyFromStorage(withId: keyUUID)
+        let keyRef = cryptoOperations.retrieveKeyFromStorage(withId: keyUUID)
         return KeyContainer(keyReference: keyRef, keyId: keyId)
     }
 }

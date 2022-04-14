@@ -6,9 +6,16 @@
 import VCCrypto
 
 public struct KeyId: VCCryptoSecret {
+    
     public let id: UUID
     
     public init(id: UUID) {
         self.id = id
     }
+    
+    public func isValidKey() -> Bool {
+        return true
+    }
+    
+    public func migrateKey(fromAccessGroup oldAccessGroup: String?) throws { }
 }

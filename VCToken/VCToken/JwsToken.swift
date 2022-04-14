@@ -5,7 +5,7 @@
 
 import VCCrypto
 
-enum JwsTokenError: Error {
+public enum JwsTokenError: Error {
     case unsupportedAlgorithm(name: String?)
 }
 

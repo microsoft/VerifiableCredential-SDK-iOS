@@ -6,5 +6,12 @@
 import VCCrypto
 
 struct MockVCCryptoSecret: VCCryptoSecret {
+    
+    func isValidKey() -> Bool {
+        return true
+    }
+    
+    func migrateKey(fromAccessGroup oldAccessGroup: String?) throws { }
+    
     var id: UUID = UUID()
 }

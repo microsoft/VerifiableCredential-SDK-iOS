@@ -7,11 +7,11 @@ public struct VCSDKConfiguration {
     
     public static var sharedInstance = VCSDKConfiguration()
     
-    public var userAgentInfo: String = ""
+    public private(set) var accessGroupIdentifier: String? = nil
     
     private init() {}
     
-    public mutating func setUserAgentInfo(with info: String) {
-        self.userAgentInfo = info
+    mutating func setAccessGroupIdentifier(with id: String) {
+        self.accessGroupIdentifier = id
     }
 }

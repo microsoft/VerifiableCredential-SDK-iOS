@@ -51,4 +51,21 @@ public class IdentifierService {
         sdkLog.logVerbose(message: "Created Identifier with alias:\(identifier.alias)")
         return identifier
     }
+    
+    /// updates access group for keys if it needs to be updated.
+    public func migrateKeys(fromAccessGroup currentAccessGroup: String?) throws {
+        let identifier = try fetchMasterIdentifier()
+        try identifier.recoveryKey.migrateKey(fromAccessGroup: currentAccessGroup)
+        try identifier.updateKey.migrateKey(fromAccessGroup: currentAccessGroup)
+        try identifier.didDocumentKeys.forEach { keyContainer in
+            try keyContainer.migrateKey(fromAccessGroup: currentAccessGroup)
+        }
+    }
+    
+    public func areKeysValid() throws -> Bool {
+        let identifier = try fetchMasterIdentifier()
+        return identifier.recoveryKey.isValidKey() &&
+               identifier.updateKey.isValidKey() &&
+               (identifier.didDocumentKeys.first?.isValidKey() ?? false)
+    }
 }

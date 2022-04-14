@@ -25,4 +25,13 @@ public struct KeyContainer {
     public func getId() -> UUID {
         return keyReference.id
     }
+    
+    public func isValidKey() -> Bool {
+        return keyReference.isValidKey()
+    }
+    
+    /// Migrate key from old access group to new one set in sdk config.
+    public func migrateKey(fromAccessGroup currentAccessGroup: String?) throws {
+        try keyReference.migrateKey(fromAccessGroup: currentAccessGroup)
+    }
 }
