@@ -5,12 +5,19 @@
 
 import VCEntities
 
+/// status of a successful initialization
 public enum VCSDKInitStatus
 {
     case newMasterIdentifierCreated
     case success
 }
 
+/// initialization errors.
+public enum VCSDKInitError: Error {
+    case invalidKeys
+}
+
+/// Class used to Initialize the SDK.
 public class VerifiableCredentialSDK {
     
     static let identifierService = IdentifierService()
@@ -32,6 +39,10 @@ public class VerifiableCredentialSDK {
         do {
             
             _ = try identifierService.fetchMasterIdentifier()
+            
+            if try !identifierService.areKeysValid() {
+                return .failure(VCSDKInitError.invalidKeys)
+            }
             
         } catch {
             
