@@ -12,25 +12,25 @@ public struct CryptoOperations: CryptoOperating {
 
     private let secretStore: SecretStoring
     
-    private let accessGroup: String?
+    private let sdkConfiguration: VCSDKConfigurable
     
-    public init(accessGroup: String?) {
-        self.init(secretStore: KeychainSecretStore(), accessGroup: accessGroup)
+    public init(sdkConfiguration: VCSDKConfigurable) {
+        self.init(secretStore: KeychainSecretStore(), sdkConfiguration: sdkConfiguration)
     }
     
-    public init(secretStore: SecretStoring, accessGroup: String?) {
+    public init(secretStore: SecretStoring, sdkConfiguration: VCSDKConfigurable) {
         self.secretStore = secretStore
-        self.accessGroup = accessGroup
+        self.sdkConfiguration = sdkConfiguration
     }
     
     public func generateKey() throws -> VCCryptoSecret {
-        
+        let accessGroup = sdkConfiguration.accessGroupIdentifier
         let key = try Random32BytesSecret(withStore: secretStore, inAccessGroup: accessGroup)
-        
         return key
     }
     
     public func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret {
+        let accessGroup = sdkConfiguration.accessGroupIdentifier
         return Random32BytesSecret(withStore: secretStore, andId: id, inAccessGroup: accessGroup)
     }
 }

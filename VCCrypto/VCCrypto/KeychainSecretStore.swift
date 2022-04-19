@@ -25,17 +25,25 @@ struct KeychainSecretStore : SecretStoring {
     ///   - itemTypeCode: the item type code for the secret
     ///   - accessGroup: the access group for the secret
     /// - Returns: The secret
-    func getSecret(id: UUID, itemTypeCode: String, accessGroup: String? = nil) throws -> Data {
+    func getSecret(id: UUID, itemTypeCode: String, accessGroup: String?) throws -> Data {
         
-        var query = [kSecClass: kSecClassGenericPassword,
+        var query: [String: Any]
+        if let accessGroup = accessGroup
+        {
+            query = [kSecClass: kSecClassGenericPassword,
+                     kSecAttrAccount: id.uuidString,
+                     kSecAttrService: vcService,
+                     kSecAttrType: itemTypeCode,
+                     kSecAttrAccessGroup: accessGroup,
+                     kSecReturnData: true] as [String: Any]
+        }
+        else
+        {
+            query = [kSecClass: kSecClassGenericPassword,
                      kSecAttrAccount: id.uuidString,
                      kSecAttrService: vcService,
                      kSecAttrType: itemTypeCode,
                      kSecReturnData: true] as [String: Any]
-        
-        if let accessGroup = accessGroup,
-           accessGroup != "" {
-            query[kSecAttrAccessGroup as String] = accessGroup
         }
         
         var item: CFTypeRef?
@@ -75,16 +83,23 @@ struct KeychainSecretStore : SecretStoring {
         // kSecAttrAccount is used to store the secret Id so that we can look it up later
         // kSecAttrService is always set to vcService to enable us to lookup all our secrets later if needed
         // kSecAttrType is used to store the secret type to allow us to cast it to the right Type on search
-        var query = [kSecClass: kSecClassGenericPassword,
+        var query: [String: Any]
+        if let accessGroup = accessGroup {
+            query = [kSecClass: kSecClassGenericPassword,
+                     kSecAttrAccount: id.uuidString,
+                     kSecAttrService: vcService,
+                     kSecAttrType: itemTypeCode,
+                     kSecAttrAccessGroup: accessGroup,
+                     kSecAttrAccessible: kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
+                     kSecValueData: value] as [String: Any]
+        }
+        else {
+            query = [kSecClass: kSecClassGenericPassword,
                      kSecAttrAccount: id.uuidString,
                      kSecAttrService: vcService,
                      kSecAttrType: itemTypeCode,
                      kSecAttrAccessible: kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
                      kSecValueData: value] as [String: Any]
-        
-        if let accessGroup = accessGroup,
-               accessGroup != "" {
-            query[kSecAttrAccessGroup as String] = accessGroup
         }
         
         let status = SecItemAdd(query as CFDictionary, nil)

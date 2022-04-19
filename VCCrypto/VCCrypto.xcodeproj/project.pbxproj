@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		551F3059252E378E0081D5E7 /* CryptoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F3058252E378E0081D5E7 /* CryptoOperations.swift */; };
+		553D4AAF280F443A00FD39A6 /* VCSDKConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D4AAE280F443A00FD39A6 /* VCSDKConfigurable.swift */; };
 		5540903D25000F6A001246DB /* Signing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903C25000F6A001246DB /* Signing.swift */; };
 		5577E874251E9F99005250BC /* VCCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55ADE29924F5752500D9990E /* Sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29824F5752500D9990E /* Sha256.swift */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		551F3058252E378E0081D5E7 /* CryptoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoOperations.swift; sourceTree = "<group>"; };
+		553D4AAE280F443A00FD39A6 /* VCSDKConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSDKConfigurable.swift; sourceTree = "<group>"; };
 		5540903C25000F6A001246DB /* Signing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signing.swift; sourceTree = "<group>"; };
 		55ADE29824F5752500D9990E /* Sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256.swift; path = ../../../VCCrypto/VCCrypto/Algo/Sha256.swift; sourceTree = "<group>"; };
 		55ADE29A24F5757100D9990E /* Sha256Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256Tests.swift; path = ../../VCCrypto/VCCryptoTests/Sha256Tests.swift; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		553D4AAD280F442800FD39A6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				553D4AAE280F443A00FD39A6 /* VCSDKConfigurable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		928AAF6F24EEDC670029A8F9 /* Keys */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +162,7 @@
 		92CDE7AC24DC78DD00F95B5D /* VCCrypto */ = {
 			isa = PBXGroup;
 			children = (
+				553D4AAD280F442800FD39A6 /* Protocols */,
 				92CDE7DC24DDCB2800F95B5D /* Extensions */,
 				928AAF6F24EEDC670029A8F9 /* Keys */,
 				92CDE7D024DCA69C00F95B5D /* Algo */,
@@ -399,6 +410,7 @@
 				92CDE7DE24DDCB9500F95B5D /* Data+Hex.swift in Sources */,
 				92CDE80624E1ABEA00F95B5D /* Random32BytesSecret.swift in Sources */,
 				92CDE7D924DDBA0500F95B5D /* HmacSha512.swift in Sources */,
+				553D4AAF280F443A00FD39A6 /* VCSDKConfigurable.swift in Sources */,
 				55ADE29924F5752500D9990E /* Sha256.swift in Sources */,
 				92CDE80824E1F7AF00F95B5D /* Secret.swift in Sources */,
 				92CDE7D224DCA6CF00F95B5D /* Secp256k1.swift in Sources */,
