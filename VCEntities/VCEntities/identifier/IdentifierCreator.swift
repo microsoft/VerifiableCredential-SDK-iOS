@@ -14,7 +14,6 @@ public struct IdentifierCreator {
     let aliasComputer = AliasComputer()
     
     public init() {
-        print(VCSDKConfiguration.sharedInstance)
         self.init(cryptoOperations: CryptoOperations(sdkConfiguration: VCSDKConfiguration.sharedInstance))
     }
     

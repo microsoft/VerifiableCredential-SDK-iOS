@@ -99,14 +99,5 @@ final class Random32BytesSecret: Secret {
                                   itemTypeCode: Random32BytesSecret.itemTypeCode,
                                   accessGroup: accessGroup,
                                   value: &value)
-        
-        do
-        {
-            let test = try self.store.getSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, accessGroup: accessGroup)
-            print("test \(value == test)")
-        } catch {
-            print("errorrrrr")
-            print(error)
-        }
     }
 }
