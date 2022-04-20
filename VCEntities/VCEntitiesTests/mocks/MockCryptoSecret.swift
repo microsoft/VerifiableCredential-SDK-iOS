@@ -8,6 +8,8 @@ import VCCrypto
 
 struct MockCryptoSecret: VCCryptoSecret {
     
+    var accessGroup: String?
+    
     var id: UUID
     
     init(id: UUID) {

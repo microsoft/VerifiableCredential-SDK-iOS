@@ -7,6 +7,8 @@ import VCCrypto
 
 struct MockVCCryptoSecret: VCCryptoSecret {
     
+    var accessGroup: String? = nil
+    
     func isValidKey() -> Bool {
         return true
     }

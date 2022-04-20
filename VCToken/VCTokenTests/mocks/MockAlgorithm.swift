@@ -11,6 +11,9 @@ enum MockError: Error {
 }
 
 struct MockVCCryptoSecret: VCCryptoSecret {
+    
+    let accessGroup: String? = nil
+    
     func isValidKey() -> Bool {
         true
     }

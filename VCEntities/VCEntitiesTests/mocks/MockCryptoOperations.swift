@@ -14,7 +14,7 @@ struct MockCryptoOperations: CryptoOperating {
     let cryptoOperations: CryptoOperating
     
     init(secretStore: SecretStoring) {
-        self.cryptoOperations = CryptoOperations(secretStore: secretStore, accessGroup: nil)
+        self.cryptoOperations = CryptoOperations(secretStore: secretStore, sdkConfiguration: VCSDKConfiguration.sharedInstance)
     }
     
     func generateKey() throws -> VCCryptoSecret {
