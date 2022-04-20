@@ -20,7 +20,7 @@ public enum VCSDKInitError: Error {
 /// Class used to Initialize the SDK.
 public class VerifiableCredentialSDK {
     
-    static let identifierService = IdentifierService()
+    public static let identifierService = IdentifierService()
     
     /// Initialized the SDK.
     /// Returns: TRUE, if needed to create Master Identifier

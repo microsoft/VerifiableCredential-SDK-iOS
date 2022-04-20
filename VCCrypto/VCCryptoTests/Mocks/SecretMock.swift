@@ -9,8 +9,12 @@ import Foundation
 
 final class SecretMock : Secret {
     
+    var accessGroup: String? = nil
+    
     static var itemTypeCode: String = "MOCK"
+    
     var id: UUID
+    
     private var value: Data
     
     init(id: UUID, withData value: Data) {

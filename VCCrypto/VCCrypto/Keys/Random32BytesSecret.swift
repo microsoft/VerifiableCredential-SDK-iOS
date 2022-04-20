@@ -14,7 +14,7 @@ final class Random32BytesSecret: Secret {
     static var itemTypeCode: String = "r32B"
     public var id: UUID
     private let store: SecretStoring
-    private let accessGroup: String?
+    let accessGroup: String?
     
     init(withStore store: SecretStoring, andId id: UUID, inAccessGroup accessGroup: String? = nil) {
         self.id = id
@@ -89,17 +89,15 @@ final class Random32BytesSecret: Secret {
             }
         }
         
-        /// Save to new access group
-        try self.store.saveSecret(id: id,
-                                  itemTypeCode: Random32BytesSecret.itemTypeCode,
-                                  accessGroup: accessGroup,
-                                  value: &value)
-        
         /// Delete from old access group
         try self.store.deleteSecret(id: id,
                                     itemTypeCode: Random32BytesSecret.itemTypeCode,
                                     accessGroup: currentAccessGroup)
         
-        
+        /// Save to new access group
+        try self.store.saveSecret(id: id,
+                                  itemTypeCode: Random32BytesSecret.itemTypeCode,
+                                  accessGroup: accessGroup,
+                                  value: &value)
     }
 }

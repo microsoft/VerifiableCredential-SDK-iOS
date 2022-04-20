@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import VCEntities
+import VCCrypto
 
 public class IdentifierService {
     
@@ -13,8 +14,9 @@ public class IdentifierService {
     private let aliasComputer = AliasComputer()
     
     public convenience init() {
-        self.init(database: IdentifierDatabase(),
-                  creator: IdentifierCreator(),
+        let cryptoOperations = CryptoOperations(sdkConfiguration: VCSDKConfiguration.sharedInstance)
+        self.init(database: IdentifierDatabase(cryptoOperations: cryptoOperations),
+                  creator: IdentifierCreator(cryptoOperations: cryptoOperations),
                   sdkLog: VCSDKLog.sharedInstance)
     }
     

@@ -25,7 +25,7 @@ class IssuanceResponseFormatterTests: XCTestCase {
         
         try self.mockResponse = IssuanceResponseContainer(from: self.contract, contractUri: self.expectedContractUrl)
         
-        let cryptoOperation = CryptoOperations(secretStore: SecretStoreMock(), accessGroup: nil)
+        let cryptoOperation = CryptoOperations(secretStore: SecretStoreMock(), sdkConfiguration: VCSDKConfiguration.sharedInstance)
         let key = try cryptoOperation.generateKey()
         
         let keyContainer = KeyContainer(keyReference: key, keyId: "keyId")

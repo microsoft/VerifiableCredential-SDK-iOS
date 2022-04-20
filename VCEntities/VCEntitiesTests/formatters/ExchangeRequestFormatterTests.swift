@@ -24,7 +24,7 @@ class ExchangeRequestFormatterTests: XCTestCase {
         let signer = MockTokenSigner(x: "x", y: "y")
         formatter = ExchangeRequestFormatter(signer: signer)
         
-        let cryptoOperation = CryptoOperations(secretStore: SecretStoreMock(), accessGroup: nil)
+        let cryptoOperation = CryptoOperations(secretStore: SecretStoreMock(), sdkConfiguration: VCSDKConfiguration.sharedInstance)
         let key = try cryptoOperation.generateKey()
         
         let vc = VerifiableCredentialDescriptor(context: nil,

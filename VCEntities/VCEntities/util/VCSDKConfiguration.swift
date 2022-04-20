@@ -3,11 +3,13 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct VCSDKConfiguration {
+import VCCrypto
+
+public struct VCSDKConfiguration: VCSDKConfigurable {
     
     public static var sharedInstance = VCSDKConfiguration()
     
-    public private(set) var accessGroupIdentifier: String? = nil
+    public private(set) var accessGroupIdentifier: String?
     
     private init() {}
     

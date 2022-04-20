@@ -5,19 +5,13 @@
 
 import VCCrypto
 
-public struct KeyId: VCCryptoSecret {
+public struct MockVCSDKConfiguration: VCSDKConfigurable {
     
-    public let id: UUID
+    public private(set) var accessGroupIdentifier: String?
     
-    public let accessGroup: String? = nil
+    init() {}
     
-    public init(id: UUID) {
-        self.id = id
+    mutating func setAccessGroupIdentifier(with id: String) {
+        self.accessGroupIdentifier = id
     }
-    
-    public func isValidKey() -> Bool {
-        return true
-    }
-    
-    public func migrateKey(fromAccessGroup oldAccessGroup: String?) throws { }
 }
