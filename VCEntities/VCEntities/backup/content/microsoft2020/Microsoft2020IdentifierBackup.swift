@@ -37,11 +37,11 @@ public struct Microsoft2020IdentifierBackup : Codable {
                 master = rawIdentity
                 return
             }
-            try self.etc.append(rawIdentity.identifier)
+            try self.etc.append(rawIdentity.asIdentifier())
         }
         master?.name = AliasComputer().compute(forId: VCEntitiesConstants.MASTER_ID,
                                                andRelyingParty: VCEntitiesConstants.MASTER_ID)
-        self.master = try master?.identifier
+        self.master = try master?.asIdentifier()
     }
     
     public func encode(to encoder: Encoder) throws {

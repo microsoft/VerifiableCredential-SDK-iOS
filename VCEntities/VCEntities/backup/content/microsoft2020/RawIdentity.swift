@@ -33,36 +33,34 @@ struct RawIdentity: Codable {
         self.updateKey = identifier.updateKey.keyId
         self.keys = keys
     }
-
-    var identifier: Identifier {
-        get throws {
-            // Get out the keys
-            guard let keys = self.keys else {
-                throw RawIdentityError.signingKeyNotFound
-            }
-            guard let recoveryJwk = keys.first(where: {$0.keyId == self.recoveryKey}) else {
-                throw RawIdentityError.recoveryKeyNotFound
-            }
-            guard let updateJwk = keys.first(where: {$0.keyId == self.updateKey}) else {
-                throw RawIdentityError.updateKeyNotFound
-            }
-            let set = Set([self.recoveryKey, self.updateKey])
-            guard let signingJwk = keys.first(where: {!set.contains($0.keyId!)}) else {
-                throw RawIdentityError.signingKeyNotFound
-            }
-
-            // Convert
-            let recoveryKeyContainer = try RawIdentity.keyContainerFromJwk(recoveryJwk)
-            let updateKeyContainer = try RawIdentity.keyContainerFromJwk(updateJwk)
-            let signingKeyContainer = try RawIdentity.keyContainerFromJwk(signingJwk)
-            
-            // Wrap up and return
-            return Identifier(longFormDid: self.id,
-                              didDocumentKeys: [signingKeyContainer],
-                              updateKey: updateKeyContainer,
-                              recoveryKey: recoveryKeyContainer,
-                              alias: self.name)
+    
+    func asIdentifier() throws -> Identifier {
+        // Get out the keys
+        guard let keys = self.keys else {
+            throw RawIdentityError.signingKeyNotFound
         }
+        guard let recoveryJwk = keys.first(where: {$0.keyId == self.recoveryKey}) else {
+            throw RawIdentityError.recoveryKeyNotFound
+        }
+        guard let updateJwk = keys.first(where: {$0.keyId == self.updateKey}) else {
+            throw RawIdentityError.updateKeyNotFound
+        }
+        let set = Set([self.recoveryKey, self.updateKey])
+        guard let signingJwk = keys.first(where: {!set.contains($0.keyId!)}) else {
+            throw RawIdentityError.signingKeyNotFound
+        }
+
+        // Convert
+        let recoveryKeyContainer = try RawIdentity.keyContainerFromJwk(recoveryJwk)
+        let updateKeyContainer = try RawIdentity.keyContainerFromJwk(updateJwk)
+        let signingKeyContainer = try RawIdentity.keyContainerFromJwk(signingJwk)
+        
+        // Wrap up and return
+        return Identifier(longFormDid: self.id,
+                          didDocumentKeys: [signingKeyContainer],
+                          updateKey: updateKeyContainer,
+                          recoveryKey: recoveryKeyContainer,
+                          alias: self.name)
     }
     
     private static func jwkFromKeyContainer(_ keyContainer: KeyContainer) throws -> Jwk {
