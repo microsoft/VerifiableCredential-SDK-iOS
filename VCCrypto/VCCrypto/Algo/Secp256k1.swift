@@ -6,8 +6,6 @@
 import Foundation
 import Secp256k1
 
-public typealias Secp256k1KeyPair = (publicKey: Secp256k1PublicKey, privateKey: VCCryptoSecret)
-
 enum Secp256k1Error: Error {
     case invalidMessageHash
     case invalidSecretKey
