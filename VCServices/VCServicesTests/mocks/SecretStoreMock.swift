@@ -23,4 +23,15 @@ internal class SecretStoreMock: SecretStoring {
         print("deletingSecret... " + id.uuidString)
         memoryStore.removeValue(forKey: id)
     }
+    
+    func save(secret: VCCryptoSecret) throws {
+        print("saving \(String(describing: secret))")
+        let ephemeral = try EphemeralSecret(with: secret)
+        memoryStore[secret.id] = ephemeral.value
+    }
+    
+    func delete(secret: VCCryptoSecret) throws {
+        print("deleting \(String(describing: secret))")
+        memoryStore.removeValue(forKey: secret.id)
+    }
 }
