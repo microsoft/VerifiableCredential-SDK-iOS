@@ -62,7 +62,7 @@ public final class EphemeralSecret: Secret {
     }
     
     public func migrateKey(fromAccessGroup currentAccessGroup: String?) throws {
-        self.accessGroup 
+        /* Do nothing */
     }
     
     public func prefix(_ maxLength: Int) -> EphemeralSecret {
