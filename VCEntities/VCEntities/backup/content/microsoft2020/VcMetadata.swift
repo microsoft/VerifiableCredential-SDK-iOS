@@ -3,13 +3,12 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct ClaimDisplayDescriptor: Codable, Equatable {
+open class VcMetadata : Codable {
+
+    public var displayContract: DisplayDescriptor?
+    public var type: String
     
-    public let type: String
-    public let label: String
-    
-    public init(type:String, label:String) {
-        self.type = type;
-        self.label = label;
+    public init(as type:String) {
+        self.type = type
     }
 }

@@ -12,8 +12,10 @@ struct MockCryptoOperations: CryptoOperating {
 
     static var generateKeyCallCount = 0
     let cryptoOperations: CryptoOperating
+    let secretStore: SecretStoring
     
     init(secretStore: SecretStoring) {
+        self.secretStore = secretStore
         self.cryptoOperations = CryptoOperations(secretStore: secretStore, sdkConfiguration: VCSDKConfiguration.sharedInstance)
     }
     
@@ -24,5 +26,9 @@ struct MockCryptoOperations: CryptoOperating {
     
     func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret {
         return KeyId(id: id)
+    }
+
+    func retrieveKeyIfStored(uuid: UUID) throws -> VCCryptoSecret? {
+        return KeyId(id: uuid)
     }
 }

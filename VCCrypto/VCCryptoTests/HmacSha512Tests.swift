@@ -10,7 +10,6 @@ import XCTest
 class HmacSha512Tests: XCTestCase {
     
     private let secret = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    private var store: SecretStoreMock!
     private var hmac: HmacSha512!
     
     override func setUpWithError() throws {
@@ -35,30 +34,27 @@ class HmacSha512Tests: XCTestCase {
     }
     
     func testValidate() throws {
-        let hmac = HmacSha512()
         let result = try hmac.isValidAuthenticationCode(
             Data(hexString:"368f91fd6ac70cb1d00035dfa5047a3f258111c7d80650c4de9bf7da20d23ba20aee6f94d3bdf325dc70a2735cf51a910c4364c0802eb4098cdbce813d97df87"),
             authenticating: Utf8TestData.hello.rawValue.data(using: .utf8)!,
-            withSecret: SecretMock(id: UUID(), withData: secret.data(using: .utf8)!))
+            withSecret: EphemeralSecret(with: secret.data(using: .utf8)!))
         XCTAssertTrue(result)
     }
     
     func testInvalid() throws {
-        let hmac = HmacSha512()
         let result = try hmac.isValidAuthenticationCode(
             Data(hexString:"aaaa91fd6ac70cb1d00035dfa5047a3f258111c7d80650c4de9bf7da20d23ba20aee6f94d3bdf325dc70a2735cf51a910c4364c0802eb4098cdbce813d97df87"),
             authenticating: Utf8TestData.hello.rawValue.data(using: .utf8)!,
-            withSecret: SecretMock(id: UUID(), withData: secret.data(using: .utf8)!))
+            withSecret: EphemeralSecret(with: secret.data(using: .utf8)!))
         XCTAssertFalse(result)
     }
     
     private func runAuthenticateTest(for message: String, expecting expected: String) throws {
         let expectedResult = Data(hexString:expected)
         
-        let hmac = HmacSha512()
         let result = try hmac.authenticate(
             message: message.data(using: .utf8)!,
-            withSecret: SecretMock(id: UUID(), withData: secret.data(using: .utf8)!))
+            withSecret: EphemeralSecret(with: secret.data(using: .utf8)!))
         XCTAssertEqual(result, expectedResult)
     }
 }

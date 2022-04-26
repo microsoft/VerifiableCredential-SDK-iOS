@@ -3,13 +3,13 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct ClaimDisplayDescriptor: Codable, Equatable {
-    
-    public let type: String
-    public let label: String
-    
-    public init(type:String, label:String) {
-        self.type = type;
-        self.label = label;
-    }
+import Foundation
+
+public struct JweToken {
+    public let headers: Header
+    public let aad: Data
+    public let encryptedKey: Data
+    public let iv: Data
+    public let ciperText: Data
+    public let authenticationTag: Data
 }

@@ -32,6 +32,16 @@ public class IdentifierService {
         return try identifierDB.fetchMasterIdentifier()
     }
     
+    public func fetchAllIdentifiers() throws -> [Identifier] {
+        return try identifierDB.fetchAllIdentifiers()
+    }
+    
+    public func replaceIdentifiers(with identifiers:[Identifier]) throws {
+        
+        try identifierDB.removeAllIdentifiers()
+        try identifiers.forEach(identifierDB.importIdentifier)
+    }
+    
     func fetchIdentifier(withAlias alias: String) throws -> Identifier {
         return try identifierDB.fetchIdentifier(withAlias: alias)
     }
