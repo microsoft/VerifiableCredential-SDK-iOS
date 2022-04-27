@@ -8,4 +8,6 @@ struct Constants {
     static let FRAGMENT_SEPARATOR: Character = "#"
     
     static let LINKED_DOMAINS_SERVICE_ENDPOINT_TYPE = "LinkedDomains"
+    
+    static let PasswordSetSize = 12
 }
