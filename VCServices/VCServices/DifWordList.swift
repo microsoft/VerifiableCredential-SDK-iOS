@@ -15,19 +15,16 @@ public class DifWordList {
 
         if let path = Bundle(for: Self.self).path(forResource: "difwordlist", ofType: "txt") {
             let content = try String(contentsOfFile: path, encoding: .utf8)
-            
-            var sanitised = [String]()
-            content.components(separatedBy: .newlines).forEach { component in
-                let trimmed = component.trimmingCharacters(in: .whitespacesAndNewlines)
-                if trimmed.isEmpty {
-                    return
-                }
-                sanitised.append(trimmed)
-            }
-            self.words = sanitised
+            self.words = content.components(separatedBy: .whitespacesAndNewlines).filter{ !($0.isEmpty) }
         } else {
             return nil
         }
+    }
+
+    /// Selects a word at random from the list and returns it
+    public func randomWord() -> String {
+        let index = arc4random_uniform(UInt32(self.words.count))
+        return self.words[Int(index)]
     }
 
     public func generatePassword() -> String {
@@ -36,9 +33,8 @@ public class DifWordList {
         var set = Set<String>()
         
         repeat {
-            // Pick the next word
-            let index = arc4random_uniform(UInt32(self.words.count))
-            let word = self.words[Int(index)]
+            // Get another word
+            let word = self.randomWord()
             
             // Was it already selected?
             if set.contains(word) {
