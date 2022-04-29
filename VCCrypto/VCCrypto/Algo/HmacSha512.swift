@@ -6,6 +6,7 @@
 import Foundation
 import CommonCrypto
 
+@available(*, deprecated, message: "Superceded by HmacSha2")
 public struct HmacSha512 {
 
     public init() { }

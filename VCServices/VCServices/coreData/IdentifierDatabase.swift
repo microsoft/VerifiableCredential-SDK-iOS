@@ -105,7 +105,7 @@ struct IdentifierDatabase {
             try keyIds.forEach{ keyId in
                 if let uuid = keyId,
                    let key = try cryptoOperations.retrieveKeyIfStored(uuid: uuid) {
-                    try cryptoOperations.secretStore.delete(secret: key)
+                    try cryptoOperations.delete(key: key)
                 }
             }
             
@@ -119,7 +119,7 @@ struct IdentifierDatabase {
         // Put the keys in the keychain
         let keyContainers = identifier.didDocumentKeys + [identifier.updateKey, identifier.recoveryKey]
         try keyContainers.forEach { keyContainer in
-            try keyContainer.persist(in: cryptoOperations.secretStore)
+            try cryptoOperations.save(key: keyContainer.keyReference)
         }
         
         try self.saveIdentifier(identifier: identifier)

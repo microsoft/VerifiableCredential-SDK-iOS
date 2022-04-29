@@ -31,4 +31,12 @@ struct MockCryptoOperations: CryptoOperating {
     func retrieveKeyIfStored(uuid: UUID) throws -> VCCryptoSecret? {
         return KeyId(id: uuid)
     }
+    
+    func delete(key: VCCryptoSecret) throws {
+        try secretStore.delete(secret: key)
+    }
+    
+    func save(key: VCCryptoSecret) throws {
+        try secretStore.save(secret: key)
+    }
 }

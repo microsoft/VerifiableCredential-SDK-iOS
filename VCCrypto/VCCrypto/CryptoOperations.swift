@@ -4,16 +4,16 @@
 *--------------------------------------------------------------------------------------------*/
 
 public protocol CryptoOperating {
-    var secretStore: SecretStoring { get }
-    
     func generateKey() throws -> VCCryptoSecret
     func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret
     func retrieveKeyIfStored(uuid: UUID) throws -> VCCryptoSecret?
+    func delete(key: VCCryptoSecret) throws
+    func save(key: VCCryptoSecret) throws
 }
 
 public struct CryptoOperations: CryptoOperating {
 
-    public let secretStore: SecretStoring
+    private let secretStore: SecretStoring
     
     private let sdkConfiguration: VCSDKConfigurable
     
@@ -52,5 +52,13 @@ public struct CryptoOperations: CryptoOperating {
             keyRef = nil
         }
         return keyRef
+    }
+    
+    public func delete(key: VCCryptoSecret) throws {
+        try secretStore.delete(secret: key)
+    }
+    
+    public func save(key: VCCryptoSecret) throws {
+        try secretStore.save(secret: key)
     }
 }
