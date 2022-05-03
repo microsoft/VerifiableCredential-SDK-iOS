@@ -32,6 +32,7 @@
 		5531D3AC255F03EF0002CC0E /* AliasComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3AB255F03EF0002CC0E /* AliasComputer.swift */; };
 		5531D3B2255F6B6E0002CC0E /* ResponseContaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3B1255F6B6E0002CC0E /* ResponseContaining.swift */; };
 		55379AD725A8DF7A0048600A /* PresentationRequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */; };
+		553D4C472821D89D00FD39A6 /* IssuanceRequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D4C462821D89D00FD39A6 /* IssuanceRequestValidator.swift */; };
 		55575738251BC575009979AB /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5557572E251BC575009979AB /* VCEntities.framework */; };
 		5557573F251BC575009979AB /* VCEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 55575731251BC575009979AB /* VCEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557574B251BC6CE009979AB /* AttestationsDescriptor.swift */; };
@@ -171,6 +172,7 @@
 		5531D3AB255F03EF0002CC0E /* AliasComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasComputer.swift; sourceTree = "<group>"; };
 		5531D3B1255F6B6E0002CC0E /* ResponseContaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseContaining.swift; sourceTree = "<group>"; };
 		55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestValidator.swift; sourceTree = "<group>"; };
+		553D4C462821D89D00FD39A6 /* IssuanceRequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRequestValidator.swift; sourceTree = "<group>"; };
 		5557572E251BC575009979AB /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55575731251BC575009979AB /* VCEntities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCEntities.h; sourceTree = "<group>"; };
 		55575732251BC575009979AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			children = (
 				559FC9A925C9ABB500737F14 /* DomainLinkageCredentialValidator.swift */,
 				55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */,
+				553D4C462821D89D00FD39A6 /* IssuanceRequestValidator.swift */,
 			);
 			path = validators;
 			sourceTree = "<group>";
@@ -870,6 +873,7 @@
 				55575774251BC6CF009979AB /* VCClaims.swift in Sources */,
 				555BDB1C2533AA85001E7A18 /* FormatterError.swift in Sources */,
 				55B4D2D62787BBED0086A9F1 /* AllowedAlgorithms.swift in Sources */,
+				553D4C472821D89D00FD39A6 /* IssuanceRequestValidator.swift in Sources */,
 				5584E49925255ACA00A9DE58 /* PresentationRequestClaims.swift in Sources */,
 				55575771251BC6CF009979AB /* AttestationResponseDescriptor.swift in Sources */,
 				5522D04F27DA727400617D15 /* AccessTokenDescriptor.swift in Sources */,

@@ -9,6 +9,7 @@ import VCNetworking
 import VCEntities
 
 enum IssuanceServiceError: Error {
+    case noKeyIdInRequestHeader
     case unableToCastToPresentationResponseContainer
     case unableToFetchIdentifier
 }
@@ -17,6 +18,8 @@ public class IssuanceService {
     
     let formatter: IssuanceResponseFormatting
     let apiCalls: IssuanceNetworking
+    let discoveryApiCalls: DiscoveryNetworking
+    let requestValidator: IssuanceRequestValidating
     let identifierService: IdentifierService
     let pairwiseService: PairwiseService
     let linkedDomainService: LinkedDomainService
@@ -27,6 +30,9 @@ public class IssuanceService {
         self.init(formatter: IssuanceResponseFormatter(),
                   apiCalls: IssuanceNetworkCalls(correlationVector: correlationVector,
                                                  urlSession: urlSession),
+                  discoveryApiCalls: DIDDocumentNetworkCalls(correlationVector: correlationVector,
+                                                                        urlSession: urlSession),
+                  requestValidator: IssuanceRequestValidator(),
                   identifierService: IdentifierService(),
                   linkedDomainService: LinkedDomainService(correlationVector: correlationVector,
                                                            urlSession: urlSession),
@@ -37,12 +43,16 @@ public class IssuanceService {
     
     init(formatter: IssuanceResponseFormatting,
          apiCalls: IssuanceNetworking,
+         discoveryApiCalls: DiscoveryNetworking,
+         requestValidator: IssuanceRequestValidating,
          identifierService: IdentifierService,
          linkedDomainService: LinkedDomainService,
          pairwiseService: PairwiseService,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
         self.formatter = formatter
         self.apiCalls = apiCalls
+        self.discoveryApiCalls = discoveryApiCalls
+        self.requestValidator = requestValidator
         self.identifierService = identifierService
         self.pairwiseService = pairwiseService
         self.linkedDomainService = linkedDomainService
@@ -53,6 +63,8 @@ public class IssuanceService {
         return logTime(name: "Issuance getRequest") {
             firstly {
                 self.apiCalls.getRequest(withUrl: url)
+            }.then { signedContract in
+                self.validateRequest(signedContract)
             }.then { signedContract in
                 self.formIssuanceRequest(from: signedContract)
             }
@@ -86,6 +98,48 @@ public class IssuanceService {
     public func sendCompletionResponse(for response: IssuanceCompletionResponse, to url: String) -> Promise<String?> {
         return logTime(name: "Issuance sendCompletionResponse") {
             self.apiCalls.sendCompletionResponse(usingUrl: url, withBody: response)
+        }
+    }
+    
+    private func validateRequest(_ request: SignedContract) -> Promise<SignedContract> {
+        return firstly {
+            self.getDIDFromHeader(request: request)
+        }.then { did in
+            self.discoveryApiCalls.getDocument(from: did)
+        }.then { document in
+            self.wrapValidationInPromise(request: request, usingKeys: document.verificationMethod)
+        }
+    }
+    
+    private func getDIDFromHeader(request: SignedContract) -> Promise<String> {
+        return Promise { seal in
+            
+            guard let kid = request.headers.keyId?.split(separator: Constants.FRAGMENT_SEPARATOR),
+                  let did = kid.first else {
+                
+                seal.reject(IssuanceServiceError.noKeyIdInRequestHeader)
+                return
+            }
+            
+            seal.fulfill(String(did))
+        }
+    }
+    
+    private func wrapValidationInPromise(request: SignedContract, usingKeys keys: [IdentifierDocumentPublicKey]?) -> Promise<SignedContract> {
+        
+        guard let publicKeys = keys else {
+            return Promise { seal in
+                seal.reject(PresentationServiceError.noPublicKeysInIdentifierDocument)
+            }
+        }
+        
+        return Promise { seal in
+            do {
+                try self.requestValidator.validate(request: request, usingKeys: publicKeys)
+                seal.fulfill(request)
+            } catch {
+                seal.reject(error)
+            }
         }
     }
     
