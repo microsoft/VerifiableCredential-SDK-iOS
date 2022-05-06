@@ -23,17 +23,17 @@ class SimpleFailureHandler: FailureHandler {
         var error: NetworkingError
         switch response.statusCode {
         case 400:
-            error = NetworkingError.badRequest(withBody: responseBody)
+            error = NetworkingError.badRequest(withBody: responseBody, statusCode: response.statusCode)
         case 401:
-            error = NetworkingError.unauthorized(withBody: responseBody)
+            error = NetworkingError.unauthorized(withBody: responseBody, statusCode: response.statusCode)
         case 403:
-            error = NetworkingError.forbidden(withBody: responseBody)
+            error = NetworkingError.forbidden(withBody: responseBody, statusCode: response.statusCode)
         case 404:
-            error = NetworkingError.notFound(withBody: responseBody)
+            error = NetworkingError.notFound(withBody: responseBody, statusCode: response.statusCode)
         case 500...599:
-            error = NetworkingError.serverError(withBody: responseBody)
+            error = NetworkingError.serverError(withBody: responseBody, statusCode: response.statusCode)
         default:
-            error = NetworkingError.unknownNetworkingError(withBody: responseBody)
+            error = NetworkingError.unknownNetworkingError(withBody: responseBody, statusCode: response.statusCode)
         }
         
         self.logNetworkingError(error: error)
