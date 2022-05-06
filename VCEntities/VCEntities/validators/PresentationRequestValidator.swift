@@ -13,6 +13,7 @@ enum PresentationRequestValidatorError: Error {
     case invalidSignature
     case noExpirationPresent
     case noRegistrationPresent
+    case noKeyIdInTokenHeader
     case responseSigningAlgorithmNotSupportedForVCs
     case responseSigningAlgorithmNotSupportedForVPs
     case subjectIdentifierTypeNotSupported
@@ -48,13 +49,19 @@ public struct PresentationRequestValidator: RequestValidating {
     private func validate(token: PresentationRequestToken,
                           using keys: [IdentifierDocumentPublicKey]) throws {
         
+        guard let kid = token.headers.keyId else
+        {
+            throw PresentationRequestValidatorError.noKeyIdInTokenHeader
+        }
+        
+        let keyIdComponents = kid.split(separator: "#").map { String($0) }
+        let publicKeyId = "#\(keyIdComponents[1])"
+        
+        /// check if key id is equal to keyId fragment in token header, and if so, validate signature. Else, continue loop.
         for key in keys {
-            do {
-                if try token.verify(using: verifier, withPublicKey: key.publicKeyJwk) {
-                    return
-                }
-            } catch {
-                // TODO: log error
+            if key.id == publicKeyId,
+               try token.verify(using: verifier, withPublicKey: key.publicKeyJwk) {
+                return
             }
         }
         
