@@ -29,7 +29,7 @@ class KeychainSecretStoreTests: XCTestCase {
         do {
             let _ = try store.getSecret(id: secretId, itemTypeCode: "AAAA", accessGroup: nil)
             XCTAssertTrue(false)
-        } catch KeychainStoreError.itemNotFound {
+        } catch SecretStoringError.itemNotFound {
             // We expect an exception for this case.
         }
     }

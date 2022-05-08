@@ -3,13 +3,16 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public struct ClaimDisplayDescriptor: Codable, Equatable {
+import Foundation
+
+/// A ProtectedBackup holds a UnprotectedBackupData in some shape or form. The details are defined by implementations of this protocol. e.g. a JWE Token encrypted by a password. 
+public struct UnprotectedBackupData {
     
     public let type: String
-    public let label: String
-    
-    public init(type:String, label:String) {
-        self.type = type;
-        self.label = label;
+    public let encoded: Data
+
+    public init(type: String, encoded: Data) {
+        self.type = type
+        self.encoded = encoded
     }
 }
