@@ -21,7 +21,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
     var mockIdentifierDocument: IdentifierDocument!
     
     override func setUpWithError() throws {
-        let mockDidPublicKey = IdentifierDocumentPublicKey(id: "test",
+        let mockDidPublicKey = IdentifierDocumentPublicKey(id: "#keyId",
                                                        type: "Typetest",
                                                        controller: "controllerTest",
                                                        publicKeyJwk: mockPublicKey,
@@ -54,7 +54,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         let verifier: TokenVerifying = MockTokenVerifier(isTokenValid: false)
         let validator = DomainLinkageCredentialValidator(verifier: verifier)
         let claims = createMockDomainLinkageCredentialClaims()
-        if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
+        if let credential = DomainLinkageCredential(headers: Header(keyId: "did:test#keyId"),content: claims) {
             
             XCTAssertThrowsError(try validator.validate(credential: credential,
                                                         usingDocument: mockIdentifierDocument,
@@ -72,7 +72,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         let wrongIssuer = "did:test:wrongCredentialIssuer"
         let validator = DomainLinkageCredentialValidator(verifier: verifier)
         let claims = createMockDomainLinkageCredentialClaims(issuerDid: wrongIssuer)
-        if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
+        if let credential = DomainLinkageCredential(headers: Header(keyId: "did:test#keyId"),content: claims) {
             
             XCTAssertThrowsError(try validator.validate(credential: credential,
                                                         usingDocument: mockIdentifierDocument,
@@ -90,7 +90,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         let wrongSubject = "did:test:notMatching"
         let validator = DomainLinkageCredentialValidator(verifier: verifier)
         let claims = createMockDomainLinkageCredentialClaims(subjectDid: wrongSubject)
-        if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
+        if let credential = DomainLinkageCredential(headers: Header(keyId: "did:test#keyId"),content: claims) {
             
             
             XCTAssertThrowsError(try validator.validate(credential: credential,
@@ -108,7 +108,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
     func testIdentifierDocumentAndCredentialSubjectDoNotMatch() throws {
         
         let wrongIdentifierDocumentDid = "did:test:notMatching"
-        let mockDidPublicKey = IdentifierDocumentPublicKey(id: "test",
+        let mockDidPublicKey = IdentifierDocumentPublicKey(id: "#keyId",
                                                        type: "Typetest",
                                                        controller: "controllerTest",
                                                        publicKeyJwk: mockPublicKey,
@@ -120,7 +120,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         
         let validator = DomainLinkageCredentialValidator(verifier: verifier)
         let claims = createMockDomainLinkageCredentialClaims()
-        if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
+        if let credential = DomainLinkageCredential(headers: Header(keyId: "did:test#keyId"),content: claims) {
             
             XCTAssertThrowsError(try validator.validate(credential: credential,
                                                         usingDocument: identifierDocument,
@@ -138,7 +138,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
         let wrongDomainUrl = "did:test:notMatching"
         let validator = DomainLinkageCredentialValidator(verifier: verifier)
         let claims = createMockDomainLinkageCredentialClaims()
-        if let credential = DomainLinkageCredential(headers: Header(),content: claims) {
+        if let credential = DomainLinkageCredential(headers: Header(keyId: "did:test#keyId"),content: claims) {
             
             XCTAssertThrowsError(try validator.validate(credential: credential,
                                                         usingDocument: mockIdentifierDocument,
@@ -155,7 +155,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
     func testDocumentIdAndCredentialKeyIdDoNotMatch() throws {
         let validator = DomainLinkageCredentialValidator(verifier: verifier)
         let claims = createMockDomainLinkageCredentialClaims()
-        let keyId = "KeyIdThatDoesntMatch"
+        let keyId = "KeyIdThatDoesntMatch#keyId"
         if let credential = DomainLinkageCredential(headers: Header(keyId: keyId),content: claims) {
             
             XCTAssertThrowsError(try validator.validate(credential: credential,

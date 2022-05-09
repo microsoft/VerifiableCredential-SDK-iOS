@@ -23,6 +23,28 @@ struct PresentationResponseEncoder: Encoding {
     }
     
     func encode(value: PresentationResponse) throws -> Data {
-        return try JSONEncoder().encode(value)
+        
+        let idTokenParam = "\(Constants.idToken)=\(try value.idToken.serialize())"
+        
+        guard let vpToken = value.vpToken else {
+            throw PresentationResponseEncoderError.noVerifiablePresentationInResponse
+        }
+        
+        let vpTokenParam = "\(Constants.vpToken)=\(try vpToken.serialize())"
+        
+        guard let state = value.state?.stringByAddingPercentEncodingForRFC3986() else {
+            throw PresentationResponseEncoderError.noStatePresentInResponse
+        }
+        
+        let stateParam = "\(Constants.state)=\(state)"
+        
+        let responseBody = "\(idTokenParam)&\(vpTokenParam)&\(stateParam)"
+        
+        guard let response = responseBody.data(using: .utf8) else
+        {
+            throw PresentationResponseEncoderError.unableToSerializeResponse
+        }
+        
+        return response
     }
 }

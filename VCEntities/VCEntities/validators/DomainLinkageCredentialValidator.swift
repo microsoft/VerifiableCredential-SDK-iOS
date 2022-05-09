@@ -9,6 +9,8 @@ enum DomainLinkageCredentialValidatorError: Error, Equatable {
     case invalidSignature
     case tokenExpired
     case noPublicKeysInIdentifierDocument
+    case noKeyIdInTokenHeader
+    case keyIdInTokenHeaderMalformed
     case doNotMatch(credentialSubject: String, tokenIssuer: String)
     case doNotMatch(credentialSubject: String, tokenSubject: String)
     case doNotMatch(credentialSubject: String, identifierDocumentDid: String)
@@ -70,12 +72,16 @@ public struct DomainLinkageCredentialValidator: DomainLinkageCredentialValidatin
     
     private func validate(token: DomainLinkageCredential, using keys: [IdentifierDocumentPublicKey]) throws {
         
-        guard let kid = token.headers.keyId else
-        {
-            throw PresentationRequestValidatorError.noKeyIdInTokenHeader
+        guard let kid = token.headers.keyId else {
+            throw DomainLinkageCredentialValidatorError.noKeyIdInTokenHeader
         }
         
         let keyIdComponents = kid.split(separator: "#").map { String($0) }
+        
+        guard keyIdComponents.count == 2 else {
+            throw DomainLinkageCredentialValidatorError.keyIdInTokenHeaderMalformed
+        }
+        
         let publicKeyId = "#\(keyIdComponents[1])"
         
         /// check if key id is equal to keyId fragment in token header, and if so, validate signature. Else, continue loop.

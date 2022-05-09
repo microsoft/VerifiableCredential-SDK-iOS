@@ -85,7 +85,7 @@ class HelperNetworkFunctionsTests: XCTestCase {
             if (testNum == 4) {
                 seal.fulfill(testNum)
             } else {
-                seal.reject(NetworkingError.unknownNetworkingError(withBody: String(testNum)))
+                seal.reject(NetworkingError.unknownNetworkingError(withBody: String(testNum), statusCode: 500))
             }
         }
     }

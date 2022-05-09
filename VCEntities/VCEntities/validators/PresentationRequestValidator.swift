@@ -7,6 +7,7 @@ import VCToken
 
 enum PresentationRequestValidatorError: Error {
     case didMethodNotSupported
+    case keyIdInTokenHeaderMalformed
     case invalidResponseModeValue
     case invalidResponseTypeValue
     case invalidScopeValue
@@ -55,6 +56,11 @@ public struct PresentationRequestValidator: RequestValidating {
         }
         
         let keyIdComponents = kid.split(separator: "#").map { String($0) }
+        
+        guard keyIdComponents.count == 2 else {
+            throw PresentationRequestValidatorError.keyIdInTokenHeaderMalformed
+        }
+        
         let publicKeyId = "#\(keyIdComponents[1])"
         
         /// check if key id is equal to keyId fragment in token header, and if so, validate signature. Else, continue loop.

@@ -5,6 +5,12 @@
 
 import VCToken
 
+enum IssuanceRequestValidatorError: Error, Equatable {
+    case invalidSignature
+    case noKeyIdInTokenHeader
+    case keyIdInTokenHeaderMalformed
+}
+
 public protocol IssuanceRequestValidating {
     func validate(request: SignedContract, usingKeys publicKeys: [IdentifierDocumentPublicKey]) throws
 }
@@ -21,10 +27,15 @@ public struct IssuanceRequestValidator: IssuanceRequestValidating {
         
         guard let kid = request.headers.keyId else
         {
-            throw PresentationRequestValidatorError.noKeyIdInTokenHeader
+            throw IssuanceRequestValidatorError.noKeyIdInTokenHeader
         }
         
         let keyIdComponents = kid.split(separator: "#").map { String($0) }
+        
+        guard keyIdComponents.count == 2 else {
+            throw IssuanceRequestValidatorError.keyIdInTokenHeaderMalformed
+        }
+        
         let publicKeyId = "#\(keyIdComponents[1])"
         
         /// check if key id is equal to keyId fragment in token header, and if so, validate signature. Else, continue loop.
@@ -35,7 +46,7 @@ public struct IssuanceRequestValidator: IssuanceRequestValidating {
             }
         }
         
-        throw PresentationRequestValidatorError.invalidSignature
+        throw IssuanceRequestValidatorError.invalidSignature
     }
     
 }

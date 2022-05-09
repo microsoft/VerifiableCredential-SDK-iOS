@@ -46,7 +46,7 @@ class NetworkOperationTests: XCTestCase {
             XCTFail()
         }.catch { error in
             print(error)
-            XCTAssertEqual(error as! NetworkingError, NetworkingError.badRequest(withBody: self.serializedExpectedResponse))
+            XCTAssertEqual(error as! NetworkingError, NetworkingError.badRequest(withBody: self.serializedExpectedResponse, statusCode: 400))
             expec.fulfill()
         }
         

@@ -21,6 +21,8 @@ class IssuanceServiceTests: XCTestCase {
         let formatter = MockIssuanceResponseFormatter(shouldSucceed: true)
         service = IssuanceService(formatter: formatter,
                                   apiCalls: MockIssuanceApiCalls(),
+                                  discoveryApiCalls: MockDiscoveryApiCalls(),
+                                  requestValidator: MockIssuanceRequestValidator(),
                                   identifierService: IdentifierService(),
                                   linkedDomainService: LinkedDomainService(),
                                   pairwiseService: PairwiseService())
@@ -33,6 +35,8 @@ class IssuanceServiceTests: XCTestCase {
         try identifierDB.saveIdentifier(identifier: mockIdentifier)
         
         MockIssuanceResponseFormatter.wasFormatCalled = false
+        MockIssuanceRequestValidator.wasValidateCalled = false
+        MockDiscoveryApiCalls.wasGetCalled = false
         MockIssuanceApiCalls.wasPostResponseCalled = false
         MockIssuanceApiCalls.wasPostCompletionResponseCalled = false
     }
@@ -88,6 +92,8 @@ class IssuanceServiceTests: XCTestCase {
         let formatter = MockIssuanceResponseFormatter(shouldSucceed: false)
         let service = IssuanceService(formatter: formatter,
                                       apiCalls: MockIssuanceApiCalls(),
+                                      discoveryApiCalls: MockDiscoveryApiCalls(),
+                                      requestValidator: MockIssuanceRequestValidator(),
                                       identifierService: IdentifierService(),
                                       linkedDomainService: LinkedDomainService(),
                                       pairwiseService: PairwiseService())
