@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F29BA412808759F0076CB02 /* Jwk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29BA402808759F0076CB02 /* Jwk.swift */; };
-		2F3C363027E0EA670067F3BD /* JweToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3C362F27E0EA670067F3BD /* JweToken.swift */; };
-		2F58B93127FDBF13001C6DFE /* PbesJwe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58B93027FDBF13001C6DFE /* PbesJwe.swift */; };
-		2FA0117627F5BCC1006D5BF7 /* JweDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0117527F5BCC1006D5BF7 /* JweDecoder.swift */; };
-		2FBC5E3627F1BBD3000DB57F /* JweEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC5E3527F1BBD3000DB57F /* JweEncoder.swift */; };
 		550F1E56251019BA009AF467 /* KeyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E55251019BA009AF467 /* KeyId.swift */; };
 		550F1E6125115866009AF467 /* ECPublicJwkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6025115866009AF467 /* ECPublicJwkTests.swift */; };
 		55269351250006020051A358 /* VCTokenError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55269350250006020051A358 /* VCTokenError.swift */; };
@@ -50,11 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F29BA402808759F0076CB02 /* Jwk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jwk.swift; sourceTree = "<group>"; };
-		2F3C362F27E0EA670067F3BD /* JweToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JweToken.swift; sourceTree = "<group>"; };
-		2F58B93027FDBF13001C6DFE /* PbesJwe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PbesJwe.swift; sourceTree = "<group>"; };
-		2FA0117527F5BCC1006D5BF7 /* JweDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JweDecoder.swift; sourceTree = "<group>"; };
-		2FBC5E3527F1BBD3000DB57F /* JweEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JweEncoder.swift; sourceTree = "<group>"; };
 		550F1E55251019BA009AF467 /* KeyId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyId.swift; sourceTree = "<group>"; };
 		550F1E6025115866009AF467 /* ECPublicJwkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECPublicJwkTests.swift; sourceTree = "<group>"; };
 		55269350250006020051A358 /* VCTokenError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTokenError.swift; sourceTree = "<group>"; };
@@ -111,7 +101,6 @@
 				55ADE27A24F5410300D9990E /* Secp256k1Signer.swift */,
 				55C6C4A5250816500082BE73 /* Secp256k1Verifier.swift */,
 				5540904A2500311E001246DB /* ECPublicJwk.swift */,
-				2F58B93027FDBF13001C6DFE /* PbesJwe.swift */,
 			);
 			path = algorithms;
 			sourceTree = "<group>";
@@ -139,10 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				5526934F24FF32850051A358 /* algorithms */,
-				2F29BA402808759F0076CB02 /* Jwk.swift */,
-				2FBC5E3527F1BBD3000DB57F /* JweEncoder.swift */,
-				2FA0117527F5BCC1006D5BF7 /* JweDecoder.swift */,
-				2F3C362F27E0EA670067F3BD /* JweToken.swift */,
 				55ADE27824F540F700D9990E /* JwsToken.swift */,
 				55ADE27C24F5410E00D9990E /* Claims.swift */,
 				55ADE27124F5407D00D9990E /* Header.swift */,
@@ -303,13 +288,8 @@
 			files = (
 				55ADE27D24F5410E00D9990E /* Claims.swift in Sources */,
 				5540904B2500311E001246DB /* ECPublicJwk.swift in Sources */,
-				2F3C363027E0EA670067F3BD /* JweToken.swift in Sources */,
 				55C6C4A6250816500082BE73 /* Secp256k1Verifier.swift in Sources */,
-				2F29BA412808759F0076CB02 /* Jwk.swift in Sources */,
-				2FA0117627F5BCC1006D5BF7 /* JweDecoder.swift in Sources */,
 				55ADE27924F540F700D9990E /* JwsToken.swift in Sources */,
-				2F58B93127FDBF13001C6DFE /* PbesJwe.swift in Sources */,
-				2FBC5E3627F1BBD3000DB57F /* JweEncoder.swift in Sources */,
 				55ADE27224F5407D00D9990E /* Header.swift in Sources */,
 				55269351250006020051A358 /* VCTokenError.swift in Sources */,
 				55ADE28524F5412900D9990E /* TokenVerifying.swift in Sources */,

@@ -7,17 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F357883280983A900997F31 /* VcMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F357882280983A900997F31 /* VcMetadata.swift */; };
-		2F53AA0E27E0CEC800C7C81E /* ProtectedBackupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F53AA0D27E0CEC800C7C81E /* ProtectedBackupData.swift */; };
-		2F53AA1027E0CF9700C7C81E /* UnprotectedBackupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F53AA0F27E0CF9700C7C81E /* UnprotectedBackupData.swift */; };
-		2F53AA1227E0E74500C7C81E /* BackupProtectionMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F53AA1127E0E74500C7C81E /* BackupProtectionMethod.swift */; };
-		2F58B92F27FDA78F001C6DFE /* JwePasswordProtectionMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58B92E27FDA78F001C6DFE /* JwePasswordProtectionMethod.swift */; };
-		2F8CCDAF27FC6FF7004B7861 /* Microsoft2020UnprotectedBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8CCDAE27FC6FF7004B7861 /* Microsoft2020UnprotectedBackup.swift */; };
-		2F8CCDB327FC7369004B7861 /* WalletMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8CCDB227FC7369004B7861 /* WalletMetadata.swift */; };
-		2F8CCDB527FC745E004B7861 /* RawIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8CCDB427FC745E004B7861 /* RawIdentity.swift */; };
-		2F8CCDBD27FC88D3004B7861 /* UnprotectedBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8CCDBC27FC88D3004B7861 /* UnprotectedBackup.swift */; };
-		2FB0154D2805C75400E67168 /* JwePasswordProtectedBackupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0154C2805C75400E67168 /* JwePasswordProtectedBackupData.swift */; };
-		2FD480112817CE99002AF37F /* Microsoft2020IdentifierBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD480102817CE98002AF37F /* Microsoft2020IdentifierBackup.swift */; };
 		55011E8C2572DF50002D2690 /* VCSDKLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55011E8B2572DF50002D2690 /* VCSDKLog.swift */; };
 		55011E8E2572DFBD002D2690 /* DefaultLogConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55011E8D2572DFBD002D2690 /* DefaultLogConsumer.swift */; };
 		55077ABA25A62DE10052C58D /* IdentifierFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55077AB925A62DE10052C58D /* IdentifierFormatter.swift */; };
@@ -158,17 +147,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F357882280983A900997F31 /* VcMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VcMetadata.swift; sourceTree = "<group>"; };
-		2F53AA0D27E0CEC800C7C81E /* ProtectedBackupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectedBackupData.swift; sourceTree = "<group>"; };
-		2F53AA0F27E0CF9700C7C81E /* UnprotectedBackupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnprotectedBackupData.swift; sourceTree = "<group>"; };
-		2F53AA1127E0E74500C7C81E /* BackupProtectionMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupProtectionMethod.swift; sourceTree = "<group>"; };
-		2F58B92E27FDA78F001C6DFE /* JwePasswordProtectionMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwePasswordProtectionMethod.swift; sourceTree = "<group>"; };
-		2F8CCDAE27FC6FF7004B7861 /* Microsoft2020UnprotectedBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Microsoft2020UnprotectedBackup.swift; sourceTree = "<group>"; };
-		2F8CCDB227FC7369004B7861 /* WalletMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletMetadata.swift; sourceTree = "<group>"; };
-		2F8CCDB427FC745E004B7861 /* RawIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawIdentity.swift; sourceTree = "<group>"; };
-		2F8CCDBC27FC88D3004B7861 /* UnprotectedBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnprotectedBackup.swift; sourceTree = "<group>"; };
-		2FB0154C2805C75400E67168 /* JwePasswordProtectedBackupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JwePasswordProtectedBackupData.swift; sourceTree = "<group>"; };
-		2FD480102817CE98002AF37F /* Microsoft2020IdentifierBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Microsoft2020IdentifierBackup.swift; sourceTree = "<group>"; };
 		55011E8B2572DF50002D2690 /* VCSDKLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSDKLog.swift; sourceTree = "<group>"; };
 		55011E8D2572DFBD002D2690 /* DefaultLogConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLogConsumer.swift; sourceTree = "<group>"; };
 		55077AB925A62DE10052C58D /* IdentifierFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierFormatter.swift; sourceTree = "<group>"; };
@@ -325,56 +303,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2F53AA0A27E0CDC000C7C81E /* backup */ = {
-			isa = PBXGroup;
-			children = (
-				2F53AA0C27E0CEA200C7C81E /* content */,
-				2F53AA0B27E0CDCB00C7C81E /* container */,
-				2F8CCDBC27FC88D3004B7861 /* UnprotectedBackup.swift */,
-			);
-			path = backup;
-			sourceTree = "<group>";
-		};
-		2F53AA0B27E0CDCB00C7C81E /* container */ = {
-			isa = PBXGroup;
-			children = (
-				2F58B92D27FDA77B001C6DFE /* jwe */,
-				2F53AA1127E0E74500C7C81E /* BackupProtectionMethod.swift */,
-			);
-			path = container;
-			sourceTree = "<group>";
-		};
-		2F53AA0C27E0CEA200C7C81E /* content */ = {
-			isa = PBXGroup;
-			children = (
-				2F8CCDAB27FC6EE9004B7861 /* microsoft2020 */,
-				2F53AA0D27E0CEC800C7C81E /* ProtectedBackupData.swift */,
-				2F53AA0F27E0CF9700C7C81E /* UnprotectedBackupData.swift */,
-			);
-			path = content;
-			sourceTree = "<group>";
-		};
-		2F58B92D27FDA77B001C6DFE /* jwe */ = {
-			isa = PBXGroup;
-			children = (
-				2F58B92E27FDA78F001C6DFE /* JwePasswordProtectionMethod.swift */,
-				2FB0154C2805C75400E67168 /* JwePasswordProtectedBackupData.swift */,
-			);
-			path = jwe;
-			sourceTree = "<group>";
-		};
-		2F8CCDAB27FC6EE9004B7861 /* microsoft2020 */ = {
-			isa = PBXGroup;
-			children = (
-				2F8CCDAE27FC6FF7004B7861 /* Microsoft2020UnprotectedBackup.swift */,
-				2F8CCDB227FC7369004B7861 /* WalletMetadata.swift */,
-				2F357882280983A900997F31 /* VcMetadata.swift */,
-				2F8CCDB427FC745E004B7861 /* RawIdentity.swift */,
-				2FD480102817CE98002AF37F /* Microsoft2020IdentifierBackup.swift */,
-			);
-			path = microsoft2020;
-			sourceTree = "<group>";
-		};
 		55011E8A2572DF1C002D2690 /* logging */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,7 +414,6 @@
 		55575730251BC575009979AB /* VCEntities */ = {
 			isa = PBXGroup;
 			children = (
-				2F53AA0A27E0CDC000C7C81E /* backup */,
 				55B4D2D42787BB600086A9F1 /* oidc */,
 				5517D28A25B90D0A00FBD239 /* exchange */,
 				5573FEFD25B8DE6900282BC7 /* discovery */,
@@ -906,7 +833,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				55077ABA25A62DE10052C58D /* IdentifierFormatter.swift in Sources */,
-				2F58B92F27FDA78F001C6DFE /* JwePasswordProtectionMethod.swift in Sources */,
 				5518CC7625264D5700C7A21B /* ResponseMappings.swift in Sources */,
 				5573FEF525B8DE4A00282BC7 /* IONDocumentModel.swift in Sources */,
 				551F3068252E97000081D5E7 /* IdentifierCreator.swift in Sources */,
@@ -914,7 +840,6 @@
 				55CA3A8127FB635300615CB6 /* VCSDKConfiguration.swift in Sources */,
 				5599D0CC26A07EE10037C131 /* IssuancePin.swift in Sources */,
 				559FC9AA25C9ABB500737F14 /* DomainLinkageCredentialValidator.swift in Sources */,
-				2F53AA1027E0CF9700C7C81E /* UnprotectedBackupData.swift in Sources */,
 				557BFC53251E665D005B5B24 /* IssuanceResponseFormatter.swift in Sources */,
 				5584E4A02525656500A9DE58 /* InputDescriptorSchema.swift in Sources */,
 				559FC9A625C8E42B00737F14 /* WellKnownConfigDocument.swift in Sources */,
@@ -934,7 +859,6 @@
 				5573FF0025B8DE6900282BC7 /* IdentifierDocument.swift in Sources */,
 				5580588725BFB6C00048E6FA /* PinDescriptor.swift in Sources */,
 				5557576E251BC6CF009979AB /* ClaimDescriptor.swift in Sources */,
-				2F8CCDAF27FC6FF7004B7861 /* Microsoft2020UnprotectedBackup.swift in Sources */,
 				5557576B251BC6CF009979AB /* ContractInputDescriptor.swift in Sources */,
 				5573FEFA25B8DE5900282BC7 /* IONDocumentInitialState.swift in Sources */,
 				55575764251BC6CF009979AB /* PresentationDescriptor.swift in Sources */,
@@ -943,7 +867,6 @@
 				55575767251BC6CF009979AB /* DisplayDescriptor.swift in Sources */,
 				55575769251BC6CF009979AB /* IssuerDescriptor.swift in Sources */,
 				55575778251BC6CF009979AB /* JSONCodingKeys.swift in Sources */,
-				2F53AA0E27E0CEC800C7C81E /* ProtectedBackupData.swift in Sources */,
 				5518CC7425264CAD00C7A21B /* PresentationResponseContainer.swift in Sources */,
 				5518CC7225264C6F00C7A21B /* PresentationResponseFormatter.swift in Sources */,
 				55AF7488252F6B53006A8B25 /* IdentifierDocumentSuffixDescriptor.swift in Sources */,
@@ -956,7 +879,6 @@
 				5522D04F27DA727400617D15 /* AccessTokenDescriptor.swift in Sources */,
 				55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */,
 				559FCA5225CA042400737F14 /* LinkedDomainResult.swift in Sources */,
-				2FB0154D2805C75400E67168 /* JwePasswordProtectedBackupData.swift in Sources */,
 				55077ACA25A7763B0052C58D /* IdentifierDocumentPublicKey.swift in Sources */,
 				5573FF0125B8DE6900282BC7 /* DiscoveryServiceResponse.swift in Sources */,
 				559FCA3C25CA03D200737F14 /* IssuanceRequest.swift in Sources */,
@@ -969,7 +891,6 @@
 				5573FEF625B8DE4A00282BC7 /* IONDocumentDeltaDescriptor.swift in Sources */,
 				5557576C251BC6CF009979AB /* CardDisplayDescriptor.swift in Sources */,
 				55AF748E252F6BE0006A8B25 /* Identifier.swift in Sources */,
-				2F8CCDBD27FC88D3004B7861 /* UnprotectedBackup.swift in Sources */,
 				55AF7486252F6B1F006A8B25 /* IdentifierDocumentServiceEndpoint.swift in Sources */,
 				55BEF45D2589544500C720BD /* PinClaims.swift in Sources */,
 				55A2CA6D266EA44B00AE1A20 /* MeasureTime.swift in Sources */,
@@ -981,7 +902,6 @@
 				551F30432527DC050081D5E7 /* JwsHeaderFormatter .swift in Sources */,
 				55575765251BC6CF009979AB /* ConsentDisplayDescriptor.swift in Sources */,
 				5584E49C2525641600A9DE58 /* PresentationDefinition.swift in Sources */,
-				2F357883280983A900997F31 /* VcMetadata.swift in Sources */,
 				555CE08D2526810100C1C938 /* VerifiablePresentationClaims.swift in Sources */,
 				55793BCD255A070E007F7599 /* VCEntitiesConstants.swift in Sources */,
 				5584E4A2252565D900A9DE58 /* IssuanceMetadata.swift in Sources */,
@@ -991,10 +911,8 @@
 				5517D28E25B90D0A00FBD239 /* ExchangeRequestClaims.swift in Sources */,
 				559FC99025C8BEEB00737F14 /* DomainLinkageCredential.swift in Sources */,
 				55379AD725A8DF7A0048600A /* PresentationRequestValidator.swift in Sources */,
-				2F8CCDB327FC7369004B7861 /* WalletMetadata.swift in Sources */,
 				55AC02B525D3087D00AA15F4 /* IdentifierDocumentServiceEndpointDescriptor.swift in Sources */,
 				55011E8E2572DFBD002D2690 /* DefaultLogConsumer.swift in Sources */,
-				2F53AA1227E0E74500C7C81E /* BackupProtectionMethod.swift in Sources */,
 				5557576D251BC6CF009979AB /* SelfIssuedClaimsDescriptor.swift in Sources */,
 				559FC96025C8940100737F14 /* DomainLinkageCredentialSubject.swift in Sources */,
 				55BEF461258A5E0400C720BD /* IssuerIdToken.swift in Sources */,
@@ -1003,7 +921,6 @@
 				55FE6ED82697A06D00201EDC /* IssuanceCompletionResponse.swift in Sources */,
 				55B4D2E02787BE5F0086A9F1 /* PresentationExchangeConstraints.swift in Sources */,
 				559FC9B825C9C7DD00737F14 /* ContractServiceResponse.swift in Sources */,
-				2F8CCDB527FC745E004B7861 /* RawIdentity.swift in Sources */,
 				5584E49E252564A600A9DE58 /* PresentationInputDescriptor.swift in Sources */,
 				5570597925754CA7000DD244 /* VCLogConsumer.swift in Sources */,
 				5531D3AC255F03EF0002CC0E /* AliasComputer.swift in Sources */,
@@ -1013,7 +930,6 @@
 				55B4D2DA2787BC7D0086A9F1 /* RequestedClaims.swift in Sources */,
 				55B4D2D82787BC220086A9F1 /* SupportedVerifiablePresentationFormats.swift in Sources */,
 				559FC98C25C8BEC900737F14 /* DomainLinkageCredentialContent.swift in Sources */,
-				2FD480112817CE99002AF37F /* Microsoft2020IdentifierBackup.swift in Sources */,
 				55575775251BC6CF009979AB /* IssuanceResponseClaims.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

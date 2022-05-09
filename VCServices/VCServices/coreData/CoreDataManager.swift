@@ -40,10 +40,7 @@ public class CoreDataManager {
                                signingKeyId: UUID,
                                recoveryKeyId: UUID,
                                updateKeyId: UUID,
-                               alias: String,
-                               signingKeyAlias: String? = nil,
-                               recoveryKeyAlias: String? = nil,
-                               updateKeyAlias: String? = nil) throws {
+                               alias: String) throws {
         guard let persistentContainer = persistentContainer else {
             throw CoreDataManagerError.persistentStoreNotLoaded
         }
@@ -56,9 +53,6 @@ public class CoreDataManager {
         model.signingKeyId = signingKeyId
         model.updateKeyId = updateKeyId
         model.alias = alias
-        model.signingKeyAlias = signingKeyAlias
-        model.recoveryKeyAlias = recoveryKeyAlias
-        model.updateKeyAlias = updateKeyAlias
         
         try persistentContainer.viewContext.save()
     }
@@ -85,10 +79,6 @@ public class CoreDataManager {
         }
         
         try persistentContainer.viewContext.save()
-    }
-    
-    public func deleteIdentifer(_ model:IdentifierModel) {
-        persistentContainer?.viewContext.delete(model)
     }
     
     private func loadPersistentContainer(sdkLog: VCSDKLog) {

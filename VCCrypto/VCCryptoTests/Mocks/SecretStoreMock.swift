@@ -21,13 +21,4 @@ internal class SecretStoreMock: SecretStoring {
     func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String?) throws {
         memoryStore.removeValue(forKey: id)
     }
-    
-    func save(secret: VCCryptoSecret) throws {
-        let ephemeral = try EphemeralSecret(with: secret)
-        memoryStore[secret.id] = ephemeral.value
-    }
-    
-    func delete(secret: VCCryptoSecret) throws {
-        memoryStore.removeValue(forKey: secret.id)
-    }
 }

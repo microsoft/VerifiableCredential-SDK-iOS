@@ -42,10 +42,7 @@ struct IdentifierDatabase {
                                            signingKeyId: signingKey.getId(),
                                            recoveryKeyId: identifier.recoveryKey.getId(),
                                            updateKeyId: identifier.updateKey.getId(),
-                                           alias: identifier.alias,
-                                           signingKeyAlias: signingKey.keyId,
-                                           recoveryKeyAlias: identifier.recoveryKey.keyId,
-                                           updateKeyAlias: identifier.updateKey.keyId)
+                                           alias: identifier.alias)
     }
     
     func fetchMasterIdentifier() throws -> Identifier {
@@ -91,40 +88,6 @@ struct IdentifierDatabase {
         return try createIdentifier(fromIdentifierModel: model)
     }
     
-    func fetchAllIdentifiers() throws -> [Identifier] {
-        return try coreDataManager.fetchIdentifiers().map {
-            try createIdentifier(fromIdentifierModel:$0)
-        }
-    }
-    
-    func removeAllIdentifiers() throws {
-        
-        try coreDataManager.fetchIdentifiers().forEach { identifierModel in
-            // Step 1: remove the keys corresponding to each identifier
-            let keyIds = [identifierModel.signingKeyId, identifierModel.updateKeyId, identifierModel.recoveryKeyId]
-            try keyIds.forEach{ keyId in
-                if let uuid = keyId,
-                   let key = try cryptoOperations.retrieveKeyIfStored(uuid: uuid) {
-                    try cryptoOperations.delete(key: key)
-                }
-            }
-            
-            // Step 2: delete the identifier
-            coreDataManager.deleteIdentifer(identifierModel)
-        }
-    }
-    
-    func importIdentifier(identifier: Identifier) throws {
-
-        // Put the keys in the keychain
-        let keyContainers = identifier.didDocumentKeys + [identifier.updateKey, identifier.recoveryKey]
-        try keyContainers.forEach { keyContainer in
-            try cryptoOperations.save(key: keyContainer.keyReference)
-        }
-        
-        try self.saveIdentifier(identifier: identifier)
-    }
-    
     private func createIdentifier(fromIdentifierModel model: IdentifierModel) throws -> Identifier {
         
         guard let longFormDid = model.did,
@@ -132,12 +95,9 @@ struct IdentifierDatabase {
                 throw IdentifierDatabaseError.noAliasSavedInIdentifierModel
         }
         
-        let signingKeyAlias = model.signingKeyAlias ?? VCEntitiesConstants.SIGNING_KEYID_PREFIX + alias
-        let signingKeyContainer = try createKeyContainer(keyRefId: model.signingKeyId, keyId: signingKeyAlias)
-        let updateKeyAlias = model.updateKeyAlias ?? VCEntitiesConstants.UPDATE_KEYID_PREFIX + alias
-        let updateKeyContainer = try createKeyContainer(keyRefId: model.updateKeyId, keyId: updateKeyAlias)
-        let recoveryKeyAlias = model.recoveryKeyAlias ?? VCEntitiesConstants.RECOVER_KEYID_PREFIX + alias
-        let recoveryKeyContainer = try createKeyContainer(keyRefId: model.recoveryKeyId, keyId: recoveryKeyAlias)
+        let signingKeyContainer = try createKeyContainer(keyRefId: model.signingKeyId, keyId: VCEntitiesConstants.SIGNING_KEYID_PREFIX + alias)
+        let updateKeyContainer = try createKeyContainer(keyRefId: model.updateKeyId, keyId: VCEntitiesConstants.UPDATE_KEYID_PREFIX + alias)
+        let recoveryKeyContainer = try createKeyContainer(keyRefId: model.recoveryKeyId, keyId: VCEntitiesConstants.RECOVER_KEYID_PREFIX + alias)
         
         return Identifier(longFormDid: longFormDid,
                           didDocumentKeys: [signingKeyContainer],

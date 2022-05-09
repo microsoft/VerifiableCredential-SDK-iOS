@@ -8,7 +8,11 @@ import Foundation
 public enum KeychainStoreError: Error {
     case deleteFromStoreError(status: OSStatus)
     case saveToStoreError(status: Int32)
+    case itemNotFound
     case readFromStoreError(status: OSStatus)
+    case invalidItemInStore
+    case itemAlreadyInStore
+    case invalidType
 }
 
 struct KeychainSecretStore : SecretStoring {
@@ -44,9 +48,9 @@ struct KeychainSecretStore : SecretStoring {
         
         var item: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &item)
-        guard status != errSecItemNotFound else { throw SecretStoringError.itemNotFound }
+        guard status != errSecItemNotFound else { throw KeychainStoreError.itemNotFound }
         guard status == errSecSuccess else { throw KeychainStoreError.readFromStoreError(status: status as OSStatus) }
-        guard var value = item as? Data else { throw SecretStoringError.invalidItemInStore }
+        guard var value = item as? Data else { throw KeychainStoreError.invalidItemInStore }
         defer {
             let secretSize = value.count
             value.withUnsafeMutableBytes { (secretPtr) in
@@ -74,7 +78,7 @@ struct KeychainSecretStore : SecretStoring {
             }
         }
         
-        guard itemTypeCode.count == 4 else { throw SecretStoringError.invalidType }
+        guard itemTypeCode.count == 4 else { throw KeychainStoreError.invalidType }
         
         // kSecAttrAccount is used to store the secret Id so that we can look it up later
         // kSecAttrService is always set to vcService to enable us to lookup all our secrets later if needed
@@ -112,7 +116,7 @@ struct KeychainSecretStore : SecretStoring {
     ///   - accessGroup: The access group of the secret.
     func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String? = nil) throws {
         
-        guard itemTypeCode.count == 4 else { throw SecretStoringError.invalidType }
+        guard itemTypeCode.count == 4 else { throw KeychainStoreError.invalidType }
         
         // kSecAttrAccount is used to store the secret Id so that we can look it up later
         // kSecAttrService is always set to vcService to enable us to lookup all our secrets later if needed
@@ -129,52 +133,8 @@ struct KeychainSecretStore : SecretStoring {
         }
         
         let status = SecItemDelete(query as CFDictionary)
-        guard status == errSecSuccess || status == errSecItemNotFound else {
+        guard status == errSecSuccess else {
             throw KeychainStoreError.deleteFromStoreError(status: status)
         }
-    }
-    
-    /// Save the secret to keychain
-    /// - Parameters:
-    ///   - secret: the secret container
-    func save(secret: VCCryptoSecret) throws {
-        
-        let (ephemeral, itemTypeCode) = try Self.secretDataAndItemTypeCodeFor(secret: secret)
-        var data = Data()
-        data.append(ephemeral.value)
-        try self.saveSecret(id: secret.id,
-                            itemTypeCode: itemTypeCode,
-                            accessGroup: secret.accessGroup,
-                            value: &data)
-    }
-
-    /// Remove a secret from the keychain
-    /// - Parameters:
-    ///   - secret: the secret reference
-    func delete(secret: VCCryptoSecret) throws {
-        
-        let (_, itemTypeCode) = try Self.secretDataAndItemTypeCodeFor(secret: secret)
-        try self.deleteSecret(id: secret.id,
-                              itemTypeCode: itemTypeCode,
-                              accessGroup: secret.accessGroup)
-    }
-
-    private static func secretDataAndItemTypeCodeFor(secret: VCCryptoSecret) throws -> (EphemeralSecret, String) {
-
-        // Get out the secret data
-        let ephemeral = try EphemeralSecret(with: secret)
-
-        // Figure out the item type code
-        var itemTypeCode: String = ""
-        if let internalSecret = secret as? Secret {
-            itemTypeCode = type(of: internalSecret).self.itemTypeCode
-        }
-        if itemTypeCode == "" {
-            // Fallback
-            itemTypeCode = String(format: "r%02dB", ephemeral.value.count)
-        }
-
-        // Wrap up and return
-        return (ephemeral, itemTypeCode)
     }
 }
