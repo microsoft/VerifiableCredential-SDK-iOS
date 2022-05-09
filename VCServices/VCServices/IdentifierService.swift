@@ -40,12 +40,6 @@ public class IdentifierService {
         
         try identifierDB.removeAllIdentifiers()
         try identifiers.forEach(identifierDB.importIdentifier)
-        do {
-            try self.migrateKeys(fromAccessGroup: nil)
-        }
-        catch {
-            sdkLog.logWarning(message: "Error whilst migrating imported keys: \(String(describing: error))")
-        }
     }
     
     func fetchIdentifier(withAlias alias: String) throws -> Identifier {
@@ -72,12 +66,11 @@ public class IdentifierService {
     
     /// updates access group for keys if it needs to be updated.
     public func migrateKeys(fromAccessGroup currentAccessGroup: String?) throws {
-        try self.fetchAllIdentifiers().forEach { identifier in
-            try identifier.recoveryKey.migrateKey(fromAccessGroup: currentAccessGroup)
-            try identifier.updateKey.migrateKey(fromAccessGroup: currentAccessGroup)
-            try identifier.didDocumentKeys.forEach { keyContainer in
-                try keyContainer.migrateKey(fromAccessGroup: currentAccessGroup)
-            }
+        let identifier = try fetchMasterIdentifier()
+        try identifier.recoveryKey.migrateKey(fromAccessGroup: currentAccessGroup)
+        try identifier.updateKey.migrateKey(fromAccessGroup: currentAccessGroup)
+        try identifier.didDocumentKeys.forEach { keyContainer in
+            try keyContainer.migrateKey(fromAccessGroup: currentAccessGroup)
         }
     }
     
