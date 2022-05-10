@@ -34,7 +34,6 @@ public struct PresentationRequestValidator: RequestValidating {
     }
     
     public func validate(request: PresentationRequestToken, usingKeys publicKeys: [IdentifierDocumentPublicKey]) throws {
-        try validate(token: request, using: publicKeys)
         try validate(expiration: request.content.exp)
         try validate(request.content.scope, equals: VCEntitiesConstants.SCOPE, throws: PresentationRequestValidatorError.invalidScopeValue)
         try validate(request.content.responseMode, equals: VCEntitiesConstants.RESPONSE_MODE, throws: PresentationRequestValidatorError.invalidResponseModeValue)
@@ -45,6 +44,8 @@ public struct PresentationRequestValidator: RequestValidating {
         }
         
         try validate(registration: registration)
+        
+        try validate(token: request, using: publicKeys)
     }
     
     private func validate(token: PresentationRequestToken,

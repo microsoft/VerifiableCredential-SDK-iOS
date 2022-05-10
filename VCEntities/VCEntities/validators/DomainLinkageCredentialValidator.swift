@@ -43,8 +43,6 @@ public struct DomainLinkageCredentialValidator: DomainLinkageCredentialValidatin
             throw DomainLinkageCredentialValidatorError.noPublicKeysInIdentifierDocument
         }
         
-        try validate(token: credential, using: publicKeys)
-        
         try validate(credential.content.issuer,
                      equals: credentialSubjectDid,
                      throws: DomainLinkageCredentialValidatorError.doNotMatch(credentialSubject: credentialSubjectDid,
@@ -68,6 +66,8 @@ public struct DomainLinkageCredentialValidator: DomainLinkageCredentialValidatin
                      equals: document.id,
                      throws: DomainLinkageCredentialValidatorError.doNotMatch(linkedDomainCredentialKeyId: credential.headers.keyId,
                                                                               identifierDocumentDid: document.id))
+        
+        try validate(token: credential, using: publicKeys)
     }
     
     private func validate(token: DomainLinkageCredential, using keys: [IdentifierDocumentPublicKey]) throws {

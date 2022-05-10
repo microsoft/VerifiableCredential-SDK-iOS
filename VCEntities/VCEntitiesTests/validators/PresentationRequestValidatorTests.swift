@@ -43,7 +43,7 @@ class PresentationRequestValidatorTests: XCTestCase {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
                 XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.invalidScopeValue)
             }
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     
@@ -54,7 +54,7 @@ class PresentationRequestValidatorTests: XCTestCase {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
                 XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.invalidResponseTypeValue)
             }
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     
@@ -65,7 +65,7 @@ class PresentationRequestValidatorTests: XCTestCase {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
                 XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.invalidResponseModeValue)
             }
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     
@@ -76,7 +76,7 @@ class PresentationRequestValidatorTests: XCTestCase {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
                 XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.tokenExpired)
             }
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     
@@ -97,7 +97,7 @@ class PresentationRequestValidatorTests: XCTestCase {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
                 XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.subjectIdentifierTypeNotSupported)
             }
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     
@@ -109,7 +109,7 @@ class PresentationRequestValidatorTests: XCTestCase {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
                 XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.responseSigningAlgorithmNotSupportedForVCs)
             }
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     
@@ -121,7 +121,7 @@ class PresentationRequestValidatorTests: XCTestCase {
             XCTAssertThrowsError(try validator.validate(request: mockRequest, usingKeys: [mockDidPublicKey])) { error in
                 XCTAssertEqual(error as? PresentationRequestValidatorError, PresentationRequestValidatorError.responseSigningAlgorithmNotSupportedForVPs)
             }
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     

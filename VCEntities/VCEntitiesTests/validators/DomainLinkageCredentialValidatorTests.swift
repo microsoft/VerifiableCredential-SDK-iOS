@@ -12,7 +12,7 @@ import VCToken
 class DomainLinkageCredentialValidatorTests: XCTestCase {
     
     private struct Mocks {
-        static let credentialSubjectDid = "did:test:credentialSubject"
+        static let credentialSubjectDid = "did:test"
     }
     
     let verifier: TokenVerifying = MockTokenVerifier(isTokenValid: true)
@@ -82,7 +82,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
                                DomainLinkageCredentialValidatorError.doNotMatch(credentialSubject: Mocks.credentialSubjectDid,
                                                                                 tokenIssuer: wrongIssuer))
             }
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     
@@ -101,7 +101,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
                                DomainLinkageCredentialValidatorError.doNotMatch(credentialSubject: Mocks.credentialSubjectDid,
                                                                                 tokenSubject: wrongSubject))
             }
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     
@@ -130,7 +130,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
                                DomainLinkageCredentialValidatorError.doNotMatch(credentialSubject: Mocks.credentialSubjectDid,
                                                                                 identifierDocumentDid: wrongIdentifierDocumentDid))
             }
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     
@@ -148,7 +148,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
                                DomainLinkageCredentialValidatorError.doNotMatch(sourceDomainUrl: wrongDomainUrl,
                                                                                 wellknownDocumentDomainUrl: mockDomain))
             }
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     
@@ -167,7 +167,7 @@ class DomainLinkageCredentialValidatorTests: XCTestCase {
                                                                                 identifierDocumentDid: Mocks.credentialSubjectDid))
             }
             
-            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+            XCTAssertTrue(!MockTokenVerifier.wasVerifyCalled)
         }
     }
     
