@@ -34,11 +34,7 @@ class PostPresentationResponseOperation: InternalPostNetworkOperation {
         self.urlRequest = URLRequest(url: url)
         self.urlRequest.httpMethod = Constants.POST
         self.urlRequest.httpBody = try self.encoder.encode(value: body)
-        self.urlRequest.setValue(Constants.JSON, forHTTPHeaderField: Constants.CONTENT_TYPE)
-        
-        /// sets value of Client API.
-        self.urlRequest.addValue(InternalConstants.VersionNumberHeaderValue,
-                                 forHTTPHeaderField: InternalConstants.VersionNumberHeaderField)
+        self.urlRequest.setValue(Constants.FORM_URLENCODED, forHTTPHeaderField: Constants.CONTENT_TYPE)
         
         self.urlSession = urlSession
         self.correlationVector = cv

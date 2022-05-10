@@ -8,7 +8,6 @@ import VCEntities
 import VCToken
 
 enum PresentationResponseEncoderError: Error {
-    case noStatePresentInResponse
     case noVerifiablePresentationInResponse
     case unableToSerializeResponse
 }
@@ -23,6 +22,27 @@ struct PresentationResponseEncoder: Encoding {
     }
     
     func encode(value: PresentationResponse) throws -> Data {
-        return try JSONEncoder().encode(value)
+        
+        let idTokenParam = "\(Constants.idToken)=\(try value.idToken.serialize())"
+        
+        guard let vpToken = value.vpToken else {
+            throw PresentationResponseEncoderError.noVerifiablePresentationInResponse
+        }
+        
+        let vpTokenParam = "\(Constants.vpToken)=\(try vpToken.serialize())"
+        
+        var responseBody = "\(idTokenParam)&\(vpTokenParam)"
+        
+        if let state = value.state?.stringByAddingPercentEncodingForRFC3986() {
+            let stateParam = "\(Constants.state)=\(state)"
+            responseBody.append(contentsOf: "&\(stateParam)")
+        }
+        
+        guard let response = responseBody.data(using: .utf8) else
+        {
+            throw PresentationResponseEncoderError.unableToSerializeResponse
+        }
+        
+        return response
     }
 }
