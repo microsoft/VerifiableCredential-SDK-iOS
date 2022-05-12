@@ -7,14 +7,12 @@ import VCToken
 
 enum PresentationRequestValidatorError: Error {
     case didMethodNotSupported
-    case keyIdInTokenHeaderMalformed
     case invalidResponseModeValue
     case invalidResponseTypeValue
     case invalidScopeValue
     case invalidSignature
     case noExpirationPresent
     case noRegistrationPresent
-    case noKeyIdInTokenHeader
     case responseSigningAlgorithmNotSupportedForVCs
     case responseSigningAlgorithmNotSupportedForVPs
     case subjectIdentifierTypeNotSupported
@@ -34,6 +32,7 @@ public struct PresentationRequestValidator: RequestValidating {
     }
     
     public func validate(request: PresentationRequestToken, usingKeys publicKeys: [IdentifierDocumentPublicKey]) throws {
+        try validate(token: request, using: publicKeys)
         try validate(expiration: request.content.exp)
         try validate(request.content.scope, equals: VCEntitiesConstants.SCOPE, throws: PresentationRequestValidatorError.invalidScopeValue)
         try validate(request.content.responseMode, equals: VCEntitiesConstants.RESPONSE_MODE, throws: PresentationRequestValidatorError.invalidResponseModeValue)
@@ -44,31 +43,18 @@ public struct PresentationRequestValidator: RequestValidating {
         }
         
         try validate(registration: registration)
-        
-        try validate(token: request, using: publicKeys)
     }
     
     private func validate(token: PresentationRequestToken,
                           using keys: [IdentifierDocumentPublicKey]) throws {
         
-        guard let kid = token.headers.keyId else
-        {
-            throw PresentationRequestValidatorError.noKeyIdInTokenHeader
-        }
-        
-        let keyIdComponents = kid.split(separator: "#").map { String($0) }
-        
-        guard keyIdComponents.count == 2 else {
-            throw PresentationRequestValidatorError.keyIdInTokenHeaderMalformed
-        }
-        
-        let publicKeyId = "#\(keyIdComponents[1])"
-        
-        /// check if key id is equal to keyId fragment in token header, and if so, validate signature. Else, continue loop.
         for key in keys {
-            if key.id == publicKeyId,
-               try token.verify(using: verifier, withPublicKey: key.publicKeyJwk) {
-                return
+            do {
+                if try token.verify(using: verifier, withPublicKey: key.publicKeyJwk) {
+                    return
+                }
+            } catch {
+                // TODO: log error
             }
         }
         

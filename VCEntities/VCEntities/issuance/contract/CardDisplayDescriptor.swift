@@ -16,4 +16,13 @@ public struct CardDisplayDescriptor: Codable, Equatable {
         case title, issuedBy, backgroundColor, textColor, logo
         case cardDescription = "description"
     }
+
+    public init(title: String, issuedBy: String, backgroundColor: String, textColor: String, logo: LogoDisplayDescriptor?, cardDescription: String) {
+        self.title = title
+        self.issuedBy = issuedBy
+        self.backgroundColor = backgroundColor
+        self.textColor = textColor
+        self.logo = logo
+        self.cardDescription = cardDescription
+    }
 }
