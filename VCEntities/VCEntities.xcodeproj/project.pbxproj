@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F4EEF81282E758E00B62311 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4EEF80282E758E00B62311 /* PromiseKit.framework */; };
 		2F848B7F282D5D25005D3176 /* UnprotectedBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F848B70282D5D25005D3176 /* UnprotectedBackup.swift */; };
 		2F848B80282D5D25005D3176 /* ProtectedBackupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F848B72282D5D25005D3176 /* ProtectedBackupData.swift */; };
 		2F848B81282D5D25005D3176 /* Microsoft2020IdentifierBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F848B74282D5D25005D3176 /* Microsoft2020IdentifierBackup.swift */; };
@@ -313,7 +312,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F4EEF81282E758E00B62311 /* PromiseKit.framework in Frameworks */,
 				55253976252FCA6D003202D5 /* VCCrypto.framework in Frameworks */,
 				5514E99C2609291E0004BD19 /* VCToken.framework in Frameworks */,
 			);

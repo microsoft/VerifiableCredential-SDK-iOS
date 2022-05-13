@@ -9,7 +9,7 @@ public struct ClaimDisplayDescriptor: Codable, Equatable {
     public let label: String
     
     public init(type:String, label:String) {
-        self.type = type;
-        self.label = label;
+        self.type = type
+        self.label = label
     }
 }

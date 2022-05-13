@@ -14,6 +14,9 @@ enum AesError : Error {
 }
 
 public struct Aes {
+    
+    // AES processes inputs in blocks of 128 bits (16 bytes)
+    internal let blockSize = size_t(16)
 
     private let keyWrapAlg = CCWrappingAlgorithm(kCCWRAPAES)
     
@@ -109,11 +112,8 @@ public struct Aes {
     public func decrypt(data: Data, with key: VCCryptoSecret, iv: Data) throws -> Data {
         return try self.apply(operation: CCOperation(kCCDecrypt), withOptions: CCOptions(kCCOptionPKCS7Padding), to: data, using: key, iv: iv)
     }
-    
-    // AES processes inputs in blocks of 128 bits (16 bytes)
-    internal let blockSize = size_t(16)
 
-    private func apply(operation: CCOperation, withOptions options:CCOptions, to data: Data, using key: VCCryptoSecret, iv: Data) throws -> Data {
+    private func apply(operation: CCOperation, withOptions options: CCOptions, to data: Data, using key: VCCryptoSecret, iv: Data) throws -> Data {
 
         // Look for an early out
         guard key is Secret else { throw AesError.invalidSecret }
