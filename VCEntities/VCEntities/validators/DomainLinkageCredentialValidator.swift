@@ -9,6 +9,8 @@ enum DomainLinkageCredentialValidatorError: Error, Equatable {
     case invalidSignature
     case tokenExpired
     case noPublicKeysInIdentifierDocument
+    case noKeyIdInTokenHeader
+    case keyIdInTokenHeaderMalformed
     case doNotMatch(credentialSubject: String, tokenIssuer: String)
     case doNotMatch(credentialSubject: String, tokenSubject: String)
     case doNotMatch(credentialSubject: String, identifierDocumentDid: String)
@@ -41,8 +43,6 @@ public struct DomainLinkageCredentialValidator: DomainLinkageCredentialValidatin
             throw DomainLinkageCredentialValidatorError.noPublicKeysInIdentifierDocument
         }
         
-        try validate(token: credential, using: publicKeys)
-        
         try validate(credential.content.issuer,
                      equals: credentialSubjectDid,
                      throws: DomainLinkageCredentialValidatorError.doNotMatch(credentialSubject: credentialSubjectDid,
@@ -66,17 +66,29 @@ public struct DomainLinkageCredentialValidator: DomainLinkageCredentialValidatin
                      equals: document.id,
                      throws: DomainLinkageCredentialValidatorError.doNotMatch(linkedDomainCredentialKeyId: credential.headers.keyId,
                                                                               identifierDocumentDid: document.id))
+        
+        try validate(token: credential, using: publicKeys)
     }
     
     private func validate(token: DomainLinkageCredential, using keys: [IdentifierDocumentPublicKey]) throws {
         
+        guard let kid = token.headers.keyId else {
+            throw DomainLinkageCredentialValidatorError.noKeyIdInTokenHeader
+        }
+        
+        let keyIdComponents = kid.split(separator: "#").map { String($0) }
+        
+        guard keyIdComponents.count == 2 else {
+            throw DomainLinkageCredentialValidatorError.keyIdInTokenHeaderMalformed
+        }
+        
+        let publicKeyId = "#\(keyIdComponents[1])"
+        
+        /// check if key id is equal to keyId fragment in token header, and if so, validate signature. Else, continue loop.
         for key in keys {
-            do {
-                if try token.verify(using: verifier, withPublicKey: key.publicKeyJwk) {
-                    return
-                }
-            } catch {
-                // TODO: log error
+            if key.id == publicKeyId,
+               try token.verify(using: verifier, withPublicKey: key.publicKeyJwk) {
+                return
             }
         }
         
