@@ -32,7 +32,6 @@ struct IdentifierDatabase {
     
     func saveIdentifier(identifier: Identifier) throws {
 
-        
         /// signing key is always first key in DID document keys until we implement more complex registration scenario.
         guard let signingKey = identifier.didDocumentKeys.first else {
             throw IdentifierDatabaseError.unableToSaveIdentifier
@@ -103,9 +102,8 @@ struct IdentifierDatabase {
             // Step 1: remove the keys corresponding to each identifier
             let keyIds = [identifierModel.signingKeyId, identifierModel.updateKeyId, identifierModel.recoveryKeyId]
             try keyIds.forEach{ keyId in
-                if let uuid = keyId,
-                   let key = try cryptoOperations.retrieveKeyIfStored(uuid: uuid) {
-                    try cryptoOperations.delete(key: key)
+                if let uuid = keyId {
+                    try cryptoOperations.deleteKey(withId: uuid)
                 }
             }
             
@@ -114,12 +112,16 @@ struct IdentifierDatabase {
         }
     }
     
-    func importIdentifier(identifier: Identifier) throws {
+    func importIdentifier(identifier: Identifier, keyMap: KeyMap) throws {
 
         // Put the keys in the keychain
         let keyContainers = identifier.didDocumentKeys + [identifier.updateKey, identifier.recoveryKey]
         try keyContainers.forEach { keyContainer in
-            try cryptoOperations.save(key: keyContainer.keyReference)
+            let id = keyContainer.keyReference.id
+            if let key = keyMap.keyFor(id: id) {
+                try cryptoOperations.save(key: key, withId: id)
+                return
+            }
         }
         
         try self.saveIdentifier(identifier: identifier)

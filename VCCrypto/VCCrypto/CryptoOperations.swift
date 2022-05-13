@@ -6,9 +6,9 @@
 public protocol CryptoOperating {
     func generateKey() throws -> VCCryptoSecret
     func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret
-    func retrieveKeyIfStored(uuid: UUID) throws -> VCCryptoSecret?
-    func delete(key: VCCryptoSecret) throws
-    func save(key: VCCryptoSecret) throws
+    func save(key: Data, withId id: UUID) throws
+    func deleteKey(withId id: UUID) throws
+    func getKey(withId id: UUID) throws -> Data
 }
 
 public struct CryptoOperations: CryptoOperating {
@@ -36,29 +36,45 @@ public struct CryptoOperations: CryptoOperating {
         let accessGroup = sdkConfiguration.accessGroupIdentifier
         return Random32BytesSecret(withStore: secretStore, andId: id, inAccessGroup: accessGroup)
     }
+    
+    public func save(key: Data, withId id: UUID) throws {
 
-    /// Tests if a key corresponding to the given id is stored and, if it is, returns a reference to it; returns nil otherwise
-    public func retrieveKeyIfStored(uuid: UUID) throws -> VCCryptoSecret? {
-        
+        // Take a copy of the key to let the store dispose of it
+        var data = Data()
+        data.append(key)
+
+        // Format the item type code
+        let itemTypeCode = String(format: "r%02dB", data.count)
+
+        // Store down
+        try secretStore.saveSecret(id: id,
+                                   itemTypeCode: itemTypeCode,
+                                   accessGroup: sdkConfiguration.accessGroupIdentifier,
+                                   value: &data)
+    }
+
+    public func deleteKey(withId id: UUID) throws {
+
+        let itemTypeCode = Random32BytesSecret.itemTypeCode
         let accessGroup = sdkConfiguration.accessGroupIdentifier
-        var keyRef: VCCryptoSecret? = nil
         do {
-            let _ = try secretStore.getSecret(id: uuid,
-                                              itemTypeCode: Random32BytesSecret.itemTypeCode,
+            let _ = try secretStore.getSecret(id: id,
+                                              itemTypeCode: itemTypeCode,
                                               accessGroup: accessGroup)
-            keyRef = Random32BytesSecret(withStore: secretStore, andId: uuid)
+            
+            // If we get here the key exists, so we can delete it
+            try secretStore.deleteSecret(id: id, itemTypeCode: itemTypeCode, accessGroup: accessGroup)
         }
         catch SecretStoringError.itemNotFound {
-            keyRef = nil
+            /* There's no key so nothing to delete */
         }
-        return keyRef
     }
-    
-    public func delete(key: VCCryptoSecret) throws {
-        try secretStore.delete(secret: key)
-    }
-    
-    public func save(key: VCCryptoSecret) throws {
-        try secretStore.save(secret: key)
+
+    public func getKey(withId id: UUID) throws -> Data {
+
+        return try secretStore.getSecret(id: id,
+                                         itemTypeCode: Random32BytesSecret.itemTypeCode,
+                                         accessGroup: sdkConfiguration.accessGroupIdentifier)
+
     }
 }

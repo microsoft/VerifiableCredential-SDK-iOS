@@ -10,6 +10,9 @@ import VCToken
 
 struct MockCryptoOperations: CryptoOperating {
 
+    static let itemTypeCode = "r32b"
+    static let accessGroupIdentifier = "anywhere.com.microsoft.azureauthenticator.did"
+    
     static var generateKeyCallCount = 0
     let cryptoOperations: CryptoOperating
     let secretStore: SecretStoring
@@ -28,15 +31,41 @@ struct MockCryptoOperations: CryptoOperating {
         return KeyId(id: id)
     }
 
-    func retrieveKeyIfStored(uuid: UUID) throws -> VCCryptoSecret? {
-        return KeyId(id: uuid)
+    public func save(key: Data, withId id: UUID) throws {
+
+        // Take a copy of the key to let the store dispose of it
+        var data = Data()
+        data.append(key)
+
+        // Store down
+        try secretStore.saveSecret(id: id,
+                                   itemTypeCode: Self.itemTypeCode,
+                                   accessGroup: Self.accessGroupIdentifier,
+                                   value: &data)
     }
-    
-    func delete(key: VCCryptoSecret) throws {
-        try secretStore.delete(secret: key)
+
+    public func deleteKey(withId id: UUID) throws {
+
+        let itemTypeCode = Self.itemTypeCode
+        let accessGroup = Self.accessGroupIdentifier
+        do {
+            let _ = try secretStore.getSecret(id: id,
+                                              itemTypeCode: itemTypeCode,
+                                              accessGroup: accessGroup)
+            
+            // If we get here the key exists, so we can delete it
+            try secretStore.deleteSecret(id: id, itemTypeCode: itemTypeCode, accessGroup: accessGroup)
+        }
+        catch SecretStoringError.itemNotFound {
+            /* There's no key so nothing to delete */
+        }
     }
-    
-    func save(key: VCCryptoSecret) throws {
-        try secretStore.save(secret: key)
+
+    public func getKey(withId id: UUID) throws -> Data {
+
+        return try secretStore.getSecret(id: id,
+                                         itemTypeCode: Self.itemTypeCode,
+                                         accessGroup: Self.accessGroupIdentifier)
+
     }
 }

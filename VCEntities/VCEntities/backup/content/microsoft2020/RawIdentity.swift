@@ -65,27 +65,21 @@ struct RawIdentity: Codable {
     
     private static func jwkFromKeyContainer(_ keyContainer: KeyContainer) throws -> Jwk {
 
-        let log = VCSDKLog.sharedInstance
-
         // Get out the private and public components of the key (pair)
-        let secret = keyContainer.keyReference
-        let secretId = secret.id.uuidString
-        let accessGroup = secret.accessGroup ?? "nil"
-        do {
-            try secret.migrateKey(fromAccessGroup: nil)
-            let message = "Migrated key \(secretId) to \"\(accessGroup)\" without any error"
-            log.logInfo(message: message)
+        var privateKey: Data
+        let publicKey: Secp256k1PublicKey
+        if let keyHolder = keyContainer.keyReference as? KeyHolder {
+            privateKey = keyHolder.key
+            publicKey = try Secp256k1().createPublicKey(forPrivateKey: privateKey)
+        } else {
+            // Fallback
+           (privateKey, publicKey) = try Secp256k1().createKeyPair(forSecret: keyContainer.keyReference)
         }
-        catch {
-            let message = "Caught \(String(describing: error)) whilst trying to migrate key \(secretId) to \"\(accessGroup)\""
-            log.logWarning(message: message)
-        }
-        let privateKey = try EphemeralSecret(with: secret)
-        if privateKey.value.isEmpty {
-            throw RawIdentityError.privateKeyNotFound(keyId: secretId,
+        if privateKey.isEmpty {
+            let secret = keyContainer.keyReference
+            throw RawIdentityError.privateKeyNotFound(keyId: secret.id.uuidString,
                                                       accessGroup: secret.accessGroup)
         }
-        let publicKey = try Secp256k1().createPublicKey(forSecret: privateKey)
         
         // Wrap them up in a JSON Web Key
         return Jwk(keyType: "EC",
@@ -94,11 +88,12 @@ struct RawIdentity: Codable {
                    use: "sig",
                    x: publicKey.x,
                    y: publicKey.y,
-                   d: privateKey.value)
+                   d: privateKey)
     }
     
     private static func keyContainerFromJwk(_ jwk: Jwk) throws -> KeyContainer {
 
+        // Get out the ID and the key data
         guard let keyId = jwk.keyId else {
             throw RawIdentityError.keyIdNotFound
         }
@@ -106,10 +101,11 @@ struct RawIdentity: Codable {
               !privateKeyData.isEmpty else {
             throw RawIdentityError.privateKeyNotFound(keyId: keyId, accessGroup: nil)
         }
-        let privateKey = EphemeralSecret(with: privateKeyData,
-                                         accessGroup: VCSDKConfiguration.sharedInstance.accessGroupIdentifier)
 
         // Wrap it all up
-        return KeyContainer(keyReference: privateKey, keyId: keyId)
+        let keyHolder = KeyHolder(id: UUID(),
+                                  key: privateKeyData,
+                                  accessGroup: VCSDKConfiguration.sharedInstance.accessGroupIdentifier)
+        return KeyContainer(keyReference: keyHolder, keyId: keyId)
     }
 }

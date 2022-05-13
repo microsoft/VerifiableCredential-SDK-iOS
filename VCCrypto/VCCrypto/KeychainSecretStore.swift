@@ -133,48 +133,4 @@ struct KeychainSecretStore : SecretStoring {
             throw KeychainStoreError.deleteFromStoreError(status: status)
         }
     }
-    
-    /// Save the secret to keychain
-    /// - Parameters:
-    ///   - secret: the secret container
-    func save(secret: VCCryptoSecret) throws {
-        
-        let (ephemeral, itemTypeCode) = try Self.secretDataAndItemTypeCodeFor(secret: secret)
-        var data = Data()
-        data.append(ephemeral.value)
-        try self.saveSecret(id: secret.id,
-                            itemTypeCode: itemTypeCode,
-                            accessGroup: secret.accessGroup,
-                            value: &data)
-    }
-
-    /// Remove a secret from the keychain
-    /// - Parameters:
-    ///   - secret: the secret reference
-    func delete(secret: VCCryptoSecret) throws {
-        
-        let (_, itemTypeCode) = try Self.secretDataAndItemTypeCodeFor(secret: secret)
-        try self.deleteSecret(id: secret.id,
-                              itemTypeCode: itemTypeCode,
-                              accessGroup: secret.accessGroup)
-    }
-
-    private static func secretDataAndItemTypeCodeFor(secret: VCCryptoSecret) throws -> (EphemeralSecret, String) {
-
-        // Get out the secret data
-        let ephemeral = try EphemeralSecret(with: secret)
-
-        // Figure out the item type code
-        var itemTypeCode: String = ""
-        if let internalSecret = secret as? Secret {
-            itemTypeCode = type(of: internalSecret).self.itemTypeCode
-        }
-        if itemTypeCode == "" {
-            // Fallback
-            itemTypeCode = String(format: "r%02dB", ephemeral.value.count)
-        }
-
-        // Wrap up and return
-        return (ephemeral, itemTypeCode)
-    }
 }

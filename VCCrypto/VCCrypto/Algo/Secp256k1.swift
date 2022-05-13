@@ -125,15 +125,49 @@ public struct Secp256k1: Signing {
     /// - Parameter secret: The Secret used to generate the public key
     /// - Returns: The public key
     public func createPublicKey(forSecret secret: VCCryptoSecret) throws -> Secp256k1PublicKey {
+        
+        var (privateKey, publicKey) = try self.createKeyPair(forSecret: secret)
+        defer {
+            privateKey.withUnsafeMutableBytes { (keyPtr) in
+                let keyBytes = keyPtr.bindMemory(to: UInt8.self)
+                memset_s(keyBytes.baseAddress, keyBytes.count, 0, keyBytes.count)
+                return
+            }
+        }
+        return publicKey
+    }
+    
+    /// Create a key pair from a secret
+    /// - Parameter secret: The Secret used to generate the public key
+    /// - Returns: The key pair
+    public func createKeyPair(forSecret secret: VCCryptoSecret) throws -> (Data, Secp256k1PublicKey)
+    {
         // Validate params
         guard secret is Secret else { throw Secp256k1Error.invalidSecret }
         
+        // Get out the private key data
+        var privateKey = Data()
+        try (secret as! Secret).withUnsafeBytes { (secretPtr) in
+            let baseAddress = secretPtr.bindMemory(to: UInt8.self).baseAddress!
+            privateKey.append(baseAddress, count: secretPtr.count)
+        }
+
+        // Return with the public key
+        return (privateKey, try self.createPublicKey(forPrivateKey: privateKey))
+    }
+    
+    /// Create a public key from a private key
+    /// - Parameter secret: The Secret used to generate the public key
+    /// - Returns: The public key
+    public func createPublicKey(forPrivateKey privateKey:Data) throws -> Secp256k1PublicKey {
+        
         // Create the context and public key data structure
         let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN))!
+        defer { secp256k1_context_destroy(context) }
         let pubkey = UnsafeMutablePointer<secp256k1_pubkey>.allocate(capacity: 1)
-        
-        // Create the public key
-        try (secret as! Secret).withUnsafeBytes { (secretPtr) in
+
+        // Populate it
+        try privateKey.withUnsafeBytes { (secretPtr) in
             let result = secp256k1_ec_pubkey_create(
                 context,
                 pubkey,
@@ -156,6 +190,7 @@ public struct Secp256k1: Signing {
             return
         }
         
+        // Wrap it all up
         return Secp256k1PublicKey(uncompressedPublicKey: publicKey)!
     }
 }

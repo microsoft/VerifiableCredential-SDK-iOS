@@ -20,6 +20,4 @@ public protocol SecretStoring {
     func saveSecret(id: UUID, itemTypeCode: String, accessGroup: String?, value: inout Data) throws
     func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String?) throws
 
-    func save(secret:VCCryptoSecret) throws
-    func delete(secret:VCCryptoSecret) throws
 }

@@ -12,17 +12,21 @@ public class IdentifierService {
     private let identifierCreator: IdentifierCreator
     private let sdkLog: VCSDKLog
     private let aliasComputer = AliasComputer()
+    private let cryptoOperations: CryptoOperations
     
     public convenience init() {
         let cryptoOperations = CryptoOperations(sdkConfiguration: VCSDKConfiguration.sharedInstance)
-        self.init(database: IdentifierDatabase(cryptoOperations: cryptoOperations),
+        self.init(cryptoOperations: cryptoOperations,
+                  database: IdentifierDatabase(cryptoOperations: cryptoOperations),
                   creator: IdentifierCreator(cryptoOperations: cryptoOperations),
                   sdkLog: VCSDKLog.sharedInstance)
     }
     
-    init(database: IdentifierDatabase,
+    init(cryptoOperations: CryptoOperations,
+         database: IdentifierDatabase,
          creator: IdentifierCreator,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
+        self.cryptoOperations = cryptoOperations
         self.identifierDB = database
         self.identifierCreator = creator
         self.sdkLog = sdkLog
@@ -32,19 +36,33 @@ public class IdentifierService {
         return try identifierDB.fetchMasterIdentifier()
     }
     
-    public func fetchAllIdentifiers() throws -> [Identifier] {
-        return try identifierDB.fetchAllIdentifiers()
+    public func fetchIdentifiersForExport() throws -> [Identifier] {
+        return try identifierDB.fetchAllIdentifiers().map(self.prep)
     }
     
-    public func replaceIdentifiers(with identifiers:[Identifier]) throws {
+    private func rewrap(_ keyContainer: KeyContainer) throws -> KeyContainer {
+        
+        let secret = keyContainer.keyReference
+        let keyReference = KeyReference(id: secret.id, ops:self.cryptoOperations)
+        return KeyContainer(keyReference: keyReference,
+                            keyId: keyContainer.keyId)
+    }
+    
+    private func prep(_ identifier: Identifier) throws -> Identifier {
+        
+        let documentKeys = try identifier.didDocumentKeys.map(self.rewrap)
+        return Identifier(longFormDid: identifier.longFormDid,
+                          didDocumentKeys: documentKeys,
+                          updateKey: try self.rewrap(identifier.updateKey),
+                          recoveryKey: try self.rewrap(identifier.recoveryKey),
+                          alias: identifier.alias)
+    }
+    
+    public func replaceIdentifiers(with identifiers:[Identifier], keyMap keys: KeyMap) throws {
         
         try identifierDB.removeAllIdentifiers()
-        try identifiers.forEach(identifierDB.importIdentifier)
-        do {
-            try self.migrateKeys(fromAccessGroup: nil)
-        }
-        catch {
-            sdkLog.logWarning(message: "Error whilst migrating imported keys: \(String(describing: error))")
+        try identifiers.forEach { identifier in
+            try identifierDB.importIdentifier(identifier: identifier, keyMap: keys)
         }
     }
     
@@ -72,7 +90,7 @@ public class IdentifierService {
     
     /// updates access group for keys if it needs to be updated.
     public func migrateKeys(fromAccessGroup currentAccessGroup: String?) throws {
-        try self.fetchAllIdentifiers().forEach { identifier in
+        try identifierDB.fetchAllIdentifiers().forEach { identifier in
             try identifier.recoveryKey.migrateKey(fromAccessGroup: currentAccessGroup)
             try identifier.updateKey.migrateKey(fromAccessGroup: currentAccessGroup)
             try identifier.didDocumentKeys.forEach { keyContainer in
