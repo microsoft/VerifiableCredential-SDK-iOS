@@ -47,6 +47,8 @@
 		559FC9F925C9F35A00737F14 /* MockWellKnownConfigDocumentApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9F825C9F35A00737F14 /* MockWellKnownConfigDocumentApiCalls.swift */; };
 		559FCA3425C9FB7D00737F14 /* MockDomainLinkageCredentialValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FCA3325C9FB7D00737F14 /* MockDomainLinkageCredentialValidator.swift */; };
 		55AF7490252FBF5B006A8B25 /* MockVCCryptoSecret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */; };
+		55BA803B2832C91B004C532A /* VCServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550F1E3525101758009AF467 /* VCServices.framework */; };
+		55BA803D2832CDE0004C532A /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BA803C2832CDE0004C532A /* VCEntities.framework */; };
 		55BF81652829B73600B61D33 /* MockIssuanceRequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF81642829B73600B61D33 /* MockIssuanceRequestValidator.swift */; };
 		55CA3A7F27FB60C900615CB6 /* VCSDKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA3A7E27FB60C900615CB6 /* VCSDKConfiguration.swift */; };
 		55DA76ED25BE36FF009C32E0 /* MockIssuanceApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA76EC25BE36FF009C32E0 /* MockIssuanceApiCalls.swift */; };
@@ -123,6 +125,10 @@
 		559FC9F825C9F35A00737F14 /* MockWellKnownConfigDocumentApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWellKnownConfigDocumentApiCalls.swift; sourceTree = "<group>"; };
 		559FCA3325C9FB7D00737F14 /* MockDomainLinkageCredentialValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDomainLinkageCredentialValidator.swift; sourceTree = "<group>"; };
 		55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVCCryptoSecret.swift; sourceTree = "<group>"; };
+		55BA80352832C900004C532A /* VCCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55BA80372832C900004C532A /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55BA80392832C900004C532A /* VCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55BA803C2832CDE0004C532A /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BF81642829B73600B61D33 /* MockIssuanceRequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceRequestValidator.swift; sourceTree = "<group>"; };
 		55CA3A7E27FB60C900615CB6 /* VCSDKConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VCSDKConfiguration.swift; path = ../../VCEntities/VCEntities/util/VCSDKConfiguration.swift; sourceTree = "<group>"; };
 		55DA76EC25BE36FF009C32E0 /* MockIssuanceApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIssuanceApiCalls.swift; sourceTree = "<group>"; };
@@ -161,6 +167,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BA803D2832CDE0004C532A /* VCEntities.framework in Frameworks */,
+				55BA803B2832C91B004C532A /* VCServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +293,10 @@
 		8A1DACB8079028BD52F83396 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55BA803C2832CDE0004C532A /* VCEntities.framework */,
+				55BA80352832C900004C532A /* VCCrypto.framework */,
+				55BA80372832C900004C532A /* VCEntities.framework */,
+				55BA80392832C900004C532A /* VCNetworking.framework */,
 				92D5988725C23E4E00C42370 /* Secp256k1.framework */,
 				92D5988525C23E2A00C42370 /* VCNetworking.framework */,
 				92F2ED2825B9EB2F00A6911C /* VCRepository.framework */,
