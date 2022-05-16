@@ -41,7 +41,6 @@
 		55793BD7255C5A26007F7599 /* ExchangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BD6255C5A25007F7599 /* ExchangeService.swift */; };
 		55793BDB255C654E007F7599 /* MockExchangeRequestFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BDA255C654E007F7599 /* MockExchangeRequestFormatter.swift */; };
 		55793BDD255C65DA007F7599 /* ExchangeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BDC255C65DA007F7599 /* ExchangeServiceTests.swift */; };
-		5580583325BF97DF0048E6FA /* VerifiableCredentialDataModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 555BDAEA2530AEC7001E7A18 /* VerifiableCredentialDataModel.xcdatamodeld */; };
 		5580583E25BFA2140048E6FA /* ServicesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580583D25BFA2140048E6FA /* ServicesConstants.swift */; };
 		559FC9D225C9D90B00737F14 /* LinkedDomainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9D125C9D90B00737F14 /* LinkedDomainService.swift */; };
 		559FC9F125C9F2B700737F14 /* LinkedDomainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559FC9F025C9F2B700737F14 /* LinkedDomainServiceTests.swift */; };
@@ -419,7 +418,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5580583325BF97DF0048E6FA /* VerifiableCredentialDataModel.xcdatamodeld in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
