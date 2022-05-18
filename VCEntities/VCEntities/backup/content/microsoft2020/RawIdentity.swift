@@ -66,17 +66,9 @@ struct RawIdentity: Codable {
     private static func jwkFromKeyContainer(_ keyContainer: KeyContainer) throws -> Jwk {
 
         // Get out the private and public components of the key (pair)
-        var privateKey: Data
-        let publicKey: Secp256k1PublicKey
-        if let keyHolder = keyContainer.keyReference as? KeyHolder {
-            privateKey = keyHolder.key
-            publicKey = try Secp256k1().createPublicKey(forPrivateKey: privateKey)
-        } else {
-            // Fallback
-           (privateKey, publicKey) = try Secp256k1().createKeyPair(forSecret: keyContainer.keyReference)
-        }
-        if privateKey.isEmpty {
-            let secret = keyContainer.keyReference
+        let secret = keyContainer.keyReference
+        let (privateKey, publicKey) = try Secp256k1().createKeyPair(forSecret: secret)
+        if privateKey.value.isEmpty {
             throw RawIdentityError.privateKeyNotFound(keyId: secret.id.uuidString,
                                                       accessGroup: secret.accessGroup)
         }
@@ -88,7 +80,7 @@ struct RawIdentity: Codable {
                    use: "sig",
                    x: publicKey.x,
                    y: publicKey.y,
-                   d: privateKey)
+                   d: privateKey.value)
     }
     
     private static func keyContainerFromJwk(_ jwk: Jwk) throws -> KeyContainer {
@@ -103,9 +95,9 @@ struct RawIdentity: Codable {
         }
 
         // Wrap it all up
-        let keyHolder = KeyHolder(id: UUID(),
-                                  key: privateKeyData,
-                                  accessGroup: VCSDKConfiguration.sharedInstance.accessGroupIdentifier)
-        return KeyContainer(keyReference: keyHolder, keyId: keyId)
+        let privateKey = EphemeralSecret(with: privateKeyData,
+                                         id: UUID(),
+                                         accessGroup: VCSDKConfiguration.sharedInstance.accessGroupIdentifier)
+        return KeyContainer(keyReference: privateKey, keyId: keyId)
     }
 }

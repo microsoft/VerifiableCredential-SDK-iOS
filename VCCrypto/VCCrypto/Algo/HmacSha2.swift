@@ -8,7 +8,6 @@ import CommonCrypto
 
 enum HmacSha2Error: Error {
     case invalidMessage
-    case invalidSecret
     case invalidAlgorithm
 }
 
@@ -40,7 +39,6 @@ public struct HmacSha2 {
 
         // Look for an early out
         guard message.count > 0 else { throw HmacSha2Error.invalidMessage }
-        guard secret is Secret else { throw HmacSha2Error.invalidSecret }
 
         // Apply
         let ccHmacAlg = self.algorithm
@@ -48,7 +46,7 @@ public struct HmacSha2 {
         try message.withUnsafeBytes { (messagePtr: UnsafeRawBufferPointer) in
             let messageBytes = messagePtr.bindMemory(to: UInt8.self)
             
-            try (secret as! Secret).withUnsafeBytes { (secretPtr: UnsafeRawBufferPointer) in
+            try secret.withUnsafeBytes { (secretPtr: UnsafeRawBufferPointer) in
                 let secretBytes = secretPtr.bindMemory(to: UInt8.self)
                 
                 CCHmac(ccHmacAlg, secretBytes.baseAddress, secretBytes.count, messageBytes.baseAddress, messageBytes.count, &mac)

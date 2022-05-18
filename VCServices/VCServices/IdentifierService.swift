@@ -12,21 +12,17 @@ public class IdentifierService {
     private let identifierCreator: IdentifierCreator
     private let sdkLog: VCSDKLog
     private let aliasComputer = AliasComputer()
-    private let cryptoOperations: CryptoOperations
     
     public convenience init() {
         let cryptoOperations = CryptoOperations(sdkConfiguration: VCSDKConfiguration.sharedInstance)
-        self.init(cryptoOperations: cryptoOperations,
-                  database: IdentifierDatabase(cryptoOperations: cryptoOperations),
+        self.init(database: IdentifierDatabase(cryptoOperations: cryptoOperations),
                   creator: IdentifierCreator(cryptoOperations: cryptoOperations),
                   sdkLog: VCSDKLog.sharedInstance)
     }
     
-    init(cryptoOperations: CryptoOperations,
-         database: IdentifierDatabase,
+    init(database: IdentifierDatabase,
          creator: IdentifierCreator,
          sdkLog: VCSDKLog = VCSDKLog.sharedInstance) {
-        self.cryptoOperations = cryptoOperations
         self.identifierDB = database
         self.identifierCreator = creator
         self.sdkLog = sdkLog
@@ -37,32 +33,14 @@ public class IdentifierService {
     }
     
     public func fetchIdentifiersForExport() throws -> [Identifier] {
-        return try identifierDB.fetchAllIdentifiers().map(self.prep)
+        return try identifierDB.fetchAllIdentifiers()
     }
     
-    private func rewrap(_ keyContainer: KeyContainer) throws -> KeyContainer {
-        
-        let secret = keyContainer.keyReference
-        let keyReference = KeyReference(id: secret.id, ops:self.cryptoOperations)
-        return KeyContainer(keyReference: keyReference,
-                            keyId: keyContainer.keyId)
-    }
-    
-    private func prep(_ identifier: Identifier) throws -> Identifier {
-        
-        let documentKeys = try identifier.didDocumentKeys.map(self.rewrap)
-        return Identifier(longFormDid: identifier.longFormDid,
-                          didDocumentKeys: documentKeys,
-                          updateKey: try self.rewrap(identifier.updateKey),
-                          recoveryKey: try self.rewrap(identifier.recoveryKey),
-                          alias: identifier.alias)
-    }
-    
-    public func replaceIdentifiers(with identifiers:[Identifier], keyMap keys: KeyMap) throws {
+    public func replaceIdentifiers(with identifiers:[Identifier]) throws {
         
         try identifierDB.removeAllIdentifiers()
         try identifiers.forEach { identifier in
-            try identifierDB.importIdentifier(identifier: identifier, keyMap: keys)
+            try identifierDB.importIdentifier(identifier: identifier)
         }
     }
     

@@ -20,4 +20,6 @@ public struct KeyId: VCCryptoSecret {
     }
     
     public func migrateKey(fromAccessGroup oldAccessGroup: String?) throws { }
+
+    public func withUnsafeBytes(_ body: (UnsafeRawBufferPointer) throws -> Void) throws { }
 }

@@ -112,16 +112,13 @@ struct IdentifierDatabase {
         }
     }
     
-    func importIdentifier(identifier: Identifier, keyMap: KeyMap) throws {
+    func importIdentifier(identifier: Identifier) throws {
 
         // Put the keys in the keychain
         let keyContainers = identifier.didDocumentKeys + [identifier.updateKey, identifier.recoveryKey]
         try keyContainers.forEach { keyContainer in
-            let id = keyContainer.keyReference.id
-            if let key = keyMap.keyFor(id: id) {
-                try cryptoOperations.save(key: key, withId: id)
-                return
-            }
+            let secret = try EphemeralSecret(with: keyContainer.keyReference)
+            try cryptoOperations.save(key: secret.value, withId: keyContainer.keyReference.id)
         }
         
         try self.saveIdentifier(identifier: identifier)

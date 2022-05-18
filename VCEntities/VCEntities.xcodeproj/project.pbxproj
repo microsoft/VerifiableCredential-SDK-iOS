@@ -18,7 +18,6 @@
 		2F848B87282D5D25005D3176 /* BackupProtectionMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F848B7B282D5D25005D3176 /* BackupProtectionMethod.swift */; };
 		2F848B88282D5D25005D3176 /* JwePasswordProtectedBackupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F848B7D282D5D25005D3176 /* JwePasswordProtectedBackupData.swift */; };
 		2F848B89282D5D25005D3176 /* JwePasswordProtectionMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F848B7E282D5D25005D3176 /* JwePasswordProtectionMethod.swift */; };
-		2FA43920282DCA1A00CFBC59 /* KeyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4391F282DCA1A00CFBC59 /* KeyHolder.swift */; };
 		55011E8C2572DF50002D2690 /* VCSDKLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55011E8B2572DF50002D2690 /* VCSDKLog.swift */; };
 		55011E8E2572DFBD002D2690 /* DefaultLogConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55011E8D2572DFBD002D2690 /* DefaultLogConsumer.swift */; };
 		55077ABA25A62DE10052C58D /* IdentifierFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55077AB925A62DE10052C58D /* IdentifierFormatter.swift */; };
@@ -171,7 +170,6 @@
 		2F848B7B282D5D25005D3176 /* BackupProtectionMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupProtectionMethod.swift; sourceTree = "<group>"; };
 		2F848B7D282D5D25005D3176 /* JwePasswordProtectedBackupData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JwePasswordProtectedBackupData.swift; sourceTree = "<group>"; };
 		2F848B7E282D5D25005D3176 /* JwePasswordProtectionMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JwePasswordProtectionMethod.swift; sourceTree = "<group>"; };
-		2FA4391F282DCA1A00CFBC59 /* KeyHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyHolder.swift; sourceTree = "<group>"; };
 		55011E8B2572DF50002D2690 /* VCSDKLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSDKLog.swift; sourceTree = "<group>"; };
 		55011E8D2572DFBD002D2690 /* DefaultLogConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLogConsumer.swift; sourceTree = "<group>"; };
 		55077AB925A62DE10052C58D /* IdentifierFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierFormatter.swift; sourceTree = "<group>"; };
@@ -618,7 +616,6 @@
 				55AF748D252F6BE0006A8B25 /* Identifier.swift */,
 				551F3067252E97000081D5E7 /* IdentifierCreator.swift */,
 				55253981252FDF89003202D5 /* KeyContainer.swift */,
-				2FA4391F282DCA1A00CFBC59 /* KeyHolder.swift */,
 			);
 			path = identifier;
 			sourceTree = "<group>";
@@ -992,7 +989,6 @@
 				555CE08D2526810100C1C938 /* VerifiablePresentationClaims.swift in Sources */,
 				55793BCD255A070E007F7599 /* VCEntitiesConstants.swift in Sources */,
 				5584E4A2252565D900A9DE58 /* IssuanceMetadata.swift in Sources */,
-				2FA43920282DCA1A00CFBC59 /* KeyHolder.swift in Sources */,
 				5518CC68252645D000C7A21B /* PresentationSubmission.swift in Sources */,
 				5531D3B2255F6B6E0002CC0E /* ResponseContaining.swift in Sources */,
 				5557576A251BC6CF009979AB /* Contract.swift in Sources */,

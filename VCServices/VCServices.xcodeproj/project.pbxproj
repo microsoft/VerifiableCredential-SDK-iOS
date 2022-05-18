@@ -10,8 +10,6 @@
 		2F848B52282D4DEC005D3176 /* difwordlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2F848B51282D4DEC005D3176 /* difwordlist.txt */; };
 		2F848B54282D4EF3005D3176 /* DifWordListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F848B53282D4EF3005D3176 /* DifWordListTests.swift */; };
 		2F848B56282D4F1F005D3176 /* DifWordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F848B55282D4F1F005D3176 /* DifWordList.swift */; };
-		2FA43922282DEC6000CFBC59 /* KeyReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA43921282DEC6000CFBC59 /* KeyReference.swift */; };
-		2FA43924282E480D00CFBC59 /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA43923282E480D00CFBC59 /* KeyMap.swift */; };
 		550F1E3F25101759009AF467 /* VCServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550F1E3525101758009AF467 /* VCServices.framework */; };
 		550F1E4425101759009AF467 /* IssuanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E4325101759009AF467 /* IssuanceServiceTests.swift */; };
 		550F1E4625101759009AF467 /* VCUseCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 550F1E3825101758009AF467 /* VCUseCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -83,8 +81,6 @@
 		2F848B51282D4DEC005D3176 /* difwordlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = difwordlist.txt; sourceTree = "<group>"; };
 		2F848B53282D4EF3005D3176 /* DifWordListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifWordListTests.swift; sourceTree = "<group>"; };
 		2F848B55282D4F1F005D3176 /* DifWordList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifWordList.swift; sourceTree = "<group>"; };
-		2FA43921282DEC6000CFBC59 /* KeyReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyReference.swift; sourceTree = "<group>"; };
-		2FA43923282E480D00CFBC59 /* KeyMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyMap.swift; sourceTree = "<group>"; };
 		550F1E3525101758009AF467 /* VCServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		550F1E3825101758009AF467 /* VCUseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCUseCase.h; sourceTree = "<group>"; };
 		550F1E3925101758009AF467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -211,8 +207,6 @@
 				552539832530AE5F003202D5 /* coreData */,
 				2F848B55282D4F1F005D3176 /* DifWordList.swift */,
 				555BDB142530F024001E7A18 /* VerifiableCredentialSDK.swift */,
-				2FA43921282DEC6000CFBC59 /* KeyReference.swift */,
-				2FA43923282E480D00CFBC59 /* KeyMap.swift */,
 				5531D3AD255F1F360002CC0E /* IdentifierService.swift */,
 				550F1E532510195A009AF467 /* IssuanceService.swift */,
 				55793BD6255C5A25007F7599 /* ExchangeService.swift */,
@@ -451,7 +445,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				555BDB112530E6C9001E7A18 /* IdentifierDatabase.swift in Sources */,
-				2FA43922282DEC6000CFBC59 /* KeyReference.swift in Sources */,
 				555BDAEC2530AEC7001E7A18 /* VerifiableCredentialDataModel.xcdatamodeld in Sources */,
 				55CA3A7F27FB60C900615CB6 /* VCSDKConfiguration.swift in Sources */,
 				555BDB152530F024001E7A18 /* VerifiableCredentialSDK.swift in Sources */,
@@ -460,7 +453,6 @@
 				5531D3B0255F68280002CC0E /* PairwiseService.swift in Sources */,
 				559FC9D225C9D90B00737F14 /* LinkedDomainService.swift in Sources */,
 				555BDAEE2530CF27001E7A18 /* CoreDataManager.swift in Sources */,
-				2FA43924282E480D00CFBC59 /* KeyMap.swift in Sources */,
 				5531D3AE255F1F360002CC0E /* IdentifierService.swift in Sources */,
 				5580583E25BFA2140048E6FA /* ServicesConstants.swift in Sources */,
 				2F848B56282D4F1F005D3176 /* DifWordList.swift in Sources */,

@@ -16,4 +16,6 @@ struct MockVCCryptoSecret: VCCryptoSecret {
     func migrateKey(fromAccessGroup oldAccessGroup: String?) throws { }
     
     var id: UUID = UUID()
+
+    func withUnsafeBytes(_ body: (UnsafeRawBufferPointer) throws -> Void) throws { }
 }

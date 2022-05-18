@@ -35,7 +35,7 @@ class AesTests: XCTestCase {
         
         let result = try fixture.unwrap(wrapped: wrapped, using: kek)
         var data = Data()
-        try (result as! Secret).withUnsafeBytes{ resultPtr in
+        try result.withUnsafeBytes{ resultPtr in
             data.append(resultPtr.bindMemory(to: UInt8.self))
         }
         XCTAssertEqual(data, cek.value)

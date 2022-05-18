@@ -10,7 +10,6 @@ public enum SecretStoringError: Error {
     case invalidItemInStore
     case itemAlreadyInStore
     case invalidType
-    case invalidSecret
 }
 
 // public until Identifier Creation is implemented.
