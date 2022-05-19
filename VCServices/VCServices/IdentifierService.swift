@@ -41,6 +41,16 @@ public class IdentifierService {
         try identifierDB.removeAllIdentifiers()
         try identifiers.forEach { identifier in
             try identifierDB.importIdentifier(identifier: identifier)
+            
+            // Ensure the keys are migrated into the correct access group
+            let alias = identifier.alias
+            do {
+                let fetched = try identifierDB.fetchIdentifier(withAlias: alias)
+                try migrateKeys(in: fetched, fromAccessGroup: nil)
+            }
+            catch {
+                sdkLog.logWarning(message: "Failed to migrate keys in imported identifier w/alias: \(alias)")
+            }
         }
     }
     
@@ -66,17 +76,20 @@ public class IdentifierService {
         return identifier
     }
     
-    /// updates access group for keys if it needs to be updated.
-    public func migrateKeys(fromAccessGroup currentAccessGroup: String?) throws {
-        try identifierDB.fetchAllIdentifiers().forEach { identifier in
-            try identifier.recoveryKey.migrateKey(fromAccessGroup: currentAccessGroup)
-            try identifier.updateKey.migrateKey(fromAccessGroup: currentAccessGroup)
-            try identifier.didDocumentKeys.forEach { keyContainer in
-                try keyContainer.migrateKey(fromAccessGroup: currentAccessGroup)
-            }
+    func migrateKeys(in identifier:Identifier, fromAccessGroup currentAccessGroup: String?) throws {
+        try identifier.recoveryKey.migrateKey(fromAccessGroup: currentAccessGroup)
+        try identifier.updateKey.migrateKey(fromAccessGroup: currentAccessGroup)
+        try identifier.didDocumentKeys.forEach { keyContainer in
+            try keyContainer.migrateKey(fromAccessGroup: currentAccessGroup)
         }
     }
     
+    /// updates access group for keys if it needs to be updated.
+    public func migrateKeys(fromAccessGroup currentAccessGroup: String?) throws {
+        let identifier = try fetchMasterIdentifier()
+        try migrateKeys(in: identifier, fromAccessGroup: currentAccessGroup)
+    }
+
     public func areKeysValid() throws -> Bool {
         let identifier = try fetchMasterIdentifier()
         return identifier.recoveryKey.isValidKey() &&

@@ -24,13 +24,15 @@ struct RawIdentity: Codable {
 
     init(identifier: Identifier) throws {
         
-        var keys = try identifier.didDocumentKeys.map(RawIdentity.jwkFromKeyContainer)
-        try keys.append(RawIdentity.jwkFromKeyContainer(identifier.recoveryKey))
-        try keys.append(RawIdentity.jwkFromKeyContainer(identifier.updateKey))
         self.id = identifier.did
         self.name = identifier.alias
         self.recoveryKey = identifier.recoveryKey.keyId
         self.updateKey = identifier.updateKey.keyId
+        self.keys = nil
+
+        var keys = try identifier.didDocumentKeys.map(jwkFromKeyContainer)
+        try keys.append(jwkFromKeyContainer(identifier.recoveryKey))
+        try keys.append(jwkFromKeyContainer(identifier.updateKey))
         self.keys = keys
     }
     
@@ -51,9 +53,9 @@ struct RawIdentity: Codable {
         }
 
         // Convert
-        let recoveryKeyContainer = try RawIdentity.keyContainerFromJwk(recoveryJwk)
-        let updateKeyContainer = try RawIdentity.keyContainerFromJwk(updateJwk)
-        let signingKeyContainer = try RawIdentity.keyContainerFromJwk(signingJwk)
+        let recoveryKeyContainer = try keyContainerFromJwk(recoveryJwk)
+        let updateKeyContainer = try keyContainerFromJwk(updateJwk)
+        let signingKeyContainer = try keyContainerFromJwk(signingJwk)
         
         // Wrap up and return
         return Identifier(longFormDid: self.id,
@@ -63,7 +65,7 @@ struct RawIdentity: Codable {
                           alias: self.name)
     }
     
-    private static func jwkFromKeyContainer(_ keyContainer: KeyContainer) throws -> Jwk {
+    func jwkFromKeyContainer(_ keyContainer: KeyContainer) throws -> Jwk {
 
         // Get out the private and public components of the key (pair)
         let secret = keyContainer.keyReference
@@ -83,7 +85,7 @@ struct RawIdentity: Codable {
                    d: privateKey.value)
     }
     
-    private static func keyContainerFromJwk(_ jwk: Jwk) throws -> KeyContainer {
+    func keyContainerFromJwk(_ jwk: Jwk) throws -> KeyContainer {
 
         // Get out the ID and the key data
         guard let keyId = jwk.keyId else {
