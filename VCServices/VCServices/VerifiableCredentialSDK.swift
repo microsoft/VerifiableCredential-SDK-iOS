@@ -8,7 +8,6 @@ import VCEntities
 /// status of a successful initialization
 public enum VCSDKInitStatus
 {
-    case newMasterIdentifierCreated
     case success
 }
 
@@ -31,23 +30,7 @@ public class VerifiableCredentialSDK {
             VCSDKConfiguration.sharedInstance.setAccessGroupIdentifier(with: accessGroupIdentifier)
         }
         
-        /// Step 3: if master identifier does not exist, create a new one.
-        if !identifierService.doesMasterIdentifierExist()
-        {
-            return createNewIdentifier()
-        }
-        
         /// Step 4: return success.
         return .success(.success)
-    }
-    
-    private static func createNewIdentifier() -> Result<VCSDKInitStatus, Error> {
-        do {
-            _ = try identifierService.createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID,
-                                                              andRelyingParty: VCEntitiesConstants.MASTER_ID)
-            return .success(.newMasterIdentifierCreated)
-        } catch {
-            return .failure(error)
-        }
     }
 }

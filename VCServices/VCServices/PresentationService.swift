@@ -83,7 +83,7 @@ public class PresentationService {
                 /// turn off pairwise until we have a better solution.
                 self.exchangeVCsIfPairwise(response: response, isPairwise: false)
             }.then { response in
-                self.formatPresentationResponse(response: response, isPairwise: false)
+                self.formatPresentationResponse(response: response)
             }.then { signedToken in
                 self.presentationApiCalls.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
             }
@@ -199,36 +199,11 @@ public class PresentationService {
         }
     }
     
-    private func formatPresentationResponse(response: PresentationResponseContainer, isPairwise: Bool) -> Promise<PresentationResponse> {
+    private func formatPresentationResponse(response: PresentationResponseContainer) -> Promise<PresentationResponse> {
         return Promise { seal in
             do {
                 
-                var identifier: Identifier?
-                
-                if isPairwise {
-                    // TODO: will change when deterministic key generation is implemented.
-                    identifier = try identifierService.fetchIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: response.audienceDid)
-                } else {
-                    identifier = try identifierService.fetchMasterIdentifier()
-                }
-                
-                guard var identifier = identifier else {
-                    throw PresentationServiceError.unableToFetchIdentifier
-                }
-                
-                do {
-                    try validateAndHandleKeys(for: identifier)
-                } catch {
-                    /// in rare chance no keys are saved, create a new identifier.
-                    if case PresentationServiceError.noKeysSavedForIdentifier = error {
-                        identifier = try identifierService.createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID,
-                                                                                   andRelyingParty: VCEntitiesConstants.MASTER_ID)
-                        sdkLog.logInfo(message: "Refreshed identifier.")
-                    } else {
-                        throw error
-                    }
-                }
-                
+                let identifier = try identifierService.fetchOrCreateMasterIdentifier()
                 sdkLog.logVerbose(message: "Signing Presentation Response with Identifier")
                 
                 seal.fulfill(try self.formatter.format(response: response, usingIdentifier: identifier))
@@ -247,38 +222,6 @@ public class PresentationService {
             }
             
             seal.fulfill(presentationResponse)
-        }
-    }
-    
-    private func validateAndHandleKeys(for identifier: Identifier) throws
-    {
-        do {
-            /// Step 1: Check to see if keys are valid.
-            try identifierService.areKeysValid(for: identifier)
-        } catch {
-            
-            /// Step 2: If keys are not valid, check to see if we need to migrate keys.
-            if case IdentifierServiceError.keyNotFoundInKeyStore = error
-            {
-                try migrateKeys()
-                return
-            }
-            
-            /// Else, throw error.
-            throw error
-        }
-    }
-    
-    /// Migrate keys from default access group to new access group.
-    private func migrateKeys() throws
-    {
-        do {
-            /// Step 3: migrate keys.
-            try VerifiableCredentialSDK.identifierService.migrateKeys(fromAccessGroup: nil)
-            sdkLog.logInfo(message: "Keys successfully migrated to new access group.")
-        } catch {
-            sdkLog.logError(message: "Failed to migrate keys to new access group with error: \(String(describing: error))")
-            throw PresentationServiceError.noKeysSavedForIdentifier
         }
     }
 }
