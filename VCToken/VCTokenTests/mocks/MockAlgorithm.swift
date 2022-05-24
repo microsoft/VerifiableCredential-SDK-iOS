@@ -14,9 +14,7 @@ struct MockVCCryptoSecret: VCCryptoSecret {
     
     let accessGroup: String? = nil
     
-    func isValidKey() -> Bool {
-        true
-    }
+    func isValidKey() throws { }
     
     func migrateKey(fromAccessGroup oldAccessGroup: String?) throws {}
     

@@ -28,9 +28,7 @@ final class SecretMock : Secret {
         }
     }
     
-    func isValidKey() -> Bool {
-        return true
-    }
+    func isValidKey() throws { }
     
     func migrateKey(fromAccessGroup oldAccessGroup: String?) throws { }
 }
