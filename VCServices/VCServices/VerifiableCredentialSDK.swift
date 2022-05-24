@@ -37,19 +37,8 @@ public class VerifiableCredentialSDK {
             return createNewIdentifier()
         }
         
-        /// Step 4: if keys are not valid, return error.
-        return validateKeys()
-    }
-    
-    private static func validateKeys() -> Result<VCSDKInitStatus, Error> {
-        do {
-            try identifierService.areKeysValid()
-        } catch {
-            return .failure(error)
-        }
-        
+        /// Step 4: return success.
         return .success(.success)
-
     }
     
     private static func createNewIdentifier() -> Result<VCSDKInitStatus, Error> {

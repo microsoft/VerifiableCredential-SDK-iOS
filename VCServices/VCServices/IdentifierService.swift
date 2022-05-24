@@ -49,7 +49,7 @@ public class IdentifierService {
         }
     }
     
-    public func refreshIdentifier() throws {
+    public func refreshIdentifiers() throws {
         try identifierDB.removeAllIdentifiers()
         _ = try createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: VCEntitiesConstants.MASTER_ID)
     }
@@ -112,10 +112,8 @@ public class IdentifierService {
         try migrateKeys(in: identifier, fromAccessGroup: currentAccessGroup)
     }
     
-    public func areKeysValid() throws {
+    public func areKeysValid(for identifier: Identifier) throws {
         do {
-            let identifier = try fetchMasterIdentifier()
-            
             try identifier.recoveryKey.isValidKey()
             try identifier.updateKey.isValidKey()
             

@@ -170,13 +170,15 @@ public class IssuanceService {
                     identifier = try identifierService.fetchMasterIdentifier()
                 }
                 
-                guard let id = identifier else {
+                guard let identifier = identifier else {
                     throw IssuanceServiceError.unableToFetchIdentifier
                 }
                 
-                sdkLog.logInfo(message: "Signing Issuance Response with Identifier")
+                try validateAndHandleKeys(for: identifier)
                 
-                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: id))
+                sdkLog.logVerbose(message: "Signing Issuance Response with Identifier")
+                
+                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: identifier))
             } catch {
                 seal.reject(error)
             }
@@ -192,6 +194,39 @@ public class IssuanceService {
             }
             
             seal.fulfill(presentationResponse)
+        }
+    }
+    
+    private func validateAndHandleKeys(for identifier: Identifier) throws
+    {
+        do {
+            /// Step 1: Check to see if keys are valid.
+            try identifierService.areKeysValid(for: identifier)
+        } catch {
+            
+            /// Step 2: If keys are not valid, check to see if we need to migrate keys.
+            if case IdentifierServiceError.keyNotFoundInKeyStore = error {
+                try migrateKeys()
+            }
+            
+            /// Else, throw error.
+            throw error
+        }
+    }
+    
+    /// Migrate keys from default access group to new access group.
+    private func migrateKeys() throws
+    {
+        do {
+            /// Step 3: migrate keys.
+            try VerifiableCredentialSDK.identifierService.migrateKeys(fromAccessGroup: nil)
+            sdkLog.logInfo(message: "Keys successfully migrated to new access group.")
+        } catch {
+            sdkLog.logError(message: "failed to migrate keys to new access group.")
+            /// Step 4: If failed to migrate keys, refresh master identifier to get user out of broken state.
+            try identifierService.refreshIdentifiers()
+            sdkLog.event(name: "test")
+            sdkLog.logInfo(message: "New identifier created after failed to migrate key.")
         }
     }
 }
