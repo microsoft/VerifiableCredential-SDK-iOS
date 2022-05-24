@@ -15,7 +15,7 @@ public protocol VCCryptoSecret {
     /// Access group for key.
     var accessGroup: String? { get }
     
-    func isValidKey() -> Bool
+    func isValidKey() throws
     
     func migrateKey(fromAccessGroup currentAccessGroup: String?) throws
     

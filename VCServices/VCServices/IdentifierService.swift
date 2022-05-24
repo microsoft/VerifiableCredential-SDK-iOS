@@ -6,6 +6,10 @@
 import VCEntities
 import VCCrypto
 
+public enum IdentifierServiceError: Error {
+    case keyNotFoundInKeyStore(innerError: Error)
+}
+
 public class IdentifierService {
     
     private let identifierDB: IdentifierDatabase
@@ -30,6 +34,24 @@ public class IdentifierService {
     
     public func fetchMasterIdentifier() throws -> Identifier {
         return try identifierDB.fetchMasterIdentifier()
+    }
+    
+    public func doesMasterIdentifierExist() -> Bool {
+        do
+        {
+            _ = try fetchMasterIdentifier()
+            return true
+        }
+        catch
+        {
+            sdkLog.logError(message: "Master identifier does not exist with error: \(String(describing: error))")
+            return false
+        }
+    }
+    
+    public func refreshIdentifier() throws {
+        try identifierDB.removeAllIdentifiers()
+        _ = try createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: VCEntitiesConstants.MASTER_ID)
     }
     
     public func fetchIdentifiersForExport() throws -> [Identifier] {
@@ -89,11 +111,26 @@ public class IdentifierService {
         let identifier = try fetchMasterIdentifier()
         try migrateKeys(in: identifier, fromAccessGroup: currentAccessGroup)
     }
-
-    public func areKeysValid() throws -> Bool {
-        let identifier = try fetchMasterIdentifier()
-        return identifier.recoveryKey.isValidKey() &&
-               identifier.updateKey.isValidKey() &&
-               (identifier.didDocumentKeys.first?.isValidKey() ?? false)
+    
+    public func areKeysValid() throws {
+        do {
+            let identifier = try fetchMasterIdentifier()
+            
+            try identifier.recoveryKey.isValidKey()
+            try identifier.updateKey.isValidKey()
+            
+            for key in identifier.didDocumentKeys {
+                try key.isValidKey()
+            }
+        }
+        catch {
+            
+            if case SecretStoringError.itemNotFound = error {
+                throw IdentifierServiceError.keyNotFoundInKeyStore(innerError: error)
+            }
+            
+            /// rethrow error if not key not found error.
+            throw error
+        }
     }
 }

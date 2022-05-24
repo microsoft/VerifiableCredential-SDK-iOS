@@ -101,7 +101,7 @@ struct IdentifierDatabase {
         try coreDataManager.fetchIdentifiers().forEach { identifierModel in
             // Step 1: remove the keys corresponding to each identifier
             let keyIds = [identifierModel.signingKeyId, identifierModel.updateKeyId, identifierModel.recoveryKeyId]
-            try keyIds.forEach{ keyId in
+            try keyIds.forEach { keyId in
                 if let uuid = keyId {
                     try cryptoOperations.deleteKey(withId: uuid)
                 }

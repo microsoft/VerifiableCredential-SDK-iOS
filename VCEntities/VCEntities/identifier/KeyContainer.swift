@@ -26,8 +26,8 @@ public struct KeyContainer {
         return keyReference.id
     }
     
-    public func isValidKey() -> Bool {
-        return keyReference.isValidKey()
+    public func isValidKey() throws {
+        try keyReference.isValidKey()
     }
     
     /// Migrate key from old access group to new one set in sdk config.

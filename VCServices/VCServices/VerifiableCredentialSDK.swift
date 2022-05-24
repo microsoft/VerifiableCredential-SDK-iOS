@@ -12,48 +12,44 @@ public enum VCSDKInitStatus
     case success
 }
 
-/// initialization errors.
-public enum VCSDKInitError: Error {
-    case invalidKeys
-}
-
 /// Class used to Initialize the SDK.
 public class VerifiableCredentialSDK {
     
     public static let identifierService = IdentifierService()
     
     /// Initialized the SDK.
-    /// Returns: TRUE, if needed to create Master Identifier
-    ///          FALSE, if Master Identifier is able to be fetched (included private keys from KeyStore)
+    /// Returns:  Result<VCSDKInitStatus>, if successfully initialized the SDK.
+    ///        Result<Error>, if there was an error, and unable to initialize SDK.
     public static func initialize(logConsumer: VCLogConsumer = DefaultVCLogConsumer(),
                                   accessGroupIdentifier: String? = nil) -> Result<VCSDKInitStatus, Error> {
 
+        /// Step 1: Add Log to VCSDKLog shared instance.
         VCSDKLog.sharedInstance.add(consumer: logConsumer)
         
-        /// Get access group identifier for app.
+        /// Step 2: Set access group identifier for key chain.
         if let accessGroupIdentifier = accessGroupIdentifier {
             VCSDKConfiguration.sharedInstance.setAccessGroupIdentifier(with: accessGroupIdentifier)
         }
         
-        /// Try to fetch master identifier from storage.
-        do {
-            
-            _ = try identifierService.fetchMasterIdentifier()
-            
-            if try !identifierService.areKeysValid() {
-                return .failure(VCSDKInitError.invalidKeys)
-            }
-            
-        } catch {
-            
-            /// If unable to fetch master identifier, create a new one.
-            VCSDKLog.sharedInstance.logWarning(message: "Failed to fetch master identifier with: \(String(describing: error))")
+        /// Step 3: if master identifier does not exist, create a new one.
+        if !identifierService.doesMasterIdentifierExist()
+        {
             return createNewIdentifier()
-            
         }
         
-        /// VC sdk initialization successful.
+        /// Step 4: if keys are not valid, return error.
+        return validateKeys()
+    }
+    
+    private static func validateKeys() -> Result<VCSDKInitStatus, Error> {
+        do {
+            try identifierService.areKeysValid()
+        } catch {
+            return .failure(error)
+        }
+        
         return .success(.success)
+
     }
     
     private static func createNewIdentifier() -> Result<VCSDKInitStatus, Error> {

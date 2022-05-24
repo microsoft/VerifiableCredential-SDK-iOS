@@ -62,13 +62,8 @@ final class Random32BytesSecret: Secret {
         }
     }
     
-    func isValidKey() -> Bool {
-        do {
-            _ = try self.store.getSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, accessGroup: accessGroup)
-            return true
-        } catch {
-            return false
-        }
+    func isValidKey() throws {
+        _ = try self.store.getSecret(id: id, itemTypeCode: Random32BytesSecret.itemTypeCode, accessGroup: accessGroup)
     }
     
     func migrateKey(fromAccessGroup currentAccessGroup: String?) throws {
