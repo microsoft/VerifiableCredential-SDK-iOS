@@ -9,6 +9,7 @@ import VCEntities
 
 enum PresentationServiceError: Error {
     case inputStringNotUri
+    case noKeysSavedForIdentifier
     case noQueryParametersOnUri
     case noValueForRequestUriQueryParameter
     case noRequestUriQueryParameter
@@ -211,11 +212,22 @@ public class PresentationService {
                     identifier = try identifierService.fetchMasterIdentifier()
                 }
                 
-                guard let identifier = identifier else {
+                guard var identifier = identifier else {
                     throw PresentationServiceError.unableToFetchIdentifier
                 }
                 
-                try validateAndHandleKeys(for: identifier)
+                do {
+                    try validateAndHandleKeys(for: identifier)
+                } catch {
+                    /// in rare chance no keys are saved, create a new identifier.
+                    if case PresentationServiceError.noKeysSavedForIdentifier = error {
+                        identifier = try identifierService.createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID,
+                                                                                   andRelyingParty: VCEntitiesConstants.MASTER_ID)
+                        sdkLog.logInfo(message: "Refreshed identifier.")
+                    } else {
+                        throw error
+                    }
+                }
                 
                 sdkLog.logVerbose(message: "Signing Presentation Response with Identifier")
                 
@@ -249,6 +261,7 @@ public class PresentationService {
             if case IdentifierServiceError.keyNotFoundInKeyStore = error
             {
                 try migrateKeys()
+                return
             }
             
             /// Else, throw error.
@@ -264,11 +277,8 @@ public class PresentationService {
             try VerifiableCredentialSDK.identifierService.migrateKeys(fromAccessGroup: nil)
             sdkLog.logInfo(message: "Keys successfully migrated to new access group.")
         } catch {
-            sdkLog.logError(message: "failed to migrate keys to new access group.")
-            /// Step 4: If failed to migrate keys, refresh master identifier to get user out of broken state.
-            try identifierService.refreshIdentifiers()
-            sdkLog.event(name: "test")
-            sdkLog.logInfo(message: "New identifier created after failed to migrate key.")
+            sdkLog.logError(message: "Failed to migrate keys to new access group with error: \(String(describing: error))")
+            throw PresentationServiceError.noKeysSavedForIdentifier
         }
     }
 }

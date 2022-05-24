@@ -8,6 +8,7 @@ import VCCrypto
 
 public enum IdentifierServiceError: Error {
     case keyNotFoundInKeyStore(innerError: Error)
+    case keyStoreError(message: String)
 }
 
 public class IdentifierService {
@@ -125,6 +126,10 @@ public class IdentifierService {
             
             if case SecretStoringError.itemNotFound = error {
                 throw IdentifierServiceError.keyNotFoundInKeyStore(innerError: error)
+            }
+            
+            if case SecretStoringError.readFromStoreError(status: _, message: let message) = error {
+                throw IdentifierServiceError.keyStoreError(message: message ?? "Unable to retrieve keys")
             }
             
             /// rethrow error if not key not found error.

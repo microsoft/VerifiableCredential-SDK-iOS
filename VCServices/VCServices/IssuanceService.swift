@@ -10,6 +10,7 @@ import VCEntities
 
 enum IssuanceServiceError: Error {
     case noKeyIdInRequestHeader
+    case noKeysSavedForIdentifier
     case unableToCastToPresentationResponseContainer
     case unableToFetchIdentifier
 }
@@ -170,11 +171,22 @@ public class IssuanceService {
                     identifier = try identifierService.fetchMasterIdentifier()
                 }
                 
-                guard let identifier = identifier else {
+                guard var identifier = identifier else {
                     throw IssuanceServiceError.unableToFetchIdentifier
                 }
                 
-                try validateAndHandleKeys(for: identifier)
+                do {
+                    try validateAndHandleKeys(for: identifier)
+                } catch {
+                    /// in rare chance no keys are saved, create a new identifier.
+                    if case IssuanceServiceError.noKeysSavedForIdentifier = error {
+                        identifier = try identifierService.createAndSaveIdentifier(forId: VCEntitiesConstants.MASTER_ID,
+                                                                                   andRelyingParty: VCEntitiesConstants.MASTER_ID)
+                        sdkLog.logInfo(message: "Refreshed identifier.")
+                    } else {
+                        throw error
+                    }
+                }
                 
                 sdkLog.logVerbose(message: "Signing Issuance Response with Identifier")
                 
@@ -207,6 +219,7 @@ public class IssuanceService {
             /// Step 2: If keys are not valid, check to see if we need to migrate keys.
             if case IdentifierServiceError.keyNotFoundInKeyStore = error {
                 try migrateKeys()
+                return
             }
             
             /// Else, throw error.
@@ -222,11 +235,8 @@ public class IssuanceService {
             try VerifiableCredentialSDK.identifierService.migrateKeys(fromAccessGroup: nil)
             sdkLog.logInfo(message: "Keys successfully migrated to new access group.")
         } catch {
-            sdkLog.logError(message: "failed to migrate keys to new access group.")
-            /// Step 4: If failed to migrate keys, refresh master identifier to get user out of broken state.
-            try identifierService.refreshIdentifiers()
-            sdkLog.event(name: "test")
-            sdkLog.logInfo(message: "New identifier created after failed to migrate key.")
+            sdkLog.logError(message: "failed to migrate keys to new access group with error: \(String(describing: error))")
+            throw IssuanceServiceError.noKeysSavedForIdentifier
         }
     }
 }
