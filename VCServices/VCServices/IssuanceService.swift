@@ -88,7 +88,7 @@ public class IssuanceService {
                 /// turn off pairwise until we have a better solution.
                 self.exchangeVCsIfPairwise(response: response, isPairwise: false)
             }.then { response in
-                self.formatIssuanceResponse(response: response, isPairwise: false)
+                self.formatIssuanceResponse(response: response)
             }.then { signedToken in
                 self.apiCalls.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
             }
@@ -157,26 +157,14 @@ public class IssuanceService {
         }
     }
     
-    private func formatIssuanceResponse(response: IssuanceResponseContainer, isPairwise: Bool) -> Promise<IssuanceResponse> {
+    private func formatIssuanceResponse(response: IssuanceResponseContainer) -> Promise<IssuanceResponse> {
         return Promise { seal in
             do {
+                /// fetch or create master identifier
+                let identifier = try identifierService.fetchOrCreateMasterIdentifier()
+                sdkLog.logVerbose(message: "Signing Issuance Response with Identifier")
                 
-                var identifier: Identifier?
-                
-                if isPairwise {
-                    // TODO: will change when deterministic key generation is implemented.
-                    identifier = try identifierService.fetchIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: response.audienceDid)
-                } else {
-                    identifier = try identifierService.fetchMasterIdentifier()
-                }
-                
-                guard let id = identifier else {
-                    throw IssuanceServiceError.unableToFetchIdentifier
-                }
-                
-                sdkLog.logInfo(message: "Signing Issuance Response with Identifier")
-                
-                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: id))
+                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: identifier))
             } catch {
                 seal.reject(error)
             }

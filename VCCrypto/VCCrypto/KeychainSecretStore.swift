@@ -5,13 +5,7 @@
 
 import Foundation
 
-public enum KeychainStoreError: Error {
-    case deleteFromStoreError(status: OSStatus)
-    case saveToStoreError(status: Int32)
-    case readFromStoreError(status: OSStatus)
-}
-
-struct KeychainSecretStore : SecretStoring {
+struct KeychainSecretStore: SecretStoring {
     
     private let vcService = "com.microsoft.vcCrypto"
     
@@ -44,8 +38,18 @@ struct KeychainSecretStore : SecretStoring {
         
         var item: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &item)
+        
+        var statusMessage: String? = nil
+        if #available(iOS 11.3, *) {
+            statusMessage = SecCopyErrorMessageString(status, nil) as? String
+        }
+        
         guard status != errSecItemNotFound else { throw SecretStoringError.itemNotFound }
-        guard status == errSecSuccess else { throw KeychainStoreError.readFromStoreError(status: status as OSStatus) }
+        
+        guard status == errSecSuccess else {
+            throw SecretStoringError.readFromStoreError(status: status as OSStatus, message: statusMessage)
+        }
+        
         guard var value = item as? Data else { throw SecretStoringError.invalidItemInStore }
         defer {
             let secretSize = value.count
@@ -99,8 +103,14 @@ struct KeychainSecretStore : SecretStoring {
         }
         
         let status = SecItemAdd(query as CFDictionary, nil)
+        
+        var statusMessage: String? = nil
+        if #available(iOS 11.3, *) {
+            statusMessage = SecCopyErrorMessageString(status, nil) as? String
+        }
+        
         guard status == errSecSuccess else {
-            throw KeychainStoreError.saveToStoreError(status: status)
+            throw SecretStoringError.saveToStoreError(status: status, message: statusMessage)
         }
     }
     
@@ -129,8 +139,14 @@ struct KeychainSecretStore : SecretStoring {
         }
         
         let status = SecItemDelete(query as CFDictionary)
+        
+        var statusMessage: String? = nil
+        if #available(iOS 11.3, *) {
+            statusMessage = SecCopyErrorMessageString(status, nil) as? String
+        }
+        
         guard status == errSecSuccess || status == errSecItemNotFound else {
-            throw KeychainStoreError.deleteFromStoreError(status: status)
+            throw SecretStoringError.deleteFromStoreError(status: status, message: statusMessage)
         }
     }
 }

@@ -10,6 +10,9 @@ public enum SecretStoringError: Error {
     case invalidItemInStore
     case itemAlreadyInStore
     case invalidType
+    case deleteFromStoreError(status: OSStatus, message: String? = nil)
+    case saveToStoreError(status: Int32, message: String? = nil)
+    case readFromStoreError(status: OSStatus, message: String? = nil)
 }
 
 // public until Identifier Creation is implemented.

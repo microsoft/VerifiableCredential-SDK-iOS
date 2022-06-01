@@ -61,9 +61,7 @@ public final class EphemeralSecret: Secret {
         }
     }
     
-    public func isValidKey() -> Bool {
-        return true
-    }
+    public func isValidKey() throws {}
     
     public func migrateKey(fromAccessGroup currentAccessGroup: String?) throws {
         /* Do nothing */
