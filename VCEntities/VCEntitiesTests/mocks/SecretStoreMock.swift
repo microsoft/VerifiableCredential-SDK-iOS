@@ -21,4 +21,5 @@ internal class SecretStoreMock: SecretStoring {
     func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String?) throws {
         memoryStore.removeValue(forKey: id)
     }
+    
 }

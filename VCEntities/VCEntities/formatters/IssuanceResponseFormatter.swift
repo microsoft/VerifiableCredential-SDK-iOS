@@ -97,6 +97,7 @@ public class IssuanceResponseFormatter: IssuanceResponseFormatting {
         
         sdkLog.logVerbose(message: """
             Creating Issuance Response with:
+            access_tokens: \(accessTokenMap?.count ?? 0)
             id_tokens: \(idTokenMap?.count ?? 0)
             self_issued claims: \(selfIssuedMap?.count ?? 0)
             verifiable credentials: \(presentationsMap?.count ?? 0)

@@ -15,9 +15,9 @@ public struct KeyId: VCCryptoSecret {
         self.id = id
     }
     
-    public func isValidKey() -> Bool {
-        return true
-    }
+    public func isValidKey() throws { }
     
     public func migrateKey(fromAccessGroup oldAccessGroup: String?) throws { }
+
+    public func withUnsafeBytes(_ body: (UnsafeRawBufferPointer) throws -> Void) throws { }
 }

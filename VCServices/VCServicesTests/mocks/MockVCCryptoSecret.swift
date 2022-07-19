@@ -9,11 +9,11 @@ struct MockVCCryptoSecret: VCCryptoSecret {
     
     var accessGroup: String? = nil
     
-    func isValidKey() -> Bool {
-        return true
-    }
+    func isValidKey() throws { }
     
     func migrateKey(fromAccessGroup oldAccessGroup: String?) throws { }
     
     var id: UUID = UUID()
+
+    func withUnsafeBytes(_ body: (UnsafeRawBufferPointer) throws -> Void) throws { }
 }

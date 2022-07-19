@@ -6,12 +6,10 @@
 import Foundation
 import CommonCrypto
 
-enum HmacSha512Error: Error {
-    case invalidMessage
-    case invalidSecret
-}
-
+@available(*, deprecated, message: "Superceded by HmacSha2")
 public struct HmacSha512 {
+
+    public init() { }
     
     /// Authenticate a message
     /// - Parameters:
@@ -19,17 +17,8 @@ public struct HmacSha512 {
     ///   - secret: The secret used for authentication
     /// - Returns: The authentication code for the message
     public func authenticate(message: Data, withSecret secret: VCCryptoSecret) throws -> Data {
-        guard message.count > 0 else { throw HmacSha512Error.invalidMessage }
-        guard secret is Secret else { throw HmacSha512Error.invalidSecret }
-        
-        var messageAuthCode : [UInt8] = [UInt8](repeating: 0, count:Int(CC_SHA512_DIGEST_LENGTH))
-        try (secret as! Secret).withUnsafeBytes { (secretPtr) in
-            message.withUnsafeBytes {
-                CCHmac(UInt32(kCCHmacAlgSHA512), secretPtr.bindMemory(to: UInt8.self).baseAddress!, secretPtr.count, $0.baseAddress, message.count, &messageAuthCode)
-            }
-        }
-        
-        return Data(messageAuthCode)
+        let hmac = try HmacSha2(algorithm: UInt32(kCCHmacAlgSHA512))
+        return try hmac.authenticate(message: message, with: secret)
     }
     
     /// Verify that the authentication code is valid
@@ -39,7 +28,7 @@ public struct HmacSha512 {
     ///   - secret: The secret used
     /// - Returns: True if the authentication code is valid
     public func isValidAuthenticationCode(_ mac: Data, authenticating message: Data, withSecret secret: VCCryptoSecret) throws -> Bool {
-        let authCode = try self.authenticate(message: message, withSecret: secret)
-        return mac == authCode
+        let hmac = try HmacSha2(algorithm: UInt32(kCCHmacAlgSHA512))
+        return try hmac.validate(mac, authenticating: message, with: secret)
     }
 }

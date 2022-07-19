@@ -5,17 +5,7 @@
 
 import Foundation
 
-public enum KeychainStoreError: Error {
-    case deleteFromStoreError(status: OSStatus)
-    case saveToStoreError(status: Int32)
-    case itemNotFound
-    case readFromStoreError(status: OSStatus)
-    case invalidItemInStore
-    case itemAlreadyInStore
-    case invalidType
-}
-
-struct KeychainSecretStore : SecretStoring {
+struct KeychainSecretStore: SecretStoring {
     
     private let vcService = "com.microsoft.vcCrypto"
     
@@ -48,9 +38,19 @@ struct KeychainSecretStore : SecretStoring {
         
         var item: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &item)
-        guard status != errSecItemNotFound else { throw KeychainStoreError.itemNotFound }
-        guard status == errSecSuccess else { throw KeychainStoreError.readFromStoreError(status: status as OSStatus) }
-        guard var value = item as? Data else { throw KeychainStoreError.invalidItemInStore }
+        
+        var statusMessage: String? = nil
+        if #available(iOS 11.3, *) {
+            statusMessage = SecCopyErrorMessageString(status, nil) as? String
+        }
+        
+        guard status != errSecItemNotFound else { throw SecretStoringError.itemNotFound }
+        
+        guard status == errSecSuccess else {
+            throw SecretStoringError.readFromStoreError(status: status as OSStatus, message: statusMessage)
+        }
+        
+        guard var value = item as? Data else { throw SecretStoringError.invalidItemInStore }
         defer {
             let secretSize = value.count
             value.withUnsafeMutableBytes { (secretPtr) in
@@ -78,7 +78,7 @@ struct KeychainSecretStore : SecretStoring {
             }
         }
         
-        guard itemTypeCode.count == 4 else { throw KeychainStoreError.invalidType }
+        guard itemTypeCode.count == 4 else { throw SecretStoringError.invalidType }
         
         // kSecAttrAccount is used to store the secret Id so that we can look it up later
         // kSecAttrService is always set to vcService to enable us to lookup all our secrets later if needed
@@ -103,8 +103,14 @@ struct KeychainSecretStore : SecretStoring {
         }
         
         let status = SecItemAdd(query as CFDictionary, nil)
+        
+        var statusMessage: String? = nil
+        if #available(iOS 11.3, *) {
+            statusMessage = SecCopyErrorMessageString(status, nil) as? String
+        }
+        
         guard status == errSecSuccess else {
-            throw KeychainStoreError.saveToStoreError(status: status)
+            throw SecretStoringError.saveToStoreError(status: status, message: statusMessage)
         }
     }
     
@@ -116,7 +122,7 @@ struct KeychainSecretStore : SecretStoring {
     ///   - accessGroup: The access group of the secret.
     func deleteSecret(id: UUID, itemTypeCode: String, accessGroup: String? = nil) throws {
         
-        guard itemTypeCode.count == 4 else { throw KeychainStoreError.invalidType }
+        guard itemTypeCode.count == 4 else { throw SecretStoringError.invalidType }
         
         // kSecAttrAccount is used to store the secret Id so that we can look it up later
         // kSecAttrService is always set to vcService to enable us to lookup all our secrets later if needed
@@ -133,8 +139,14 @@ struct KeychainSecretStore : SecretStoring {
         }
         
         let status = SecItemDelete(query as CFDictionary)
-        guard status == errSecSuccess else {
-            throw KeychainStoreError.deleteFromStoreError(status: status)
+        
+        var statusMessage: String? = nil
+        if #available(iOS 11.3, *) {
+            statusMessage = SecCopyErrorMessageString(status, nil) as? String
+        }
+        
+        guard status == errSecSuccess || status == errSecItemNotFound else {
+            throw SecretStoringError.deleteFromStoreError(status: status, message: statusMessage)
         }
     }
 }

@@ -9,10 +9,12 @@ import VCEntities
 
 enum PresentationServiceError: Error {
     case inputStringNotUri
+    case noKeysSavedForIdentifier
     case noQueryParametersOnUri
     case noValueForRequestUriQueryParameter
     case noRequestUriQueryParameter
     case unableToCastToPresentationResponseContainer
+    case unableToFetchIdentifier
     case noKeyIdInRequestHeader
     case noPublicKeysInIdentifierDocument
     case noIssuerIdentifierInRequest
@@ -81,7 +83,7 @@ public class PresentationService {
                 /// turn off pairwise until we have a better solution.
                 self.exchangeVCsIfPairwise(response: response, isPairwise: false)
             }.then { response in
-                self.formatPresentationResponse(response: response, isPairwise: false)
+                self.formatPresentationResponse(response: response)
             }.then { signedToken in
                 self.presentationApiCalls.sendResponse(usingUrl:  response.audienceUrl, withBody: signedToken)
             }
@@ -197,26 +199,14 @@ public class PresentationService {
         }
     }
     
-    private func formatPresentationResponse(response: PresentationResponseContainer, isPairwise: Bool) -> Promise<PresentationResponse> {
+    private func formatPresentationResponse(response: PresentationResponseContainer) -> Promise<PresentationResponse> {
         return Promise { seal in
             do {
                 
-                var identifier: Identifier?
+                let identifier = try identifierService.fetchOrCreateMasterIdentifier()
+                sdkLog.logVerbose(message: "Signing Presentation Response with Identifier")
                 
-                if isPairwise {
-                    // TODO: will change when deterministic key generation is implemented.
-                    identifier = try identifierService.fetchIdentifier(forId: VCEntitiesConstants.MASTER_ID, andRelyingParty: response.audienceDid)
-                } else {
-                    identifier = try identifierService.fetchMasterIdentifier()
-                }
-                
-                guard let id = identifier else {
-                    throw PresentationServiceError.inputStringNotUri
-                }
-                
-                sdkLog.logInfo(message: "Signing Presentation Response with Identifier")
-                
-                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: id))
+                seal.fulfill(try self.formatter.format(response: response, usingIdentifier: identifier))
             } catch {
                 seal.reject(error)
             }

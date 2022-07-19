@@ -15,15 +15,15 @@ public protocol VCCryptoSecret {
     /// Access group for key.
     var accessGroup: String? { get }
     
-    func isValidKey() -> Bool
+    func isValidKey() throws
     
     func migrateKey(fromAccessGroup currentAccessGroup: String?) throws
+    
+    /// Invokes the closure passed as a param with a buffer pointer to the raw bytes of the secret.
+    func withUnsafeBytes(_ body: (UnsafeRawBufferPointer) throws -> Void) throws
 }
 
 protocol InternalSecret  {
-    
-    /// Invokes the closure passed as a param with a buffer pointer to the raw bytes of the secret. 
-    func withUnsafeBytes(_ body: (UnsafeRawBufferPointer) throws -> Void) throws
     
     /// The 4 characters representing the secret type in the store. This correspond to kSecAttrType in keychain
     static var itemTypeCode: String { get }
