@@ -4,7 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import Secp256k1
+// import Secp256k1
 
 enum Secp256k1Error: Error {
     case invalidMessageHash
