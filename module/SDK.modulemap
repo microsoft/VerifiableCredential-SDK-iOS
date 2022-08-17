@@ -1,4 +1,0 @@
-framework module Secp256k1 {
-  export *
-  module * { export * }
-}

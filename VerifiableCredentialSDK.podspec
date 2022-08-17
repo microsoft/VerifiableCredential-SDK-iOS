@@ -11,33 +11,41 @@ Pod::Spec.new do |s|
     s.documentation_url= 'https://alamofire.github.io/AlamofireImage/'
     s.source= {
       :git => 'https://github.com/microsoft/VerifiableCredential-SDK-iOS.git',
-      :commit => 'b638010',
+      :commit => '9309ce8',
       :submodules => true
     }
     # s.prepare_command = "sed -i '' -e 's:include/::g' ./**/**/**/*.c\nsed -i '' -e 's:include/::g' ./**/**/**/**/**/*.h"
-    # s.prepare_command = "mkdir -p Secp256k1/include; ln -s Secp256k1/secp256k1.h Secp256k1/include/secp256k1.h"
-    ## create folder and move all include in there, or create a link or shortcut to the folder 
-    # or subspec
-    
+
+    s.swift_version = '5.0'
+
+    s.ios.deployment_target  = '13.0'
+
+    s.default_subspecs = 'Secp256k1', 'VCCrypto'
+
+    s.source_files = 'Submodules/Secp256k1/*.h'
+    s.preserve_paths = 'module/*'
+    s.module_map = 'module/SDK.modulemap'
   
-    # s.subspec 'VCCrypto' do |cs|
-    #   cs.source_files= 'VCCrypto/VCCrypto/**/*.swift'
+    s.subspec 'VCCrypto' do |cs|
+      cs.name = 'VCCrypto'
+      cs.source_files= 'VCCrypto/VCCrypto/**'
     #   cs.platform = '13.0'
-    #   cs.dependency 'VerifiableCredentialSDK/Secp256k1'
-    # end
+      cs.dependency 'VerifiableCredentialSDK/Secp256k1'
+    end
     
     s.subspec 'Secp256k1' do |cs|
       cs.library = 'c++'
+      cs.name = 'Secp256k1'
       cs.header_mappings_dir = 'Submodules/Secp256k1/bitcoin-core/secp256k1/'
       cs.header_dir = 'include'
       cs.public_header_files = 'Submodules/Secp256k1/bitcoin-core/secp256k1/include/secp256k1.h'
       cs.private_header_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/include/secp256k1.h', 'Submodules/Secp256k1/Secp256k1/*.h']
-    #   cs.compiler_flags =
-    #   "-Wno-shorten-64-to-32",
+      cs.compiler_flags =
+      "-Wno-shorten-64-to-32",
     #   "-Wno-conditional-uninitialized",
     #   "-Wno-long-long",
     #   "-Wno-overlength-strings",
-    #   "-Wno-unused-function"
+      "-Wno-unused-function"
       cs.preserve_paths = 'Submodules/Secp256k1/bitcoin-core/secp256k1/**/*.{c,h}'
       cs.source_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/**/*.{c,h}']
       cs.exclude_files = [  

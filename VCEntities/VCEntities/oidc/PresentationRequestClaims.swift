@@ -3,7 +3,9 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCToken
+#if canImport(VCToken)
+    import VCToken
+#endif
 
 /// OIDC Claims that represent a Verifiable Credential Presentation Request.
 public struct PresentationRequestClaims: OIDCClaims, Equatable {

@@ -3,7 +3,9 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCToken
+#if canImport(VCToken)
+    import VCToken
+#endif
 
 /**
  * Contents of an OpenID Self-Issued Token Request.

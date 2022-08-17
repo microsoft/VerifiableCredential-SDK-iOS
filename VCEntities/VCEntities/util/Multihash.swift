@@ -4,7 +4,9 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCCrypto
+#if canImport(VCCrypto)
+    import VCCrypto
+#endif
 
 let SHA2_256 = 0x12
 

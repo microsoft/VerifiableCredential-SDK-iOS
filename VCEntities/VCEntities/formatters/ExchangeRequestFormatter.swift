@@ -3,7 +3,9 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import VCToken
+#if canImport(VCToken)
+    import VCToken
+#endif
 
 public protocol ExchangeRequestFormatting {
     func format(request: ExchangeRequestContainer) throws -> ExchangeRequest

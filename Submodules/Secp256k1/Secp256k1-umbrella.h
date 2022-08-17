@@ -1,0 +1,1 @@
+@import VerifiableCredentialSDK/Secp256k1;

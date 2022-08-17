@@ -3,7 +3,9 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import VCToken
+#if canImport(VCToken)
+    import VCToken
+#endif
 
 public protocol PresentationResponseFormatting {
     func format(response: PresentationResponseContainer, usingIdentifier identifier: Identifier) throws -> PresentationResponse
@@ -114,12 +116,12 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         return submission
     }
     
-    private func createInputDescriptorMapping(id: String, index: Int) -> InputDescriptorMapping {
+    private func createInputDescriptorMapping(id: String, index: Int) -> PresentationInputDescriptorMapping {
         let nestedInputDescriptorMapping = NestedInputDescriptorMapping(id: id,
                                                                         format: Constants.JwtVc,
                                                                         path: "$.verifiableCredential[\(index)]")
         
-        return InputDescriptorMapping(id: id,
+        return PresentationInputDescriptorMapping(id: id,
                                       format: Constants.JwtVp,
                                       path: Constants.SimplePath,
                                       pathNested: nestedInputDescriptorMapping)

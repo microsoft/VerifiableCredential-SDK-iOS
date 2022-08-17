@@ -5,7 +5,7 @@
 
 import Foundation
 
-/// A ProtectedBackup holds a UnprotectedBackupData in some shape or form. The details are defined by implementations of this protocol. e.g. a JWE Token encrypted by a password. 
+/// A ProtectedBackup holds a UnprotectedBackupData in some shape or form. The details are defined by implementations of this protocol. e.g. a JWE Token encrypted by a password.
 public struct UnprotectedBackupData {
     
     public let type: String

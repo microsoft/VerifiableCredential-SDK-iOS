@@ -3,8 +3,12 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCCrypto
-import VCToken
+#if canImport(VCCrypto)
+    import VCCrypto
+#endif
+#if canImport(VCToken)
+    import VCToken
+#endif
 
 public struct IdentifierCreator {
     
