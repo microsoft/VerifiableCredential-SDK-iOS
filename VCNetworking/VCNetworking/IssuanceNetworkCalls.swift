@@ -4,7 +4,10 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VCEntities
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 public protocol IssuanceNetworking {
     func getRequest(withUrl url: String) -> Promise<SignedContract>

@@ -4,8 +4,14 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCEntities
-import VCToken
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
+
+#if canImport(VCToken)
+    import VCToken
+#endif
 
 enum PresentationResponseEncoderError: Error {
     case noVerifiablePresentationInResponse

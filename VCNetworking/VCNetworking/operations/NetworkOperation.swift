@@ -4,7 +4,10 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VCEntities
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 internal protocol InternalNetworkOperation: NetworkOperation & InternalOperation {}
 

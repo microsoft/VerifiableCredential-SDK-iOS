@@ -54,5 +54,15 @@ Pod::Spec.new do |s|
         # cs.ios.deployment_target  = '13.0'
         # cs.dependency 'VerifiableCredentialSDK/Secp256k1'
     end
+
+    s.subspec 'VCNetworking' do |cs|
+        cs.name = 'VCNetworking'
+        cs.preserve_paths = 'VCNetworking/**/*.swift'
+        cs.source_files= 'VCNetworking/VCNetworking/**/*.swift'
+        cs.dependency 'VCCore/VCEntities'
+        cs.dependency 'PromiseKit'
+        # cs.ios.deployment_target  = '13.0'
+        # cs.dependency 'VerifiableCredentialSDK/Secp256k1'
+    end
 end
   

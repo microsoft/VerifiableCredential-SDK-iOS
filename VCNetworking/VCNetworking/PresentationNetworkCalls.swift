@@ -4,7 +4,10 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VCEntities
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 public protocol PresentationNetworking {
     func getRequest(withUrl url: String) -> Promise<PresentationRequestToken>

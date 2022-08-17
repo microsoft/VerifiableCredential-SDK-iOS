@@ -4,7 +4,10 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VCEntities
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 public protocol WellKnownConfigDocumentNetworking {
     func getDocument(fromUrl domainUrl: String) -> Promise<WellKnownConfigDocument>
