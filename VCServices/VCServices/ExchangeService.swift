@@ -5,8 +5,13 @@
 
 
 import PromiseKit
-import VCNetworking
-import VCEntities
+#if canImport(VCNetworking)
+    import VCNetworking
+#endif
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 class ExchangeService {
     

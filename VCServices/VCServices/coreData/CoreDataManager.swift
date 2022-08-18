@@ -5,7 +5,10 @@
 
 import Foundation
 import CoreData
-import VCEntities
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 enum CoreDataManagerError: Error {
     case unableToCreatePersistentContainer

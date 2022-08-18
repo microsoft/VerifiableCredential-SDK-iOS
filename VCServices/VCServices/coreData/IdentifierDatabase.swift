@@ -3,8 +3,13 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCEntities
-import VCCrypto
+#if canImport(VCEntities)
+    import VCEntities
+#endif
+
+#if canImport(VCCrypto)
+    import VCCrypto
+#endif
 
 enum IdentifierDatabaseError: Error {
     case noIdentifiersSaved

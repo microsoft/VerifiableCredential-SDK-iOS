@@ -64,5 +64,32 @@ Pod::Spec.new do |s|
         # cs.ios.deployment_target  = '13.0'
         # cs.dependency 'VerifiableCredentialSDK/Secp256k1'
     end
+
+    s.subspec 'VCNetworking' do |cs|
+        cs.name = 'VCNetworking'
+        cs.preserve_paths = 'VCNetworking/**/*.swift'
+        cs.source_files= 'VCNetworking/VCNetworking/**/*.swift'
+        cs.dependency 'VCCore/VCEntities'
+        cs.dependency 'PromiseKit'
+        # cs.ios.deployment_target  = '13.0'
+        # cs.dependency 'VerifiableCredentialSDK/Secp256k1'
+    end
+
+    s.subspec 'VCServices' do |cs|
+        cs.name = 'VCServices'
+        cs.preserve_paths = 'VCServices/**/*.swift'
+        cs.source_files= ['VCServices/VCServices/**/*.swift',
+         'VCServices/VCServices/coreData/VerifiableCredentialDataModel.xcdatamodeld',
+         'VCServices/VCServices/coreData/VerifiableCredentialDataModel.xcdatamodeld/*.xcdatamodel']
+        cs.resources = [
+            'VCServices/VCServices/coreData/VerifiableCredentialDataModel.xcdatamodeld',
+            'VCServices/VCServices/coreData/VerifiableCredentialDataModel.xcdatamodeld/*.xcdatamodel']
+        cs.preserve_paths = 'VCServices/VCServices/coreData/VerifiableCredentialDataModel.xcdatamodeld'
+        cs.dependency 'VCCore/VCNetworking'
+        cs.dependency 'VCCore/VCEntities'
+        cs.dependency 'PromiseKit'
+        # cs.ios.deployment_target  = '13.0'
+        # cs.dependency 'VerifiableCredentialSDK/Secp256k1'
+    end
 end
   

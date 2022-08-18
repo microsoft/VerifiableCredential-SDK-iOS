@@ -5,8 +5,13 @@
 
 
 import PromiseKit
-import VCNetworking
-import VCEntities
+#if canImport(VCNetworking)
+    import VCNetworking
+#endif
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 enum IssuanceServiceError: Error {
     case noKeyIdInRequestHeader
@@ -114,7 +119,7 @@ public class IssuanceService {
     private func getDIDFromHeader(request: SignedContract) -> Promise<String> {
         return Promise { seal in
             
-            guard let kid = request.headers.keyId?.split(separator: Constants.FRAGMENT_SEPARATOR),
+            guard let kid = request.headers.keyId?.split(separator: ServicesConstants.FRAGMENT_SEPARATOR),
                   let did = kid.first else {
                 
                 seal.reject(IssuanceServiceError.noKeyIdInRequestHeader)
