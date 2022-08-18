@@ -45,10 +45,12 @@ public final class EphemeralSecret: Secret {
     public init(with secret: VCCryptoSecret) throws
     {
         value = Data()
-        try secret.withUnsafeBytes { secretPtr in
-            if let baseAddress = secretPtr.baseAddress, secretPtr.count > 0 {
-                let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
-                value.append(bytes, count: secretPtr.count)
+        if let internalSecret = secret as? Secret {
+            try internalSecret.withUnsafeBytes { secretPtr in
+                if let baseAddress = secretPtr.baseAddress, secretPtr.count > 0 {
+                    let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
+                    value.append(bytes, count: secretPtr.count)
+                }
             }
         }
         self.id = secret.id

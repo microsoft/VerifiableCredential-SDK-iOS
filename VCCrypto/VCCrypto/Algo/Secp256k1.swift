@@ -13,6 +13,7 @@ enum Secp256k1Error: Error {
     case invalidSignature
     case invalidPublicKey
     case publicKeyCreationFailure
+    case invalidSecret
 }
 
 public struct Secp256k1: Signing {
@@ -27,6 +28,7 @@ public struct Secp256k1: Signing {
     public func sign(messageHash: Data, withSecret secret: VCCryptoSecret) throws -> Data {
         
         // Validate params
+        guard secret is Secret else { throw Secp256k1Error.invalidSecret }
         guard messageHash.count == 32 else { throw Secp256k1Error.invalidMessageHash }
 
         // Create the context and signature data structure
@@ -40,7 +42,7 @@ public struct Secp256k1: Signing {
         }
         
         // Sign the message
-        try secret.withUnsafeBytes { (secretPtr) in
+        try (secret as! Secret).withUnsafeBytes { (secretPtr) in
             guard secp256k1_ec_seckey_verify(context!, secretPtr.bindMemory(to: UInt8.self).baseAddress.unsafelyUnwrapped) > 0 else { throw Secp256k1Error.invalidSecretKey }
             
             try messageHash.withUnsafeBytes { (msgPtr) in
@@ -133,6 +135,9 @@ public struct Secp256k1: Signing {
     /// - Returns: The key pair
     public func createKeyPair(forSecret secret: VCCryptoSecret) throws -> (EphemeralSecret, Secp256k1PublicKey)
     {
+        // Validate params
+        guard secret is Secret else { throw Secp256k1Error.invalidSecret }
+        
         // Get out the private key data
         let privateKey = try EphemeralSecret(with: secret)
 
@@ -143,7 +148,7 @@ public struct Secp256k1: Signing {
     /// Create a public key from a private key
     /// - Parameter secret: The Secret used to generate the public key
     /// - Returns: The public key
-    public func createPublicKey(forPrivateKey privateKey:EphemeralSecret) throws -> Secp256k1PublicKey {
+    public func createPublicKey(forPrivateKey privateKey: EphemeralSecret) throws -> Secp256k1PublicKey {
         
         // Create the context and public key data structure
         let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN))!

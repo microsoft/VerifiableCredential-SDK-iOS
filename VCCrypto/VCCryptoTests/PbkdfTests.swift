@@ -24,7 +24,7 @@ class PbkdfTests : XCTestCase {
         
         // Validate
         var data = Data()
-        try derived.withUnsafeBytes { (derivedPtr) in
+        try (derived as! Secret).withUnsafeBytes { (derivedPtr) in
             data.append(derivedPtr.bindMemory(to: UInt8.self))
         }
         XCTAssertEqual(Data(expected), data)

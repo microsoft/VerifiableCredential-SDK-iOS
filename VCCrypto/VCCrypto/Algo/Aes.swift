@@ -9,6 +9,7 @@ import CommonCrypto
 enum AesError : Error {
     case keyWrapError
     case keyUnwrapError
+    case invalidSecret
     case cryptoError(operation:CCOperation, status:CCCryptorStatus)
 }
 
@@ -24,8 +25,11 @@ public struct Aes {
     public func wrap(key: VCCryptoSecret, with kek: VCCryptoSecret) throws -> Data {
 
         // Look for an early out
+        guard key is Secret, kek is Secret else {
+            throw AesError.invalidSecret
+        }
         var wrappedSize: Int = 0
-        try key.withUnsafeBytes { (keyPtr: UnsafeRawBufferPointer) in
+        try (key as! Secret).withUnsafeBytes { (keyPtr: UnsafeRawBufferPointer) in
             let keySize = keyPtr.bindMemory(to: UInt8.self).count
             wrappedSize = CCSymmetricWrappedSize(keyWrapAlg, keySize)
         }
@@ -33,10 +37,10 @@ public struct Aes {
         try wrapped.withUnsafeMutableBytes({ (wrappedPtr: UnsafeMutableRawBufferPointer) in
             let wrappedBytes = wrappedPtr.bindMemory(to: UInt8.self)
             
-            try key.withUnsafeBytes { (keyPtr: UnsafeRawBufferPointer) in
+            try (key as! Secret).withUnsafeBytes { (keyPtr: UnsafeRawBufferPointer) in
                 let keyBytes = keyPtr.bindMemory(to: UInt8.self)
                 
-                try kek.withUnsafeBytes { (kekPtr: UnsafeRawBufferPointer) in
+                try (kek as! Secret).withUnsafeBytes { (kekPtr: UnsafeRawBufferPointer) in
                     let kekBytes = kekPtr.bindMemory(to: UInt8.self)
                     let status = CCSymmetricKeyWrap(keyWrapAlg,
                                                     CCrfc3394_iv,
@@ -58,6 +62,11 @@ public struct Aes {
     
     public func unwrap(wrapped: Data, using kek: VCCryptoSecret) throws -> VCCryptoSecret {
 
+        // Look for an early out
+        guard kek is Secret else {
+            throw AesError.invalidSecret
+        }
+
         var unwrappedSize = CCSymmetricUnwrappedSize(keyWrapAlg, wrapped.count)
         var unwrapped = Data(repeating: 0, count: unwrappedSize)
         defer {
@@ -73,7 +82,7 @@ public struct Aes {
             try wrapped.withUnsafeBytes { (wrappedPtr: UnsafeRawBufferPointer) in
                 let wrappedBytes = wrappedPtr.bindMemory(to: UInt8.self)
                 
-                try kek.withUnsafeBytes { (kekPtr: UnsafeRawBufferPointer) in
+                try (kek as! Secret).withUnsafeBytes { (kekPtr: UnsafeRawBufferPointer) in
                     let kekBytes = kekPtr.bindMemory(to: UInt8.self)
                     let status = CCSymmetricKeyUnwrap(keyWrapAlg,
                                                       CCrfc3394_iv,
@@ -106,6 +115,9 @@ public struct Aes {
 
     private func apply(operation: CCOperation, withOptions options: CCOptions, to data: Data, using key: VCCryptoSecret, iv: Data) throws -> Data {
 
+        // Look for an early out
+        guard key is Secret else { throw AesError.invalidSecret }
+
         // Allocate the output buffer
         var outputSize = size_t(data.count)
         let modulo = data.count % blockSize
@@ -114,7 +126,7 @@ public struct Aes {
         }
         var output = [UInt8](repeating: 0, count: outputSize)
         
-        try key.withUnsafeBytes { (keyPtr: UnsafeRawBufferPointer) in
+        try (key as! Secret).withUnsafeBytes { (keyPtr: UnsafeRawBufferPointer) in
             let keyBytes = keyPtr.bindMemory(to: UInt8.self)
 
             try iv.withUnsafeBytes { (ivPtr: UnsafeRawBufferPointer) in
