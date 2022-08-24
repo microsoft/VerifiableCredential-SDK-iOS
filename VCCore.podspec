@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     s.source= {
       :git => 'https://github.com/microsoft/VerifiableCredential-SDK-iOS.git',
       :commit => '184908d',
-      :submodules => true
+      :submodules => true,
       :tag => 'v0.0.1-beta'
     }
 
