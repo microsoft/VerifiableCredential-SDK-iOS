@@ -19,23 +19,22 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target  = '13.0'
 
+    # s.source_files = 'VCCore-umbrella.h'
+
     # s.default_subspecs = 'VCEntities'
 
     s.subspec 'Secp256k1' do |cs|
         cs.library = 'c++'
-        cs.name = 'Secp256k1'
-        cs.header_mappings_dir = 'Submodules/Secp256k1/bitcoin-core/secp256k1/'
-        cs.header_dir = 'include'
-        cs.public_header_files = 'Submodules/Secp256k1/bitcoin-core/secp256k1/include/secp256k1.h'
-        # cs.private_header_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/include/secp256k1.h']
+        cs.public_header_files = ['Submodules/Secp256k1/test.h', 'Submodules/Secp256k1/bitcoin-core/secp256k1/include/*.h']
+        # cs.private_header_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/include/*.h']
         cs.compiler_flags =
-        "-Wno-shorten-64-to-32",
-      #   "-Wno-conditional-uninitialized",
-      #   "-Wno-long-long",
-      #   "-Wno-overlength-strings",
-        "-Wno-unused-function"
-        cs.preserve_paths = 'Submodules/Secp256k1/bitcoin-core/secp256k1/**/*.{c,h}'
-        cs.source_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/**/*.{c,h}']
+    "-Wno-shorten-64-to-32",
+#   "-Wno-conditional-uninitialized",
+#   "-Wno-long-long",
+#   "-Wno-overlength-strings",
+    "-Wno-unused-function"
+        cs.preserve_paths = 'Submodules/Secp256k1/bitcoin-core/secp256k1/{include,src}/*.{c,h}'
+        cs.source_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/{include,src}/*.{c,h}', 'Submodules/Secp256k1/test.h']
         cs.exclude_files = [  
           "Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_ecdh.c",
           "Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_ecmult.c",
@@ -83,9 +82,9 @@ Pod::Spec.new do |s|
   #define STDC_HEADERS 1
   #define VERSION "0.1"'
           cs.xcconfig = {
-              'USE_HEADERMAP' => 'NO',
-              'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/VerifiableCredentialSDK/**',
-              'USER_HEADER_SEARCH_PATHS' => '${PODS_ROOT}/VerifiableCredentialSDK/**'
+              'USE_HEADERMAP' => 'YES',
+              'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/VCCore/**',
+              'USER_HEADER_SEARCH_PATHS' => '${PODS_ROOT}/VCCore/**'
             }
       end
 

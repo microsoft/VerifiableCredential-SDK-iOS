@@ -20,18 +20,18 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target  = '13.0'
 
-    s.default_subspecs = 'Secp256k1', 'VCCrypto'
+    # s.default_subspecs = 'Secp256k1', 'VCCrypto'
 
-    s.source_files = 'Submodules/Secp256k1/*.h'
-    s.preserve_paths = 'module/*'
-    s.module_map = 'module/SDK.modulemap'
+    # s.source_files = 'Submodules/Secp256k1/*.h'
+    # s.preserve_paths = 'module/*'
+    # s.module_map = 'module/SDK.modulemap'
   
-    s.subspec 'VCCrypto' do |cs|
-      cs.name = 'VCCrypto'
-      cs.source_files= 'VCCrypto/VCCrypto/**'
-    #   cs.platform = '13.0'
-      cs.dependency 'VerifiableCredentialSDK/Secp256k1'
-    end
+    # s.subspec 'VCCrypto' do |cs|
+    #   cs.name = 'VCCrypto'
+    #   cs.source_files= 'VCCrypto/VCCrypto/**'
+    # #   cs.platform = '13.0'
+    #   cs.dependency 'VerifiableCredentialSDK/Secp256k1'
+    # end
     
     s.subspec 'Secp256k1' do |cs|
       cs.library = 'c++'
@@ -39,15 +39,15 @@ Pod::Spec.new do |s|
       cs.header_mappings_dir = 'Submodules/Secp256k1/bitcoin-core/secp256k1/'
       cs.header_dir = 'include'
       cs.public_header_files = 'Submodules/Secp256k1/bitcoin-core/secp256k1/include/secp256k1.h'
-      cs.private_header_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/include/secp256k1.h', 'Submodules/Secp256k1/Secp256k1/*.h']
+      cs.private_header_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/include/*.h', 'Submodules/Secp256k1/Secp256k1/libsecp256k1-config.h']
       cs.compiler_flags =
       "-Wno-shorten-64-to-32",
     #   "-Wno-conditional-uninitialized",
     #   "-Wno-long-long",
     #   "-Wno-overlength-strings",
       "-Wno-unused-function"
-      cs.preserve_paths = 'Submodules/Secp256k1/bitcoin-core/secp256k1/**/*.{c,h}'
-      cs.source_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/**/*.{c,h}']
+      cs.preserve_paths = ['Submodules/Secp256k1/bitcoin-core/secp256k1/**/*.{c,h}', 'Submodules/Secp256k1/Secp256k1/libsecp256k1-config.h']
+      cs.source_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/**/*.{c,h}', 'Submodules/Secp256k1/Secp256k1/libsecp256k1-config.h']
       cs.exclude_files = [  
         "Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_ecdh.c",
         "Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_ecmult.c",

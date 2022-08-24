@@ -23,16 +23,16 @@ Pod::Spec.new do |s|
     s.library = 'c++'
     s.header_mappings_dir = 'Submodules/Secp256k1/bitcoin-core/secp256k1/'
     s.header_dir = 'include'
-    s.public_header_files = 'Submodules/Secp256k1/bitcoin-core/secp256k1/include/secp256k1.h'
-    s.private_header_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/include/secp256k1.h']
+    s.public_header_files = 'Submodules/Secp256k1/bitcoin-core/secp256k1/include/*.h'
+    s.private_header_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/{include,src}/*.h']
     s.compiler_flags =
     "-Wno-shorten-64-to-32",
 #   "-Wno-conditional-uninitialized",
 #   "-Wno-long-long",
 #   "-Wno-overlength-strings",
     "-Wno-unused-function"
-    s.preserve_paths = 'Submodules/Secp256k1/bitcoin-core/secp256k1/**/*.{c,h}'
-    s.source_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/**/*.{c,h}']
+    s.preserve_paths = 'Submodules/Secp256k1/bitcoin-core/secp256k1/{include,src}/*.{c,h}'
+    s.source_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/{include,src}/*.{c,h}']
     s.exclude_files = [  
     "Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_ecdh.c",
     "Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_ecmult.c",
@@ -80,9 +80,9 @@ Pod::Spec.new do |s|
 #define STDC_HEADERS 1
 #define VERSION "0.1"'
     s.xcconfig = {
-        'USE_HEADERMAP' => 'NO',
-        'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/VerifiableCredentialSDK/**',
-        'USER_HEADER_SEARCH_PATHS' => '${PODS_ROOT}/VerifiableCredentialSDK/**'
+        'USE_HEADERMAP' => 'YES',
+        'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/Secp256k1/**',
+        'USER_HEADER_SEARCH_PATHS' => '${PODS_ROOT}/Secp256k1/**'
         }
 end
   
