@@ -1,19 +1,18 @@
 Pod::Spec.new do |s|
     s.name= 'VCCore'
-    s.version= '0.0.1'
+    s.version= '0.0.1-beta'
     s.license= 'MIT'
-    s.summary= 'AlamofireImage is an image component library for Alamofire'
-    s.homepage= 'https://github.com/Alamofire/AlamofireImage'
-    s.social_media_url= 'http://twitter.com/AlamofireSF'
+    s.summary= 'An SDK to manage your Decentralized Identities and Verifiable Credentials.'
+    s.homepage= 'https://github.com/microsoft/VerifiableCredential-SDK-iOS'
     s.authors= {
-      'Alamofire Software Foundation' => 'info@alamofire.org'
+      'symorton' => 'symorton@microsoft.com'
     }
-    s.documentation_url= 'https://alamofire.github.io/AlamofireImage/'
+    s.documentation_url= 'https://github.com/microsoft/VerifiableCredential-SDK-iOS'
     s.source= {
       :git => 'https://github.com/microsoft/VerifiableCredential-SDK-iOS.git',
-      :commit => '184908d',
+      :commit => 'f8b685',
       :submodules => true,
-      :tag => 'v0.0.1-beta'
+      :tag => s.version
     }
 
     s.swift_version = '5.0'
