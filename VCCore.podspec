@@ -19,13 +19,9 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target  = '13.0'
 
-    # s.source_files = 'VCCore-umbrella.h'
-
-    # s.default_subspecs = 'VCEntities'
-
     s.subspec 'Secp256k1' do |cs|
         cs.library = 'c++'
-        cs.public_header_files = ['Submodules/Secp256k1/test.h', 'Submodules/Secp256k1/bitcoin-core/secp256k1/include/*.h']
+        cs.public_header_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/include/secp256k1.h']
         # cs.private_header_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/include/*.h']
         cs.compiler_flags =
     "-Wno-shorten-64-to-32",
@@ -34,7 +30,7 @@ Pod::Spec.new do |s|
 #   "-Wno-overlength-strings",
     "-Wno-unused-function"
         cs.preserve_paths = 'Submodules/Secp256k1/bitcoin-core/secp256k1/{include,src}/*.{c,h}'
-        cs.source_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/{include,src}/*.{c,h}', 'Submodules/Secp256k1/test.h']
+        cs.source_files = ['Submodules/Secp256k1/bitcoin-core/secp256k1/{include,src}/*.{c,h}']
         cs.exclude_files = [  
           "Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_ecdh.c",
           "Submodules/Secp256k1/bitcoin-core/secp256k1/src/bench_ecmult.c",
