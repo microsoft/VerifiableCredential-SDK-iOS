@@ -11,8 +11,9 @@ Pod::Spec.new do |s|
     s.documentation_url= 'https://alamofire.github.io/AlamofireImage/'
     s.source= {
       :git => 'https://github.com/microsoft/VerifiableCredential-SDK-iOS.git',
-      :commit => '9309ce8',
+      :commit => '184908d',
       :submodules => true
+      :tag => 'v0.0.1-beta'
     }
 
     s.swift_version = '5.0'
