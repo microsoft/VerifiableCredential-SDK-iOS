@@ -93,7 +93,7 @@ private func addRequestedData(response: IssuanceResponseContainer) {
 }
 ```
 
-See the [full sample](https://github.com/microsoft/VerifiableCredential-SDK-iOS/tree/master/VCSamples/VCSamples/IssuanceSamples.swift).
+See the [full sample](https://github.com/microsoft/VerifiableCredential-SDK-iOS/blob/master/VCSamples/VCSamples/IssuanceSample.swift).
 
 ## Present Verifiable Credentials (PresentationService)
 
@@ -139,7 +139,7 @@ private func addRequestedData(response: PresentationResponseContainer) {
 }
 ```
 
-See the [full sample](https://github.com/microsoft/VerifiableCredential-SDK-iOS/tree/master/VCSamples/VCSamples/IssuanceSamples.swift).
+See the [full sample](https://github.com/microsoft/VerifiableCredential-SDK-iOS/blob/master/VCSamples/VCSamples/IssuanceSample.swift).
 
 ## Pairwise Identifiers
 
