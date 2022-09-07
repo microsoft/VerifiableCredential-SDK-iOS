@@ -1,8 +1,3 @@
-/*---------------------------------------------------------------------------------------------
-*  Copyright (c) Microsoft Corporation. All rights reserved.
-*  Licensed under the MIT License. See License.txt in the project root for license information.
-*--------------------------------------------------------------------------------------------*/
-
 import VCCrypto
 
 public struct VCSDKConfiguration: VCSDKConfigurable {
@@ -11,9 +6,15 @@ public struct VCSDKConfiguration: VCSDKConfigurable {
     
     public private(set) var accessGroupIdentifier: String?
     
+    public private(set) var discoveryUrl: String?
+    
     private init() {}
     
-    mutating func setAccessGroupIdentifier(with id: String) {
+    public mutating func setAccessGroupIdentifier(with id: String) {
         self.accessGroupIdentifier = id
+    }
+    
+    public mutating func setDiscoveryUrl(with url: String) {
+        self.discoveryUrl = url
     }
 }
