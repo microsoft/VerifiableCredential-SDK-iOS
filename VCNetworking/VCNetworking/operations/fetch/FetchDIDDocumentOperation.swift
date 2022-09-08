@@ -24,11 +24,8 @@ class FetchDIDDocumentOperation: InternalNetworkOperation {
             throw NetworkingError.invalidUrl(withUrl: VCSDKConfiguration.sharedInstance.discoveryUrl)
         }
         
-        if urlComponents.path.last == "/" {
-            urlComponents.path = urlComponents.path + identifier
-        } else {
-            urlComponents.path = urlComponents.path + "/" + identifier
-        }
+        let pathSuffix = urlComponents.path.last == "/" ? identifier : "/" + identifier
+        urlComponents.path = urlComponents.path + pathSuffix
         
         guard let url = urlComponents.url else {
             throw NetworkingError.invalidUrl(withUrl: urlComponents.string ?? discoveryUrl)
