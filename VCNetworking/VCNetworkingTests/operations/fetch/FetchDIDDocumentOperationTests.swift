@@ -5,6 +5,7 @@
 
 import XCTest
 import PromiseKit
+import VCEntities
 
 @testable import VCNetworking
 
@@ -28,6 +29,6 @@ class FetchDIDDocumentOperationTests: XCTestCase {
         XCTAssertTrue(fetchOperation.successHandler is SimpleSuccessHandler)
         XCTAssertTrue(fetchOperation.failureHandler is SimpleFailureHandler)
         XCTAssertTrue(fetchOperation.retryHandler is NoRetry)
-        XCTAssertEqual(fetchOperation.urlRequest.url!.absoluteString, Constants.DISCOVERY_URL + Constants.DISCOVERY_URL_PATH + expectedIdentifier)
+        XCTAssertEqual(fetchOperation.urlRequest.url!.absoluteString, VCSDKConfiguration.sharedInstance.discoveryUrl + "/" + expectedIdentifier)
     }
 }

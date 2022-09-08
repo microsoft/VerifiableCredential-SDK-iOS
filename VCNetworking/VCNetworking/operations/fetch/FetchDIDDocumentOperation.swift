@@ -19,8 +19,7 @@ class FetchDIDDocumentOperation: InternalNetworkOperation {
          andCorrelationVector correlationVector: CorrelationHeader? = nil,
          session: URLSession = URLSession()) throws {
         
-        guard let discoveryUrl = VCSDKConfiguration.sharedInstance.discoveryUrl,
-              var urlComponents = URLComponents(string: discoveryUrl) else {
+        guard var urlComponents = URLComponents(string: VCSDKConfiguration.sharedInstance.discoveryUrl) else {
             throw NetworkingError.invalidUrl(withUrl: VCSDKConfiguration.sharedInstance.discoveryUrl)
         }
         
@@ -28,7 +27,7 @@ class FetchDIDDocumentOperation: InternalNetworkOperation {
         urlComponents.path = urlComponents.path + pathSuffix
         
         guard let url = urlComponents.url else {
-            throw NetworkingError.invalidUrl(withUrl: urlComponents.string ?? discoveryUrl)
+            throw NetworkingError.invalidUrl(withUrl: urlComponents.string ?? VCSDKConfiguration.sharedInstance.discoveryUrl)
         }
         
         self.urlRequest = URLRequest(url: url)
