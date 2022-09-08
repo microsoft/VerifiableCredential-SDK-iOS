@@ -14,6 +14,10 @@ public enum VCSDKInitStatus
 /// Class used to Initialize the SDK.
 public class VerifiableCredentialSDK {
     
+    private struct Constants {
+        static let DefaultDiscoveryServiceUrl = "https://discover.did.msidentity.com/v1.0/identifiers"
+    }
+    
     public static let identifierService = IdentifierService()
     
     /// Initialized the SDK.
@@ -34,7 +38,7 @@ public class VerifiableCredentialSDK {
         if let discoveryUrl = discoveryUrl {
             VCSDKConfiguration.sharedInstance.setDiscoveryUrl(with: discoveryUrl)
         } else {
-            VCSDKConfiguration.sharedInstance.setDiscoveryUrl(with: "https://discover.did.msidentity.com/v1.0/identifiers/")
+            VCSDKConfiguration.sharedInstance.setDiscoveryUrl(with: Constants.DefaultDiscoveryServiceUrl)
         }
         
         /// Step 4: return success.
