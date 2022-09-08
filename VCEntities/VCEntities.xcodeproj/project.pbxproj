@@ -45,6 +45,8 @@
 		55379AD725A8DF7A0048600A /* PresentationRequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */; };
 		553D4C472821D89D00FD39A6 /* IssuanceRequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D4C462821D89D00FD39A6 /* IssuanceRequestValidator.swift */; };
 		5540226428C9587600C85C6D /* VCSDKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540226328C9587600C85C6D /* VCSDKConfiguration.swift */; };
+		5540227828CA96B400C85C6D /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5540227728CA96B400C85C6D /* PromiseKit.framework */; };
+		5540227928CA96B400C85C6D /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5540227728CA96B400C85C6D /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55575738251BC575009979AB /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5557572E251BC575009979AB /* VCEntities.framework */; };
 		5557573F251BC575009979AB /* VCEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 55575731251BC575009979AB /* VCEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557574B251BC6CE009979AB /* AttestationsDescriptor.swift */; };
@@ -157,6 +159,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5540227A28CA96B500C85C6D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5540227928CA96B400C85C6D /* PromiseKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2F4EEF80282E758E00B62311 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F848B70282D5D25005D3176 /* UnprotectedBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnprotectedBackup.swift; sourceTree = "<group>"; };
@@ -197,6 +213,7 @@
 		55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestValidator.swift; sourceTree = "<group>"; };
 		553D4C462821D89D00FD39A6 /* IssuanceRequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRequestValidator.swift; sourceTree = "<group>"; };
 		5540226328C9587600C85C6D /* VCSDKConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSDKConfiguration.swift; sourceTree = "<group>"; };
+		5540227728CA96B400C85C6D /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5557572E251BC575009979AB /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55575731251BC575009979AB /* VCEntities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCEntities.h; sourceTree = "<group>"; };
 		55575732251BC575009979AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -310,6 +327,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5540227828CA96B400C85C6D /* PromiseKit.framework in Frameworks */,
 				55253976252FCA6D003202D5 /* VCCrypto.framework in Frameworks */,
 				5514E99C2609291E0004BD19 /* VCToken.framework in Frameworks */,
 			);
@@ -789,6 +807,7 @@
 		92E29989252522C300B25BB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5540227728CA96B400C85C6D /* PromiseKit.framework */,
 				2F4EEF80282E758E00B62311 /* PromiseKit.framework */,
 				5514E99B2609291E0004BD19 /* VCToken.framework */,
 				55253975252FCA6D003202D5 /* VCCrypto.framework */,
@@ -819,6 +838,7 @@
 				5557572A251BC575009979AB /* Sources */,
 				5557572B251BC575009979AB /* Frameworks */,
 				5557572C251BC575009979AB /* Resources */,
+				5540227A28CA96B500C85C6D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
