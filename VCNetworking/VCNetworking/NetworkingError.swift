@@ -6,7 +6,7 @@
 public enum NetworkingError: Error, Equatable {
     case badRequest(withBody: String, statusCode: Int)
     case forbidden(withBody: String, statusCode: Int)
-    case invalidUrl(withUrl: String)
+    case invalidUrl(withUrl: String?)
     case notFound(withBody: String, statusCode: Int)
     case serverError(withBody: String, statusCode: Int)
     case unauthorized(withBody: String, statusCode: Int)

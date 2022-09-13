@@ -20,7 +20,8 @@ public class VerifiableCredentialSDK {
     /// Returns:  Result<VCSDKInitStatus>, if successfully initialized the SDK.
     ///        Result<Error>, if there was an error, and unable to initialize SDK.
     public static func initialize(logConsumer: VCLogConsumer = DefaultVCLogConsumer(),
-                                  accessGroupIdentifier: String? = nil) -> Result<VCSDKInitStatus, Error> {
+                                  accessGroupIdentifier: String? = nil,
+                                  discoveryUrl: String? = nil) -> Result<VCSDKInitStatus, Error> {
 
         /// Step 1: Add Log to VCSDKLog shared instance.
         VCSDKLog.sharedInstance.add(consumer: logConsumer)
@@ -28,6 +29,10 @@ public class VerifiableCredentialSDK {
         /// Step 2: Set access group identifier for key chain.
         if let accessGroupIdentifier = accessGroupIdentifier {
             VCSDKConfiguration.sharedInstance.setAccessGroupIdentifier(with: accessGroupIdentifier)
+        }
+        
+        if let discoveryUrl = discoveryUrl {
+            VCSDKConfiguration.sharedInstance.setDiscoveryUrl(with: discoveryUrl)
         }
         
         /// Step 4: return success.
