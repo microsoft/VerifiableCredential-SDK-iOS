@@ -145,6 +145,8 @@
 		55CA3A8127FB635300615CB6 /* VCSDKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CA3A8027FB635300615CB6 /* VCSDKConfiguration.swift */; };
 		55CE4C6025EEE99B00595CC7 /* CorrelationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE4C5F25EEE99B00595CC7 /* CorrelationHeader.swift */; };
 		55FE6ED82697A06D00201EDC /* IssuanceCompletionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE6ED72697A06D00201EDC /* IssuanceCompletionResponse.swift */; };
+		55FFD94128D520940077D5CD /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55FFD94028D520940077D5CD /* PromiseKit.framework */; };
+		55FFD94228D520940077D5CD /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55FFD94028D520940077D5CD /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +158,20 @@
 			remoteInfo = VCEntities;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		55FFD94328D520940077D5CD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				55FFD94228D520940077D5CD /* PromiseKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2F4EEF80282E758E00B62311 /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +318,7 @@
 		55CA3A8027FB635300615CB6 /* VCSDKConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSDKConfiguration.swift; sourceTree = "<group>"; };
 		55CE4C5F25EEE99B00595CC7 /* CorrelationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrelationHeader.swift; sourceTree = "<group>"; };
 		55FE6ED72697A06D00201EDC /* IssuanceCompletionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceCompletionResponse.swift; sourceTree = "<group>"; };
+		55FFD94028D520940077D5CD /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E2998A252522C300B25BB6 /* VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -310,6 +327,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55FFD94128D520940077D5CD /* PromiseKit.framework in Frameworks */,
 				55253976252FCA6D003202D5 /* VCCrypto.framework in Frameworks */,
 				5514E99C2609291E0004BD19 /* VCToken.framework in Frameworks */,
 			);
@@ -789,6 +807,7 @@
 		92E29989252522C300B25BB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55FFD94028D520940077D5CD /* PromiseKit.framework */,
 				2F4EEF80282E758E00B62311 /* PromiseKit.framework */,
 				5514E99B2609291E0004BD19 /* VCToken.framework */,
 				55253975252FCA6D003202D5 /* VCCrypto.framework */,
@@ -819,6 +838,7 @@
 				5557572A251BC575009979AB /* Sources */,
 				5557572B251BC575009979AB /* Frameworks */,
 				5557572C251BC575009979AB /* Resources */,
+				55FFD94328D520940077D5CD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
