@@ -16,6 +16,22 @@ public protocol PublicJwk: Codable, Equatable {
     var y: String { get }
 }
 
+public struct JWK: Codable, Equatable {
+    let keyType: String?
+    public let keyId: String?
+    let use: String?
+    let keyOperations: [String]?
+    let algorithm: String?
+    let curve: String?
+    let x: String?
+    let y: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case curve = "crv"
+        case keyType, keyId, use, keyOperations, algorithm, x, y
+    }
+}
+
 public struct ECPublicJwk: PublicJwk {
     public let keyType: String
     public let keyId: String?
@@ -50,6 +66,18 @@ public struct ECPublicJwk: PublicJwk {
         let x = key.x.base64URLEncodedString()
         let y = key.y.base64URLEncodedString()
         self.init(x: x, y: y, keyId: kid)
+    }
+    
+    public func toJWK() -> JWK
+    {
+        return JWK(keyType: keyType,
+                   keyId: keyId,
+                   use: use,
+                   keyOperations: keyOperations,
+                   algorithm: algorithm,
+                   curve: curve,
+                   x: x,
+                   y: y)
     }
     
     func getMinimumAlphabeticJwk() -> String {

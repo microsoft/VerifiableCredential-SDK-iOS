@@ -12,13 +12,10 @@ enum Secp256k1SignerError: Error {
 /// TODO: refactor class to be a generic signer.
 public struct Secp256k1Signer: TokenSigning {
     
-    private let hashAlgorithm: Sha256
-    
     private let cryptoOperations: CryptoOperating
     
-    public init(cryptoOperations: CryptoOperating = CryptoOperations(), andHashAlgorithm hashAlg: Sha256 = Sha256()) {
+    public init(cryptoOperations: CryptoOperating = CryptoOperations()) {
         self.cryptoOperations = cryptoOperations
-        self.hashAlgorithm = hashAlg
     }
 
     public func sign<T>(token: JwsToken<T>, withSecret secret: VCCryptoSecret) throws -> Signature {
@@ -29,7 +26,8 @@ public struct Secp256k1Signer: TokenSigning {
             throw VCTokenError.unableToParseData
         }
         
-        let hashedMessage = hashAlgorithm.hash(data: messageData)
+        let hashedMessage = cryptoOperations.hash(message: messageData, algorithm: .SHA256)
+        
         return try cryptoOperations.sign(messageHash: hashedMessage, usingSecret: secret)
     }
     

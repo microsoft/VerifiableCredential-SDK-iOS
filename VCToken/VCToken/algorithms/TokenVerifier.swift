@@ -5,16 +5,20 @@
 
 import VCCrypto
 
+enum TokenVerifierError: Error {
+    case unsupportedAlgorithmFoundInJWK
+    case malformedJWK
+}
+
 public struct TokenVerifier: TokenVerifying {
     
     private let cryptoOperations: CryptoOperating
-    private let hashAlgorithm: Sha256 = Sha256()
     
     public init(cryptoOperations: CryptoOperating = CryptoOperations()) {
         self.cryptoOperations = cryptoOperations
     }
     
-    public func verify<T>(token: JwsToken<T>, usingPublicKey key: any PublicJwk) throws -> Bool {
+    public func verify<T>(token: JwsToken<T>, usingPublicKey key: JWK) throws -> Bool {
         
         guard let signature = token.signature else {
             return false
@@ -24,15 +28,42 @@ public struct TokenVerifier: TokenVerifying {
             throw VCTokenError.unableToParseString
         }
         
-        guard let x = Data(base64URLEncoded: key.x),
-              let y = Data(base64URLEncoded: key.y),
-              let secpKey = Secp256k1PublicKey(x: x, y: y) else {
-            throw VCTokenError.unableToParseString
+        let hashedMessage = cryptoOperations.hash(message: encodedMessage, algorithm: .SHA256)
+        
+        return try cryptoOperations.verify(signature: signature, forMessageHash: hashedMessage, usingPublicKey: transformKey(key: key))
+    }
+    
+    private func transformKey(key: JWK) throws -> PublicKey {
+        switch key.curve?.uppercased() {
+        case SupportedVerificationAlgorithm.Secp256k1.rawValue:
+            return try transformSecp256k1(key: key)
+        case SupportedVerificationAlgorithm.ED25519.rawValue:
+            return try transformED25519(key: key)
+        default:
+            throw TokenVerifierError.unsupportedAlgorithmFoundInJWK
         }
         
-        let hashedMessage = self.hashAlgorithm.hash(data: encodedMessage)
+    }
+    
+    private func transformSecp256k1(key: JWK) throws -> Secp256k1PublicKey {
+        guard let x = key.x, let y = key.y,
+              let encodedX = Data(base64URLEncoded: x),
+              let encodedY = Data(base64URLEncoded: y),
+              let secpKey = Secp256k1PublicKey(x: encodedX, y: encodedY) else {
+            throw TokenVerifierError.malformedJWK
+        }
         
-        return try cryptoOperations.verify(signature: signature, forMessageHash: hashedMessage, usingPublicKey: secpKey)
+        return secpKey
+    }
+    
+    private func transformED25519(key: JWK) throws -> ED25519PublicKey {
+        guard let x = key.x,
+              let encodedX = Data(base64URLEncoded: x),
+              let edKey = ED25519PublicKey(x: encodedX) else {
+            throw TokenVerifierError.malformedJWK
+        }
+        
+        return edKey
     }
 }
 

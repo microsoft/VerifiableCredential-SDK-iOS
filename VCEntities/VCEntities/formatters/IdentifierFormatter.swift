@@ -26,11 +26,11 @@ struct IdentifierFormatter: IdentifierFormatting {
     }
     
     func createIonLongFormDid(recoveryKey: ECPublicJwk,
-                           updateKey: ECPublicJwk,
-                           didDocumentKeys: [ECPublicJwk],
-                           serviceEndpoints: [IdentifierDocumentServiceEndpoint]) throws -> String {
+                              updateKey: ECPublicJwk,
+                              didDocumentKeys: [ECPublicJwk],
+                              serviceEndpoints: [IdentifierDocumentServiceEndpoint]) throws -> String {
         
-        let document = IONDocumentModel(fromJwks: didDocumentKeys, andServiceEndpoints: serviceEndpoints)
+        let document = IONDocumentModel(fromJwks: didDocumentKeys.map { key in key.toJWK() }, andServiceEndpoints: serviceEndpoints)
         let patches = [IONDocumentPatch(action: IdentifierFormatter.replaceAction, document: document)]
         
         let commitmentHash = try self.createCommitmentHash(usingJwk: updateKey)

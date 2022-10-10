@@ -65,7 +65,7 @@ public struct JwsToken<T: Claims> {
         self.signature = try signer.sign(token: self, withSecret: secret)
     }
     
-    public func verify(using verifier: TokenVerifying, withPublicKey key: any PublicJwk) throws -> Bool {
+    public func verify(using verifier: TokenVerifying, withPublicKey key: JWK) throws -> Bool {
         return try verifier.verify(token: self, usingPublicKey: key)
     }
     

@@ -4,9 +4,10 @@
 *--------------------------------------------------------------------------------------------*/
 
 public protocol CryptoOperating {
-    func verify(signature: Data, forMessageHash messageHash: Data, usingPublicKey publicKey: PublicKey) throws -> Bool
     func sign(messageHash: Data, usingSecret secret: VCCryptoSecret) throws -> Data
+    func hash(message: Data, algorithm: SupportedHashAlgorithm) -> Data
     func getPublicKey(fromSecret secret: VCCryptoSecret) throws -> PublicKey
+    func verify(signature: Data, forMessageHash messageHash: Data, usingPublicKey publicKey: PublicKey) throws -> Bool
 }
 
 enum CryptoOperationsError: Error {
@@ -24,6 +25,16 @@ public struct CryptoOperations: CryptoOperating {
         return try algorithm.sign(messageHash: messageHash)
     }
     
+    public func hash(message: Data, algorithm: SupportedHashAlgorithm) -> Data {
+        switch algorithm {
+        case .SHA256:
+            return Sha256().hash(data: message)
+        case .SHA512:
+            return Sha512().hash(data: message)
+        }
+    }
+    
+    /// Only support Secp256k1 public key retrieval.
     public func getPublicKey(fromSecret secret: VCCryptoSecret) throws -> PublicKey {
         return try Secp256k1(secret: secret).getPublicKey()
     }
