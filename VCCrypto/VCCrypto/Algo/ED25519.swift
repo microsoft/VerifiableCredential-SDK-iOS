@@ -11,7 +11,7 @@ enum ED25519Error: Error {
     case invalidKey
 }
 
-public struct ED25519: Signing {
+struct ED25519: Signing {
     
     private let publicKey: ED25519PublicKey
     
@@ -22,16 +22,16 @@ public struct ED25519: Signing {
         self.publicKey = edKey
     }
     
-    public func sign(messageHash: Data) throws -> Data {
+    func sign(messageHash: Data) throws -> Data {
         throw ED25519Error.notImplemented
     }
     
-    public func isValidSignature(signature: Data, forMessageHash messageHash: Data) throws -> Bool {
+    func isValidSignature(signature: Data, forMessageHash messageHash: Data) throws -> Bool {
         let cryptoKitEd25519PublicKey = try Curve25519.Signing.PublicKey(rawRepresentation: publicKey.uncompressedValue)
         return cryptoKitEd25519PublicKey.isValidSignature(signature, for: messageHash)
     }
     
-    public func getPublicKey() throws -> PublicKey {
+    func getPublicKey() throws -> PublicKey {
         throw ED25519Error.notImplemented
     }
     

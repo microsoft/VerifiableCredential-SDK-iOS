@@ -22,12 +22,14 @@ public struct Secp256k1: Signing {
     
     private let secret: VCCryptoSecret?
     
+    /// Create Secp256k1 object from Secret, for signing.
     public init(secret: VCCryptoSecret) throws {
         self.secret = secret
         self.publicKey = nil
     }
     
-    public init(publicKey: PublicKey) throws {
+    /// Create Secp256k1 object from public key, for verification.
+    init(publicKey: PublicKey) throws {
         guard let secpKey = publicKey as? Secp256k1PublicKey else {
             throw Secp256k1Error.invalidPublicKey
         }
@@ -38,7 +40,6 @@ public struct Secp256k1: Signing {
     /// Sign a message message hash
     /// - Parameters:
     ///   - messageHash: 32 bytes message
-    ///   - secret: secret used to sign
     /// - Returns: The R|S signature
     public func sign(messageHash: Data) throws -> Data {
         
@@ -87,7 +88,6 @@ public struct Secp256k1: Signing {
     /// - Parameters:
     ///   - signature: The signature to validate
     ///   - messageHash: The message hash
-    ///   - publicKey: The public key to use to validate the signature
     /// - Returns: True if the signature is valid
     public func isValidSignature(signature: Data, forMessageHash messageHash: Data) throws -> Bool {
         // Validate params
@@ -138,16 +138,12 @@ public struct Secp256k1: Signing {
         return isValid
     }
     
-    /// Create a public key from a secret
-    /// - Parameter secret: The Secret used to generate the public key
-    /// - Returns: The public key
     public func getPublicKey() throws -> PublicKey {
         return try createPublicKey() as PublicKey
     }
     
     private func createPublicKey() throws -> Secp256k1PublicKey {
-        guard let secret = secret else
-        {
+        guard let secret = secret else {
             throw Secp256k1Error.invalidSecret
         }
         
