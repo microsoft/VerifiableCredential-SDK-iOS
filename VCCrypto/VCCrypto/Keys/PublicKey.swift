@@ -4,6 +4,6 @@
  *--------------------------------------------------------------------------------------------*/
 
 public protocol PublicKey {
-    var algorithm: String { get }
+    var algorithm: SupportedVerificationAlgorithm { get }
     var uncompressedValue: Data { get }
 }

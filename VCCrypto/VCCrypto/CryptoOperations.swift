@@ -12,7 +12,6 @@ public protocol CryptoOperating {
 
 enum CryptoOperationsError: Error {
     case invalidPublicKey
-    case unsupportedAlgorithm
 }
 
 public struct CryptoOperations: CryptoOperating {
@@ -48,14 +47,11 @@ public struct CryptoOperations: CryptoOperating {
     }
     
     private func getAlgorithm(publicKey: PublicKey) throws -> any Signing {
-        let algorithm = SupportedAlgorithms(rawValue: publicKey.algorithm.uppercased())
-        switch algorithm {
+        switch publicKey.algorithm {
         case .ED25519:
             return try ED25519(publicKey: publicKey)
         case .Secp256k1:
             return try Secp256k1(publicKey: publicKey)
-        default:
-            throw CryptoOperationsError.unsupportedAlgorithm
         }
     }
 }

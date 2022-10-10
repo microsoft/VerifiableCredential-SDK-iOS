@@ -8,7 +8,7 @@ import Foundation
 
 public class ED25519PublicKey: PublicKey {
    
-    public let algorithm = SupportedAlgorithms.ED25519.rawValue
+    public let algorithm = SupportedVerificationAlgorithm.ED25519
     
     public let uncompressedValue: Data
     
