@@ -3,14 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public protocol KeyManagementOperating {
-    func generateKey() throws -> VCCryptoSecret
-    func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret
-    func save(key: Data, withId id: UUID) throws
-    func deleteKey(withId id: UUID) throws
-    func getKey(withId id: UUID) throws -> Data
-}
-
 public struct KeyManagementOperations: KeyManagementOperating {
 
     private let secretStore: SecretStoring

@@ -3,13 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public protocol CryptoOperating {
-    func sign(messageHash: Data, usingSecret secret: VCCryptoSecret) throws -> Data
-    func hash(message: Data, algorithm: SupportedHashAlgorithm) -> Data
-    func getPublicKey(fromSecret secret: VCCryptoSecret) throws -> PublicKey
-    func verify(signature: Data, forMessageHash messageHash: Data, usingPublicKey publicKey: PublicKey) throws -> Bool
-}
-
 enum CryptoOperationsError: Error {
     case invalidPublicKey
 }
