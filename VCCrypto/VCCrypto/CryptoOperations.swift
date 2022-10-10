@@ -4,77 +4,47 @@
 *--------------------------------------------------------------------------------------------*/
 
 public protocol CryptoOperating {
-    func generateKey() throws -> VCCryptoSecret
-    func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret
-    func save(key: Data, withId id: UUID) throws
-    func deleteKey(withId id: UUID) throws
-    func getKey(withId id: UUID) throws -> Data
+    func verify(signature: Data, forMessageHash messageHash: Data, usingPublicKey publicKey: PublicKey) throws -> Bool
+    func sign(messageHash: Data, usingSecret secret: VCCryptoSecret) throws -> Data
+    func getPublicKey(fromSecret secret: VCCryptoSecret) throws -> PublicKey
+}
+
+enum CryptoOperationsError: Error {
+    case invalidPublicKey
+    case unsupportedAlgorithm
 }
 
 public struct CryptoOperations: CryptoOperating {
-
-    private let secretStore: SecretStoring
     
-    private let sdkConfiguration: VCSDKConfigurable
+    public init() {}
     
-    public init(sdkConfiguration: VCSDKConfigurable) {
-        self.init(secretStore: KeychainSecretStore(), sdkConfiguration: sdkConfiguration)
+    /// Only supports Secp256k1 signing.
+    public func sign(messageHash: Data, usingSecret secret: VCCryptoSecret) throws -> Data  {
+        let algorithm = try Secp256k1(secret: secret)
+        return try algorithm.sign(messageHash: messageHash)
     }
     
-    public init(secretStore: SecretStoring, sdkConfiguration: VCSDKConfigurable) {
-        self.secretStore = secretStore
-        self.sdkConfiguration = sdkConfiguration
+    public func getPublicKey(fromSecret secret: VCCryptoSecret) throws -> PublicKey {
+        return try Secp256k1(secret: secret).getPublicKey()
     }
     
-    public func generateKey() throws -> VCCryptoSecret {
-        let accessGroup = sdkConfiguration.accessGroupIdentifier
-        let key = try Random32BytesSecret(withStore: secretStore, inAccessGroup: accessGroup)
-        return key
+    public func verify(signature: Data,
+                       forMessageHash messageHash: Data,
+                       usingPublicKey publicKey: PublicKey) throws -> Bool {
+        
+        let algorithm = try getAlgorithm(publicKey: publicKey)
+        return try algorithm.isValidSignature(signature: signature, forMessageHash: messageHash)
     }
     
-    public func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret {
-        let accessGroup = sdkConfiguration.accessGroupIdentifier
-        return Random32BytesSecret(withStore: secretStore, andId: id, inAccessGroup: accessGroup)
-    }
-    
-    public func save(key: Data, withId id: UUID) throws {
-
-        // Take a copy of the key to let the store dispose of it
-        var data = Data()
-        data.append(key)
-
-        // Format the item type code
-        let itemTypeCode = String(format: "r%02dB", data.count)
-
-        // Store down
-        try secretStore.saveSecret(id: id,
-                                   itemTypeCode: itemTypeCode,
-                                   accessGroup: sdkConfiguration.accessGroupIdentifier,
-                                   value: &data)
-    }
-
-    public func deleteKey(withId id: UUID) throws {
-
-        let itemTypeCode = Random32BytesSecret.itemTypeCode
-        let accessGroup = sdkConfiguration.accessGroupIdentifier
-        do {
-            let _ = try secretStore.getSecret(id: id,
-                                              itemTypeCode: itemTypeCode,
-                                              accessGroup: accessGroup)
-            
-            // If we get here the key exists, so we can delete it
-            try secretStore.deleteSecret(id: id, itemTypeCode: itemTypeCode, accessGroup: accessGroup)
+    private func getAlgorithm(publicKey: PublicKey) throws -> any Signing {
+        let algorithm = SupportedAlgorithms(rawValue: publicKey.algorithm.uppercased())
+        switch algorithm {
+        case .ED25519:
+            return try ED25519(publicKey: publicKey)
+        case .Secp256k1:
+            return try Secp256k1(publicKey: publicKey)
+        default:
+            throw CryptoOperationsError.unsupportedAlgorithm
         }
-        catch SecretStoringError.itemNotFound {
-            /* There's no key so nothing to delete */
-        }
-    }
-
-    public func getKey(withId id: UUID) throws -> Data {
-
-        return try secretStore.getSecret(id: id,
-                                         itemTypeCode: Random32BytesSecret.itemTypeCode,
-                                         accessGroup: sdkConfiguration.accessGroupIdentifier)
-
     }
 }

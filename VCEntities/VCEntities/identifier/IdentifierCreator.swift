@@ -6,23 +6,28 @@
 import VCCrypto
 import VCToken
 
+enum IdentifierCreaterError: Error {
+    case unableToCasePublicKeyToECPublicKey
+}
+
 public struct IdentifierCreator {
     
+    let keyManagementOperations: KeyManagementOperating
     let cryptoOperations: CryptoOperating
     let identifierFormatter: IdentifierFormatting
-    let alg = Secp256k1()
     let aliasComputer = AliasComputer()
     
     public init() {
-        self.init(cryptoOperations: CryptoOperations(sdkConfiguration: VCSDKConfiguration.sharedInstance))
+        self.init(keyManagementOperations: KeyManagementOperations(sdkConfiguration: VCSDKConfiguration.sharedInstance))
     }
     
-    public init(cryptoOperations: CryptoOperating) {
-        self.init(cryptoOperations: cryptoOperations, identifierFormatter: IdentifierFormatter())
+    public init(keyManagementOperations: KeyManagementOperating) {
+        self.init(keyManagementOperations: keyManagementOperations, identifierFormatter: IdentifierFormatter())
     }
     
-    init(cryptoOperations: CryptoOperating, identifierFormatter: IdentifierFormatting) {
-        self.cryptoOperations = cryptoOperations
+    init(keyManagementOperations: KeyManagementOperating, identifierFormatter: IdentifierFormatting) {
+        self.keyManagementOperations = keyManagementOperations
+        self.cryptoOperations = CryptoOperations()
         self.identifierFormatter = identifierFormatter
     }
     
@@ -30,9 +35,9 @@ public struct IdentifierCreator {
         
         let alias = aliasComputer.compute(forId: id, andRelyingParty: rp)
         
-        let signingKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: VCEntitiesConstants.SIGNING_KEYID_PREFIX + alias)
-        let updateKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: VCEntitiesConstants.UPDATE_KEYID_PREFIX + alias)
-        let recoveryKeyContainer = KeyContainer(keyReference: try self.cryptoOperations.generateKey(), keyId: VCEntitiesConstants.RECOVER_KEYID_PREFIX + alias)
+        let signingKeyContainer = KeyContainer(keyReference: try self.keyManagementOperations.generateKey(), keyId: VCEntitiesConstants.SIGNING_KEYID_PREFIX + alias)
+        let updateKeyContainer = KeyContainer(keyReference: try self.keyManagementOperations.generateKey(), keyId: VCEntitiesConstants.UPDATE_KEYID_PREFIX + alias)
+        let recoveryKeyContainer = KeyContainer(keyReference: try self.keyManagementOperations.generateKey(), keyId: VCEntitiesConstants.RECOVER_KEYID_PREFIX + alias)
         
         let longformDid = try self.createLongformDid(signingKeyContainer: signingKeyContainer, updateKeyContainer: updateKeyContainer, recoveryKeyContainer: recoveryKeyContainer)
         return Identifier(longFormDid: longformDid,
@@ -51,7 +56,9 @@ public struct IdentifierCreator {
     }
     
     private func generatePublicJwk(for keyMapping: KeyContainer) throws -> ECPublicJwk {
-        let publicKey = try alg.createPublicKey(forSecret: keyMapping.keyReference)
+        guard let publicKey = try cryptoOperations.getPublicKey(fromSecret: keyMapping.keyReference) as? Secp256k1PublicKey else {
+            throw IdentifierCreaterError.unableToCasePublicKeyToECPublicKey
+        }
         return ECPublicJwk(withPublicKey: publicKey, withKeyId: keyMapping.keyId)
     }
 }

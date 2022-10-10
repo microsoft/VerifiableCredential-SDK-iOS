@@ -3,11 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-@testable import VCToken
-import VCCrypto
-
-class MockVerifier: TokenVerifying {   
-    func verify<T>(token: JwsToken<T>, usingPublicKey key: any PublicJwk) throws -> Bool {
-        return true
-    }
+public enum SupportedAlgorithms: String {
+    case ED25519 = "ED25519"
+    case Secp256k1 = "SECP256K1"
 }

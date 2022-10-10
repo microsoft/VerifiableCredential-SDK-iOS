@@ -18,7 +18,7 @@ struct MockTokenVerifier: TokenVerifying {
         self.isTokenValid = isTokenValid
     }
     
-    func verify<T>(token: JwsToken<T>, usingPublicKey key: ECPublicJwk) throws -> Bool {
+    func verify<T>(token: JwsToken<T>, usingPublicKey key: any PublicJwk) throws -> Bool {
         MockTokenVerifier.wasVerifyCalled = true
         return isTokenValid
     }

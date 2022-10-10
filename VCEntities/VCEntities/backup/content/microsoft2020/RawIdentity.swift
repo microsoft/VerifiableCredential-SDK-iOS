@@ -69,7 +69,7 @@ struct RawIdentity: Codable {
 
         // Get out the private and public components of the key (pair)
         let secret = keyContainer.keyReference
-        let (privateKey, publicKey) = try Secp256k1().createKeyPair(forSecret: secret)
+        let (privateKey, publicKey) = try Secp256k1(secret: secret).createKeyPair(forSecret: secret)
         if privateKey.value.isEmpty {
             throw RawIdentityError.privateKeyNotFound(keyId: secret.id.uuidString,
                                                       accessGroup: secret.accessGroup)

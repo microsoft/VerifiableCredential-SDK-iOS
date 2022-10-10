@@ -5,7 +5,18 @@
 
 import VCCrypto
 
-public struct ECPublicJwk: Codable, Equatable {
+public protocol PublicJwk: Codable, Equatable {
+    var keyType: String { get }
+    var keyId: String? { get }
+    var use: String? { get }
+    var keyOperations: [String]? { get }
+    var algorithm: String? { get }
+    var curve: String { get }
+    var x: String { get }
+    var y: String { get }
+}
+
+public struct ECPublicJwk: PublicJwk {
     public let keyType: String
     public let keyId: String?
     public let use: String?

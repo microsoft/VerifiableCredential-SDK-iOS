@@ -5,21 +5,16 @@
 
 import VCCrypto
 
-public struct Secp256k1Verifier: TokenVerifying {
+public struct TokenVerifier: TokenVerifying {
     
-    private let algorithm: Signing
-    private let hashAlgorithm: Sha256
+    private let cryptoOperations: CryptoOperating
+    private let hashAlgorithm: Sha256 = Sha256()
     
-    public init(using algorithm: Signing = Secp256k1(), andHashAlgorithm hashAlg: Sha256 = Sha256()) {
-        self.algorithm = algorithm
-        self.hashAlgorithm = hashAlg
+    public init(cryptoOperations: CryptoOperating = CryptoOperations()) {
+        self.cryptoOperations = cryptoOperations
     }
     
-    public func verify<T>(token: JwsToken<T>, usingPublicKey key: ECPublicJwk) throws -> Bool {
-        
-        guard token.headers.algorithm == "ES256K" else {
-            throw JwsTokenError.unsupportedAlgorithm(name: token.headers.algorithm)
-        }
+    public func verify<T>(token: JwsToken<T>, usingPublicKey key: any PublicJwk) throws -> Bool {
         
         guard let signature = token.signature else {
             return false
@@ -37,7 +32,7 @@ public struct Secp256k1Verifier: TokenVerifying {
         
         let hashedMessage = self.hashAlgorithm.hash(data: encodedMessage)
         
-        return try algorithm.isValidSignature(signature: signature, forMessageHash: hashedMessage, usingPublicKey: secpKey)
+        return try cryptoOperations.verify(signature: signature, forMessageHash: hashedMessage, usingPublicKey: secpKey)
     }
 }
 

@@ -16,10 +16,10 @@ class IdentifierDatabaseTests: XCTestCase {
     var identifierDB: IdentifierDatabase!
     
     override func setUpWithError() throws {
-        let cryptoOperations = CryptoOperations(sdkConfiguration: MockVCSDKConfiguration())
-        identifierDB = IdentifierDatabase(cryptoOperations: cryptoOperations)
+        let keyManagementOperations = KeyManagementOperations(sdkConfiguration: MockVCSDKConfiguration())
+        identifierDB = IdentifierDatabase(keyManagementOperations: keyManagementOperations)
         try CoreDataManager.sharedInstance.deleteAllIdentifiers()
-        identifierCreator = IdentifierCreator(cryptoOperations: cryptoOperations)
+        identifierCreator = IdentifierCreator(keyManagementOperations: keyManagementOperations)
     }
     
     override func tearDownWithError() throws {
