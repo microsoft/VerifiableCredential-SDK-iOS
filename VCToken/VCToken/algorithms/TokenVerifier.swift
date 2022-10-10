@@ -42,14 +42,11 @@ public struct TokenVerifier: TokenVerifying {
         default:
             throw TokenVerifierError.unsupportedAlgorithmFoundInJWK
         }
-        
     }
     
     private func transformSecp256k1(key: JWK) throws -> Secp256k1PublicKey {
         guard let x = key.x, let y = key.y,
-              let encodedX = Data(base64URLEncoded: x),
-              let encodedY = Data(base64URLEncoded: y),
-              let secpKey = Secp256k1PublicKey(x: encodedX, y: encodedY) else {
+              let secpKey = Secp256k1PublicKey(x: x, y: y) else {
             throw TokenVerifierError.malformedJWK
         }
         
@@ -58,8 +55,7 @@ public struct TokenVerifier: TokenVerifying {
     
     private func transformED25519(key: JWK) throws -> ED25519PublicKey {
         guard let x = key.x,
-              let encodedX = Data(base64URLEncoded: x),
-              let edKey = ED25519PublicKey(x: encodedX) else {
+              let edKey = ED25519PublicKey(x: x) else {
             throw TokenVerifierError.malformedJWK
         }
         

@@ -10,7 +10,7 @@ enum JwkError: Error {
 }
 
 /// Runtime container for JSON Web Keys, in which key material is Base64URLEncoded
-public struct Jwk: Codable, Equatable {
+public struct JWK: Codable, Equatable {
     
     public let keyType: String
     public let keyId: String?
@@ -50,7 +50,7 @@ public struct Jwk: Codable, Equatable {
     public init(from decoder: Decoder) throws {
 
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        func parseKeyIfPresent(_ key: KeyedDecodingContainer<Jwk.CodingKeys>.Key) throws -> Data? {
+        func parseKeyIfPresent(_ key: KeyedDecodingContainer<JWK.CodingKeys>.Key) throws -> Data? {
             if let base64 = try values.decodeIfPresent(String.self, forKey: key) {
                 guard let data = Data(base64URLEncoded: base64) else {
                     throw JwkError.invalidKeyValue

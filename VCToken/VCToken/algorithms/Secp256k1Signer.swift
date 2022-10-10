@@ -32,10 +32,13 @@ public struct Secp256k1Signer: TokenSigning {
     }
     
     public func getPublicJwk(from secret: VCCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk {
+        
         let publicKey = try cryptoOperations.getPublicKey(fromSecret: secret)
+        
         guard let key = publicKey as? Secp256k1PublicKey else {
             throw Secp256k1SignerError.unableToCastPublicKeyToSecp256K1PublicKey
         }
+        
         return ECPublicJwk(withPublicKey: key, withKeyId: keyId)
     }
 }

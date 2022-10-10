@@ -5,34 +5,7 @@
 
 import VCCrypto
 
-public protocol PublicJwk: Codable, Equatable {
-    var keyType: String { get }
-    var keyId: String? { get }
-    var use: String? { get }
-    var keyOperations: [String]? { get }
-    var algorithm: String? { get }
-    var curve: String { get }
-    var x: String { get }
-    var y: String { get }
-}
-
-public struct JWK: Codable, Equatable {
-    let keyType: String?
-    public let keyId: String?
-    let use: String?
-    let keyOperations: [String]?
-    let algorithm: String?
-    let curve: String?
-    let x: String?
-    let y: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case curve = "crv"
-        case keyType, keyId, use, keyOperations, algorithm, x, y
-    }
-}
-
-public struct ECPublicJwk: PublicJwk {
+public struct ECPublicJwk: Codable, Equatable {
     public let keyType: String
     public let keyId: String?
     public let use: String?
@@ -72,12 +45,10 @@ public struct ECPublicJwk: PublicJwk {
     {
         return JWK(keyType: keyType,
                    keyId: keyId,
-                   use: use,
-                   keyOperations: keyOperations,
-                   algorithm: algorithm,
                    curve: curve,
-                   x: x,
-                   y: y)
+                   use: use,
+                   x: Data(base64URLEncoded: x),
+                   y: Data(base64URLEncoded: y))
     }
     
     func getMinimumAlphabeticJwk() -> String {
