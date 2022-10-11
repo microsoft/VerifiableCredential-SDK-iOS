@@ -15,6 +15,6 @@ public protocol CryptoOperating {
     /// Get a public key derived from the secret.
     func getPublicKey(fromSecret secret: VCCryptoSecret) throws -> PublicKey
     
-    /// Verify a signature for a the message hash using a public key. and return true if valid signature, false if invalid.
-    func verify(signature: Data, forMessageHash messageHash: Data, usingPublicKey publicKey: PublicKey) throws -> Bool
+    /// Verify signature for the message using a public key and return true if valid signature, false if invalid.
+    func verify(signature: Data, forMessage message: Data, usingPublicKey publicKey: PublicKey) throws -> Bool
 }

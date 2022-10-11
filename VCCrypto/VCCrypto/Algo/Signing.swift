@@ -9,7 +9,7 @@ public protocol Signing {
     func sign(messageHash: Data) throws -> Data
     
     /// Validate a signature based on the message hash.
-    func isValidSignature(signature: Data, forMessageHash messageHash: Data) throws -> Bool
+    func isValidSignature(signature: Data, forMessage message: Data) throws -> Bool
     
     /// Get public key.
     func getPublicKey() throws -> PublicKey

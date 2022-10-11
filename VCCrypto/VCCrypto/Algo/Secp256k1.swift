@@ -22,6 +22,8 @@ public struct Secp256k1: Signing {
     
     private let secret: VCCryptoSecret?
     
+    private let hashOperation = Sha256()
+    
     /// Create Secp256k1 object from Secret, for signing.
     public init(secret: VCCryptoSecret) throws {
         self.secret = secret
@@ -89,10 +91,14 @@ public struct Secp256k1: Signing {
     ///   - signature: The signature to validate
     ///   - messageHash: The message hash
     /// - Returns: True if the signature is valid
-    public func isValidSignature(signature: Data, forMessageHash messageHash: Data) throws -> Bool {
+    public func isValidSignature(signature: Data, forMessage message: Data) throws -> Bool {
+        
+        /// Message must be hashed before validated.
+        let hashedMessage = hashOperation.hash(data: message)
+        
         // Validate params
         guard signature.count == 64 else { throw Secp256k1Error.invalidSignature }
-        guard messageHash.count == 32 else { throw Secp256k1Error.invalidMessageHash }
+        guard hashedMessage.count == 32 else { throw Secp256k1Error.invalidMessageHash }
         
         let publicKey = self.publicKey == nil ? try createPublicKey() : self.publicKey!
         
@@ -131,7 +137,7 @@ public struct Secp256k1: Signing {
         
         // Validate signature
         var isValid = false
-        messageHash.withUnsafeBytes { (msgPtr) in
+        hashedMessage.withUnsafeBytes { (msgPtr) in
             isValid = secp256k1_ecdsa_verify(context, normalizedSignature, msgPtr.bindMemory(to: UInt8.self).baseAddress!, parsedPubKey) == 1
         }
         

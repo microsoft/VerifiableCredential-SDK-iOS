@@ -28,9 +28,7 @@ public struct TokenVerifier: TokenVerifying {
             throw VCTokenError.unableToParseString
         }
         
-        let hashedMessage = cryptoOperations.hash(message: encodedMessage, algorithm: .SHA256)
-        
-        return try cryptoOperations.verify(signature: signature, forMessageHash: hashedMessage, usingPublicKey: transformKey(key: key))
+        return try cryptoOperations.verify(signature: signature, forMessage: encodedMessage, usingPublicKey: transformKey(key: key))
     }
     
     private func transformKey(key: JWK) throws -> PublicKey {

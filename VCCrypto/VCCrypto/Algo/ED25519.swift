@@ -26,9 +26,9 @@ struct ED25519: Signing {
         throw ED25519Error.notImplemented
     }
     
-    func isValidSignature(signature: Data, forMessageHash messageHash: Data) throws -> Bool {
-        let cryptoKitEd25519PublicKey = try Curve25519.Signing.PublicKey(rawRepresentation: publicKey.uncompressedValue)
-        return cryptoKitEd25519PublicKey.isValidSignature(signature, for: messageHash)
+    func isValidSignature(signature: Data, forMessage message: Data) throws -> Bool {
+        let pubKey = try Curve25519.Signing.PublicKey(rawRepresentation: publicKey.uncompressedValue)
+        return pubKey.isValidSignature(signature, for: message)
     }
     
     func getPublicKey() throws -> PublicKey {

@@ -32,11 +32,11 @@ public struct CryptoOperations: CryptoOperating {
     }
     
     public func verify(signature: Data,
-                       forMessageHash messageHash: Data,
+                       forMessage message: Data,
                        usingPublicKey publicKey: PublicKey) throws -> Bool {
         
         let algorithm = try getAlgorithm(publicKey: publicKey)
-        return try algorithm.isValidSignature(signature: signature, forMessageHash: messageHash)
+        return try algorithm.isValidSignature(signature: signature, forMessage: message)
     }
     
     private func getAlgorithm(publicKey: PublicKey) throws -> any Signing {
