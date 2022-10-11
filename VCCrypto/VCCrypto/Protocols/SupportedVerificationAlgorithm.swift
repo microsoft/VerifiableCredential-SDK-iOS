@@ -7,8 +7,3 @@ public enum SupportedVerificationAlgorithm: String {
     case ED25519 = "ED25519"
     case Secp256k1 = "SECP256K1"
 }
-
-public enum SupportedHashAlgorithm {
-    case SHA256
-    case SHA512
-}

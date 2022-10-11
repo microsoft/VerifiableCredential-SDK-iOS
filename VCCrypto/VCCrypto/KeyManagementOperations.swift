@@ -3,6 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
+/// Operations that are involved in key management.
 public struct KeyManagementOperations: KeyManagementOperating {
 
     private let secretStore: SecretStoring

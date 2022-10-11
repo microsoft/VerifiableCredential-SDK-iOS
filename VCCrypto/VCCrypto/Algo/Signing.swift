@@ -3,6 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
+/// Protocol that specifies operations of a signing algorithm.
 public protocol Signing {
     
     /// Sign a message hash and return signature.

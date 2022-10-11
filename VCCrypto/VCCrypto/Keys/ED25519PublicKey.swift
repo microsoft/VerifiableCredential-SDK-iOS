@@ -5,7 +5,6 @@
 
 import Foundation
 
-
 public class ED25519PublicKey: PublicKey {
    
     public let algorithm = SupportedVerificationAlgorithm.ED25519

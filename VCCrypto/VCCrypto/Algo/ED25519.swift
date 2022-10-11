@@ -21,16 +21,16 @@ struct ED25519: Signing {
         }
         self.publicKey = edKey
     }
-    
+
     func sign(messageHash: Data) throws -> Data {
         throw ED25519Error.notImplemented
     }
-    
+
     func isValidSignature(signature: Data, forMessage message: Data) throws -> Bool {
         let pubKey = try Curve25519.Signing.PublicKey(rawRepresentation: publicKey.uncompressedValue)
         return pubKey.isValidSignature(signature, for: message)
     }
-    
+
     func getPublicKey() throws -> PublicKey {
         throw ED25519Error.notImplemented
     }

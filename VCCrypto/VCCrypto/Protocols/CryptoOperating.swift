@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-/// A protocol to support cryptopgraphic operations,
+/// Cryptopgraphic Operations needed for verification.
 public protocol CryptoOperating {
     
     /// Sign a message hash using a specific secret, and return the signature.

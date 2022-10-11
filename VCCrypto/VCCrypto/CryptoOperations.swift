@@ -7,6 +7,7 @@ enum CryptoOperationsError: Error {
     case invalidPublicKey
 }
 
+/// Operations that are involved in verification cryptographic operations..
 public struct CryptoOperations: CryptoOperating {
     
     public init() {}
