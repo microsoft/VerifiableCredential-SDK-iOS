@@ -94,7 +94,7 @@ public struct Secp256k1: Signing {
     public func isValidSignature(signature: Data, forMessage message: Data) throws -> Bool {
         // Validate params
         guard signature.count == 64 else { throw Secp256k1Error.invalidSignature }
-        guard hashedMessage.count == 32 else { throw Secp256k1Error.invalidMessageHash }
+        guard message.count == 32 else { throw Secp256k1Error.invalidMessageHash }
     
         let publicKey = self.publicKey == nil ? try createPublicKey() : self.publicKey!
     
@@ -133,7 +133,7 @@ public struct Secp256k1: Signing {
 
         // Validate signature
         var isValid = false
-        hashedMessage.withUnsafeBytes { (msgPtr) in
+        message.withUnsafeBytes { (msgPtr) in
             isValid = secp256k1_ecdsa_verify(context, normalizedSignature, msgPtr.bindMemory(to: UInt8.self).baseAddress!, parsedPubKey) == 1
         }
 
