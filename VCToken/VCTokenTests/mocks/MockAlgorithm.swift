@@ -45,7 +45,7 @@ struct MockAlgorithm: Signing {
         return messageHash
     }
     
-    func isValidSignature(signature: Data, forMessageHash messageHash: Data) throws -> Bool {
+    func isValidSignature(signature: Data, forMessage message: Data) throws -> Bool {
         true
     }
 }

@@ -45,7 +45,14 @@ class Secp256k1Tests: XCTestCase {
     func testVerifierWithNoSignature() throws {
         let verifier = TokenVerifier(cryptoOperations: MockCryptoOperations())
         testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: nil)
-        let publicKey = ECPublicJwk(x: Data(count: 32).base64URLEncodedString(), y: Data(count: 32).base64URLEncodedString(), keyId: "test")
+        let publicKey = JWK(keyType: "testType",
+                            keyId: nil,
+                            key: nil,
+                            curve: nil,
+                            use: nil,
+                            x: Data(count: 32),
+                            y: Data(count: 32),
+                            d: nil)
         let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
         XCTAssertEqual(result, false)
     }
@@ -53,7 +60,14 @@ class Secp256k1Tests: XCTestCase {
     func testVerifierWithSignatureWithPublicKey() throws {
         let verifier = TokenVerifier(cryptoOperations: MockCryptoOperations())
         testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: "testSignature".data(using: .utf8))
-        let publicKey = ECPublicJwk(x: Data(count: 32).base64URLEncodedString(), y: Data(count: 32).base64URLEncodedString(), keyId: "test")
+        let publicKey = JWK(keyType: "testType",
+                            keyId: nil,
+                            key: nil,
+                            curve: "secp256k1",
+                            use: nil,
+                            x: Data(count: 32),
+                            y: Data(count: 32),
+                            d: nil)
         let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
         XCTAssertEqual(result, true)
     }
@@ -61,7 +75,14 @@ class Secp256k1Tests: XCTestCase {
     func testVerifierWithSignatureWithInvalidSignature() throws {
         let verifier = TokenVerifier(cryptoOperations: MockCryptoOperations(verifyResult: false))
         testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: "testSignature".data(using: .utf8))
-        let publicKey = ECPublicJwk(x: Data(count: 32).base64URLEncodedString(), y: Data(count: 32).base64URLEncodedString(), keyId: "test")
+        let publicKey = JWK(keyType: "testType",
+                            keyId: nil,
+                            key: nil,
+                            curve: "secp256k1",
+                            use: nil,
+                            x: Data(count: 32),
+                            y: Data(count: 32),
+                            d: nil)
         let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
         XCTAssertEqual(result, false)
     }

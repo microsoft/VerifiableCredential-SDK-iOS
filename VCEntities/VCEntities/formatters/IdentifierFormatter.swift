@@ -30,7 +30,7 @@ struct IdentifierFormatter: IdentifierFormatting {
                               didDocumentKeys: [ECPublicJwk],
                               serviceEndpoints: [IdentifierDocumentServiceEndpoint]) throws -> String {
         
-        let document = IONDocumentModel(fromJwks: didDocumentKeys.map { key in key.toJWK() }, andServiceEndpoints: serviceEndpoints)
+        let document = IONDocumentModel(fromJwks: didDocumentKeys, andServiceEndpoints: serviceEndpoints)
         let patches = [IONDocumentPatch(action: IdentifierFormatter.replaceAction, document: document)]
         
         let commitmentHash = try self.createCommitmentHash(usingJwk: updateKey)

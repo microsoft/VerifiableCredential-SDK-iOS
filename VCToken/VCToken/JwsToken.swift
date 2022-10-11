@@ -69,6 +69,11 @@ public struct JwsToken<T: Claims> {
         return try verifier.verify(token: self, usingPublicKey: key)
     }
     
+    /// Temporary: TODO: remove support for ECPublicJwk data model for JWK.
+    public func verify(using verifier: TokenVerifying, withPublicKey key: ECPublicJwk) throws -> Bool {
+        return try verify(using: verifier, withPublicKey: key.toJWK())
+    }
+    
     private static func createProtectedMessage(headers: Header, content: T) throws -> String {
         let encoder = JSONEncoder()
         let encodedHeader = try encoder.encode(headers).base64URLEncodedString()
