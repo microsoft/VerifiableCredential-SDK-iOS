@@ -92,10 +92,6 @@ public struct Secp256k1: Signing {
     ///   - messageHash: The message hash
     /// - Returns: True if the signature is valid
     public func isValidSignature(signature: Data, forMessage message: Data) throws -> Bool {
-        
-        /// Message must be hashed before validated.
-        let hashedMessage = hashOperation.hash(data: message)
-    
         // Validate params
         guard signature.count == 64 else { throw Secp256k1Error.invalidSignature }
         guard hashedMessage.count == 32 else { throw Secp256k1Error.invalidMessageHash }

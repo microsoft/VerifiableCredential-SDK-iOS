@@ -37,7 +37,14 @@ public struct CryptoOperations: CryptoOperating {
                        usingPublicKey publicKey: PublicKey) throws -> Bool {
         
         let algorithm = try getAlgorithm(publicKey: publicKey)
-        return try algorithm.isValidSignature(signature: signature, forMessage: message)
+        
+        /// If algorithm is secp256k1, hash message value.
+        var msg = message
+        if publicKey.algorithm == .Secp256k1 {
+            msg = hash(message: message, algorithm: .SHA256)
+        }
+        
+        return try algorithm.isValidSignature(signature: signature, forMessage: msg)
     }
     
     private func getAlgorithm(publicKey: PublicKey) throws -> any Signing {
