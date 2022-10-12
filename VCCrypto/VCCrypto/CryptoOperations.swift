@@ -47,7 +47,7 @@ public struct CryptoOperations: CryptoOperating {
         return try algorithm.isValidSignature(signature: signature, forMessage: msg)
     }
     
-    private func getAlgorithm(publicKey: PublicKey) throws -> any Signing {
+    private func getAlgorithm(publicKey: PublicKey) throws -> Signing {
         switch publicKey.algorithm {
         case .ED25519:
             return try ED25519(publicKey: publicKey)
