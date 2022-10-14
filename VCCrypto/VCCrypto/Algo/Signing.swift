@@ -4,14 +4,14 @@
 *--------------------------------------------------------------------------------------------*/
 
 /// Protocol that specifies operations of a signing algorithm.
-public protocol Signing {
+protocol Signing {
     
     /// Sign a message hash and return signature.
-    func sign(messageHash: Data) throws -> Data
+    func sign(message: Data, withSecret secret: VCCryptoSecret) throws -> Data
     
     /// Validate a signature based on the message hash.
-    func isValidSignature(signature: Data, forMessage message: Data) throws -> Bool
+    func isValidSignature(signature: Data, forMessage message: Data, usingPublicKey publicKey: PublicKey) throws -> Bool
     
-    /// Get public key.
-    func getPublicKey() throws -> PublicKey
+    /// create public key from private key.
+    func createPublicKey(forSecret secret: VCCryptoSecret) throws -> PublicKey
 }

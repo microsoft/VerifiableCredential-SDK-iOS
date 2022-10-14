@@ -13,9 +13,9 @@ public struct CryptoOperations: CryptoOperating {
     public init() {}
     
     /// Only supports Secp256k1 signing.
-    public func sign(messageHash: Data, usingSecret secret: VCCryptoSecret) throws -> Data  {
-        let algorithm = try Secp256k1(secret: secret)
-        return try algorithm.sign(messageHash: messageHash)
+    public func sign(message: Data, usingSecret secret: VCCryptoSecret) throws -> Data  {
+        let algorithm = ES256k()
+        return try algorithm.sign(message: message, withSecret: secret)
     }
     
     public func hash(message: Data, algorithm: SupportedHashAlgorithm) -> Data {
@@ -29,7 +29,7 @@ public struct CryptoOperations: CryptoOperating {
     
     /// Only support Secp256k1 public key retrieval.
     public func getPublicKey(fromSecret secret: VCCryptoSecret) throws -> PublicKey {
-        return try Secp256k1(secret: secret).getPublicKey()
+        return try Secp256k1().createPublicKey(forSecret: secret)
     }
     
     public func verify(signature: Data,
@@ -37,22 +37,15 @@ public struct CryptoOperations: CryptoOperating {
                        usingPublicKey publicKey: PublicKey) throws -> Bool {
         
         let algorithm = try getAlgorithm(publicKey: publicKey)
-        
-        /// If algorithm is secp256k1, hash message value.
-        var msg = message
-        if publicKey.algorithm == .Secp256k1 {
-            msg = hash(message: message, algorithm: .SHA256)
-        }
-        
-        return try algorithm.isValidSignature(signature: signature, forMessage: msg)
+        return try algorithm.isValidSignature(signature: signature, forMessage: message, usingPublicKey: publicKey)
     }
     
     private func getAlgorithm(publicKey: PublicKey) throws -> Signing {
         switch publicKey.algorithm {
         case .ED25519:
-            return try ED25519(publicKey: publicKey)
+            return EdDSA()
         case .Secp256k1:
-            return try Secp256k1(publicKey: publicKey)
+            return ES256k()
         }
     }
 }

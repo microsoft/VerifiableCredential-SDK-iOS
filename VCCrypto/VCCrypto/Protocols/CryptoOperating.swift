@@ -6,8 +6,8 @@
 /// Cryptopgraphic Operations needed for verification.
 public protocol CryptoOperating {
     
-    /// Sign a message hash using a specific secret, and return the signature.
-    func sign(messageHash: Data, usingSecret secret: VCCryptoSecret) throws -> Data
+    /// Sign a message using a specific secret, and return the signature.
+    func sign(message: Data, usingSecret secret: VCCryptoSecret) throws -> Data
     
     /// Hash a message using one of the supported hash algorithms.
     func hash(message: Data, algorithm: SupportedHashAlgorithm) -> Data

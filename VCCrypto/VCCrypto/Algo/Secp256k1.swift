@@ -16,34 +16,14 @@ enum Secp256k1Error: Error {
     case invalidSecret
 }
 
-public struct Secp256k1: Signing {
-    
-    private let publicKey: Secp256k1PublicKey?
-    
-    private let secret: VCCryptoSecret?
-    
-    private let hashOperation = Sha256()
-    
-    /// Create Secp256k1 object from Secret, for signing.
-    public init(secret: VCCryptoSecret) throws {
-        self.secret = secret
-        self.publicKey = nil
-    }
-    
-    /// Create Secp256k1 object from public key, for verification.
-    init(publicKey: PublicKey) throws {
-        guard let secpKey = publicKey as? Secp256k1PublicKey else {
-            throw Secp256k1Error.invalidPublicKey
-        }
-        self.publicKey = secpKey
-        self.secret = nil
-    }
+/// Signing/Verifying curve algorithm.
+struct Secp256k1 {
     
     /// Sign a message message hash
     /// - Parameters:
     ///   - messageHash: 32 bytes message
     /// - Returns: The R|S signature
-    public func sign(messageHash: Data) throws -> Data {
+    func sign(messageHash: Data, withSecret secret: VCCryptoSecret) throws -> Data {
         
         // Validate params
         guard secret is Secret else { throw Secp256k1Error.invalidSecret }
@@ -91,12 +71,12 @@ public struct Secp256k1: Signing {
     ///   - signature: The signature to validate
     ///   - messageHash: The message hash
     /// - Returns: True if the signature is valid
-    public func isValidSignature(signature: Data, forMessage message: Data) throws -> Bool {
+    func isValidSignature(signature: Data,
+                          forMessageHash messageHash: Data,
+                          usingPublicKey publicKey: PublicKey) throws -> Bool {
         // Validate params
         guard signature.count == 64 else { throw Secp256k1Error.invalidSignature }
-        guard message.count == 32 else { throw Secp256k1Error.invalidMessageHash }
-    
-        let publicKey = self.publicKey == nil ? try createPublicKey() : self.publicKey!
+        guard messageHash.count == 32 else { throw Secp256k1Error.invalidMessageHash }
     
         // Create the context and convert the parsed signature and public key to the appropriate data structure
         let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_VERIFY))!
@@ -133,22 +113,14 @@ public struct Secp256k1: Signing {
 
         // Validate signature
         var isValid = false
-        message.withUnsafeBytes { (msgPtr) in
+        messageHash.withUnsafeBytes { (msgPtr) in
             isValid = secp256k1_ecdsa_verify(context, normalizedSignature, msgPtr.bindMemory(to: UInt8.self).baseAddress!, parsedPubKey) == 1
         }
 
         return isValid
     }
     
-    public func getPublicKey() throws -> PublicKey {
-        return try createPublicKey() as PublicKey
-    }
-    
-    private func createPublicKey() throws -> Secp256k1PublicKey {
-        guard let secret = secret else {
-            throw Secp256k1Error.invalidSecret
-        }
-        
+    func createPublicKey(forSecret secret: VCCryptoSecret) throws -> PublicKey {
         let (_, publicKey) = try self.createKeyPair(forSecret: secret)
         return publicKey
     }
@@ -156,8 +128,7 @@ public struct Secp256k1: Signing {
     /// Create a key pair from a secret
     /// - Parameter secret: The Secret used to generate the public key
     /// - Returns: The key pair
-    public func createKeyPair(forSecret secret: VCCryptoSecret) throws -> (EphemeralSecret, Secp256k1PublicKey)
-    {
+    public func createKeyPair(forSecret secret: VCCryptoSecret) throws -> (EphemeralSecret, Secp256k1PublicKey) {
         // Validate params
         guard secret is Secret else { throw Secp256k1Error.invalidSecret }
         

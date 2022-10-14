@@ -22,13 +22,14 @@
 		553D4AAF280F443A00FD39A6 /* VCSDKConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D4AAE280F443A00FD39A6 /* VCSDKConfigurable.swift */; };
 		5540903D25000F6A001246DB /* Signing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903C25000F6A001246DB /* Signing.swift */; };
 		5577E874251E9F99005250BC /* VCCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 92CDE7AD24DC78DD00F95B5D /* VCCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5590DE2228EF7F4800FB4AA5 /* ED25519.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5590DE2128EF7F4800FB4AA5 /* ED25519.swift */; };
+		5590DE2228EF7F4800FB4AA5 /* EdDSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5590DE2128EF7F4800FB4AA5 /* EdDSA.swift */; };
 		5590DE2428EF802800FB4AA5 /* ED25519PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5590DE2328EF802800FB4AA5 /* ED25519PublicKey.swift */; };
-		5590DE2628F0AD1A00FB4AA5 /* ED25519Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5590DE2528F0AD1A00FB4AA5 /* ED25519Tests.swift */; };
+		5590DE2628F0AD1A00FB4AA5 /* EdDSATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5590DE2528F0AD1A00FB4AA5 /* EdDSATests.swift */; };
 		5590DE2828F0C82800FB4AA5 /* SupportedVerificationAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5590DE2728F0C82800FB4AA5 /* SupportedVerificationAlgorithm.swift */; };
 		55ADE29924F5752500D9990E /* Sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29824F5752500D9990E /* Sha256.swift */; };
 		55ADE29B24F5757100D9990E /* Sha256Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ADE29A24F5757100D9990E /* Sha256Tests.swift */; };
 		55B5DA7C28F5F6AB00C24A28 /* SupportedHashAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B5DA7B28F5F6AB00C24A28 /* SupportedHashAlgorithm.swift */; };
+		55B5DAF728F9FCF600C24A28 /* ES256k.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B5DAF628F9FCF600C24A28 /* ES256k.swift */; };
 		928AAF7124EEDC9D0029A8F9 /* Secp256k1PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAF7024EEDC9D0029A8F9 /* Secp256k1PublicKey.swift */; };
 		928AAF7324EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AAF7224EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift */; };
 		92CDE7B424DC78DD00F95B5D /* VCCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92CDE7AA24DC78DD00F95B5D /* VCCrypto.framework */; };
@@ -90,13 +91,14 @@
 		552ACE6A28F4D6070016D5BC /* KeyManagementOperating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManagementOperating.swift; sourceTree = "<group>"; };
 		553D4AAE280F443A00FD39A6 /* VCSDKConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSDKConfigurable.swift; sourceTree = "<group>"; };
 		5540903C25000F6A001246DB /* Signing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signing.swift; sourceTree = "<group>"; };
-		5590DE2128EF7F4800FB4AA5 /* ED25519.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ED25519.swift; sourceTree = "<group>"; };
+		5590DE2128EF7F4800FB4AA5 /* EdDSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdDSA.swift; sourceTree = "<group>"; };
 		5590DE2328EF802800FB4AA5 /* ED25519PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ED25519PublicKey.swift; sourceTree = "<group>"; };
-		5590DE2528F0AD1A00FB4AA5 /* ED25519Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ED25519Tests.swift; sourceTree = "<group>"; };
+		5590DE2528F0AD1A00FB4AA5 /* EdDSATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdDSATests.swift; sourceTree = "<group>"; };
 		5590DE2728F0C82800FB4AA5 /* SupportedVerificationAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedVerificationAlgorithm.swift; sourceTree = "<group>"; };
 		55ADE29824F5752500D9990E /* Sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256.swift; path = ../../../VCCrypto/VCCrypto/Algo/Sha256.swift; sourceTree = "<group>"; };
 		55ADE29A24F5757100D9990E /* Sha256Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Sha256Tests.swift; path = ../../VCCrypto/VCCryptoTests/Sha256Tests.swift; sourceTree = "<group>"; };
 		55B5DA7B28F5F6AB00C24A28 /* SupportedHashAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedHashAlgorithm.swift; sourceTree = "<group>"; };
+		55B5DAF628F9FCF600C24A28 /* ES256k.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ES256k.swift; sourceTree = "<group>"; };
 		928AAF7024EEDC9D0029A8F9 /* Secp256k1PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1PublicKey.swift; sourceTree = "<group>"; };
 		928AAF7224EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secp256k1PublicKeyTests.swift; sourceTree = "<group>"; };
 		92CDE7AA24DC78DD00F95B5D /* VCCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,7 +224,7 @@
 				55ADE29A24F5757100D9990E /* Sha256Tests.swift */,
 				92CDE7DF24DDD24700F95B5D /* Sha512Tests.swift */,
 				92CDE7E124DDF1A900F95B5D /* HmacSha512Tests.swift */,
-				5590DE2528F0AD1A00FB4AA5 /* ED25519Tests.swift */,
+				5590DE2528F0AD1A00FB4AA5 /* EdDSATests.swift */,
 				92CDE7D624DCD07D00F95B5D /* Secp256k1Tests.swift */,
 				928AAF7224EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift */,
 				92CDE7E724DE1A2000F95B5D /* KeychainSecretStoreTests.swift */,
@@ -246,11 +248,12 @@
 			isa = PBXGroup;
 			children = (
 				2F848B58282D50D5005D3176 /* Aes.swift */,
-				5590DE2128EF7F4800FB4AA5 /* ED25519.swift */,
+				5590DE2128EF7F4800FB4AA5 /* EdDSA.swift */,
 				2F848B59282D50D5005D3176 /* HmacSha2.swift */,
 				2F848B5A282D50D5005D3176 /* HmacSha2AesCbc.swift */,
 				2F848B57282D50D5005D3176 /* Pbkdf.swift */,
 				92CDE7D124DCA6CF00F95B5D /* Secp256k1.swift */,
+				55B5DAF628F9FCF600C24A28 /* ES256k.swift */,
 				92CDE7D824DDBA0500F95B5D /* HmacSha512.swift */,
 				92CDE7DA24DDC65100F95B5D /* Sha512.swift */,
 				55ADE29824F5752500D9990E /* Sha256.swift */,
@@ -457,12 +460,13 @@
 				552ACE3128F0CF070016D5BC /* PublicKey.swift in Sources */,
 				551F3059252E378E0081D5E7 /* KeyManagementOperations.swift in Sources */,
 				92CDE7E624DE109200F95B5D /* Data+Base64.swift in Sources */,
+				55B5DAF728F9FCF600C24A28 /* ES256k.swift in Sources */,
 				552ACE3528F4A4430016D5BC /* CryptoOperations.swift in Sources */,
 				92CDE7CB24DCA61800F95B5D /* KeychainSecretStore.swift in Sources */,
 				552ACE6928F4D5120016D5BC /* CryptoOperating.swift in Sources */,
 				92CDE7DE24DDCB9500F95B5D /* Data+Hex.swift in Sources */,
 				92CDE80624E1ABEA00F95B5D /* Random32BytesSecret.swift in Sources */,
-				5590DE2228EF7F4800FB4AA5 /* ED25519.swift in Sources */,
+				5590DE2228EF7F4800FB4AA5 /* EdDSA.swift in Sources */,
 				2F848B5B282D50D5005D3176 /* Pbkdf.swift in Sources */,
 				92CDE7D924DDBA0500F95B5D /* HmacSha512.swift in Sources */,
 				2F848B5D282D50D5005D3176 /* HmacSha2.swift in Sources */,
@@ -496,7 +500,7 @@
 				2F848B64282D51D7005D3176 /* PbkdfTests.swift in Sources */,
 				55ADE29B24F5757100D9990E /* Sha256Tests.swift in Sources */,
 				92CDE7E824DE1A2000F95B5D /* KeychainSecretStoreTests.swift in Sources */,
-				5590DE2628F0AD1A00FB4AA5 /* ED25519Tests.swift in Sources */,
+				5590DE2628F0AD1A00FB4AA5 /* EdDSATests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
