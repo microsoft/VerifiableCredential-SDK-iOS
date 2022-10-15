@@ -15,6 +15,11 @@
 		2F848B63282D51D7005D3176 /* AesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F848B61282D51D7005D3176 /* AesTests.swift */; };
 		2F848B64282D51D7005D3176 /* PbkdfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F848B62282D51D7005D3176 /* PbkdfTests.swift */; };
 		551F3059252E378E0081D5E7 /* KeyManagementOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F3058252E378E0081D5E7 /* KeyManagementOperations.swift */; };
+		5522B18C28FA074F006C6BA4 /* Hashing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B18B28FA074F006C6BA4 /* Hashing.swift */; };
+		5522B19028FA2010006C6BA4 /* ES256kTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B18F28FA2010006C6BA4 /* ES256kTests.swift */; };
+		5522B19228FA210C006C6BA4 /* PublicKeyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19128FA210C006C6BA4 /* PublicKeyMock.swift */; };
+		5522B19428FA21C2006C6BA4 /* SigningMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19328FA21C1006C6BA4 /* SigningMock.swift */; };
+		5522B19628FA21CC006C6BA4 /* HashingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19528FA21CC006C6BA4 /* HashingMock.swift */; };
 		552ACE3128F0CF070016D5BC /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552ACE3028F0CF070016D5BC /* PublicKey.swift */; };
 		552ACE3528F4A4430016D5BC /* CryptoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552ACE3428F4A4430016D5BC /* CryptoOperations.swift */; };
 		552ACE6928F4D5120016D5BC /* CryptoOperating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552ACE6828F4D5120016D5BC /* CryptoOperating.swift */; };
@@ -85,6 +90,11 @@
 		2F848B61282D51D7005D3176 /* AesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AesTests.swift; sourceTree = "<group>"; };
 		2F848B62282D51D7005D3176 /* PbkdfTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PbkdfTests.swift; sourceTree = "<group>"; };
 		551F3058252E378E0081D5E7 /* KeyManagementOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManagementOperations.swift; sourceTree = "<group>"; };
+		5522B18B28FA074F006C6BA4 /* Hashing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashing.swift; sourceTree = "<group>"; };
+		5522B18F28FA2010006C6BA4 /* ES256kTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ES256kTests.swift; sourceTree = "<group>"; };
+		5522B19128FA210C006C6BA4 /* PublicKeyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyMock.swift; sourceTree = "<group>"; };
+		5522B19328FA21C1006C6BA4 /* SigningMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningMock.swift; sourceTree = "<group>"; };
+		5522B19528FA21CC006C6BA4 /* HashingMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashingMock.swift; sourceTree = "<group>"; };
 		552ACE3028F0CF070016D5BC /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		552ACE3428F4A4430016D5BC /* CryptoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoOperations.swift; sourceTree = "<group>"; };
 		552ACE6828F4D5120016D5BC /* CryptoOperating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoOperating.swift; sourceTree = "<group>"; };
@@ -162,6 +172,8 @@
 				552ACE6A28F4D6070016D5BC /* KeyManagementOperating.swift */,
 				5590DE2728F0C82800FB4AA5 /* SupportedVerificationAlgorithm.swift */,
 				55B5DA7B28F5F6AB00C24A28 /* SupportedHashAlgorithm.swift */,
+				5540903C25000F6A001246DB /* Signing.swift */,
+				5522B18B28FA074F006C6BA4 /* Hashing.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -225,6 +237,7 @@
 				92CDE7DF24DDD24700F95B5D /* Sha512Tests.swift */,
 				92CDE7E124DDF1A900F95B5D /* HmacSha512Tests.swift */,
 				5590DE2528F0AD1A00FB4AA5 /* EdDSATests.swift */,
+				5522B18F28FA2010006C6BA4 /* ES256kTests.swift */,
 				92CDE7D624DCD07D00F95B5D /* Secp256k1Tests.swift */,
 				928AAF7224EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift */,
 				92CDE7E724DE1A2000F95B5D /* KeychainSecretStoreTests.swift */,
@@ -257,7 +270,6 @@
 				92CDE7D824DDBA0500F95B5D /* HmacSha512.swift */,
 				92CDE7DA24DDC65100F95B5D /* Sha512.swift */,
 				55ADE29824F5752500D9990E /* Sha256.swift */,
-				5540903C25000F6A001246DB /* Signing.swift */,
 			);
 			path = Algo;
 			sourceTree = "<group>";
@@ -268,6 +280,9 @@
 				92CDE7E324DDF42A00F95B5D /* Utf8TestData.swift */,
 				92CDE7D424DCCE3C00F95B5D /* SecretStoreMock.swift */,
 				92CDE80924E2047900F95B5D /* SecretMock.swift */,
+				5522B19128FA210C006C6BA4 /* PublicKeyMock.swift */,
+				5522B19328FA21C1006C6BA4 /* SigningMock.swift */,
+				5522B19528FA21CC006C6BA4 /* HashingMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -473,6 +488,7 @@
 				553D4AAF280F443A00FD39A6 /* VCSDKConfigurable.swift in Sources */,
 				55ADE29924F5752500D9990E /* Sha256.swift in Sources */,
 				92CDE80824E1F7AF00F95B5D /* Secret.swift in Sources */,
+				5522B18C28FA074F006C6BA4 /* Hashing.swift in Sources */,
 				92CDE7D224DCA6CF00F95B5D /* Secp256k1.swift in Sources */,
 				2F848B5C282D50D5005D3176 /* Aes.swift in Sources */,
 				928AAF7124EEDC9D0029A8F9 /* Secp256k1PublicKey.swift in Sources */,
@@ -488,14 +504,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5522B19228FA210C006C6BA4 /* PublicKeyMock.swift in Sources */,
 				928AAF7324EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift in Sources */,
 				92CDE7D724DCD07D00F95B5D /* Secp256k1Tests.swift in Sources */,
 				92CDE7D524DCCE3C00F95B5D /* SecretStoreMock.swift in Sources */,
 				2F848B63282D51D7005D3176 /* AesTests.swift in Sources */,
+				5522B19428FA21C2006C6BA4 /* SigningMock.swift in Sources */,
 				92CDE80A24E2047900F95B5D /* SecretMock.swift in Sources */,
 				92CDE80C24E213AE00F95B5D /* Random32BytesSecretTests.swift in Sources */,
 				92CDE7E224DDF1A900F95B5D /* HmacSha512Tests.swift in Sources */,
+				5522B19028FA2010006C6BA4 /* ES256kTests.swift in Sources */,
 				92CDE7E424DDF42A00F95B5D /* Utf8TestData.swift in Sources */,
+				5522B19628FA21CC006C6BA4 /* HashingMock.swift in Sources */,
 				92CDE7E024DDD24700F95B5D /* Sha512Tests.swift in Sources */,
 				2F848B64282D51D7005D3176 /* PbkdfTests.swift in Sources */,
 				55ADE29B24F5757100D9990E /* Sha256Tests.swift in Sources */,

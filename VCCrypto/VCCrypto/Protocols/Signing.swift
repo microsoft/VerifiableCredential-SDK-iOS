@@ -6,7 +6,7 @@
 /// Protocol that specifies operations of a signing algorithm.
 protocol Signing {
     
-    /// Sign a message hash and return signature.
+    /// Sign a message and return signature.
     func sign(message: Data, withSecret secret: VCCryptoSecret) throws -> Data
     
     /// Validate a signature based on the message hash.

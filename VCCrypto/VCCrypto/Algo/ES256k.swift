@@ -9,13 +9,13 @@ import Foundation
 struct ES256k: Signing {
     
     /// Supported hashing algorithm for ES256k
-    let hashAlgorithm: Sha256
+    let hashAlgorithm: Hashing
     
     /// Supported curve for ES256k
-    let curveAlgorithm: Secp256k1
+    let curveAlgorithm: Signing
     
-    init(hashAlgorithm: Sha256 = Sha256(),
-         curveAlgorithm: Secp256k1 = Secp256k1()) {
+    init(hashAlgorithm: Hashing = Sha256(),
+         curveAlgorithm: Signing = Secp256k1()) {
         self.hashAlgorithm = hashAlgorithm
         self.curveAlgorithm = curveAlgorithm
         
@@ -27,7 +27,7 @@ struct ES256k: Signing {
     /// - Returns: The signature
     func sign(message: Data, withSecret secret: VCCryptoSecret) throws -> Data {
         let hashedMessage = hashAlgorithm.hash(data: message)
-        return try curveAlgorithm.sign(messageHash: hashedMessage, withSecret: secret)
+        return try curveAlgorithm.sign(message: hashedMessage, withSecret: secret)
     }
     
     /// Validate a signature
@@ -39,7 +39,7 @@ struct ES256k: Signing {
                           forMessage message: Data,
                           usingPublicKey publicKey: PublicKey) throws -> Bool {
         let hashedMessage = hashAlgorithm.hash(data: message)
-        return try curveAlgorithm.isValidSignature(signature: signature, forMessageHash: hashedMessage, usingPublicKey: publicKey)
+        return try curveAlgorithm.isValidSignature(signature: signature, forMessage: hashedMessage, usingPublicKey: publicKey)
        
     }
     
