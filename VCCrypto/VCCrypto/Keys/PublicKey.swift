@@ -6,8 +6,8 @@
 /// Public Key protocol for verification of signatures.
 public protocol PublicKey {
     
-    /// Currently supported algorithms for signature verification.
-    var algorithm: SupportedSigningAlgorithm { get }
+    /// algorithm identifier.
+    var algorithm: String { get }
     
     /// Uncompressed value of the public key.
     var uncompressedValue: Data { get }

@@ -8,11 +8,11 @@ public struct SigningAlgorithm {
     
     let algorithm: Signing
     
-    let supportedSigningOperations: SupportedSigningOperations
+    let supportedSigningOperations: [SupportedSigningOperations]
 }
 
 public enum SupportedSigningOperations {
     case Signing
     case Verification
-    case All
+    case GetPublicKey
 }

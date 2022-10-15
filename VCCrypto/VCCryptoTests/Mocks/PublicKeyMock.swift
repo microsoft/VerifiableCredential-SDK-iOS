@@ -7,9 +7,13 @@
 
 final class PublicKeyMock: PublicKey, Equatable {
     
-    var algorithm: SupportedSigningAlgorithm = .Secp256k1
+    var algorithm: String
     
     var uncompressedValue: Data = Data(count: 32)
+    
+    init(algorithm: String = "mockAlgorithm") {
+        self.algorithm = algorithm
+    }
     
     static func == (lhs: PublicKeyMock, rhs: PublicKeyMock) -> Bool {
         return lhs.uncompressedValue == rhs.uncompressedValue

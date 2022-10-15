@@ -8,11 +8,11 @@ struct SupportedSigningAlgorithms {
     func algorithms() -> [String: SigningAlgorithm] {
         let es256k = SigningAlgorithm(curve: SupportedSigningAlgorithm.Secp256k1.rawValue,
                                                    algorithm: ES256k(),
-                                                   supportedSigningOperations: .All)
+                                      supportedSigningOperations: [.Verification, .GetPublicKey, .Signing])
         
         let edDSA = SigningAlgorithm(curve: SupportedSigningAlgorithm.ED25519.rawValue,
                                                   algorithm: EdDSA(),
-                                                  supportedSigningOperations: .Verification)
+                                                  supportedSigningOperations: [.Verification])
         return [
             es256k.curve: es256k,
             edDSA.curve: edDSA

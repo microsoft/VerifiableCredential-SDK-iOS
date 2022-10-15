@@ -22,6 +22,7 @@
 		5522B19628FA21CC006C6BA4 /* HashingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19528FA21CC006C6BA4 /* HashingMock.swift */; };
 		5522B19828FA3072006C6BA4 /* SigningAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19728FA3072006C6BA4 /* SigningAlgorithm.swift */; };
 		5522B19A28FA3962006C6BA4 /* SupportedSigningAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19928FA3962006C6BA4 /* SupportedSigningAlgorithm.swift */; };
+		5522B19C28FA3A0F006C6BA4 /* CryptoOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19B28FA3A0F006C6BA4 /* CryptoOperationsTests.swift */; };
 		552ACE3128F0CF070016D5BC /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552ACE3028F0CF070016D5BC /* PublicKey.swift */; };
 		552ACE3528F4A4430016D5BC /* CryptoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552ACE3428F4A4430016D5BC /* CryptoOperations.swift */; };
 		552ACE6928F4D5120016D5BC /* CryptoOperating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552ACE6828F4D5120016D5BC /* CryptoOperating.swift */; };
@@ -99,6 +100,7 @@
 		5522B19528FA21CC006C6BA4 /* HashingMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashingMock.swift; sourceTree = "<group>"; };
 		5522B19728FA3072006C6BA4 /* SigningAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningAlgorithm.swift; sourceTree = "<group>"; };
 		5522B19928FA3962006C6BA4 /* SupportedSigningAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedSigningAlgorithm.swift; sourceTree = "<group>"; };
+		5522B19B28FA3A0F006C6BA4 /* CryptoOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoOperationsTests.swift; sourceTree = "<group>"; };
 		552ACE3028F0CF070016D5BC /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		552ACE3428F4A4430016D5BC /* CryptoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoOperations.swift; sourceTree = "<group>"; };
 		552ACE6828F4D5120016D5BC /* CryptoOperating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoOperating.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			children = (
 				92CDE7D324DCCE1C00F95B5D /* Mocks */,
 				92CDE7BA24DC78DD00F95B5D /* Info.plist */,
+				5522B19B28FA3A0F006C6BA4 /* CryptoOperationsTests.swift */,
 				55ADE29A24F5757100D9990E /* Sha256Tests.swift */,
 				92CDE7DF24DDD24700F95B5D /* Sha512Tests.swift */,
 				92CDE7E124DDF1A900F95B5D /* HmacSha512Tests.swift */,
@@ -512,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5522B19C28FA3A0F006C6BA4 /* CryptoOperationsTests.swift in Sources */,
 				5522B19228FA210C006C6BA4 /* PublicKeyMock.swift in Sources */,
 				928AAF7324EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift in Sources */,
 				92CDE7D724DCD07D00F95B5D /* Secp256k1Tests.swift in Sources */,

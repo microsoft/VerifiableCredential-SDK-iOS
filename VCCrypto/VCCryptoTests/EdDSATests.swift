@@ -1,7 +1,7 @@
 import XCTest
 @testable import VCCrypto
 
-class ED25519Tests: XCTestCase {
+class EdDSATests: XCTestCase {
     
     func testIsValidSignature() throws {
         
