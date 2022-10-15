@@ -26,14 +26,12 @@ public struct Secp256k1Signer: TokenSigning {
             throw VCTokenError.unableToParseData
         }
         
-        let hashedMessage = cryptoOperations.hash(message: messageData, algorithm: .SHA256)
-        
-        return try cryptoOperations.sign(messageHash: hashedMessage, usingSecret: secret)
+        return try cryptoOperations.sign(message: messageData, usingSecret: secret, algorithm: SupportedSigningAlgorithm.Secp256k1.rawValue)
     }
     
     public func getPublicJwk(from secret: VCCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk {
         
-        let publicKey = try cryptoOperations.getPublicKey(fromSecret: secret)
+        let publicKey = try cryptoOperations.getPublicKey(fromSecret: secret, algorithm: SupportedSigningAlgorithm.Secp256k1.rawValue)
         
         guard let key = publicKey as? Secp256k1PublicKey else {
             throw Secp256k1SignerError.unableToCastPublicKeyToSecp256K1PublicKey

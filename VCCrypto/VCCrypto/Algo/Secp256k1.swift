@@ -17,13 +17,15 @@ enum Secp256k1Error: Error {
 }
 
 /// Signing/Verifying curve algorithm.
-struct Secp256k1: Signing {
+public struct Secp256k1: Signing {
+    
+    public init() {}
     
     /// Sign a message message hash
     /// - Parameters:
     ///   - messageHash: 32 bytes message
     /// - Returns: The R|S signature
-    func sign(message: Data, withSecret secret: VCCryptoSecret) throws -> Data {
+    public func sign(message: Data, withSecret secret: VCCryptoSecret) throws -> Data {
         
         // Validate params
         guard secret is Secret else { throw Secp256k1Error.invalidSecret }
@@ -71,7 +73,7 @@ struct Secp256k1: Signing {
     ///   - signature: The signature to validate
     ///   - messageHash: The message hash
     /// - Returns: True if the signature is valid
-    func isValidSignature(signature: Data,
+    public func isValidSignature(signature: Data,
                           forMessage message: Data,
                           usingPublicKey publicKey: PublicKey) throws -> Bool {
         // Validate params
@@ -120,7 +122,7 @@ struct Secp256k1: Signing {
         return isValid
     }
     
-    func createPublicKey(forSecret secret: VCCryptoSecret) throws -> PublicKey {
+    public func createPublicKey(forSecret secret: VCCryptoSecret) throws -> PublicKey {
         let (_, publicKey) = try self.createKeyPair(forSecret: secret)
         return publicKey
     }

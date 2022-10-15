@@ -24,6 +24,7 @@ struct MockVCCryptoSecret: VCCryptoSecret {
 }
 
 struct MockAlgorithm: Signing {
+    
     let x: Data
     let y: Data
     
@@ -37,15 +38,15 @@ struct MockAlgorithm: Signing {
         self.y = y
     }
     
-    func getPublicKey() throws -> PublicKey {
-        return Secp256k1PublicKey(x: self.x, y: self.y)!
+    func sign(message: Data, withSecret secret: VCCryptoSecret) throws -> Data {
+        return message
     }
     
-    func sign(messageHash: Data) throws -> Data {
-        return messageHash
-    }
-    
-    func isValidSignature(signature: Data, forMessage message: Data) throws -> Bool {
+    func isValidSignature(signature: Data, forMessage message: Data, usingPublicKey publicKey: PublicKey) throws -> Bool {
         true
+    }
+    
+    func createPublicKey(forSecret secret: VCCryptoSecret) throws -> PublicKey {
+        return Secp256k1PublicKey(x: self.x, y: self.y)!
     }
 }

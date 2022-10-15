@@ -28,15 +28,11 @@ class MockCryptoOperations: CryptoOperating {
         return verifyResult
     }
     
-    func sign(messageHash: Data, usingSecret secret: VCCryptoSecret) throws -> Data {
+    func sign(message: Data, usingSecret secret: VCCryptoSecret, algorithm: String = "mock") throws -> Data {
         return signingResult ?? Data()
     }
     
-    func getPublicKey(fromSecret secret: VCCryptoSecret) throws -> PublicKey {
+    func getPublicKey(fromSecret secret: VCCryptoSecret, algorithm: String = "mock") throws -> PublicKey {
         return publicKey ?? Secp256k1PublicKey(x: Data(count: 32), y: Data(count: 32))!
-    }
-    
-    func hash(message: Data, algorithm: SupportedHashAlgorithm) -> Data {
-        return Data()
     }
 }
