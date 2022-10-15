@@ -3,15 +3,16 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-@testable import VCCrypto
+public struct SigningAlgorithm {
+    let curve: String
+    
+    let algorithm: Signing
+    
+    let supportedSigningOperations: SupportedSigningOperations
+}
 
-final class PublicKeyMock: PublicKey, Equatable {
-    
-    var algorithm: SupportedSigningAlgorithm = .Secp256k1
-    
-    var uncompressedValue: Data = Data(count: 32)
-    
-    static func == (lhs: PublicKeyMock, rhs: PublicKeyMock) -> Bool {
-        return lhs.uncompressedValue == rhs.uncompressedValue
-    }
+public enum SupportedSigningOperations {
+    case Signing
+    case Verification
+    case All
 }

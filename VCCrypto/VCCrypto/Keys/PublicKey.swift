@@ -7,7 +7,7 @@
 public protocol PublicKey {
     
     /// Currently supported algorithms for signature verification.
-    var algorithm: SupportedVerificationAlgorithm { get }
+    var algorithm: SupportedSigningAlgorithm { get }
     
     /// Uncompressed value of the public key.
     var uncompressedValue: Data { get }

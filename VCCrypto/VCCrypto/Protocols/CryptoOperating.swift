@@ -9,9 +9,6 @@ public protocol CryptoOperating {
     /// Sign a message using a specific secret, and return the signature.
     func sign(message: Data, usingSecret secret: VCCryptoSecret) throws -> Data
     
-    /// Hash a message using one of the supported hash algorithms.
-    func hash(message: Data, algorithm: SupportedHashAlgorithm) -> Data
-    
     /// Get a public key derived from the secret.
     func getPublicKey(fromSecret secret: VCCryptoSecret) throws -> PublicKey
     

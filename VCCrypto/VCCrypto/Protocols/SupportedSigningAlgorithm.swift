@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public enum SupportedVerificationAlgorithm: String {
+public enum SupportedSigningAlgorithm: String {
     case ED25519 = "ED25519"
     case Secp256k1 = "SECP256K1"
 }
