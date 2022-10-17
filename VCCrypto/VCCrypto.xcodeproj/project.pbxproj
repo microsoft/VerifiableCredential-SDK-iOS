@@ -23,6 +23,8 @@
 		5522B19828FA3072006C6BA4 /* SigningAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19728FA3072006C6BA4 /* SigningAlgorithm.swift */; };
 		5522B19A28FA3962006C6BA4 /* SupportedSigningAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19928FA3962006C6BA4 /* SupportedSigningAlgorithm.swift */; };
 		5522B19C28FA3A0F006C6BA4 /* CryptoOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19B28FA3A0F006C6BA4 /* CryptoOperationsTests.swift */; };
+		5522B19E28FCC295006C6BA4 /* KeyManagementOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19D28FCC295006C6BA4 /* KeyManagementOperationsTests.swift */; };
+		5522B1A028FCC4D3006C6BA4 /* VCSDKConfigurationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19F28FCC4D3006C6BA4 /* VCSDKConfigurationMock.swift */; };
 		552ACE3128F0CF070016D5BC /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552ACE3028F0CF070016D5BC /* PublicKey.swift */; };
 		552ACE3528F4A4430016D5BC /* CryptoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552ACE3428F4A4430016D5BC /* CryptoOperations.swift */; };
 		552ACE6928F4D5120016D5BC /* CryptoOperating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552ACE6828F4D5120016D5BC /* CryptoOperating.swift */; };
@@ -101,6 +103,8 @@
 		5522B19728FA3072006C6BA4 /* SigningAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningAlgorithm.swift; sourceTree = "<group>"; };
 		5522B19928FA3962006C6BA4 /* SupportedSigningAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedSigningAlgorithm.swift; sourceTree = "<group>"; };
 		5522B19B28FA3A0F006C6BA4 /* CryptoOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoOperationsTests.swift; sourceTree = "<group>"; };
+		5522B19D28FCC295006C6BA4 /* KeyManagementOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManagementOperationsTests.swift; sourceTree = "<group>"; };
+		5522B19F28FCC4D3006C6BA4 /* VCSDKConfigurationMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSDKConfigurationMock.swift; sourceTree = "<group>"; };
 		552ACE3028F0CF070016D5BC /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		552ACE3428F4A4430016D5BC /* CryptoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoOperations.swift; sourceTree = "<group>"; };
 		552ACE6828F4D5120016D5BC /* CryptoOperating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoOperating.swift; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 				92CDE7D324DCCE1C00F95B5D /* Mocks */,
 				92CDE7BA24DC78DD00F95B5D /* Info.plist */,
 				5522B19B28FA3A0F006C6BA4 /* CryptoOperationsTests.swift */,
+				5522B19D28FCC295006C6BA4 /* KeyManagementOperationsTests.swift */,
 				55ADE29A24F5757100D9990E /* Sha256Tests.swift */,
 				92CDE7DF24DDD24700F95B5D /* Sha512Tests.swift */,
 				92CDE7E124DDF1A900F95B5D /* HmacSha512Tests.swift */,
@@ -292,6 +297,7 @@
 				5522B19128FA210C006C6BA4 /* PublicKeyMock.swift */,
 				5522B19328FA21C1006C6BA4 /* SigningMock.swift */,
 				5522B19528FA21CC006C6BA4 /* HashingMock.swift */,
+				5522B19F28FCC4D3006C6BA4 /* VCSDKConfigurationMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -519,6 +525,8 @@
 				5522B19228FA210C006C6BA4 /* PublicKeyMock.swift in Sources */,
 				928AAF7324EEE0AB0029A8F9 /* Secp256k1PublicKeyTests.swift in Sources */,
 				92CDE7D724DCD07D00F95B5D /* Secp256k1Tests.swift in Sources */,
+				5522B1A028FCC4D3006C6BA4 /* VCSDKConfigurationMock.swift in Sources */,
+				5522B19E28FCC295006C6BA4 /* KeyManagementOperationsTests.swift in Sources */,
 				92CDE7D524DCCE3C00F95B5D /* SecretStoreMock.swift in Sources */,
 				2F848B63282D51D7005D3176 /* AesTests.swift in Sources */,
 				5522B19428FA21C2006C6BA4 /* SigningMock.swift in Sources */,
