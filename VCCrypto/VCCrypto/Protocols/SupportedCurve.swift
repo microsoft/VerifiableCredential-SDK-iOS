@@ -3,7 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public enum SupportedSigningAlgorithm: String {
+/// Supported curve algorithms used for signing/verification
+public enum SupportedCurve: String {
     case ED25519 = "ED25519"
     case Secp256k1 = "SECP256K1"
 }

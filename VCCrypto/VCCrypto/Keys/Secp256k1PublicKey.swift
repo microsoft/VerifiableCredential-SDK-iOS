@@ -13,7 +13,7 @@ public class Secp256k1PublicKey: PublicKey {
     public let x: Data
     public let y: Data
     
-    public let algorithm = SupportedSigningAlgorithm.Secp256k1.rawValue
+    public let algorithm = SupportedCurve.Secp256k1.rawValue
     
     public var uncompressedValue: Data {
         var value = Data()

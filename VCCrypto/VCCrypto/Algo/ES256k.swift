@@ -5,7 +5,7 @@
 
 import Foundation
 
-/// Algorithm that hashes message and signs using Secp256k1
+/// Algorithm that hashes message and signs/verifies using Secp256k1
 struct ES256k: Signing {
     
     /// Supported hashing algorithm for ES256k
@@ -22,19 +22,12 @@ struct ES256k: Signing {
     }
     
     /// Hashes and signs a message
-    /// - Parameters:
-    ///   - message: 32 bytes message
-    /// - Returns: The signature
     func sign(message: Data, withSecret secret: VCCryptoSecret) throws -> Data {
         let hashedMessage = hashAlgorithm.hash(data: message)
         return try curveAlgorithm.sign(message: hashedMessage, withSecret: secret)
     }
     
-    /// Validate a signature
-    /// - Parameters:
-    ///   - signature: The signature to validate
-    ///   - messageHash: The message hash
-    /// - Returns: True if the signature is valid
+    /// Hashes message and validates the signature
     func isValidSignature(signature: Data,
                           forMessage message: Data,
                           usingPublicKey publicKey: PublicKey) throws -> Bool {
@@ -43,6 +36,7 @@ struct ES256k: Signing {
        
     }
     
+    /// Create public key using secp256k1 curve and return PublicKey
     func createPublicKey(forSecret secret: VCCryptoSecret) throws -> PublicKey {
         return try curveAlgorithm.createPublicKey(forSecret: secret)
     }

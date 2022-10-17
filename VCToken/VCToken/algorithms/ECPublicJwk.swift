@@ -61,6 +61,7 @@ public struct ECPublicJwk: Codable, Equatable {
         
         var encodedJwk = "{\"crv\":\"\(curve)\",\"kty\":\"\(keyType)\",\"x\":\"\(x)\""
         
+        /// ED25519 keys do not have y value, but Secp256k1 do.
         if let y = y {
             encodedJwk.append(",\"y\":\"\(y)\"}")
         }

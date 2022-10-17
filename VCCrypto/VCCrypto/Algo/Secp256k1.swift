@@ -22,9 +22,6 @@ public struct Secp256k1: Signing {
     public init() {}
     
     /// Sign a message message hash
-    /// - Parameters:
-    ///   - messageHash: 32 bytes message
-    /// - Returns: The R|S signature
     public func sign(message: Data, withSecret secret: VCCryptoSecret) throws -> Data {
         
         // Validate params
@@ -68,11 +65,7 @@ public struct Secp256k1: Signing {
         return rsSignature
     }
     
-    /// Validate a signature
-    /// - Parameters:
-    ///   - signature: The signature to validate
-    ///   - messageHash: The message hash
-    /// - Returns: True if the signature is valid
+    /// Validate a signature using secp256k1 curve.
     public func isValidSignature(signature: Data,
                           forMessage message: Data,
                           usingPublicKey publicKey: PublicKey) throws -> Bool {
@@ -122,14 +115,13 @@ public struct Secp256k1: Signing {
         return isValid
     }
     
+    /// Create public key from secret using secp256k1 curve
     public func createPublicKey(forSecret secret: VCCryptoSecret) throws -> PublicKey {
         let (_, publicKey) = try self.createKeyPair(forSecret: secret)
         return publicKey
     }
     
     /// Create a key pair from a secret
-    /// - Parameter secret: The Secret used to generate the public key
-    /// - Returns: The key pair
     public func createKeyPair(forSecret secret: VCCryptoSecret) throws -> (EphemeralSecret, Secp256k1PublicKey) {
         // Validate params
         guard secret is Secret else { throw Secp256k1Error.invalidSecret }
@@ -142,8 +134,6 @@ public struct Secp256k1: Signing {
     }
     
     /// Create a public key from a private key
-    /// - Parameter secret: The Secret used to generate the public key
-    /// - Returns: The public key
     public func createPublicKey(forPrivateKey privateKey: EphemeralSecret) throws -> Secp256k1PublicKey {
         
         // Create the context and public key data structure

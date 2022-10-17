@@ -21,7 +21,7 @@
 		5522B19428FA21C2006C6BA4 /* SigningMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19328FA21C1006C6BA4 /* SigningMock.swift */; };
 		5522B19628FA21CC006C6BA4 /* HashingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19528FA21CC006C6BA4 /* HashingMock.swift */; };
 		5522B19828FA3072006C6BA4 /* SigningAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19728FA3072006C6BA4 /* SigningAlgorithm.swift */; };
-		5522B19A28FA3962006C6BA4 /* SupportedSigningAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19928FA3962006C6BA4 /* SupportedSigningAlgorithm.swift */; };
+		5522B19A28FA3962006C6BA4 /* SupportedCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19928FA3962006C6BA4 /* SupportedCurve.swift */; };
 		5522B19C28FA3A0F006C6BA4 /* CryptoOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19B28FA3A0F006C6BA4 /* CryptoOperationsTests.swift */; };
 		5522B19E28FCC295006C6BA4 /* KeyManagementOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19D28FCC295006C6BA4 /* KeyManagementOperationsTests.swift */; };
 		5522B1A028FCC4D3006C6BA4 /* VCSDKConfigurationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B19F28FCC4D3006C6BA4 /* VCSDKConfigurationMock.swift */; };
@@ -101,7 +101,7 @@
 		5522B19328FA21C1006C6BA4 /* SigningMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningMock.swift; sourceTree = "<group>"; };
 		5522B19528FA21CC006C6BA4 /* HashingMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashingMock.swift; sourceTree = "<group>"; };
 		5522B19728FA3072006C6BA4 /* SigningAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningAlgorithm.swift; sourceTree = "<group>"; };
-		5522B19928FA3962006C6BA4 /* SupportedSigningAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedSigningAlgorithm.swift; sourceTree = "<group>"; };
+		5522B19928FA3962006C6BA4 /* SupportedCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedCurve.swift; sourceTree = "<group>"; };
 		5522B19B28FA3A0F006C6BA4 /* CryptoOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoOperationsTests.swift; sourceTree = "<group>"; };
 		5522B19D28FCC295006C6BA4 /* KeyManagementOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManagementOperationsTests.swift; sourceTree = "<group>"; };
 		5522B19F28FCC4D3006C6BA4 /* VCSDKConfigurationMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSDKConfigurationMock.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 				55B5DA7B28F5F6AB00C24A28 /* SupportedHashAlgorithm.swift */,
 				5540903C25000F6A001246DB /* Signing.swift */,
 				5522B18B28FA074F006C6BA4 /* Hashing.swift */,
-				5522B19928FA3962006C6BA4 /* SupportedSigningAlgorithm.swift */,
+				5522B19928FA3962006C6BA4 /* SupportedCurve.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -274,11 +274,11 @@
 			children = (
 				2F848B58282D50D5005D3176 /* Aes.swift */,
 				5590DE2128EF7F4800FB4AA5 /* EdDSA.swift */,
+				55B5DAF628F9FCF600C24A28 /* ES256k.swift */,
 				2F848B59282D50D5005D3176 /* HmacSha2.swift */,
 				2F848B5A282D50D5005D3176 /* HmacSha2AesCbc.swift */,
 				2F848B57282D50D5005D3176 /* Pbkdf.swift */,
 				92CDE7D124DCA6CF00F95B5D /* Secp256k1.swift */,
-				55B5DAF628F9FCF600C24A28 /* ES256k.swift */,
 				92CDE7D824DDBA0500F95B5D /* HmacSha512.swift */,
 				92CDE7DA24DDC65100F95B5D /* Sha512.swift */,
 				55ADE29824F5752500D9990E /* Sha256.swift */,
@@ -504,7 +504,7 @@
 				55ADE29924F5752500D9990E /* Sha256.swift in Sources */,
 				5522B19828FA3072006C6BA4 /* SigningAlgorithm.swift in Sources */,
 				92CDE80824E1F7AF00F95B5D /* Secret.swift in Sources */,
-				5522B19A28FA3962006C6BA4 /* SupportedSigningAlgorithm.swift in Sources */,
+				5522B19A28FA3962006C6BA4 /* SupportedCurve.swift in Sources */,
 				5522B18C28FA074F006C6BA4 /* Hashing.swift in Sources */,
 				92CDE7D224DCA6CF00F95B5D /* Secp256k1.swift in Sources */,
 				2F848B5C282D50D5005D3176 /* Aes.swift in Sources */,

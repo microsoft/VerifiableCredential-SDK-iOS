@@ -34,9 +34,9 @@ public struct TokenVerifier: TokenVerifying {
     
     private func transformKey(key: JWK) throws -> PublicKey {
         switch key.curve?.uppercased() {
-        case SupportedSigningAlgorithm.Secp256k1.rawValue:
+        case SupportedCurve.Secp256k1.rawValue:
             return try transformSecp256k1(key: key)
-        case SupportedSigningAlgorithm.ED25519.rawValue:
+        case SupportedCurve.ED25519.rawValue:
             return try transformED25519(key: key)
         default:
             throw TokenVerifierError.unsupportedAlgorithmFoundInJWK(algorithm: key.curve)

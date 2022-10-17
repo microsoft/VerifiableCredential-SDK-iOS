@@ -7,7 +7,7 @@ import Foundation
 
 public class ED25519PublicKey: PublicKey {
    
-    public let algorithm = SupportedSigningAlgorithm.ED25519.rawValue
+    public let algorithm = SupportedCurve.ED25519.rawValue
     
     public let uncompressedValue: Data
     
