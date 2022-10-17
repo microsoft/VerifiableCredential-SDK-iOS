@@ -5,9 +5,10 @@
 
 import VCCrypto
 
-enum TokenVerifierError: Error {
-    case unsupportedAlgorithmFoundInJWK
-    case malformedJWK
+enum TokenVerifierError: Error, Equatable {
+    case malformedProtectedMessageInToken
+    case missingKeyMaterialInJWK
+    case unsupportedAlgorithmFoundInJWK(algorithm: String?)
 }
 
 public struct TokenVerifier: TokenVerifying {
@@ -25,7 +26,7 @@ public struct TokenVerifier: TokenVerifying {
         }
         
         guard let encodedMessage = token.protectedMessage.data(using: .ascii) else {
-            throw VCTokenError.unableToParseString
+            throw TokenVerifierError.malformedProtectedMessageInToken
         }
         
         return try cryptoOperations.verify(signature: signature, forMessage: encodedMessage, usingPublicKey: transformKey(key: key))
@@ -38,14 +39,14 @@ public struct TokenVerifier: TokenVerifying {
         case SupportedSigningAlgorithm.ED25519.rawValue:
             return try transformED25519(key: key)
         default:
-            throw TokenVerifierError.unsupportedAlgorithmFoundInJWK
+            throw TokenVerifierError.unsupportedAlgorithmFoundInJWK(algorithm: key.curve)
         }
     }
     
     private func transformSecp256k1(key: JWK) throws -> Secp256k1PublicKey {
         guard let x = key.x, let y = key.y,
               let secpKey = Secp256k1PublicKey(x: x, y: y) else {
-            throw TokenVerifierError.malformedJWK
+            throw TokenVerifierError.missingKeyMaterialInJWK
         }
         
         return secpKey
@@ -54,7 +55,7 @@ public struct TokenVerifier: TokenVerifying {
     private func transformED25519(key: JWK) throws -> ED25519PublicKey {
         guard let x = key.x,
               let edKey = ED25519PublicKey(x: x) else {
-            throw TokenVerifierError.malformedJWK
+            throw TokenVerifierError.missingKeyMaterialInJWK
         }
         
         return edKey

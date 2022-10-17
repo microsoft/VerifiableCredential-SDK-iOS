@@ -54,7 +54,7 @@ class Secp256k1Tests: XCTestCase {
                             y: Data(count: 32),
                             d: nil)
         let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
-        XCTAssertEqual(result, false)
+        XCTAssertFalse(result)
     }
     
     func testVerifierWithSignatureWithPublicKey() throws {
@@ -69,7 +69,7 @@ class Secp256k1Tests: XCTestCase {
                             y: Data(count: 32),
                             d: nil)
         let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
-        XCTAssertEqual(result, true)
+        XCTAssertTrue(result)
     }
     
     func testVerifierWithSignatureWithInvalidSignature() throws {
@@ -84,6 +84,6 @@ class Secp256k1Tests: XCTestCase {
                             y: Data(count: 32),
                             d: nil)
         let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
-        XCTAssertEqual(result, false)
+        XCTAssertFalse(result)
     }
 }

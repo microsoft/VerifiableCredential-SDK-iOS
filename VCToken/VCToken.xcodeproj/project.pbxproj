@@ -14,6 +14,7 @@
 		2F848B6E282D5266005D3176 /* JweDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F848B6A282D5266005D3176 /* JweDecoder.swift */; };
 		550F1E56251019BA009AF467 /* KeyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E55251019BA009AF467 /* KeyId.swift */; };
 		550F1E6125115866009AF467 /* ECPublicJwkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550F1E6025115866009AF467 /* ECPublicJwkTests.swift */; };
+		5522B1A228FCD91F006C6BA4 /* TokenVerifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522B1A128FCD91F006C6BA4 /* TokenVerifierTests.swift */; };
 		55269351250006020051A358 /* VCTokenError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55269350250006020051A358 /* VCTokenError.swift */; };
 		552ACE3328F494020016D5BC /* MockCryptoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552ACE3228F494020016D5BC /* MockCryptoOperations.swift */; };
 		5540903F25002141001246DB /* MockVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540903E25002141001246DB /* MockVerifier.swift */; };
@@ -58,6 +59,7 @@
 		2F848B6A282D5266005D3176 /* JweDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JweDecoder.swift; sourceTree = "<group>"; };
 		550F1E55251019BA009AF467 /* KeyId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyId.swift; sourceTree = "<group>"; };
 		550F1E6025115866009AF467 /* ECPublicJwkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECPublicJwkTests.swift; sourceTree = "<group>"; };
+		5522B1A128FCD91F006C6BA4 /* TokenVerifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVerifierTests.swift; sourceTree = "<group>"; };
 		55269350250006020051A358 /* VCTokenError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTokenError.swift; sourceTree = "<group>"; };
 		552ACE3228F494020016D5BC /* MockCryptoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCryptoOperations.swift; sourceTree = "<group>"; };
 		5540903E25002141001246DB /* MockVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVerifier.swift; sourceTree = "<group>"; };
@@ -111,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				55ADE27A24F5410300D9990E /* Secp256k1Signer.swift */,
-				55C6C4A5250816500082BE73 /* TokenVerifier.swift */,
 				5540904A2500311E001246DB /* ECPublicJwk.swift */,
 				2F848B65282D5236005D3176 /* PbesJwe.swift */,
 			);
@@ -152,6 +153,7 @@
 				55ADE27E24F5411E00D9990E /* JwsEncoder.swift */,
 				55ADE28024F5412100D9990E /* JwsDecoder.swift */,
 				55ADE28224F5412600D9990E /* TokenSigning.swift */,
+				55C6C4A5250816500082BE73 /* TokenVerifier.swift */,
 				55ADE28424F5412900D9990E /* TokenVerifying.swift */,
 				55269350250006020051A358 /* VCTokenError.swift */,
 				55ADE25A24F5406000D9990E /* VCToken.h */,
@@ -169,6 +171,7 @@
 				55ADE28B24F542A200D9990E /* JwsEncoderTests.swift */,
 				55ADE29C24F583DB00D9990E /* JwsDecoderTests.swift */,
 				55ADE29224F5583700D9990E /* JwsTokenTests.swift */,
+				5522B1A128FCD91F006C6BA4 /* TokenVerifierTests.swift */,
 				55ADE29624F56A8100D9990E /* Secp256k1Tests.swift */,
 				55ADE2A024F585B100D9990E /* ClaimsTest.swift */,
 			);
@@ -335,6 +338,7 @@
 				55ADE29124F557C800D9990E /* MockSigner.swift in Sources */,
 				55ADE29724F56A8100D9990E /* Secp256k1Tests.swift in Sources */,
 				552ACE3328F494020016D5BC /* MockCryptoOperations.swift in Sources */,
+				5522B1A228FCD91F006C6BA4 /* TokenVerifierTests.swift in Sources */,
 				55ADE28F24F5433500D9990E /* MockClaims.swift in Sources */,
 				55ADE29D24F583DB00D9990E /* JwsDecoderTests.swift in Sources */,
 				55ADE29324F5583700D9990E /* JwsTokenTests.swift in Sources */,
