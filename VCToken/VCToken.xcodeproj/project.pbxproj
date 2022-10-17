@@ -109,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5522B1A328FCF1F0006C6BA4 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				55ADE28224F5412600D9990E /* TokenSigning.swift */,
+				55ADE28424F5412900D9990E /* TokenVerifying.swift */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
 		5526934F24FF32850051A358 /* algorithms */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +150,7 @@
 		55ADE25924F5406000D9990E /* VCToken */ = {
 			isa = PBXGroup;
 			children = (
+				5522B1A328FCF1F0006C6BA4 /* protocols */,
 				5526934F24FF32850051A358 /* algorithms */,
 				2F848B6A282D5266005D3176 /* JweDecoder.swift */,
 				2F848B67282D5266005D3176 /* JweEncoder.swift */,
@@ -152,9 +162,7 @@
 				550F1E55251019BA009AF467 /* KeyId.swift */,
 				55ADE27E24F5411E00D9990E /* JwsEncoder.swift */,
 				55ADE28024F5412100D9990E /* JwsDecoder.swift */,
-				55ADE28224F5412600D9990E /* TokenSigning.swift */,
 				55C6C4A5250816500082BE73 /* TokenVerifier.swift */,
-				55ADE28424F5412900D9990E /* TokenVerifying.swift */,
 				55269350250006020051A358 /* VCTokenError.swift */,
 				55ADE25A24F5406000D9990E /* VCToken.h */,
 				55ADE25B24F5406000D9990E /* Info.plist */,

@@ -41,49 +41,4 @@ class Secp256k1Tests: XCTestCase {
         XCTAssertEqual(result.y, expectedPubKey.y)
         XCTAssertEqual(result.keyId, expectedPubKey.keyId)
     }
-
-    func testVerifierWithNoSignature() throws {
-        let verifier = TokenVerifier(cryptoOperations: MockCryptoOperations())
-        testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: nil)
-        let publicKey = JWK(keyType: "testType",
-                            keyId: nil,
-                            key: nil,
-                            curve: nil,
-                            use: nil,
-                            x: Data(count: 32),
-                            y: Data(count: 32),
-                            d: nil)
-        let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
-        XCTAssertFalse(result)
-    }
-    
-    func testVerifierWithSignatureWithPublicKey() throws {
-        let verifier = TokenVerifier(cryptoOperations: MockCryptoOperations())
-        testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: "testSignature".data(using: .utf8))
-        let publicKey = JWK(keyType: "testType",
-                            keyId: nil,
-                            key: nil,
-                            curve: "secp256k1",
-                            use: nil,
-                            x: Data(count: 32),
-                            y: Data(count: 32),
-                            d: nil)
-        let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
-        XCTAssertTrue(result)
-    }
-    
-    func testVerifierWithSignatureWithInvalidSignature() throws {
-        let verifier = TokenVerifier(cryptoOperations: MockCryptoOperations(verifyResult: false))
-        testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: "testSignature".data(using: .utf8))
-        let publicKey = JWK(keyType: "testType",
-                            keyId: nil,
-                            key: nil,
-                            curve: "secp256k1",
-                            use: nil,
-                            x: Data(count: 32),
-                            y: Data(count: 32),
-                            d: nil)
-        let result = try verifier.verify(token: testToken, usingPublicKey: publicKey)
-        XCTAssertFalse(result)
-    }
 }

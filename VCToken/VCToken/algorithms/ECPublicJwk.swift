@@ -5,6 +5,7 @@
 
 import VCCrypto
 
+/// TODO: deprecate entity for JWK
 public struct ECPublicJwk: Codable, Equatable {
     public let keyType: String
     public let keyId: String?
