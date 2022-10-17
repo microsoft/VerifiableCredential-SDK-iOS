@@ -5,14 +5,17 @@
 
 import VCCrypto
 
+enum Secp256k1SignerError: Error {
+    case unableToCastPublicKeyToSecp256K1PublicKey
+}
+
+/// TODO: refactor class to be a generic signer.
 public struct Secp256k1Signer: TokenSigning {
     
-    private let algorithm: Signing
-    private let hashAlgorithm: Sha256
+    private let cryptoOperations: CryptoOperating
     
-    public init(using algorithm: Signing = Secp256k1(), andHashAlgorithm hashAlg: Sha256 = Sha256()) {
-        self.algorithm = algorithm
-        self.hashAlgorithm = hashAlg
+    public init(cryptoOperations: CryptoOperating = CryptoOperations()) {
+        self.cryptoOperations = cryptoOperations
     }
 
     public func sign<T>(token: JwsToken<T>, withSecret secret: VCCryptoSecret) throws -> Signature {
@@ -23,12 +26,20 @@ public struct Secp256k1Signer: TokenSigning {
             throw VCTokenError.unableToParseData
         }
         
-        let hashedMessage = hashAlgorithm.hash(data: messageData)
-        return try algorithm.sign(messageHash: hashedMessage, withSecret: secret)
+        return try cryptoOperations.sign(message: messageData,
+                                         usingSecret: secret,
+                                         algorithm: SupportedCurve.Secp256k1.rawValue)
     }
     
     public func getPublicJwk(from secret: VCCryptoSecret, withKeyId keyId: String) throws -> ECPublicJwk {
-        let key = try self.algorithm.createPublicKey(forSecret: secret)
+        
+        let publicKey = try cryptoOperations.getPublicKey(fromSecret: secret,
+                                                          algorithm: SupportedCurve.Secp256k1.rawValue)
+        
+        guard let key = publicKey as? Secp256k1PublicKey else {
+            throw Secp256k1SignerError.unableToCastPublicKeyToSecp256K1PublicKey
+        }
+        
         return ECPublicJwk(withPublicKey: key, withKeyId: keyId)
     }
 }

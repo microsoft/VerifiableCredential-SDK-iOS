@@ -13,10 +13,10 @@ public struct IdentifierDocumentPublicKey: Codable, Equatable {
     let purposes: [String]?
     
     public init(id: String?,
-         type: String,
-         controller: String?,
-         publicKeyJwk: ECPublicJwk,
-         purposes: [String]?) {
+                type: String,
+                controller: String?,
+                publicKeyJwk: ECPublicJwk,
+                purposes: [String]?) {
         self.id = id
         self.type = type
         self.controller = controller

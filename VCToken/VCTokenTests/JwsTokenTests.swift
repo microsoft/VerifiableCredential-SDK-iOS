@@ -75,7 +75,14 @@ class JwsTokenTests: XCTestCase {
     func testVerifying() throws {
         let expectedHeader = Header(algorithm: "ES256K")
         let testToken = JwsToken(headers: expectedHeader, content: expectedContent, signature: Data.init(count: 64))
-        let publicKey = ECPublicJwk(x: Data(count: 32).base64URLEncodedString(), y: Data(count: 32).base64URLEncodedString(), keyId: "test")
+        let publicKey = JWK(keyType: "testType",
+                            keyId: nil,
+                            key: nil,
+                            curve: nil,
+                            use: nil,
+                            x: Data(count: 32),
+                            y: Data(count: 32),
+                            d: nil)
         XCTAssertTrue(try testToken!.verify(using: MockVerifier(), withPublicKey: publicKey))
     }
     

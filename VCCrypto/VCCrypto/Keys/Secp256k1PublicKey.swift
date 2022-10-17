@@ -9,11 +9,13 @@ enum PublicKeyFormat: UInt8 {
     case uncompressed = 0x04
 }
 
-public class Secp256k1PublicKey {
+public class Secp256k1PublicKey: PublicKey {
     public let x: Data
     public let y: Data
     
-    var uncompressedValue : Data {
+    public let algorithm = SupportedCurve.Secp256k1.rawValue
+    
+    public var uncompressedValue: Data {
         var value = Data()
         value.append(PublicKeyFormat.uncompressed.rawValue)
         value.append(x)

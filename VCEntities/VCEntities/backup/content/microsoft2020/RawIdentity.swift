@@ -18,7 +18,7 @@ enum RawIdentityError: Error {
 struct RawIdentity: Codable {
     var id: String
     var name: String
-    var keys: [Jwk]?
+    var keys: [JWK]?
     var recoveryKey: String
     var updateKey: String
 
@@ -65,7 +65,7 @@ struct RawIdentity: Codable {
                           alias: self.name)
     }
     
-    func jwkFromKeyContainer(_ keyContainer: KeyContainer) throws -> Jwk {
+    func jwkFromKeyContainer(_ keyContainer: KeyContainer) throws -> JWK {
 
         // Get out the private and public components of the key (pair)
         let secret = keyContainer.keyReference
@@ -76,7 +76,7 @@ struct RawIdentity: Codable {
         }
         
         // Wrap them up in a JSON Web Key
-        return Jwk(keyType: "EC",
+        return JWK(keyType: "EC",
                    keyId: keyContainer.keyId,
                    curve: "secp256k1",
                    use: "sig",
@@ -85,7 +85,7 @@ struct RawIdentity: Codable {
                    d: privateKey.value)
     }
     
-    func keyContainerFromJwk(_ jwk: Jwk) throws -> KeyContainer {
+    func keyContainerFromJwk(_ jwk: JWK) throws -> KeyContainer {
 
         // Get out the ID and the key data
         guard let keyId = jwk.keyId else {

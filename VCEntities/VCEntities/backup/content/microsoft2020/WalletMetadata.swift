@@ -23,14 +23,14 @@ open class WalletMetadata: Codable {
         let string = try container.decode(String.self, forKey: .seed)
         
         // Now, parse the string as a JWK
-        let jwk = try JSONDecoder().decode(Jwk.self, from: string.data(using: .utf8)!)
+        let jwk = try JSONDecoder().decode(JWK.self, from: string.data(using: .utf8)!)
         self.seed = jwk.key!
     }
     
     public func encode(to encoder: Encoder) throws {
         
         // Wrap the seed value in a JWK and encode to a string
-        let jwk = Jwk(keyType: "oct", key: self.seed)
+        let jwk = JWK(keyType: "oct", key: self.seed)
         let string = try String(data: JSONEncoder().encode(jwk), encoding: .utf8)!
         
         var container = encoder.container(keyedBy: Self.CodingKeys)

@@ -27,8 +27,8 @@ class PresentationResponseFormatterTests: XCTestCase {
         
         self.mockResponse = try PresentationResponseContainer(from: self.request)
         
-        let cryptoOperation = CryptoOperations(secretStore: SecretStoreMock(), sdkConfiguration: VCSDKConfiguration.sharedInstance)
-        let key = try cryptoOperation.generateKey()
+        let keyManagementOperations = KeyManagementOperations(secretStore: SecretStoreMock(), sdkConfiguration: VCSDKConfiguration.sharedInstance)
+        let key = try keyManagementOperations.generateKey()
         
         let keyContainer = KeyContainer(keyReference: key, keyId: "keyId")
         self.mockIdentifier = Identifier(longFormDid: "longFormDid", didDocumentKeys: [keyContainer], updateKey: keyContainer, recoveryKey: keyContainer, alias: "testAlias")
