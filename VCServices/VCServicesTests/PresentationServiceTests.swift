@@ -72,7 +72,7 @@ class PresentationServiceTests: XCTestCase {
     
     func testGetRequestMalformedUri() throws {
         let expec = self.expectation(description: "Fire")
-        let malformedUrl = " "
+        let malformedUrl = "///"
         service.getRequest(usingUrl: malformedUrl).done {
             request in
             print(request)
@@ -80,7 +80,7 @@ class PresentationServiceTests: XCTestCase {
             expec.fulfill()
         }.catch { error in
             XCTAssert(error is PresentationServiceError)
-            XCTAssertEqual(error as? PresentationServiceError, .inputStringNotUri)
+            XCTAssertEqual(error as? PresentationServiceError, .noQueryParametersOnUri)
             expec.fulfill()
         }
         
