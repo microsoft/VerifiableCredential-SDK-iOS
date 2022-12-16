@@ -21,4 +21,20 @@ public struct IdTokenDescriptor: Codable, Equatable {
         case redirectURI = "redirect_uri"
         case scope
     }
+    
+    public init(encrypted: Bool? = nil,
+                claims: [ClaimDescriptor],
+                idTokenRequired: Bool? = nil,
+                configuration: String,
+                clientID: String,
+                redirectURI: String? = nil,
+                scope: String? = nil) {
+        self.encrypted = encrypted
+        self.claims = claims
+        self.idTokenRequired = idTokenRequired
+        self.configuration = configuration
+        self.clientID = clientID
+        self.redirectURI = redirectURI
+        self.scope = scope
+    }
 }

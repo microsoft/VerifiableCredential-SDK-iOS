@@ -17,4 +17,18 @@ public struct PresentationDescriptor: Codable, Equatable {
         case presentationRequired = "required"
         case credentialType, issuers, contracts
     }
+    
+    public init(encrypted: Bool? = nil,
+                claims: [ClaimDescriptor],
+                presentationRequired: Bool? = nil,
+                credentialType: String,
+                issuers: [IssuerDescriptor]? = nil,
+                contracts: [String]? = nil) {
+        self.encrypted = encrypted
+        self.claims = claims
+        self.presentationRequired = presentationRequired
+        self.credentialType = credentialType
+        self.issuers = issuers
+        self.contracts = contracts
+    }
 }
