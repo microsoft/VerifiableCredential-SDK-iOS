@@ -8,7 +8,7 @@ public struct ClaimDisplayDescriptor: Codable, Equatable {
     public let type: String
     public let label: String
     
-    public init(type:String, label:String) {
+    public init(type: String, label: String) {
         self.type = type
         self.label = label
     }

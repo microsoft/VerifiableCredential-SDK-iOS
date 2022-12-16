@@ -13,4 +13,12 @@ public struct SelfIssuedClaimsDescriptor: Codable, Equatable {
         case encrypted, claims
         case selfIssuedRequired = "required"
     }
+    
+    public init(encrypted: Bool? = nil,
+                claims: [ClaimDescriptor]? = nil,
+                selfIssuedRequired: Bool? = nil) {
+        self.encrypted = encrypted
+        self.claims = claims
+        self.selfIssuedRequired = selfIssuedRequired
+    }
 }
