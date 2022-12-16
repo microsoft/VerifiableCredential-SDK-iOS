@@ -9,7 +9,7 @@
  * @see [Presentation Exchange Spec](https://identity.foundation/presentation-exchange/#term:input-descriptor-object)
  */
 public struct PresentationInputDescriptor: Codable, Equatable {
-    
+
     /// Unique id of the input descriptor in the presentation definition.
     public let id: String?
     
@@ -31,5 +31,19 @@ public struct PresentationInputDescriptor: Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case issuanceMetadata = "issuance"
         case id, schema, name, purpose, constraints
+    }
+    
+    public init(id: String? = nil,
+                schema: [InputDescriptorSchema]? = nil,
+                issuanceMetadata: [IssuanceMetadata]? = nil,
+                name: String? = nil,
+                purpose: String? = nil,
+                constraints: PresentationExchangeConstraints? = nil) {
+        self.id = id
+        self.schema = schema
+        self.issuanceMetadata = issuanceMetadata
+        self.name = name
+        self.purpose = purpose
+        self.constraints = constraints
     }
 }

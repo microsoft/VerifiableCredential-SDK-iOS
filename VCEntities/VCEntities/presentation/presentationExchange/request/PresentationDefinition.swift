@@ -23,4 +23,12 @@ public struct PresentationDefinition: Codable, Equatable {
         case inputDescriptors = "input_descriptors"
         case id, issuance
     }
+    
+    public init(id: String? = nil,
+                inputDescriptors: [PresentationInputDescriptor]? = nil,
+                issuance: [String]? = nil) {
+        self.id = id
+        self.inputDescriptors = inputDescriptors
+        self.issuance = issuance
+    }
 }
