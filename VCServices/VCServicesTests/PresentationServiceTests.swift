@@ -80,7 +80,7 @@ class PresentationServiceTests: XCTestCase {
             expec.fulfill()
         }.catch { error in
             XCTAssert(error is PresentationServiceError)
-            XCTAssertEqual(error as? PresentationServiceError, .noQueryParametersOnUri)
+            XCTAssertEqual(error as? PresentationServiceError, .inputStringNotUri)
             expec.fulfill()
         }
         

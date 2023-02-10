@@ -46,18 +46,4 @@ public struct PresentationInputDescriptor: Codable, Equatable {
         case issuanceMetadata = "issuance"
         case id, schema, name, purpose, constraints
     }
-    
-    public init(id: String? = nil,
-                schema: [InputDescriptorSchema]? = nil,
-                issuanceMetadata: [IssuanceMetadata]? = nil,
-                name: String? = nil,
-                purpose: String? = nil,
-                constraints: PresentationExchangeConstraints? = nil) {
-        self.id = id
-        self.schema = schema
-        self.issuanceMetadata = issuanceMetadata
-        self.name = name
-        self.purpose = purpose
-        self.constraints = constraints
-    }
 }

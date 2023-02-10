@@ -44,16 +44,4 @@ public struct RegistrationClaims: Codable, Equatable {
         case subjectIdentifierTypesSupported = "subject_syntax_types_supported"
         case vpFormats = "vp_formats"
     }
-    
-    public init(clientName: String? = nil,
-                clientPurpose: String? = nil,
-                logoURI: String? = nil,
-                subjectIdentifierTypesSupported: [String]? = nil,
-                vpFormats: SupportedVerifiablePresentationFormats? = nil) {
-        self.clientName = clientName
-        self.clientPurpose = clientPurpose
-        self.logoURI = logoURI
-        self.subjectIdentifierTypesSupported = subjectIdentifierTypesSupported
-        self.vpFormats = vpFormats
-    }
 }

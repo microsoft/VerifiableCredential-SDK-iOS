@@ -16,8 +16,4 @@ public struct InputDescriptorSchema: Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case uri
     }
-    
-    public init(uri: String? = nil) {
-        self.uri = uri
-    }
 }

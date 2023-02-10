@@ -18,9 +18,4 @@ public struct IssuanceMetadata: Codable, Equatable {
         case contract = "manifest"
         case issuerDid = "did"
     }
-    
-    public init(contract: String? = nil, issuerDid: String? = nil) {
-        self.contract = contract
-        self.issuerDid = issuerDid
-    }
 }
