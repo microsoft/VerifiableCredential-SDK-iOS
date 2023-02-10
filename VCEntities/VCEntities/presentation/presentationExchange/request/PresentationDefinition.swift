@@ -19,6 +19,14 @@ public struct PresentationDefinition: Codable, Equatable {
     /// Describes how a Holder can obtain requested information if they do not have it already.
     public let issuance: [String]?
     
+    public init(id: String?,
+                inputDescriptors: [PresentationInputDescriptor]?,
+                issuance: [String]?) {
+        self.id = id
+        self.inputDescriptors = inputDescriptors
+        self.issuance = issuance
+    }
+    
     enum CodingKeys: String, CodingKey {
         case inputDescriptors = "input_descriptors"
         case id, issuance

@@ -28,6 +28,20 @@ public struct PresentationInputDescriptor: Codable, Equatable {
     /// Describes constraints that the Holder must satisfy in response for presentation definition.
     public let constraints: PresentationExchangeConstraints?
     
+    public init(id: String?,
+                schema: [InputDescriptorSchema]?,
+                issuanceMetadata: [IssuanceMetadata]?,
+                name: String?,
+                purpose: String?,
+                constraints: PresentationExchangeConstraints?) {
+        self.id = id
+        self.schema = schema
+        self.issuanceMetadata = issuanceMetadata
+        self.name = name
+        self.purpose = purpose
+        self.constraints = constraints
+    }
+    
     enum CodingKeys: String, CodingKey {
         case issuanceMetadata = "issuance"
         case id, schema, name, purpose, constraints
