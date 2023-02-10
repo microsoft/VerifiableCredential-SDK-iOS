@@ -16,4 +16,9 @@ public struct SupportedVerifiablePresentationFormats: Codable, Equatable {
         case jwtVP = "jwt_vp"
         case jwtVC = "jwt_vc"
     }
+    
+    public init(jwtVP: AllowedAlgorithms? = nil, jwtVC: AllowedAlgorithms? = nil) {
+        self.jwtVP = jwtVP
+        self.jwtVC = jwtVC
+    }
 }

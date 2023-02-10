@@ -63,8 +63,8 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
         self.jti = jti
         self.clientID = clientID
         self.redirectURI = redirectURI
-        self.responseMode = responseMode
         self.responseType = responseType
+        self.responseMode = responseMode
         self.claims = claims
         self.state = state
         self.nonce = nonce

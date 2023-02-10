@@ -20,6 +20,11 @@ public struct PresentationExchangeFilter: Codable, Equatable {
         case type, pattern
     }
     
+    public init(type: String? = nil, pattern: NSRegularExpression? = nil) {
+        self.type = type
+        self.pattern = pattern
+    }
+    
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         type = try values.decodeIfPresent(String.self, forKey: .type)
