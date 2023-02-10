@@ -9,11 +9,11 @@ public struct InputDescriptorSchema: Codable, Equatable {
     /// List of uris that describe the credential requested.
     public let uri: String?
     
-    enum CodingKeys: String, CodingKey {
-        case uri
+    public init(uri: String?) {
+        self.uri = uri
     }
     
-    public init(uri: String? = nil) {
-        self.uri = uri
+    enum CodingKeys: String, CodingKey {
+        case uri
     }
 }

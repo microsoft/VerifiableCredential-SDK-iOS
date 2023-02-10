@@ -8,6 +8,10 @@ public struct RequestedClaims: Codable, Equatable {
     
     /// Request Verifiable Presentation Tokens.
     public let vpToken: RequestedVPToken?
+    
+    public init(vpToken: RequestedVPToken?) {
+        self.vpToken = vpToken
+    }
 
     enum CodingKeys: String, CodingKey {
         case vpToken = "vp_token"

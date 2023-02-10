@@ -28,22 +28,22 @@ public struct PresentationInputDescriptor: Codable, Equatable {
     /// Describes constraints that the Holder must satisfy in response for presentation definition.
     public let constraints: PresentationExchangeConstraints?
     
-    enum CodingKeys: String, CodingKey {
-        case issuanceMetadata = "issuance"
-        case id, schema, name, purpose, constraints
-    }
-    
-    public init(id: String? = nil,
-                schema: [InputDescriptorSchema]? = nil,
-                issuanceMetadata: [IssuanceMetadata]? = nil,
-                name: String? = nil,
-                purpose: String? = nil,
-                constraints: PresentationExchangeConstraints? = nil) {
+    public init(id: String?,
+                schema: [InputDescriptorSchema]?,
+                issuanceMetadata: [IssuanceMetadata]?,
+                name: String?,
+                purpose: String?,
+                constraints: PresentationExchangeConstraints?) {
         self.id = id
         self.schema = schema
         self.issuanceMetadata = issuanceMetadata
         self.name = name
         self.purpose = purpose
         self.constraints = constraints
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case issuanceMetadata = "issuance"
+        case id, schema, name, purpose, constraints
     }
 }

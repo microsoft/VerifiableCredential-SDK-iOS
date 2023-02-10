@@ -8,14 +8,14 @@ public struct IssuanceMetadata: Codable, Equatable {
     public let contract: String?
     
     public let issuerDid: String?
+    
+    public init(contract: String?, issuerDid: String?) {
+        self.contract = contract
+        self.issuerDid = issuerDid
+    }
 
     enum CodingKeys: String, CodingKey {
         case contract = "manifest"
         case issuerDid = "did"
-    }
-    
-    public init(contract: String? = nil, issuerDid: String? = nil) {
-        self.contract = contract
-        self.issuerDid = issuerDid
     }
 }
