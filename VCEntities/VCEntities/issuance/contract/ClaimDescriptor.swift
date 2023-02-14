@@ -4,6 +4,7 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct ClaimDescriptor: Codable, Equatable {
+    
     public let claim: String
     public let claimRequired: Bool?
     public let indexed: Bool?
@@ -12,5 +13,13 @@ public struct ClaimDescriptor: Codable, Equatable {
         case claim
         case claimRequired = "required"
         case indexed
+    }
+    
+    public init(claim: String,
+                claimRequired: Bool? = nil,
+                indexed: Bool? = nil) {
+        self.claim = claim
+        self.claimRequired = claimRequired
+        self.indexed = indexed
     }
 }

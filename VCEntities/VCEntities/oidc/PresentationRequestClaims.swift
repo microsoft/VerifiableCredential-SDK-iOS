@@ -48,26 +48,26 @@ public struct PresentationRequestClaims: OIDCClaims, Equatable {
         case state, nonce, prompt, registration, iat, exp, scope, claims, jti, pin
     }
     
-    init(jti: String?,
-         clientID: String?,
-         redirectURI: String?,
-         responseMode: String?,
-         responseType: String?,
-         claims: RequestedClaims?,
-         state: String?,
-         nonce: String?,
-         scope: String?,
-         prompt: String?,
-         registration: RegistrationClaims?,
-         idTokenHint: String? = nil,
-         iat: Double?,
-         exp: Double?,
-         pin: PinDescriptor?) {
+    public init(jti: String?,
+                clientID: String?,
+                redirectURI: String?,
+                responseMode: String?,
+                responseType: String?,
+                claims: RequestedClaims?,
+                state: String?,
+                nonce: String?,
+                scope: String?,
+                prompt: String?,
+                registration: RegistrationClaims?,
+                idTokenHint: String? = nil,
+                iat: Double?,
+                exp: Double?,
+                pin: PinDescriptor?) {
         self.jti = jti
         self.clientID = clientID
         self.redirectURI = redirectURI
-        self.responseMode = responseMode
         self.responseType = responseType
+        self.responseMode = responseMode
         self.claims = claims
         self.state = state
         self.nonce = nonce

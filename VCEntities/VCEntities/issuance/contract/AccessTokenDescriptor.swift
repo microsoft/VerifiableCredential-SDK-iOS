@@ -12,4 +12,20 @@ public struct AccessTokenDescriptor: Codable, Equatable {
     public let configuration: String?
     public let resourceId: String?
     public let oboScope: String?
+    
+    public init(id: String? = nil,
+                encrypted: Bool? = nil,
+                claims: [ClaimDescriptor]? = nil,
+                required: Bool? = nil,
+                configuration: String? = nil,
+                resourceId: String? = nil,
+                oboScope: String? = nil) {
+        self.id = id
+        self.encrypted = encrypted
+        self.claims = claims
+        self.required = required
+        self.configuration = configuration
+        self.resourceId = resourceId
+        self.oboScope = oboScope
+    }
 }

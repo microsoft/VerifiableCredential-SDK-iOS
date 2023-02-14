@@ -72,7 +72,7 @@ class PresentationServiceTests: XCTestCase {
     
     func testGetRequestMalformedUri() throws {
         let expec = self.expectation(description: "Fire")
-        let malformedUrl = " "
+        let malformedUrl = "//|\\"
         service.getRequest(usingUrl: malformedUrl).done {
             request in
             print(request)
