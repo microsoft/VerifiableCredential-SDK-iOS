@@ -141,9 +141,7 @@
 		55B4D36127A330680086A9F1 /* IssuanceVPFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D36027A330680086A9F1 /* IssuanceVPFormatter.swift */; };
 		55B4D36727A337590086A9F1 /* NestedInputDescriptorMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D36627A337590086A9F1 /* NestedInputDescriptorMapping.swift */; };
 		55B4D36927A337AD0086A9F1 /* InputDescriptorMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B4D36827A337AD0086A9F1 /* InputDescriptorMapping.swift */; };
-		55BEF4252587D28000C720BD /* IssuerIdTokenClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF4242587D28000C720BD /* IssuerIdTokenClaims.swift */; };
 		55BEF45D2589544500C720BD /* PinClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF45C2589544500C720BD /* PinClaims.swift */; };
-		55BEF461258A5E0400C720BD /* IssuerIdToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF460258A5E0400C720BD /* IssuerIdToken.swift */; };
 		55CE4C6025EEE99B00595CC7 /* CorrelationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE4C5F25EEE99B00595CC7 /* CorrelationHeader.swift */; };
 		55FE6ED82697A06D00201EDC /* IssuanceCompletionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FE6ED72697A06D00201EDC /* IssuanceCompletionResponse.swift */; };
 /* End PBXBuildFile section */
@@ -298,9 +296,7 @@
 		55B4D36027A330680086A9F1 /* IssuanceVPFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuanceVPFormatter.swift; sourceTree = "<group>"; };
 		55B4D36627A337590086A9F1 /* NestedInputDescriptorMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedInputDescriptorMapping.swift; sourceTree = "<group>"; };
 		55B4D36827A337AD0086A9F1 /* InputDescriptorMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDescriptorMapping.swift; sourceTree = "<group>"; };
-		55BEF4242587D28000C720BD /* IssuerIdTokenClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuerIdTokenClaims.swift; sourceTree = "<group>"; };
 		55BEF45C2589544500C720BD /* PinClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinClaims.swift; sourceTree = "<group>"; };
-		55BEF460258A5E0400C720BD /* IssuerIdToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuerIdToken.swift; sourceTree = "<group>"; };
 		55CE4C5F25EEE99B00595CC7 /* CorrelationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrelationHeader.swift; sourceTree = "<group>"; };
 		55FE6ED72697A06D00201EDC /* IssuanceCompletionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceCompletionResponse.swift; sourceTree = "<group>"; };
 		92E2998A252522C300B25BB6 /* VCJwt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCJwt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -691,20 +687,9 @@
 			path = mocks;
 			sourceTree = "<group>";
 		};
-		5580587D25BFB6450048E6FA /* issuerIdToken */ = {
-			isa = PBXGroup;
-			children = (
-				55BEF460258A5E0400C720BD /* IssuerIdToken.swift */,
-				55BEF4242587D28000C720BD /* IssuerIdTokenClaims.swift */,
-				5580588625BFB6C00048E6FA /* PinDescriptor.swift */,
-			);
-			path = issuerIdToken;
-			sourceTree = "<group>";
-		};
 		5584E49725255A8F00A9DE58 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
-				5580587D25BFB6450048E6FA /* issuerIdToken */,
 				5518CC652526457500C7A21B /* presentationExchange */,
 				55B4D35C27A329DC0086A9F1 /* PresentationResponse.swift */,
 				5518CC7325264CAD00C7A21B /* PresentationResponseContainer.swift */,
@@ -719,6 +704,7 @@
 			isa = PBXGroup;
 			children = (
 				5584E4A1252565D900A9DE58 /* IssuanceMetadata.swift */,
+				5580588625BFB6C00048E6FA /* PinDescriptor.swift */,
 				5584E49B2525641600A9DE58 /* PresentationDefinition.swift */,
 				5584E49D252564A600A9DE58 /* PresentationInputDescriptor.swift */,
 				55B4D2DF2787BE5F0086A9F1 /* PresentationExchangeConstraints.swift */,
@@ -1003,8 +989,6 @@
 				55011E8E2572DFBD002D2690 /* DefaultLogConsumer.swift in Sources */,
 				5557576D251BC6CF009979AB /* SelfIssuedClaimsDescriptor.swift in Sources */,
 				559FC96025C8940100737F14 /* DomainLinkageCredentialSubject.swift in Sources */,
-				55BEF461258A5E0400C720BD /* IssuerIdToken.swift in Sources */,
-				55BEF4252587D28000C720BD /* IssuerIdTokenClaims.swift in Sources */,
 				55011E8C2572DF50002D2690 /* VCSDKLog.swift in Sources */,
 				55FE6ED82697A06D00201EDC /* IssuanceCompletionResponse.swift in Sources */,
 				55B4D2E02787BE5F0086A9F1 /* PresentationExchangeConstraints.swift in Sources */,
