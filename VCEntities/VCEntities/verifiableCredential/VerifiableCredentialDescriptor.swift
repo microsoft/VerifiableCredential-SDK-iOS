@@ -16,10 +16,10 @@ public struct VerifiableCredentialDescriptor: Codable {
         case type, credentialSubject, credentialStatus, exchangeService, revokeService
     }
     
-    init(context: [String]?,
-         type: [String]?,
-         credentialSubject: Dictionary<String, Any>?,
-         exchangeService: ServiceDescriptor? = nil) {
+    public init(context: [String]?,
+                type: [String]?,
+                credentialSubject: Dictionary<String, Any>?,
+                exchangeService: ServiceDescriptor? = nil) {
         self.context = context
         self.type = type
         self.credentialSubject = credentialSubject

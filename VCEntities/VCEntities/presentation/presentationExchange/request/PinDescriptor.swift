@@ -10,4 +10,18 @@ public struct PinDescriptor: Codable, Equatable {
     public let salt: String?
     public let iterations: Int?
     public let alg: String?
+    
+    public init(type: String?,
+                length: Int,
+                hash: String,
+                salt: String?,
+                iterations: Int?,
+                alg: String?) {
+        self.type = type
+        self.length = length
+        self.hash = hash
+        self.salt = salt
+        self.iterations = iterations
+        self.alg = alg
+    }
 }
