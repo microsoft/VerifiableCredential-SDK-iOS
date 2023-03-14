@@ -3,11 +3,22 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public protocol Signing {
+
+import Foundation
+@testable import VCCrypto
+
+final class HashingMock: Hashing {
     
-    func sign(messageHash: Data, withSecret secret: VCCryptoSecret) throws -> Data
+    static var wasHashCalled = false
     
-    func isValidSignature(signature: Data, forMessageHash messageHash: Data, usingPublicKey publicKey: Secp256k1PublicKey) throws -> Bool
+    let hashingResult: Data
     
-    func createPublicKey(forSecret secret: VCCryptoSecret) throws -> Secp256k1PublicKey
+    init(hashingResult: Data = Data(count: 32)) {
+        self.hashingResult = hashingResult
+    }
+    
+    func hash(data: Data) -> Data {
+        Self.wasHashCalled = true
+        return hashingResult
+    }
 }

@@ -17,7 +17,7 @@ class VerifiablePresentationFormatter {
     let signer: TokenSigning
     let headerFormatter = JwsHeaderFormatter()
     
-    public init(signer: TokenSigning = Secp256k1Signer()) {
+    public init(signer: TokenSigning) {
         self.signer = signer
     }
     

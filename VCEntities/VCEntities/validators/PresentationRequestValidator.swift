@@ -31,7 +31,7 @@ public struct PresentationRequestValidator: RequestValidating {
     
     private let verifier: TokenVerifying
     
-    public init(verifier: TokenVerifying = Secp256k1Verifier()) {
+    public init(verifier: TokenVerifying = TokenVerifier()) {
         self.verifier = verifier
     }
     

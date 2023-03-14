@@ -67,8 +67,13 @@ public struct JwsToken<T: Claims> {
         self.signature = try signer.sign(token: self, withSecret: secret)
     }
     
-    public func verify(using verifier: TokenVerifying, withPublicKey key: ECPublicJwk) throws -> Bool {
+    public func verify(using verifier: TokenVerifying, withPublicKey key: JWK) throws -> Bool {
         return try verifier.verify(token: self, usingPublicKey: key)
+    }
+    
+    /// Temporary: TODO: remove support for ECPublicJwk data model for JWK.
+    public func verify(using verifier: TokenVerifying, withPublicKey key: ECPublicJwk) throws -> Bool {
+        return try verify(using: verifier, withPublicKey: key.toJWK())
     }
     
     private static func createProtectedMessage(headers: Header, content: T) throws -> String {

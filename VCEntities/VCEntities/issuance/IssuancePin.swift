@@ -11,7 +11,7 @@ enum IssuancePinError: Error {
     case unableToEncodeHashInput
 }
 
-public struct IssuancePin {
+public struct IssuancePin: Equatable {
     
     let pin: String
     let salt: String?

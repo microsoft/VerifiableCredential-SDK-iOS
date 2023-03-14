@@ -3,13 +3,8 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-#if canImport(VCCrypto)
-    import VCCrypto
-#endif
-
-public protocol TokenVerifying {
-    
-    func verify<T>(token: JwsToken<T>, usingPublicKey key: ECPublicJwk) throws -> Bool
+/// Supported curve algorithms used for signing/verification
+public enum SupportedCurve: String {
+    case ED25519 = "ED25519"
+    case Secp256k1 = "SECP256K1"
 }
-
-

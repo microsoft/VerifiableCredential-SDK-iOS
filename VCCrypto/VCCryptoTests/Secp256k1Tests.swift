@@ -8,8 +8,6 @@ import XCTest
 
 class Secp256k1Tests: XCTestCase {
     
-    private let secretStoreMock: SecretStoreMock = SecretStoreMock()
-    
     func testIsValidSignature() throws {
         
         let x = Data(base64URLEncoded: "r_1voElsuJnWrc7MLzqKeIQ2ZrlXP3UDfOYclKMvJWg")!
@@ -21,7 +19,7 @@ class Secp256k1Tests: XCTestCase {
         let signature = Data(hexString: "6C35A6C0F0BE1858DA4275DD60E69EA174E20B3D6E66FD9E4A9C385BEE7F1DD12054DED0D1E5DED54F763C3B468333EE2E1116E8AE22A51A0FF521A0EBBE3C62")
         
         let algo = Secp256k1()
-        let result = try algo.isValidSignature(signature: signature, forMessageHash: hash, usingPublicKey: publicKey)
+        let result = try algo.isValidSignature(signature: signature, forMessage: hash, usingPublicKey: publicKey)
         XCTAssertTrue(result)
     }
     
@@ -36,18 +34,19 @@ class Secp256k1Tests: XCTestCase {
         let signature = Data(hexString: "ABCDA6C0F0BE1858DA4275DD60E69EA174E20B3D6E66FD9E4A9C385BEE7F1DD12054DED0D1E5DED54F763C3B468333EE2E1116E8AE22A51A0FF521A0EBBE3C62")
         
         let algo = Secp256k1()
-        let result = try algo.isValidSignature(signature: signature, forMessageHash: hash, usingPublicKey: publicKey)
+        let result = try algo.isValidSignature(signature: signature, forMessage: hash, usingPublicKey: publicKey)
         XCTAssertFalse(result)
     }
     
     func testSign() throws {
+        let secretStoreMock: SecretStoreMock = SecretStoreMock()
         let secret = try Random32BytesSecret(withStore: secretStoreMock)
         let hash = Data(repeating: 1, count: 32)
         let algo = Secp256k1()
-        let pubKey = try algo.createPublicKey(forSecret: secret)
-        let signature = try algo.sign(messageHash: hash, withSecret: secret)
+        let signature = try algo.sign(message: hash, withSecret: secret)
+        let publicKey = try algo.createPublicKey(forSecret: secret)
         
-        let result = try algo.isValidSignature(signature: signature, forMessageHash: hash, usingPublicKey: pubKey)
+        let result = try algo.isValidSignature(signature: signature, forMessage: hash, usingPublicKey: publicKey)
         XCTAssert(result)
     }
 }

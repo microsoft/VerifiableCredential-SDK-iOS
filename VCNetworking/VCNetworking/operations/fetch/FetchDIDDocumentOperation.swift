@@ -22,14 +22,15 @@ class FetchDIDDocumentOperation: InternalNetworkOperation {
          andCorrelationVector correlationVector: CorrelationHeader? = nil,
          session: URLSession = URLSession()) throws {
         
-        guard var urlComponents = URLComponents(string: Constants.DISCOVERY_URL) else {
-            throw NetworkingError.invalidUrl(withUrl: Constants.DISCOVERY_URL)
+        guard var urlComponents = URLComponents(string: VCSDKConfiguration.sharedInstance.discoveryUrl) else {
+            throw NetworkingError.invalidUrl(withUrl: VCSDKConfiguration.sharedInstance.discoveryUrl)
         }
         
-        urlComponents.path = Constants.DISCOVERY_URL_PATH + identifier
+        let pathSuffix = urlComponents.path.last == "/" ? identifier : "/" + identifier
+        urlComponents.path = urlComponents.path + pathSuffix
         
         guard let url = urlComponents.url else {
-            throw NetworkingError.invalidUrl(withUrl: urlComponents.string ?? Constants.DISCOVERY_URL)
+            throw NetworkingError.invalidUrl(withUrl: urlComponents.string ?? VCSDKConfiguration.sharedInstance.discoveryUrl)
         }
         
         self.urlRequest = URLRequest(url: url)

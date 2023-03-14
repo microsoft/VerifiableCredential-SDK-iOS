@@ -25,14 +25,14 @@ struct IdentifierDatabase {
     
     private let coreDataManager = CoreDataManager.sharedInstance
     private let aliasComputer = AliasComputer()
-    private let cryptoOperations: CryptoOperating
+    private let keyManagementOperations: KeyManagementOperating
     
     init() {
-        self.cryptoOperations = CryptoOperations(sdkConfiguration: VCSDKConfiguration.sharedInstance)
+        self.keyManagementOperations = KeyManagementOperations(sdkConfiguration: VCSDKConfiguration.sharedInstance)
     }
     
-    init(cryptoOperations: CryptoOperating) {
-        self.cryptoOperations = cryptoOperations
+    init(keyManagementOperations: KeyManagementOperating) {
+        self.keyManagementOperations = keyManagementOperations
     }
     
     func saveIdentifier(identifier: Identifier) throws {
@@ -108,7 +108,7 @@ struct IdentifierDatabase {
             let keyIds = [identifierModel.signingKeyId, identifierModel.updateKeyId, identifierModel.recoveryKeyId]
             try keyIds.forEach { keyId in
                 if let uuid = keyId {
-                    try cryptoOperations.deleteKey(withId: uuid)
+                    try keyManagementOperations.deleteKey(withId: uuid)
                 }
             }
             
@@ -123,7 +123,7 @@ struct IdentifierDatabase {
         let keyContainers = identifier.didDocumentKeys + [identifier.updateKey, identifier.recoveryKey]
         try keyContainers.forEach { keyContainer in
             let secret = try EphemeralSecret(with: keyContainer.keyReference)
-            try cryptoOperations.save(key: secret.value, withId: keyContainer.keyReference.id)
+            try keyManagementOperations.save(key: secret.value, withId: keyContainer.keyReference.id)
         }
         
         try self.saveIdentifier(identifier: identifier)
@@ -156,7 +156,7 @@ struct IdentifierDatabase {
             throw IdentifierDatabaseError.unableToFetchMasterIdentifier
         }
         
-        let keyRef = cryptoOperations.retrieveKeyFromStorage(withId: keyUUID)
+        let keyRef = keyManagementOperations.retrieveKeyFromStorage(withId: keyUUID)
         return KeyContainer(keyReference: keyRef, keyId: keyId)
     }
 }

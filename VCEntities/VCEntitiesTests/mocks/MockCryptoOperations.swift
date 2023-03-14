@@ -8,23 +8,22 @@ import VCToken
 
 @testable import VCEntities
 
-struct MockCryptoOperations: CryptoOperating {
-
+struct MockKeyManagementOperations: KeyManagementOperating {
     static let itemTypeCode = "r32b"
     static let accessGroupIdentifier = "anywhere.com.microsoft.azureauthenticator.did"
     
     static var generateKeyCallCount = 0
-    let cryptoOperations: CryptoOperating
+    let keyManagementOperations: KeyManagementOperating
     let secretStore: SecretStoring
     
     init(secretStore: SecretStoring) {
         self.secretStore = secretStore
-        self.cryptoOperations = CryptoOperations(secretStore: secretStore, sdkConfiguration: VCSDKConfiguration.sharedInstance)
+        self.keyManagementOperations = KeyManagementOperations(secretStore: secretStore, sdkConfiguration: VCSDKConfiguration.sharedInstance)
     }
     
     func generateKey() throws -> VCCryptoSecret {
-        MockCryptoOperations.generateKeyCallCount += 1
-        return try self.cryptoOperations.generateKey()
+        MockKeyManagementOperations.generateKeyCallCount += 1
+        return try self.keyManagementOperations.generateKey()
     }
     
     func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret {

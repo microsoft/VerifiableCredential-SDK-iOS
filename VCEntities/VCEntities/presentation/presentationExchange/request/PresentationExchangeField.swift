@@ -9,7 +9,7 @@
  * @see [Presentation Exchange Spec](https://identity.foundation/presentation-exchange/#input-descriptor-object)
  */
 public struct PresentationExchangeField: Codable, Equatable {
-    
+
     /// An Array of JSON Path expressions that select a target value from the input.
     public let path: [String]?
     
@@ -22,5 +22,13 @@ public struct PresentationExchangeField: Codable, Equatable {
     
     enum CodingKeys: String, CodingKey {
         case path, purpose, filter
+    }
+    
+    public init(path: [String]? = nil,
+                purpose: String? = nil,
+                filter: PresentationExchangeFilter? = nil) {
+        self.path = path
+        self.purpose = purpose
+        self.filter = filter
     }
 }

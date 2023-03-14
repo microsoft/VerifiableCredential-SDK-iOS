@@ -9,7 +9,7 @@ import VCCrypto
 @testable import VCEntities
 
 struct MockTokenVerifier: TokenVerifying {
-    
+
     let isTokenValid: Bool
     
     static var wasVerifyCalled = false
@@ -18,9 +18,8 @@ struct MockTokenVerifier: TokenVerifying {
         self.isTokenValid = isTokenValid
     }
     
-    func verify<T>(token: JwsToken<T>, usingPublicKey key: ECPublicJwk) throws -> Bool {
+    func verify<T>(token: JwsToken<T>, usingPublicKey key: JWK) throws -> Bool {
         MockTokenVerifier.wasVerifyCalled = true
         return isTokenValid
     }
-
 }

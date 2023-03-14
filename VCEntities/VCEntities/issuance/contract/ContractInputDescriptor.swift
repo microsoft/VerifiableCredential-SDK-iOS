@@ -10,4 +10,13 @@ public struct ContractInputDescriptor: Codable, Equatable {
     public let issuer: String
     public let attestations: AttestationsDescriptor?
     
+    public init(id: String? = nil,
+                credentialIssuer: String,
+                issuer: String,
+                attestations: AttestationsDescriptor? = nil) {
+        self.id = id
+        self.credentialIssuer = credentialIssuer
+        self.issuer = issuer
+        self.attestations = attestations
+    }
 }

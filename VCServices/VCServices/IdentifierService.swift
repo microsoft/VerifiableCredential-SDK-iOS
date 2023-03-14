@@ -25,9 +25,9 @@ public class IdentifierService {
     private let aliasComputer = AliasComputer()
     
     public convenience init() {
-        let cryptoOperations = CryptoOperations(sdkConfiguration: VCSDKConfiguration.sharedInstance)
-        self.init(database: IdentifierDatabase(cryptoOperations: cryptoOperations),
-                  creator: IdentifierCreator(cryptoOperations: cryptoOperations),
+        let keyManagementOperations = KeyManagementOperations(sdkConfiguration: VCSDKConfiguration.sharedInstance)
+        self.init(database: IdentifierDatabase(keyManagementOperations: keyManagementOperations),
+                  creator: IdentifierCreator(keyManagementOperations: keyManagementOperations),
                   sdkLog: VCSDKLog.sharedInstance)
     }
     

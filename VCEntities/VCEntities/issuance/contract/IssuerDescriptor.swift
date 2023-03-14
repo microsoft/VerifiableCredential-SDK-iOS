@@ -4,5 +4,10 @@
 *--------------------------------------------------------------------------------------------*/
 
 public struct IssuerDescriptor: Codable, Equatable {
+    
     public let iss: String?
+    
+    public init(iss: String? = nil) {
+        self.iss = iss
+    }
 }

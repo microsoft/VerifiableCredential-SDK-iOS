@@ -3,78 +3,73 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public protocol CryptoOperating {
-    func generateKey() throws -> VCCryptoSecret
-    func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret
-    func save(key: Data, withId id: UUID) throws
-    func deleteKey(withId id: UUID) throws
-    func getKey(withId id: UUID) throws -> Data
+public enum CryptoOperationsError: Error {
+    case invalidPublicKey
+    case signingAlgorithmNotSupported
+    case signingAlgorithmDoesNotSupportGetPublicKey
+    case signingAlgorithmDoesNotSupportSigning
+    case signingAlgorithmDoesNotSupportVerification
 }
 
+/// Operations that are involved in verification cryptographic operations..
 public struct CryptoOperations: CryptoOperating {
-
-    private let secretStore: SecretStoring
     
-    private let sdkConfiguration: VCSDKConfigurable
+    private let signingAlgorithms: [String: SigningAlgorithm]
     
-    public init(sdkConfiguration: VCSDKConfigurable) {
-        self.init(secretStore: KeychainSecretStore(), sdkConfiguration: sdkConfiguration)
+    public init(signingAlgorithms: [String: SigningAlgorithm] = [:]) {
+        var supportedAlgorithms = SupportedSigningAlgorithms().algorithms()
+        
+        /// Merge injected algorithms with support algorithms.
+        /// If merge conflict occurs, choose built in supported algorithm.
+        supportedAlgorithms.merge(signingAlgorithms) { first, second in return first }
+        
+        self.signingAlgorithms = supportedAlgorithms
     }
     
-    public init(secretStore: SecretStoring, sdkConfiguration: VCSDKConfigurable) {
-        self.secretStore = secretStore
-        self.sdkConfiguration = sdkConfiguration
-    }
-    
-    public func generateKey() throws -> VCCryptoSecret {
-        let accessGroup = sdkConfiguration.accessGroupIdentifier
-        let key = try Random32BytesSecret(withStore: secretStore, inAccessGroup: accessGroup)
-        return key
-    }
-    
-    public func retrieveKeyFromStorage(withId id: UUID) -> VCCryptoSecret {
-        let accessGroup = sdkConfiguration.accessGroupIdentifier
-        return Random32BytesSecret(withStore: secretStore, andId: id, inAccessGroup: accessGroup)
-    }
-    
-    public func save(key: Data, withId id: UUID) throws {
-
-        // Take a copy of the key to let the store dispose of it
-        var data = Data()
-        data.append(key)
-
-        // Format the item type code
-        let itemTypeCode = String(format: "r%02dB", data.count)
-
-        // Store down
-        try secretStore.saveSecret(id: id,
-                                   itemTypeCode: itemTypeCode,
-                                   accessGroup: sdkConfiguration.accessGroupIdentifier,
-                                   value: &data)
-    }
-
-    public func deleteKey(withId id: UUID) throws {
-
-        let itemTypeCode = Random32BytesSecret.itemTypeCode
-        let accessGroup = sdkConfiguration.accessGroupIdentifier
-        do {
-            let _ = try secretStore.getSecret(id: id,
-                                              itemTypeCode: itemTypeCode,
-                                              accessGroup: accessGroup)
-            
-            // If we get here the key exists, so we can delete it
-            try secretStore.deleteSecret(id: id, itemTypeCode: itemTypeCode, accessGroup: accessGroup)
+    /// Only supports Secp256k1 signing.
+    public func sign(message: Data,
+                     usingSecret secret: VCCryptoSecret,
+                     algorithm: String = SupportedCurve.Secp256k1.rawValue) throws -> Data {
+        
+        guard let signingAlgo = signingAlgorithms[algorithm.uppercased()] else {
+            throw CryptoOperationsError.signingAlgorithmNotSupported
         }
-        catch SecretStoringError.itemNotFound {
-            /* There's no key so nothing to delete */
+        
+        guard signingAlgo.supportedSigningOperations.contains(.Signing) else {
+            throw CryptoOperationsError.signingAlgorithmDoesNotSupportSigning
         }
+        
+        return try signingAlgo.algorithm.sign(message: message, withSecret: secret)
     }
+    
+    /// Only support Secp256k1 public key retrieval.
+    public func getPublicKey(fromSecret secret: VCCryptoSecret,
+                             algorithm: String = SupportedCurve.Secp256k1.rawValue) throws -> PublicKey {
+        
+        guard let signingAlgo = signingAlgorithms[algorithm.uppercased()] else {
+            throw CryptoOperationsError.signingAlgorithmNotSupported
+        }
+        
+        guard signingAlgo.supportedSigningOperations.contains(.GetPublicKey) else {
+            throw CryptoOperationsError.signingAlgorithmDoesNotSupportGetPublicKey
+        }
+        
+        return try signingAlgo.algorithm.createPublicKey(forSecret: secret)
+    }
+    
+    /// Verify signature for the message using the public key if public key algorithm is supported.
+    public func verify(signature: Data,
+                       forMessage message: Data,
+                       usingPublicKey publicKey: PublicKey) throws -> Bool {
+        
+        guard let signingAlgo = signingAlgorithms[publicKey.algorithm.uppercased()] else {
+            throw CryptoOperationsError.signingAlgorithmNotSupported
+        }
+        
+        guard signingAlgo.supportedSigningOperations.contains(.Verification) else {
+            throw CryptoOperationsError.signingAlgorithmDoesNotSupportVerification
+        }
 
-    public func getKey(withId id: UUID) throws -> Data {
-
-        return try secretStore.getSecret(id: id,
-                                         itemTypeCode: Random32BytesSecret.itemTypeCode,
-                                         accessGroup: sdkConfiguration.accessGroupIdentifier)
-
+        return try signingAlgo.algorithm.isValidSignature(signature: signature, forMessage: message, usingPublicKey: publicKey)
     }
 }

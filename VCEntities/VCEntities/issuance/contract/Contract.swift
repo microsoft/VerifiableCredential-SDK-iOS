@@ -13,6 +13,14 @@ public struct Contract: Claims, Equatable {
     public let display: DisplayDescriptor
     public let input: ContractInputDescriptor
     
+    public init(id: String,
+                display: DisplayDescriptor,
+                input: ContractInputDescriptor) {
+        self.id = id
+        self.display = display
+        self.input = input
+    }
+    
 }
 
 public typealias SignedContract = JwsToken<Contract>

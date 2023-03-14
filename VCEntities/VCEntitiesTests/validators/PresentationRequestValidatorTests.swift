@@ -143,7 +143,13 @@ class PresentationRequestValidatorTests: XCTestCase {
                                          registration: registration,
                                          idTokenHint: nil,
                                          iat: timeConstraints.issuedAt,
-                                         exp: timeConstraints.expiration)
+                                         exp: timeConstraints.expiration,
+                                         pin: PinDescriptor(type: "numeric",
+                                                            length: 5,
+                                                            hash: "",
+                                                            salt: nil,
+                                                            iterations: nil,
+                                                            alg: nil))
     }
     
     private static func createRegistration(expectedSubjectIdentifierType: String = "did:ion",

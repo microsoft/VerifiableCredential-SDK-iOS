@@ -13,9 +13,15 @@ public struct VCSDKConfiguration: VCSDKConfigurable {
     
     public private(set) var accessGroupIdentifier: String?
     
+    public private(set) var discoveryUrl: String = "https://discover.did.msidentity.com/v1.0/identifiers"
+    
     private init() {}
     
-    mutating func setAccessGroupIdentifier(with id: String) {
+    public mutating func setAccessGroupIdentifier(with id: String) {
         self.accessGroupIdentifier = id
+    }
+    
+    public mutating func setDiscoveryUrl(with url: String) {
+        self.discoveryUrl = url
     }
 }

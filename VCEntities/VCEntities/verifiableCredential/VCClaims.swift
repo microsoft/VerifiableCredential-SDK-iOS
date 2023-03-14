@@ -19,6 +19,20 @@ public struct VCClaims: Claims {
     public let iat: Double?
     public let exp: Double?
     public let vc: VerifiableCredentialDescriptor?
+    
+    public init(jti: String?,
+                iss: String?,
+                sub: String?,
+                iat: Double?,
+                exp: Double?,
+                vc: VerifiableCredentialDescriptor?) {
+        self.jti = jti
+        self.iss = iss
+        self.sub = sub
+        self.iat = iat
+        self.exp = exp
+        self.vc = vc
+    }
 }
 
 /// JWSToken representation of a Verifiable Credential.

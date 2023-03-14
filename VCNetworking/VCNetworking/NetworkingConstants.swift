@@ -10,10 +10,6 @@ struct Constants {
     static let JSON = "application/json"
     static let CONTENT_TYPE = "Content-Type"
     
-    // Beta Discovery Service URL
-    static let DISCOVERY_URL = "https://beta.discover.did.microsoft.com"
-    static let DISCOVERY_URL_PATH = "/1.0/identifiers/"
-    
     // Header values for signed contracts
     static let SIGNED_CONTRACT_HEADER_FIELD = "x-ms-sign-contract"
     static let SIGNED_CONTRACT_HEADER_VALUE = "true"

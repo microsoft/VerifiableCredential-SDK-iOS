@@ -24,6 +24,18 @@ public struct RegistrationClaims: Codable, Equatable {
     
     /// The supported Verfiable Presentation Formats and Algorithms to respond to request.
     public let vpFormats: SupportedVerifiablePresentationFormats?
+    
+    public init(clientName: String?,
+                clientPurpose: String?,
+                logoURI: String?,
+                subjectIdentifierTypesSupported: [String]?,
+                vpFormats: SupportedVerifiablePresentationFormats?) {
+        self.clientName = clientName
+        self.clientPurpose = clientPurpose
+        self.logoURI = logoURI
+        self.subjectIdentifierTypesSupported = subjectIdentifierTypesSupported
+        self.vpFormats = vpFormats
+    }
 
     enum CodingKeys: String, CodingKey {
         case clientName = "client_name"

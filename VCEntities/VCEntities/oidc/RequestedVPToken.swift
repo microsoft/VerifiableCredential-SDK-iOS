@@ -8,6 +8,10 @@ public struct RequestedVPToken: Codable, Equatable {
     
     /// Description of the vp token requested.
     public let presentationDefinition: PresentationDefinition?
+    
+    public init(presentationDefinition: PresentationDefinition?) {
+        self.presentationDefinition = presentationDefinition
+    }
 
     enum CodingKeys: String, CodingKey {
         case presentationDefinition = "presentation_definition"
