@@ -27,6 +27,21 @@ class PresentationRequestValidatorTests: XCTestCase {
         MockTokenVerifier.wasVerifyCalled = false
     }
     
+    func testAbsoluteURLPublicKeyId() throws {
+        let keyId = "did:test#keyId"
+        let validator = PresentationRequestValidator(verifier: verifier)
+        let mockRequestClaims = createMockPresentationRequestClaims()
+        if let mockRequest = PresentationRequestToken(headers: Header(keyId: keyId),content: mockRequestClaims) {
+            let didPublicKey = IdentifierDocumentPublicKey(id: keyId,
+                                                           type: "Typetest",
+                                                           controller: "controllerTest",
+                                                           publicKeyJwk: mockPublicKey,
+                                                           purposes: ["purpose"])
+            try validator.validate(request: mockRequest, usingKeys: [didPublicKey])
+            XCTAssertTrue(MockTokenVerifier.wasVerifyCalled)
+        }
+    }
+    
     func testShouldBeValid() throws {
         let validator = PresentationRequestValidator(verifier: verifier)
         let mockRequestClaims = createMockPresentationRequestClaims()
