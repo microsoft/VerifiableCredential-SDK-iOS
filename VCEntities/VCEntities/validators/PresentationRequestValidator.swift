@@ -62,11 +62,11 @@ public struct PresentationRequestValidator: RequestValidating {
             throw PresentationRequestValidatorError.keyIdInTokenHeaderMalformed
         }
         
-        let publicKeyId = "#\(keyIdComponents[1])"
-        
-        /// check if key id is equal to keyId fragment in token header, and if so, validate signature. Else, continue loop.
+        /// check if key id is equal to keyId (fragment) in token header, and if so, validate signature. Else, continue loop.
+        let publicKeyIds: Set = [kid, "#\(keyIdComponents[1])"]
         for key in keys {
-            if key.id == publicKeyId,
+            if let keyId = key.id,
+               publicKeyIds.contains(keyId),
                try token.verify(using: verifier, withPublicKey: key.publicKeyJwk) {
                 return
             }
