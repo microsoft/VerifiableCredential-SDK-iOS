@@ -77,7 +77,7 @@ class LinkedDomainServiceTests: XCTestCase {
         wait(for: [expec], timeout: 5)
     }
     
-    private func setUpService(serviceEndpointType: String = Constants.LINKED_DOMAINS_SERVICE_ENDPOINT_TYPE,
+    private func setUpService(serviceEndpointType: String = ServicesConstants.LINKED_DOMAINS_SERVICE_ENDPOINT_TYPE,
                               isValid: Bool = true) -> LinkedDomainService {
         
         let endpoint = IdentifierDocumentServiceEndpoint(origins: [mockDomainUrl])
