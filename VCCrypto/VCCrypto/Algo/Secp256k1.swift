@@ -32,7 +32,9 @@ public struct Secp256k1: Signing {
         guard message.count == 32 else { throw Secp256k1Error.invalidMessageHash }
         
         // Create the context and signature data structure
-        let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN))
+        guard let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN)) else {
+            throw Secp256k1Error.invalidMessageHash
+        }
         defer { secp256k1_context_destroy(context) }
         
         let signature = UnsafeMutablePointer<secp256k1_ecdsa_signature>.allocate(capacity: 1)
@@ -43,11 +45,11 @@ public struct Secp256k1: Signing {
         
         // Sign the message
         try (secret as! Secret).withUnsafeBytes { (secretPtr) in
-            guard secp256k1_ec_seckey_verify(context!, secretPtr.bindMemory(to: UInt8.self).baseAddress.unsafelyUnwrapped) > 0 else { throw Secp256k1Error.invalidSecretKey }
+            guard secp256k1_ec_seckey_verify(context, secretPtr.bindMemory(to: UInt8.self).baseAddress.unsafelyUnwrapped) > 0 else { throw Secp256k1Error.invalidSecretKey }
             
             try message.withUnsafeBytes { (msgPtr) in
                 let result = secp256k1_ecdsa_sign(
-                    context!, // ctx:    pointer to a context object, initialized for signing (cannot be NULL)
+                    context, // ctx:    pointer to a context object, initialized for signing (cannot be NULL)
                     signature, // sig:    pointer to an array where the signature will be placed (cannot be NULL)
                     msgPtr.bindMemory(to: UInt8.self).baseAddress!, // msg32:  the 32-byte message hash being signed (cannot be NULL)
                     secretPtr.bindMemory(to: UInt8.self).baseAddress!, // seckey: pointer to a 32-byte secret key (cannot be NULL)
@@ -61,7 +63,7 @@ public struct Secp256k1: Signing {
         // Convert the signature to a R|S Data object
         var rsSignature = Data(count: 64)
         rsSignature.withUnsafeMutableBytes { (rsSignaturePtr) in
-            secp256k1_ecdsa_signature_serialize_compact(context!, rsSignaturePtr.bindMemory(to: UInt8.self).baseAddress!, signature)
+            secp256k1_ecdsa_signature_serialize_compact(context, rsSignaturePtr.bindMemory(to: UInt8.self).baseAddress!, signature)
             return
         }
         
