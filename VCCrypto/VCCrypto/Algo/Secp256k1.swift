@@ -17,6 +17,7 @@ enum Secp256k1Error: Error {
     case invalidPublicKey
     case publicKeyCreationFailure
     case invalidSecret
+    case unableToCreateContext
 }
 
 /// Signing/Verifying curve algorithm.
@@ -33,7 +34,7 @@ public struct Secp256k1: Signing {
         
         // Create the context and signature data structure
         guard let context = secp256k1_context_create(UInt32(SECP256K1_CONTEXT_SIGN)) else {
-            throw Secp256k1Error.invalidMessageHash
+            throw Secp256k1Error.unableToCreateContext
         }
         defer { secp256k1_context_destroy(context) }
         
