@@ -17,7 +17,7 @@ public struct PresentationSubmission: Codable {
     public let definitionId: String?
     
     /// The value of this property MUST be an array of Input Descriptor Mapping Objects.
-    public let inputDescriptorMap: [PresentationInputDescriptorMapping]
+    public let inputDescriptorMap: [InputDescriptorMapping]
     
     enum CodingKeys: String, CodingKey {
         case inputDescriptorMap = "descriptor_map"

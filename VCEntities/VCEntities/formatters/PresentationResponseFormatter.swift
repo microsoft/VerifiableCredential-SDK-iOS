@@ -116,12 +116,12 @@ public class PresentationResponseFormatter: PresentationResponseFormatting {
         return submission
     }
     
-    private func createInputDescriptorMapping(id: String, index: Int) -> PresentationInputDescriptorMapping {
+    private func createInputDescriptorMapping(id: String, index: Int) -> InputDescriptorMapping {
         let nestedInputDescriptorMapping = NestedInputDescriptorMapping(id: id,
                                                                         format: Constants.JwtVc,
                                                                         path: "$.verifiableCredential[\(index)]")
         
-        return PresentationInputDescriptorMapping(id: id,
+        return InputDescriptorMapping(id: id,
                                       format: Constants.JwtVp,
                                       path: Constants.SimplePath,
                                       pathNested: nestedInputDescriptorMapping)
