@@ -105,8 +105,8 @@ public class CoreDataManager {
         container.loadPersistentStores {
             [weak self] (storeDescription, error) in
             
-            if let err = error?.localizedDescription {
-                sdkLog.logError(message: err)
+            if let err = error {
+                sdkLog.logError(message: String(describing: err))
                 return
             }
 
