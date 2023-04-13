@@ -6,14 +6,14 @@
 public struct PinDescriptor: Codable, Equatable {
     public let type: String?
     public let length: Int
-    public let hash: String
+    public let hash: String?
     public let salt: String?
     public let iterations: Int?
     public let alg: String?
     
     public init(type: String?,
                 length: Int,
-                hash: String,
+                hash: String?,
                 salt: String?,
                 iterations: Int?,
                 alg: String?) {

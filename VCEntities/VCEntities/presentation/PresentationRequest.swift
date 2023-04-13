@@ -30,4 +30,20 @@ public struct PresentationRequest {
     public func getPinSalt() -> String? {
         return token.content.pin?.salt
     }
+    
+    public var isPinHashed: Bool
+    {
+        get
+        {
+            return content.pin?.hash != nil
+        }
+    }
+    
+    public var isPinRequired: Bool
+    {
+        get
+        {
+            return content.pin != nil
+        }
+    }
 }
