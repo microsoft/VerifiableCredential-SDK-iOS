@@ -4,8 +4,14 @@
  *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VCNetworking
-import VCEntities
+
+#if canImport(VCNetworking)
+    import VCNetworking
+#endif
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 class LinkedDomainService {
     
@@ -63,7 +69,7 @@ class LinkedDomainService {
     // only looking for the well-known document in the first entry for now.
     private func getLinkedDomainUrl(from endpoints: [IdentifierDocumentServiceEndpointDescriptor]) -> String? {
         return endpoints.filter {
-            $0.type == Constants.LINKED_DOMAINS_SERVICE_ENDPOINT_TYPE
+            $0.type == ServicesConstants.LINKED_DOMAINS_SERVICE_ENDPOINT_TYPE
         }.first?.serviceEndpoint.origins?.first
     }
     

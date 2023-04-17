@@ -4,7 +4,10 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VCEntities
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 public protocol ExchangeNetworking {
     func sendRequest(usingUrl url: String, withBody body: ExchangeRequest) -> Promise<VerifiableCredential>

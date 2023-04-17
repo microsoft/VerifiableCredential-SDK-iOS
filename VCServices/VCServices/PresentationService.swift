@@ -4,8 +4,13 @@
  *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VCNetworking
-import VCEntities
+#if canImport(VCNetworking)
+    import VCNetworking
+#endif
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 enum PresentationServiceError: Error {
     case inputStringNotUri
@@ -106,7 +111,7 @@ public class PresentationService {
         guard let queryItems = urlComponents.percentEncodedQueryItems else { throw PresentationServiceError.noQueryParametersOnUri }
         
         for queryItem in queryItems {
-            if queryItem.name == Constants.REQUEST_URI {
+            if queryItem.name == ServicesConstants.REQUEST_URI {
                 guard let value = queryItem.value?.removingPercentEncoding
                 else { throw PresentationServiceError.noValueForRequestUriQueryParameter }
                 return value
@@ -156,7 +161,7 @@ public class PresentationService {
     private func getDIDFromHeader(request: PresentationRequestToken) -> Promise<String> {
         return Promise { seal in
             
-            guard let kid = request.headers.keyId?.split(separator: Constants.FRAGMENT_SEPARATOR),
+            guard let kid = request.headers.keyId?.split(separator: ServicesConstants.FRAGMENT_SEPARATOR),
                   let did = kid.first else {
                 
                 seal.reject(PresentationServiceError.noKeyIdInRequestHeader)

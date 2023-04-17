@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		552A74E129C24E2B005BFF3D /* precompute_ecmult_gen.c in Sources */ = {isa = PBXBuildFile; fileRef = 552A74D729C24E2A005BFF3D /* precompute_ecmult_gen.c */; };
+		552A74E229C24E2B005BFF3D /* precompute_ecmult.c in Sources */ = {isa = PBXBuildFile; fileRef = 552A74D829C24E2A005BFF3D /* precompute_ecmult.c */; };
+		552A74E329C24E2B005BFF3D /* precomputed_ecmult.c in Sources */ = {isa = PBXBuildFile; fileRef = 552A74D929C24E2A005BFF3D /* precomputed_ecmult.c */; };
+		552A74E429C24E2B005BFF3D /* ecmult_gen_compute_table.h in Headers */ = {isa = PBXBuildFile; fileRef = 552A74DA29C24E2B005BFF3D /* ecmult_gen_compute_table.h */; };
+		552A74E529C24E2B005BFF3D /* precomputed_ecmult.h in Headers */ = {isa = PBXBuildFile; fileRef = 552A74DB29C24E2B005BFF3D /* precomputed_ecmult.h */; };
+		552A74E629C24E2B005BFF3D /* ecmult_compute_table.h in Headers */ = {isa = PBXBuildFile; fileRef = 552A74DC29C24E2B005BFF3D /* ecmult_compute_table.h */; };
+		552A74E729C24E2B005BFF3D /* precomputed_ecmult_gen.h in Headers */ = {isa = PBXBuildFile; fileRef = 552A74DD29C24E2B005BFF3D /* precomputed_ecmult_gen.h */; };
+		552A74E829C24E2B005BFF3D /* ecmult_compute_table_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 552A74DE29C24E2B005BFF3D /* ecmult_compute_table_impl.h */; };
+		552A74E929C24E2B005BFF3D /* ecmult_gen_compute_table_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 552A74DF29C24E2B005BFF3D /* ecmult_gen_compute_table_impl.h */; };
+		552A74EA29C24E2B005BFF3D /* precomputed_ecmult_gen.c in Sources */ = {isa = PBXBuildFile; fileRef = 552A74E029C24E2B005BFF3D /* precomputed_ecmult_gen.c */; };
 		92E7A9B32524E45B000E8246 /* secp256k1_ecdh.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9432524E45B000E8246 /* secp256k1_ecdh.h */; };
 		92E7A9B42524E45B000E8246 /* secp256k1_schnorrsig.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9442524E45B000E8246 /* secp256k1_schnorrsig.h */; };
 		92E7A9B52524E45B000E8246 /* secp256k1_recovery.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9452524E45B000E8246 /* secp256k1_recovery.h */; };
@@ -20,13 +30,10 @@
 		92E7A9C52524E45B000E8246 /* field_10x26.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9572524E45B000E8246 /* field_10x26.h */; };
 		92E7A9C72524E45B000E8246 /* scalar_8x32_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9592524E45B000E8246 /* scalar_8x32_impl.h */; };
 		92E7A9C92524E45B000E8246 /* field_5x52.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A95B2524E45B000E8246 /* field_5x52.h */; };
-		92E7A9CA2524E45B000E8246 /* num_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A95C2524E45B000E8246 /* num_impl.h */; };
 		92E7A9CC2524E45B000E8246 /* field.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A95E2524E45B000E8246 /* field.h */; };
 		92E7A9CE2524E45B000E8246 /* field_5x52_asm_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9602524E45B000E8246 /* field_5x52_asm_impl.h */; };
 		92E7A9D22524E45B000E8246 /* field_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9642524E45B000E8246 /* field_impl.h */; };
 		92E7A9D32524E45B000E8246 /* scalar_4x64.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9652524E45B000E8246 /* scalar_4x64.h */; };
-		92E7A9D42524E45B000E8246 /* basic-config.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9662524E45B000E8246 /* basic-config.h */; };
-		92E7A9D52524E45B000E8246 /* num.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9672524E45B000E8246 /* num.h */; };
 		92E7A9D62524E45B000E8246 /* field_5x52_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9682524E45B000E8246 /* field_5x52_impl.h */; };
 		92E7A9D72524E45B000E8246 /* ecmult_const_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9692524E45B000E8246 /* ecmult_const_impl.h */; };
 		92E7A9D82524E45B000E8246 /* secp256k1.c in Sources */ = {isa = PBXBuildFile; fileRef = 92E7A96A2524E45B000E8246 /* secp256k1.c */; };
@@ -50,10 +57,8 @@
 		92E7A9F82524E45B000E8246 /* main_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A98D2524E45B000E8246 /* main_impl.h */; };
 		92E7A9FC2524E45B000E8246 /* main_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9922524E45B000E8246 /* main_impl.h */; };
 		92E7AA002524E45B000E8246 /* main_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9972524E45B000E8246 /* main_impl.h */; };
-		92E7AA0D2524E45B000E8246 /* num_gmp.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9A52524E45B000E8246 /* num_gmp.h */; };
 		92E7AA112524E45C000E8246 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9AA2524E45B000E8246 /* hash.h */; };
 		92E7AA122524E45C000E8246 /* eckey_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9AB2524E45B000E8246 /* eckey_impl.h */; };
-		92E7AA162524E45C000E8246 /* num_gmp_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9AF2524E45B000E8246 /* num_gmp_impl.h */; };
 		92E7AA172524E45C000E8246 /* scalar_8x32.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9B02524E45B000E8246 /* scalar_8x32.h */; };
 		92E7AA182524E45C000E8246 /* scalar_low.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9B12524E45B000E8246 /* scalar_low.h */; };
 		92E7AA192524E45C000E8246 /* eckey.h in Headers */ = {isa = PBXBuildFile; fileRef = 92E7A9B22524E45B000E8246 /* eckey.h */; };
@@ -64,6 +69,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		552A74D729C24E2A005BFF3D /* precompute_ecmult_gen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = precompute_ecmult_gen.c; sourceTree = "<group>"; };
+		552A74D829C24E2A005BFF3D /* precompute_ecmult.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = precompute_ecmult.c; sourceTree = "<group>"; };
+		552A74D929C24E2A005BFF3D /* precomputed_ecmult.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = precomputed_ecmult.c; sourceTree = "<group>"; };
+		552A74DA29C24E2B005BFF3D /* ecmult_gen_compute_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecmult_gen_compute_table.h; sourceTree = "<group>"; };
+		552A74DB29C24E2B005BFF3D /* precomputed_ecmult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = precomputed_ecmult.h; sourceTree = "<group>"; };
+		552A74DC29C24E2B005BFF3D /* ecmult_compute_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecmult_compute_table.h; sourceTree = "<group>"; };
+		552A74DD29C24E2B005BFF3D /* precomputed_ecmult_gen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = precomputed_ecmult_gen.h; sourceTree = "<group>"; };
+		552A74DE29C24E2B005BFF3D /* ecmult_compute_table_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecmult_compute_table_impl.h; sourceTree = "<group>"; };
+		552A74DF29C24E2B005BFF3D /* ecmult_gen_compute_table_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecmult_gen_compute_table_impl.h; sourceTree = "<group>"; };
+		552A74E029C24E2B005BFF3D /* precomputed_ecmult_gen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = precomputed_ecmult_gen.c; sourceTree = "<group>"; };
 		922D837625253C2600E4C8B5 /* libsecp256k1-config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libsecp256k1-config.h"; sourceTree = "<group>"; };
 		92B9684D25240F2100F64AB0 /* Secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B9685125240F2100F64AB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,13 +95,10 @@
 		92E7A9572524E45B000E8246 /* field_10x26.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field_10x26.h; sourceTree = "<group>"; };
 		92E7A9592524E45B000E8246 /* scalar_8x32_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scalar_8x32_impl.h; sourceTree = "<group>"; };
 		92E7A95B2524E45B000E8246 /* field_5x52.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field_5x52.h; sourceTree = "<group>"; };
-		92E7A95C2524E45B000E8246 /* num_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = num_impl.h; sourceTree = "<group>"; };
 		92E7A95E2524E45B000E8246 /* field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field.h; sourceTree = "<group>"; };
 		92E7A9602524E45B000E8246 /* field_5x52_asm_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field_5x52_asm_impl.h; sourceTree = "<group>"; };
 		92E7A9642524E45B000E8246 /* field_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field_impl.h; sourceTree = "<group>"; };
 		92E7A9652524E45B000E8246 /* scalar_4x64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scalar_4x64.h; sourceTree = "<group>"; };
-		92E7A9662524E45B000E8246 /* basic-config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "basic-config.h"; sourceTree = "<group>"; };
-		92E7A9672524E45B000E8246 /* num.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = num.h; sourceTree = "<group>"; };
 		92E7A9682524E45B000E8246 /* field_5x52_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field_5x52_impl.h; sourceTree = "<group>"; };
 		92E7A9692524E45B000E8246 /* ecmult_const_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecmult_const_impl.h; sourceTree = "<group>"; };
 		92E7A96A2524E45B000E8246 /* secp256k1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = secp256k1.c; sourceTree = "<group>"; };
@@ -110,10 +122,8 @@
 		92E7A98D2524E45B000E8246 /* main_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_impl.h; sourceTree = "<group>"; };
 		92E7A9922524E45B000E8246 /* main_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_impl.h; sourceTree = "<group>"; };
 		92E7A9972524E45B000E8246 /* main_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_impl.h; sourceTree = "<group>"; };
-		92E7A9A52524E45B000E8246 /* num_gmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = num_gmp.h; sourceTree = "<group>"; };
 		92E7A9AA2524E45B000E8246 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
 		92E7A9AB2524E45B000E8246 /* eckey_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eckey_impl.h; sourceTree = "<group>"; };
-		92E7A9AF2524E45B000E8246 /* num_gmp_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = num_gmp_impl.h; sourceTree = "<group>"; };
 		92E7A9B02524E45B000E8246 /* scalar_8x32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scalar_8x32.h; sourceTree = "<group>"; };
 		92E7A9B12524E45B000E8246 /* scalar_low.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scalar_low.h; sourceTree = "<group>"; };
 		92E7A9B22524E45B000E8246 /* eckey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eckey.h; sourceTree = "<group>"; };
@@ -181,6 +191,16 @@
 		92E7A9492524E45B000E8246 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				552A74DE29C24E2B005BFF3D /* ecmult_compute_table_impl.h */,
+				552A74DC29C24E2B005BFF3D /* ecmult_compute_table.h */,
+				552A74DF29C24E2B005BFF3D /* ecmult_gen_compute_table_impl.h */,
+				552A74DA29C24E2B005BFF3D /* ecmult_gen_compute_table.h */,
+				552A74D729C24E2A005BFF3D /* precompute_ecmult_gen.c */,
+				552A74D829C24E2A005BFF3D /* precompute_ecmult.c */,
+				552A74E029C24E2B005BFF3D /* precomputed_ecmult_gen.c */,
+				552A74DD29C24E2B005BFF3D /* precomputed_ecmult_gen.h */,
+				552A74D929C24E2A005BFF3D /* precomputed_ecmult.c */,
+				552A74DB29C24E2B005BFF3D /* precomputed_ecmult.h */,
 				92E7A94B2524E45B000E8246 /* scalar_impl.h */,
 				92E7A94E2524E45B000E8246 /* field_10x26_impl.h */,
 				92E7A9522524E45B000E8246 /* scratch.h */,
@@ -188,13 +208,10 @@
 				92E7A9572524E45B000E8246 /* field_10x26.h */,
 				92E7A9592524E45B000E8246 /* scalar_8x32_impl.h */,
 				92E7A95B2524E45B000E8246 /* field_5x52.h */,
-				92E7A95C2524E45B000E8246 /* num_impl.h */,
 				92E7A95E2524E45B000E8246 /* field.h */,
 				92E7A9602524E45B000E8246 /* field_5x52_asm_impl.h */,
 				92E7A9642524E45B000E8246 /* field_impl.h */,
 				92E7A9652524E45B000E8246 /* scalar_4x64.h */,
-				92E7A9662524E45B000E8246 /* basic-config.h */,
-				92E7A9672524E45B000E8246 /* num.h */,
 				92E7A9682524E45B000E8246 /* field_5x52_impl.h */,
 				92E7A9692524E45B000E8246 /* ecmult_const_impl.h */,
 				92E7A96A2524E45B000E8246 /* secp256k1.c */,
@@ -215,10 +232,8 @@
 				92E7A9812524E45B000E8246 /* group_impl.h */,
 				92E7A9822524E45B000E8246 /* ecmult_const.h */,
 				92E7A9842524E45B000E8246 /* modules */,
-				92E7A9A52524E45B000E8246 /* num_gmp.h */,
 				92E7A9AA2524E45B000E8246 /* hash.h */,
 				92E7A9AB2524E45B000E8246 /* eckey_impl.h */,
-				92E7A9AF2524E45B000E8246 /* num_gmp_impl.h */,
 				92E7A9B02524E45B000E8246 /* scalar_8x32.h */,
 				92E7A9B12524E45B000E8246 /* scalar_low.h */,
 				92E7A9B22524E45B000E8246 /* eckey.h */,
@@ -289,19 +304,19 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				552A74E929C24E2B005BFF3D /* ecmult_gen_compute_table_impl.h in Headers */,
 				92E7A9E92524E45B000E8246 /* util.h in Headers */,
 				92E7A9B82524E45B000E8246 /* secp256k1.h in Headers */,
 				92E7A9C52524E45B000E8246 /* field_10x26.h in Headers */,
-				92E7A9D52524E45B000E8246 /* num.h in Headers */,
 				92E7A9CC2524E45B000E8246 /* field.h in Headers */,
 				92E7A9B52524E45B000E8246 /* secp256k1_recovery.h in Headers */,
 				92E7AA202524E6F2000E8246 /* lax_der_parsing.h in Headers */,
 				92E7A9F52524E45B000E8246 /* main_impl.h in Headers */,
-				92E7AA162524E45C000E8246 /* num_gmp_impl.h in Headers */,
 				92E7AA122524E45C000E8246 /* eckey_impl.h in Headers */,
 				92E7A9E02524E45B000E8246 /* hash_impl.h in Headers */,
 				92E7A9DB2524E45B000E8246 /* scalar.h in Headers */,
 				92E7A9DE2524E45B000E8246 /* ecmult_gen.h in Headers */,
+				552A74E529C24E2B005BFF3D /* precomputed_ecmult.h in Headers */,
 				92E7A9EC2524E45B000E8246 /* scalar_4x64_impl.h in Headers */,
 				92E7A9D62524E45B000E8246 /* field_5x52_impl.h in Headers */,
 				92E7AA002524E45B000E8246 /* main_impl.h in Headers */,
@@ -309,6 +324,7 @@
 				92E7AA112524E45C000E8246 /* hash.h in Headers */,
 				92E7AA182524E45C000E8246 /* scalar_low.h in Headers */,
 				92E7A9D72524E45B000E8246 /* ecmult_const_impl.h in Headers */,
+				552A74E429C24E2B005BFF3D /* ecmult_gen_compute_table.h in Headers */,
 				92E7A9F02524E45B000E8246 /* ecmult_const.h in Headers */,
 				92E7A9DF2524E45B000E8246 /* scalar_low_impl.h in Headers */,
 				92E7A9C72524E45B000E8246 /* scalar_8x32_impl.h in Headers */,
@@ -329,14 +345,14 @@
 				92E7A9EA2524E45B000E8246 /* assumptions.h in Headers */,
 				92E7A9BD2524E45B000E8246 /* field_10x26_impl.h in Headers */,
 				92E7A9C02524E45B000E8246 /* scratch.h in Headers */,
-				92E7A9D42524E45B000E8246 /* basic-config.h in Headers */,
+				552A74E829C24E2B005BFF3D /* ecmult_compute_table_impl.h in Headers */,
+				552A74E729C24E2B005BFF3D /* precomputed_ecmult_gen.h in Headers */,
 				92E7A9B42524E45B000E8246 /* secp256k1_schnorrsig.h in Headers */,
-				92E7A9CA2524E45B000E8246 /* num_impl.h in Headers */,
 				92E7A9D22524E45B000E8246 /* field_impl.h in Headers */,
 				92E7A9E22524E45B000E8246 /* scratch_impl.h in Headers */,
 				92E7A9C12524E45B000E8246 /* ecmult_gen_impl.h in Headers */,
 				92E7A9B32524E45B000E8246 /* secp256k1_ecdh.h in Headers */,
-				92E7AA0D2524E45B000E8246 /* num_gmp.h in Headers */,
+				552A74E629C24E2B005BFF3D /* ecmult_compute_table.h in Headers */,
 				92E7A9FC2524E45B000E8246 /* main_impl.h in Headers */,
 				92E7A9B62524E45B000E8246 /* secp256k1_extrakeys.h in Headers */,
 				92E7A9D32524E45B000E8246 /* scalar_4x64.h in Headers */,
@@ -411,8 +427,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				552A74EA29C24E2B005BFF3D /* precomputed_ecmult_gen.c in Sources */,
 				92E7AA222524E6F2000E8246 /* lax_der_parsing.c in Sources */,
+				552A74E229C24E2B005BFF3D /* precompute_ecmult.c in Sources */,
 				92E7A9D82524E45B000E8246 /* secp256k1.c in Sources */,
+				552A74E129C24E2B005BFF3D /* precompute_ecmult_gen.c in Sources */,
+				552A74E329C24E2B005BFF3D /* precomputed_ecmult.c in Sources */,
 				92E7AA212524E6F2000E8246 /* lax_der_privatekey_parsing.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

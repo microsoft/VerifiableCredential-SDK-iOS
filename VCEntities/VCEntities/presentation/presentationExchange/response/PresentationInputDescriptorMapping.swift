@@ -8,7 +8,7 @@
  *
  * @see [Presentation Exchange Spec](https://identity.foundation/presentation-exchange/#presentation-submission)
  */
-public struct NestedInputDescriptorMapping: Codable {
+public struct PresentationInputDescriptorMapping: Codable {
     
     /// The value of this property MUST be a string that matches the id property of the Input Descriptor
     /// in the Presentation Definition that this Presentation Submission is related to.
@@ -22,4 +22,13 @@ public struct NestedInputDescriptorMapping: Codable {
     /// The path property indicates the Claim submitted in relation to the identified Input Descriptor,
     /// when executed against the top-level of the object the Presentation Submission is embedded within.
     public let path: String
+    
+    /// indicate the presence of a multi-Claim envelope format.
+    /// This means the Claim indicated is to be decoded separately from its parent enclosure.
+    public let pathNested: NestedInputDescriptorMapping?
+    
+    enum CodingKeys: String, CodingKey {
+        case pathNested = "path_nested"
+        case id, path, format
+    }
 }

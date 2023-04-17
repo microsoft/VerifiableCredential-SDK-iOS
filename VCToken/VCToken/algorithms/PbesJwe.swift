@@ -4,7 +4,9 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCCrypto
+#if canImport(VCCrypto)
+    import VCCrypto
+#endif
 
 enum PbesJweError: Error {
     case encodingError

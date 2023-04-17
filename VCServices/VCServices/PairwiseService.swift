@@ -5,7 +5,10 @@
 
 
 import PromiseKit
-import VCEntities
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 enum PairwiseServiceError: Error {
     case noSubjectInVerifiableCredentialToExchange

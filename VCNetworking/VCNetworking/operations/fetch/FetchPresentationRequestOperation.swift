@@ -5,7 +5,10 @@
 
 import Foundation
 import PromiseKit
-import VCEntities
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 class FetchPresentationRequestOperation: InternalNetworkOperation {
     

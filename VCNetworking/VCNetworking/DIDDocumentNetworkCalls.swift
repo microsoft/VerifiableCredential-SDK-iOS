@@ -4,7 +4,10 @@
 *--------------------------------------------------------------------------------------------*/
 
 import PromiseKit
-import VCEntities
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 public protocol DiscoveryNetworking {
     func getDocument(from identifier: String) -> Promise<IdentifierDocument>

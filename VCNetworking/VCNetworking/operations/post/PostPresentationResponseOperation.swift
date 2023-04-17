@@ -4,7 +4,10 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCEntities
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 class PostPresentationResponseOperation: InternalPostNetworkOperation {
     typealias Encoder = PresentationResponseEncoder

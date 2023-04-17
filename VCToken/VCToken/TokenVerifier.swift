@@ -3,7 +3,9 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import VCCrypto
+#if canImport(VCCrypto)
+    import VCCrypto
+#endif
 
 enum TokenVerifierError: Error, Equatable {
     case malformedProtectedMessageInToken

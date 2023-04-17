@@ -4,7 +4,10 @@
 *--------------------------------------------------------------------------------------------*/
 
 import Foundation
-import VCEntities
+
+#if canImport(VCEntities)
+    import VCEntities
+#endif
 
 public struct DIDDocumentDecoder: Decoding {
     
