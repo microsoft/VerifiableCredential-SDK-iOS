@@ -45,7 +45,7 @@
 		55379AD725A8DF7A0048600A /* PresentationRequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */; };
 		553D4C472821D89D00FD39A6 /* IssuanceRequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D4C462821D89D00FD39A6 /* IssuanceRequestValidator.swift */; };
 		5540226428C9587600C85C6D /* VCSDKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540226328C9587600C85C6D /* VCSDKConfiguration.swift */; };
-		555089702A3289A100186885 /* DIDVerificationResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5550896F2A3289A100186885 /* DIDVerificationResolver.swift */; };
+		555089702A3289A100186885 /* RootOfTrustResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5550896F2A3289A100186885 /* RootOfTrustResolver.swift */; };
 		55575738251BC575009979AB /* VCEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5557572E251BC575009979AB /* VCEntities.framework */; };
 		5557573F251BC575009979AB /* VCEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 55575731251BC575009979AB /* VCEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55575763251BC6CF009979AB /* AttestationsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5557574B251BC6CE009979AB /* AttestationsDescriptor.swift */; };
@@ -197,7 +197,7 @@
 		55379AD625A8DF7A0048600A /* PresentationRequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationRequestValidator.swift; sourceTree = "<group>"; };
 		553D4C462821D89D00FD39A6 /* IssuanceRequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuanceRequestValidator.swift; sourceTree = "<group>"; };
 		5540226328C9587600C85C6D /* VCSDKConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSDKConfiguration.swift; sourceTree = "<group>"; };
-		5550896F2A3289A100186885 /* DIDVerificationResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDVerificationResolver.swift; sourceTree = "<group>"; };
+		5550896F2A3289A100186885 /* RootOfTrustResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootOfTrustResolver.swift; sourceTree = "<group>"; };
 		5557572E251BC575009979AB /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55575731251BC575009979AB /* VCEntities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCEntities.h; sourceTree = "<group>"; };
 		55575732251BC575009979AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -467,7 +467,7 @@
 		5550896E2A32895800186885 /* Resolvers */ = {
 			isa = PBXGroup;
 			children = (
-				5550896F2A3289A100186885 /* DIDVerificationResolver.swift */,
+				5550896F2A3289A100186885 /* RootOfTrustResolver.swift */,
 			);
 			path = Resolvers;
 			sourceTree = "<group>";
@@ -923,7 +923,7 @@
 				55575766251BC6CF009979AB /* LogoDisplayDescriptor.swift in Sources */,
 				55B4D35F27A330460086A9F1 /* RequestedVerifiableCredentialMapping.swift in Sources */,
 				5557576F251BC6CF009979AB /* IdTokenDescriptor.swift in Sources */,
-				555089702A3289A100186885 /* DIDVerificationResolver.swift in Sources */,
+				555089702A3289A100186885 /* RootOfTrustResolver.swift in Sources */,
 				55B4D2E4278F48370086A9F1 /* RequestedVPToken.swift in Sources */,
 				551F3057252D02AB0081D5E7 /* TokenTimeConstraints.swift in Sources */,
 				55B4D2DC2787BE040086A9F1 /* PresentationExchangeField.swift in Sources */,

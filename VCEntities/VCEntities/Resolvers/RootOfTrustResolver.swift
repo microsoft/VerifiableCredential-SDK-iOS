@@ -3,6 +3,6 @@
 *  Licensed under the MIT License. See License.txt in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-public protocol DIDVerificationResolver {
+public protocol RootOfTrustResolver {
     func resolve(did: String) async throws -> LinkedDomainResult
 }

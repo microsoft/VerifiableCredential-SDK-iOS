@@ -17,10 +17,10 @@ class LinkedDomainService {
     private let wellKnownDocumentApiCalls: WellKnownConfigDocumentNetworking
     private let validator: DomainLinkageCredentialValidating
     
-    private let didVerificationResolver: DIDVerificationResolver?
+    private let didVerificationResolver: RootOfTrustResolver?
     
     public convenience init(correlationVector: CorrelationHeader? = nil,
-                            didVerificationResolver: DIDVerificationResolver? = nil,
+                            didVerificationResolver: RootOfTrustResolver? = nil,
                             urlSession: URLSession = URLSession.shared) {
         self.init(didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(correlationVector: correlationVector,
                                                                         urlSession: urlSession),
@@ -33,7 +33,7 @@ class LinkedDomainService {
     init(didDocumentDiscoveryApiCalls: DiscoveryNetworking,
          wellKnownDocumentApiCalls: WellKnownConfigDocumentNetworking,
          domainLinkageValidator: DomainLinkageCredentialValidating,
-         didVerificationResolver: DIDVerificationResolver? = nil) {
+         didVerificationResolver: RootOfTrustResolver? = nil) {
         self.didDocumentDiscoveryApiCalls = didDocumentDiscoveryApiCalls
         self.wellKnownDocumentApiCalls = wellKnownDocumentApiCalls
         self.validator = domainLinkageValidator
