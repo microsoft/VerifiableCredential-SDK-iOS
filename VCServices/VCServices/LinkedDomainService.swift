@@ -64,7 +64,7 @@ class LinkedDomainService {
                     let result = try await didVerificationResolver.resolve(did: did)
                     seal.fulfill(result)
                 } catch {
-                    VCSDKLog.sharedInstance.logInfo(message: "DID Verification Resolver Failed with error: \(error), manually get Linked Domain Status...")
+                    VCSDKLog.sharedInstance.logInfo(message: "DID Verification Resolver Failed, fetching Linked Domain Status from well-known DID configuration.")
                     seal.reject(error)
                 }
             }
