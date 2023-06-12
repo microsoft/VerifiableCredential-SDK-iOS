@@ -32,7 +32,7 @@ public class PresentationService {
     let sdkLog: VCSDKLog
     
     public convenience init(correlationVector: CorrelationHeader? = nil,
-                            didVerificationResolver: RootOfTrustResolver? = nil,
+                            rootOfTrustResolver: RootOfTrustResolver? = nil,
                             urlSession: URLSession = URLSession.shared) {
         self.init(formatter: PresentationResponseFormatter(),
                   presentationApiCalls: PresentationNetworkCalls(correlationVector: correlationVector,
@@ -41,7 +41,7 @@ public class PresentationService {
                                                                         urlSession: urlSession),
                   requestValidator: PresentationRequestValidator(),
                   linkedDomainService: LinkedDomainService(correlationVector: correlationVector,
-                                                           didVerificationResolver: didVerificationResolver,
+                                                           rootOfTrustResolver: rootOfTrustResolver,
                                                            urlSession: urlSession),
                   identifierService: IdentifierService(),
                   pairwiseService: PairwiseService(correlationVector: correlationVector,

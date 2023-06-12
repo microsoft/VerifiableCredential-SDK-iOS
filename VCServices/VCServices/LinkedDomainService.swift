@@ -17,27 +17,27 @@ class LinkedDomainService {
     private let wellKnownDocumentApiCalls: WellKnownConfigDocumentNetworking
     private let validator: DomainLinkageCredentialValidating
     
-    private let didVerificationResolver: RootOfTrustResolver?
+    private let rootOfTrustResolver: RootOfTrustResolver?
     
     public convenience init(correlationVector: CorrelationHeader? = nil,
-                            didVerificationResolver: RootOfTrustResolver? = nil,
+                            rootOfTrustResolver: RootOfTrustResolver? = nil,
                             urlSession: URLSession = URLSession.shared) {
         self.init(didDocumentDiscoveryApiCalls: DIDDocumentNetworkCalls(correlationVector: correlationVector,
                                                                         urlSession: urlSession),
                   wellKnownDocumentApiCalls: WellKnownConfigDocumentNetworkCalls(correlationVector: correlationVector,
                                                                                  urlSession: urlSession),
                   domainLinkageValidator: DomainLinkageCredentialValidator(),
-                  didVerificationResolver: didVerificationResolver)
+                  rootOfTrustResolver: rootOfTrustResolver)
     }
     
     init(didDocumentDiscoveryApiCalls: DiscoveryNetworking,
          wellKnownDocumentApiCalls: WellKnownConfigDocumentNetworking,
          domainLinkageValidator: DomainLinkageCredentialValidating,
-         didVerificationResolver: RootOfTrustResolver? = nil) {
+         rootOfTrustResolver: RootOfTrustResolver? = nil) {
         self.didDocumentDiscoveryApiCalls = didDocumentDiscoveryApiCalls
         self.wellKnownDocumentApiCalls = wellKnownDocumentApiCalls
         self.validator = domainLinkageValidator
-        self.didVerificationResolver = didVerificationResolver
+        self.rootOfTrustResolver = rootOfTrustResolver
     }
     
     /// Validate Linked Domain using injected Resolver. If error is thrown, validate using well-known configuration path.
@@ -50,7 +50,7 @@ class LinkedDomainService {
     
     private func validateLinkedDomainUsingResolver(did: String) -> Promise<LinkedDomainResult> {
         
-        guard let didVerificationResolver = didVerificationResolver else {
+        guard let rootOfTrustResolver = rootOfTrustResolver else {
             return Promise<LinkedDomainResult>(error: LinkedDomainServiceError.UndefinedResolver)
         }
         
@@ -58,7 +58,7 @@ class LinkedDomainService {
         return Promise { seal in
             Task {
                 do {
-                    let result = try await didVerificationResolver.resolve(did: did)
+                    let result = try await rootOfTrustResolver.resolve(did: did)
                     seal.fulfill(result)
                 } catch {
                     VCSDKLog.sharedInstance.logInfo(message: "DID Verification Resolver Failed, fetching Linked Domain Status from well-known DID configuration.")
