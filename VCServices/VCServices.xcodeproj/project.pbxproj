@@ -23,6 +23,7 @@
 		5531D3AE255F1F360002CC0E /* IdentifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3AD255F1F360002CC0E /* IdentifierService.swift */; };
 		5531D3B0255F68280002CC0E /* PairwiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5531D3AF255F68280002CC0E /* PairwiseService.swift */; };
 		553D4B0F281075C200FD39A6 /* MockVCSDKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D4B0E281075C200FD39A6 /* MockVCSDKConfiguration.swift */; };
+		555089A82A3794D500186885 /* MockRootOfTrustResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555089A72A3794D500186885 /* MockRootOfTrustResolver.swift */; };
 		555BDAEC2530AEC7001E7A18 /* VerifiableCredentialDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAEA2530AEC7001E7A18 /* VerifiableCredentialDataModel.xcdatamodeld */; };
 		555BDAEE2530CF27001E7A18 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAED2530CF27001E7A18 /* CoreDataManager.swift */; };
 		555BDAF02530E4B9001E7A18 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */; };
@@ -96,6 +97,7 @@
 		5531D3AD255F1F360002CC0E /* IdentifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierService.swift; sourceTree = "<group>"; };
 		5531D3AF255F68280002CC0E /* PairwiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairwiseService.swift; sourceTree = "<group>"; };
 		553D4B0E281075C200FD39A6 /* MockVCSDKConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVCSDKConfiguration.swift; sourceTree = "<group>"; };
+		555089A72A3794D500186885 /* MockRootOfTrustResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRootOfTrustResolver.swift; sourceTree = "<group>"; };
 		555BDAEB2530AEC7001E7A18 /* Identifier.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Identifier.xcdatamodel; sourceTree = "<group>"; };
 		555BDAED2530CF27001E7A18 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		555BDAEF2530E4B9001E7A18 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				55AF748F252FBF5B006A8B25 /* MockVCCryptoSecret.swift */,
 				553D4B0E281075C200FD39A6 /* MockVCSDKConfiguration.swift */,
 				5525397D252FCC7D003202D5 /* SecretStoreMock.swift */,
+				555089A72A3794D500186885 /* MockRootOfTrustResolver.swift */,
 			);
 			path = mocks;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				5525397E252FCC7D003202D5 /* SecretStoreMock.swift in Sources */,
 				55DA770A25BE469F009C32E0 /* MockPresentationRequestValidator.swift in Sources */,
 				550F1E6825116E86009AF467 /* MockTokenSigner.swift in Sources */,
+				555089A82A3794D500186885 /* MockRootOfTrustResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

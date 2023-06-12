@@ -40,16 +40,12 @@ class LinkedDomainService {
         self.didVerificationResolver = didVerificationResolver
     }
     
+    /// Validate Linked Domain using injected Resolver. If error is thrown, validate using well-known configuration path.
     func validateLinkedDomain(from relyingPartyDid: String) -> Promise<LinkedDomainResult> {
-        return firstly {
-            validateLinkedDomainUsingResolver(did: relyingPartyDid)
-        }.then { result in
-            return Promise { seal in
-                seal.fulfill(result)
+        return validateLinkedDomainUsingResolver(did: relyingPartyDid)
+            .recover { error in
+                return self.validateLinkedDomainUsingWellknownDocument(did: relyingPartyDid)
             }
-        }.recover { error in
-            return self.validateLinkedDomainUsingWellknownDocument(did: relyingPartyDid)
-        }
     }
     
     private func validateLinkedDomainUsingResolver(did: String) -> Promise<LinkedDomainResult> {
@@ -58,6 +54,7 @@ class LinkedDomainService {
             return Promise<LinkedDomainResult>(error: LinkedDomainServiceError.UndefinedResolver)
         }
         
+        /// Return a Promise instead of using built-in async functionality to fix async compatibility.
         return Promise { seal in
             Task {
                 do {
