@@ -8,7 +8,7 @@ import VCNetworking
 import VCEntities
 
 enum LinkedDomainServiceError: String, Error {
-    case UndefinedResolver = "DID Verification Resolver is undefined."
+    case UndefinedResolver = "Root of Trust Resolver is undefined."
 }
 
 class LinkedDomainService {
@@ -51,6 +51,7 @@ class LinkedDomainService {
     private func validateLinkedDomainUsingResolver(did: String) -> Promise<LinkedDomainResult> {
         
         guard let rootOfTrustResolver = rootOfTrustResolver else {
+            VCSDKLog.sharedInstance.logInfo(message: "DID Verification Resolver is undefined, fetching Linked Domain Status from well-known DID configuration.")
             return Promise<LinkedDomainResult>(error: LinkedDomainServiceError.UndefinedResolver)
         }
         
@@ -61,7 +62,7 @@ class LinkedDomainService {
                     let result = try await rootOfTrustResolver.resolve(did: did)
                     seal.fulfill(result)
                 } catch {
-                    VCSDKLog.sharedInstance.logInfo(message: "DID Verification Resolver Failed, fetching Linked Domain Status from well-known DID configuration.")
+                    VCSDKLog.sharedInstance.logInfo(message: "DID Verification Resolver failed, fetching Linked Domain Status from well-known DID configuration.")
                     seal.reject(error)
                 }
             }
