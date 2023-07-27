@@ -15,14 +15,14 @@ enum RawIdentityError: Error {
     case keyIdNotFound
 }
 
-struct RawIdentity: Codable {
+public struct RawIdentity: Codable {
     var id: String
     var name: String
     var keys: [JWK]?
     var recoveryKey: String
     var updateKey: String
 
-    init(identifier: Identifier) throws {
+    public init(identifier: Identifier) throws {
         
         self.id = identifier.did
         self.name = identifier.alias
