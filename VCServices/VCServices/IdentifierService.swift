@@ -38,7 +38,7 @@ public class IdentifierService {
         return try identifierDB.fetchMasterIdentifier()
     }
     
-    func fetchOrCreateMasterIdentifier() throws -> Identifier {
+    public func fetchOrCreateMasterIdentifier() throws -> Identifier {
         
         let identifier: Identifier
         do {
