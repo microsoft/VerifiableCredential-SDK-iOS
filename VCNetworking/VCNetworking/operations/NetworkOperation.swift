@@ -52,7 +52,7 @@ extension InternalNetworkOperation {
             let incrementedValue = cv.update()
             urlRequest.setValue(incrementedValue, forHTTPHeaderField: cv.name)
             
-            sdkLog.logInfo(message: "Correlation Vector for \(String(describing: self)): \(cv.value)")
+            sdkLog.logVerbose(message: "Correlation Vector for \(String(describing: self)): \(cv.value)")
         }
         
         return firstly {
