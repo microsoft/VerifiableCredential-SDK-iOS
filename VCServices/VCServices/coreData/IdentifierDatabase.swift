@@ -59,7 +59,10 @@ struct IdentifierDatabase {
         var identifierModel: IdentifierModel? = nil
         
         for identifier in identifierModels {
-            if identifier.alias == alias {
+            guard let storedAlias = identifier.alias else {
+                throw IdentifierDatabaseError.noAliasSavedInIdentifierModel
+            }
+            if storedAlias == alias {
                 identifierModel = identifier
             }
         }
