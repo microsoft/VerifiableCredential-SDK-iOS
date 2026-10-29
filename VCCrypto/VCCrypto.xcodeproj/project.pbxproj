@@ -70,6 +70,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A61000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A61000000000000000000001 /* Secp256k1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 92B9684C25240F2100F64AB0;
+			remoteInfo = Secp256k1;
+		};
+		A61000000000000000000003 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A61000000000000000000001 /* Secp256k1.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92B9684D25240F2100F64AB0;
+			remoteInfo = Secp256k1;
+		};
 		92CDE7B524DC78DD00F95B5D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 92CDE7A124DC78DD00F95B5D /* Project object */;
@@ -87,6 +101,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A61000000000000000000001 /* Secp256k1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Secp256k1.xcodeproj; path = ../Submodules/Secp256k1/Secp256k1.xcodeproj; sourceTree = "<group>"; };
 		2F848B57282D50D5005D3176 /* Pbkdf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pbkdf.swift; sourceTree = "<group>"; };
 		2F848B58282D50D5005D3176 /* Aes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aes.swift; sourceTree = "<group>"; };
 		2F848B59282D50D5005D3176 /* HmacSha2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HmacSha2.swift; sourceTree = "<group>"; };
@@ -151,7 +166,6 @@
 		92CDE80724E1F7AF00F95B5D /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		92CDE80924E2047900F95B5D /* SecretMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretMock.swift; sourceTree = "<group>"; };
 		92CDE80B24E213AE00F95B5D /* Random32BytesSecretTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random32BytesSecretTests.swift; sourceTree = "<group>"; };
-		92D8B34D2537A7F400C42E34 /* Secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +188,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A61000000000000000000004 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92D8B34D2537A7F400C42E34 /* Secp256k1.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		553D4AAD280F442800FD39A6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,7 +358,7 @@
 		C817E43043516B933BA2E4E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				92D8B34D2537A7F400C42E34 /* Secp256k1.framework */,
+				A61000000000000000000001 /* Secp256k1.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -367,6 +389,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A61000000000000000000005 /* PBXTargetDependency */,
 			);
 			name = VCCrypto;
 			productName = VCCrypto;
@@ -442,6 +465,12 @@
 			mainGroup = 92CDE7A024DC78DD00F95B5D;
 			productRefGroup = 92CDE7AB24DC78DD00F95B5D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A61000000000000000000004 /* Products */;
+					ProjectRef = A61000000000000000000001 /* Secp256k1.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				92CDE7A924DC78DD00F95B5D /* VCCrypto */,
@@ -450,6 +479,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		92D8B34D2537A7F400C42E34 /* Secp256k1.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Secp256k1.framework;
+			remoteRef = A61000000000000000000003 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		92CDE7A824DC78DD00F95B5D /* Resources */ = {
@@ -557,6 +596,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A61000000000000000000005 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Secp256k1;
+			targetProxy = A61000000000000000000002 /* PBXContainerItemProxy */;
+		};
 		92CDE7B624DC78DD00F95B5D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 92CDE7A924DC78DD00F95B5D /* VCCrypto */;

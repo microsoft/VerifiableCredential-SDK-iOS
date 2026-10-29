@@ -17,7 +17,7 @@ class FetchDIDDocumentOperation: InternalNetworkOperation {
     
     init(withIdentifier identifier: String,
          andCorrelationVector correlationVector: CorrelationHeader? = nil,
-         session: URLSession = URLSession()) throws {
+         session: URLSession = URLSession.shared) throws {
         
         guard var urlComponents = URLComponents(string: VCSDKConfiguration.sharedInstance.discoveryUrl) else {
             throw NetworkingError.invalidUrl(withUrl: VCSDKConfiguration.sharedInstance.discoveryUrl)

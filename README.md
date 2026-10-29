@@ -149,6 +149,21 @@ By default every relationship to relying parties (RP) will use a different DID p
 
 # Contributing
 
+## Xcode dependencies
+
+Use `sdk.xcworkspace` to build and test the SDK with its pinned submodules initialized.
+VCCrypto and VCServices explicitly reference the target and framework product in
+`Submodules/Secp256k1/Secp256k1.xcodeproj`; preserve this relative layout when embedding
+the SDK. This avoids inferring those dependencies from the framework name when a
+consumer workspace contains another Secp256k1 project. Consumers must still validate
+the combined build graph for conflicting framework outputs.
+
+PromiseKit is intentionally pinned to upstream 8.1.1
+(`cb70b070cde06837cd10a1febdf6105c1a3bb348`) to resolve its generic-shadowing warning.
+The SDK's source-Xcode integration preserves the used APIs, target identities, and
+deployment settings from the previous 6.22.1 pin; this does not establish compatibility
+for CocoaPods subspec consumers or other app-level PromiseKit usage.
+
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.

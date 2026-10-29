@@ -31,4 +31,26 @@ class FetchDIDDocumentOperationTests: XCTestCase {
         XCTAssertTrue(fetchOperation.retryHandler is NoRetry)
         XCTAssertEqual(fetchOperation.urlRequest.url!.absoluteString, VCSDKConfiguration.sharedInstance.discoveryUrl + "/" + expectedIdentifier)
     }
+
+    func testDefaultSessionUsesSharedSession() throws {
+        let operation = try FetchDIDDocumentOperation(withIdentifier: expectedIdentifier)
+
+        XCTAssertTrue(operation.urlSession === URLSession.shared)
+        let task = operation.urlSession.dataTask(with: operation.urlRequest)
+        XCTAssertEqual(task.originalRequest?.url, operation.urlRequest.url)
+        task.cancel()
+    }
+
+    func testInjectedSessionIsPreserved() throws {
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.timeoutIntervalForRequest = 17
+        configuration.protocolClasses = [UrlProtocolMock.self]
+        let session = URLSession(configuration: configuration)
+        defer { session.invalidateAndCancel() }
+
+        let operation = try FetchDIDDocumentOperation(withIdentifier: expectedIdentifier, session: session)
+
+        XCTAssertTrue(operation.urlSession === session)
+        XCTAssertEqual(operation.urlSession.configuration.timeoutIntervalForRequest, 17)
+    }
 }

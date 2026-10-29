@@ -61,6 +61,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A62000000000000000000002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A62000000000000000000001 /* Secp256k1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 92B9684C25240F2100F64AB0;
+			remoteInfo = Secp256k1;
+		};
+		A62000000000000000000003 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A62000000000000000000001 /* Secp256k1.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92B9684D25240F2100F64AB0;
+			remoteInfo = Secp256k1;
+		};
 		550F1E4025101759009AF467 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 550F1E2C25101758009AF467 /* Project object */;
@@ -78,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A62000000000000000000001 /* Secp256k1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Secp256k1.xcodeproj; path = ../Submodules/Secp256k1/Secp256k1.xcodeproj; sourceTree = "<group>"; };
 		2F848B51282D4DEC005D3176 /* difwordlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = difwordlist.txt; sourceTree = "<group>"; };
 		2F848B53282D4EF3005D3176 /* DifWordListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifWordListTests.swift; sourceTree = "<group>"; };
 		2F848B55282D4F1F005D3176 /* DifWordList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifWordList.swift; sourceTree = "<group>"; };
@@ -133,7 +148,6 @@
 		55DA770425BE45C7009C32E0 /* MockDiscoveryApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiscoveryApiCalls.swift; sourceTree = "<group>"; };
 		55DA770925BE469F009C32E0 /* MockPresentationRequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPresentationRequestValidator.swift; sourceTree = "<group>"; };
 		92D5988525C23E2A00C42370 /* VCNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92D5988725C23E4E00C42370 /* Secp256k1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Secp256k1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F2ED0A25B9EB1900A6911C /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F2ED2325B9EB2100A6911C /* VCEntities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCEntities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F2ED2825B9EB2F00A6911C /* VCRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VCRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +185,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A62000000000000000000004 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92D5988725C23E4E00C42370 /* Secp256k1.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2F848B50282D4DEC005D3176 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,11 +313,11 @@
 				55BA80352832C900004C532A /* VCCrypto.framework */,
 				55BA80372832C900004C532A /* VCEntities.framework */,
 				55BA80392832C900004C532A /* VCNetworking.framework */,
-				92D5988725C23E4E00C42370 /* Secp256k1.framework */,
 				92D5988525C23E2A00C42370 /* VCNetworking.framework */,
 				92F2ED2825B9EB2F00A6911C /* VCRepository.framework */,
 				92F2ED2325B9EB2100A6911C /* VCEntities.framework */,
 				92F2ED0A25B9EB1900A6911C /* PromiseKit.framework */,
+				A62000000000000000000001 /* Secp256k1.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -326,6 +348,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A62000000000000000000005 /* PBXTargetDependency */,
 			);
 			name = VCServices;
 			productName = VCUseCase;
@@ -402,6 +425,12 @@
 			mainGroup = 550F1E2B25101758009AF467;
 			productRefGroup = 550F1E3625101758009AF467 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A62000000000000000000004 /* Products */;
+					ProjectRef = A62000000000000000000001 /* Secp256k1.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				550F1E3425101758009AF467 /* VCServices */,
@@ -410,6 +439,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		92D5988725C23E4E00C42370 /* Secp256k1.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Secp256k1.framework;
+			remoteRef = A62000000000000000000003 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		550F1E3325101758009AF467 /* Resources */ = {
@@ -503,6 +542,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A62000000000000000000005 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Secp256k1;
+			targetProxy = A62000000000000000000002 /* PBXContainerItemProxy */;
+		};
 		550F1E4125101759009AF467 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 550F1E3425101758009AF467 /* VCServices */;
